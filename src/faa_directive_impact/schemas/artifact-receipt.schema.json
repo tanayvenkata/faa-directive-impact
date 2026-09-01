@@ -1,0 +1,542 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.faa-directive-impact.dev/artifact-receipt.schema.json",
+  "title": "Artifact receipt",
+  "description": "One official-source representation acquisition attempt.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "receipt_id",
+    "acquisition_run_id",
+    "retrieval_id",
+    "retrieved_at_utc",
+    "source_system",
+    "source_document_identity",
+    "representation_role",
+    "request",
+    "acquisition_status",
+    "authority_role",
+    "redistribution"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "receipt_id": {
+      "$ref": "#/$defs/non_empty_id"
+    },
+    "acquisition_run_id": {
+      "$ref": "#/$defs/non_empty_id"
+    },
+    "retrieval_id": {
+      "$ref": "#/$defs/non_empty_id"
+    },
+    "retrieved_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_system": {
+      "enum": [
+        "federal_register",
+        "govinfo",
+        "faa_drs"
+      ]
+    },
+    "source_document_identity": {
+      "$ref": "#/$defs/source_identity"
+    },
+    "parent_document_identity": {
+      "$ref": "#/$defs/source_identity"
+    },
+    "source_graphic_identifier": {
+      "type": "string",
+      "minLength": 1
+    },
+    "representation_role": {
+      "enum": [
+        "api_json",
+        "full_text_xml",
+        "full_text_html",
+        "plain_text",
+        "official_pdf",
+        "mods_xml",
+        "original_graphic",
+        "drs_metadata"
+      ]
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "requested_url"
+      ],
+      "properties": {
+        "method": {
+          "const": "GET"
+        },
+        "requested_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "resolved_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        }
+      }
+    },
+    "response": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status_code",
+        "headers"
+      ],
+      "properties": {
+        "status_code": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 599
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "content_type": {
+              "type": "string",
+              "minLength": 1
+            },
+            "content_length": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "etag": {
+              "type": "string",
+              "minLength": 1
+            },
+            "last_modified": {
+              "type": "string",
+              "minLength": 1
+            },
+            "content_disposition": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "acquisition_status": {
+      "enum": [
+        "succeeded",
+        "failed"
+      ]
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relative_path",
+        "byte_length",
+        "sha256",
+        "declared_media_type",
+        "detected_media_type"
+      ],
+      "properties": {
+        "relative_path": {
+          "type": "string",
+          "minLength": 1,
+          "not": {
+            "pattern": "(^/)|((^|/)\\.\\.(/|$))"
+          }
+        },
+        "byte_length": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "declared_media_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "detected_media_type": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "failure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reason_code",
+        "detail"
+      ],
+      "properties": {
+        "reason_code": {
+          "enum": [
+            "network_error",
+            "timeout",
+            "http_error",
+            "redirect_error",
+            "not_found",
+            "access_denied",
+            "unsupported_media_type",
+            "invalid_content",
+            "write_error",
+            "integrity_error",
+            "deferred_access_verification",
+            "unexpected_error"
+          ]
+        },
+        "detail": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      }
+    },
+    "authority_role": {
+      "enum": [
+        "discovery_metadata",
+        "structured_parsing_input",
+        "evidence_projection",
+        "official_edition",
+        "bibliographic_metadata",
+        "document_graphic",
+        "identity_status_corroboration"
+      ]
+    },
+    "redistribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "basis"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "permitted",
+            "restricted",
+            "review_required",
+            "unknown"
+          ]
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "source_access_note": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "acquisition_status": {
+            "const": "succeeded"
+          }
+        },
+        "required": [
+          "acquisition_status"
+        ]
+      },
+      "then": {
+        "required": [
+          "artifact",
+          "response"
+        ],
+        "not": {
+          "required": [
+            "failure"
+          ]
+        },
+        "properties": {
+          "request": {
+            "required": [
+              "resolved_url"
+            ]
+          },
+          "response": {
+            "properties": {
+              "status_code": {
+                "minimum": 200,
+                "maximum": 299
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "required": [
+          "failure"
+        ],
+        "not": {
+          "required": [
+            "artifact"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "representation_role": {
+            "const": "original_graphic"
+          }
+        },
+        "required": [
+          "representation_role"
+        ]
+      },
+      "then": {
+        "required": [
+          "parent_document_identity",
+          "source_graphic_identifier"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "source_system": {
+            "const": "federal_register"
+          }
+        },
+        "required": [
+          "source_system"
+        ]
+      },
+      "then": {
+        "properties": {
+          "representation_role": {
+            "enum": [
+              "api_json",
+              "full_text_xml",
+              "full_text_html",
+              "plain_text",
+              "original_graphic"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "source_system": {
+            "const": "govinfo"
+          }
+        },
+        "required": [
+          "source_system"
+        ]
+      },
+      "then": {
+        "properties": {
+          "representation_role": {
+            "enum": [
+              "official_pdf",
+              "mods_xml"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "source_system": {
+            "const": "faa_drs"
+          }
+        },
+        "required": [
+          "source_system"
+        ]
+      },
+      "then": {
+        "properties": {
+          "representation_role": {
+            "const": "drs_metadata"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "representation_role": {
+            "const": "api_json"
+          }
+        },
+        "required": [
+          "representation_role"
+        ]
+      },
+      "then": {
+        "properties": {
+          "authority_role": {
+            "const": "discovery_metadata"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "representation_role": {
+            "const": "full_text_xml"
+          }
+        },
+        "required": [
+          "representation_role"
+        ]
+      },
+      "then": {
+        "properties": {
+          "authority_role": {
+            "const": "structured_parsing_input"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "representation_role": {
+            "enum": [
+              "full_text_html",
+              "plain_text"
+            ]
+          }
+        },
+        "required": [
+          "representation_role"
+        ]
+      },
+      "then": {
+        "properties": {
+          "authority_role": {
+            "const": "evidence_projection"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "representation_role": {
+            "const": "official_pdf"
+          }
+        },
+        "required": [
+          "representation_role"
+        ]
+      },
+      "then": {
+        "properties": {
+          "authority_role": {
+            "const": "official_edition"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "representation_role": {
+            "const": "mods_xml"
+          }
+        },
+        "required": [
+          "representation_role"
+        ]
+      },
+      "then": {
+        "properties": {
+          "authority_role": {
+            "const": "bibliographic_metadata"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "representation_role": {
+            "const": "original_graphic"
+          }
+        },
+        "required": [
+          "representation_role"
+        ]
+      },
+      "then": {
+        "properties": {
+          "authority_role": {
+            "const": "document_graphic"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "representation_role": {
+            "const": "drs_metadata"
+          }
+        },
+        "required": [
+          "representation_role"
+        ]
+      },
+      "then": {
+        "properties": {
+          "authority_role": {
+            "const": "identity_status_corroboration"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "non_empty_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "source_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "namespace",
+        "value"
+      ],
+      "properties": {
+        "namespace": {
+          "enum": [
+            "federal_register_document_number",
+            "govinfo_package_granule",
+            "faa_drs_document"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

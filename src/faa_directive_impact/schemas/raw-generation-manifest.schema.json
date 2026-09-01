@@ -1,0 +1,352 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.faa-directive-impact.dev/raw-generation-manifest.schema.json",
+  "title": "Raw generation manifest",
+  "description": "Expected and observed artifacts for one immutable raw corpus generation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generation_id",
+    "created_at_utc",
+    "corpus_track",
+    "acquisition_run_ids",
+    "expected_artifacts",
+    "receipt_references",
+    "relationships",
+    "dependencies",
+    "missing_artifacts",
+    "completeness_status",
+    "eligible_for_normalization"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "generation_id": {
+      "$ref": "#/$defs/non_empty_id"
+    },
+    "created_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "creating_process": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "corpus_track": {
+      "enum": [
+        "frozen_evaluation",
+        "refreshable_discovery"
+      ]
+    },
+    "acquisition_run_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/non_empty_id"
+      }
+    },
+    "expected_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_document_identity",
+          "representation_role",
+          "required"
+        ],
+        "properties": {
+          "source_document_identity": {
+            "$ref": "#/$defs/source_identity"
+          },
+          "representation_role": {
+            "$ref": "#/$defs/representation_role"
+          },
+          "source_graphic_identifier": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "receipt_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "receipt_id",
+          "receipt_relative_path"
+        ],
+        "properties": {
+          "receipt_id": {
+            "$ref": "#/$defs/non_empty_id"
+          },
+          "receipt_relative_path": {
+            "$ref": "#/$defs/relative_path"
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship_type",
+          "from_identity",
+          "to_identity",
+          "evidence_receipt_ids",
+          "confidence_class"
+        ],
+        "properties": {
+          "relationship_type": {
+            "enum": [
+              "proposal_final",
+              "corrects",
+              "supersedes",
+              "related_version"
+            ]
+          },
+          "from_identity": {
+            "$ref": "#/$defs/source_identity"
+          },
+          "to_identity": {
+            "$ref": "#/$defs/source_identity"
+          },
+          "evidence_receipt_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/non_empty_id"
+            }
+          },
+          "confidence_class": {
+            "enum": [
+              "source_asserted",
+              "identifier_join",
+              "reviewed_inference"
+            ]
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "dependency_type",
+          "availability_status",
+          "evidence_receipt_ids"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dependency_type": {
+            "enum": [
+              "incorporated_material",
+              "referenced_material",
+              "source_access"
+            ]
+          },
+          "availability_status": {
+            "enum": [
+              "available",
+              "unavailable",
+              "not_required",
+              "deferred_access_verification"
+            ]
+          },
+          "evidence_receipt_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/non_empty_id"
+            }
+          }
+        }
+      }
+    },
+    "missing_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_document_identity",
+          "representation_role",
+          "reason_code"
+        ],
+        "properties": {
+          "source_document_identity": {
+            "$ref": "#/$defs/source_identity"
+          },
+          "representation_role": {
+            "$ref": "#/$defs/representation_role"
+          },
+          "reason_code": {
+            "enum": [
+              "acquisition_failed",
+              "not_published",
+              "not_applicable",
+              "deferred_access_verification",
+              "intentionally_unavailable"
+            ]
+          },
+          "receipt_id": {
+            "$ref": "#/$defs/non_empty_id"
+          }
+        }
+      }
+    },
+    "completeness_status": {
+      "enum": [
+        "complete",
+        "incomplete"
+      ]
+    },
+    "eligible_for_normalization": {
+      "type": "boolean"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "completeness_status": {
+            "const": "complete"
+          }
+        },
+        "required": [
+          "completeness_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "missing_artifacts": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "completeness_status": {
+            "const": "incomplete"
+          }
+        },
+        "required": [
+          "completeness_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "eligible_for_normalization": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "eligible_for_normalization": {
+            "const": true
+          }
+        },
+        "required": [
+          "eligible_for_normalization"
+        ]
+      },
+      "then": {
+        "properties": {
+          "completeness_status": {
+            "const": "complete"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "non_empty_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "relative_path": {
+      "type": "string",
+      "minLength": 1,
+      "not": {
+        "pattern": "(^/)|((^|/)\\.\\.(/|$))"
+      }
+    },
+    "source_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "namespace",
+        "value"
+      ],
+      "properties": {
+        "namespace": {
+          "enum": [
+            "federal_register_document_number",
+            "govinfo_package_granule",
+            "faa_drs_document"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "representation_role": {
+      "enum": [
+        "api_json",
+        "full_text_xml",
+        "full_text_html",
+        "plain_text",
+        "official_pdf",
+        "mods_xml",
+        "original_graphic",
+        "drs_metadata"
+      ]
+    }
+  }
+}

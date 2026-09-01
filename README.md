@@ -44,6 +44,12 @@ make check    # run lint and tests
 
 The `.venv/` directory is local and ignored by Git.
 
+## Acquisition Schemas
+
+Canonical JSON Schemas for artifact receipts and raw-generation manifests are
+packaged under `src/faa_directive_impact/schemas/`. Their design and identity
+semantics are documented in [`SCHEMA_DECISIONS.md`](SCHEMA_DECISIONS.md).
+
 ## Data Boundary
 
 Acquisition and parsing are separate stages:
@@ -56,4 +62,3 @@ source retrieval → exact bytes → hashes → receipts → raw manifest
 
 Live raw captures are not committed until their size, authority,
 redistribution status, and reproducibility requirements have been reviewed.
-
