@@ -127,3 +127,6 @@ official acquisition
 The next concrete task is the first immutable two-document acquisition—not a
 UI, vector database, or agent.
 
+The delivery sequence and active milestone are defined in
+[`ROADMAP.md`](ROADMAP.md) and
+[`ACQUISITION_MILESTONE.md`](ACQUISITION_MILESTONE.md).
