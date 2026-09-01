@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+
+# Live acquisitions remain local until retention and redistribution are decided.
+data/raw/
+

@@ -35,9 +35,18 @@ tests/
 
 ## Build, Test, and Development Commands
 
-No build, test, or package configuration has been committed yet. When adding tooling, provide one documented entry point (such as a `Makefile`, `package.json`, or `pyproject.toml`) and update this section and the README in the same change. Prefer commands that work from the repository root, such as `make test`, `make lint`, and `make run`, rather than undocumented local scripts.
+The project uses Python 3.12 or later, `uv` for environment and dependency
+management, and a root `Makefile` as the documented command entry point.
 
-Do not choose or add this tooling during the current source-review phase.
+- `make sync` — create or update the local environment from `uv.lock`.
+- `make test` — run the deterministic test suite; live network calls are not
+  part of the default suite.
+- `make lint` — run Ruff lint checks.
+- `make format` — apply Ruff formatting.
+- `make check` — run lint and tests.
+
+Run all commands from the repository root. Update this section and the README
+when commands or tooling change.
 
 ## Source, Freshness & Data-Lifecycle Contract
 
