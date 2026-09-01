@@ -6,16 +6,21 @@ This is the reading guide for the FAA feasibility slice. The six documents below
 
 They are not the complete FAA discovery corpus. Their purpose is to establish the source structure, authority and time states, directive predicates, required fleet fields, and proposed-to-final relationships before implementation begins.
 
-Source reconnaissance was last verified on **2026-08-23**. Recheck current source representations and links when acquisition is implemented.
+Corpus selection was verified on **2026-08-23**. The HPT hub thread's live
+representations were rechecked on **2026-09-01**. See
+[`SOURCE_REVIEW_HPT_HUB.md`](SOURCE_REVIEW_HPT_HUB.md). Recheck each remaining
+record when it is reviewed or acquired.
 
 ## Source Hierarchy
 
 Use each source for a distinct role:
 
-1. **Federal Register API and HTML/XML** — machine-readable discovery, metadata, and text acquisition. The API is public and does not require a key.
-2. **GovInfo official PDF** — official published edition retained for authority verification. Follow the PDF link exposed by each Federal Register record.
-3. **FAA Dynamic Regulatory System (DRS)** — FAA document identity, current/historical status, related versions, and FAA-specific metadata.
-4. **Incorporated material** — record the exact named artifact and version. If it is not legally and reproducibly available, mark it unavailable; do not reconstruct it.
+1. **Federal Register API JSON** — discovery metadata, identifiers, dates, docket metadata, and canonical representation URLs. The API is public and does not require a key.
+2. **Federal Register XML** — preferred initial parsing representation because it preserves headings, paragraphs, printed-page markers, and table structure.
+3. **Federal Register HTML** — evidence-addressing projection because it adds paragraph and heading IDs plus printed-page metadata. It must be checked against the XML and official edition rather than treated as an independent authority.
+4. **GovInfo official PDF** — official published edition retained for authority and visual verification. Follow the PDF link exposed by each Federal Register record.
+5. **FAA Dynamic Regulatory System (DRS)** — FAA document identity, current/historical status, related versions, and FAA-specific metadata. Reproducible API acquisition appears to require a DRS API key and remains to be verified.
+6. **Incorporated material** — record the exact named artifact and version. If it is not legally and reproducibly available, mark it unavailable; do not reconstruct it.
 
 Starting points:
 
@@ -53,6 +58,12 @@ Read for:
 - shop-visit, removal, and compliance timing;
 - how an affected serial list is represented;
 - changes between proposal and final rule.
+
+Status: first live representation review complete. The review found structured
+tables in both XML and HTML, a stable docket/project relationship, unchanged
+codified applicability and action predicates, and a separate continuing
+installation prohibition. See
+[`SOURCE_REVIEW_HPT_HUB.md`](SOURCE_REVIEW_HPT_HUB.md).
 
 ### Thread 3: Airworthiness-limitations revision
 
@@ -107,8 +118,8 @@ For each of the six documents, record:
 
 The next discussion should resolve:
 
-1. which source representation is canonical for parsing versus authority verification;
-2. what the first raw manifest must contain;
+1. whether the XML-first parsing and HTML evidence-addressing choice holds for the other two threads;
+2. whether the initial raw-manifest contract needs changes after the remaining source reviews;
 3. which directive predicates are deterministic enough for initial labels;
 4. whether the six records expose sufficient table and relationship complexity;
 5. the smallest credible acquisition and parsing stack.

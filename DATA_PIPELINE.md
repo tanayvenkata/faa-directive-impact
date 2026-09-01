@@ -53,6 +53,13 @@ Preserve what the source returned along with:
 
 Raw captures are append-only. An existing file is not silently overwritten when a representation changes.
 
+The first concrete receipt and generation requirements are defined in
+[`RAW_MANIFEST_CONTRACT.md`](RAW_MANIFEST_CONTRACT.md). The initial source-role
+decision is API JSON for discovery/identity, Federal Register XML for preferred
+structured parsing, Federal Register HTML for evidence addressing, and the
+GovInfo PDF for official-edition verification. This choice must be rechecked
+against the other protected threads before it becomes a general parser claim.
+
 ### Versioned normalized records
 
 Derive structured records for:
