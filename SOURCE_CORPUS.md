@@ -45,6 +45,11 @@ Read for:
 - replacement-part eligibility;
 - comments or changes between proposal and final rule.
 
+Status: live representation review complete. The final rule made the trigger
+more precise by requiring the next engine shop visit after the effective date
+where the rotor is exposed and added a definition of engine shop visit. See
+[`SOURCE_REVIEW_REMAINING_THREADS.md`](SOURCE_REVIEW_REMAINING_THREADS.md).
+
 ### Thread 2: HPT hub quality escape
 
 - [Proposed rule — Federal Register document 2025-10764](https://www.federalregister.gov/documents/2025/06/13/2025-10764/airworthiness-directives-international-aero-engines-ag-engines)
@@ -79,6 +84,11 @@ Read for:
 - publication date versus effective date;
 - changes between proposal and final rule.
 
+Status: live representation review complete. The final rule corrected a
+nonexistent task reference and separated the ICA/TLM revision from the
+additional air-carrier maintenance-program obligation. See
+[`SOURCE_REVIEW_REMAINING_THREADS.md`](SOURCE_REVIEW_REMAINING_THREADS.md).
+
 ## Evidence-Sufficiency Challenge Records
 
 These are not part of the six-document core, but they should enter the later curated retrieval corpus because the correct behavior depends on recognizing incomplete public evidence.
@@ -87,6 +97,12 @@ These are not part of the six-document core, but they should enter the later cur
 - [Federal Register document 2021-14268](https://www.federalregister.gov/documents/2021/07/02/2021-14268/airworthiness-directives-international-aero-engines-ag-turbofan-engines) — includes affected serials in the directive but still requires incorporated service instructions to perform the inspection.
 
 The safe public behavior is to state what the directive itself establishes, identify the required external artifact and version, and mark the action evidence incomplete pending authorized access.
+
+Status: challenge-record spot check complete. The public directives identify
+the incorporated materials and some affected-part facts, but required serial
+lists, inspection procedures, and compliance figures cross into manufacturer
+materials or image-only Federal Register graphics. See
+[`SOURCE_REVIEW_REMAINING_THREADS.md`](SOURCE_REVIEW_REMAINING_THREADS.md).
 
 ## Reading Checklist
 
@@ -116,10 +132,12 @@ For each of the six documents, record:
 
 ## After Reading
 
-The next discussion should resolve:
+The protected-core source review is complete. The resulting feasibility
+decision is recorded in [`FEASIBILITY_RECOMMENDATION.md`](FEASIBILITY_RECOMMENDATION.md).
+Before implementation, the remaining work is to:
 
-1. whether the XML-first parsing and HTML evidence-addressing choice holds for the other two threads;
-2. whether the initial raw-manifest contract needs changes after the remaining source reviews;
-3. which directive predicates are deterministic enough for initial labels;
-4. whether the six records expose sufficient table and relationship complexity;
-5. the smallest credible acquisition and parsing stack.
+1. perform the first immutable acquisition under the raw-manifest contract;
+2. write the feasibility-seed cases and numerical evaluation gates;
+3. decide how image-only figures are transcribed and reviewed;
+4. verify FAA DRS external API access and identity fields; and
+5. discuss the smallest credible acquisition and parsing stack.

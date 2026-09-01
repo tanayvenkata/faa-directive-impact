@@ -24,6 +24,8 @@ raw/
         full-text.xml
         full-text.html
         full-text.txt
+        figures/
+          <federal-register-image-id>_original.png
         govinfo-official.pdf
         govinfo-mods.xml
         acquisition.json
@@ -69,6 +71,7 @@ receipt must record:
 - authority role
 - redistribution status and basis
 - source terms or access note when relevant
+- parent document identity and local graphic identifier for document images
 
 Do not store credentials, authorization headers, session cookies, or other
 secrets in a receipt.
@@ -103,6 +106,7 @@ Use explicit roles rather than a single `canonical` flag:
 | Federal Register XML | Preferred structured parsing input |
 | Federal Register HTML | Evidence addressing and web presentation |
 | Federal Register plain text | Lexical/debug projection |
+| Federal Register original-size images | Image-only figures and tables referenced by XML/HTML |
 | GovInfo official PDF | Official-edition authority and visual verification |
 | GovInfo MODS XML | Official-edition bibliographic metadata |
 | FAA DRS metadata/record | FAA identity, status, and relationship corroboration |
@@ -153,6 +157,10 @@ For each of the two HPT hub Federal Register documents, require:
 5. GovInfo official PDF; and
 6. GovInfo MODS XML.
 
+Also require every original-size Federal Register image referenced by the API,
+XML, or HTML. Image-only figures are independent artifacts with their own
+hashes; a `<GPH>` identifier or HTML image link is not the retained evidence.
+
 DRS is required as either a successful capture or an explicit
 `deferred_access_verification` record until its external API contract is
 confirmed. There is no incorporated material for this thread, and that
@@ -164,6 +172,11 @@ types are plausible, Federal Register identifiers agree across the pair, PDFs
 are readable, XML and HTML contain the codified section and affected-hub table,
 and every missing artifact has an approved reason code.
 
+Image-only figures must be present and visually readable before any predicate
+depending on them is eligible for deterministic labeling. OCR or manual
+transcription is derived data and requires a source-image citation plus a
+verification status.
+
 ## Decisions Still Deferred
 
 - whether raw bytes are committed to Git or retained in external object storage;
@@ -172,4 +185,3 @@ and every missing artifact has an approved reason code.
 - DRS authentication and key handling;
 - retention period for repeated unchanged observations; and
 - scheduler, queue, database, index, hosting, and orchestration products.
-
