@@ -16,7 +16,7 @@ impact claim.
 | Manifest schema | `1.1.0` |
 | Manifest SHA-256 | `9802a87039807d7d6eb02dffc74a8ecdb25a7627d3870e95eb4588431bc1b24a` |
 | Validation report SHA-256 | `5ce45475ba2ea35bc35df0b7c3d88f4511921f504720b37d0e4401540ed9fcf6` |
-| Creating process | `faa-directive-impact 0.1.0` at commit `3ef4bf6` |
+| Creating process | `faa-directive-impact 0.1.0` at commit `3ef4bf6`, which produced these bytes. The release tag points at the later `a325939`, which changed only docs and the redistribution status of future receipts |
 | Storage root | clean `data/frozen-evaluation/`, not committed |
 
 ## Scope

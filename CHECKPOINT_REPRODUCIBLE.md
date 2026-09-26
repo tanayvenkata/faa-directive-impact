@@ -80,9 +80,11 @@ Each of these was found against live sources, not anticipated in design:
 ## Known Limits
 
 - **One thread only.** Two documents, one supported engine family, no images,
-  and no incorporated material. The image path and listed-material path are
-  tested offline and exercised live on `2021-14268`, outside the accepted
-  generation.
+  and no incorporated material. The image and listed-material paths are tested
+  offline. On 2026-09-26, `2021-14268` also went through the full live pipeline
+  in a scratch `refreshable_discovery` run, outside the accepted generation.
+  Both original-size images matched the API's MD5 metadata, and both IAE
+  service bulletins were recorded as named `unavailable` dependencies.
 - **Volatile fields untested over time.** The `page_views` exclusion has been
   tested over minutes, not days.
 - **No FAA DRS corroboration.** It is recorded as
