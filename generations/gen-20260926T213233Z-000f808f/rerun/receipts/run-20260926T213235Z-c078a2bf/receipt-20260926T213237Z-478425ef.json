@@ -1,0 +1,42 @@
+{
+  "acquisition_run_id": "run-20260926T213235Z-c078a2bf",
+  "acquisition_status": "succeeded",
+  "artifact": {
+    "byte_length": 11796,
+    "declared_media_type": "text/xml",
+    "detected_media_type": "application/xml",
+    "relative_path": "raw/govinfo/2025-18469/run-20260926T213235Z-c078a2bf/mods.xml",
+    "sha256": "b97be96c154a228df542823949905f3a690021914439d28852ef2ca462b63c63"
+  },
+  "authority_role": "bibliographic_metadata",
+  "parent_document_identity": {
+    "namespace": "federal_register_document_number",
+    "value": "2025-18469"
+  },
+  "receipt_id": "receipt-20260926T213237Z-478425ef",
+  "redistribution": {
+    "basis": "Federal Register publication of a U.S. Government work; retention and redistribution decision pending the Reproducible checkpoint review.",
+    "status": "review_required"
+  },
+  "representation_role": "mods_xml",
+  "request": {
+    "method": "GET",
+    "requested_url": "https://www.govinfo.gov/metadata/granule/FR-2025-09-24/2025-18469/mods.xml",
+    "resolved_url": "https://www.govinfo.gov/metadata/granule/FR-2025-09-24/2025-18469/mods.xml"
+  },
+  "response": {
+    "headers": {
+      "content_disposition": "inline; filename=\"mods.xml\"",
+      "content_type": "text/xml;charset=UTF-8"
+    },
+    "status_code": 200
+  },
+  "retrieval_id": "retrieval-20260926T213237Z-478425ef",
+  "retrieved_at_utc": "2026-09-26T21:32:37Z",
+  "schema_version": "1.0.0",
+  "source_document_identity": {
+    "namespace": "govinfo_package_granule",
+    "value": "FR-2025-09-24/2025-18469"
+  },
+  "source_system": "govinfo"
+}

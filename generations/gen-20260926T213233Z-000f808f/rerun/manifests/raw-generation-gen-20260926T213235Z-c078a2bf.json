@@ -1,0 +1,208 @@
+{
+  "acquisition_run_ids": [
+    "run-20260926T213235Z-c078a2bf"
+  ],
+  "completeness_status": "complete",
+  "corpus_track": "frozen_evaluation",
+  "created_at_utc": "2026-09-26T21:32:37Z",
+  "creating_process": {
+    "name": "faa-directive-impact",
+    "version": "0.1.0"
+  },
+  "dependencies": [
+    {
+      "availability_status": "not_required",
+      "dependency_type": "incorporated_material",
+      "evidence_receipt_ids": [
+        "receipt-20260926T213235Z-b0d92dcc"
+      ],
+      "name": "Material incorporated by reference in 2025-10764 paragraph (l)"
+    },
+    {
+      "availability_status": "not_required",
+      "dependency_type": "incorporated_material",
+      "evidence_receipt_ids": [
+        "receipt-20260926T213236Z-a41524f2"
+      ],
+      "name": "Material incorporated by reference in 2025-18469 paragraph (l)"
+    },
+    {
+      "availability_status": "deferred_access_verification",
+      "dependency_type": "source_access",
+      "evidence_receipt_ids": [
+        "receipt-20260926T213236Z-9860b04b"
+      ],
+      "name": "FAA DRS record for AD 2025-19-13"
+    }
+  ],
+  "eligible_for_normalization": true,
+  "expected_artifacts": [
+    {
+      "representation_role": "api_json",
+      "required": true,
+      "source_document_identity": {
+        "namespace": "federal_register_document_number",
+        "value": "2025-10764"
+      }
+    },
+    {
+      "representation_role": "full_text_xml",
+      "required": true,
+      "source_document_identity": {
+        "namespace": "federal_register_document_number",
+        "value": "2025-10764"
+      }
+    },
+    {
+      "representation_role": "full_text_html",
+      "required": true,
+      "source_document_identity": {
+        "namespace": "federal_register_document_number",
+        "value": "2025-10764"
+      }
+    },
+    {
+      "representation_role": "plain_text",
+      "required": true,
+      "source_document_identity": {
+        "namespace": "federal_register_document_number",
+        "value": "2025-10764"
+      }
+    },
+    {
+      "representation_role": "official_pdf",
+      "required": true,
+      "source_document_identity": {
+        "namespace": "govinfo_package_granule",
+        "value": "FR-2025-06-13/2025-10764"
+      }
+    },
+    {
+      "representation_role": "mods_xml",
+      "required": true,
+      "source_document_identity": {
+        "namespace": "govinfo_package_granule",
+        "value": "FR-2025-06-13/2025-10764"
+      }
+    },
+    {
+      "representation_role": "api_json",
+      "required": true,
+      "source_document_identity": {
+        "namespace": "federal_register_document_number",
+        "value": "2025-18469"
+      }
+    },
+    {
+      "representation_role": "full_text_xml",
+      "required": true,
+      "source_document_identity": {
+        "namespace": "federal_register_document_number",
+        "value": "2025-18469"
+      }
+    },
+    {
+      "representation_role": "full_text_html",
+      "required": true,
+      "source_document_identity": {
+        "namespace": "federal_register_document_number",
+        "value": "2025-18469"
+      }
+    },
+    {
+      "representation_role": "plain_text",
+      "required": true,
+      "source_document_identity": {
+        "namespace": "federal_register_document_number",
+        "value": "2025-18469"
+      }
+    },
+    {
+      "representation_role": "official_pdf",
+      "required": true,
+      "source_document_identity": {
+        "namespace": "govinfo_package_granule",
+        "value": "FR-2025-09-24/2025-18469"
+      }
+    },
+    {
+      "representation_role": "mods_xml",
+      "required": true,
+      "source_document_identity": {
+        "namespace": "govinfo_package_granule",
+        "value": "FR-2025-09-24/2025-18469"
+      }
+    }
+  ],
+  "generation_id": "gen-20260926T213235Z-c078a2bf",
+  "missing_artifacts": [],
+  "receipt_references": [
+    {
+      "receipt_id": "receipt-20260926T213235Z-a20b163f",
+      "receipt_relative_path": "receipts/run-20260926T213235Z-c078a2bf/receipt-20260926T213235Z-a20b163f.json"
+    },
+    {
+      "receipt_id": "receipt-20260926T213235Z-b0d92dcc",
+      "receipt_relative_path": "receipts/run-20260926T213235Z-c078a2bf/receipt-20260926T213235Z-b0d92dcc.json"
+    },
+    {
+      "receipt_id": "receipt-20260926T213235Z-f26d4b82",
+      "receipt_relative_path": "receipts/run-20260926T213235Z-c078a2bf/receipt-20260926T213235Z-f26d4b82.json"
+    },
+    {
+      "receipt_id": "receipt-20260926T213235Z-49b9b760",
+      "receipt_relative_path": "receipts/run-20260926T213235Z-c078a2bf/receipt-20260926T213235Z-49b9b760.json"
+    },
+    {
+      "receipt_id": "receipt-20260926T213235Z-f955d7b3",
+      "receipt_relative_path": "receipts/run-20260926T213235Z-c078a2bf/receipt-20260926T213235Z-f955d7b3.json"
+    },
+    {
+      "receipt_id": "receipt-20260926T213236Z-7465f015",
+      "receipt_relative_path": "receipts/run-20260926T213235Z-c078a2bf/receipt-20260926T213236Z-7465f015.json"
+    },
+    {
+      "receipt_id": "receipt-20260926T213236Z-9860b04b",
+      "receipt_relative_path": "receipts/run-20260926T213235Z-c078a2bf/receipt-20260926T213236Z-9860b04b.json"
+    },
+    {
+      "receipt_id": "receipt-20260926T213236Z-a41524f2",
+      "receipt_relative_path": "receipts/run-20260926T213235Z-c078a2bf/receipt-20260926T213236Z-a41524f2.json"
+    },
+    {
+      "receipt_id": "receipt-20260926T213236Z-9f3d071b",
+      "receipt_relative_path": "receipts/run-20260926T213235Z-c078a2bf/receipt-20260926T213236Z-9f3d071b.json"
+    },
+    {
+      "receipt_id": "receipt-20260926T213236Z-31fc9c79",
+      "receipt_relative_path": "receipts/run-20260926T213235Z-c078a2bf/receipt-20260926T213236Z-31fc9c79.json"
+    },
+    {
+      "receipt_id": "receipt-20260926T213236Z-514941af",
+      "receipt_relative_path": "receipts/run-20260926T213235Z-c078a2bf/receipt-20260926T213236Z-514941af.json"
+    },
+    {
+      "receipt_id": "receipt-20260926T213237Z-478425ef",
+      "receipt_relative_path": "receipts/run-20260926T213235Z-c078a2bf/receipt-20260926T213237Z-478425ef.json"
+    }
+  ],
+  "relationships": [
+    {
+      "confidence_class": "identifier_join",
+      "evidence_receipt_ids": [
+        "receipt-20260926T213235Z-a20b163f",
+        "receipt-20260926T213236Z-9860b04b"
+      ],
+      "from_identity": {
+        "namespace": "federal_register_document_number",
+        "value": "2025-10764"
+      },
+      "relationship_type": "proposal_final",
+      "to_identity": {
+        "namespace": "federal_register_document_number",
+        "value": "2025-18469"
+      }
+    }
+  ],
+  "schema_version": "1.1.0"
+}

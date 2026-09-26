@@ -1,0 +1,38 @@
+{
+  "acquisition_run_id": "run-20260926T213233Z-000f808f",
+  "acquisition_status": "succeeded",
+  "artifact": {
+    "byte_length": 4755,
+    "declared_media_type": "application/json",
+    "detected_media_type": "application/json",
+    "relative_path": "raw/federal-register/2025-18469/run-20260926T213233Z-000f808f/api.json",
+    "sha256": "1be6b6cea044216a2a442669c4ad18df474b44a51eda0f30f763ada218bf5ae0"
+  },
+  "authority_role": "discovery_metadata",
+  "receipt_id": "receipt-20260926T213234Z-38a6e46a",
+  "redistribution": {
+    "basis": "Federal Register publication of a U.S. Government work; retention and redistribution decision pending the Reproducible checkpoint review.",
+    "status": "review_required"
+  },
+  "representation_role": "api_json",
+  "request": {
+    "method": "GET",
+    "requested_url": "https://www.federalregister.gov/api/v1/documents/2025-18469.json",
+    "resolved_url": "https://www.federalregister.gov/api/v1/documents/2025-18469.json"
+  },
+  "response": {
+    "headers": {
+      "content_length": 4755,
+      "content_type": "application/json; charset=utf-8"
+    },
+    "status_code": 200
+  },
+  "retrieval_id": "retrieval-20260926T213234Z-38a6e46a",
+  "retrieved_at_utc": "2026-09-26T21:32:34Z",
+  "schema_version": "1.0.0",
+  "source_document_identity": {
+    "namespace": "federal_register_document_number",
+    "value": "2025-18469"
+  },
+  "source_system": "federal_register"
+}

@@ -75,6 +75,13 @@ receipts and is not stored.
 Exit status: `0` eligible, `1` incomplete or failed validation, `2` content
 changed since an earlier run and needs review. `data/` is ignored by Git.
 
+## Accepted Raw Generations
+
+- [`gen-20260926T213233Z-000f808f`](generations/gen-20260926T213233Z-000f808f/DECISION.md)
+  — HPT hub proposal/final pair, `frozen_evaluation`, accepted for
+  normalization. Its receipts, manifest, and validation report are committed;
+  the raw bytes are not.
+
 ## Acquisition Schemas
 
 Canonical JSON Schemas for artifact receipts and raw-generation manifests are
