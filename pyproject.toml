@@ -10,8 +10,10 @@ readme = "README.md"
 requires-python = ">=3.12"
 authors = [{ name = "Tanay Venkata" }]
 dependencies = [
+  "defusedxml>=0.7,<1",
   "httpx>=0.28,<1",
   "jsonschema[format]>=4.23,<5",
+  "pypdf>=5,<7",
 ]
 
 [project.scripts]
@@ -21,6 +23,7 @@ faa-directive-impact = "faa_directive_impact.cli:main"
 dev = [
   "pytest>=8.3,<10",
   "ruff>=0.11,<1",
+  "types-defusedxml>=0.7.0.20260504",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -29,6 +32,7 @@ packages = ["src/faa_directive_impact"]
 [tool.pytest.ini_options]
 addopts = "-ra"
 testpaths = ["tests"]
+pythonpath = ["tests"]
 
 [tool.ruff]
 line-length = 88

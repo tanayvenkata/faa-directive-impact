@@ -3,24 +3,20 @@ from pathlib import Path
 
 import httpx
 import pytest
+from fakes import api_url, document_pages
 
 from faa_directive_impact import cli
 from faa_directive_impact.acquisition import retrieval
-from faa_directive_impact.schema_validation import validate_raw_generation_manifest
+from faa_directive_impact.schema_validation import (
+    validate_raw_generation_manifest,
+    validate_validation_report,
+)
 
 DOC = "2025-10764"
-API_URL = f"https://www.federalregister.gov/api/v1/documents/{DOC}.json"
-REPRESENTATION_URLS = {
-    "full_text_xml_url": "https://www.federalregister.gov/x/2025-10764.xml",
-    "body_html_url": "https://www.federalregister.gov/h/2025-10764.html",
-    "raw_text_url": "https://www.federalregister.gov/t/2025-10764.txt",
-    "pdf_url": "https://www.govinfo.gov/p/2025-10764.pdf",
-    "mods_url": "https://www.govinfo.gov/m/2025-10764/mods.xml",
-}
-XML_URL = REPRESENTATION_URLS["full_text_xml_url"]
+XML_URL = f"https://www.federalregister.gov/documents/full_text/{DOC}.xml"
 
 
-def serve(monkeypatch: pytest.MonkeyPatch, pages: dict[str, bytes]) -> None:
+def serve(monkeypatch: pytest.MonkeyPatch, pages: dict[str, bytes | None]) -> None:
     def handler(request: httpx.Request) -> httpx.Response:
         body = pages.get(str(request.url))
         return (
@@ -36,15 +32,8 @@ def serve(monkeypatch: pytest.MonkeyPatch, pages: dict[str, bytes]) -> None:
     )
 
 
-def site(xml: bytes = b"<RULE>v1</RULE>", omit: str | None = None) -> dict:
-    record = {"document_number": DOC, "publication_date": "2025-06-13"}
-    record.update(REPRESENTATION_URLS)
-    if omit:
-        del record[omit]
-    pages = {url: b"body" for url in REPRESENTATION_URLS.values()}
-    pages[XML_URL] = xml
-    pages[API_URL] = json.dumps(record).encode()
-    return pages
+def site() -> dict[str, bytes | None]:
+    return document_pages(DOC, "Proposed Rule", "2025-06-13")
 
 
 def acquire(tmp_path: Path) -> int:
@@ -60,7 +49,7 @@ def acquire(tmp_path: Path) -> int:
     )
 
 
-def test_complete_run_exits_ok_and_stores_valid_manifest(
+def test_complete_run_exits_ok_and_stores_valid_records(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture
 ) -> None:
     serve(monkeypatch, site())
@@ -69,26 +58,53 @@ def test_complete_run_exits_ok_and_stores_valid_manifest(
 
     summary = json.loads(capsys.readouterr().out)
     manifest = json.loads((tmp_path / summary["manifest"]).read_text())
+    report = json.loads((tmp_path / summary["validation_report"]).read_text())
     validate_raw_generation_manifest(manifest)
-    assert manifest["completeness_status"] == "complete"
-    assert manifest["corpus_track"] == "frozen_evaluation"
-    assert not (tmp_path / "runs").exists()
+    validate_validation_report(report)
+    assert manifest["eligible_for_normalization"] is True
+    assert report["status"] == "passed"
+    assert report["generation_id"] == manifest["generation_id"]
 
 
 def test_missing_representation_exits_failed(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    serve(monkeypatch, site(omit="pdf_url"))
+    pages = site()
+    pages[XML_URL] = None
+    serve(monkeypatch, pages)
 
     assert acquire(tmp_path) == cli.EXIT_FAILED
+
+
+def test_invalid_artifact_exits_failed_and_is_not_indexed(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture
+) -> None:
+    pages = site()
+    record = json.loads(pages[api_url(DOC)] or b"")
+    record["document_number"] = "2025-18469"
+    pages[api_url(DOC)] = json.dumps(record).encode()
+    serve(monkeypatch, pages)
+    assert acquire(tmp_path) == cli.EXIT_FAILED
+    capsys.readouterr()
+
+    serve(monkeypatch, site())
+    assert acquire(tmp_path) == cli.EXIT_OK
+
+    summary = json.loads(capsys.readouterr().out)
+    api_versions = [
+        v for v in summary["versions"] if v["representation_role"] == "api_json"
+    ]
+    assert [v["status"] for v in api_versions] == ["new"]
 
 
 def test_changed_content_exits_for_review(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    serve(monkeypatch, site(xml=b"<RULE>v1</RULE>"))
+    serve(monkeypatch, site())
     assert acquire(tmp_path) == cli.EXIT_OK
 
-    serve(monkeypatch, site(xml=b"<RULE>v2</RULE>"))
+    pages = site()
+    pages[XML_URL] = (pages[XML_URL] or b"").replace(b"Contact", b"Please contact")
+    serve(monkeypatch, pages)
 
     assert acquire(tmp_path) == cli.EXIT_NEEDS_REVIEW

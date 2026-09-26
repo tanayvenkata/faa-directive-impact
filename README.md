@@ -63,11 +63,16 @@ receipts, missing artifacts, the proposal/final relationship, and deferred
 dependencies, plus whether the generation is complete. `CORPUS_TRACK` defaults
 to `frozen_evaluation`.
 
+Every retained artifact is validated as it arrives: integrity, format,
+document identity, and the directive's incorporated-material statement. The
+findings are written to `data/validation/<generation-id>.json`. A generation is
+eligible for normalization only if it is complete and every check passed.
+
 Standard output summarizes the run and reports each representation as new,
 unchanged, or changed since earlier runs. That comparison is derived from
 receipts and is not stored.
 
-Exit status: `0` complete, `1` incomplete generation, `2` content
+Exit status: `0` eligible, `1` incomplete or failed validation, `2` content
 changed since an earlier run and needs review. `data/` is ignored by Git.
 
 ## Acquisition Schemas

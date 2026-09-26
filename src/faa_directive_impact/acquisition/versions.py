@@ -1,7 +1,7 @@
 """Logical source versions derived from retained receipts.
 
 The version index is rebuilt from receipts on every run and is never a source
-of truth. A logical source version is one distinct content hash for one
+of truth. Receipts whose artifacts failed validation are excluded. A logical source version is one distinct content hash for one
 source identity and representation. Runs keep their own copies of the bytes;
 an unchanged rerun adds a receipt but no new logical version.
 """
@@ -93,12 +93,16 @@ class VersionIndex:
         cls, storage_root: Path, exclude_run_id: str | None = None
     ) -> "VersionIndex":
         index = cls(storage_root)
+        rejected = _receipts_failing_validation(storage_root)
         receipts_root = storage_root / "receipts"
         for path in sorted(receipts_root.glob("*/*.json")):
             if path.parent.name == exclude_run_id:
                 continue
             receipt = json.loads(path.read_text(encoding="utf-8"))
-            if receipt.get("acquisition_status") == "succeeded":
+            if (
+                receipt.get("acquisition_status") == "succeeded"
+                and receipt["receipt_id"] not in rejected
+            ):
                 index._add(receipt)
         return index
 
@@ -121,3 +125,16 @@ class VersionIndex:
         current = current or content_hash(receipt, self._storage_root)
         if current not in self._hashes[key]:
             self._hashes[key].append(current)
+
+
+def _receipts_failing_validation(storage_root: Path) -> set[str]:
+    """Receipts whose artifacts failed validation never become versions."""
+    rejected = set()
+    for path in (storage_root / "validation").glob("*.json"):
+        report = json.loads(path.read_text(encoding="utf-8"))
+        rejected.update(
+            finding["receipt_id"]
+            for finding in report.get("findings", [])
+            if finding.get("outcome") == "failed"
+        )
+    return rejected

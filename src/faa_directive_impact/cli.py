@@ -6,7 +6,10 @@ import sys
 from pathlib import Path
 
 from faa_directive_impact.acquisition.document import acquire_document
-from faa_directive_impact.acquisition.manifest import build_manifest
+from faa_directive_impact.acquisition.manifest import (
+    build_manifest,
+    build_validation_report,
+)
 from faa_directive_impact.acquisition.retrieval import (
     DEFAULT_TIMEOUT_SECONDS,
     AcquisitionContext,
@@ -54,19 +57,35 @@ def main(argv: list[str] | None = None) -> int:
         ]
 
     generation_id = f"gen-{run_id.removeprefix('run-')}"
+    created_at = utc_now()
     manifest = build_manifest(
         generation_id=generation_id,
-        created_at=utc_now(),
+        created_at=created_at,
         corpus_track=args.corpus_track,
         run_id=run_id,
         documents=documents,
     )
     manifest_path = f"manifests/raw-generation-{generation_id}.json"
+    validation_path = f"validation/{generation_id}.json"
+    storage.write_json(
+        validation_path,
+        build_validation_report(
+            generation_id=generation_id, created_at=created_at, documents=documents
+        ),
+    )
     storage.write_json(manifest_path, manifest)
 
     # Version outcomes are derived from receipts, so they are reported, not stored.
     summary = {
         "manifest": manifest_path,
+        "validation_report": validation_path,
+        "failed_checks": [
+            record
+            for doc in documents
+            for validation in doc.validations
+            for record in validation.records()
+            if record["outcome"] == "failed"
+        ],
         "completeness_status": manifest["completeness_status"],
         "eligible_for_normalization": manifest["eligible_for_normalization"],
         "missing_artifacts": manifest["missing_artifacts"],
@@ -78,7 +97,7 @@ def main(argv: list[str] | None = None) -> int:
     json.dump(summary, sys.stdout, indent=2, sort_keys=True)
     print()
 
-    if manifest["completeness_status"] != "complete":
+    if not manifest["eligible_for_normalization"]:
         return EXIT_FAILED
     if any(doc.needs_review for doc in documents):
         return EXIT_NEEDS_REVIEW

@@ -25,6 +25,11 @@ def validate_raw_generation_manifest(manifest: dict[str, Any]) -> None:
     _validator("raw-generation-manifest.schema.json").validate(manifest)
 
 
+def validate_validation_report(report: dict[str, Any]) -> None:
+    """Raise ValidationError when a generation validation report is invalid."""
+    _validator("validation-report.schema.json").validate(report)
+
+
 def _validator(schema_name: str) -> Draft202012Validator:
     schema = load_schema(schema_name)
     Draft202012Validator.check_schema(schema)

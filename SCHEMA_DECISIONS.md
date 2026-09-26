@@ -89,6 +89,34 @@ explicitly to `VOLATILE_API_JSON_FIELDS`, never ignored implicitly.
 Each run retains its own copy of every artifact. Physical deduplication by hash
 is deferred until corpus size shows a need.
 
+## Validation Gate
+
+Every retained artifact is validated immediately after retrieval, and each
+check is recorded in a `validation-report` record (schema `1.0.0`) with a
+bounded reason code on failure. The checks cover integrity (re-hashing the
+retained bytes), media type from leading bytes, JSON/XML/PDF readability, text
+decoding, document identity, GovInfo granule agreement with the served URL,
+original-image size and MD5 against the API's `images_metadata`, and the
+directive's stated incorporated-material paragraph.
+
+XML is parsed with `defusedxml`, so entity-expansion and external-entity
+payloads fail as malformed. Required API JSON fields are checked by presence
+only, so additive upstream fields never fail acquisition.
+
+A generation is eligible for normalization only when it is complete and every
+finding passed. Receipts named in a failed finding never become logical source
+versions.
+
+Document identity in the official PDF requires the full `FR Doc. <number>`
+line after normalizing typographic dashes. The GovInfo edition typesets
+`2025–10764` with an en dash, and its pages can carry a neighbouring document's
+`FR Doc.` line.
+
+The incorporated-material paragraph is found by heading text, not letter: the
+HPT pair uses `(l)` and `2021-14268` uses `(k)`. A stated `None.` becomes an
+explicit `not_required` dependency; listed items become named `unavailable`
+dependencies; an absent heading fails validation.
+
 ## Paths and Secrets
 
 Artifact and receipt paths are relative and may not traverse above their

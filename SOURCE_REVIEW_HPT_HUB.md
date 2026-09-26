@@ -149,6 +149,14 @@ unchanged.
    airworthiness-limitations threads?
 2. Are Federal Register HTML IDs stable across an unexpected regenerated
    representation with the same document identity?
+   **Finding (2026-09-26):** No stability can be assumed. The IDs are
+   positional ordinals (`p-1`…`p-46`, `h-1`…`h-32`, `page-N`), not content
+   identifiers. Four fetches of the same HTML on one day were byte-identical,
+   but any regenerated representation that adds or removes a paragraph would
+   renumber every later ID. Treat HTML IDs as locators within one retained
+   version only. Durable evidence anchors must combine the artifact version
+   hash with the XML structure (paragraph labels such as `(l)`) and a text
+   hash.
 3. What exact FAA DRS API identity and version fields are available to an
    external API-key holder?
 4. Should shop-visit qualification be an input assertion with provenance, a

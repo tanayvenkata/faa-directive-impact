@@ -12,9 +12,13 @@ from faa_directive_impact.acquisition.federal_register import (
     faa_docket_numbers,
 )
 from faa_directive_impact.acquisition.retrieval import format_utc, receipt_path
-from faa_directive_impact.schema_validation import validate_raw_generation_manifest
+from faa_directive_impact.schema_validation import (
+    validate_raw_generation_manifest,
+    validate_validation_report,
+)
 
 MANIFEST_SCHEMA_VERSION = "1.1.0"
+VALIDATION_SCHEMA_VERSION = "1.0.0"
 PROPOSED_RULE = "Proposed Rule"
 FINAL_RULE = "Rule"
 
@@ -27,10 +31,10 @@ def build_manifest(
     run_id: str,
     documents: list[DocumentAcquisition],
 ) -> dict[str, Any]:
-    """Return a schema-valid manifest; completeness decides eligibility.
+    """Return a schema-valid manifest.
 
-    Eligibility here means only that every expected artifact is present. The
-    A6 validation gate adds format and identity checks to that decision.
+    A generation is eligible for normalization only when every expected
+    artifact is present and every retained artifact passed validation.
     """
     expected = []
     for document in documents:
@@ -40,6 +44,7 @@ def build_manifest(
             expected.append(entry)
     missing = [entry for document in documents for entry in document.missing]
     complete = not missing and not any(document.problems for document in documents)
+    validated = all(document.validated for document in documents)
     manifest = {
         "schema_version": MANIFEST_SCHEMA_VERSION,
         "generation_id": generation_id,
@@ -60,10 +65,11 @@ def build_manifest(
             for receipt in document.receipts
         ],
         "relationships": proposal_final_relationships(documents),
-        "dependencies": drs_dependencies(documents),
+        "dependencies": incorporated_material_dependencies(documents)
+        + drs_dependencies(documents),
         "missing_artifacts": missing,
         "completeness_status": "complete" if complete else "incomplete",
-        "eligible_for_normalization": complete,
+        "eligible_for_normalization": complete and validated,
     }
     validate_raw_generation_manifest(manifest)
     return manifest
@@ -103,6 +109,66 @@ def proposal_final_relationships(
             }
         )
     return relationships
+
+
+def incorporated_material_dependencies(
+    documents: list[DocumentAcquisition],
+) -> list[dict[str, Any]]:
+    """Record what each directive states about incorporated material.
+
+    Listed material is recorded as unavailable: acquisition never fetches
+    manufacturer documents. "None" is recorded explicitly as not required.
+    """
+    dependencies = []
+    for document in documents:
+        material = document.incorporated_material
+        receipt_id = document.incorporated_material_receipt_id
+        if material is None or not material.determined or receipt_id is None:
+            continue
+        if not material.required:
+            dependencies.append(
+                {
+                    "name": (
+                        f"Material incorporated by reference in "
+                        f"{document.document_number} paragraph ({material.paragraph})"
+                    ),
+                    "dependency_type": "incorporated_material",
+                    "availability_status": "not_required",
+                    "evidence_receipt_ids": [receipt_id],
+                }
+            )
+        for item in material.items:
+            dependencies.append(
+                {
+                    "name": item,
+                    "dependency_type": "incorporated_material",
+                    "availability_status": "unavailable",
+                    "evidence_receipt_ids": [receipt_id],
+                }
+            )
+    return dependencies
+
+
+def build_validation_report(
+    *, generation_id: str, created_at: datetime, documents: list[DocumentAcquisition]
+) -> dict[str, Any]:
+    """Return the schema-valid findings for every retained artifact."""
+    findings = [
+        record
+        for document in documents
+        for validation in document.validations
+        for record in validation.records()
+    ]
+    passed = all(finding["outcome"] == "passed" for finding in findings)
+    report = {
+        "schema_version": VALIDATION_SCHEMA_VERSION,
+        "generation_id": generation_id,
+        "created_at_utc": format_utc(created_at),
+        "status": "passed" if passed else "failed",
+        "findings": findings,
+    }
+    validate_validation_report(report)
+    return report
 
 
 def drs_dependencies(documents: list[DocumentAcquisition]) -> list[dict[str, Any]]:

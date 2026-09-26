@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.faa-directive-impact.dev/validation-report.schema.json",
+  "title": "Raw generation validation report",
+  "description": "Checks run against every successfully retained artifact in one raw generation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generation_id",
+    "created_at_utc",
+    "status",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "generation_id": {
+      "$ref": "#/$defs/non_empty_id"
+    },
+    "created_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "enum": [
+        "passed",
+        "failed"
+      ]
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "receipt_id",
+          "source_document_identity",
+          "representation_role",
+          "check",
+          "outcome",
+          "detail"
+        ],
+        "properties": {
+          "receipt_id": {
+            "$ref": "#/$defs/non_empty_id"
+          },
+          "source_document_identity": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "namespace",
+              "value"
+            ],
+            "properties": {
+              "namespace": {
+                "enum": [
+                  "federal_register_document_number",
+                  "govinfo_package_granule",
+                  "faa_drs_document"
+                ]
+              },
+              "value": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "representation_role": {
+            "enum": [
+              "api_json",
+              "full_text_xml",
+              "full_text_html",
+              "plain_text",
+              "official_pdf",
+              "mods_xml",
+              "original_graphic",
+              "drs_metadata"
+            ]
+          },
+          "source_graphic_identifier": {
+            "type": "string",
+            "minLength": 1
+          },
+          "check": {
+            "enum": [
+              "readable",
+              "sha256",
+              "media_type",
+              "json_wellformed",
+              "required_fields",
+              "xml_wellformed",
+              "text_decodable",
+              "pdf_readable",
+              "document_identity",
+              "govinfo_identity",
+              "graphic_metadata",
+              "incorporated_material"
+            ]
+          },
+          "outcome": {
+            "enum": [
+              "passed",
+              "failed"
+            ]
+          },
+          "reason_code": {
+            "enum": [
+              "unreadable_artifact",
+              "integrity_mismatch",
+              "media_type_mismatch",
+              "malformed_json",
+              "missing_required_field",
+              "malformed_xml",
+              "undecodable_text",
+              "unreadable_pdf",
+              "identity_mismatch",
+              "govinfo_identity_mismatch",
+              "graphic_metadata_mismatch",
+              "incorporated_material_undetermined"
+            ]
+          },
+          "detail": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "outcome": {
+                  "const": "failed"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "reason_code"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "reason_code"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "passed"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "findings": {
+            "items": {
+              "properties": {
+                "outcome": {
+                  "const": "passed"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "non_empty_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    }
+  }
+}

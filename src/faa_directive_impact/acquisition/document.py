@@ -1,6 +1,5 @@
-"""Acquire every expected representation of one Federal Register document."""
+"""Acquire and validate every expected representation of one document."""
 
-import json
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -9,17 +8,22 @@ from faa_directive_impact.acquisition.federal_register import (
     expected_without_metadata,
     resolve_representations,
 )
+from faa_directive_impact.acquisition.incorporation import IncorporatedMaterial
 from faa_directive_impact.acquisition.retrieval import (
     AcquisitionContext,
     ExpectedArtifact,
     retrieve,
+)
+from faa_directive_impact.acquisition.validation import (
+    ArtifactValidation,
+    validate_artifact,
 )
 from faa_directive_impact.acquisition.versions import VersionIndex, VersionObservation
 
 
 @dataclass
 class DocumentAcquisition:
-    """Expected cells, receipts, gaps, and version outcomes for one document."""
+    """Expected cells, receipts, gaps, validation, and version outcomes."""
 
     document_number: str
     run_id: str
@@ -29,11 +33,18 @@ class DocumentAcquisition:
     receipts: list[dict[str, Any]] = field(default_factory=list)
     missing: list[dict[str, Any]] = field(default_factory=list)
     problems: list[str] = field(default_factory=list)
+    validations: list[ArtifactValidation] = field(default_factory=list)
     versions: list[VersionObservation] = field(default_factory=list)
+    incorporated_material: IncorporatedMaterial | None = None
+    incorporated_material_receipt_id: str | None = None
+
+    @property
+    def validated(self) -> bool:
+        return all(validation.passed for validation in self.validations)
 
     @property
     def failed(self) -> bool:
-        return bool(self.missing or self.problems)
+        return bool(self.missing or self.problems) or not self.validated
 
     @property
     def needs_review(self) -> bool:
@@ -54,8 +65,9 @@ def acquire_document(
 ) -> DocumentAcquisition:
     """Fetch API JSON, resolve representations from it, and fetch each one.
 
-    Nothing is inferred when the API record is unavailable, unreadable, or
-    describes a different document: every expected cell is recorded as missing
+    Each retained artifact is validated immediately; only artifacts that pass
+    become logical versions. Nothing is inferred when the API record is
+    unavailable or fails validation: every expected cell is recorded as missing
     against the API receipt and the document stops there.
     """
     result = DocumentAcquisition(document_number, context.run_id)
@@ -65,19 +77,21 @@ def acquire_document(
     result.api_receipt_id = api_receipt["receipt_id"]
     result.expected.append(api_request.expected)
 
-    problem = _api_problem(context, api_receipt, document_number)
-    if problem is not None:
-        result.problems.append(problem)
+    api_validation = None
+    if api_receipt["acquisition_status"] == "succeeded":
+        api_validation = _validate(context, result, api_receipt, versions)
+    api_record = api_validation.api_record if api_validation else None
+    if api_validation is None or not api_validation.passed or api_record is None:
+        result.problems.append(
+            "api_json_unavailable" if api_validation is None else "api_json_invalid"
+        )
         result.expected.extend(expected_without_metadata(document_number))
         for cell in result.expected:
             result.mark_missing(cell, "acquisition_failed", result.api_receipt_id)
         return result
 
-    result.api_record = _read_api_record(context, api_receipt)
-    result.versions.append(versions.observe(api_receipt))
-    resolved = resolve_representations(
-        result.api_record, document_number, context.run_id
-    )
+    result.api_record = api_record
+    resolved = resolve_representations(api_record, document_number, context.run_id)
     for cell in resolved.unresolved:
         result.expected.append(cell)
         result.mark_missing(cell, "not_published", None)
@@ -85,34 +99,28 @@ def acquire_document(
         result.expected.append(request.expected)
         receipt = retrieve(context, request)
         result.receipts.append(receipt)
-        if receipt["acquisition_status"] == "succeeded":
-            result.versions.append(versions.observe(receipt))
-        else:
+        if receipt["acquisition_status"] != "succeeded":
             result.mark_missing(
                 request.expected, "acquisition_failed", receipt["receipt_id"]
             )
+            continue
+        validation = _validate(context, result, receipt, versions)
+        if validation.incorporated_material is not None:
+            result.incorporated_material = validation.incorporated_material
+            result.incorporated_material_receipt_id = receipt["receipt_id"]
     return result
 
 
-def _api_problem(
-    context: AcquisitionContext, receipt: dict[str, Any], document_number: str
-) -> str | None:
-    if receipt["acquisition_status"] != "succeeded":
-        return "api_json_unavailable"
-    try:
-        record = _read_api_record(context, receipt)
-    except ValueError:
-        return "api_json_unreadable"
-    if record.get("document_number") != document_number:
-        return "api_json_identity_mismatch"
-    return None
-
-
-def _read_api_record(
-    context: AcquisitionContext, receipt: dict[str, Any]
-) -> dict[str, Any]:
-    path = context.storage.resolve(receipt["artifact"]["relative_path"])
-    record = json.loads(path.read_bytes())
-    if not isinstance(record, dict):
-        raise ValueError("API JSON record is not an object")
-    return record
+def _validate(
+    context: AcquisitionContext,
+    result: DocumentAcquisition,
+    receipt: dict[str, Any],
+    versions: VersionIndex,
+) -> ArtifactValidation:
+    validation = validate_artifact(
+        receipt, context.storage.root, result.document_number, result.api_record
+    )
+    result.validations.append(validation)
+    if validation.passed:
+        result.versions.append(versions.observe(receipt))
+    return validation
