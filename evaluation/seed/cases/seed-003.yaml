@@ -1,0 +1,49 @@
+schema_version: "1.0.0"
+case_id: seed-003
+title: Listed hub part number but the serial number is unknown
+slice: missing_state
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-09-26"
+  rationale: >-
+    Applicability turns on the P/N and S/N pair. With the S/N unknown, neither
+    affected nor not affected can be established.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-09-26"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-003
+    engine_serial_number: SYN-V2500-0003
+    engine_model: V2524-A5
+    snapshot_at: "2026-09-26"
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: unknown
+      cycles_since_new: unknown
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-0003
+      cycles_since_new: 5100
+  events: []
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    classification: needs_review
+    reason: >-
+      The installed HPT 1st-stage hub has a listed P/N, but its S/N is unknown,
+      so it cannot be compared with table 1.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(g)", locator: table 1 rows for P/N 2A5001}
+    required_missing_facts:
+      - installed_components[HPT 1st-stage hub].serial_number
+      - installed_components[HPT 1st-stage hub].cycles_since_new
+forbidden_claims:
+  - The engine is not affected.
+  - The engine is potentially affected.

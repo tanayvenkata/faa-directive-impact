@@ -1,0 +1,60 @@
+schema_version: "1.0.0"
+case_id: seed-006
+title: Hub with a 100 CSN limit, where the 100-FC window sets the outer deadline
+slice: cycle_limit
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-09-26"
+  rationale: >-
+    PKLBSK9287's limit is 100 CSN and it was at 60 CSN on the effective date,
+    so the limit falls before the 100-FC window ends. Both readings give the
+    same latest time: 100 FC after the effective date. They differ only if a
+    qualifying shop visit happens first, which has not occurred.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2025-11-20"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-006
+    engine_serial_number: SYN-V2500-0006
+    engine_model: V2530-A5
+    snapshot_at: "2025-11-20"
+    engine_cycle_readings:
+      - {at: "2025-10-29", engine_flight_cycles: 25500}
+      - {at: "2025-11-20", engine_flight_cycles: 25530}
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: PKLBSK9287
+      cycles_since_new: 90
+      cycles_since_new_readings:
+        - {at: "2025-10-29", cycles_since_new: 60}
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-0006
+      cycles_since_new: 90
+  events: []
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    classification: potentially_affected
+    reason: >-
+      The installed HPT 1st-stage hub P/N 2A5001 S/N PKLBSK9287 matches table 1
+      with a 100 CSN removal limit. The engine model is listed in paragraph (c).
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(c)"}
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBSK9287"}
+    action_timing:
+      description: >-
+        Latest removal is 100 FC after 2025-10-29 (engine counter 25,600),
+        which is 70 FC after this snapshot. The 100 CSN limit comes earlier but
+        is superseded by "whichever occurs later". If a qualifying shop visit
+        occurs first, see seed-005.
+forbidden_claims:
+  - The hub must be removed at 100 CSN.
+  - The engine is compliant or noncompliant.

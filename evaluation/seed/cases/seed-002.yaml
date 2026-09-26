@@ -1,0 +1,51 @@
+schema_version: "1.0.0"
+case_id: seed-002
+title: Listed hub part number with a near-miss serial number
+slice: unaffected_part
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-09-26"
+  rationale: >-
+    P/N 2A5001 appears in table 1 but only with four specific S/Ns. PKLBST5012
+    differs from the listed PKLBST5011 by one character. Exact S/N equality
+    decides applicability; similarity must not.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-09-26"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-002
+    engine_serial_number: SYN-V2500-0002
+    engine_model: V2533-A5
+    snapshot_at: "2026-09-26"
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: PKLBST5012
+      cycles_since_new: 4200
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-0002
+      cycles_since_new: 4200
+  events: []
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    classification: not_affected_for_directive
+    reason: >-
+      The engine model is listed, but neither installed hub's P/N and S/N pair
+      appears in table 1 to paragraph (g). PKLBST5012 is not PKLBST5011.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(c)"}
+      - {document: "2025-18469", paragraph: "(g)", locator: table 1 (no matching row)}
+forbidden_claims:
+  - The engine is potentially affected because P/N 2A5001 is listed.
+  - The engine is compliant with AD 2025-19-13.
+notes: >-
+  The installation prohibition in paragraph (h) still applies to this engine's
+  future hub installations. A later case should test that separately.

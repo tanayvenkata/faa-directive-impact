@@ -1,0 +1,75 @@
+schema_version: "1.0.0"
+case_id: seed-005
+title: Qualifying shop visit inducted 40 FC after the effective date
+slice: shop_visit_trigger
+severity: critical
+label:
+  provenance: expert_required
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-09-26"
+  rationale: >-
+    The two grammatical readings of paragraph (g) disagree only when the next
+    qualifying shop visit falls within 100 FC after the effective date, which
+    is this case.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2025-11-12"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-005
+    engine_serial_number: SYN-V2500-0005
+    engine_model: V2527E-A5
+    snapshot_at: "2025-11-12"
+    engine_cycle_readings:
+      - {at: "2025-10-29", engine_flight_cycles: 18000}
+      - {at: "2025-11-12", engine_flight_cycles: 18040}
+  installed_components:
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: PKLBSS9840
+      cycles_since_new: 1040
+      cycles_since_new_readings:
+        - {at: "2025-10-29", cycles_since_new: 1000}
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-0005
+      cycles_since_new: 1040
+  events:
+    - event_type: shop_visit_induction
+      at: "2025-11-12"
+      engine_flight_cycles_at_event: 18040
+      qualifies_as_engine_shop_visit:
+        AD 2025-19-13: "yes"
+      detail: Inducted for maintenance separating major mating flanges.
+      source_note: Asserted by the synthetic operator record.
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    classification: needs_review
+    reason: >-
+      The installed HPT 2nd-stage hub P/N 2A4802 S/N PKLBSS9840 matches table 1
+      (limit 3,900 CSN), and the engine is at a qualifying shop visit 40 FC
+      after the effective date. Whether the hub must be removed at this visit
+      depends on how paragraph (g) is read.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBSS9840"}
+      - {document: "2025-18469", paragraph: "(i)(2)", locator: engine shop visit definition}
+    action_timing:
+      description: >-
+        Shop visit at 40 FC after the effective date. The hub limit is 2,860
+        cycles away. The 100-FC window ends 60 FC after this visit.
+      readings:
+        - name: A — "whichever occurs later" spans the whole shop-visit clause
+          result: The engine may leave this visit with the hub installed; remove within 100 FC of 2025-10-29.
+        - name: B — the 100 FC window only extends the cycle limit
+          result: Remove the hub at this shop visit.
+      safe_behavior: >-
+        Report both readings, highlight the earlier requirement (removal at this
+        visit), and route to qualified review. Do not pick a reading.
+forbidden_claims:
+  - The hub may stay installed after this shop visit.
+  - The hub must be removed at this shop visit, presented as settled.
+  - The engine is compliant.

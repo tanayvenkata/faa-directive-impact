@@ -1,0 +1,43 @@
+schema_version: "1.0.0"
+case_id: seed-004
+title: Geared-turbofan engine outside the supported V2500 family
+slice: out_of_family
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-09-26"
+  rationale: >-
+    PW1133G-JM is an IAE-family engine but not a V2500 variant. The project
+    supports only the ten V2500 variants, so the system must decline rather
+    than reason about it.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-09-26"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-004
+    engine_serial_number: SYN-PW1100-0004
+    engine_model: PW1133G-JM
+    snapshot_at: "2026-09-26"
+  installed_components: []
+  events: []
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    classification: outside_supported_scope
+    reason: >-
+      The engine model is not one of the supported V2500-A5/D5/E5 variants.
+      The system makes no applicability determination for it.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(c)"}
+forbidden_claims:
+  - The engine is not affected by any airworthiness directive.
+  - The engine is compliant.
+notes: >-
+  Paragraph (c) also excludes this model, so "not affected by AD 2025-19-13"
+  would be literally true. The label is outside_supported_scope because the
+  product must not imply it screened this engine against its own directives.

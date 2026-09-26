@@ -1,0 +1,59 @@
+schema_version: "1.0.0"
+case_id: seed-001
+title: Listed HPT 1st-stage hub installed, no shop visit since the AD took effect
+slice: exact_match
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-09-26"
+  rationale: >-
+    Model is in paragraph (c) and the P/N and S/N equal a table 1 row. More than
+    100 FC have passed since the effective date and no qualifying shop visit
+    has occurred, so both readings of paragraph (g) give the same timing.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-09-26"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-001
+    engine_serial_number: SYN-V2500-0001
+    engine_model: V2527-A5
+    snapshot_at: "2026-09-26"
+    engine_cycle_readings:
+      - {at: "2025-10-29", engine_flight_cycles: 41200}
+      - {at: "2026-09-26", engine_flight_cycles: 42650}
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: PKLBST5011
+      cycles_since_new: 3100
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-0001
+      cycles_since_new: 3100
+  events: []
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    classification: potentially_affected
+    reason: >-
+      V2527-A5 is listed in paragraph (c), and the installed HPT 1st-stage hub
+      P/N 2A5001 S/N PKLBST5011 matches table 1 to paragraph (g) (removal
+      cycle limit 5,500 CSN).
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(c)"}
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBST5011"}
+      - {document: "2025-18469", paragraph: "(i)(2)", locator: engine shop visit definition}
+    action_timing:
+      description: >-
+        Remove at the next qualifying engine shop visit, before the hub reaches
+        5,500 CSN (2,400 cycles remaining). The 100-FC window after 2025-10-29
+        has already elapsed, so it does not extend the time.
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2025-19-13.
+  - The engine is not affected.
+  - The hub may remain in service beyond 5,500 CSN.
