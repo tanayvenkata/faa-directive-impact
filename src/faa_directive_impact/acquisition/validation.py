@@ -18,9 +18,10 @@ from xml.etree.ElementTree import Element
 from defusedxml import ElementTree as SafeElementTree
 from pypdf import PdfReader
 
-from faa_directive_impact.acquisition.incorporation import (
+from faa_directive_impact.acquisition.directive_sections import (
     IncorporatedMaterial,
     read_incorporated_material,
+    read_replaced_ads,
 )
 from faa_directive_impact.acquisition.retrieval import detect_media_type
 
@@ -57,6 +58,7 @@ class ArtifactValidation:
     findings: list[Finding] = field(default_factory=list)
     api_record: dict[str, Any] | None = None
     incorporated_material: IncorporatedMaterial | None = None
+    replaced_ads: tuple[str, ...] = ()
 
     @property
     def passed(self) -> bool:
@@ -185,6 +187,7 @@ def _check_full_text_xml(
     _identity_finding(
         result, f"FR Doc. {document_number} " in f"{frdoc} ", document_number
     )
+    result.replaced_ads = read_replaced_ads(root)
     material = read_incorporated_material(root)
     result.incorporated_material = material
     if not material.determined:

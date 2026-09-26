@@ -3,12 +3,12 @@
 from dataclasses import dataclass, field
 from typing import Any
 
+from faa_directive_impact.acquisition.directive_sections import IncorporatedMaterial
 from faa_directive_impact.acquisition.federal_register import (
     api_json_request,
     expected_without_metadata,
     resolve_representations,
 )
-from faa_directive_impact.acquisition.incorporation import IncorporatedMaterial
 from faa_directive_impact.acquisition.retrieval import (
     AcquisitionContext,
     ExpectedArtifact,
@@ -36,7 +36,8 @@ class DocumentAcquisition:
     validations: list[ArtifactValidation] = field(default_factory=list)
     versions: list[VersionObservation] = field(default_factory=list)
     incorporated_material: IncorporatedMaterial | None = None
-    incorporated_material_receipt_id: str | None = None
+    replaced_ads: tuple[str, ...] = ()
+    full_text_xml_receipt_id: str | None = None
 
     @property
     def validated(self) -> bool:
@@ -105,9 +106,10 @@ def acquire_document(
             )
             continue
         validation = _validate(context, result, receipt, versions)
-        if validation.incorporated_material is not None:
+        if receipt["representation_role"] == "full_text_xml":
             result.incorporated_material = validation.incorporated_material
-            result.incorporated_material_receipt_id = receipt["receipt_id"]
+            result.replaced_ads = validation.replaced_ads
+            result.full_text_xml_receipt_id = receipt["receipt_id"]
     return result
 
 

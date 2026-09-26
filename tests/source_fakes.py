@@ -34,7 +34,10 @@ def make_pdf(text: str) -> bytes:
 
 
 def directive_xml(
-    number: str, root: str = "RULE", incorporated: tuple[str, ...] = ()
+    number: str,
+    root: str = "RULE",
+    incorporated: tuple[str, ...] = (),
+    replaces: str | None = None,
 ) -> bytes:
     if incorporated:
         items = "".join(
@@ -44,8 +47,12 @@ def directive_xml(
         section = f"<P>(1) The Director approved the IBR.</P>{items}"
     else:
         section = "<P>None.</P>"
+    affected = (
+        f"This AD replaces AD {replaces}, Amendment 39-00000." if replaces else "None."
+    )
     return (
         f"<{root}><PREAMB><AGENCY>DEPARTMENT OF TRANSPORTATION</AGENCY></PREAMB>"
+        f"<HD>(b) Affected ADs</HD><P>{affected}</P>"
         f"<HD>(k) Additional Information</HD><P>Contact the FAA.</P>"
         f"<HD>(l) Material Incorporated by Reference</HD>{section}"
         f"<FRDOC>[FR Doc. {number} Filed 9-23-25; 8:45 am]</FRDOC></{root}>"
@@ -67,6 +74,9 @@ def document_pages(
     docket_ids: tuple[str, ...] = ("Docket No. FAA-2025-0926",),
     images: tuple[str, ...] = (),
     incorporated: tuple[str, ...] = (),
+    replaces: str | None = None,
+    action: str = "Final rule.",
+    title: str = "Airworthiness Directives; International Aero Engines AG Engines",
 ) -> dict[str, bytes | None]:
     """Return URL → body for every representation of one document."""
     package = f"FR-{publication_date}"
@@ -82,7 +92,7 @@ def document_pages(
     }
     root = "PRORULE" if document_type == "Proposed Rule" else "RULE"
     pages: dict[str, bytes | None] = {
-        urls["full_text_xml_url"]: directive_xml(number, root, incorporated),
+        urls["full_text_xml_url"]: directive_xml(number, root, incorporated, replaces),
         urls[
             "body_html_url"
         ]: f"\n  <div><p id='p-1'>FR Doc. {number}</p></div>".encode(),
@@ -108,6 +118,8 @@ def document_pages(
     record = {
         "document_number": number,
         "type": document_type,
+        "action": action,
+        "title": title,
         "publication_date": publication_date,
         "docket_ids": list(docket_ids),
         "images": images_field,

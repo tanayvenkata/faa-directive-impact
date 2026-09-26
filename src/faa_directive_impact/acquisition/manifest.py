@@ -21,6 +21,7 @@ MANIFEST_SCHEMA_VERSION = "1.1.0"
 VALIDATION_SCHEMA_VERSION = "1.0.0"
 PROPOSED_RULE = "Proposed Rule"
 FINAL_RULE = "Rule"
+CORRECTION = "Correction"
 
 
 def build_manifest(
@@ -64,7 +65,7 @@ def build_manifest(
             for document in documents
             for receipt in document.receipts
         ],
-        "relationships": proposal_final_relationships(documents),
+        "relationships": document_relationships(documents),
         "dependencies": incorporated_material_dependencies(documents)
         + drs_dependencies(documents),
         "missing_artifacts": missing,
@@ -75,24 +76,32 @@ def build_manifest(
     return manifest
 
 
+def document_relationships(
+    documents: list[DocumentAcquisition],
+) -> list[dict[str, Any]]:
+    """Return proposal/final, correction, and supersession relationships."""
+    return (
+        proposal_final_relationships(documents)
+        + correction_relationships(documents)
+        + supersession_relationships(documents)
+    )
+
+
 def proposal_final_relationships(
     documents: list[DocumentAcquisition],
 ) -> list[dict[str, Any]]:
     """Link a proposed rule to a final rule that shares an FAA docket number.
 
     The API does not assert this link directly, so it is an identifier join
-    supported by both API JSON receipts, not a source assertion.
+    supported by both API JSON receipts, not a source assertion. A correction
+    is published with type "Rule" but is never a final rule for this purpose.
     """
-    usable = [
-        (document, document.api_record)
-        for document in documents
-        if document.api_record is not None
-    ]
+    usable = _with_records(documents)
     relationships = []
     for (proposal, proposal_record), (final, final_record) in product(usable, usable):
         if (
             proposal_record.get("type") != PROPOSED_RULE
-            or final_record.get("type") != FINAL_RULE
+            or not _is_original_final_rule(final_record)
             or not faa_docket_numbers(proposal_record)
             & faa_docket_numbers(final_record)
             or str(proposal_record.get("publication_date"))
@@ -100,15 +109,120 @@ def proposal_final_relationships(
         ):
             continue
         relationships.append(
-            {
-                "relationship_type": "proposal_final",
-                "from_identity": _identity(proposal.document_number),
-                "to_identity": _identity(final.document_number),
-                "evidence_receipt_ids": [proposal.api_receipt_id, final.api_receipt_id],
-                "confidence_class": "identifier_join",
-            }
+            _relationship(
+                "proposal_final",
+                proposal,
+                final,
+                [proposal.api_receipt_id, final.api_receipt_id],
+                "identifier_join",
+            )
         )
     return relationships
+
+
+def correction_relationships(
+    documents: list[DocumentAcquisition],
+) -> list[dict[str, Any]]:
+    """Link a correction to the final rule it corrects.
+
+    The API types a correction as "Rule" and may leave ``correction_of``
+    empty, so a correction is recognized by its action or title and joined on
+    the shared AD number. An explicit ``correction_of`` makes the link a source
+    assertion.
+    """
+    usable = _with_records(documents)
+    relationships = []
+    for (correction, correction_record), (final, final_record) in product(
+        usable, usable
+    ):
+        if (
+            not _is_correction(correction_record)
+            or not _is_original_final_rule(final_record)
+            or not airworthiness_directive_numbers(correction_record)
+            & airworthiness_directive_numbers(final_record)
+        ):
+            continue
+        asserted = correction_record.get("correction_of") == final.document_number
+        relationships.append(
+            _relationship(
+                "corrects",
+                correction,
+                final,
+                [correction.api_receipt_id, final.api_receipt_id],
+                "source_asserted" if asserted else "identifier_join",
+            )
+        )
+    return relationships
+
+
+def supersession_relationships(
+    documents: list[DocumentAcquisition],
+) -> list[dict[str, Any]]:
+    """Link an AD to an AD it states it replaces, when both are acquired.
+
+    The replacing AD's "Affected ADs" paragraph names the replaced AD number;
+    the replaced document is found by that AD number in its API record.
+    """
+    usable = _with_records(documents)
+    relationships = []
+    for (newer, _), (older, older_record) in product(usable, usable):
+        if (
+            newer.full_text_xml_receipt_id is None
+            or not _is_original_final_rule(older_record)
+            or not set(newer.replaced_ads)
+            & airworthiness_directive_numbers(older_record)
+        ):
+            continue
+        relationships.append(
+            _relationship(
+                "supersedes",
+                newer,
+                older,
+                [newer.full_text_xml_receipt_id, older.api_receipt_id],
+                "identifier_join",
+            )
+        )
+    return relationships
+
+
+def _with_records(
+    documents: list[DocumentAcquisition],
+) -> list[tuple[DocumentAcquisition, dict[str, Any]]]:
+    return [
+        (document, document.api_record)
+        for document in documents
+        if document.api_record is not None
+    ]
+
+
+def _is_correction(record: dict[str, Any]) -> bool:
+    action = str(record.get("action") or "").lower()
+    title = str(record.get("title") or "")
+    return (
+        record.get("type") == CORRECTION
+        or "correction" in action
+        or title.endswith("; Correction")
+    )
+
+
+def _is_original_final_rule(record: dict[str, Any]) -> bool:
+    return record.get("type") == FINAL_RULE and not _is_correction(record)
+
+
+def _relationship(
+    relationship_type: str,
+    source: DocumentAcquisition,
+    target: DocumentAcquisition,
+    evidence: list[str | None],
+    confidence_class: str,
+) -> dict[str, Any]:
+    return {
+        "relationship_type": relationship_type,
+        "from_identity": _identity(source.document_number),
+        "to_identity": _identity(target.document_number),
+        "evidence_receipt_ids": list(dict.fromkeys(evidence)),
+        "confidence_class": confidence_class,
+    }
 
 
 def incorporated_material_dependencies(
@@ -122,7 +236,7 @@ def incorporated_material_dependencies(
     dependencies = []
     for document in documents:
         material = document.incorporated_material
-        receipt_id = document.incorporated_material_receipt_id
+        receipt_id = document.full_text_xml_receipt_id
         if material is None or not material.determined or receipt_id is None:
             continue
         if not material.required:
@@ -172,22 +286,31 @@ def build_validation_report(
 
 
 def drs_dependencies(documents: list[DocumentAcquisition]) -> list[dict[str, Any]]:
-    """Record FAA DRS corroboration for each final AD as not yet verifiable."""
-    dependencies = []
+    """Record FAA DRS corroboration for each AD number as not yet verifiable.
+
+    An AD and its correction share an AD number, so each number yields one
+    dependency backed by every final-rule receipt that names it.
+    """
+    evidence: dict[str, list[str]] = {}
     for document in documents:
         record = document.api_record
-        if not record or record.get("type") != FINAL_RULE:
+        if (
+            not record
+            or record.get("type") != FINAL_RULE
+            or not document.api_receipt_id
+        ):
             continue
         for number in sorted(airworthiness_directive_numbers(record)):
-            dependencies.append(
-                {
-                    "name": f"FAA DRS record for AD {number}",
-                    "dependency_type": "source_access",
-                    "availability_status": "deferred_access_verification",
-                    "evidence_receipt_ids": [document.api_receipt_id],
-                }
-            )
-    return dependencies
+            evidence.setdefault(number, []).append(document.api_receipt_id)
+    return [
+        {
+            "name": f"FAA DRS record for AD {number}",
+            "dependency_type": "source_access",
+            "availability_status": "deferred_access_verification",
+            "evidence_receipt_ids": receipt_ids,
+        }
+        for number, receipt_ids in evidence.items()
+    ]
 
 
 def _identity(document_number: str) -> dict[str, str]:

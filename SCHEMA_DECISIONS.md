@@ -117,6 +117,23 @@ HPT pair uses `(l)` and `2021-14268` uses `(k)`. A stated `None.` becomes an
 explicit `not_required` dependency; listed items become named `unavailable`
 dependencies; an absent heading fails validation.
 
+## Document Relationships
+
+Relationships read `from → to`:
+
+| Type | From | To | Evidence |
+|---|---|---|---|
+| `proposal_final` | proposed rule | original final rule | shared FAA docket; both API JSON receipts |
+| `corrects` | correction | the final rule it corrects | shared AD number; both API JSON receipts |
+| `supersedes` | replacing AD | replaced AD | "Affected ADs: This AD replaces AD …"; XML and API JSON receipts |
+
+The Federal Register API types a correction as `Rule` and may leave
+`correction_of` empty. For example, `2026-18423` corrects AD 2026-17-03 but
+does not link to `2026-16954`. A correction is therefore recognized by its
+action (`Final rule; correction.`) or title and is never treated as a second
+final rule. Links are `identifier_join` unless the API asserts them directly.
+Supersession is recorded only when both ADs are in the generation.
+
 ## Interrupted Runs
 
 An artifact is published before its receipt is written. If the receipt write

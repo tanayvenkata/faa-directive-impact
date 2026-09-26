@@ -7,7 +7,7 @@ from typing import Any
 import httpx
 import pytest
 from jsonschema import ValidationError
-from source_fakes import api_url, document_pages, edit_api_record
+from source_fakes import api_url, document_pages, edit_api_record, serve
 
 from faa_directive_impact.acquisition.document import acquire_document
 from faa_directive_impact.acquisition.manifest import (
@@ -308,3 +308,101 @@ def test_valid_pair_produces_passing_report(tmp_path: Path) -> None:
     assert ("official_pdf", "pdf_readable") in checks
     assert ("full_text_xml", "incorporated_material") in checks
     assert ("mods_xml", "govinfo_identity") in checks
+
+
+def build(tmp_path: Path, numbers: tuple[str, ...], pages: dict) -> dict:
+    """Acquire an arbitrary document set and return its manifest."""
+    run_id = f"run-{next(_ids):04d}"
+    storage = RawStorage(tmp_path)
+    versions = VersionIndex.from_receipts(storage.root)
+    with build_client(transport=httpx.MockTransport(serve(pages))) as client:
+        context = AcquisitionContext(
+            run_id=run_id,
+            storage=storage,
+            client=client,
+            clock=lambda: FIXED_TIME,
+            new_id=lambda prefix, at: f"{prefix}-{next(_ids):06d}",
+        )
+        documents = [acquire_document(context, n, versions) for n in numbers]
+    return build_manifest(
+        generation_id=f"generation-{run_id}",
+        created_at=FIXED_TIME,
+        corpus_track="frozen_evaluation",
+        run_id=run_id,
+        documents=documents,
+    )
+
+
+def relationship_set(manifest: dict) -> set[tuple[str, str, str, str]]:
+    return {
+        (
+            r["relationship_type"],
+            r["from_identity"]["value"],
+            r["to_identity"]["value"],
+            r["confidence_class"],
+        )
+        for r in manifest["relationships"]
+    }
+
+
+def test_correction_is_not_a_second_final_rule(tmp_path: Path) -> None:
+    docket = "Docket No. FAA-2025-2555"
+    pages = {
+        **document_pages("2025-20088", "Proposed Rule", "2025-11-18", (docket,)),
+        **document_pages("2026-16954", "Rule", "2026-08-20", (docket, "AD 2026-17-03")),
+        **document_pages(
+            "2026-18423",
+            "Rule",
+            "2026-09-10",
+            (docket, "AD 2026-17-03"),
+            action="Final rule; correction.",
+            title="Airworthiness Directives; International Aero Engines AG "
+            "Engines; Correction",
+        ),
+    }
+
+    manifest = build(tmp_path, ("2025-20088", "2026-16954", "2026-18423"), pages)
+
+    assert relationship_set(manifest) == {
+        ("proposal_final", "2025-20088", "2026-16954", "identifier_join"),
+        ("corrects", "2026-18423", "2026-16954", "identifier_join"),
+    }
+    (drs,) = [
+        d for d in manifest["dependencies"] if d["dependency_type"] == "source_access"
+    ]
+    assert drs["name"] == "FAA DRS record for AD 2026-17-03"
+    assert len(drs["evidence_receipt_ids"]) == 2
+
+
+def test_replacing_ad_supersedes_the_acquired_older_ad(tmp_path: Path) -> None:
+    pages = {
+        **document_pages(
+            "2021-11960",
+            "Rule",
+            "2021-06-08",
+            ("Docket No. FAA-2021-0129", "AD 2021-11-15"),
+        ),
+        **document_pages(
+            "2022-02574",
+            "Rule",
+            "2022-02-08",
+            ("Docket No. FAA-2021-0835", "AD 2022-02-09"),
+            replaces="2021-11-15",
+        ),
+    }
+
+    manifest = build(tmp_path, ("2021-11960", "2022-02574"), pages)
+
+    assert relationship_set(manifest) == {
+        ("supersedes", "2022-02574", "2021-11960", "identifier_join")
+    }
+
+
+def test_reserved_placeholders_are_not_material(tmp_path: Path) -> None:
+    bulletin = "IAE NMSB V2500-E5-72-0015, dated December 15, 2020."
+
+    manifest = generate(tmp_path, pair_pages(incorporated=(bulletin, "[Reserved]")))
+
+    names = {d["name"] for d in manifest["dependencies"]}
+    assert bulletin in names
+    assert "[Reserved]" not in names
