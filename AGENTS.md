@@ -44,8 +44,8 @@ management, and a root `Makefile` as the documented command entry point.
 - `make lint` — run Ruff lint checks.
 - `make format` — apply Ruff formatting.
 - `make check` — run lint and tests.
-- `make acquire-api-json DOC=2025-10764` — live network call; acquire one
-  Federal Register API JSON record into `STORAGE_ROOT` (default `data/`).
+- `make acquire DOCS="2025-10764 2025-18469"` — live network call; acquire
+  every expected representation into `STORAGE_ROOT` (default `data/`).
 
 Run all commands from the repository root. Update this section and the README
 when commands or tooling change.

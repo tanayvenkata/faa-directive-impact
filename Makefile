@@ -1,4 +1,4 @@
-.PHONY: sync test lint format check acquire-api-json
+.PHONY: sync test lint format check acquire
 
 STORAGE_ROOT ?= data
 
@@ -17,6 +17,6 @@ format:
 check: lint test
 
 
-# Live network call. Example: make acquire-api-json DOC=2025-10764
-acquire-api-json:
-	uv run faa-directive-impact acquire-api-json $(DOC) --storage-root $(STORAGE_ROOT)
+# Live network call. Example: make acquire DOCS="2025-10764 2025-18469"
+acquire:
+	uv run faa-directive-impact acquire $(DOCS) --storage-root $(STORAGE_ROOT)

@@ -39,6 +39,8 @@ class RepresentationRequest:
     relative_path: str
     redistribution_status: str
     redistribution_basis: str
+    parent_identity: tuple[str, str] | None = None
+    source_graphic_identifier: str | None = None
 
 
 @dataclass(frozen=True)
@@ -109,6 +111,11 @@ def retrieve(context: AcquisitionContext, spec: RepresentationRequest) -> dict:
             "basis": spec.redistribution_basis,
         },
     }
+    if spec.parent_identity is not None:
+        namespace, value = spec.parent_identity
+        receipt["parent_document_identity"] = {"namespace": namespace, "value": value}
+    if spec.source_graphic_identifier is not None:
+        receipt["source_graphic_identifier"] = spec.source_graphic_identifier
     try:
         response_record, resolved_url, artifact = _download(context, spec)
     except _AcquisitionFailure as failure:

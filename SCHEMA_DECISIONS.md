@@ -71,6 +71,24 @@ compression, so a hash change signals a content change.
 HTTP ETag and Last-Modified values are retained when present but never replace
 the content hash.
 
+## Logical Source Versions
+
+A logical source version is one distinct content hash for one source identity
+and representation role (plus graphic identifier for figures). A derived
+version index is rebuilt from successful receipts on every run and is never a
+source of truth. Each new success is classified as `new`, `unchanged`, or
+`changed`; a `changed` result is preserved and surfaced for review, never
+replaced.
+
+Federal Register API JSON includes a `page_views` counter that changes without
+any change to the document. For API JSON only, the version hash is computed
+over a canonical form with `page_views` removed. The receipt still records the
+SHA-256 of the exact retained bytes. Any other volatile field must be added
+explicitly to `VOLATILE_API_JSON_FIELDS`, never ignored implicitly.
+
+Each run retains its own copy of every artifact. Physical deduplication by hash
+is deferred until corpus size shows a need.
+
 ## Paths and Secrets
 
 Artifact and receipt paths are relative and may not traverse above their
