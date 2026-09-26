@@ -29,7 +29,10 @@ asset_snapshot:
     - component_name: HPT 1st-stage hub
       part_number: 2A5001
       serial_number: PKLBST5011
+      installed_at: "2023-04-18"
       cycles_since_new: 3100
+      cycles_since_new_readings:
+        - {at: "2025-10-29", cycles_since_new: 1650}
     - component_name: HPT 2nd-stage hub
       part_number: 2A4802
       serial_number: SYN-HUB2-0001
@@ -39,7 +42,11 @@ directive_candidates: ["2025-18469"]
 expected:
   - directive: "2025-18469"
     controlling_ad: AD 2025-19-13
-    classification: potentially_affected
+    applicability: applies
+    action_status: action_required
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
     reason: >-
       V2527-A5 is listed in paragraph (c), and the installed HPT 1st-stage hub
       P/N 2A5001 S/N PKLBST5011 matches table 1 to paragraph (g) (removal
@@ -59,4 +66,5 @@ expected:
 forbidden_claims:
   - The engine is compliant or noncompliant with AD 2025-19-13.
   - The engine is not affected.
+  - The hub may be reinstalled in any engine after removal.
   - The hub may remain in service beyond 5,500 CSN.

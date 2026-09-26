@@ -9,17 +9,31 @@ Cases live in `cases/seed-NNN.yaml` and are validated by the packaged
 `seed-case.schema.json`. `make test` also checks every case against its source
 generation.
 
-## Labels
+## Outcome Fields
 
-| Classification | Meaning |
+Each expected outcome separates whether a directive applies from whether it
+requires action now. The FAA's own comment responses for AD 2025-19-13 show
+why: its installation prohibition binds every listed engine model, so removing
+or never having an affected hub "does not make the AD no longer applicable."
+
+| `applicability` | Meaning |
 |---|---|
-| `potentially_affected` | Applicability predicates are met by supplied facts |
-| `not_affected_for_directive` | Supplied facts establish the directive does not apply |
-| `needs_review` | A required fact or interpretation is missing; the missing item is named |
-| `outside_supported_scope` | The engine is outside the supported V2500 family; no determination is made |
+| `applies` | The engine is within the directive's applicability |
+| `does_not_apply` | Supplied facts place the engine outside the directive |
+| `unknown` | A fact needed to decide applicability is missing |
+| `outside_supported_scope` | Not a supported V2500 variant; no determination is made |
 
-The system never claims compliance, noncompliance, maintenance adequacy, or
-return-to-service authority.
+| `action_status` (when the directive applies or applicability is unknown) | Meaning |
+|---|---|
+| `action_required` | Supplied facts trigger a required action; `action_timing` says when |
+| `no_action_triggered` | No required action is triggered now; `continuing_obligations` still bind |
+| `needs_review` | A required fact or interpretation is missing; the missing item is named |
+
+Review queues are derived: `action_required` → potentially affected;
+`needs_review` → needs review; `no_action_triggered` → no action currently
+required; `does_not_apply` → not applicable; `outside_supported_scope` →
+outside supported scope. The system never claims compliance, noncompliance,
+maintenance adequacy, or return-to-service authority.
 
 ## Provenance
 
@@ -55,3 +69,6 @@ arithmetic errors in hand labels.
 It does not catch a shared misreading of the directive, because the same
 engineer wrote both the labels and the derivation. That is what `reviewed` and
 `adjudicated` status are for.
+
+Critiques that fed changes are kept in `critique/` with a verification verdict
+for each item.

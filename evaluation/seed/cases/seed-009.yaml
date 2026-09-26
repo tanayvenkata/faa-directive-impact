@@ -1,0 +1,46 @@
+schema_version: "1.0.0"
+case_id: seed-009
+title: Engine record has no HPT hub component records
+slice: missing_state
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-09-26"
+  rationale: >-
+    An empty component list is missing evidence, not proof that no listed hub
+    is installed. Every V2500 engine has both HPT hubs.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-09-26"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-009
+    engine_serial_number: SYN-V2500-0009
+    engine_model: V2522-A5
+    snapshot_at: "2026-09-26"
+  installed_components: []
+  events: []
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    applicability: applies
+    action_status: needs_review
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
+    reason: >-
+      The AD applies to V2522-A5. No HPT hub records were supplied, so a
+      listed hub can be neither found nor excluded.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(c)"}
+      - {document: "2025-18469", paragraph: "(g)", locator: table 1}
+    required_missing_facts:
+      - installed_components[HPT 1st-stage hub]
+      - installed_components[HPT 2nd-stage hub]
+forbidden_claims:
+  - No removal is required.
+  - The engine has no affected hubs.

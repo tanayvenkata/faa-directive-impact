@@ -64,22 +64,22 @@ def test_seed_label_matches_reference_derivation(case, facts) -> None:
     (expected,) = case.record["expected"]
     derivation = derive(case.record["asset_snapshot"], facts)
 
-    assert derivation.classification == expected["classification"]
-    assert set(expected.get("required_missing_facts", [])) >= set(
-        derivation.missing_facts
+    assert derivation.applicability == expected["applicability"]
+    assert derivation.action_status == expected.get("action_status")
+    assert sorted(derivation.missing_facts) == sorted(
+        expected.get("required_missing_facts", [])
     )
+    assert derivation.continuing_obligations == [
+        obligation["paragraph"]
+        for obligation in expected.get("continuing_obligations", [])
+    ]
     computed = expected.get("computed", {})
-    if "latest_engine_flight_cycles" in computed:
-        assert (
-            derivation.latest_engine_flight_cycles
-            == computed["latest_engine_flight_cycles"]
-        )
-    if "component_cycles_remaining" in computed:
-        assert (
-            derivation.component_cycles_remaining
-            == computed["component_cycles_remaining"]
-        )
-    if "readings" in computed:
-        assert derivation.readings == computed["readings"]
+    assert derivation.latest_engine_flight_cycles == computed.get(
+        "latest_engine_flight_cycles"
+    )
+    assert derivation.component_cycles_remaining == computed.get(
+        "component_cycles_remaining"
+    )
+    assert derivation.readings == computed.get("readings", {})
     if case.record["label"]["provenance"] == "expert_required":
         assert derivation.readings_diverge

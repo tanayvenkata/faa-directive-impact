@@ -1,0 +1,71 @@
+schema_version: "1.0.0"
+case_id: seed-007
+title: Both HPT hubs are listed, with different removal limits
+slice: exact_match
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-09-26"
+  rationale: >-
+    Each hub matches its own table 1 row. The engine's timing is set by
+    whichever hub reaches its removal point first. A system that times only
+    one hub hides the earlier deadline.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2025-12-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-007
+    engine_serial_number: SYN-V2500-0007
+    engine_model: V2531-E5
+    snapshot_at: "2025-12-01"
+    engine_cycle_readings:
+      - {at: "2025-10-29", engine_flight_cycles: 30000}
+      - {at: "2025-12-01", engine_flight_cycles: 30300}
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: PKLBSS9200
+      installed_at: "2021-05-11"
+      cycles_since_new: 4300
+      cycles_since_new_readings:
+        - {at: "2025-10-29", cycles_since_new: 4000}
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: PKLBST5005
+      installed_at: "2023-02-20"
+      cycles_since_new: 2300
+      cycles_since_new_readings:
+        - {at: "2025-10-29", cycles_since_new: 2000}
+  events: []
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    applicability: applies
+    action_status: action_required
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
+    reason: >-
+      Both installed hubs match table 1: 1st-stage PKLBSS9200 (limit 4,800
+      CSN) and 2nd-stage PKLBST5005 (limit 4,000 CSN).
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBSS9200"}
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBST5005"}
+    action_timing:
+      description: >-
+        The 1st-stage hub is due first: at the next qualifying shop visit, no
+        later than engine counter 30,800 (500 hub cycles remaining). The
+        2nd-stage hub is due by counter 32,000 (1,700 remaining). Both require
+        removal.
+    computed:
+      latest_engine_flight_cycles: 30800
+      component_cycles_remaining: 500
+forbidden_claims:
+  - Only one hub requires removal.
+  - The engine's deadline is set by the 2nd-stage hub.
+  - The engine is compliant or noncompliant.

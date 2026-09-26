@@ -30,6 +30,7 @@ asset_snapshot:
     - component_name: HPT 1st-stage hub
       part_number: 2A5001
       serial_number: PKLBSK9287
+      installed_at: "2025-09-30"
       cycles_since_new: 90
       cycles_since_new_readings:
         - {at: "2025-10-29", cycles_since_new: 60}
@@ -42,7 +43,11 @@ directive_candidates: ["2025-18469"]
 expected:
   - directive: "2025-18469"
     controlling_ad: AD 2025-19-13
-    classification: potentially_affected
+    applicability: applies
+    action_status: action_required
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
     reason: >-
       The installed HPT 1st-stage hub P/N 2A5001 S/N PKLBSK9287 matches table 1
       with a 100 CSN removal limit. The engine model is listed in paragraph (c).
@@ -53,11 +58,15 @@ expected:
       description: >-
         Latest removal is 100 FC after 2025-10-29 (engine counter 25,600),
         which is 70 FC after this snapshot. The 100 CSN limit comes earlier but
-        is superseded by "whichever occurs later". If a qualifying shop visit
-        occurs first, see seed-005.
+        is superseded by "whichever occurs later". This holds only if no
+        qualifying shop visit occurs first; if one does, see seed-005.
     computed:
       latest_engine_flight_cycles: 25600
       component_cycles_remaining: 10
 forbidden_claims:
-  - The hub must be removed at 100 CSN.
+  - AD 2025-19-13 requires removal at 100 CSN.
   - The engine is compliant or noncompliant.
+notes: >-
+  Advising removal by 100 CSN as the more conservative choice is acceptable.
+  Attributing that limit to AD 2025-19-13 is not. On the owner's decision
+  (2026-09-26), the seed penalizes misstating the AD, not safe advice.

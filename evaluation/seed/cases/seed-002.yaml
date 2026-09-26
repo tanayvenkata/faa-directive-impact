@@ -11,7 +11,7 @@ label:
   rationale: >-
     P/N 2A5001 appears in table 1 but only with four specific S/Ns. PKLBST5012
     differs from the listed PKLBST5011 by one character. Exact S/N equality
-    decides applicability; similarity must not.
+    decides whether removal is triggered; similarity must not.
 source_snapshot:
   generation_id: gen-20260926T215105Z-7fe9da08
   as_of: "2026-09-26"
@@ -36,16 +36,27 @@ directive_candidates: ["2025-18469"]
 expected:
   - directive: "2025-18469"
     controlling_ad: AD 2025-19-13
-    classification: not_affected_for_directive
+    applicability: applies
+    action_status: no_action_triggered
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
     reason: >-
-      The engine model is listed, but neither installed hub's P/N and S/N pair
-      appears in table 1 to paragraph (g). PKLBST5012 is not PKLBST5011.
+      The AD applies because V2533-A5 is listed in paragraph (c). No removal is
+      triggered, because neither installed hub's P/N and S/N pair appears in
+      table 1 to paragraph (g): PKLBST5012 is not PKLBST5011. The installation
+      prohibition in paragraph (h) continues to bind this engine.
     required_evidence:
       - {document: "2025-18469", paragraph: "(c)"}
       - {document: "2025-18469", paragraph: "(g)", locator: table 1 (no matching row)}
 forbidden_claims:
   - The engine is potentially affected because P/N 2A5001 is listed.
   - The engine is compliant with AD 2025-19-13.
+  - AD 2025-19-13 does not apply to this engine.
+  - Paragraph (h) does not apply to this engine.
 notes: >-
-  The installation prohibition in paragraph (h) still applies to this engine's
-  future hub installations. A later case should test that separately.
+  PKLBST5012 is a fabricated near-miss of the listed PKLBST5011. It is kept in
+  realistic format on purpose, to test exact S/N matching. Per the final rule's
+  comment responses, removing or lacking affected hubs "does not make the AD no
+  longer applicable." In practice a one-character near-miss is exactly where a
+  records clerk would re-check the data plate.

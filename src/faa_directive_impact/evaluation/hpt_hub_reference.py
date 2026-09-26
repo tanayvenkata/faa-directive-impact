@@ -62,16 +62,53 @@ class DirectiveFacts:
 
 
 @dataclass
-class Derivation:
-    classification: str
-    missing_facts: list[str] = field(default_factory=list)
+class HubTiming:
+    """Removal timing for one installed hub that matches table 1."""
+
     latest_engine_flight_cycles: int | None = None
     component_cycles_remaining: int | None = None
     readings: dict[str, int] = field(default_factory=dict)
+    missing_facts: list[str] = field(default_factory=list)
 
     @property
     def readings_diverge(self) -> bool:
         return len(set(self.readings.values())) > 1
+
+
+@dataclass
+class Derivation:
+    applicability: str
+    action_status: str | None = None
+    missing_facts: list[str] = field(default_factory=list)
+    continuing_obligations: list[str] = field(default_factory=list)
+    hubs: list[HubTiming] = field(default_factory=list)
+
+    @property
+    def readings_diverge(self) -> bool:
+        return any(hub.readings_diverge for hub in self.hubs)
+
+    @property
+    def latest_engine_flight_cycles(self) -> int | None:
+        values = [
+            hub.latest_engine_flight_cycles
+            for hub in self.hubs
+            if hub.latest_engine_flight_cycles is not None
+        ]
+        return min(values) if values else None
+
+    @property
+    def component_cycles_remaining(self) -> int | None:
+        values = [
+            hub.component_cycles_remaining
+            for hub in self.hubs
+            if hub.component_cycles_remaining is not None
+        ]
+        return min(values) if values else None
+
+    @property
+    def readings(self) -> dict[str, int]:
+        diverging = [hub.readings for hub in self.hubs if hub.readings]
+        return diverging[0] if len(diverging) == 1 else {}
 
 
 def read_directive_facts(root: Element) -> DirectiveFacts:
@@ -99,43 +136,58 @@ def read_directive_facts(root: Element) -> DirectiveFacts:
 
 
 def derive(asset: dict[str, Any], facts: DirectiveFacts) -> Derivation:
-    """Classify one asset snapshot against AD 2025-19-13."""
-    engine = asset["engine"]
-    model = engine["engine_model"]
+    """Derive applicability and action status for AD 2025-19-13.
+
+    Applicability depends only on the engine model. Paragraph (h) binds every
+    applicable engine, whether or not a listed hub is installed. Removal is
+    required only for an installed hub whose P/N and S/N match table 1.
+    Missing hub records are never treated as proof that a hub is absent.
+    """
+    model = asset["engine"]["engine_model"]
     if model == UNKNOWN:
-        return Derivation("needs_review", ["engine.engine_model"])
+        return Derivation("unknown", "needs_review", ["engine.engine_model"])
     if model not in SUPPORTED_ENGINE_MODELS:
         return Derivation("outside_supported_scope")
     if model not in facts.applicable_models:
-        return Derivation("not_affected_for_directive")
+        return Derivation("does_not_apply")
 
+    result = Derivation("applies", continuing_obligations=["(h)"])
     listed_parts = {row.part_number for row in facts.rows}
-    matched: tuple[dict[str, Any], AffectedRow] | None = None
-    missing: list[str] = []
-    for component in asset["installed_components"]:
+    components = {c["component_name"]: c for c in asset["installed_components"]}
+    for position in sorted({row.component for row in facts.rows}):
+        component = components.get(position)
+        if component is None:
+            result.missing_facts.append(f"installed_components[{position}]")
+            continue
         part_number = component["part_number"]
         serial_number = component["serial_number"]
         if part_number == UNKNOWN:
-            missing.append(
-                f"installed_components[{component['component_name']}].part_number"
-            )
+            result.missing_facts.append(f"installed_components[{position}].part_number")
             continue
         if part_number not in listed_parts:
             continue
         if serial_number == UNKNOWN:
-            missing.append(
-                f"installed_components[{component['component_name']}].serial_number"
+            result.missing_facts.append(
+                f"installed_components[{position}].serial_number"
             )
             continue
         for row in facts.rows:
             if (row.part_number, row.serial_number) == (part_number, serial_number):
-                matched = (component, row)
-    if matched is None:
-        if missing:
-            return Derivation("needs_review", missing)
-        return Derivation("not_affected_for_directive")
+                result.hubs.append(_timing(asset, facts, component, row))
 
-    return _timing(asset, facts, *matched)
+    for hub in result.hubs:
+        result.missing_facts.extend(hub.missing_facts)
+    if (
+        result.hubs
+        and not result.readings_diverge
+        and all(hub.latest_engine_flight_cycles is not None for hub in result.hubs)
+    ):
+        result.action_status = "action_required"
+    elif result.hubs or result.missing_facts:
+        result.action_status = "needs_review"
+    else:
+        result.action_status = "no_action_triggered"
+    return result
 
 
 def _timing(
@@ -143,48 +195,51 @@ def _timing(
     facts: DirectiveFacts,
     component: dict[str, Any],
     row: AffectedRow,
-) -> Derivation:
+) -> HubTiming:
     engine = asset["engine"]
+    name = component["component_name"]
     readings = {
         date.fromisoformat(reading["at"]): reading["engine_flight_cycles"]
         for reading in engine.get("engine_cycle_readings", [])
     }
-    snapshot = date.fromisoformat(engine["snapshot_at"])
-    csn_now = component.get("cycles_since_new")
     at_effective = readings.get(facts.effective_date)
-    at_snapshot = readings.get(snapshot)
-    if not isinstance(csn_now, int) or at_effective is None or at_snapshot is None:
-        return Derivation(
-            "needs_review",
-            ["engine.engine_cycle_readings or component cycles_since_new"],
-        )
-
+    csn_now = component.get("cycles_since_new")
+    # Hub cycles at the effective date must come from the hub's own record.
+    # Inferring them from engine cycles would assume the hub never moved.
     csn_at_effective = {
         date.fromisoformat(reading["at"]): reading["cycles_since_new"]
         for reading in component.get("cycles_since_new_readings", [])
-    }.get(facts.effective_date, csn_now - (at_snapshot - at_effective))
+    }.get(facts.effective_date)
+    missing = []
+    if at_effective is None:
+        missing.append(f"engine.engine_cycle_readings[{facts.effective_date}]")
+    if csn_at_effective is None:
+        missing.append(
+            f"installed_components[{name}].cycles_since_new_readings[{facts.effective_date}]"
+        )
+    if not isinstance(csn_now, int):
+        missing.append(f"installed_components[{name}].cycles_since_new")
+    if missing or at_effective is None or csn_at_effective is None:
+        return HubTiming(missing_facts=missing)
+
     limit_at = at_effective + (row.removal_limit_cycles_since_new - csn_at_effective)
     grace_at = at_effective + GRACE_FLIGHT_CYCLES
     shop_visit_at = _next_qualifying_shop_visit(asset, facts.effective_date)
-
+    timing = HubTiming(
+        component_cycles_remaining=row.removal_limit_cycles_since_new - csn_now
+    )
     if shop_visit_at is None:
         # With no qualifying visit, both readings give max(L, G): the latest
         # removal point unless a qualifying visit intervenes first.
-        latest = max(limit_at, grace_at)
-        result = Derivation("potentially_affected", latest_engine_flight_cycles=latest)
-    else:
-        reading_a = max(min(shop_visit_at, limit_at), grace_at)
-        reading_b = min(shop_visit_at, max(limit_at, grace_at))
-        result = Derivation(
-            "potentially_affected",
-            readings={"A": reading_a, "B": reading_b},
-        )
-        if result.readings_diverge:
-            result.classification = "needs_review"
-        else:
-            result.latest_engine_flight_cycles = reading_a
-    result.component_cycles_remaining = row.removal_limit_cycles_since_new - csn_now
-    return result
+        timing.latest_engine_flight_cycles = max(limit_at, grace_at)
+        return timing
+    timing.readings = {
+        "A": max(min(shop_visit_at, limit_at), grace_at),
+        "B": min(shop_visit_at, max(limit_at, grace_at)),
+    }
+    if not timing.readings_diverge:
+        timing.latest_engine_flight_cycles = timing.readings["A"]
+    return timing
 
 
 def _next_qualifying_shop_visit(asset: dict[str, Any], effective: date) -> int | None:

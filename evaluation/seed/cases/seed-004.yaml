@@ -9,7 +9,8 @@ label:
   labeled_by: claude-draft
   labeled_on: "2026-09-26"
   rationale: >-
-    PW1133G-JM is an IAE-family engine but not a V2500 variant. The project
+    PW1133G-JM is a Pratt & Whitney geared-turbofan design marketed through
+    IAE LLC, a different entity from IAE AG, and not a V2500 variant. The project
     supports only the ten V2500 variants, so the system must decline rather
     than reason about it.
 source_snapshot:
@@ -28,7 +29,7 @@ directive_candidates: ["2025-18469"]
 expected:
   - directive: "2025-18469"
     controlling_ad: AD 2025-19-13
-    classification: outside_supported_scope
+    applicability: outside_supported_scope
     reason: >-
       The engine model is not one of the supported V2500-A5/D5/E5 variants.
       The system makes no applicability determination for it.

@@ -29,6 +29,7 @@ asset_snapshot:
     - component_name: HPT 2nd-stage hub
       part_number: 2A4802
       serial_number: PKLBSS9840
+      installed_at: "2022-08-02"
       cycles_since_new: 1040
       cycles_since_new_readings:
         - {at: "2025-10-29", cycles_since_new: 1000}
@@ -48,7 +49,11 @@ directive_candidates: ["2025-18469"]
 expected:
   - directive: "2025-18469"
     controlling_ad: AD 2025-19-13
-    classification: needs_review
+    applicability: applies
+    action_status: needs_review
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
     reason: >-
       The installed HPT 2nd-stage hub P/N 2A4802 S/N PKLBSS9840 matches table 1
       (limit 3,900 CSN), and the engine is at a qualifying shop visit 40 FC
@@ -73,6 +78,6 @@ expected:
       component_cycles_remaining: 2860
       readings: {A: 18100, B: 18040}
 forbidden_claims:
-  - The hub may stay installed after this shop visit.
+  - The hub may stay installed after this shop visit, presented as settled.
   - The hub must be removed at this shop visit, presented as settled.
   - The engine is compliant.

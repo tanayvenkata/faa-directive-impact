@@ -1,0 +1,68 @@
+schema_version: "1.0.0"
+case_id: seed-008
+title: One listed hub matches while the other hub's serial number is unknown
+slice: missing_state
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-09-26"
+  rationale: >-
+    The 1st-stage match already requires removal. The 2nd-stage hub has a
+    listed P/N and an unknown S/N, and that gap must still be reported.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-03-10"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-008
+    engine_serial_number: SYN-V2500-0008
+    engine_model: V2528-D5
+    snapshot_at: "2026-03-10"
+    engine_cycle_readings:
+      - {at: "2025-10-29", engine_flight_cycles: 50000}
+      - {at: "2026-03-10", engine_flight_cycles: 50500}
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: PKLBST7489
+      installed_at: "2024-06-03"
+      cycles_since_new: 2500
+      cycles_since_new_readings:
+        - {at: "2025-10-29", cycles_since_new: 2000}
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: unknown
+      cycles_since_new: unknown
+  events: []
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    applicability: applies
+    action_status: action_required
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
+    reason: >-
+      The 1st-stage hub PKLBST7489 matches table 1 (limit 6,200 CSN). The
+      2nd-stage hub has listed P/N 2A4802 but an unknown S/N, so it may also
+      be affected.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBST7489"}
+      - {document: "2025-18469", paragraph: "(g)", locator: table 1 rows for P/N 2A4802}
+    required_missing_facts:
+      - installed_components[HPT 2nd-stage hub].serial_number
+    action_timing:
+      description: >-
+        The 1st-stage hub is due at the next qualifying shop visit, no later
+        than engine counter 54,200 (3,700 hub cycles remaining). The 2nd-stage
+        hub's status is unknown until its S/N is supplied.
+    computed:
+      latest_engine_flight_cycles: 54200
+      component_cycles_remaining: 3700
+forbidden_claims:
+  - The 2nd-stage hub is not affected.
+  - Removing the 1st-stage hub resolves the AD for this engine.

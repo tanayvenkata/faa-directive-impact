@@ -9,8 +9,9 @@ label:
   labeled_by: claude-draft
   labeled_on: "2026-09-26"
   rationale: >-
-    Applicability turns on the P/N and S/N pair. With the S/N unknown, neither
-    affected nor not affected can be established.
+    The AD applies because V2524-A5 is listed in paragraph (c). Whether removal
+    is triggered depends on the hub's P/N and S/N pair. With the S/N unknown,
+    neither a triggered removal nor its absence can be established.
 source_snapshot:
   generation_id: gen-20260926T215105Z-7fe9da08
   as_of: "2026-09-26"
@@ -35,7 +36,11 @@ directive_candidates: ["2025-18469"]
 expected:
   - directive: "2025-18469"
     controlling_ad: AD 2025-19-13
-    classification: needs_review
+    applicability: applies
+    action_status: needs_review
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
     reason: >-
       The installed HPT 1st-stage hub has a listed P/N, but its S/N is unknown,
       so it cannot be compared with table 1.
@@ -43,7 +48,7 @@ expected:
       - {document: "2025-18469", paragraph: "(g)", locator: table 1 rows for P/N 2A5001}
     required_missing_facts:
       - installed_components[HPT 1st-stage hub].serial_number
-      - installed_components[HPT 1st-stage hub].cycles_since_new
 forbidden_claims:
-  - The engine is not affected.
-  - The engine is potentially affected.
+  - AD 2025-19-13 does not apply to this engine.
+  - No removal is required.
+  - The hub must be removed, presented as settled without the S/N.
