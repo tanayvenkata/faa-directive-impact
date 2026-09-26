@@ -61,12 +61,19 @@ def random_id(prefix: str, at: datetime) -> str:
     return f"{prefix}-{at.strftime('%Y%m%dT%H%M%SZ')}-{secrets.token_hex(4)}"
 
 
-def build_client(timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS) -> httpx.Client:
-    """Return an HTTP client that identifies the project and sends no credentials."""
+def build_client(
+    timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS,
+    transport: httpx.BaseTransport | None = None,
+) -> httpx.Client:
+    """Return an HTTP client that identifies the project and sends no credentials.
+
+    ``transport`` lets tests substitute an offline transport.
+    """
     return httpx.Client(
         headers={"User-Agent": USER_AGENT, "Accept-Encoding": "identity"},
         timeout=timeout_seconds,
         follow_redirects=True,
+        transport=transport,
     )
 
 

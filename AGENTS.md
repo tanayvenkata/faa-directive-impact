@@ -44,6 +44,8 @@ management, and a root `Makefile` as the documented command entry point.
 - `make lint` — run Ruff lint checks.
 - `make format` — apply Ruff formatting.
 - `make check` — run lint and tests.
+- `make acquire-api-json DOC=2025-10764` — live network call; acquire one
+  Federal Register API JSON record into `STORAGE_ROOT` (default `data/`).
 
 Run all commands from the repository root. Update this section and the README
 when commands or tooling change.
@@ -74,7 +76,7 @@ Keep external data access separate from analysis logic. Configuration, credentia
 
 ## Testing Guidelines
 
-Add tests with every behavior change. Mirror source paths under `tests/`, and name tests after observable behavior (for example, `test_parser_rejects_missing_directive_id`). Tests should use small fixtures, avoid live network calls by default, and produce deterministic results. Once a test framework is introduced, document the exact full-suite and targeted-test commands here.
+Add tests with every behavior change. Mirror source paths under `tests/`, and name tests after observable behavior (for example, `test_parser_rejects_missing_directive_id`). Tests should use small fixtures, avoid live network calls by default, and produce deterministic results. Run the full suite with `make test`; run one file or test with `uv run pytest tests/acquisition/test_retrieval.py` or `uv run pytest -k <name>`.
 
 ## Commit & Pull Request Guidelines
 

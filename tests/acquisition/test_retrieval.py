@@ -29,9 +29,7 @@ def acquire(
     first_id: int = 0,
 ) -> dict:
     counter = iter(range(first_id, first_id + 1000))
-    with httpx.Client(
-        transport=httpx.MockTransport(handler), follow_redirects=True
-    ) as client:
+    with build_client(transport=httpx.MockTransport(handler)) as client:
         context = AcquisitionContext(
             run_id=RUN_ID,
             storage=RawStorage(tmp_path),
@@ -88,14 +86,13 @@ def test_request_identifies_project_without_credentials(tmp_path: Path) -> None:
         seen.append(request)
         return httpx.Response(200, content=API_BODY, headers={"set-cookie": "s=1"})
 
-    client = build_client()
-    headers = dict(client.headers)
-    client.close()
     receipt = acquire(tmp_path, handler)
 
-    assert headers["user-agent"].startswith("faa-directive-impact/")
-    assert headers["accept-encoding"] == "identity"
-    assert "authorization" not in headers
+    (request,) = seen
+    assert request.headers["user-agent"].startswith("faa-directive-impact/")
+    assert request.headers["accept-encoding"] == "identity"
+    assert "authorization" not in request.headers
+    assert "cookie" not in request.headers
     serialized = json.dumps(receipt).lower()
     assert "cookie" not in serialized
     assert "authorization" not in serialized
