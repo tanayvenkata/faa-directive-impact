@@ -2,7 +2,7 @@
 
 ## Current Phase & Scope
 
-Source review is complete (see `FEASIBILITY_RECOMMENDATION.md`). The repository is implementing **Milestone 1: Immutable Acquisition**, tracked as GitHub issues A1–A9 and described in `ACQUISITION_MILESTONE.md`. Implementation within that milestone is authorized; do not scaffold retrieval, indexing, agent, UI, hosting, or long-term storage components ahead of it.
+Milestone 1: Immutable Acquisition is complete (`CHECKPOINT_REPRODUCIBLE.md`); its accepted frozen generation is under `generations/`. The active milestone is **Milestone 2: Evaluation Seed** (GitHub issues E1–E3): seed cases, frozen numerical gates, and the image-transcription decision, written before normalization code. Do not scaffold retrieval, indexing, agent, UI, hosting, or long-term storage components ahead of it.
 
 The first vertical slice is acquisition and manifesting, not the polished fleet-impact application:
 
@@ -84,4 +84,4 @@ Add tests with every behavior change. Mirror source paths under `tests/`, and na
 
 There is no existing Git history from which to infer a convention. Use short, imperative commit subjects, optionally with a focused prefix, such as `parser: normalize directive identifiers`. Keep commits cohesive.
 
-Pull requests should explain the problem, the approach, and verification performed. Link relevant issues or source directives, call out schema or data changes, and include sample output when analysis results change. Never commit secrets or API tokens. Decide whether raw source artifacts belong in Git, release assets, or external object storage only after reviewing their size, authority, redistribution status, and reproducibility requirements; do not discard them merely because they are generated.
+Pull requests should explain the problem, the approach, and verification performed. Link relevant issues or source directives, call out schema or data changes, and include sample output when analysis results change. Never commit secrets or API tokens. Raw source bytes stay out of Git; accepted frozen generations are published as checksummed release assets per `REDISTRIBUTION.md`. Do not discard raw artifacts merely because they are generated.

@@ -17,9 +17,17 @@ PUBLICATION_DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 GRAPHIC_IDENTIFIER_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
 DOCUMENT_NAMESPACE = "federal_register_document_number"
 GOVINFO_NAMESPACE = "govinfo_package_granule"
-REDISTRIBUTION_BASIS = (
-    "Federal Register publication of a U.S. Government work; retention and "
-    "redistribution decision pending the Reproducible checkpoint review."
+# See REDISTRIBUTION.md. Text is a U.S. Government work; a figure may reproduce
+# third-party material, so graphics are reviewed per document.
+TEXT_REDISTRIBUTION = (
+    "permitted",
+    "U.S. Government work, 17 U.S.C. 105; GovInfo policy permits reprinting "
+    "with credit to the issuing agency (FAA). See REDISTRIBUTION.md.",
+)
+GRAPHIC_REDISTRIBUTION = (
+    "review_required",
+    "Document graphics may reproduce third-party copyrighted material; "
+    "reviewed per document. See REDISTRIBUTION.md.",
 )
 
 # (API field, source system, representation role, authority role, file name)
@@ -73,8 +81,8 @@ def api_json_request(document_number: str, run_id: str) -> RepresentationRequest
         authority_role="discovery_metadata",
         url=f"{API_BASE_URL}/documents/{document_number}.json",
         relative_path=f"raw/federal-register/{document_number}/{run_id}/api.json",
-        redistribution_status="review_required",
-        redistribution_basis=REDISTRIBUTION_BASIS,
+        redistribution_status=TEXT_REDISTRIBUTION[0],
+        redistribution_basis=TEXT_REDISTRIBUTION[1],
     )
 
 
@@ -121,8 +129,8 @@ def resolve_representations(
                 authority_role=authority,
                 url=url,
                 relative_path=f"{directory}/{file_name}",
-                redistribution_status="review_required",
-                redistribution_basis=REDISTRIBUTION_BASIS,
+                redistribution_status=TEXT_REDISTRIBUTION[0],
+                redistribution_basis=TEXT_REDISTRIBUTION[1],
                 parent_identity=parent,
             )
         )
@@ -158,8 +166,8 @@ def resolve_representations(
                     f"raw/federal-register/{document_number}/{run_id}/figures/"
                     f"{identifier}_original.{extension}"
                 ),
-                redistribution_status="review_required",
-                redistribution_basis=REDISTRIBUTION_BASIS,
+                redistribution_status=GRAPHIC_REDISTRIBUTION[0],
+                redistribution_basis=GRAPHIC_REDISTRIBUTION[1],
                 parent_identity=(DOCUMENT_NAMESPACE, document_number),
                 source_graphic_identifier=identifier,
             )

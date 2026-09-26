@@ -4,9 +4,10 @@ This project is building a continuously refreshable, evidence-backed FAA
 directive-impact system. The first supported evaluation boundary is the
 International Aero Engines V2500-A5/D5/E5 family.
 
-The active milestone is immutable official-source acquisition. Application,
-retrieval, and agent work remain deferred until the acquisition and evaluation
-contracts are proven.
+**Status: Reproducible** — see [`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md).
+Milestone 1 (immutable official-source acquisition) is complete. The next
+milestone writes the evaluation seed before normalization. Application,
+retrieval, and agent work remain deferred.
 
 ## Current Flow
 
@@ -98,5 +99,5 @@ source retrieval → exact bytes → hashes → receipts → raw manifest
                                                     parsing begins later
 ```
 
-Live raw captures are not committed until their size, authority,
-redistribution status, and reproducibility requirements have been reviewed.
+Raw bytes are not committed to Git. Accepted frozen generations are published
+as release assets with checksums; see [`REDISTRIBUTION.md`](REDISTRIBUTION.md).

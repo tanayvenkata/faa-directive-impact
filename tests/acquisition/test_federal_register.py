@@ -122,3 +122,12 @@ def test_docket_and_directive_numbers_come_from_docket_ids() -> None:
     assert faa_docket_numbers(record) == {"FAA-2025-0926"}
     assert airworthiness_directive_numbers(record) == {"2025-19-13"}
     assert faa_docket_numbers({"docket_ids": None}) == set()
+
+
+def test_text_is_redistributable_but_graphics_need_review() -> None:
+    roles = by_role(resolve_representations(api_record(), "2021-14268", RUN_ID))
+
+    assert roles["official_pdf"].redistribution_status == "permitted"
+    assert roles["full_text_xml"].redistribution_status == "permitted"
+    assert roles["original_graphic"].redistribution_status == "review_required"
+    assert api_json_request("2021-14268", RUN_ID).redistribution_status == "permitted"
