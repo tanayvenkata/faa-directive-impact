@@ -45,7 +45,9 @@ management, and a root `Makefile` as the documented command entry point.
 - `make format` — apply Ruff formatting.
 - `make check` — run lint and tests.
 - `make acquire DOCS="2025-10764 2025-18469"` — live network call; acquire
-  every expected representation into `STORAGE_ROOT` (default `data/`).
+  every expected representation into `STORAGE_ROOT` (default `data/`) and
+  write a raw-generation manifest for `CORPUS_TRACK` (default
+  `frozen_evaluation`).
 
 Run all commands from the repository root. Update this section and the README
 when commands or tooling change.

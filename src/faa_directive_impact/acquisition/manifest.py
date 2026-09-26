@@ -11,10 +11,10 @@ from faa_directive_impact.acquisition.federal_register import (
     airworthiness_directive_numbers,
     faa_docket_numbers,
 )
-from faa_directive_impact.acquisition.retrieval import format_utc
+from faa_directive_impact.acquisition.retrieval import format_utc, receipt_path
 from faa_directive_impact.schema_validation import validate_raw_generation_manifest
 
-MANIFEST_SCHEMA_VERSION = "1.0.0"
+MANIFEST_SCHEMA_VERSION = "1.1.0"
 PROPOSED_RULE = "Proposed Rule"
 FINAL_RULE = "Rule"
 
@@ -54,9 +54,7 @@ def build_manifest(
         "receipt_references": [
             {
                 "receipt_id": receipt["receipt_id"],
-                "receipt_relative_path": (
-                    f"receipts/{run_id}/{receipt['receipt_id']}.json"
-                ),
+                "receipt_relative_path": receipt_path(run_id, receipt["receipt_id"]),
             }
             for document in documents
             for receipt in document.receipts

@@ -85,6 +85,11 @@ class AcquisitionContext:
     new_id: IdFactory
 
 
+def receipt_path(run_id: str, receipt_id: str) -> str:
+    """Return the storage-relative path of a receipt."""
+    return f"receipts/{run_id}/{receipt_id}.json"
+
+
 def utc_now() -> datetime:
     return datetime.now(UTC)
 
@@ -166,7 +171,7 @@ def retrieve(context: AcquisitionContext, spec: RepresentationRequest) -> dict:
 
     validate_artifact_receipt(receipt)
     context.storage.write_json(
-        f"receipts/{context.run_id}/{receipt['receipt_id']}.json", receipt
+        receipt_path(context.run_id, receipt["receipt_id"]), receipt
     )
     return receipt
 

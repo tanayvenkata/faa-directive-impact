@@ -135,7 +135,7 @@ def test_original_graphic_requires_parent_and_identifier(
 
 def test_incomplete_manifest_cannot_enter_normalization() -> None:
     manifest = {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "generation_id": "raw-generation-001",
         "created_at_utc": "2026-09-01T22:00:00Z",
         "corpus_track": "frozen_evaluation",

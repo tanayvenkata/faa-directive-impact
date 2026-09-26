@@ -43,7 +43,6 @@ class DocumentAcquisition:
         self, cell: ExpectedArtifact, reason_code: str, receipt_id: str | None
     ) -> None:
         entry = cell.as_record()
-        entry.pop("source_graphic_identifier", None)
         entry["reason_code"] = reason_code
         if receipt_id is not None:
             entry["receipt_id"] = receipt_id

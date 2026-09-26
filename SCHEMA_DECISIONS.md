@@ -101,3 +101,10 @@ Both initial schemas use `1.0.0`. Additive or corrective schema evolution must
 be explicit; existing receipts remain validated against the version they
 declare. A schema migration must create a new derived record rather than
 rewrite historical evidence silently.
+
+
+The raw-generation manifest moved to `1.1.0` to add an optional
+`source_graphic_identifier` on missing artifacts, so a missing figure is
+identifiable even when no receipt exists. `1.0.0` manifests existed only as
+local development output before the first frozen generation, so no `1.0.0`
+manifest validator is retained.

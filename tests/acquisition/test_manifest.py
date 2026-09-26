@@ -108,7 +108,12 @@ def generate(tmp_path: Path, pages: dict[str, bytes | None]) -> dict:
 
 def cell_key(entry: dict) -> tuple:
     identity = entry["source_document_identity"]
-    return (identity["namespace"], identity["value"], entry["representation_role"])
+    return (
+        identity["namespace"],
+        identity["value"],
+        entry["representation_role"],
+        entry.get("source_graphic_identifier"),
+    )
 
 
 def test_complete_pair_is_eligible_with_relationship(tmp_path: Path) -> None:
@@ -240,3 +245,29 @@ def test_incomplete_manifest_cannot_claim_eligibility(tmp_path: Path) -> None:
 
     with pytest.raises(ValidationError):
         validate_raw_generation_manifest(manifest)
+
+
+def test_missing_graphic_is_identified(tmp_path: Path) -> None:
+    pages = pair_pages(images=("ER24SE25.000", "ER24SE25.001"))
+    pages["https://img.federalregister.gov/ER24SE25.001_original_size.png"] = None
+
+    manifest = generate(tmp_path, pages)
+
+    (missing,) = manifest["missing_artifacts"]
+    assert missing["representation_role"] == "original_graphic"
+    assert missing["source_graphic_identifier"] == "ER24SE25.001"
+
+
+def test_unresolved_graphic_is_identified_without_a_receipt(tmp_path: Path) -> None:
+    pages = pair_pages(images=("ER24SE25.000",))
+    api_url = f"https://www.federalregister.gov/api/v1/documents/{FINAL}.json"
+    record = json.loads(pages[api_url] or b"")
+    record["images"]["ER24SE25.000"] = {"large": "https://img.test/large.png"}
+    pages[api_url] = json.dumps(record).encode()
+
+    manifest = generate(tmp_path, pages)
+
+    (missing,) = manifest["missing_artifacts"]
+    assert missing["source_graphic_identifier"] == "ER24SE25.000"
+    assert missing["reason_code"] == "not_published"
+    assert "receipt_id" not in missing
