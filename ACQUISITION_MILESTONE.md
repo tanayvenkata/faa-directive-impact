@@ -60,44 +60,32 @@ the directive into normalized applicability logic.
 
 ## Work Packages
 
-### A1. Freeze the executable acquisition contract
+Numbering matches the GitHub issues. Build a thin end-to-end slice first, then
+widen it: one representation of one document goes all the way to a validated
+receipt before the full representation matrix is attempted. Tests for each
+behavior land with the issue that introduces it.
 
-- Convert the approved raw-manifest fields into a machine-validated schema.
-- Define stable source-document, acquisition-run, retrieval, representation,
-  artifact, and raw-generation identities.
-- Define approved status and failure reason codes.
-- Decide the initial local raw-artifact location without claiming it is the
-  final production storage architecture.
-
-### A2. Implement official-source retrieval
-
-- Resolve representation URLs from Federal Register API metadata.
-- Download each expected representation without transforming its bytes.
-- Stream downloads safely, capture response metadata, hash retained bytes,
-  and avoid partial-file publication.
-- Discover and retrieve original-size document graphics.
-
-### A3. Produce receipts and the generation manifest
-
-- Write one receipt for every success or failure.
-- Build the expected-versus-observed representation matrix.
-- Record identity snapshots, typed relationship evidence, authority roles,
-  unavailable dependencies, and completeness status.
-
-### A4. Validate and test failure behavior
-
-- Verify exact hashes and basic format integrity.
-- Test reruns, interrupted downloads, malformed content, missing
-  representations, redirects, HTTP failures, and changed bytes.
-- Ensure a partial run cannot qualify for downstream normalization.
-
-### A5. Create the first frozen raw generation
-
-- Execute acquisition for the HPT hub pair.
-- Review the manifest and validation report.
-- Record the raw generation as accepted for normalization or rejected with
-  explicit reasons.
-- Preserve the receipt; acceptance does not make a retrieval release active.
+- **A1. Tooling foundation** (done) — Python, uv, Ruff, pytest, Makefile.
+- **A2. Acquisition contract** (done) — receipt and raw-generation JSON
+  Schemas, identity semantics, and reason codes (`SCHEMA_DECISIONS.md`).
+- **A3. Thin slice** — fetch API JSON for `2025-10764`, stream to a temporary
+  file, publish it atomically to local raw storage, hash it, and write a
+  schema-valid receipt, including failure receipts.
+- **A4. Widen representations and idempotency** — resolve and retrieve XML,
+  HTML, text, GovInfo PDF, MODS, and original-size images; unchanged reruns
+  deduplicate; changed bytes are preserved and flagged.
+- **A5. Pair and manifest** — add `2025-18469`, the expected-versus-observed
+  matrix, proposal/final relationship evidence, dependencies, and completeness.
+- **A6. Validation gate** — identity agreement, media plausibility, XML/PDF
+  integrity, paragraph-(l) status, upstream-change signals, and whether
+  Federal Register HTML element IDs are stable across a regenerated
+  representation.
+- **A7. Offline lifecycle suite** — one end-to-end offline suite exercising
+  the full rerun, change, and partial-failure lifecycle across both documents.
+- **A8. First frozen raw generation** — execute live, review the manifest, and
+  record accept-for-normalization or reject with reasons.
+- **A9. Public "Reproducible" checkpoint** — short write-up and repository
+  state that meet the series' Reproducible claim level.
 
 ## Exit Criteria
 
@@ -112,8 +100,9 @@ the directive into normalized applicability logic.
 - The next normalization milestone can consume artifacts without network
   access.
 
-## First Implementation Decision
+## After This Milestone
 
-The next discussion should choose the smallest stack capable of this milestone
-only. It should not select retrieval, agent, UI, hosting, or long-term storage
-technology on their behalf.
+Publishing at the Reproducible level is a checkpoint, not a finish line. The
+next milestone writes the feasibility seed cases, freezes numerical gates, and
+decides image-figure transcription before normalization. Retrieval, agent, UI,
+hosting, and long-term storage choices remain deferred.

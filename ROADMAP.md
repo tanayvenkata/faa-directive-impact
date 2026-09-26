@@ -28,5 +28,6 @@ whose first supported evaluation boundary is the IAE V2500-A5/D5/E5 family.
 8. **Evaluate a bounded agent** — only if fixed-workflow traces demonstrate a
    feedback-dependent limitation that an agent can improve safely.
 
-The active milestone is **Acquire**.
+The active milestone is **Acquire**. It ends with a public checkpoint at the
+series' *Reproducible* claim level before evaluation work begins.
 

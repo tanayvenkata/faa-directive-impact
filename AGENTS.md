@@ -2,9 +2,9 @@
 
 ## Current Phase & Scope
 
-This repository is in **source-review and feasibility planning**, before implementation. Do not scaffold an application, select a language or framework, add package configuration, or commit to infrastructure until the focused FAA/Federal Register sources have been read and the implementation approach has been discussed.
+Source review is complete (see `FEASIBILITY_RECOMMENDATION.md`). The repository is implementing **Milestone 1: Immutable Acquisition**, tracked as GitHub issues A1–A9 and described in `ACQUISITION_MILESTONE.md`. Implementation within that milestone is authorized; do not scaffold retrieval, indexing, agent, UI, hosting, or long-term storage components ahead of it.
 
-The first intended vertical slice is acquisition and manifesting, not the polished fleet-impact application:
+The first vertical slice is acquisition and manifesting, not the polished fleet-impact application:
 
 ```text
 official source acquisition
@@ -17,11 +17,11 @@ official source acquisition
 
 The initial supported evaluation boundary is the International Aero Engines V2500-A5/D5/E5 family described in the vault's `Production Evidence Systems/FAA Directive Impact.md`. Do not silently broaden supported applicability to adjacent engine families. A broader FAA discovery corpus may be indexed later without expanding the evaluated applicability claim.
 
-For now, limit work to reading and recording the focused official sources: Federal Register API records and their official editions, FAA Dynamic Regulatory System records, the selected proposed-to-final directive threads, and explicitly identified incorporated-material dependencies. Do not begin coding unless the user asks after the source review.
+Milestone 1 acquires only the HPT hub proposal/final pair (`2025-10764`, `2025-18469`) from Federal Register and GovInfo. FAA DRS automation stays deferred until its external API contract is verified.
 
 ## Project Structure & Module Organization
 
-This repository currently contains planning guidance only. Any future structure must follow the chosen stack and the source/evaluation contracts; the example below is illustrative, not authorization to scaffold it. As implementation begins, keep production code separate from automated tests, immutable source artifacts, derived data, and generated reports.
+Code lives under `src/faa_directive_impact/`, with tests under `tests/`. Keep production code separate from automated tests, immutable source artifacts, derived data, and generated reports.
 
 Organize modules by domain responsibility rather than by file type. For example:
 
