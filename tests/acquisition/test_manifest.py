@@ -6,8 +6,8 @@ from typing import Any
 
 import httpx
 import pytest
-from fakes import api_url, document_pages, edit_api_record
 from jsonschema import ValidationError
+from source_fakes import api_url, document_pages, edit_api_record
 
 from faa_directive_impact.acquisition.document import acquire_document
 from faa_directive_impact.acquisition.manifest import (

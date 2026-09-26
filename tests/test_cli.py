@@ -3,7 +3,7 @@ from pathlib import Path
 
 import httpx
 import pytest
-from fakes import api_url, document_pages
+from source_fakes import api_url, document_pages
 
 from faa_directive_impact import cli
 from faa_directive_impact.acquisition import retrieval

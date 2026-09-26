@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 
 import pytest
-from fakes import directive_xml, graphic_bytes, make_pdf
+from source_fakes import directive_xml, graphic_bytes, make_pdf
 
 from faa_directive_impact.acquisition.validation import validate_artifact
 

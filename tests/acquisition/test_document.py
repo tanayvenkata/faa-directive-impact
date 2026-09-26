@@ -3,7 +3,7 @@ from itertools import count
 from pathlib import Path
 
 import httpx
-from fakes import api_url, document_pages, edit_api_record
+from source_fakes import api_url, document_pages, edit_api_record
 
 from faa_directive_impact.acquisition.document import acquire_document
 from faa_directive_impact.acquisition.retrieval import AcquisitionContext, build_client
