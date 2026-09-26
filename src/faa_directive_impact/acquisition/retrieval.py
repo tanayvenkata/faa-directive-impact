@@ -27,6 +27,28 @@ IdFactory = Callable[[str, datetime], str]
 
 
 @dataclass(frozen=True)
+class ExpectedArtifact:
+    """One cell of the expected document/representation matrix."""
+
+    identity_namespace: str
+    identity_value: str
+    representation_role: str
+    source_graphic_identifier: str | None = None
+
+    def as_record(self) -> dict[str, Any]:
+        record: dict[str, Any] = {
+            "source_document_identity": {
+                "namespace": self.identity_namespace,
+                "value": self.identity_value,
+            },
+            "representation_role": self.representation_role,
+        }
+        if self.source_graphic_identifier is not None:
+            record["source_graphic_identifier"] = self.source_graphic_identifier
+        return record
+
+
+@dataclass(frozen=True)
 class RepresentationRequest:
     """What to fetch, where to keep it, and how the source classifies it."""
 
@@ -41,6 +63,15 @@ class RepresentationRequest:
     redistribution_basis: str
     parent_identity: tuple[str, str] | None = None
     source_graphic_identifier: str | None = None
+
+    @property
+    def expected(self) -> ExpectedArtifact:
+        return ExpectedArtifact(
+            self.identity_namespace,
+            self.identity_value,
+            self.representation_role,
+            self.source_graphic_identifier,
+        )
 
 
 @dataclass(frozen=True)
@@ -131,7 +162,7 @@ def retrieve(context: AcquisitionContext, spec: RepresentationRequest) -> dict:
         receipt["request"]["resolved_url"] = resolved_url
         receipt["response"] = response_record
         receipt["artifact"] = artifact
-    receipt["retrieved_at_utc"] = _format_utc(context.clock())
+    receipt["retrieved_at_utc"] = format_utc(context.clock())
 
     validate_artifact_receipt(receipt)
     context.storage.write_json(
@@ -246,5 +277,5 @@ def _describe(error: BaseException) -> str:
     return f"{type(error).__name__}: {error}" if str(error) else type(error).__name__
 
 
-def _format_utc(moment: datetime) -> str:
+def format_utc(moment: datetime) -> str:
     return moment.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")

@@ -6,7 +6,10 @@ from pathlib import PurePosixPath
 from typing import Any, TypeGuard
 from urllib.parse import urlparse
 
-from faa_directive_impact.acquisition.retrieval import RepresentationRequest
+from faa_directive_impact.acquisition.retrieval import (
+    ExpectedArtifact,
+    RepresentationRequest,
+)
 
 API_BASE_URL = "https://www.federalregister.gov/api/v1"
 DOCUMENT_NUMBER_PATTERN = re.compile(r"^\d{4}-\d{5}$")
@@ -52,7 +55,7 @@ class ResolvedRepresentations:
     """Requests resolved from API metadata, plus what could not be resolved."""
 
     requests: list[RepresentationRequest]
-    missing: list[str]
+    unresolved: list[ExpectedArtifact]
 
 
 def api_json_request(document_number: str, run_id: str) -> RepresentationRequest:
@@ -81,11 +84,11 @@ def resolve_representations(
     """Resolve every expected representation URL from an API JSON record.
 
     A representation whose URL is absent or unusable is reported in
-    ``missing`` rather than guessed.
+    ``unresolved`` rather than guessed.
     """
     _require_document_number(document_number)
     requests: list[RepresentationRequest] = []
-    missing: list[str] = []
+    unresolved: list[ExpectedArtifact] = []
     publication_date = api_record.get("publication_date")
     granule = (
         f"FR-{publication_date}/{document_number}"
@@ -96,18 +99,18 @@ def resolve_representations(
 
     for field, system, role, authority, file_name in _DOCUMENT_REPRESENTATIONS:
         url = api_record.get(field)
-        if not _is_https_url(url):
-            missing.append(role)
+        if system == "govinfo" and granule is not None:
+            namespace, identity = GOVINFO_NAMESPACE, granule
+        else:
+            namespace, identity = DOCUMENT_NAMESPACE, document_number
+        if not _is_https_url(url) or (system == "govinfo" and granule is None):
+            unresolved.append(ExpectedArtifact(namespace, identity, role))
             continue
         if system == "govinfo":
-            if granule is None:
-                missing.append(role)
-                continue
-            namespace, identity = GOVINFO_NAMESPACE, granule
             parent = (DOCUMENT_NAMESPACE, document_number)
             directory = f"raw/govinfo/{document_number}/{run_id}"
         else:
-            namespace, identity, parent = DOCUMENT_NAMESPACE, document_number, None
+            parent = None
             directory = f"raw/federal-register/{document_number}/{run_id}"
         requests.append(
             RepresentationRequest(
@@ -126,7 +129,9 @@ def resolve_representations(
 
     images = api_record.get("images") or {}
     if not isinstance(images, dict):
-        missing.append("original_graphic:images")
+        unresolved.append(
+            ExpectedArtifact(DOCUMENT_NAMESPACE, document_number, "original_graphic")
+        )
         images = {}
     for identifier in sorted(images):
         sizes = images[identifier]
@@ -134,7 +139,11 @@ def resolve_representations(
         if not GRAPHIC_IDENTIFIER_PATTERN.fullmatch(identifier) or not _is_https_url(
             url
         ):
-            missing.append(f"original_graphic:{identifier}")
+            unresolved.append(
+                ExpectedArtifact(
+                    DOCUMENT_NAMESPACE, document_number, "original_graphic", identifier
+                )
+            )
             continue
         extension = _url_extension(url)
         requests.append(
@@ -155,7 +164,20 @@ def resolve_representations(
                 source_graphic_identifier=identifier,
             )
         )
-    return ResolvedRepresentations(requests, missing)
+    return ResolvedRepresentations(requests, unresolved)
+
+
+def expected_without_metadata(document_number: str) -> list[ExpectedArtifact]:
+    """Return the fixed expected matrix when the API record is unusable.
+
+    GovInfo granule identity needs the publication date, so these cells fall
+    back to the Federal Register document identity. Graphics cannot be
+    enumerated without the record.
+    """
+    return [
+        ExpectedArtifact(DOCUMENT_NAMESPACE, document_number, role)
+        for _, _, role, _, _ in _DOCUMENT_REPRESENTATIONS
+    ]
 
 
 def _require_document_number(document_number: str) -> None:
@@ -170,3 +192,28 @@ def _url_extension(url: str) -> str:
 
 def _is_https_url(value: Any) -> TypeGuard[str]:
     return isinstance(value, str) and value.startswith("https://")
+
+
+FAA_DOCKET_PATTERN = re.compile(r"^Docket No\. (FAA-\d{4}-\d+)$")
+AIRWORTHINESS_DIRECTIVE_PATTERN = re.compile(r"^AD (\d{4}-\d{2}-\d{2})$")
+
+
+def faa_docket_numbers(api_record: dict[str, Any]) -> set[str]:
+    """Return FAA docket numbers the record lists, such as ``FAA-2025-0926``."""
+    return _docket_matches(api_record, FAA_DOCKET_PATTERN)
+
+
+def airworthiness_directive_numbers(api_record: dict[str, Any]) -> set[str]:
+    """Return AD numbers the record lists, such as ``2025-19-13``."""
+    return _docket_matches(api_record, AIRWORTHINESS_DIRECTIVE_PATTERN)
+
+
+def _docket_matches(api_record: dict[str, Any], pattern: re.Pattern) -> set[str]:
+    docket_ids = api_record.get("docket_ids")
+    if not isinstance(docket_ids, list):
+        return set()
+    return {
+        match.group(1)
+        for entry in docket_ids
+        if isinstance(entry, str) and (match := pattern.fullmatch(entry.strip()))
+    }

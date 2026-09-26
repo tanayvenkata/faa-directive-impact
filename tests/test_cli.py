@@ -6,6 +6,7 @@ import pytest
 
 from faa_directive_impact import cli
 from faa_directive_impact.acquisition import retrieval
+from faa_directive_impact.schema_validation import validate_raw_generation_manifest
 
 DOC = "2025-10764"
 API_URL = f"https://www.federalregister.gov/api/v1/documents/{DOC}.json"
@@ -47,20 +48,31 @@ def site(xml: bytes = b"<RULE>v1</RULE>", omit: str | None = None) -> dict:
 
 
 def acquire(tmp_path: Path) -> int:
-    return cli.main(["acquire", DOC, "--storage-root", str(tmp_path)])
+    return cli.main(
+        [
+            "acquire",
+            DOC,
+            "--storage-root",
+            str(tmp_path),
+            "--corpus-track",
+            "frozen_evaluation",
+        ]
+    )
 
 
-def test_complete_run_exits_ok_and_stores_report(
+def test_complete_run_exits_ok_and_stores_valid_manifest(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture
 ) -> None:
     serve(monkeypatch, site())
 
     assert acquire(tmp_path) == cli.EXIT_OK
 
-    report = json.loads(capsys.readouterr().out)
-    run_id = report["acquisition_run_id"]
-    stored = json.loads((tmp_path / "runs" / run_id / "report.json").read_text())
-    assert stored == report
+    summary = json.loads(capsys.readouterr().out)
+    manifest = json.loads((tmp_path / summary["manifest"]).read_text())
+    validate_raw_generation_manifest(manifest)
+    assert manifest["completeness_status"] == "complete"
+    assert manifest["corpus_track"] == "frozen_evaluation"
+    assert not (tmp_path / "runs").exists()
 
 
 def test_missing_representation_exits_failed(

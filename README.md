@@ -56,10 +56,18 @@ For each document it fetches the API JSON record, resolves the XML, HTML,
 plain-text, GovInfo PDF, GovInfo MODS, and original-size image URLs from that
 record, and retrieves each one. Every attempt writes a schema-validated receipt
 to `data/receipts/<run-id>/`. Artifacts are read-only and never overwritten.
-`data/runs/<run-id>/report.json` lists missing representations, failures, and
-whether each representation is new, unchanged, or changed since earlier runs.
 
-Exit status: `0` success, `1` failure or missing representation, `2` content
+Each run writes one schema-validated raw-generation manifest to
+`data/manifests/`. It lists the expected document/representation matrix,
+receipts, missing artifacts, the proposal/final relationship, and deferred
+dependencies, plus whether the generation is complete. `CORPUS_TRACK` defaults
+to `frozen_evaluation`.
+
+Standard output summarizes the run and reports each representation as new,
+unchanged, or changed since earlier runs. That comparison is derived from
+receipts and is not stored.
+
+Exit status: `0` complete, `1` incomplete generation, `2` content
 changed since an earlier run and needs review. `data/` is ignored by Git.
 
 ## Acquisition Schemas

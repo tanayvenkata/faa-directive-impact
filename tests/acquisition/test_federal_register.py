@@ -1,7 +1,9 @@
 import pytest
 
 from faa_directive_impact.acquisition.federal_register import (
+    airworthiness_directive_numbers,
     api_json_request,
+    faa_docket_numbers,
     resolve_representations,
 )
 
@@ -28,6 +30,10 @@ def api_record(**overrides: object) -> dict:
     return record
 
 
+def unresolved_roles(resolved) -> set[str]:
+    return {cell.representation_role for cell in resolved.unresolved}
+
+
 def by_role(resolved) -> dict:
     return {request.representation_role: request for request in resolved.requests}
 
@@ -44,7 +50,7 @@ def test_resolves_all_expected_representations() -> None:
         "mods_xml",
         "original_graphic",
     }
-    assert resolved.missing == []
+    assert resolved.unresolved == []
     assert roles["full_text_xml"].authority_role == "structured_parsing_input"
     assert roles["official_pdf"].source_system == "govinfo"
     assert roles["official_pdf"].identity_value == "FR-2021-07-02/2021-14268"
@@ -76,7 +82,7 @@ def test_absent_url_is_reported_missing_not_guessed() -> None:
         RUN_ID,
     )
 
-    assert set(resolved.missing) == {"full_text_xml", "official_pdf"}
+    assert unresolved_roles(resolved) == {"full_text_xml", "official_pdf"}
     assert "full_text_xml" not in by_role(resolved)
 
 
@@ -85,7 +91,9 @@ def test_unsafe_graphic_identifier_is_reported_missing() -> None:
 
     resolved = resolve_representations(api_record(images=images), "2021-14268", RUN_ID)
 
-    assert resolved.missing == ["original_graphic:../escape"]
+    (cell,) = resolved.unresolved
+    assert cell.representation_role == "original_graphic"
+    assert cell.source_graphic_identifier == "../escape"
 
 
 def test_govinfo_needs_a_publication_date() -> None:
@@ -93,9 +101,24 @@ def test_govinfo_needs_a_publication_date() -> None:
         api_record(publication_date=None), "2021-14268", RUN_ID
     )
 
-    assert {"official_pdf", "mods_xml"} <= set(resolved.missing)
+    assert {"official_pdf", "mods_xml"} <= unresolved_roles(resolved)
 
 
 def test_document_number_is_validated() -> None:
     with pytest.raises(ValueError):
         api_json_request("../2025-10764", RUN_ID)
+
+
+def test_docket_and_directive_numbers_come_from_docket_ids() -> None:
+    record = {
+        "docket_ids": [
+            "Docket No. FAA-2025-0926",
+            "Project Identifier AD-2025-00200-E",
+            "Amendment 39-23153",
+            "AD 2025-19-13",
+        ]
+    }
+
+    assert faa_docket_numbers(record) == {"FAA-2025-0926"}
+    assert airworthiness_directive_numbers(record) == {"2025-19-13"}
+    assert faa_docket_numbers({"docket_ids": None}) == set()
