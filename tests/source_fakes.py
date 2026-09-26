@@ -3,6 +3,8 @@
 import hashlib
 import json
 
+import httpx
+
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 
 
@@ -126,3 +128,15 @@ def edit_api_record(pages: dict[str, bytes | None], number: str, **changes) -> N
         else:
             record[key] = value
     pages[api_url(number)] = json.dumps(record).encode()
+
+
+def serve(pages: dict[str, bytes | None]):
+    """Return an httpx handler serving ``pages``; absent or ``None`` is a 404."""
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        body = pages.get(str(request.url))
+        return (
+            httpx.Response(404) if body is None else httpx.Response(200, content=body)
+        )
+
+    return handler

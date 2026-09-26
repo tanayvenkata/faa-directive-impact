@@ -78,7 +78,7 @@ Keep external data access separate from analysis logic. Configuration, credentia
 
 ## Testing Guidelines
 
-Add tests with every behavior change. Mirror source paths under `tests/`, and name tests after observable behavior (for example, `test_parser_rejects_missing_directive_id`). Tests should use small fixtures, avoid live network calls by default, and produce deterministic results. Run the full suite with `make test`; run one file or test with `uv run pytest tests/acquisition/test_retrieval.py` or `uv run pytest -k <name>`.
+Add tests with every behavior change. Mirror source paths under `tests/`, and name tests after observable behavior (for example, `test_parser_rejects_missing_directive_id`). Tests should use small fixtures, avoid live network calls by default, and produce deterministic results. Run the full suite with `make test` (an autouse fixture fails any test that reaches a real network transport; `tests/test_lifecycle.py` is the end-to-end offline acquisition suite); run one file or test with `uv run pytest tests/acquisition/test_retrieval.py` or `uv run pytest -k <name>`.
 
 ## Commit & Pull Request Guidelines
 

@@ -117,6 +117,18 @@ HPT pair uses `(l)` and `2021-14268` uses `(k)`. A stated `None.` becomes an
 explicit `not_required` dependency; listed items become named `unavailable`
 dependencies; an absent heading fails validation.
 
+## Interrupted Runs
+
+An artifact is published before its receipt is written. If the receipt write
+fails, the run aborts with an error and writes no manifest. The artifact is
+left orphaned: no receipt, manifest, or validation report refers to it, so it
+never becomes a logical version or part of a generation. The next run
+re-acquires it normally. Orphans are harmless but occupy space; a storage audit
+that lists files without receipts is deferred until the corpus grows.
+
+Each run rebuilds the version index by reading every receipt and validation
+report. This full scan is deliberate at the current corpus size.
+
 ## Paths and Secrets
 
 Artifact and receipt paths are relative and may not traverse above their
