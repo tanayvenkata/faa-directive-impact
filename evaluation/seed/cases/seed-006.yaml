@@ -55,6 +55,9 @@ expected:
         which is 70 FC after this snapshot. The 100 CSN limit comes earlier but
         is superseded by "whichever occurs later". If a qualifying shop visit
         occurs first, see seed-005.
+    computed:
+      latest_engine_flight_cycles: 25600
+      component_cycles_remaining: 10
 forbidden_claims:
   - The hub must be removed at 100 CSN.
   - The engine is compliant or noncompliant.

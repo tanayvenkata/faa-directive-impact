@@ -44,6 +44,11 @@ still record `review_required` for graphics; this table is the decision.
   keeps binary PDFs out of Git history while preserving exact bytes if the
   upstream representation later changes.
 - **Local `data/`:** working acquisitions; ignored by Git.
+- **Test fixtures:** a single `permitted` artifact may be copied into
+  `tests/fixtures/` when a test needs real source text offline. The test must
+  verify the copy's SHA-256 against its committed receipt. Currently this is
+  only `2025-18469` full-text XML, used by the AD 2025-19-13 reference
+  derivation.
 
 ## Receipts Recorded Before This Decision
 

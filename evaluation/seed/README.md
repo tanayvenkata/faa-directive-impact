@@ -43,3 +43,15 @@ cited source text) to `adjudicated` (settled by a qualified reviewer).
   separation; AD 2026-17-03 counts any induction for maintenance.
 - `as_of` fixes the question date; authority is judged as of that date against
   the accepted source generation.
+
+## Verification
+
+`tests/evaluation/test_hpt_hub_reference.py` re-derives every AD 2025-19-13
+case from the frozen directive XML. It reads the effective date, the paragraph
+(c) models, and the table 1 rows from the text rather than from the cases, then
+compares classifications and `computed` numbers. It catches transcription and
+arithmetic errors in hand labels.
+
+It does not catch a shared misreading of the directive, because the same
+engineer wrote both the labels and the derivation. That is what `reviewed` and
+`adjudicated` status are for.

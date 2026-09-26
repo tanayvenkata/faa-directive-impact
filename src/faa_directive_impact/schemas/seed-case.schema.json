@@ -418,6 +418,32 @@
                 "minLength": 1
               }
             }
+          },
+          "computed": {
+            "description": "Numbers the reference derivation must reproduce.",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "latest_engine_flight_cycles": {
+                "description": "Engine counter by which action is due if no qualifying shop visit intervenes.",
+                "type": "integer",
+                "minimum": 0
+              },
+              "component_cycles_remaining": {
+                "description": "Cycles from the snapshot until the component reaches its listed limit; negative once past it.",
+                "type": "integer"
+              },
+              "readings": {
+                "type": "object",
+                "propertyNames": {
+                  "pattern": "^[A-Z]$"
+                },
+                "additionalProperties": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
           }
         }
       }

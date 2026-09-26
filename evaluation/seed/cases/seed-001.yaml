@@ -53,6 +53,9 @@ expected:
         Remove at the next qualifying engine shop visit, before the hub reaches
         5,500 CSN (2,400 cycles remaining). The 100-FC window after 2025-10-29
         has already elapsed, so it does not extend the time.
+    computed:
+      latest_engine_flight_cycles: 45050
+      component_cycles_remaining: 2400
 forbidden_claims:
   - The engine is compliant or noncompliant with AD 2025-19-13.
   - The engine is not affected.
