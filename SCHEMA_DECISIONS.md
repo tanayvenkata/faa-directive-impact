@@ -62,6 +62,12 @@ to the acquisition implementation.
 
 The receipt records lowercase hexadecimal SHA-256 of the exact retained bytes.
 It is not a hash of parsed text, normalized JSON, or a decoded representation.
+
+Transport content-coding is not part of the representation. Acquisition
+requests `Accept-Encoding: identity`; if a server still applies gzip or a
+similar transport coding, the retained bytes and hash are the entity body after
+that coding is removed. This keeps a hash stable when a server toggles
+compression, so a hash change signals a content change.
 HTTP ETag and Last-Modified values are retained when present but never replace
 the content hash.
 

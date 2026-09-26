@@ -44,6 +44,19 @@ make check    # run lint and tests
 
 The `.venv/` directory is local and ignored by Git.
 
+## Acquiring a Source Document
+
+This command makes a live network call to the Federal Register API:
+
+```bash
+make acquire-api-json DOC=2025-10764   # STORAGE_ROOT defaults to data/
+```
+
+It writes the exact response bytes to
+`data/raw/federal-register/<doc>/<run-id>/api.json` and a schema-validated
+receipt to `data/receipts/<run-id>/`. Failed attempts also produce receipts.
+Published files are read-only and never overwritten. `data/` is ignored by Git.
+
 ## Acquisition Schemas
 
 Canonical JSON Schemas for artifact receipts and raw-generation manifests are

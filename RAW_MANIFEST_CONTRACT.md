@@ -19,30 +19,37 @@ The eventual physical storage may differ if it preserves the same contract.
 raw/
   federal-register/
     2025-10764/
-      <retrieval-id>/
+      <acquisition-run-id>/
         api.json
         full-text.xml
         full-text.html
         full-text.txt
         figures/
           <federal-register-image-id>_original.png
-        govinfo-official.pdf
-        govinfo-mods.xml
-        acquisition.json
     2025-18469/
-      <retrieval-id>/
+      <acquisition-run-id>/
         ...
+  govinfo/
+    2025-10764/
+      <acquisition-run-id>/
+        official.pdf
+        mods.xml
   faa-drs/
     <drs-document-identity>/
-      <retrieval-id>/
+      <acquisition-run-id>/
         metadata.<source-format>
-        acquisition.json
+receipts/
+  <acquisition-run-id>/
+    <receipt-id>.json
 manifests/
   raw-generation-<generation-id>.json
 ```
 
-`retrieval-id` must be unique for an acquisition attempt and sortable by UTC
-time. It is not the source document identity or content version.
+Artifact directories are keyed by `acquisition-run-id`, the identity that
+groups one execution. Each attempt within a run has its own `retrieval-id`,
+which is unique and sortable by UTC time. Receipts are stored apart from the
+bytes they describe. Neither ID is the source document identity or a content
+version.
 
 ## Artifact Receipt
 
