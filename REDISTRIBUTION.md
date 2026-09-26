@@ -25,6 +25,16 @@ Redistributed artifacts credit the Federal Aviation Administration, U.S.
 Department of Transportation, as the issuing agency. They are published through
 the Office of the Federal Register and GovInfo.
 
+## Per-Document Graphic Reviews
+
+| Graphic | Document | Content | Decision |
+|---|---|---|---|
+| `ER02JY21.000`, `ER02JY21.001` | `2021-14268` (AD 2021-11-51) | FAA-typeset tables pairing engine serials with HPT disk serials | `permitted` — U.S. Government regulatory text rendered as an image |
+| `ER08FE22.048`, `ER08FE22.049` | `2022-02574` (AD 2022-02-09) | FAA-typeset compliance-time tables | `permitted` — U.S. Government regulatory text rendered as an image |
+
+Reviewed 2026-09-26 by viewing each retained original-size image. Receipts
+still record `review_required` for graphics; this table is the decision.
+
 ## Where Artifacts Live
 
 - **Git:** receipts, manifests, validation reports, and decisions. These are

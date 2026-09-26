@@ -1,0 +1,45 @@
+{
+  "acquisition_run_id": "run-20260926T215105Z-7fe9da08",
+  "acquisition_status": "succeeded",
+  "artifact": {
+    "byte_length": 29374,
+    "declared_media_type": "image/png",
+    "detected_media_type": "image/png",
+    "relative_path": "raw/federal-register/2022-02574/run-20260926T215105Z-7fe9da08/figures/ER08FE22.049_original.png",
+    "sha256": "596e6a7111175a3e94fc3890b0d4cf299fbd761f7f3a2821dddad0374012a8a1"
+  },
+  "authority_role": "document_graphic",
+  "parent_document_identity": {
+    "namespace": "federal_register_document_number",
+    "value": "2022-02574"
+  },
+  "receipt_id": "receipt-20260926T215114Z-eafe7b4d",
+  "redistribution": {
+    "basis": "Document graphics may reproduce third-party copyrighted material; reviewed per document. See REDISTRIBUTION.md.",
+    "status": "review_required"
+  },
+  "representation_role": "original_graphic",
+  "request": {
+    "method": "GET",
+    "requested_url": "https://img.federalregister.gov/ER08FE22.049/ER08FE22.049_original_size.png",
+    "resolved_url": "https://img.federalregister.gov/ER08FE22.049/ER08FE22.049_original_size.png"
+  },
+  "response": {
+    "headers": {
+      "content_length": 29374,
+      "content_type": "image/png",
+      "etag": "\"2fadc23a70cbe7fc09772224c08fd7c9\"",
+      "last_modified": "Fri, 20 May 2022 10:40:29 GMT"
+    },
+    "status_code": 200
+  },
+  "retrieval_id": "retrieval-20260926T215114Z-eafe7b4d",
+  "retrieved_at_utc": "2026-09-26T21:51:14Z",
+  "schema_version": "1.0.0",
+  "source_document_identity": {
+    "namespace": "federal_register_document_number",
+    "value": "2022-02574"
+  },
+  "source_graphic_identifier": "ER08FE22.049",
+  "source_system": "federal_register"
+}

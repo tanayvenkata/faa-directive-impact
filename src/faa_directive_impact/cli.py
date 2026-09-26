@@ -10,6 +10,7 @@ from faa_directive_impact.acquisition.manifest import (
     build_manifest,
     build_validation_report,
 )
+from faa_directive_impact.acquisition.packaging import package_generation
 from faa_directive_impact.acquisition.retrieval import (
     DEFAULT_TIMEOUT_SECONDS,
     AcquisitionContext,
@@ -37,7 +38,21 @@ def main(argv: list[str] | None = None) -> int:
     acquire.add_argument("--storage-root", type=Path, required=True)
     acquire.add_argument("--corpus-track", choices=CORPUS_TRACKS, required=True)
     acquire.add_argument("--timeout", type=float, default=DEFAULT_TIMEOUT_SECONDS)
+    package = commands.add_parser(
+        "package-generation",
+        help="Write a deterministic archive of a generation's raw artifacts.",
+    )
+    package.add_argument("generation_id")
+    package.add_argument("--storage-root", type=Path, required=True)
+    package.add_argument("--output", type=Path, required=True)
     args = parser.parse_args(argv)
+
+    if args.command == "package-generation":
+        archive = package_generation(
+            args.storage_root.resolve(), args.generation_id, args.output
+        )
+        print(archive)
+        return EXIT_OK
 
     storage = RawStorage(args.storage_root)
     started_at = utc_now()

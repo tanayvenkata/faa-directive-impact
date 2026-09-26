@@ -82,6 +82,17 @@ changed since an earlier run and needs review. `data/` is ignored by Git.
   — HPT hub proposal/final pair, `frozen_evaluation`, accepted for
   normalization. Its receipts, manifest, and validation report are committed;
   the raw bytes are not.
+- [`gen-20260926T215105Z-7fe9da08`](generations/gen-20260926T215105Z-7fe9da08/DECISION.md)
+  — ten-document seed corpus (three protected threads, a correction, a
+  supersession pair, and incorporated-material challenges), `frozen_evaluation`,
+  the source snapshot for the evaluation seed.
+
+Raw bytes for each accepted generation are published as a deterministic
+release archive, rebuilt from local storage with:
+
+```bash
+uv run faa-directive-impact package-generation <generation-id> --storage-root <root> --output dist/
+```
 
 ## Acquisition Schemas
 
