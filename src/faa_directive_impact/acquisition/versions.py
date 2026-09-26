@@ -67,6 +67,8 @@ def content_hash(receipt: dict[str, Any], storage_root: Path) -> str:
     if receipt["representation_role"] != "api_json":
         return artifact["sha256"]
     path = storage_root / artifact["relative_path"]
+    # An unreadable artifact falls back to its byte hash and will classify as
+    # changed. A6 turns this into an explicit integrity failure.
     try:
         record = json.loads(path.read_bytes())
     except (OSError, ValueError):
