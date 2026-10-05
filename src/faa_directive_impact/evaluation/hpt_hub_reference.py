@@ -13,8 +13,16 @@ reaches its limit, and G the effective-date counter plus 100:
 - Reading A: latest = max(min(SV, L), G)
 - Reading B: latest = min(SV, max(L, G))
 
-B never exceeds A, and they differ only when SV < G. When they differ, the
-reference returns ``needs_review`` and reports both results.
+B never exceeds A, and they differ only when SV < G.
+
+That case was put to the FAA engineer named in the AD (informal
+correspondence, 2026-10-05; see evaluation/seed/adjudication/). The FAA's
+stated intent is that the 100 flight cycles is a drawdown for parts already
+past their limit: a shop visit inside the window does not force removal, and
+the hub is removed at its limit. So when SV < G the reference applies
+latest = max(L, G) and records all three readings. When SV >= G, A and B agree
+(remove at the shop visit, no later than the limit); the FAA's view of that
+case is still pending.
 """
 
 import re
@@ -25,6 +33,7 @@ from xml.etree.ElementTree import Element
 
 AD_NUMBER = "AD 2025-19-13"
 GRACE_FLIGHT_CYCLES = 100
+FAA_ADJUDICATION = "faa-informal-2026-10-05"
 SUPPORTED_ENGINE_MODELS = frozenset(
     {
         "V2522-A5",
@@ -69,10 +78,12 @@ class HubTiming:
     component_cycles_remaining: int | None = None
     readings: dict[str, int] = field(default_factory=dict)
     missing_facts: list[str] = field(default_factory=list)
+    adjudication: str | None = None
 
     @property
     def readings_diverge(self) -> bool:
-        return len(set(self.readings.values())) > 1
+        """True while competing readings disagree with no adjudication."""
+        return self.adjudication is None and len(set(self.readings.values())) > 1
 
 
 @dataclass
@@ -107,8 +118,12 @@ class Derivation:
 
     @property
     def readings(self) -> dict[str, int]:
-        diverging = [hub.readings for hub in self.hubs if hub.readings]
-        return diverging[0] if len(diverging) == 1 else {}
+        recorded = [hub.readings for hub in self.hubs if hub.readings]
+        return recorded[0] if len(recorded) == 1 else {}
+
+    @property
+    def adjudications(self) -> list[str]:
+        return [hub.adjudication for hub in self.hubs if hub.adjudication]
 
 
 def read_directive_facts(root: Element) -> DirectiveFacts:
@@ -237,7 +252,11 @@ def _timing(
         "A": max(min(shop_visit_at, limit_at), grace_at),
         "B": min(shop_visit_at, max(limit_at, grace_at)),
     }
-    if not timing.readings_diverge:
+    if shop_visit_at < grace_at:
+        timing.readings["FAA"] = max(limit_at, grace_at)
+        timing.adjudication = FAA_ADJUDICATION
+        timing.latest_engine_flight_cycles = timing.readings["FAA"]
+    elif not timing.readings_diverge:
         timing.latest_engine_flight_cycles = timing.readings["A"]
     return timing
 

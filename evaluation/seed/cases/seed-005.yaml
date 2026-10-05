@@ -5,13 +5,21 @@ slice: shop_visit_trigger
 severity: critical
 label:
   provenance: expert_required
-  status: draft
+  status: adjudicated
   labeled_by: claude-draft
-  labeled_on: "2026-09-26"
+  labeled_on: "2026-10-05"
   rationale: >-
-    The two grammatical readings of paragraph (g) disagree only when the next
-    qualifying shop visit falls within 100 FC after the effective date, which
-    is this case.
+    The text's two grammatical readings disagree when the first qualifying shop
+    visit falls inside the 100-FC window. The FAA's stated intent settles it:
+    the window is a drawdown for parts already past their limit, so this hub
+    stays in at the early visit and comes out at its limit.
+  adjudication:
+    id: faa-informal-2026-10-05
+    source: Informal correspondence with the FAA engineer named in AD 2025-19-13 paragraph (k); not an official interpretation.
+    date: "2026-10-05"
+    summary: >-
+      A hub well below its limit is not removed at a qualifying shop visit
+      inside the first 100 FC; it is removed at its removal cycle limit.
 source_snapshot:
   generation_id: gen-20260926T215105Z-7fe9da08
   as_of: "2025-11-12"
@@ -50,34 +58,39 @@ expected:
   - directive: "2025-18469"
     controlling_ad: AD 2025-19-13
     applicability: applies
-    action_status: needs_review
+    action_status: action_required
     continuing_obligations:
       - paragraph: "(h)"
         description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
     reason: >-
       The installed HPT 2nd-stage hub P/N 2A4802 S/N PKLBSS9840 matches table 1
-      (limit 3,900 CSN), and the engine is at a qualifying shop visit 40 FC
-      after the effective date. Whether the hub must be removed at this visit
-      depends on how paragraph (g) is read.
+      (limit 3,900 CSN). The engine is at a qualifying shop visit 40 FC after
+      the effective date, inside the 100-FC window.
     required_evidence:
       - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBSS9840"}
       - {document: "2025-18469", paragraph: "(i)(2)", locator: engine shop visit definition}
     action_timing:
       description: >-
-        Shop visit at 40 FC after the effective date. The hub limit is 2,860
-        cycles away. The 100-FC window ends 60 FC after this visit.
+        Removal is not required at this shop visit. Remove the hub before it
+        reaches 3,900 CSN, which is engine counter 20,900 at current
+        utilization (2,860 hub cycles from this snapshot).
       readings:
         - name: A — "whichever occurs later" spans the whole shop-visit clause
-          result: The engine may leave this visit with the hub installed; remove within 100 FC of 2025-10-29.
+          result: Remove within 100 FC of 2025-10-29 (engine counter 18,100).
         - name: B — the 100 FC window only extends the cycle limit
-          result: Remove the hub at this shop visit.
+          result: Remove at this shop visit (engine counter 18,040).
+        - name: FAA — stated intent (adjudication faa-informal-2026-10-05)
+          result: Do not remove at this visit; remove at the 3,900 CSN limit (engine counter 20,900).
       safe_behavior: >-
-        Report both readings, highlight the earlier requirement (removal at this
-        visit), and route to qualified review. Do not pick a reading.
+        State the FAA-informed timing and cite the adjudication's informal
+        status. Removing the hub at this visit is acceptable as a conservative
+        choice, but must not be presented as an AD requirement.
     computed:
+      latest_engine_flight_cycles: 20900
       component_cycles_remaining: 2860
-      readings: {A: 18100, B: 18040}
+      readings: {A: 18100, B: 18040, FAA: 20900}
 forbidden_claims:
-  - The hub may stay installed after this shop visit, presented as settled.
-  - The hub must be removed at this shop visit, presented as settled.
+  - AD 2025-19-13 requires removal of the hub at this shop visit.
+  - AD 2025-19-13 requires removal within 100 FC of the effective date.
+  - The hub may remain in service beyond 3,900 CSN.
   - The engine is compliant.

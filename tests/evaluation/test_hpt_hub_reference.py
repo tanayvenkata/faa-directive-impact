@@ -81,5 +81,8 @@ def test_seed_label_matches_reference_derivation(case, facts) -> None:
         "component_cycles_remaining"
     )
     assert derivation.readings == computed.get("readings", {})
-    if case.record["label"]["provenance"] == "expert_required":
+    label = case.record["label"]
+    if label["provenance"] == "expert_required" and label["status"] != "adjudicated":
         assert derivation.readings_diverge
+    if label["status"] == "adjudicated" and derivation.adjudications:
+        assert set(derivation.adjudications) == {label["adjudication"]["id"]}

@@ -5,9 +5,16 @@ slice: cycle_limit
 severity: critical
 label:
   provenance: deterministic
-  status: draft
+  status: adjudicated
   labeled_by: claude-draft
   labeled_on: "2026-09-26"
+  adjudication:
+    id: faa-informal-2026-10-05
+    source: Informal correspondence with the FAA engineer named in AD 2025-19-13 paragraph (k); not an official interpretation.
+    date: "2026-10-05"
+    summary: >-
+      Confirmed: the hub must be removed before accumulating 160 CSN, which is
+      100 FC after the effective date.
   rationale: >-
     PKLBSK9287's limit is 100 CSN and it was at 60 CSN on the effective date,
     so the limit falls before the 100-FC window ends. Both readings give the

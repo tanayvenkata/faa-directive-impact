@@ -72,3 +72,7 @@ engineer wrote both the labels and the derivation. That is what `reviewed` and
 
 Critiques that fed changes are kept in `critique/` with a verification verdict
 for each item.
+
+Adjudications that settle an interpretation are recorded in `adjudication/`.
+Each records its source, its date, and its informal or official status. A case
+it settles carries `status: adjudicated` and the adjudication's `id`.

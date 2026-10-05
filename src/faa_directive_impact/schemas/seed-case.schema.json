@@ -89,6 +89,35 @@
         "rationale": {
           "type": "string",
           "minLength": 1
+        },
+        "adjudication": {
+          "description": "How an interpretation was settled.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "source",
+            "date",
+            "summary"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "summary": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
         }
       }
     },
@@ -467,7 +496,7 @@
               "readings": {
                 "type": "object",
                 "propertyNames": {
-                  "pattern": "^[A-Z]$"
+                  "pattern": "^[A-Za-z]+$"
                 },
                 "additionalProperties": {
                   "type": "integer",
@@ -542,6 +571,12 @@
             "properties": {
               "provenance": {
                 "const": "expert_required"
+              },
+              "status": {
+                "enum": [
+                  "draft",
+                  "reviewed"
+                ]
               }
             }
           }
@@ -560,6 +595,28 @@
                 "action_status"
               ]
             }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "label": {
+            "properties": {
+              "status": {
+                "const": "adjudicated"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "label": {
+            "required": [
+              "adjudication"
+            ]
           }
         }
       }
