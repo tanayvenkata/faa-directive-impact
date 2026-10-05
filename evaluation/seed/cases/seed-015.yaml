@@ -1,0 +1,48 @@
+schema_version: "1.0.0"
+case_id: seed-015
+title: Asked while only the proposed rule existed
+slice: effective_date
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-05"
+  rationale: >-
+    On 2026-01-15 only the NPRM 2025-20088 had been published. A proposed rule
+    imposes no requirement, and its terms later changed in the final rule.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-01-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-015
+    engine_serial_number: SYN-V2500-0015
+    engine_model: V2527E-A5
+    snapshot_at: "2026-01-15"
+  installed_components:
+    - component_name: 3rd stage HPC rotor blade set
+      part_number: 6A8353
+      serial_number: not tracked at set level
+  events: []
+directive_candidates: ["2025-20088"]
+expected:
+  - directive: "2025-20088"
+    authority_state: proposed
+    applicability: applies
+    action_status: no_action_triggered
+    reason: >-
+      The engine meets the proposed applicability, but on 2026-01-15 the
+      directive was only proposed (comments due 2026-01-02). No action is
+      required until a final rule takes effect.
+    required_evidence:
+      - {document: "2025-20088", paragraph: "(a)", locator: comments due date}
+      - {document: "2025-20088", paragraph: "(c)"}
+forbidden_claims:
+  - An airworthiness directive currently requires replacing the blades.
+  - The blades must be replaced at the next exposure.
+notes: >-
+  The final rule later changed the trigger from any blade exposure to a shop
+  visit inducted after the effective date where a blade is exposed (see
+  seed-013). An as-of system must not apply final-rule terms before they exist.

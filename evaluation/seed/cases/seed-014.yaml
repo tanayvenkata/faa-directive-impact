@@ -1,0 +1,70 @@
+schema_version: "1.0.0"
+case_id: seed-014
+title: HPC rotor exposed after the effective date but no 3rd-stage blade removed
+slice: superseded_or_corrected
+severity: high
+label:
+  provenance: engineer_interpreted
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-05"
+  rationale: >-
+    As first published, paragraph (g) triggered when "the 3rd stage HPC rotor
+    is exposed". Correction 2026-18423 changed this to "rotor blade is
+    exposed", tied to the (h)(2) definition: a blade removed from the stage 3-8
+    drum. Here the rotor was exposed but no blade was removed, so under the
+    corrected text this visit does not trigger replacement. The interpretation
+    is that the requirement carries to the next qualifying visit where a blade
+    is exposed, rather than lapsing. That rests on "where" restricting which
+    visit, on the proposal's intent, and on the FAA's comment response.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-10-05"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-014
+    engine_serial_number: SYN-V2500-0014
+    engine_model: V2524-A5
+    snapshot_at: "2026-10-05"
+  installed_components:
+    - component_name: 3rd stage HPC rotor blade set
+      part_number: 6A8353
+      serial_number: not tracked at set level
+  events:
+    - event_type: shop_visit_induction
+      at: "2026-10-01"
+      qualifies_as_engine_shop_visit:
+        AD 2026-17-03: "yes"
+      detail: Inducted for maintenance.
+      source_note: Asserted by the synthetic operator record.
+    - event_type: component_exposure
+      at: "2026-10-02"
+      detail: HPC rotor exposed for inspection; no 3rd-stage blade was removed from the stage 3-8 drum.
+directive_candidates: ["2026-16954", "2026-18423"]
+expected:
+  - directive: "2026-16954"
+    controlling_ad: AD 2026-17-03
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      Affected blades are installed. The visit inducted 2026-10-01 is after the
+      effective date, but no 3rd-stage blade was exposed as (h)(2) defines it,
+      so the corrected paragraph (g) is not triggered at this visit.
+    required_evidence:
+      - {document: "2026-18423", paragraph: "(g)", locator: corrected text}
+      - {document: "2026-18423", paragraph: "(h)(2)", locator: blade exposure definition}
+      - {document: "2026-18423", paragraph: preamble, locator: Need for the Correction}
+    action_timing:
+      description: >-
+        Not required at this visit. Required at the next shop visit inducted
+        after 2026-09-24 where a 3rd-stage blade is removed from the drum.
+forbidden_claims:
+  - AD 2026-17-03 requires replacement at this visit because the HPC rotor was exposed.
+  - The AD no longer applies because this shop visit passed without blade exposure.
+  - The paragraph (g) text as published on 2026-08-20 controls.
+notes: >-
+  This exercises the correction: a system reading only the original 2026-16954
+  text would trigger on rotor exposure. Whether exposing a rotor without
+  removing any blade is a common shop practice is not claimed.

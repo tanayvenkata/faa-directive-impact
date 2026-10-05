@@ -1,0 +1,48 @@
+schema_version: "1.0.0"
+case_id: seed-012
+title: Later-standard 3rd-stage HPC blades installed
+slice: unaffected_part
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-05"
+  rationale: >-
+    Unlike AD 2025-19-13, this AD's applicability paragraph includes the part
+    condition. An engine without P/N 6A8353 or 6A8688 blades is outside the
+    AD, and the AD has no installation prohibition that would keep binding.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-10-05"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-012
+    engine_serial_number: SYN-V2500-0012
+    engine_model: V2533-A5
+    snapshot_at: "2026-10-05"
+  installed_components:
+    - component_name: 3rd stage HPC rotor blade set
+      part_number: 6C8368
+      serial_number: not tracked at set level
+  events: []
+directive_candidates: ["2026-16954", "2026-18423"]
+expected:
+  - directive: "2026-16954"
+    controlling_ad: AD 2026-17-03
+    authority_state: in_force
+    applicability: does_not_apply
+    reason: >-
+      The installed blades are P/N 6C8368, a part eligible for installation
+      under paragraph (h)(1)(i). Paragraph (c) requires P/N 6A8353 or 6A8688.
+    required_evidence:
+      - {document: "2026-18423", paragraph: "(c)"}
+      - {document: "2026-18423", paragraph: "(h)(1)(i)"}
+forbidden_claims:
+  - AD 2026-17-03 applies to this engine.
+  - The blades must be replaced at the next shop visit.
+notes: >-
+  This contrasts with seed-002, where AD 2025-19-13 applies to every listed
+  model because of its installation prohibition. Outcome semantics must follow
+  each directive's own applicability paragraph.

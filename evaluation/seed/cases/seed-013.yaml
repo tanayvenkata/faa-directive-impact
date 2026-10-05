@@ -1,0 +1,67 @@
+schema_version: "1.0.0"
+case_id: seed-013
+title: Blades exposed after the effective date during a visit inducted before it
+slice: shop_visit_trigger
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-05"
+  rationale: >-
+    Paragraph (h)(3) defines a shop visit as the induction. This visit was
+    inducted on 2026-09-14, before the 2026-09-24 effective date, so it is not
+    a shop visit "after the effective date". The FAA's comment response states
+    this is intended. The proposed rule, which triggered on exposure alone,
+    would have required replacement here.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-09-30"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-013
+    engine_serial_number: SYN-V2500-0013
+    engine_model: V2530-A5
+    snapshot_at: "2026-09-30"
+  installed_components:
+    - component_name: 3rd stage HPC rotor blade set
+      part_number: 6A8688
+      serial_number: not tracked at set level
+  events:
+    - event_type: shop_visit_induction
+      at: "2026-09-14"
+      qualifies_as_engine_shop_visit:
+        AD 2026-17-03: "yes"
+      detail: Inducted for HPC maintenance.
+      source_note: Asserted by the synthetic operator record.
+    - event_type: component_exposure
+      at: "2026-09-30"
+      detail: A 3rd-stage HPC blade was removed from the stage 3-8 drum during the visit inducted 2026-09-14.
+directive_candidates: ["2026-16954", "2026-18423"]
+expected:
+  - directive: "2026-16954"
+    controlling_ad: AD 2026-17-03
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      Affected P/N 6A8688 blades are installed, so the AD applies. The current
+      visit was inducted before the effective date and does not trigger
+      paragraph (g).
+    required_evidence:
+      - {document: "2026-18423", paragraph: "(g)", locator: corrected text}
+      - {document: "2026-18423", paragraph: "(h)(3)", locator: engine shop visit definition}
+      - {document: "2026-16954", paragraph: preamble, locator: response to United Airlines on induction before the effective date}
+    action_timing:
+      description: >-
+        Replacement is not required during the visit inducted 2026-09-14. It
+        is required at the next shop visit inducted after 2026-09-24 where a
+        3rd-stage blade is exposed.
+forbidden_claims:
+  - AD 2026-17-03 requires replacing the blades during the current shop visit.
+  - The engine is no longer subject to AD 2026-17-03 after this visit.
+notes: >-
+  Proposal-to-final change. Under proposed rule 2025-20088 ("at the next 3rd
+  stage HPC rotor blade exposure after the effective date"), this exposure would
+  have triggered replacement.

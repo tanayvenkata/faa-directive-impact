@@ -1,0 +1,55 @@
+schema_version: "1.0.0"
+case_id: seed-011
+title: Affected 3rd-stage HPC blades installed, no shop visit since the AD took effect
+slice: exact_match
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-05"
+  rationale: >-
+    Paragraph (c) covers listed V2500 models with 3rd-stage HPC blades P/N
+    6A8353 or 6A8688 installed. The action is event-triggered: there is no
+    cycle or calendar deadline, only the next qualifying shop visit where a
+    blade is exposed.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-10-05"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-011
+    engine_serial_number: SYN-V2500-0011
+    engine_model: V2527-A5
+    snapshot_at: "2026-10-05"
+  installed_components:
+    - component_name: 3rd stage HPC rotor blade set
+      part_number: 6A8353
+      serial_number: not tracked at set level
+  events: []
+directive_candidates: ["2026-16954", "2026-18423"]
+expected:
+  - directive: "2026-16954"
+    controlling_ad: AD 2026-17-03
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      V2527-A5 is listed and 3rd-stage HPC blades P/N 6A8353 are installed, so
+      paragraph (c) is met. AD 2026-17-03 took effect on 2026-09-24.
+    required_evidence:
+      - {document: "2026-18423", paragraph: "(c)"}
+      - {document: "2026-18423", paragraph: "(g)", locator: corrected text}
+      - {document: "2026-18423", paragraph: "(h)(2)", locator: blade exposure definition}
+      - {document: "2026-18423", paragraph: "(h)(3)", locator: engine shop visit definition}
+    action_timing:
+      description: >-
+        Conditional. At the next engine shop visit inducted after 2026-09-24
+        where any 3rd-stage HPC blade is removed from the stage 3-8 drum,
+        replace the full set with eligible parts. No cycle or calendar limit
+        applies.
+forbidden_claims:
+  - The blades must be replaced by a cycle or calendar deadline.
+  - The engine is noncompliant because the blades are still installed.
+  - Replacing only the exposed blades satisfies the AD.
