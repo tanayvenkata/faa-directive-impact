@@ -21,7 +21,9 @@ official acquisition
 → explicit promotion or rejection
 ```
 
-See [`ROADMAP.md`](ROADMAP.md) and
+For the manual workflow, the proposed one, and the baselines each stage is
+compared against, see [`APPROACH.md`](APPROACH.md). See
+[`ROADMAP.md`](ROADMAP.md) and
 [`ACQUISITION_MILESTONE.md`](ACQUISITION_MILESTONE.md) for scope.
 
 ## Requirements
