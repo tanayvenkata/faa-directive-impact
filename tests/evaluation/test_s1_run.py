@@ -65,4 +65,6 @@ def test_conclude_reads_the_completed_review(run_directory: Path) -> None:
 
     assert verdict["decision"] == "go"
     assert verdict["provisional"] is True
-    assert "PROVISIONAL" in (run_directory / "verdict.md").read_text()
+    markdown = (run_directory / "verdict.md").read_text()
+    assert "PROVISIONAL" in markdown
+    assert markdown.index("| 2 | No scope leak") < markdown.index("| 10 | Required")

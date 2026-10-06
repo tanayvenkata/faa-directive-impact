@@ -1,0 +1,166 @@
+{
+  "ad_number": "AD 2025-19-13",
+  "applicable_models": [
+    "V2522-A5",
+    "V2524-A5",
+    "V2525-D5",
+    "V2527-A5",
+    "V2527E-A5",
+    "V2527M-A5",
+    "V2528-D5",
+    "V2530-A5",
+    "V2531-E5",
+    "V2533-A5"
+  ],
+  "document": "2025-18469",
+  "effective_date": "2025-10-29",
+  "grace_flight_cycles_after_effective_date": 100,
+  "normalizer": "hpt_hub_record",
+  "normalizer_version": "1",
+  "paragraphs": [
+    {
+      "heading": "Effective Date",
+      "id": "(a)",
+      "text": "This airworthiness directive (AD) is effective October 29, 2025."
+    },
+    {
+      "heading": "Affected ADs",
+      "id": "(b)",
+      "text": "None."
+    },
+    {
+      "heading": "Applicability",
+      "id": "(c)",
+      "text": "This AD applies to International Aero Engines AG (IAE AG) Model V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, and V2533-A5 engines."
+    },
+    {
+      "heading": "Subject",
+      "id": "(d)",
+      "text": "Joint Aircraft System Component (JASC) Code 7250, Turbine Section."
+    },
+    {
+      "heading": "Unsafe Condition",
+      "id": "(e)",
+      "text": "This AD was prompted by a manufacturer investigation that revealed a quality escape following angled ultrasonic inspections performed on certain high-pressure turbine (HPT) 1st-stage hubs and HPT 2nd-stage hubs. The FAA is issuing this AD to prevent failure of the HPT 1st-stage hub and HPT 2nd-stage hub. The unsafe condition, if not addressed, could result in an uncontained hub failure, release of high-energy debris, damage to the engine, damage to the airplane, and loss of the airplane."
+    },
+    {
+      "heading": "Compliance",
+      "id": "(f)",
+      "text": "Comply with this AD within the compliance times specified, unless already done."
+    },
+    {
+      "heading": "Required Actions",
+      "id": "(g)",
+      "text": "For engines with an installed part, part number (P/N) and serial number (S/N) identified in table 1 to paragraph (g) of this AD, at the next engine shop visit after the effective date of this AD before exceeding the applicable removal cycle limit listed in table 1 to paragraph (g) of this AD or within 100 flight cycles from the effective date of this AD, whichever occurs later, remove the affected part from service and replace with a part eligible for installation."
+    },
+    {
+      "heading": "Installation Prohibition",
+      "id": "(h)",
+      "text": "After the effective date of this AD, do not install an HPT 1st-stage hub or HPT 2nd-stage hub that has a P/N and S/N listed in table 1 to paragraph (g) of this AD in any engine."
+    },
+    {
+      "heading": "Definitions",
+      "id": "(i)",
+      "text": "For the purpose of this AD:"
+    },
+    {
+      "id": "(i)(1)",
+      "text": "(1) A “part eligible for installation” is an HPT 1st-stage hub or HPT 2nd-stage hub having a P/N and S/N that is not listed in table 1 to paragraph (g) of this AD."
+    },
+    {
+      "id": "(i)(2)",
+      "text": "(2) An “engine shop visit” is the induction of an engine into the shop for maintenance involving the separation of any major mating engine flanges, H-P, except for the following situations, which do not constitute an engine shop visit:"
+    },
+    {
+      "id": "(i)(2)(i)",
+      "text": "(i) Separation of engine flanges solely for the purposes of transportation without subsequent engine maintenance."
+    },
+    {
+      "id": "(i)(2)(ii)",
+      "text": "(ii) Engine removal for the purpose of performing field maintenance activities at a maintenance facility in lieu of performing them on-wing."
+    },
+    {
+      "heading": "Alternative Methods of Compliance (AMOCs)",
+      "id": "(j)",
+      "text": ""
+    },
+    {
+      "id": "(j)(1)",
+      "text": "(1) The Manager, AIR-520 Continued Operational Safety Branch, FAA, has the authority to approve AMOCs for this AD, if requested using the procedures found in 14 CFR 39.19. In accordance with 14 CFR 39.19, send your request to your principal inspector or local Flight Standards District Office, as appropriate. If sending information directly to the manager of the AIR-520 Continued Operational Safety Branch, send it to the attention of the person identified in paragraph (k) of this AD and email to: AMOC@faa.gov ."
+    },
+    {
+      "id": "(j)(2)",
+      "text": "(2) Before using any approved AMOC, notify your appropriate principal inspector, or lacking a principal inspector, the manager of the local flight standards district office/certificate holding district office."
+    },
+    {
+      "heading": "Additional Information",
+      "id": "(k)",
+      "text": "For more information about this AD, contact Carol Nguyen, Aviation Safety Engineer, FAA, 2200 South 216th Street, Des Moines, WA 98198; phone: (781) 238-7655; email: carol.nguyen@faa.gov ."
+    },
+    {
+      "heading": "Material Incorporated by Reference",
+      "id": "(l)",
+      "text": "None."
+    }
+  ],
+  "record_sha256": "cb51aa827f2a613c0f15f1baca76ce37bf86870680a925bc025a8a6756883a13",
+  "record_type": "normalized_directive",
+  "source": {
+    "generation_id": "gen-20260926T215105Z-7fe9da08",
+    "representation_role": "full_text_xml",
+    "sha256": "5bb727351abd85f5ab9b1f4917223766b9f1096073b5ae38f2b627839b3d1ca5"
+  },
+  "table_1": {
+    "paragraph": "(g)",
+    "rows": [
+      {
+        "component": "HPT 1st-stage hub",
+        "part_number": "2A5001",
+        "removal_limit_cycles_since_new": 100,
+        "serial_number": "PKLBSK9287"
+      },
+      {
+        "component": "HPT 1st-stage hub",
+        "part_number": "2A5001",
+        "removal_limit_cycles_since_new": 4800,
+        "serial_number": "PKLBSS9200"
+      },
+      {
+        "component": "HPT 1st-stage hub",
+        "part_number": "2A5001",
+        "removal_limit_cycles_since_new": 5500,
+        "serial_number": "PKLBST5011"
+      },
+      {
+        "component": "HPT 1st-stage hub",
+        "part_number": "2A5001",
+        "removal_limit_cycles_since_new": 6200,
+        "serial_number": "PKLBST7489"
+      },
+      {
+        "component": "HPT 2nd-stage hub",
+        "part_number": "2A4802",
+        "removal_limit_cycles_since_new": 4000,
+        "serial_number": "PKLBST5005"
+      },
+      {
+        "component": "HPT 2nd-stage hub",
+        "part_number": "2A4802",
+        "removal_limit_cycles_since_new": 3900,
+        "serial_number": "PKLBSS9840"
+      },
+      {
+        "component": "HPT 2nd-stage hub",
+        "part_number": "2A4802",
+        "removal_limit_cycles_since_new": 5000,
+        "serial_number": "PKLBSS0301"
+      },
+      {
+        "component": "HPT 2nd-stage hub",
+        "part_number": "2A4802",
+        "removal_limit_cycles_since_new": 6000,
+        "serial_number": "PKLBSR2100"
+      }
+    ]
+  }
+}

@@ -43,6 +43,8 @@ A newly published in-scope directive becomes visible the day it syncs, as
    match the synthetic engines deterministically, and show the three queues
    with cited paragraphs on a plain page. This is the series' rules baseline:
    score it against the seed and publish the first failure taxonomy.
+   *Built; decision go, provisional on owner-confirmed hand review
+   ([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)).*
 4. **Daily sync and freshness** — schedule the Milestone 1 acquisition for
    the discovery corpus: poll from a checkpoint, build a candidate generation,
    validate, then promote or reject while keeping the previous generation. The
@@ -103,7 +105,10 @@ low cost.
 claim level ([`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md)). The
 active milestone is **Evaluation Seed**: the 29-case seed (E1) and the
 frozen gates in [`evaluation/GATES.md`](evaluation/GATES.md) (E2) are done; the
-image-transcription decision (E3) is open. S1 depends only on E1 and E2.
+image-transcription decision (E3) is open. S1, the rules baseline for AD
+2025-19-13, is built and scored: every gate passes on its 18 units, and the
+go decision is provisional until the owner confirms the hand review
+([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)).
 
 ## Revisions
 

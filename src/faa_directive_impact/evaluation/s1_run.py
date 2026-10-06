@@ -328,7 +328,8 @@ def verdict_markdown(verdict: dict[str, Any]) -> str:
         "| # | Gate | Verdict | Failed |",
         "|---|---|---|---|",
     ]
-    for number, gate in verdict["gates"].items():
+    for number in sorted(verdict["gates"], key=int):
+        gate = verdict["gates"][number]
         failed = gate.get("failed", [])
         lines.append(
             f"| {number} | {GATE_NAMES[number]} | {gate['verdict']} | "

@@ -1,0 +1,273 @@
+{
+  "decision": "go",
+  "gate_version": 1,
+  "gates": {
+    "1": {
+      "budget": 0,
+      "covered": [
+        "seed-001",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-026",
+        "seed-027",
+        "seed-028"
+      ],
+      "failed": [],
+      "gate": "1",
+      "labels_to_check": [],
+      "name": "No false clear",
+      "verdict": "pass"
+    },
+    "10": {
+      "budget": "0 on critical units, 0 uncited clears, at most 1 on high",
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-003",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-009",
+        "seed-010",
+        "seed-018",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-024",
+        "seed-026",
+        "seed-027",
+        "seed-028",
+        "seed-029"
+      ],
+      "critical_units_with_uncited_evidence": [],
+      "failed": [],
+      "gate": "10",
+      "high_uncited_entries": 0,
+      "labels_to_check": [],
+      "name": "Required evidence cited",
+      "scope": "citation part only; locators are on the hand-review sheet",
+      "uncited_clears": [],
+      "verdict": "pass"
+    },
+    "11": {
+      "budget": 0,
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-003",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-009",
+        "seed-010",
+        "seed-018",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-024",
+        "seed-026",
+        "seed-027",
+        "seed-028",
+        "seed-029"
+      ],
+      "failed": [],
+      "gate": "11",
+      "labels_to_check": [],
+      "name": "Timing stated correctly",
+      "verdict": "pass"
+    },
+    "12": {
+      "budget": 1,
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-010",
+        "seed-018",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-024",
+        "seed-026",
+        "seed-028"
+      ],
+      "failed": [],
+      "gate": "12",
+      "labels_to_check": [],
+      "name": "No needless escalation",
+      "verdict": "pass"
+    },
+    "13": {
+      "budget": 1,
+      "covered": [
+        "seed-002",
+        "seed-018",
+        "seed-024"
+      ],
+      "failed": [],
+      "gate": "13",
+      "labels_to_check": [],
+      "name": "No false alarm",
+      "verdict": "pass"
+    },
+    "14": {
+      "gate": "14",
+      "name": "Candidate recall",
+      "reason": "S1 receives its directive directly and does no retrieval.",
+      "verdict": "not_exercised"
+    },
+    "2": {
+      "budget": 0,
+      "covered": [
+        "seed-004",
+        "seed-010"
+      ],
+      "failed": [],
+      "gate": "2",
+      "labels_to_check": [],
+      "name": "No scope leak",
+      "verdict": "pass"
+    },
+    "3": {
+      "budget": 0,
+      "covered": [
+        "seed-003",
+        "seed-009",
+        "seed-029"
+      ],
+      "failed": [],
+      "gate": "3",
+      "labels_to_check": [],
+      "name": "No false confidence",
+      "verdict": "pass"
+    },
+    "4": {
+      "budget": 0,
+      "covered": [
+        "seed-003",
+        "seed-008",
+        "seed-009",
+        "seed-027",
+        "seed-029"
+      ],
+      "failed": [],
+      "gate": "4",
+      "labels_to_check": [],
+      "name": "Every missing fact named",
+      "verdict": "pass"
+    },
+    "5": {
+      "budget": 0,
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-003",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-009",
+        "seed-010",
+        "seed-018",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-024",
+        "seed-026",
+        "seed-027",
+        "seed-028",
+        "seed-029"
+      ],
+      "failed": [],
+      "gate": "5",
+      "labels_to_check": [],
+      "name": "No forbidden claim",
+      "verdict": "pass"
+    },
+    "6": {
+      "budget": 0,
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-003",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-009",
+        "seed-010",
+        "seed-018",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-024",
+        "seed-026",
+        "seed-027",
+        "seed-028",
+        "seed-029"
+      ],
+      "failed": [],
+      "gate": "6",
+      "labels_to_check": [],
+      "name": "No fabricated citation",
+      "verdict": "pass"
+    },
+    "7": {
+      "budget": 0,
+      "covered": [
+        "seed-018"
+      ],
+      "failed": [],
+      "gate": "7",
+      "labels_to_check": [],
+      "name": "Authority respected",
+      "verdict": "pass"
+    },
+    "8": {
+      "budget": 0,
+      "covered": [
+        "seed-001",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-026",
+        "seed-027",
+        "seed-028"
+      ],
+      "failed": [],
+      "gate": "8",
+      "labels_to_check": [],
+      "name": "Exact arithmetic",
+      "verdict": "pass"
+    },
+    "9": {
+      "budget": 0,
+      "covered": [
+        "seed-002",
+        "seed-024",
+        "seed-029"
+      ],
+      "failed": [],
+      "gate": "9",
+      "labels_to_check": [],
+      "name": "Exact part identity",
+      "verdict": "pass"
+    }
+  },
+  "provisional": true,
+  "reviewer": "Claude (first pass, unconfirmed by project owner)",
+  "reviewer_confirmed": false,
+  "run_id": "s1-20261006T223638Z-6a301b1",
+  "why": "Every protected gate passes and every aggregate is within budget."
+}

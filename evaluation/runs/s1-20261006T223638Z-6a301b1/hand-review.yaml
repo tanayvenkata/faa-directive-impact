@@ -1,0 +1,161 @@
+gate_version: 1
+reviewer: Claude (first pass, unconfirmed by project owner)
+reviewer_confirmed: false
+reviewed_on: '2026-10-06'
+allowed_results:
+  gate_5:
+  - absent
+  - present
+  gate_11:
+  - consistent
+  - contradicts
+  - not_applicable
+  locators:
+  - resolved
+  - fabricated
+units:
+  seed-001:
+    gate_5:
+      result: absent
+      reason: States removal is required and the (h) prohibition; nothing says not affected,
+        reinstallable, or past 5,500 CSN.
+    gate_11:
+      result: consistent
+      reason: Same trigger (next qualifying shop visit), limit 5,500 CSN, counter 45,050,
+        2,400 remaining; window already elapsed.
+  seed-002:
+    gate_5:
+      result: absent
+      reason: Says the AD applies and (h) continues to bind; no flag on P/N alone.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-003:
+    gate_5:
+      result: absent
+      reason: Needs review with the S/N named as missing; neither 'no removal' nor a settled
+        removal is stated.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-004:
+    gate_5:
+      result: absent
+      reason: Outside supported scope with no determination; no 'not affected' statement.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-005:
+    gate_5:
+      result: absent
+      reason: Says removal is not required at this visit, follows the informal FAA reading,
+        and labels readings A and B as not adopted; does not state a 100-FC removal requirement.
+    gate_11:
+      result: consistent
+      reason: 'Same: not removed at this visit; removed before 3,900 CSN at counter 20,900;
+        2,860 remaining.'
+  seed-006:
+    gate_5:
+      result: absent
+      reason: Deadline is the 100-FC window (counter 25,600); does not state removal at 100
+        CSN.
+    gate_11:
+      result: consistent
+      reason: Same counter 25,600, 70 FC after the snapshot. Omits the label's 'if a shop
+        visit occurs first, see seed-005' caveat, which under the FAA reading does not change
+        the deadline; omission, not contradiction.
+  seed-007:
+    gate_5:
+      result: absent
+      reason: Both hubs require removal; the earliest deadline is the 1st-stage hub's.
+    gate_11:
+      result: consistent
+      reason: Same counters 30,800 and 32,000 and remaining cycles; 1st-stage hub first.
+  seed-008:
+    gate_5:
+      result: absent
+      reason: Timing says the 2nd-stage hub remains unknown; does not say the 2nd-stage hub
+        is unaffected or that removing the 1st resolves the AD.
+    gate_11:
+      result: consistent
+      reason: Same counter 54,200 and 3,700 remaining; 2nd-stage status unknown.
+  seed-009:
+    gate_5:
+      result: absent
+      reason: Both hub records named as missing; no 'no removal' or 'no affected hubs'.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-010:
+    gate_5:
+      result: absent
+      reason: Outside supported scope; the listed hub record is not used to flag the engine.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-018:
+    gate_5:
+      result: absent
+      reason: Says nothing is required yet and that the (h) prohibition begins on 2025-10-29;
+        requirements are stated as future.
+    gate_11:
+      result: consistent
+      reason: Nothing required yet; removal before 6,000 CSN from 2025-10-29; FAA note on
+        the first 100 FC. Stated timing paraphrases (g)'s shop-visit trigger where the label
+        says the FAA's view of a later visit is pending; the text's readings agree on that
+        trigger, so recorded as consistent, but the owner should look.
+  seed-019:
+    gate_5:
+      result: absent
+      reason: Removal by counter 60,100; no immediate grounding and no extension past the
+        window.
+    gate_11:
+      result: consistent
+      reason: 'Same: within 100 FC of 2025-10-29, counter 60,100, 60 FC after snapshot, 190
+        past limit.'
+  seed-023/2025-18469:
+    gate_5:
+      result: absent
+      reason: States only this directive's deadline; says nothing about the other two directives.
+    gate_11:
+      result: consistent
+      reason: 'Same: next qualifying shop visit, counter 25,000, 2,500 remaining.'
+  seed-024:
+    gate_5:
+      result: absent
+      reason: AD applies; no removal of the 2nd-stage hub; explains the S/N is listed only
+        with P/N 2A5001.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-026:
+    gate_5:
+      result: absent
+      reason: Removal required; note says repairs and inspections do not change applicability
+        or limits and are not shop visits.
+    gate_11:
+      result: consistent
+      reason: 'Same: counter 23,200, 6,200 CSN, 2,600 remaining.'
+  seed-027:
+    gate_5:
+      result: absent
+      reason: Keeps the 4,800 CSN limit and names the unverified AMOC as a fact to verify,
+        without declaring the AMOC invalid.
+    gate_11:
+      result: consistent
+      reason: 'Same: counter 15,300, 4,800 CSN, 50 remaining; AMOC caveat.'
+  seed-028:
+    gate_5:
+      result: absent
+      reason: Removal required; the operator's record is reported as not used and to be reviewed,
+        not endorsed.
+    gate_11:
+      result: consistent
+      reason: 'Same: counter 11,000, 4,000 CSN, 2,600 remaining.'
+  seed-029:
+    gate_5:
+      result: absent
+      reason: Needs review on the P/N; states neither removal nor no action as settled.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
