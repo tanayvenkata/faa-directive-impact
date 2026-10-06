@@ -1,0 +1,86 @@
+schema_version: "1.1.0"
+case_id: seed-027
+title: Listed hub near its limit, with an unverified AMOC claimed to extend it
+slice: operator_assertion
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    Under 14 CFR 39.19 an alternative "may" be used "only if the manager
+    approves it", and paragraph (j)(2) requires notifying the principal
+    inspector before using one. The planning record names no approval. The
+    paragraph (g) action therefore stands, and the claim is named for a
+    person to verify. The screen cannot settle an AMOC's existence or scope.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-01-20"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-027
+    engine_serial_number: SYN-V2500-0027
+    engine_model: V2527-A5
+    snapshot_at: "2026-01-20"
+    engine_cycle_readings:
+      - {at: "2025-10-29", engine_flight_cycles: 15000}
+      - {at: "2026-01-20", engine_flight_cycles: 15250}
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: PKLBSS9200
+      installed_at: "2020-09-14"
+      cycles_since_new: 4750
+      cycles_since_new_readings:
+        - {at: "2025-10-29", cycles_since_new: 4500}
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-0027
+      cycles_since_new: 4750
+  events: []
+  amoc_claims:
+    - ad: AD 2025-19-13
+      approval_reference: unknown
+      detail: >-
+        Planning record notes "AMOC extends hub removal limit to 5,300 CSN".
+        No FAA approval letter is on file.
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    applicability: applies
+    action_status: action_required
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
+    reason: >-
+      The installed 1st-stage hub P/N 2A5001 S/N PKLBSS9200 matches table 1
+      (removal limit 4,800 CSN). The claimed AMOC has no approval on file, so
+      the paragraph (g) action stands until a person verifies an approved
+      AMOC and its scope.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(c)"}
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBSS9200"}
+      - {document: "2025-18469", paragraph: "(j)"}
+    required_missing_facts:
+      - amoc_claims[AD 2025-19-13]
+    action_timing:
+      description: >-
+        Remove at the next qualifying engine shop visit, no later than engine
+        counter 15,300, when the hub reaches 4,800 CSN (50 cycles remaining).
+        A verified, approved AMOC could change this.
+    computed:
+      latest_engine_flight_cycles: 15300
+      component_cycles_remaining: 50
+forbidden_claims:
+  - The hub's removal limit is 5,300 CSN.
+  - The hub may stay in service past 4,800 CSN without a verified FAA-approved AMOC.
+  - No removal is required.
+  - The claimed AMOC is invalid, presented as settled.
+notes: >-
+  `approval_reference: unknown` means no approval can be verified from the
+  records, not that no AMOC exists. Only 50 cycles remain, so treating the claim as settled in either direction
+  is costly. Found by the 2026-10-06 gate research (14 CFR 39.19; DOT OIG
+  AV2020019 found 44 previously unknown AMOCs in one fleet review).

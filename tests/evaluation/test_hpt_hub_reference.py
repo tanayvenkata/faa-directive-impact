@@ -92,3 +92,51 @@ def test_seed_label_matches_reference_derivation(case, expected, facts) -> None:
         assert derivation.readings_diverge
     if label["status"] == "adjudicated" and derivation.adjudications:
         assert set(derivation.adjudications) == {label["adjudication"]["id"]}
+
+
+def first_stage_hub_engine(part_number: str, serial_number: str) -> dict:
+    return {
+        "engine": {"engine_model": "V2525-D5"},
+        "installed_components": [
+            {
+                "component_name": "HPT 1st-stage hub",
+                "part_number": part_number,
+                "serial_number": serial_number,
+            },
+            {
+                "component_name": "HPT 2nd-stage hub",
+                "part_number": "2A4802",
+                "serial_number": "SYN-HUB2",
+            },
+        ],
+    }
+
+
+@pytest.mark.parametrize(
+    ("part_number", "serial_number", "missing_fact"),
+    [
+        ("2A5001-01", "PKLBSK9287", "part_number"),
+        ("2A4802", "PKLBSK9287", "part_number"),
+        ("2a5001", "PKLBSK9287", "part_number"),
+        ("2A5001", "pklbsk 9287", "serial_number"),
+    ],
+)
+def test_listed_serial_under_variant_identity_needs_review(
+    facts, part_number, serial_number, missing_fact
+) -> None:
+    derivation = derive(first_stage_hub_engine(part_number, serial_number), facts)
+
+    assert derivation.action_status == "needs_review"
+    assert derivation.missing_facts == [
+        f"installed_components[HPT 1st-stage hub].{missing_fact}"
+    ]
+
+
+@pytest.mark.parametrize("serial_number", ["PKLBSK9288", "PKLBSK9287-R"])
+def test_serial_that_only_resembles_a_listed_one_is_not_matched(
+    facts, serial_number
+) -> None:
+    derivation = derive(first_stage_hub_engine("2A5001", serial_number), facts)
+
+    assert derivation.action_status == "no_action_triggered"
+    assert derivation.missing_facts == []

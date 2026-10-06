@@ -1,9 +1,13 @@
 # Feasibility Seed
 
-Twenty-five manually inspectable cases that establish the first failure
-taxonomy. They are a feasibility seed, not a corpus limit or a release
-threshold. Each case is one synthetic engine, one accepted source generation,
-and the expected directive-impact outcome.
+Twenty-nine manually inspectable cases that establish the first failure
+taxonomy. Seed-026 to seed-029 were added on 2026-10-06, before any scored
+run, to cover gaps found by the gate research (`../research/`). The pass/fail
+gates they are scored under are in `../GATES.md`.
+
+They are a feasibility seed, not a corpus limit or a release threshold. Each
+case is one synthetic engine, one accepted source generation, and the expected
+directive-impact outcome.
 
 Cases live in `cases/seed-NNN.yaml` and are validated by the packaged
 `seed-case.schema.json`. `make test` also checks every case against its source
@@ -39,7 +43,10 @@ maintenance adequacy, or return-to-service authority.
 
 An omitted `authority_state` means `in_force`. `action_required` may still list
 `required_missing_facts` when part of the obligation is established and another
-part depends on a missing fact (seed-008, seed-017).
+part depends on a missing fact (seed-008, seed-017). It may also list one when
+an unverified operator claim, such as an AMOC, could change an established
+action: the AD's own action stands until a person verifies the claim
+(seed-027).
 
 ## Provenance
 
@@ -55,6 +62,10 @@ cited source text) to `adjudicated` (settled by a qualified reviewer).
 
 ## Conventions
 
+- `ad_records` and `amoc_claims` hold what the operator asserts: its recorded
+  AD status and any AMOC it claims. They are claims to check, never evidence
+  that settles an outcome. A repair or modification never removes an AD's
+  applicability (14 CFR 39.15).
 - Synthetic identifiers use a `SYN-` prefix so no case can be read as a claim
   about a real engine. Real published serial numbers appear only where a
   directive lists them.

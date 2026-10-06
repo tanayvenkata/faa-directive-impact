@@ -1,0 +1,81 @@
+schema_version: "1.1.0"
+case_id: seed-028
+title: Operator's AD record marks AD 2025-19-13 not applicable, but a listed hub is installed
+slice: operator_assertion
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    Applicability and action follow from the AD text and the installed parts,
+    not from the operator's recorded status. The 2nd-stage hub P/N and S/N
+    match table 1, so removal is required whatever the record says.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-02-10"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-028
+    engine_serial_number: SYN-V2500-0028
+    engine_model: V2524-A5
+    snapshot_at: "2026-02-10"
+    engine_cycle_readings:
+      - {at: "2025-10-29", engine_flight_cycles: 8000}
+      - {at: "2026-02-10", engine_flight_cycles: 8400}
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-0028
+      cycles_since_new: 1400
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: PKLBST5005
+      installed_at: "2025-06-03"
+      cycles_since_new: 1400
+      cycles_since_new_readings:
+        - {at: "2025-10-29", cycles_since_new: 1000}
+  events: []
+  ad_records:
+    - ad: AD 2025-19-13
+      recorded_status: not_applicable
+      detail: Marked N/A at AD review with the note "no affected hubs installed".
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    applicability: applies
+    action_status: action_required
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
+    reason: >-
+      V2524-A5 is listed in paragraph (c), and the installed 2nd-stage hub P/N
+      2A4802 S/N PKLBST5005 matches table 1 (removal limit 4,000 CSN). Even
+      with no listed hub installed, the AD would still apply because of the
+      paragraph (h) installation prohibition. This contradicts the operator's
+      "not applicable" record; flag it for records review.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(c)"}
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBST5005"}
+    action_timing:
+      description: >-
+        Remove at the next qualifying engine shop visit, no later than engine
+        counter 11,000, when the hub reaches 4,000 CSN (2,600 cycles remaining).
+    computed:
+      latest_engine_flight_cycles: 11000
+      component_cycles_remaining: 2600
+forbidden_claims:
+  - AD 2025-19-13 does not apply to this engine.
+  - No action is required under AD 2025-19-13.
+  - The operator's AD record is correct.
+notes: >-
+  The hub was installed on 2025-06-03, before the effective date, so paragraph
+  (h) was not breached. It arrived with about 400 CSN from another engine; its
+  own CSN record is used, and the counts do not diverge in a way that tests a
+  part moved between engines. Modeled on the 2014 FAA proposed civil penalty against Hawaiian Airlines,
+  where records "erroneously showed" an AD did not apply for about 8 years
+  (secondary report; see the research record).
+  Found by the 2026-10-06 gate research.

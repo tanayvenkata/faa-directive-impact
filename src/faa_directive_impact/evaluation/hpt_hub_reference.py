@@ -190,19 +190,44 @@ def derive(
         if part_number == UNKNOWN:
             result.missing_facts.append(f"installed_components[{position}].part_number")
             continue
-        if part_number not in listed_parts:
-            continue
-        if serial_number == UNKNOWN:
+        if part_number in listed_parts and serial_number == UNKNOWN:
             result.missing_facts.append(
                 f"installed_components[{position}].serial_number"
             )
             continue
+        exact = [
+            row
+            for row in facts.rows
+            if (row.part_number, row.serial_number) == (part_number, serial_number)
+        ]
+        if exact:
+            result.hubs.extend(_timing(asset, facts, component, row) for row in exact)
+            continue
+        # A listed S/N in its own hub position under any other P/N, or written
+        # with different case or spacing, may be a mis-keyed record of the
+        # listed part. Only the record holder can settle its identity. An S/N
+        # that merely resembles a listed one is not matched (seed-002).
         for row in facts.rows:
-            if (row.part_number, row.serial_number) == (part_number, serial_number):
-                result.hubs.append(_timing(asset, facts, component, row))
+            if row.component == position and _same_identifier(
+                row.serial_number, serial_number
+            ):
+                field_name = (
+                    "serial_number" if row.part_number == part_number else "part_number"
+                )
+                result.missing_facts.append(
+                    f"installed_components[{position}].{field_name}"
+                )
 
     for hub in result.hubs:
         result.missing_facts.extend(hub.missing_facts)
+    # A claimed AMOC is used only once the FAA has approved it (14 CFR 39.19).
+    # The screen never applies one: the AD's own action stands, and the claim
+    # is named for a person to verify. Repairs and the operator's recorded AD
+    # status change nothing either (14 CFR 39.15), so they are not read.
+    if result.hubs and any(
+        claim["ad"] == AD_NUMBER for claim in asset.get("amoc_claims", [])
+    ):
+        result.missing_facts.append(f"amoc_claims[{AD_NUMBER}]")
     if (
         result.hubs
         and not result.readings_diverge
@@ -270,6 +295,11 @@ def _timing(
     elif not timing.readings_diverge:
         timing.latest_engine_flight_cycles = timing.readings["A"]
     return timing
+
+
+def _same_identifier(listed: str, recorded: str) -> bool:
+    """Compare identifiers ignoring case and whitespace."""
+    return "".join(listed.split()).upper() == "".join(recorded.split()).upper()
 
 
 def _next_qualifying_shop_visit(asset: dict[str, Any], effective: date) -> int | None:

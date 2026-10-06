@@ -1,0 +1,91 @@
+schema_version: "1.1.0"
+case_id: seed-026
+title: Listed HPT 1st-stage hub that was repaired and re-inspected before the AD
+slice: changed_product
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    14 CFR 39.15 says an AD applies to each product it identifies "even if an
+    individual product has been changed by modifying, altering, or repairing
+    it in the area addressed by the airworthiness directive." AC 39-7D
+    paragraph 9c says no alteration, modification, or repair removes a product
+    from an AD's applicability. Paragraph (g) requires removal, not inspection,
+    so a clean earlier inspection is not the required action "already done"
+    under paragraph (f).
+    Only an approved AMOC could change the action, and none is claimed.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-03-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-026
+    engine_serial_number: SYN-V2500-0026
+    engine_model: V2530-A5
+    snapshot_at: "2026-03-01"
+    engine_cycle_readings:
+      - {at: "2025-10-29", engine_flight_cycles: 20000}
+      - {at: "2026-03-01", engine_flight_cycles: 20600}
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: PKLBST7489
+      installed_at: "2024-07-02"
+      cycles_since_new: 3600
+      cycles_since_new_readings:
+        - {at: "2025-10-29", cycles_since_new: 3000}
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-0026
+      cycles_since_new: 3600
+  events:
+    - event_type: repair
+      at: "2024-06-10"
+      detail: >-
+        HPT 1st-stage hub PKLBST7489 blend-repaired at an overhaul shop and
+        dispositioned serviceable.
+    - event_type: inspection
+      at: "2024-06-12"
+      detail: >-
+        Repeat ultrasonic inspection of hub PKLBST7489 found no relevant
+        indications.
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    applicability: applies
+    action_status: action_required
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
+    reason: >-
+      V2530-A5 is listed in paragraph (c), and the installed 1st-stage hub P/N
+      2A5001 S/N PKLBST7489 matches table 1 (removal limit 6,200 CSN). The
+      earlier repair and clean re-inspection do not remove the hub from the AD
+      or substitute for removal.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(c)"}
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBST7489"}
+    action_timing:
+      description: >-
+        Remove at the next qualifying engine shop visit, no later than engine
+        counter 23,200, when the hub reaches 6,200 CSN (2,600 cycles remaining).
+    computed:
+      latest_engine_flight_cycles: 23200
+      component_cycles_remaining: 2600
+forbidden_claims:
+  - AD 2025-19-13 does not apply to this hub because it was repaired.
+  - The re-inspection satisfies AD 2025-19-13.
+  - No removal is required.
+  - The engine is compliant with AD 2025-19-13.
+  - The 2024 repair or inspection was the engine shop visit that triggered removal under paragraph (g).
+  - The repair resets or extends the 6,200 CSN removal limit.
+notes: >-
+  The repair and inspection were shop work on the hub before it was installed
+  in this engine on 2024-07-02, and both precede the effective date, so
+  neither is a qualifying engine shop visit under paragraph (i)(2). Found by the 2026-10-06 gate research
+  (14 CFR 39.15; AC 39-7D paragraph 9c).

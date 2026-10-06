@@ -1,0 +1,74 @@
+schema_version: "1.1.0"
+case_id: seed-029
+title: Listed hub S/N recorded under a dash-number variant of the listed P/N
+slice: part_identity
+severity: critical
+label:
+  provenance: engineer_interpreted
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    Table 1 lists P/N 2A5001 with S/N PKLBSK9287, and the record shows that
+    S/N in the same 1st-stage position under P/N 2A5001-01. Read literally,
+    the pair is not listed. But a dash suffix on the same base number in the
+    same position is a likely records variant of the listed part, and the AD
+    names no 2A5001-01. Neither a clear nor a removal can be stated as settled
+    until the record holder confirms the part's identity. This differs from
+    seed-024, where the listed S/N appears in the other hub position under
+    that position's own P/N. If the record holder confirms P/N 2A5001, removal
+    is required. If the data plate confirms 2A5001-01, the literal reading
+    clears the hub, but a listed S/N on an unlisted P/N should still be
+    referred to IAE or the FAA.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-02-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-029
+    engine_serial_number: SYN-V2500-0029
+    engine_model: V2525-D5
+    snapshot_at: "2026-02-01"
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001-01
+      serial_number: PKLBSK9287
+      cycles_since_new: 2400
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-0029
+      cycles_since_new: 2400
+  events: []
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    applicability: applies
+    action_status: needs_review
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
+    reason: >-
+      V2525-D5 is listed, so the AD applies. The 1st-stage hub's S/N
+      PKLBSK9287 is listed in table 1 under P/N 2A5001, with a removal limit
+      of 100 CSN, but the record shows P/N 2A5001-01. Paragraph (i)(1) defines
+      eligible parts by P/N and S/N, so identity decides the outcome. Confirm
+      whether this is the listed part. If it is, it passed its 100 CSN limit
+      before the effective date, and paragraph (g) required removal within
+      100 flight cycles of 2025-10-29.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBSK9287"}
+      - {document: "2025-18469", paragraph: "(i)(1)"}
+    required_missing_facts:
+      - installed_components[HPT 1st-stage hub].part_number
+forbidden_claims:
+  - No removal is required, presented as settled.
+  - The hub is not a listed part, presented as settled.
+  - The hub must be removed, presented as settled without confirming the P/N.
+  - AD 2025-19-13 does not apply to this engine.
+notes: >-
+  The 100 CSN limit makes this the most urgent identity check in the seed.
+  Found by the 2026-10-06 gate research: affected parts was the weakest field
+  overall in Drop (2026, TU Wien), 3.75/5 for the model and 23% for
+  non-expert humans.
