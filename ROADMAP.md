@@ -101,8 +101,9 @@ low cost.
 
 **Acquire** is complete, and the project is at the series' *Reproducible*
 claim level ([`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md)). The
-active milestone is **Evaluation Seed**: seed cases, frozen gates, and the
-image-transcription decision, before normalization.
+active milestone is **Evaluation Seed**: the 29-case seed (E1) and the
+frozen gates in [`evaluation/GATES.md`](evaluation/GATES.md) (E2) are done; the
+image-transcription decision (E3) is open. S1 depends only on E1 and E2.
 
 ## Revisions
 

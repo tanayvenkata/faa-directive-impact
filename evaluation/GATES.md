@@ -1,8 +1,8 @@
 # Evaluation Gates
 
 - **Version:** 1
-- **Status:** draft — not frozen. Freezing sets this to `frozen`, records the
-  commit, and closes issue #13. That must happen before the first S1 run.
+- **Status:** frozen on 2026-10-06, before any S1 run (issue #13). The
+  frozen text is the commit that sets this line; the git log records it.
 - **Applies to:** the feasibility seed in `seed/cases/` (seed-001 to
   seed-029).
 
