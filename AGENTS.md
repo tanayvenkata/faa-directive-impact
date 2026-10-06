@@ -2,7 +2,7 @@
 
 ## Current Phase & Scope
 
-Milestone 1: Immutable Acquisition is complete (`CHECKPOINT_REPRODUCIBLE.md`); its accepted frozen generation is under `generations/`. The active milestone is **Milestone 2: Evaluation Seed** (GitHub issues E1–E3): seed cases, frozen numerical gates, and the image-transcription decision, written before normalization code. Do not scaffold retrieval, indexing, agent, UI, hosting, or long-term storage components ahead of it. After it, `ROADMAP.md` sets the order: a walking skeleton (rules baseline), then a daily sync of all FAA airworthiness directives, then rule extraction, ahead of retrieval work.
+Milestone 1: Immutable Acquisition is complete (`CHECKPOINT_REPRODUCIBLE.md`); its accepted frozen generation is under `generations/`. Milestone 2: Evaluation Seed has written the seed cases (E1) and frozen the gates in `evaluation/GATES.md` (E2); the image-transcription decision (E3) is still open. The active work is **S1, the walking skeleton** (issue #16, `ROADMAP.md` Delivery Sequence step 3): a normalized record of AD 2025-19-13 (`src/faa_directive_impact/directives/`), deterministic rules and a static three-queue HTML page (`src/faa_directive_impact/impact/`), and a scorer that applies the frozen gates (`src/faa_directive_impact/evaluation/s1_*.py`). S1 covers that one directive only. The static page is the only UI allowed: no server, hosting, retrieval, indexing, agent, or long-term storage components yet. After S1, `ROADMAP.md` sets the order: a daily sync of all FAA airworthiness directives, then rule extraction, ahead of retrieval work. Never edit `evaluation/GATES.md` or a seed case to make a run pass; follow its "Disputed Labels" section.
 
 The first vertical slice is acquisition and manifesting, not the polished fleet-impact application:
 
@@ -48,6 +48,10 @@ management, and a root `Makefile` as the documented command entry point.
   every expected representation into `STORAGE_ROOT` (default `data/`) and
   write a raw-generation manifest for `CORPUS_TRACK` (default
   `frozen_evaluation`).
+- `make s1` — offline; run the S1 rules baseline for AD 2025-19-13 and write a
+  kept run directory under `evaluation/runs/`.
+- `make s1-conclude RUN=evaluation/runs/<run-id>` — fold a completed
+  hand-review sheet (gates 5 and 11) into that run's verdict.
 
 Run all commands from the repository root. Update this section and the README
 when commands or tooling change.

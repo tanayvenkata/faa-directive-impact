@@ -5,9 +5,10 @@ directive-impact system. The first supported evaluation boundary is the
 International Aero Engines V2500-A5/D5/E5 family.
 
 **Status: Reproducible** — see [`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md).
-Milestone 1 (immutable official-source acquisition) is complete. The next
-milestone writes the evaluation seed before normalization. Application,
-retrieval, and agent work remain deferred.
+Milestone 1 (immutable official-source acquisition) is complete, and the
+evaluation seed and frozen gates are written. S1, the rules baseline for AD
+2025-19-13, is in [`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md).
+Retrieval and agent work remain deferred.
 
 ## Current Flow
 
@@ -41,7 +42,14 @@ make test     # run deterministic tests; no live network calls by default
 make lint     # run static lint checks
 make format   # apply the formatter
 make check    # run lint and tests
+make s1       # run the S1 rules baseline offline; writes evaluation/runs/<run-id>/
+make s1-conclude RUN=evaluation/runs/<run-id>   # fold in the completed hand review
 ```
+
+Each S1 run directory holds the normalized record, every unit's output, the
+gate report, a hand-review sheet for gates 5 and 11, and `queues.html`, a
+static page you can open directly in a browser. Runs are kept, never
+overwritten.
 
 The `.venv/` directory is local and ignored by Git.
 

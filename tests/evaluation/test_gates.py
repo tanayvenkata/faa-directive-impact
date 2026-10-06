@@ -46,11 +46,13 @@ def is_determinate(record: dict, outcome: dict) -> bool:
 
 
 SELECTORS = {
-    "1": lambda _, o: o["applicability"] == "applies"
-    and o.get("action_status") in ACTION,
+    "1": lambda _, o: (
+        o["applicability"] == "applies" and o.get("action_status") in ACTION
+    ),
     "2": lambda _, o: o["applicability"] == "outside_supported_scope",
-    "3": lambda _, o: o["applicability"] == "unknown"
-    or o.get("action_status") == "needs_review",
+    "3": lambda _, o: (
+        o["applicability"] == "unknown" or o.get("action_status") == "needs_review"
+    ),
     "4": lambda _, o: bool(o.get("required_missing_facts")),
     "7": lambda _, o: o.get("authority_state", "in_force") != "in_force",
     "8": lambda _, o: "computed" in o,

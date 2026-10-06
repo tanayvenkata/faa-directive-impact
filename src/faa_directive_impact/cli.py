@@ -1,8 +1,10 @@
-"""Command-line entry point for acquisition runs."""
+"""Command-line entry point for acquisition and S1 baseline runs."""
 
 import argparse
 import json
+import subprocess
 import sys
+from datetime import UTC, datetime
 from pathlib import Path
 
 from faa_directive_impact.acquisition.document import acquire_document
@@ -20,6 +22,7 @@ from faa_directive_impact.acquisition.retrieval import (
 )
 from faa_directive_impact.acquisition.storage import RawStorage
 from faa_directive_impact.acquisition.versions import VersionIndex
+from faa_directive_impact.evaluation.s1_run import conclude_run, run_s1
 
 EXIT_OK = 0
 EXIT_FAILED = 1
@@ -45,8 +48,31 @@ def main(argv: list[str] | None = None) -> int:
     package.add_argument("generation_id")
     package.add_argument("--storage-root", type=Path, required=True)
     package.add_argument("--output", type=Path, required=True)
+    s1_run = commands.add_parser(
+        "s1-run",
+        help="Run the S1 rules baseline offline and write a kept run directory.",
+    )
+    s1_run.add_argument("--repo", type=Path, default=Path("."))
+    s1_run.add_argument("--runs-root", type=Path, default=Path("evaluation/runs"))
+    s1_conclude = commands.add_parser(
+        "s1-conclude",
+        help="Fold a completed hand review into an S1 run's verdict.",
+    )
+    s1_conclude.add_argument("run_directory", type=Path)
+    s1_conclude.add_argument("--repo", type=Path, default=Path("."))
     args = parser.parse_args(argv)
 
+    if args.command == "s1-run":
+        commit, dirty = _git_state(args.repo)
+        directory = run_s1(
+            args.repo.resolve(), args.runs_root, datetime.now(UTC), commit, dirty
+        )
+        print(directory)
+        return EXIT_OK
+    if args.command == "s1-conclude":
+        verdict = conclude_run(args.repo.resolve(), args.run_directory)
+        print(f"{verdict['decision']} (provisional: {verdict['provisional']})")
+        return EXIT_OK
     if args.command == "package-generation":
         archive = package_generation(
             args.storage_root.resolve(), args.generation_id, args.output
@@ -117,6 +143,17 @@ def main(argv: list[str] | None = None) -> int:
     if any(doc.needs_review for doc in documents):
         return EXIT_NEEDS_REVIEW
     return EXIT_OK
+
+
+def _git_state(repo: Path) -> tuple[str, bool]:
+    """Return the HEAD commit and whether the worktree has uncommitted changes."""
+
+    def git(*args: str) -> str:
+        return subprocess.run(
+            ["git", *args], cwd=repo, check=True, capture_output=True, text=True
+        ).stdout.strip()
+
+    return git("rev-parse", "HEAD"), bool(git("status", "--porcelain"))
 
 
 if __name__ == "__main__":
