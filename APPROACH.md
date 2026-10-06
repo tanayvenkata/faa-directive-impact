@@ -250,11 +250,11 @@ that passes the gates wins.
 
 ## What This Means for the Build
 
-- **Asset history is first-class data.** S1 screens one snapshot per engine.
-  Re-checking on change needs dated installation records per part (installed,
-  removed, cycles at each event), so a part's history follows it between
-  engines. The seed already records per-part cycle readings. Moving parts
-  between engines is a listed gap in GATES.md.
+- **Asset history is consumed, not built.** S1 screens one snapshot per
+  engine. Re-checking on change needs only enough dated records per part
+  (installed, removed, cycles at each event) for the synthetic demo fleet to
+  show a part moving between engines. The seed already records per-part cycle
+  readings. Moving parts between engines is a listed gap in GATES.md.
 - **Re-screening is cheap by design.** Rules over normalized records can run
   across the whole fleet on every change. A design that called a model for
   every engine and AD on every change would cost more and could not be
@@ -263,6 +263,28 @@ that passes the gates wins.
   reason and becomes a regression case, following the series' rule that
   reviewer overrides enter regression while fresh holdout cases stay
   protected.
+
+## Note: Part History Already Exists
+
+Back-to-birth records for life-limited parts are required (14 CFR 91.417),
+travel with release certificates (FAA Form 8130-3, EASA Form 1), and are
+tracked in airline maintenance systems and reviewed at every engine sale or
+lease return. Tracking part history is not a gap this project fills.
+
+What may be a gap, unconfirmed until a practitioner says so:
+
+- the history is split across operators, repair shops, and lessors, and older
+  records are often scanned paper;
+- joining that history to each AD's requirements is still a person's job.
+
+**Decision (2026-10-06): no part-history work beyond what the demo fleet
+needs.** The portfolio piece is the reliable, cited, re-runnable join between
+"which part is where" and "what each AD requires." Building a part-history
+system would be feature creep. Revisit with a deeper dive only if:
+
+- a practitioner names fragmented or paper records as the main obstacle, or
+- the demo fleet (ROADMAP step 7) cannot show a part moving between engines
+  without more history modeling than dated installation rows.
 
 ## Numbers Still to Collect
 
