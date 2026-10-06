@@ -45,6 +45,10 @@ language model, no retrieval.
 | 14 (candidate recall) | not exercised: S1 is handed its directive |
 | Other directives' 15 units | not yet evaluated |
 
+Gate 6 resolved every table-row locator against the record's table 1, so no
+locator was left for hand review. GATES.md expected table rows to go to hand
+review. The sheet still prints each cited row beside the row it names.
+
 These are exact counts on a disclosed suite, not rates. With zero failures in
 18 units, the true failure rate could still be as high as about 17%.
 
