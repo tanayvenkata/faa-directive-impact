@@ -26,7 +26,7 @@ asset_snapshot:
     - component_name: HPT 2nd-stage hub
       part_number: 2A4802
       serial_number: PKLBSR2100
-      cycles_since_new: 2000
+      cycles_since_new: 990
     - component_name: HPT 1st-stage hub
       part_number: 2A5001
       serial_number: SYN-HUB1-0018
@@ -47,8 +47,10 @@ expected:
       - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBSR2100"}
     action_timing:
       description: >-
-        Nothing is required yet. From 2025-10-29, removal will be required at
-        the next qualifying shop visit before 6,000 CSN.
+        Nothing is required yet. From 2025-10-29 the hub must be removed
+        before 6,000 CSN. Per adjudication faa-informal-2026-10-05, a shop
+        visit within the first 100 FC does not force earlier removal. Whether a
+        later qualifying shop visit does is pending.
 forbidden_claims:
   - AD 2025-19-13 currently requires removing the hub.
   - The installation prohibition currently applies.

@@ -26,7 +26,7 @@ asset_snapshot:
   events: []
   operator:
     air_carrier_operation: "yes"
-    maintenance_program_revision: Revision 47 (2025-06-01); does not yet incorporate table 1 to paragraph (g) of AD 2025-17-16.
+    maintenance_program_revision: Revision 47 (2025-06-01); neither the approved program nor paragraph B.1 of the V2500-A5 TLM ALS yet incorporates table 1 to paragraph (g) of AD 2025-17-16.
 directive_candidates: ["2025-17066"]
 expected:
   - directive: "2025-17066"

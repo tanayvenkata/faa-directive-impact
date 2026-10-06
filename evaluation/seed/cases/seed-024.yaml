@@ -47,8 +47,10 @@ expected:
     required_evidence:
       - {document: "2025-18469", paragraph: "(g)", locator: table 1 P/N and S/N pairs}
 forbidden_claims:
-  - The 2nd-stage hub is potentially affected because its S/N appears in table 1.
+  - AD 2025-19-13 requires removal of this 2nd-stage hub.
   - AD 2025-19-13 does not apply to this engine.
 notes: >-
   In practice a listed S/N on an unexpected P/N is a records anomaly a clerk
-  would investigate. The label tests exact pair matching only.
+  would investigate; it may be a mis-keyed P/N. Flagging it for records
+  verification is acceptable output. The label tests exact pair matching, and
+  only misattributing a removal to the AD is penalized.

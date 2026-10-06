@@ -47,7 +47,14 @@ expected:
       - {document: "2022-02574", paragraph: "(c)(2)"}
     required_missing_facts:
       - IAE NMSB V2500-ENG-72-0713 Revision 1 Appendix A Tables 1 and 2 (unavailable incorporated material)
+      - IAE NMSB V2500-E5-72-0015 Revision 1 Appendix A Tables 1 and 2 (unavailable incorporated material)
 forbidden_claims:
   - The engine is not affected because its S/N is not listed in the AD.
   - The engine is affected because P/N 2A5001 is installed.
   - The service bulletin lists are reconstructed or assumed.
+notes: >-
+  in_force on 2026-10-06 was checked against the Federal Register API on that
+  date. The only later final rule naming AD 2022-02-09, AD 2024-11-03
+  (2024-12594), states it is "related to" AD 2022-02-09; it does not replace it.
+  The seed generation alone cannot establish this, because it is not an
+  exhaustive corpus.

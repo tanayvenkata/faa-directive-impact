@@ -38,7 +38,7 @@ asset_snapshot:
       at: "2026-10-01"
       qualifies_as_engine_shop_visit:
         AD 2026-17-03: "yes"
-      detail: Inducted for maintenance.
+      detail: Inducted for maintenance. The visit closed and the engine returned to service on 2026-10-04.
       source_note: Asserted by the synthetic operator record.
     - event_type: component_exposure
       at: "2026-10-02"
@@ -77,6 +77,8 @@ forbidden_claims:
   - Replacement is required at a later visit, presented as settled.
   - The paragraph (g) text as published on 2026-08-20 controls.
 notes: >-
-  This exercises the correction: a system reading only the original 2026-16954
+  Corrected paragraph (g) says "rotor blade is exposed", while (h)(2) defines
+  "3rd stage HPC rotor blade exposure". The case reads (g) through that
+  definition. This exercises the correction: a system reading only the original 2026-16954
   text would trigger on rotor exposure. Whether exposing a rotor without
   removing any blade is a common shop practice is not claimed.

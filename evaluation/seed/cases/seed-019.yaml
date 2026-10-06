@@ -49,6 +49,7 @@ directive_candidates: ["2025-18469"]
 expected:
   - directive: "2025-18469"
     controlling_ad: AD 2025-19-13
+    authority_state: in_force
     applicability: applies
     action_status: action_required
     continuing_obligations:

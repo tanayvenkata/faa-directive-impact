@@ -384,9 +384,10 @@
             ]
           },
           "action_status": {
-            "description": "Whether supplied facts trigger a required action now. Omitted when the directive does not apply or the engine is outside supported scope.",
+            "description": "Whether supplied facts require action. action_required_on_event means the directive requires action only when a future event occurs (for example, a shop visit that exposes a part), with no deadline otherwise. Omitted when the directive does not apply or the engine is outside supported scope.",
             "enum": [
               "action_required",
+              "action_required_on_event",
               "no_action_triggered",
               "needs_review"
             ]

@@ -26,14 +26,20 @@ or never having an affected hub "does not make the AD no longer applicable."
 | `action_status` (when the directive applies or applicability is unknown) | Meaning |
 |---|---|
 | `action_required` | Supplied facts trigger a required action; `action_timing` says when |
+| `action_required_on_event` | Action is required only when a future event occurs (for example a shop visit that exposes a part); no deadline otherwise |
 | `no_action_triggered` | No required action is triggered now; `continuing_obligations` still bind |
 | `needs_review` | A required fact or interpretation is missing; the missing item is named |
 
 Review queues are derived: `action_required` → potentially affected;
+`action_required_on_event` → potentially affected (conditional);
 `needs_review` → needs review; `no_action_triggered` → no action currently
 required; `does_not_apply` → not applicable; `outside_supported_scope` →
 outside supported scope. The system never claims compliance, noncompliance,
 maintenance adequacy, or return-to-service authority.
+
+An omitted `authority_state` means `in_force`. `action_required` may still list
+`required_missing_facts` when part of the obligation is established and another
+part depends on a missing fact (seed-008, seed-017).
 
 ## Provenance
 

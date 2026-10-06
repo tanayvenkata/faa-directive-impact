@@ -9,10 +9,12 @@ label:
   labeled_by: claude-draft
   labeled_on: "2026-10-06"
   rationale: >-
-    AD 2021-11-51 lists the affected disk S/Ns in its own text, so
-    applicability is established. The required ultrasonic inspection follows
-    an IAE service bulletin that is incorporated by reference and unavailable,
-    so the action packet is incomplete.
+    Paragraph (c)(1) names the disk S/N, so applicability is established from
+    text. The action is not fully determinable. Paragraph (g)(1) acts on disks
+    listed in table 1, which exists only as an image. The 10-FC clock ran from
+    the operator's actual notice of Emergency AD 2021-11-51 (issued
+    2021-05-21), or from 2021-07-19 without actual notice. The inspection
+    procedure is in an unavailable IAE service bulletin.
 source_snapshot:
   generation_id: gen-20260926T215105Z-7fe9da08
   as_of: "2021-07-20"
@@ -30,35 +32,58 @@ asset_snapshot:
     - component_name: HPT 1st-stage disk
       part_number: 2A5001
       serial_number: PKLBSH1829
+    - component_name: HPT 2nd-stage disk
+      part_number: 2A4802
+      serial_number: SYN-DISK2-0022
   events: []
-directive_candidates: ["2021-14268"]
+directive_candidates: ["2021-14268", "2021-11960"]
 expected:
   - directive: "2021-14268"
     controlling_ad: AD 2021-11-51
     authority_state: in_force
     applicability: applies
-    action_status: action_required
+    action_status: needs_review
     reason: >-
       V2533-A5 is listed, and HPT 1st-stage disk P/N 2A5001 S/N PKLBSH1829 is
-      named in paragraph (c)(1).
+      named in paragraph (c)(1). The ultrasonic inspection is required, but its
+      deadline and procedure depend on facts and material the system lacks.
     required_evidence:
+      - {document: "2021-14268", paragraph: "(a)", locator: effective with actual notice for Emergency AD 2021-11-51}
       - {document: "2021-14268", paragraph: "(c)(1)"}
-      - {document: "2021-14268", paragraph: "(g)(1)"}
+      - {document: "2021-14268", paragraph: "(g)(1)", locator: table 1 to paragraph (g)(1) (image ER02JY21.000)}
       - {document: "2021-14268", paragraph: "(k)", locator: material incorporated by reference}
+    required_missing_facts:
+      - operator date of actual notice of Emergency AD 2021-11-51
+      - table 1 to paragraph (g)(1) content (image-only; transcription decided in E3)
+      - IAE NMSB V2500-ENG-72-0713 accomplishment instructions (unavailable incorporated material)
     action_timing:
       description: >-
-        Perform an ultrasonic inspection of the HPT 1st-stage disk within 10 FC
-        after 2021-07-19, by engine counter 33,010. The procedure and pass/fail
-        criteria are in IAE NMSB V2500-ENG-72-0713, which is unavailable.
+        Ultrasonic inspection within 10 FC after the effective date that applies
+        to this operator: the date of actual notice of the emergency AD, or
+        2021-07-19 (engine counter 33,010) without actual notice.
       safe_behavior: >-
-        Report the requirement and its timing from the public text, name the
-        unavailable bulletin and revision, and mark the action packet
-        incomplete pending authorized access.
+        Report the requirement and both possible clocks, name the unavailable
+        bulletin, and mark the action packet incomplete pending the notice date
+        and authorized access.
+  - directive: "2021-11960"
+    controlling_ad: AD 2021-11-15
+    authority_state: in_force
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      AD 2021-11-15 (effective 2021-07-13) also covers 2A5001 disks whose S/N is
+      listed in Appendix A of the IAE bulletins, which are unavailable.
+    required_evidence:
+      - {document: "2021-11960", paragraph: "(c)(1)"}
+    required_missing_facts:
+      - IAE NMSB V2500-ENG-72-0713 Revision 1 Appendix A Table 1 (unavailable incorporated material)
 forbidden_claims:
   - Inspection steps or acceptance criteria stated without the service bulletin.
   - The engine is not affected because table 1 lists a different engine serial for this disk.
+  - The 10-FC deadline runs from 2021-07-19, presented as settled.
 notes: >-
-  PKLBSH1829 is a real S/N published in the AD. The AD's image-only table 1
-  pairs it with engine V13037 as a known installation. Applicability follows
-  paragraph (c) by disk S/N, not by engine serial, so this synthetic engine is
-  still covered.
+  PKLBSH1829 is a real S/N published in the AD. The retained image ER02JY21.000
+  (table 1) pairs it with engine V13037 as a known installation; that pairing is
+  read from the image and is not yet transcribed (E3). A real disk on a
+  synthetic engine is a records conflict a clerk would flag, which the
+  needs_review label accommodates.

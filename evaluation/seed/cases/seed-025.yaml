@@ -39,3 +39,7 @@ expected:
 forbidden_claims:
   - AD 2025-17-16 applies because the operator flies A320-family aircraft.
   - The engine is not affected by any airworthiness directive.
+notes: >-
+  Paragraph (c) also excludes this model, so does_not_apply is literally true.
+  The label is outside_supported_scope by the project's scope policy (see
+  seed-004).

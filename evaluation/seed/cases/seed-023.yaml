@@ -51,6 +51,7 @@ directive_candidates: ["2025-18469", "2026-16954", "2025-17066"]
 expected:
   - directive: "2025-18469"
     controlling_ad: AD 2025-19-13
+    authority_state: in_force
     applicability: applies
     action_status: action_required
     continuing_obligations:
@@ -71,7 +72,7 @@ expected:
     controlling_ad: AD 2026-17-03
     authority_state: in_force
     applicability: applies
-    action_status: action_required
+    action_status: action_required_on_event
     reason: >-
       Affected 3rd-stage HPC blades P/N 6A8688 are installed.
     required_evidence:
@@ -102,3 +103,6 @@ forbidden_claims:
 notes: >-
   A shop visit for the hub may expose the HPC blades, but only if a 3rd-stage
   blade is removed from the drum. The system must not merge the two triggers.
+  The hub timing "at the next qualifying shop visit" follows the text; the
+  FAA's view of a visit after the first 100 FC is pending (adjudication
+  faa-informal-2026-10-05).

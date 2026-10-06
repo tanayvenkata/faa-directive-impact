@@ -13,7 +13,10 @@ label:
     inducted on 2026-09-14, before the 2026-09-24 effective date, so it is not
     a shop visit "after the effective date". The FAA's comment response states
     this is intended. The proposed rule, which triggered on exposure alone,
-    would have required replacement here.
+    would have required replacement here. The comment response could be read
+    more broadly, as exempting the engine; the narrower reading is used
+    because the engine still carries affected blades and paragraph (c) still
+    covers it.
 source_snapshot:
   generation_id: gen-20260926T215105Z-7fe9da08
   as_of: "2026-09-30"
@@ -44,7 +47,7 @@ expected:
     controlling_ad: AD 2026-17-03
     authority_state: in_force
     applicability: applies
-    action_status: action_required
+    action_status: action_required_on_event
     reason: >-
       Affected P/N 6A8688 blades are installed, so the AD applies. The current
       visit was inducted before the effective date and does not trigger

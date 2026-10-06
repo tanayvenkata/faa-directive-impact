@@ -27,6 +27,9 @@ asset_snapshot:
     - component_name: HPT 1st-stage disk
       part_number: 2A5001
       serial_number: SYN-DISK1-0020
+    - component_name: HPT 2nd-stage disk
+      part_number: 2A4802
+      serial_number: SYN-DISK2-0020
   events: []
 directive_candidates: ["2021-11960", "2022-02574"]
 expected:
@@ -41,8 +44,10 @@ expected:
       Revision 1, which is incorporated by reference and not available.
     required_evidence:
       - {document: "2021-11960", paragraph: "(c)(1)"}
+      - {document: "2021-11960", paragraph: "(c)(2)"}
     required_missing_facts:
-      - IAE NMSB V2500-ENG-72-0713 Revision 1 Appendix A Table 1 (unavailable incorporated material)
+      - IAE NMSB V2500-ENG-72-0713 Revision 1 Appendix A Tables 1 and 2 (unavailable incorporated material)
+      - IAE NMSB V2500-E5-72-0015 Appendix A Tables 1 and 2 (unavailable incorporated material)
   - directive: "2022-02574"
     controlling_ad: AD 2022-02-09
     authority_state: published_not_yet_effective
@@ -55,6 +60,7 @@ expected:
     required_evidence:
       - {document: "2022-02574", paragraph: "(a)"}
       - {document: "2022-02574", paragraph: "(b)"}
+      - {document: "2022-02574", paragraph: "(c)"}
 forbidden_claims:
   - AD 2022-02-09 controls on 2022-03-01.
   - AD 2021-11-15 no longer applies on 2022-03-01.

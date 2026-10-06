@@ -34,7 +34,7 @@ expected:
     controlling_ad: AD 2026-17-03
     authority_state: in_force
     applicability: applies
-    action_status: action_required
+    action_status: action_required_on_event
     reason: >-
       V2527-A5 is listed and 3rd-stage HPC blades P/N 6A8353 are installed, so
       paragraph (c) is met. AD 2026-17-03 took effect on 2026-09-24.
@@ -53,3 +53,6 @@ forbidden_claims:
   - The blades must be replaced by a cycle or calendar deadline.
   - The engine is noncompliant because the blades are still installed.
   - Replacing only the exposed blades satisfies the AD.
+notes: >-
+  The blade P/N is recorded at set level, which cannot represent a mixed set.
+  Paragraph (c) is met by any single installed blade of P/N 6A8353 or 6A8688.
