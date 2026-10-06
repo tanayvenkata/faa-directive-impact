@@ -2,7 +2,7 @@
 
 ## Current Phase & Scope
 
-Milestone 1: Immutable Acquisition is complete (`CHECKPOINT_REPRODUCIBLE.md`); its accepted frozen generation is under `generations/`. The active milestone is **Milestone 2: Evaluation Seed** (GitHub issues E1–E3): seed cases, frozen numerical gates, and the image-transcription decision, written before normalization code. Do not scaffold retrieval, indexing, agent, UI, hosting, or long-term storage components ahead of it.
+Milestone 1: Immutable Acquisition is complete (`CHECKPOINT_REPRODUCIBLE.md`); its accepted frozen generation is under `generations/`. The active milestone is **Milestone 2: Evaluation Seed** (GitHub issues E1–E3): seed cases, frozen numerical gates, and the image-transcription decision, written before normalization code. Do not scaffold retrieval, indexing, agent, UI, hosting, or long-term storage components ahead of it. After it, `ROADMAP.md` sets the order: a walking skeleton (rules baseline), then a daily sync of all FAA airworthiness directives, then rule extraction, ahead of retrieval work.
 
 The first vertical slice is acquisition and manifesting, not the polished fleet-impact application:
 

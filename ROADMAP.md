@@ -5,31 +5,112 @@
 Build a continuously refreshable, evidence-backed FAA directive-impact system
 whose first supported evaluation boundary is the IAE V2500-A5/D5/E5 family.
 
+## Corpus Layers
+
+| Layer | Contents | Refresh | Claim |
+|---|---|---|---|
+| Discovery corpus | All FAA airworthiness directives from the Federal Register | Daily scheduled sync | Searchable and current; no correctness claim |
+| Evaluated slice | V2500-A5/D5/E5 directives with labeled cases | Frozen generations, promoted explicitly | Impact results measured against the disclosed evaluation |
+| Retrieval distractor set | Curated, frozen near-neighbor V2500 and adjacent-family records | Frozen with the evaluation | Controls retrieval evaluation; not a limit on discovery width |
+
+The discovery corpus shows that the system is live. The evaluated slice shows
+that it is correct. Widening discovery costs little; widening the evaluated
+claim to another engine family requires its own fields, cases, and gates.
+
+## Directive Coverage State
+
+Every directive carries a coverage state, separate from source authority:
+
+- `evaluated` — rules verified and covered by passing cases; its results may
+  enter the impact queues.
+- `not_yet_evaluated` — synced and parsed, with candidate rules, but not yet
+  covered by cases. It is shown as new, and its candidate results stay out of
+  the evaluated queues.
+- `outside_supported_scope` — searchable only; no impact determination.
+
+A newly published in-scope directive becomes visible the day it syncs, as
+`not_yet_evaluated`. Adding its cases and passing the gates promotes it.
+
 ## Delivery Sequence
 
 1. **Acquire** — deterministically fetch official representations, preserve
    exact bytes, and produce immutable manifests and completeness results.
-2. **Normalize** — parse source structure into versioned identities,
-   relationships, evidence regions, predicates, tables, figures, and
-   dependencies.
-3. **Evaluate** — freeze the protected corpus and synthetic fleet cases; test
-   parsing, retrieval, citations, temporal behavior, applicability, and safe
-   abstention.
-4. **Retrieve and assess evidence** — establish a lexical baseline, add only
-   justified retrieval techniques, and distinguish relevance from evidence
-   sufficiency.
-5. **Produce fleet-impact queues** — deterministically classify cases as
-   potentially affected, not affected for the tested directive, or needs
-   review, with cited reasons.
-6. **Refresh safely** — poll from checkpoints, build candidate generations,
-   validate them, promote atomically, retain rollback, and expose freshness.
-7. **Harden operations** — add observability, recovery tests, hostile-input
-   checks, runbooks, security controls, and cost/latency measurements.
-8. **Evaluate a bounded agent** — only if fixed-workflow traces demonstrate a
+   *Complete.*
+2. **Evaluation seed** — write the feasibility seed cases, freeze numerical
+   gates, and decide image-only figure transcription before normalization
+   code (E1–E3). *Active.*
+3. **Walking skeleton (rules baseline)** — normalize AD 2025-19-13 only,
+   match the synthetic engines deterministically, and show the three queues
+   with cited paragraphs on a plain page. This is the series' rules baseline:
+   score it against the seed and publish the first failure taxonomy.
+4. **Daily sync and freshness** — schedule the Milestone 1 acquisition for
+   the discovery corpus: poll from a checkpoint, build a candidate generation,
+   validate, then promote or reject while keeping the previous generation. The
+   page shows the last successful sync, the active generation, new
+   directives, and failures.
+5. **Rule extraction for new directives** — a model proposes candidate rules
+   (models, part and serial tables, limits, triggers), each tied to the
+   paragraph it came from. Automated checks validate them, and a human
+   verifies them before promotion. Extracted rules are candidate derived data,
+   never authoritative. Evaluate extraction against the hand-labeled seed.
+6. **Normalize and retrieve** — normalize the evaluated threads, establish a
+   lexical baseline, add only justified retrieval techniques, and distinguish
+   relevance from evidence sufficiency.
+7. **Fleet-impact queues and demo fleet** — widen the queues to every
+   evaluated directive. Build a realistic seeded demo fleet of about 100–300
+   engines with the evaluation cases embedded, plausible part numbers and
+   cycle counts, and engines affected by several directives at once. The
+   evaluation cases are edge cases and are not the demo fleet.
+8. **Harden operations** — observability, recovery and rollback drills,
+   hostile-input checks, runbooks, security controls, and cost and latency
+   measurements. Keep operating cost and attention low enough to run for a
+   year while later episodes are built. Upstream failures must surface loudly
+   rather than leave the page silently stale. The interface states that it is
+   a screening tool, not a compliance determination, and uses no FAA branding.
+9. **Evaluate a bounded agent** — only if fixed-workflow traces demonstrate a
    feedback-dependent limitation that an agent can improve safely.
+
+## User Evidence
+
+No operator will upload a real fleet to this project; fleet records are
+proprietary. User evidence is reviewer agreement on cases, observed
+walkthrough sessions, and a time-to-answer comparison with the manual
+process, not usage counts.
+
+The demo leads with a story someone outside aviation follows in 60 seconds:
+the directive that took effect, how many of the fleet's engines it affects,
+the first deadline, and which engines need review and why. Evidence and
+release history sit one level below.
+
+## Publishing and Exit
+
+Publish a write-up at each claim rung as it is reached. The *Reproducible*
+write-up is owed.
+
+The FAA episode is done enough to hand off when all of these hold:
+
+- it has reached *Evaluated*: baseline, frozen gates, paired results, and
+  failures published;
+- the daily sync is running with a visible freshness panel;
+- at least one practitioner review has been attempted and recorded.
+
+Then the series moves to Regulation E, while the FAA system keeps syncing at
+low cost.
+
+## Status
 
 **Acquire** is complete, and the project is at the series' *Reproducible*
 claim level ([`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md)). The
 active milestone is **Evaluation Seed**: seed cases, frozen gates, and the
 image-transcription decision, before normalization.
 
+## Revisions
+
+- **2026-10-06** — Moved a walking skeleton and the daily sync ahead of
+  retrieval, so that a usable and visibly current system exists early. Set
+  the discovery corpus to all FAA airworthiness directives while keeping
+  correctness claims to V2500. Added directive coverage state, rule
+  extraction for new directives, a demo fleet distinct from the evaluation
+  cases, operating constraints, feedback-based user evidence, and an episode
+  exit point. The sequence also now records that the evaluation seed precedes
+  normalization, as already practiced.
