@@ -9,8 +9,7 @@ lists the baselines each stage is measured against. The build order is in
 
 The FAA publishes airworthiness directives (ADs): legally binding rules saying
 which engines or aircraft must be inspected, repaired, or have parts removed,
-and by when. Every operator must check every new AD against every asset it
-maintains.
+and by when.
 
 Measured from the Federal Register API on 2026-10-06 (documents from the FAA
 whose title begins "Airworthiness Directives"):
@@ -25,11 +24,63 @@ whose title begins "Airworthiness Directives"):
 That is roughly 300–400 final ADs a year, more than one each business day.
 Emergency ADs sent directly to operators may not appear in these counts.
 
+Not every AD is checked against every asset. Screening happens in two stages:
+
+1. **Filter by product type (cheap).** Each AD names the aircraft models,
+   engine models, propellers, or parts it covers. An operator of A320s with
+   V2500 engines drops a Boeing 787 AD immediately. Most ADs fall out here.
+2. **Check against each asset's records (expensive).** An AD that names an
+   operator's engine model still has to be compared with every such engine:
+   which part and serial numbers are installed, their cycles, modification
+   status, and shop visits. AD 2025-19-13 names 10 engine models, but only
+   engines carrying 8 specific hubs need action.
+
+The hard work, and this project's focus, is stage 2.
+
 The stakes per AD vary widely. AD 2025-19-13, the one S1 covers, estimates
 two affected U.S. engines at about $468,500 per hub replacement. Paragraph
 (e) states the risk: "an uncontained hub failure, release of high-energy
 debris, damage to the engine, damage to the airplane, and loss of the
 airplane."
+
+## Why It Matters
+
+The value is not replacing an analyst's salary, which is small next to an
+airline's costs. It is in what people cannot practically do today.
+
+- **Knowing what is installed where.** Stage 2 depends on each part's
+  history, like a vehicle history report for every life-limited part: which
+  engine it is in, where it was before, its own cycles since new, and its
+  repairs. A part's cycles are not the engine's cycles once it has moved
+  between engines (GATES.md, gate 8). Most of the difficulty is in keeping
+  this state correct, not in reading the AD.
+- **Re-checking on every change, not only when an AD is published.** Parts
+  are swapped at shop visits, engines move between aircraft, and assets
+  change hands. Each change should re-run every applicable AD against the new
+  configuration. People check mainly when an AD arrives. A rules engine can
+  re-check the whole fleet whenever the records change.
+- **Speed when it is urgent.** When an emergency AD lands, the question is
+  which engines are affected and by when. Hours instead of days matters most
+  then.
+- **The cost of a miss.** In 2008 the FAA proposed a record $10.2 million
+  penalty against Southwest Airlines for operating 46 Boeing 737s on 59,791
+  flights without the fuselage inspections AD 2004-18-06 required; six of
+  the airplanes were later found to have fatigue cracks. Southwest settled in
+  2009 for $7.5 million and agreed to strengthen its maintenance tracking.
+  Catching one such miss is worth far more than the analyst time saved.
+- **A second check for the analyst.** The system shows its evidence, so an
+  analyst can confirm or override each result. Every override is recorded
+  and becomes a new test case, so the system improves where it was wrong.
+- **Records review at transactions.** When an engine is bought, sold, or
+  returned from lease, its AD history is reviewed from the records. That is
+  the same screening done in bulk under time pressure.
+
+The pitch is therefore not "automating clerical work." It is **a second check
+that never tires, re-runs on every fleet change, and shows its evidence.**
+
+These descriptions of industry practice come from our research and general
+knowledge. A practitioner should confirm them once there is a working system
+to show (issue #9).
 
 ## The Workflow Today (no AI)
 
@@ -40,7 +91,8 @@ Based on vendor documentation and FAA guidance gathered in
 New AD published in the Federal Register
    │
    ▼
-Engineer notices it (subscription, daily review)
+Engineer notices it (subscription, daily review) and drops it
+if it names no product type the operator flies
    │
    ▼
 Engineer reads the AD and works out its applicability:
@@ -54,8 +106,13 @@ or maintenance-tracking system
 Engineer records each asset's AD status and plans the work
 ```
 
-- A person decides applicability for every AD and every asset. Tracking
-  software stores the result; it does not decide it.
+- A person decides applicability for every relevant AD and asset. Airlines
+  do this in an engineering or technical-services team and record it in a
+  maintenance-tracking system. Smaller operators often pay a tracking
+  service to research ADs for them. The software stores and tracks the
+  decision; it does not make it.
+- The check happens mainly when an AD is published. A later part swap is
+  caught only if someone re-checks the ADs against the new configuration.
 - Newer vendor AI features draft extractions for an engineer to approve. No
   vendor publishes accuracy for applicability decisions.
 - Errors happen. FAA and DOT Inspector General audits record missed and
@@ -64,9 +121,9 @@ Engineer records each asset's AD status and plans the work
 ## The Proposed Workflow
 
 ```text
-New AD published
-   │
-   ▼
+New AD published                     Fleet record changes
+   │                                 (part swap, shop visit, transfer)
+   ▼                                          │
 Daily sync fetches it, preserves exact bytes ──────────── deterministic (built)
    │
    ▼
@@ -90,10 +147,13 @@ Person proofreads the draft against the AD ────────────�
    │
    ▼
 Rules screen every engine: three queues with ─────────── deterministic (S1, built)
-cited paragraphs and named missing facts
+cited paragraphs and named missing facts   ◄──────────────┘ re-run on every change
    │
    ▼
 Analyst reviews the queues and verifies ───────────────── human
+   │
+   ▼
+Each override is recorded and becomes a new test case ─── feedback loop
 ```
 
 The idea behind this flow is that **AI proposes and deterministic checks
@@ -117,6 +177,8 @@ decide.**
 | Turn the AD into rules | engineer, every AD | AI drafts, checks verify, person proofreads | person |
 | Resolve ambiguous wording | engineer's judgment | flagged to an expert | expert |
 | Check each engine | person, per engine | rules, all engines | rules |
+| Re-check after a part moves | only if someone remembers | automatic on every record change | rules |
+| Catch a miss | audit, or after the fact | analyst sees an independent second result | analyst |
 | Record AD status | operator | **not done by this system** | operator |
 
 The system never states compliance, never writes the operator's AD record, and
@@ -128,7 +190,7 @@ Each stage is scored against a simpler alternative on the same frozen cases.
 
 | # | Baseline | What it measures | Status |
 |---|---|---|---|
-| B0 | **Manual process** | Time to answer and errors, per engine and per AD | No credible public figure (see below). To be measured in a practitioner session. |
+| B0 | **Manual process** | Miss rate, time to answer an urgent AD across a fleet, and whether a later part swap is caught | No credible public figure (see below). To be measured in a practitioner session. |
 | B1 | **Hand-written rules** (S1) | Gates 1–13 on 18 units | **Done:** all gates pass; decision go, provisional ([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)) |
 | B2 | **LLM given the AD and the engine, no rules** (full context) | The same gates on the same 18 units | Not run. The obvious "just ask the model" comparison. |
 | B3 | **LLM-drafted rules, checked and proofread** (step 5) | Field accuracy against B1's rules, whether it flags ambiguity, and proofreading minutes per AD | Not run |
@@ -161,8 +223,9 @@ These help orient the numbers. None of them is a baseline we have reproduced.
 - B3 against B1 is the main AI question: can the rule-writing be automated
   without losing accuracy, and does the model flag ambiguity instead of
   guessing?
-- B0 against the proposed flow is the user-value question: how much analyst
-  time does it save at equal or better error rates?
+- B0 against the proposed flow is the user-value question. Analyst hours
+  saved matter less than misses caught, time to answer an urgent AD, and
+  re-checks that would otherwise not happen.
 
 ## Where Retrieval (RAG) Fits
 
@@ -185,6 +248,22 @@ The series' rule is that complexity has to earn its place. Rules, search,
 full context, and RAG are compared on the same cases, and the simplest one
 that passes the gates wins.
 
+## What This Means for the Build
+
+- **Asset history is first-class data.** S1 screens one snapshot per engine.
+  Re-checking on change needs dated installation records per part (installed,
+  removed, cycles at each event), so a part's history follows it between
+  engines. The seed already records per-part cycle readings. Moving parts
+  between engines is a listed gap in GATES.md.
+- **Re-screening is cheap by design.** Rules over normalized records can run
+  across the whole fleet on every change. A design that called a model for
+  every engine and AD on every change would cost more and could not be
+  re-run identically.
+- **Overrides feed the cases.** An analyst override is recorded with its
+  reason and becomes a regression case, following the series' rule that
+  reviewer overrides enter regression while fresh holdout cases stay
+  protected.
+
 ## Numbers Still to Collect
 
 - B0: time and errors for a practitioner screening the 18 S1 engines by hand.
@@ -192,3 +271,5 @@ that passes the gates wins.
 - B3: LLM rule extraction for a second AD (AD 2026-17-03, already in the
   seed), with proofreading time.
 - Hand-coding effort for B1 per AD, recorded so B3's savings can be stated.
+- For the demo fleet (step 7): how many results change after a simulated part
+  swap, and how fast the fleet is re-screened.
