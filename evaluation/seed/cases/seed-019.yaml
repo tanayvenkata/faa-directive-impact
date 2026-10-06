@@ -1,0 +1,72 @@
+schema_version: "1.0.0"
+case_id: seed-019
+title: Hub already past its removal limit on the effective date
+slice: cycle_limit
+severity: critical
+label:
+  provenance: deterministic
+  status: adjudicated
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    PKLBSS9200's limit is 4,800 CSN, and it was at 4,950 CSN on the effective
+    date. Both readings give 100 FC after the effective date as the latest
+    removal. The FAA's stated intent is exactly this drawdown.
+  adjudication:
+    id: faa-informal-2026-10-05
+    source: Informal correspondence with the FAA engineer named in AD 2025-19-13 paragraph (k); not an official interpretation.
+    date: "2026-10-05"
+    summary: >-
+      The 100 FC lets parts already above their removal cycle limit keep flying
+      briefly instead of grounding the engine immediately.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2025-11-05"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-019
+    engine_serial_number: SYN-V2500-0019
+    engine_model: V2531-E5
+    snapshot_at: "2025-11-05"
+    engine_cycle_readings:
+      - {at: "2025-10-29", engine_flight_cycles: 60000}
+      - {at: "2025-11-05", engine_flight_cycles: 60040}
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: PKLBSS9200
+      installed_at: "2019-03-12"
+      cycles_since_new: 4990
+      cycles_since_new_readings:
+        - {at: "2025-10-29", cycles_since_new: 4950}
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-0019
+      cycles_since_new: 4990
+  events: []
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    applicability: applies
+    action_status: action_required
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
+    reason: >-
+      The installed 1st-stage hub PKLBSS9200 matches table 1 (limit 4,800 CSN)
+      and was already past that limit on the effective date.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBSS9200"}
+    action_timing:
+      description: >-
+        Remove within 100 FC after 2025-10-29, by engine counter 60,100 (60 FC
+        after this snapshot). The hub is 190 cycles past its listed limit.
+    computed:
+      latest_engine_flight_cycles: 60100
+      component_cycles_remaining: -190
+forbidden_claims:
+  - The engine must be grounded immediately under AD 2025-19-13.
+  - The hub may remain installed beyond 100 FC after the effective date.
+  - The engine is compliant or noncompliant.

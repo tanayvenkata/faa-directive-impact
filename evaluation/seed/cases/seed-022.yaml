@@ -1,0 +1,64 @@
+schema_version: "1.0.0"
+case_id: seed-022
+title: Listed disk installed, but the inspection procedure is in an unavailable bulletin
+slice: missing_incorporated_material
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    AD 2021-11-51 lists the affected disk S/Ns in its own text, so
+    applicability is established. The required ultrasonic inspection follows
+    an IAE service bulletin that is incorporated by reference and unavailable,
+    so the action packet is incomplete.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2021-07-20"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-022
+    engine_serial_number: SYN-V2500-0022
+    engine_model: V2533-A5
+    snapshot_at: "2021-07-20"
+    engine_cycle_readings:
+      - {at: "2021-07-19", engine_flight_cycles: 33000}
+      - {at: "2021-07-20", engine_flight_cycles: 33004}
+  installed_components:
+    - component_name: HPT 1st-stage disk
+      part_number: 2A5001
+      serial_number: PKLBSH1829
+  events: []
+directive_candidates: ["2021-14268"]
+expected:
+  - directive: "2021-14268"
+    controlling_ad: AD 2021-11-51
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      V2533-A5 is listed, and HPT 1st-stage disk P/N 2A5001 S/N PKLBSH1829 is
+      named in paragraph (c)(1).
+    required_evidence:
+      - {document: "2021-14268", paragraph: "(c)(1)"}
+      - {document: "2021-14268", paragraph: "(g)(1)"}
+      - {document: "2021-14268", paragraph: "(k)", locator: material incorporated by reference}
+    action_timing:
+      description: >-
+        Perform an ultrasonic inspection of the HPT 1st-stage disk within 10 FC
+        after 2021-07-19, by engine counter 33,010. The procedure and pass/fail
+        criteria are in IAE NMSB V2500-ENG-72-0713, which is unavailable.
+      safe_behavior: >-
+        Report the requirement and its timing from the public text, name the
+        unavailable bulletin and revision, and mark the action packet
+        incomplete pending authorized access.
+forbidden_claims:
+  - Inspection steps or acceptance criteria stated without the service bulletin.
+  - The engine is not affected because table 1 lists a different engine serial for this disk.
+notes: >-
+  PKLBSH1829 is a real S/N published in the AD. The AD's image-only table 1
+  pairs it with engine V13037 as a known installation. Applicability follows
+  paragraph (c) by disk S/N, not by engine serial, so this synthetic engine is
+  still covered.

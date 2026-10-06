@@ -1,0 +1,53 @@
+schema_version: "1.0.0"
+case_id: seed-021
+title: Disk applicability lives in an unavailable service bulletin
+slice: missing_incorporated_material
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    AD 2022-02-09 defines its affected disks only by reference to Appendix A
+    tables in IAE service bulletins. The public directive cannot establish
+    whether this disk is affected.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-10-06"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-021
+    engine_serial_number: SYN-V2500-0021
+    engine_model: V2530-A5
+    snapshot_at: "2026-10-06"
+  installed_components:
+    - component_name: HPT 1st-stage disk
+      part_number: 2A5001
+      serial_number: SYN-DISK1-0021
+    - component_name: HPT 2nd-stage disk
+      part_number: 2A4802
+      serial_number: SYN-DISK2-0021
+  events: []
+directive_candidates: ["2022-02574"]
+expected:
+  - directive: "2022-02574"
+    controlling_ad: AD 2022-02-09
+    authority_state: in_force
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      Paragraph (c) covers disks P/N 2A5001 and 2A4802 only when their S/N is
+      listed in Appendix A of IAE NMSB V2500-ENG-72-0713 Revision 1 or
+      V2500-E5-72-0015 Revision 1. Those bulletins are incorporated material
+      that the system does not have.
+    required_evidence:
+      - {document: "2022-02574", paragraph: "(c)(1)"}
+      - {document: "2022-02574", paragraph: "(c)(2)"}
+    required_missing_facts:
+      - IAE NMSB V2500-ENG-72-0713 Revision 1 Appendix A Tables 1 and 2 (unavailable incorporated material)
+forbidden_claims:
+  - The engine is not affected because its S/N is not listed in the AD.
+  - The engine is affected because P/N 2A5001 is installed.
+  - The service bulletin lists are reconstructed or assumed.

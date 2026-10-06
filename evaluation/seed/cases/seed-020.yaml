@@ -1,0 +1,61 @@
+schema_version: "1.0.0"
+case_id: seed-020
+title: Asked between the replacing AD's publication and its effective date
+slice: effective_date
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    AD 2022-02-09 (2022-02574) was published 2022-02-08, replaces AD 2021-11-15,
+    and took effect 2022-03-15. On 2022-03-01 AD 2021-11-15 still controlled.
+    Under both ADs, applicability turns on S/N lists in IAE service bulletins
+    that are not available.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2022-03-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-020
+    engine_serial_number: SYN-V2500-0020
+    engine_model: V2533-A5
+    snapshot_at: "2022-03-01"
+  installed_components:
+    - component_name: HPT 1st-stage disk
+      part_number: 2A5001
+      serial_number: SYN-DISK1-0020
+  events: []
+directive_candidates: ["2021-11960", "2022-02574"]
+expected:
+  - directive: "2021-11960"
+    controlling_ad: AD 2021-11-15
+    authority_state: in_force
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      AD 2021-11-15 controls on this date. Its applicability depends on whether
+      the disk S/N appears in Appendix A of IAE NMSB V2500-ENG-72-0713,
+      Revision 1, which is incorporated by reference and not available.
+    required_evidence:
+      - {document: "2021-11960", paragraph: "(c)(1)"}
+    required_missing_facts:
+      - IAE NMSB V2500-ENG-72-0713 Revision 1 Appendix A Table 1 (unavailable incorporated material)
+  - directive: "2022-02574"
+    controlling_ad: AD 2022-02-09
+    authority_state: published_not_yet_effective
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      Published but not effective until 2022-03-15. It will replace AD
+      2021-11-15, and its applicability also depends on the unavailable
+      bulletin lists.
+    required_evidence:
+      - {document: "2022-02574", paragraph: "(a)"}
+      - {document: "2022-02574", paragraph: "(b)"}
+forbidden_claims:
+  - AD 2022-02-09 controls on 2022-03-01.
+  - AD 2021-11-15 no longer applies on 2022-03-01.
+  - The engine is not affected because its S/N is not in the AD text.

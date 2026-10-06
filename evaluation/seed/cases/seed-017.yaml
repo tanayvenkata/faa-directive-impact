@@ -1,0 +1,54 @@
+schema_version: "1.0.0"
+case_id: seed-017
+title: A5 engine where air-carrier status is unknown
+slice: missing_state
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    Paragraph (g)(1) applies regardless of operator. Whether (g)(2) also
+    applies depends on air-carrier operation, which is unknown.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2025-11-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-017
+    engine_serial_number: SYN-V2500-0017
+    engine_model: V2522-A5
+    snapshot_at: "2025-11-15"
+  installed_components: []
+  events: []
+  operator:
+    air_carrier_operation: unknown
+directive_candidates: ["2025-17066"]
+expected:
+  - directive: "2025-17066"
+    controlling_ad: AD 2025-17-16
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Once the paragraph (g) revisions are made, no alternative actions are allowed without an approved AMOC.
+    reason: >-
+      The paragraph (g)(1) ALS revision is required for this listed model.
+      Whether the paragraph (g)(2) program revision is also required cannot be
+      determined without the operator's air-carrier status.
+    required_evidence:
+      - {document: "2025-17066", paragraph: "(g)(1)(i)"}
+      - {document: "2025-17066", paragraph: "(g)(2)"}
+    required_missing_facts:
+      - operator.air_carrier_operation
+    action_timing:
+      description: >-
+        By 2026-01-08, revise the ALS in the V2500-A5 TLM (P/N 2A4408). Whether a
+        program revision by the same date is also required depends on
+        air-carrier status.
+forbidden_claims:
+  - Paragraph (g)(2) does not apply to this engine.
+  - Paragraph (g)(2) applies to this engine, presented as settled.

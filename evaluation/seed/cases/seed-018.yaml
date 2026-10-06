@@ -1,0 +1,54 @@
+schema_version: "1.0.0"
+case_id: seed-018
+title: Listed hub, asked after publication but before the effective date
+slice: effective_date
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    AD 2025-19-13 was published 2025-09-24 and took effect 2025-10-29. On
+    2025-10-15 it imposed nothing yet, including the installation prohibition,
+    which applies "after the effective date".
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2025-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-018
+    engine_serial_number: SYN-V2500-0018
+    engine_model: V2525-D5
+    snapshot_at: "2025-10-15"
+  installed_components:
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: PKLBSR2100
+      cycles_since_new: 2000
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-0018
+      cycles_since_new: 2000
+  events: []
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    authority_state: published_not_yet_effective
+    applicability: applies
+    action_status: no_action_triggered
+    reason: >-
+      The engine and its 2nd-stage hub PKLBSR2100 (limit 6,000 CSN) meet the
+      AD's terms, but the AD does not take effect until 2025-10-29.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(a)"}
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBSR2100"}
+    action_timing:
+      description: >-
+        Nothing is required yet. From 2025-10-29, removal will be required at
+        the next qualifying shop visit before 6,000 CSN.
+forbidden_claims:
+  - AD 2025-19-13 currently requires removing the hub.
+  - The installation prohibition currently applies.

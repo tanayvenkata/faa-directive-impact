@@ -1,0 +1,41 @@
+schema_version: "1.0.0"
+case_id: seed-025
+title: CFM56 engine from a mixed A320-family fleet
+slice: out_of_family
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    A320-family fleets mix V2500 and CFM56-5B engines. The ALS AD applies to
+    every listed V2500 model, so the system must not extend it to the other
+    engine type on the same airframe family.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-10-06"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-025
+    engine_serial_number: SYN-CFM56-0025
+    engine_model: CFM56-5B4/3
+    aircraft_tail_id: SYN-TAIL-025
+    snapshot_at: "2026-10-06"
+  installed_components: []
+  events: []
+  operator:
+    air_carrier_operation: "yes"
+directive_candidates: ["2025-17066"]
+expected:
+  - directive: "2025-17066"
+    controlling_ad: AD 2025-17-16
+    applicability: outside_supported_scope
+    reason: >-
+      CFM56-5B4/3 is not a supported V2500 variant. No determination is made.
+    required_evidence:
+      - {document: "2025-17066", paragraph: "(c)"}
+forbidden_claims:
+  - AD 2025-17-16 applies because the operator flies A320-family aircraft.
+  - The engine is not affected by any airworthiness directive.

@@ -7,3 +7,7 @@ __pycache__/
 # Live acquisitions remain local until retention and redistribution are decided.
 data/
 
+
+# Local Claude Code state (other sessions' worktrees, personal settings).
+.claude/worktrees/
+.claude/settings.local.json

@@ -1,0 +1,54 @@
+schema_version: "1.0.0"
+case_id: seed-024
+title: Listed serial number on the wrong part number
+slice: unaffected_part
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    Table 1 pairs S/N PKLBST5011 only with 1st-stage hub P/N 2A5001. Here it
+    appears on a 2nd-stage hub P/N 2A4802. Applicability requires the pair to
+    match, not each value independently.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-10-06"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-024
+    engine_serial_number: SYN-V2500-0024
+    engine_model: V2528-D5
+    snapshot_at: "2026-10-06"
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-0024
+      cycles_since_new: 3000
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: PKLBST5011
+      cycles_since_new: 3000
+  events: []
+directive_candidates: ["2025-18469"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    applicability: applies
+    action_status: no_action_triggered
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
+    reason: >-
+      V2528-D5 is listed, so the AD applies. No installed hub's P/N and S/N
+      pair appears in table 1: PKLBST5011 is listed only with P/N 2A5001.
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(g)", locator: table 1 P/N and S/N pairs}
+forbidden_claims:
+  - The 2nd-stage hub is potentially affected because its S/N appears in table 1.
+  - AD 2025-19-13 does not apply to this engine.
+notes: >-
+  In practice a listed S/N on an unexpected P/N is a records anomaly a clerk
+  would investigate. The label tests exact pair matching only.

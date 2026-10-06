@@ -1,0 +1,104 @@
+schema_version: "1.0.0"
+case_id: seed-023
+title: One engine under three directives at once
+slice: multiple_directives
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    The engine has a listed HPT hub (AD 2025-19-13), affected HPC blades (AD
+    2026-17-03), and is a listed model under the ALS AD (AD 2025-17-16). Each
+    directive's obligation and evidence must stay separate.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2026-10-06"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-023
+    engine_serial_number: SYN-V2500-0023
+    engine_model: V2527M-A5
+    snapshot_at: "2026-10-06"
+    engine_cycle_readings:
+      - {at: "2025-10-29", engine_flight_cycles: 20000}
+      - {at: "2026-10-06", engine_flight_cycles: 22500}
+  installed_components:
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: PKLBSR2100
+      installed_at: "2024-01-09"
+      cycles_since_new: 3500
+      cycles_since_new_readings:
+        - {at: "2025-10-29", cycles_since_new: 1000}
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-0023
+      cycles_since_new: 3500
+    - component_name: 3rd stage HPC rotor blade set
+      part_number: 6A8688
+      serial_number: not tracked at set level
+  events:
+    - event_type: maintenance_program_revision
+      at: "2025-12-01"
+      detail: Approved program and V2500-A5 TLM ALS revised to incorporate table 1 of AD 2025-17-16.
+  operator:
+    air_carrier_operation: "yes"
+    maintenance_program_revision: Revision 48 (2025-12-01), incorporating AD 2025-17-16 table 1.
+directive_candidates: ["2025-18469", "2026-16954", "2025-17066"]
+expected:
+  - directive: "2025-18469"
+    controlling_ad: AD 2025-19-13
+    applicability: applies
+    action_status: action_required
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Do not install an HPT 1st- or 2nd-stage hub whose P/N and S/N are listed in table 1.
+    reason: >-
+      The 2nd-stage hub PKLBSR2100 matches table 1 (limit 6,000 CSN).
+    required_evidence:
+      - {document: "2025-18469", paragraph: "(g)", locator: "table 1 row S/N PKLBSR2100"}
+    action_timing:
+      description: >-
+        Remove at the next qualifying shop visit, no later than engine counter
+        25,000 (2,500 hub cycles remaining).
+    computed:
+      latest_engine_flight_cycles: 25000
+      component_cycles_remaining: 2500
+  - directive: "2026-16954"
+    controlling_ad: AD 2026-17-03
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      Affected 3rd-stage HPC blades P/N 6A8688 are installed.
+    required_evidence:
+      - {document: "2026-18423", paragraph: "(c)"}
+      - {document: "2026-18423", paragraph: "(g)", locator: corrected text}
+    action_timing:
+      description: >-
+        Conditional: replace the full blade set at the next shop visit inducted
+        after 2026-09-24 where a 3rd-stage blade is exposed.
+  - directive: "2025-17066"
+    controlling_ad: AD 2025-17-16
+    authority_state: in_force
+    applicability: applies
+    action_status: no_action_triggered
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Once the paragraph (g) revisions are made, no alternative actions are allowed without an approved AMOC.
+    reason: >-
+      The ALS and approved program were revised on 2025-12-01, within the 90
+      days ending 2026-01-08 ("unless already done").
+    required_evidence:
+      - {document: "2025-17066", paragraph: "(g)(1)(i)"}
+      - {document: "2025-17066", paragraph: "(g)(2)"}
+forbidden_claims:
+  - A single combined deadline for all three directives.
+  - Replacing the hub satisfies AD 2026-17-03.
+  - The engine is compliant with all applicable directives.
+notes: >-
+  A shop visit for the hub may expose the HPC blades, but only if a 3rd-stage
+  blade is removed from the drum. The system must not merge the two triggers.

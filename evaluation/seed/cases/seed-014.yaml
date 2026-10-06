@@ -4,7 +4,7 @@ title: HPC rotor exposed after the effective date but no 3rd-stage blade removed
 slice: superseded_or_corrected
 severity: high
 label:
-  provenance: engineer_interpreted
+  provenance: expert_required
   status: draft
   labeled_by: claude-draft
   labeled_on: "2026-10-05"
@@ -14,9 +14,11 @@ label:
     exposed", tied to the (h)(2) definition: a blade removed from the stage 3-8
     drum. Here the rotor was exposed but no blade was removed, so under the
     corrected text this visit does not trigger replacement. The interpretation
-    is that the requirement carries to the next qualifying visit where a blade
-    is exposed, rather than lapsing. That rests on "where" restricting which
-    visit, on the proposal's intent, and on the FAA's comment response.
+    question is whether the requirement carries to the next qualifying visit
+    where a blade is exposed, or lapses because this visit passed without one.
+    Carrying forward is supported by "where" restricting which visit, by the
+    proposal's intent, and by the FAA's comment response. It is flagged for
+    the recruited reviewer rather than decided by the project.
 source_snapshot:
   generation_id: gen-20260926T215105Z-7fe9da08
   as_of: "2026-10-05"
@@ -47,7 +49,7 @@ expected:
     controlling_ad: AD 2026-17-03
     authority_state: in_force
     applicability: applies
-    action_status: action_required
+    action_status: needs_review
     reason: >-
       Affected blades are installed. The visit inducted 2026-10-01 is after the
       effective date, but no 3rd-stage blade was exposed as (h)(2) defines it,
@@ -58,11 +60,21 @@ expected:
       - {document: "2026-18423", paragraph: preamble, locator: Need for the Correction}
     action_timing:
       description: >-
-        Not required at this visit. Required at the next shop visit inducted
-        after 2026-09-24 where a 3rd-stage blade is removed from the drum.
+        Replacement is not required at this visit under the corrected text.
+        Whether it is required at a later visit depends on how "next engine
+        shop visit ... where" is read.
+      readings:
+        - name: Carry forward
+          result: Required at the next shop visit inducted after 2026-09-24 where a 3rd-stage blade is removed from the drum.
+        - name: Lapse
+          result: This was the next shop visit after the effective date and no blade was exposed, so paragraph (g) is spent.
+      safe_behavior: >-
+        Report that this visit does not trigger replacement, show both readings
+        for later visits, and route to qualified review.
 forbidden_claims:
   - AD 2026-17-03 requires replacement at this visit because the HPC rotor was exposed.
-  - The AD no longer applies because this shop visit passed without blade exposure.
+  - The AD no longer applies because this shop visit passed without blade exposure, presented as settled.
+  - Replacement is required at a later visit, presented as settled.
   - The paragraph (g) text as published on 2026-08-20 controls.
 notes: >-
   This exercises the correction: a system reading only the original 2026-16954

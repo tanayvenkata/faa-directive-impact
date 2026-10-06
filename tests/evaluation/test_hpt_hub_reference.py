@@ -52,20 +52,26 @@ def test_directive_facts_are_read_from_text(facts) -> None:
     assert limits["PKLBSR2100"] == 6000
 
 
-HPT_CASES = [
-    case
+HPT_OUTCOMES = [
+    (case, outcome)
     for case in load_seed_cases(REPO / "evaluation/seed/cases")
-    if case.record["directive_candidates"] == [DIRECTIVE]
+    for outcome in case.record["expected"]
+    if outcome["directive"] == DIRECTIVE
 ]
 
 
-@pytest.mark.parametrize("case", HPT_CASES, ids=lambda case: case.record["case_id"])
-def test_seed_label_matches_reference_derivation(case, facts) -> None:
-    (expected,) = case.record["expected"]
-    derivation = derive(case.record["asset_snapshot"], facts)
+@pytest.mark.parametrize(
+    ("case", "expected"),
+    HPT_OUTCOMES,
+    ids=[case.record["case_id"] for case, _ in HPT_OUTCOMES],
+)
+def test_seed_label_matches_reference_derivation(case, expected, facts) -> None:
+    as_of = date.fromisoformat(case.record["source_snapshot"]["as_of"])
+    derivation = derive(case.record["asset_snapshot"], facts, as_of)
 
     assert derivation.applicability == expected["applicability"]
     assert derivation.action_status == expected.get("action_status")
+    assert derivation.authority_state == expected.get("authority_state", "in_force")
     assert sorted(derivation.missing_facts) == sorted(
         expected.get("required_missing_facts", [])
     )

@@ -1,0 +1,58 @@
+schema_version: "1.0.0"
+case_id: seed-016
+title: Air carrier with an A5 engine whose program is not yet revised
+slice: exact_match
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-06"
+  rationale: >-
+    AD 2025-17-16 applies to every listed V2500 model with no part condition.
+    Paragraph (g)(1) applies to all, and (g)(2) adds a program revision for air
+    carriers. Both are due within 90 days of 2025-10-10, which is 2026-01-08.
+source_snapshot:
+  generation_id: gen-20260926T215105Z-7fe9da08
+  as_of: "2025-11-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-016
+    engine_serial_number: SYN-V2500-0016
+    engine_model: V2527-A5
+    snapshot_at: "2025-11-15"
+  installed_components: []
+  events: []
+  operator:
+    air_carrier_operation: "yes"
+    maintenance_program_revision: Revision 47 (2025-06-01); does not yet incorporate table 1 to paragraph (g) of AD 2025-17-16.
+directive_candidates: ["2025-17066"]
+expected:
+  - directive: "2025-17066"
+    controlling_ad: AD 2025-17-16
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Once the paragraph (g) revisions are made, no alternative actions are allowed without an approved AMOC.
+    reason: >-
+      V2527-A5 is listed in paragraph (c). The operator is an air carrier whose
+      approved program has not incorporated table 1, so both (g)(1) and (g)(2)
+      are outstanding.
+    required_evidence:
+      - {document: "2025-17066", paragraph: "(c)"}
+      - {document: "2025-17066", paragraph: "(g)(1)(i)", locator: "V2500-A5 TLM P/N 2A4408, TASK 05-10-00-990-000-B00"}
+      - {document: "2025-17066", paragraph: "(g)(2)"}
+    action_timing:
+      description: >-
+        By 2026-01-08, revise paragraph B.1 of the ALS in the V2500-A5 Time
+        Limits Manual (P/N 2A4408) per table 1, and revise the approved
+        maintenance or inspection program. The table 1 inspections are then
+        scheduled at piece-part exposure. This AD does not require performing
+        them within 90 days.
+forbidden_claims:
+  - AD 2025-17-16 requires inspecting the HPT hubs within 90 days.
+  - The V2500-D5 or V2500-E5 Time Limits Manual applies to this engine.
+  - Only paragraph (g)(1) applies.

@@ -90,6 +90,7 @@ class HubTiming:
 class Derivation:
     applicability: str
     action_status: str | None = None
+    authority_state: str = "in_force"
     missing_facts: list[str] = field(default_factory=list)
     continuing_obligations: list[str] = field(default_factory=list)
     hubs: list[HubTiming] = field(default_factory=list)
@@ -150,7 +151,9 @@ def read_directive_facts(root: Element) -> DirectiveFacts:
     )
 
 
-def derive(asset: dict[str, Any], facts: DirectiveFacts) -> Derivation:
+def derive(
+    asset: dict[str, Any], facts: DirectiveFacts, as_of: date | None = None
+) -> Derivation:
     """Derive applicability and action status for AD 2025-19-13.
 
     Applicability depends only on the engine model. Paragraph (h) binds every
@@ -165,6 +168,14 @@ def derive(asset: dict[str, Any], facts: DirectiveFacts) -> Derivation:
         return Derivation("outside_supported_scope")
     if model not in facts.applicable_models:
         return Derivation("does_not_apply")
+    if as_of is not None and as_of < facts.effective_date:
+        # Published but not yet in force: nothing is required, and the
+        # installation prohibition does not bind until the effective date.
+        return Derivation(
+            "applies",
+            "no_action_triggered",
+            authority_state="published_not_yet_effective",
+        )
 
     result = Derivation("applies", continuing_obligations=["(h)"])
     listed_parts = {row.part_number for row in facts.rows}
