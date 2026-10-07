@@ -32,14 +32,21 @@ UNITS = {
     for u in units([c.record for c in load_seed_cases(REPO / "evaluation/seed/cases")])
 }
 
-# Frozen before the first scored run (plumbing check b2-plumbing-20261007T230103Z).
-# Changing the instructions or the answer schema changes this hash; a new
-# version needs a stated reason and new runs, never a quiet edit.
-FROZEN_PROMPT_VERSION = "b73f8e333bee"
+# Every frozen prompt version, oldest first. Changing the instructions or the
+# answer schema changes the hash; a new version needs a stated reason and new
+# runs, never a quiet edit. The current prompt must be the last entry.
+FROZEN_PROMPT_VERSIONS = {
+    "b73f8e333bee": "v1, frozen 2026-10-07 after plumbing b2-plumbing-20261007T230103Z",
+    "e0a54c1578a5": (
+        "v2, format only, after v1's first scored runs: citation document is the "
+        "number alone, missing facts split into record_path and description, "
+        "listed S/N may be null for part-number-only listings"
+    ),
+}
 
 
 def test_prompt_is_frozen() -> None:
-    assert PROMPT_VERSION == FROZEN_PROMPT_VERSION
+    assert PROMPT_VERSION == list(FROZEN_PROMPT_VERSIONS)[-1]
 
 
 def test_prompt_never_contains_labels_or_adjudications() -> None:
@@ -210,3 +217,53 @@ def test_clear_for_other_directives_needs_a_regulatory_paragraph() -> None:
 
     assert only_preamble["10"]["uncited_clear"] is True
     assert score_unit(unit, cited, index)["10"]["uncited_clear"] is False
+
+
+def test_version_1_answers_are_scored_under_their_own_schema() -> None:
+    v1 = answer(missing_facts=["installed_components[HPT 1st-stage hub].serial_number"])
+
+    assert adapt(v1) is None
+    output = adapt(v1, "b73f8e333bee")
+    assert output["missing_facts"] == [
+        "installed_components[HPT 1st-stage hub].serial_number"
+    ]
+
+
+def test_missing_fact_paths_are_scored_and_descriptions_kept(index) -> None:
+    facts = [
+        {
+            "record_path": "installed_components[HPT 1st-stage hub].serial_number",
+            "description": "The hub's S/N is unknown.",
+        },
+        {"record_path": None, "description": "A document was not provided."},
+    ]
+
+    output = adapt(answer(missing_facts=facts))
+
+    assert output["missing_facts"] == [facts[0]["record_path"]]
+    assert output["missing_fact_descriptions"] == [f["description"] for f in facts]
+
+
+def test_citation_document_must_be_a_bare_number() -> None:
+    cites = [
+        {"document": "Federal Register 2025-18469", "paragraph": "(c)",
+         "locator": None, "supports": ""}
+    ]  # fmt: skip
+
+    assert adapt(answer(citations=cites)) is None
+
+
+def test_part_number_only_listing_matches_on_part_number(index) -> None:
+    unit = UNITS["seed-023/2026-16954"]
+    parts = [
+        {
+            "component_name": "3rd stage HPC rotor blade set",
+            "installed_part_number": "6A8688",
+            "installed_serial_number": "not tracked at set level",
+            "listed_part_number": "6A8688",
+            "listed_serial_number": None,
+        }
+    ]
+    output = adapt(answer(matched_parts=parts))
+
+    assert score_unit(unit, output, CitationIndex({}))["9"]["passed"] is True

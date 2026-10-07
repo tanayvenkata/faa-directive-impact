@@ -35,7 +35,7 @@ from faa_directive_impact.directives.source_text import (
     load_generation,
 )
 from faa_directive_impact.evaluation.b2_prompt import (
-    ANSWER_SCHEMA,
+    ANSWER_SCHEMAS,
     PROMPT_VERSION,
     build_request,
 )
@@ -151,10 +151,22 @@ def request_for(item: B2Unit, model: str, effort: str) -> ModelRequest:
     )
 
 
-def adapt(answer: dict[str, Any] | None) -> dict[str, Any] | None:
-    """Convert a valid answer into the output shape the S1 rules produce."""
-    if answer is None or list(Draft202012Validator(ANSWER_SCHEMA).iter_errors(answer)):
+def adapt(
+    answer: dict[str, Any] | None, prompt_version: str = PROMPT_VERSION
+) -> dict[str, Any] | None:
+    """Convert a valid answer into the output shape the S1 rules produce.
+
+    The answer is validated against the schema of the prompt version that
+    produced it. Missing facts are scored by their record paths; their
+    descriptions go to the hand-review sheet.
+    """
+    schema = ANSWER_SCHEMAS[prompt_version]
+    if answer is None or list(Draft202012Validator(schema).iter_errors(answer)):
         return None
+    facts = [
+        {"record_path": fact, "description": fact} if isinstance(fact, str) else fact
+        for fact in answer["missing_facts"]
+    ]
     status = None if answer["action_status"] == "none" else answer["action_status"]
     computed: dict[str, Any] = {}
     for key in ("latest_engine_flight_cycles", "component_cycles_remaining"):
@@ -170,7 +182,8 @@ def adapt(answer: dict[str, Any] | None) -> dict[str, Any] | None:
         "action_status": status,
         "authority_state": answer["authority_state"],
         "computed": computed,
-        "missing_facts": answer["missing_facts"],
+        "missing_facts": [f["record_path"] for f in facts if f["record_path"]],
+        "missing_fact_descriptions": [f["description"] for f in facts],
         "continuing_obligations": answer["continuing_obligations"],
         "citations": answer["citations"],
         "hubs": [
@@ -264,7 +277,7 @@ def write_results(
     """Score recorded responses and write outputs, report, and review sheet."""
     outputs, scored = {}, []
     for item, request, response in zip(items, requests, responses, strict=True):
-        output = adapt(response.answer)
+        output = adapt(response.answer, meta["prompt_version"])
         error = response.error or (
             "answer does not match the answer schema"
             if output is None and response.answer is not None
@@ -385,10 +398,12 @@ def report_markdown(report: dict[str, Any], known_gaps: str) -> str:
         for number, gate in report[key].items():
             covered = gate.get("covered")
             failed = gate.get("failed", [])
+            shown = ", ".join(failed) if failed else "—"
+            if failed and gate.get("budget") and gate["verdict"] == "pass":
+                shown += f" ({len(failed)} of {gate['budget']} allowed)"
             lines.append(
                 f"| {number} | {GATE_NAMES[number]} | {gate['verdict']} | "
-                f"{len(covered) if covered is not None else '—'} | "
-                f"{', '.join(failed) if failed else '—'} |"
+                f"{len(covered) if covered is not None else '—'} | {shown} |"
             )
         lines.append("")
     lines += [
@@ -462,7 +477,10 @@ def hand_review_markdown(
             lines.append(
                 f"- **Expected timing:** {expected['action_timing']['description']}"
             )
-        lines += [f"- **Missing fact:** {fact}" for fact in output["missing_facts"]]
+        lines += [
+            f"- **Missing fact:** {fact}"
+            for fact in output["missing_fact_descriptions"]
+        ]
         lines += [f"- **Note:** {note}" for note in output["notes"]]
         gates = by_name[name]["gates"]
         for fact in gates["4"].get("hand_review_facts", []):

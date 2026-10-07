@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "applicability",
+    "action_status",
+    "authority_state",
+    "summary",
+    "timing",
+    "latest_engine_flight_cycles",
+    "component_cycles_remaining",
+    "alternative_readings",
+    "missing_facts",
+    "continuing_obligations",
+    "matched_parts",
+    "citations",
+    "notes"
+  ],
+  "properties": {
+    "applicability": {
+      "type": "string",
+      "enum": ["applies", "does_not_apply", "unknown", "outside_supported_scope"]
+    },
+    "action_status": {
+      "type": "string",
+      "enum": [
+        "action_required",
+        "action_required_on_event",
+        "no_action_triggered",
+        "needs_review",
+        "none"
+      ]
+    },
+    "authority_state": {
+      "type": "string",
+      "enum": ["proposed", "published_not_yet_effective", "in_force"]
+    },
+    "summary": {"type": "string"},
+    "timing": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+    "latest_engine_flight_cycles": {"anyOf": [{"type": "integer"}, {"type": "null"}]},
+    "component_cycles_remaining": {"anyOf": [{"type": "integer"}, {"type": "null"}]},
+    "alternative_readings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "latest_engine_flight_cycles", "explanation"],
+        "properties": {
+          "name": {"type": "string"},
+          "latest_engine_flight_cycles": {"type": "integer"},
+          "explanation": {"type": "string"}
+        }
+      }
+    },
+    "missing_facts": {"type": "array", "items": {"type": "string"}},
+    "continuing_obligations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["paragraph", "text"],
+        "properties": {
+          "paragraph": {"type": "string"},
+          "text": {"type": "string"}
+        }
+      }
+    },
+    "matched_parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "component_name",
+          "installed_part_number",
+          "installed_serial_number",
+          "listed_part_number",
+          "listed_serial_number"
+        ],
+        "properties": {
+          "component_name": {"type": "string"},
+          "installed_part_number": {"type": "string"},
+          "installed_serial_number": {"type": "string"},
+          "listed_part_number": {"type": "string"},
+          "listed_serial_number": {"type": "string"}
+        }
+      }
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["document", "paragraph", "locator", "supports"],
+        "properties": {
+          "document": {"type": "string"},
+          "paragraph": {"type": "string"},
+          "locator": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+          "supports": {"type": "string"}
+        }
+      }
+    },
+    "notes": {"type": "array", "items": {"type": "string"}}
+  }
+}

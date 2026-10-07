@@ -208,15 +208,19 @@ def score_unit(
     gate("8", bool(exp_computed), not wrong, f"expected/got: {wrong}" if wrong else "")
 
     covered = unit.record["slice"] in ("unaffected_part", "part_identity")
+    # A row that lists a part number only (serial number None) is matched on
+    # the part number; every S1 row lists both.
     inexact = [
         hub["serial_number"]
         for hub in output.get("hubs", [])
         if hub["outcome"] == "matched"
         and (
-            hub["table_row"]["part_number"],
-            hub["table_row"]["serial_number"],
+            hub["table_row"]["part_number"] != hub["part_number"]
+            or (
+                hub["table_row"]["serial_number"] is not None
+                and hub["table_row"]["serial_number"] != hub["serial_number"]
+            )
         )
-        != (hub["part_number"], hub["serial_number"])
     ]
     same_answer = (got_app, got_status) == (exp_app, exp_status) and not absent
     gate(

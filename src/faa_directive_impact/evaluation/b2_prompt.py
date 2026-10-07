@@ -20,6 +20,12 @@ from faa_directive_impact.llm.client import ModelRequest
 from faa_directive_impact.schema_validation import load_schema
 
 ANSWER_SCHEMA = load_schema("b2-screen-answer.schema.json")
+# Version 1 (b73f8e333bee) took missing facts as plain strings and had no
+# format rule for citation document numbers. Its runs are kept and are
+# re-scored under the schema they were given.
+ANSWER_SCHEMAS = {
+    "b73f8e333bee": load_schema("b2-screen-answer-v1.schema.json"),
+}
 
 INSTRUCTIONS = f"""\
 You screen one aircraft engine against one FAA airworthiness directive (AD).
@@ -87,22 +93,27 @@ authority_state, on the question date: "proposed" (a proposed rule),
   computed; otherwise null. With several affected parts, give the smallest.
 - alternative_readings: if the text can be read more than one way and the
   readings give different deadlines, list each reading; otherwise empty.
-- missing_facts: each fact needed but missing or unconfirmed. When the fact
-  belongs in the engine record, name the path of the field that would settle
-  it, using these forms: <section>.<field> (sections are engine, operator,
+- missing_facts: each fact needed but missing or unconfirmed, as an object.
+  record_path is the path of the engine-record field that would settle it,
+  exactly in one of the forms below and with no other text, or null when the
+  fact is not part of the engine record. description says in words what is
+  missing and why it matters. Path forms: <section>.<field> (sections are engine, operator,
   and so on), <section>.<field>[<date>] for a dated reading,
   installed_components[<component_name>] for a missing component record,
   installed_components[<component_name>].<field>,
   installed_components[<component_name>].<field>[<date>], and
   <list>[<AD number>] for an item in a record list that relates to a
-  directive. When the fact is not part of the engine record (for example the
-  content of a document or image you were not given), describe it in words.
+  directive. A fact that is not part of the engine record (for example the
+  content of a document or image you were not given) has record_path null.
 - continuing_obligations: obligations that keep binding while the directive
   applies, each with its paragraph.
 - matched_parts: each installed part you matched to a part the directive
   lists, with both the installed and the listed identifiers.
+  listed_serial_number is null when the directive lists the part number only.
 - citations: every document and paragraph your answer relies on, including
-  for answers that clear an engine. Use the document number and the
+  for answers that clear an engine. document is the Federal Register
+  document number only, exactly as shown after "Federal Register document"
+  (for example 2025-18469), with no AD number or other text. paragraph is the
   paragraph label as written, such as "(c)", "(g)", or "(i)(2)"; use
   "preamble" for text before the regulatory paragraphs. Give a locator, such
   as a table row, when it helps; otherwise null.
@@ -112,6 +123,7 @@ authority_state, on the question date: "proposed" (a proposed rule),
 PROMPT_VERSION = hashlib.sha256(
     (INSTRUCTIONS + json.dumps(ANSWER_SCHEMA, sort_keys=True)).encode("utf-8")
 ).hexdigest()[:12]
+ANSWER_SCHEMAS[PROMPT_VERSION] = ANSWER_SCHEMA
 
 
 def render_documents(documents: list[SourceDocument]) -> str:

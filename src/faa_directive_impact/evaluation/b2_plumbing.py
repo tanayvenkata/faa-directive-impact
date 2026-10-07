@@ -1,8 +1,10 @@
 """Plumbing check for B2: two calls on a synthetic engine that is in no case.
 
 It confirms the API accepts the answer schema, the answer parses and
-validates, and the second call reads the shared document from the prompt
-cache. It checks format only; nothing here is scored, and the engine is
+validates, its field conventions hold (citations name a given document by
+number only; missing-fact paths have a record-path form), and the second call
+reads the shared document from the prompt cache. Version 1 checked structure
+only, which let a document-number format problem through to a scored run. It checks format only; nothing here is scored, and the engine is
 invented so no seed case is seen before the prompt is frozen.
 """
 
@@ -15,6 +17,7 @@ from jsonschema import Draft202012Validator
 from faa_directive_impact.directives.source_text import documents_for, load_generation
 from faa_directive_impact.evaluation.b2_prompt import ANSWER_SCHEMA, build_request
 from faa_directive_impact.evaluation.s1_run import GENERATION_ID
+from faa_directive_impact.evaluation.s1_scoring import RECORD_PATH
 from faa_directive_impact.llm.client import LiveModel, record
 
 DIRECTIVE = "2025-18469"
@@ -69,11 +72,25 @@ def run_plumbing(
             if response.answer is not None
             else ["no answer"]
         )
+        answer = response.answer or {}
+        given_numbers = {document.number for document in given}
+        convention_errors = [
+            f"citation document {c['document']!r} was not given"
+            for c in answer.get("citations", [])
+            if c["document"] not in given_numbers
+        ] + [
+            f"record_path {f['record_path']!r} is not a record path"
+            for f in answer.get("missing_facts", [])
+            if isinstance(f, dict)
+            and f["record_path"] is not None
+            and not RECORD_PATH.match(f["record_path"])
+        ]
         results.append(
             {
                 "engine": serial,
                 "error": response.error,
                 "schema_errors": schema_errors,
+                "convention_errors": convention_errors,
                 "applicability": (response.answer or {}).get("applicability"),
                 "action_status": (response.answer or {}).get("action_status"),
                 "usage": response.usage,
