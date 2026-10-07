@@ -1,0 +1,3128 @@
+{
+  "effort": "high",
+  "expected_out_of_text": "Seed-005's expected timing follows informal FAA correspondence (faa-informal-2026-10-05) that is not in the directive text, and its expected `computed.readings` includes an `FAA` reading. A system reading only the text is expected to miss it on gate 8. That is a limit of the text, not a model error, and it was written here before the run.",
+  "gate_version": 1,
+  "gates_all_units": {
+    "1": {
+      "budget": 0,
+      "covered": [
+        "seed-001",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-011",
+        "seed-013",
+        "seed-016",
+        "seed-017",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-023/2026-16954",
+        "seed-026",
+        "seed-027",
+        "seed-028"
+      ],
+      "failed": [
+        "seed-013"
+      ],
+      "gate": "1",
+      "labels_to_check": [
+        "seed-013"
+      ],
+      "name": "No false clear",
+      "verdict": "unresolved"
+    },
+    "10": {
+      "budget": "0 on critical units, 0 uncited clears, at most 1 on high",
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-003",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-009",
+        "seed-010",
+        "seed-011",
+        "seed-012",
+        "seed-013",
+        "seed-014",
+        "seed-015",
+        "seed-016",
+        "seed-017",
+        "seed-018",
+        "seed-019",
+        "seed-020/2021-11960",
+        "seed-020/2022-02574",
+        "seed-021",
+        "seed-022/2021-14268",
+        "seed-022/2021-11960",
+        "seed-023/2025-18469",
+        "seed-023/2026-16954",
+        "seed-023/2025-17066",
+        "seed-024",
+        "seed-025",
+        "seed-026",
+        "seed-027",
+        "seed-028",
+        "seed-029"
+      ],
+      "critical_units_with_uncited_evidence": [
+        "seed-011",
+        "seed-021",
+        "seed-022/2021-14268",
+        "seed-022/2021-11960",
+        "seed-023/2026-16954",
+        "seed-023/2025-17066",
+        "seed-027"
+      ],
+      "failed": [
+        "seed-011",
+        "seed-012",
+        "seed-013",
+        "seed-014",
+        "seed-015",
+        "seed-016",
+        "seed-017",
+        "seed-018",
+        "seed-020/2021-11960",
+        "seed-020/2022-02574",
+        "seed-021",
+        "seed-022/2021-11960",
+        "seed-022/2021-14268",
+        "seed-023/2025-17066",
+        "seed-023/2026-16954",
+        "seed-027"
+      ],
+      "gate": "10",
+      "high_uncited_entries": 12,
+      "labels_to_check": [
+        "seed-011",
+        "seed-021",
+        "seed-022/2021-14268",
+        "seed-022/2021-11960",
+        "seed-023/2026-16954",
+        "seed-023/2025-17066",
+        "seed-027",
+        "seed-018",
+        "seed-012",
+        "seed-013",
+        "seed-014",
+        "seed-015",
+        "seed-016",
+        "seed-017",
+        "seed-018",
+        "seed-020/2021-11960",
+        "seed-020/2022-02574"
+      ],
+      "name": "Required evidence cited",
+      "scope": "citation part only; locators are on the hand-review sheet",
+      "uncited_clears": [
+        "seed-018"
+      ],
+      "verdict": "unresolved"
+    },
+    "11": {
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-003",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-009",
+        "seed-010",
+        "seed-011",
+        "seed-012",
+        "seed-013",
+        "seed-014",
+        "seed-015",
+        "seed-016",
+        "seed-017",
+        "seed-018",
+        "seed-019",
+        "seed-020/2021-11960",
+        "seed-020/2022-02574",
+        "seed-021",
+        "seed-022/2021-14268",
+        "seed-022/2021-11960",
+        "seed-023/2025-18469",
+        "seed-023/2026-16954",
+        "seed-023/2025-17066",
+        "seed-024",
+        "seed-025",
+        "seed-026",
+        "seed-027",
+        "seed-028",
+        "seed-029"
+      ],
+      "gate": "11",
+      "name": "Timing stated correctly",
+      "verdict": "pending_hand_review"
+    },
+    "12": {
+      "budget": 1,
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-010",
+        "seed-011",
+        "seed-012",
+        "seed-013",
+        "seed-015",
+        "seed-016",
+        "seed-018",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-023/2026-16954",
+        "seed-023/2025-17066",
+        "seed-024",
+        "seed-025",
+        "seed-026",
+        "seed-028"
+      ],
+      "failed": [
+        "seed-024"
+      ],
+      "gate": "12",
+      "labels_to_check": [],
+      "name": "No needless escalation",
+      "verdict": "pass"
+    },
+    "13": {
+      "budget": 1,
+      "covered": [
+        "seed-002",
+        "seed-012",
+        "seed-015",
+        "seed-018",
+        "seed-023/2025-17066",
+        "seed-024"
+      ],
+      "failed": [
+        "seed-023/2025-17066"
+      ],
+      "gate": "13",
+      "labels_to_check": [],
+      "name": "No false alarm",
+      "verdict": "pass"
+    },
+    "14": {
+      "gate": "14",
+      "name": "Candidate recall",
+      "reason": "S1 receives its directive directly and does no retrieval.",
+      "verdict": "not_exercised"
+    },
+    "2": {
+      "budget": 0,
+      "covered": [
+        "seed-004",
+        "seed-010",
+        "seed-025"
+      ],
+      "failed": [],
+      "gate": "2",
+      "labels_to_check": [],
+      "name": "No scope leak",
+      "verdict": "pass"
+    },
+    "3": {
+      "budget": 0,
+      "covered": [
+        "seed-003",
+        "seed-009",
+        "seed-014",
+        "seed-020/2021-11960",
+        "seed-020/2022-02574",
+        "seed-021",
+        "seed-022/2021-14268",
+        "seed-022/2021-11960",
+        "seed-029"
+      ],
+      "failed": [
+        "seed-014",
+        "seed-022/2021-14268",
+        "seed-029"
+      ],
+      "gate": "3",
+      "labels_to_check": [
+        "seed-014",
+        "seed-022/2021-14268",
+        "seed-029"
+      ],
+      "name": "No false confidence",
+      "verdict": "unresolved"
+    },
+    "4": {
+      "budget": 0,
+      "covered": [
+        "seed-003",
+        "seed-008",
+        "seed-009",
+        "seed-017",
+        "seed-020/2021-11960",
+        "seed-021",
+        "seed-022/2021-14268",
+        "seed-022/2021-11960",
+        "seed-027",
+        "seed-029"
+      ],
+      "failed": [],
+      "gate": "4",
+      "labels_to_check": [],
+      "name": "Every missing fact named",
+      "verdict": "pass"
+    },
+    "5": {
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-003",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-009",
+        "seed-010",
+        "seed-011",
+        "seed-012",
+        "seed-013",
+        "seed-014",
+        "seed-015",
+        "seed-016",
+        "seed-017",
+        "seed-018",
+        "seed-019",
+        "seed-020/2021-11960",
+        "seed-020/2022-02574",
+        "seed-021",
+        "seed-022/2021-14268",
+        "seed-022/2021-11960",
+        "seed-023/2025-18469",
+        "seed-023/2026-16954",
+        "seed-023/2025-17066",
+        "seed-024",
+        "seed-025",
+        "seed-026",
+        "seed-027",
+        "seed-028",
+        "seed-029"
+      ],
+      "gate": "5",
+      "name": "No forbidden claim",
+      "verdict": "pending_hand_review"
+    },
+    "6": {
+      "budget": 0,
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-003",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-009",
+        "seed-010",
+        "seed-011",
+        "seed-012",
+        "seed-013",
+        "seed-014",
+        "seed-015",
+        "seed-016",
+        "seed-017",
+        "seed-018",
+        "seed-019",
+        "seed-020/2021-11960",
+        "seed-020/2022-02574",
+        "seed-021",
+        "seed-022/2021-14268",
+        "seed-022/2021-11960",
+        "seed-023/2025-18469",
+        "seed-023/2026-16954",
+        "seed-023/2025-17066",
+        "seed-024",
+        "seed-025",
+        "seed-026",
+        "seed-027",
+        "seed-028",
+        "seed-029"
+      ],
+      "failed": [
+        "seed-023/2025-17066"
+      ],
+      "gate": "6",
+      "labels_to_check": [
+        "seed-023/2025-17066"
+      ],
+      "name": "No fabricated citation",
+      "verdict": "unresolved"
+    },
+    "7": {
+      "budget": 0,
+      "covered": [
+        "seed-015",
+        "seed-018",
+        "seed-020/2022-02574"
+      ],
+      "failed": [],
+      "gate": "7",
+      "labels_to_check": [],
+      "name": "Authority respected",
+      "verdict": "pass"
+    },
+    "8": {
+      "budget": 0,
+      "covered": [
+        "seed-001",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-026",
+        "seed-027",
+        "seed-028"
+      ],
+      "failed": [
+        "seed-005"
+      ],
+      "gate": "8",
+      "labels_to_check": [
+        "seed-005"
+      ],
+      "name": "Exact arithmetic",
+      "verdict": "unresolved"
+    },
+    "9": {
+      "budget": 0,
+      "covered": [
+        "seed-002",
+        "seed-012",
+        "seed-024",
+        "seed-029"
+      ],
+      "failed": [
+        "seed-024",
+        "seed-029"
+      ],
+      "gate": "9",
+      "labels_to_check": [
+        "seed-024",
+        "seed-029"
+      ],
+      "name": "Exact part identity",
+      "verdict": "unresolved"
+    }
+  },
+  "gates_s1_units": {
+    "1": {
+      "budget": 0,
+      "covered": [
+        "seed-001",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-026",
+        "seed-027",
+        "seed-028"
+      ],
+      "failed": [],
+      "gate": "1",
+      "labels_to_check": [],
+      "name": "No false clear",
+      "verdict": "pass"
+    },
+    "10": {
+      "budget": "0 on critical units, 0 uncited clears, at most 1 on high",
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-003",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-009",
+        "seed-010",
+        "seed-018",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-024",
+        "seed-026",
+        "seed-027",
+        "seed-028",
+        "seed-029"
+      ],
+      "critical_units_with_uncited_evidence": [
+        "seed-027"
+      ],
+      "failed": [
+        "seed-018",
+        "seed-027"
+      ],
+      "gate": "10",
+      "high_uncited_entries": 1,
+      "labels_to_check": [
+        "seed-027",
+        "seed-018"
+      ],
+      "name": "Required evidence cited",
+      "scope": "citation part only; locators are on the hand-review sheet",
+      "uncited_clears": [
+        "seed-018"
+      ],
+      "verdict": "unresolved"
+    },
+    "11": {
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-003",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-009",
+        "seed-010",
+        "seed-018",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-024",
+        "seed-026",
+        "seed-027",
+        "seed-028",
+        "seed-029"
+      ],
+      "gate": "11",
+      "name": "Timing stated correctly",
+      "verdict": "pending_hand_review"
+    },
+    "12": {
+      "budget": 1,
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-010",
+        "seed-018",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-024",
+        "seed-026",
+        "seed-028"
+      ],
+      "failed": [
+        "seed-024"
+      ],
+      "gate": "12",
+      "labels_to_check": [],
+      "name": "No needless escalation",
+      "verdict": "pass"
+    },
+    "13": {
+      "budget": 1,
+      "covered": [
+        "seed-002",
+        "seed-018",
+        "seed-024"
+      ],
+      "failed": [],
+      "gate": "13",
+      "labels_to_check": [],
+      "name": "No false alarm",
+      "verdict": "pass"
+    },
+    "14": {
+      "gate": "14",
+      "name": "Candidate recall",
+      "reason": "S1 receives its directive directly and does no retrieval.",
+      "verdict": "not_exercised"
+    },
+    "2": {
+      "budget": 0,
+      "covered": [
+        "seed-004",
+        "seed-010"
+      ],
+      "failed": [],
+      "gate": "2",
+      "labels_to_check": [],
+      "name": "No scope leak",
+      "verdict": "pass"
+    },
+    "3": {
+      "budget": 0,
+      "covered": [
+        "seed-003",
+        "seed-009",
+        "seed-029"
+      ],
+      "failed": [
+        "seed-029"
+      ],
+      "gate": "3",
+      "labels_to_check": [
+        "seed-029"
+      ],
+      "name": "No false confidence",
+      "verdict": "unresolved"
+    },
+    "4": {
+      "budget": 0,
+      "covered": [
+        "seed-003",
+        "seed-008",
+        "seed-009",
+        "seed-027",
+        "seed-029"
+      ],
+      "failed": [],
+      "gate": "4",
+      "labels_to_check": [],
+      "name": "Every missing fact named",
+      "verdict": "pass"
+    },
+    "5": {
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-003",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-009",
+        "seed-010",
+        "seed-018",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-024",
+        "seed-026",
+        "seed-027",
+        "seed-028",
+        "seed-029"
+      ],
+      "gate": "5",
+      "name": "No forbidden claim",
+      "verdict": "pending_hand_review"
+    },
+    "6": {
+      "budget": 0,
+      "covered": [
+        "seed-001",
+        "seed-002",
+        "seed-003",
+        "seed-004",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-009",
+        "seed-010",
+        "seed-018",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-024",
+        "seed-026",
+        "seed-027",
+        "seed-028",
+        "seed-029"
+      ],
+      "failed": [],
+      "gate": "6",
+      "labels_to_check": [],
+      "name": "No fabricated citation",
+      "verdict": "pass"
+    },
+    "7": {
+      "budget": 0,
+      "covered": [
+        "seed-018"
+      ],
+      "failed": [],
+      "gate": "7",
+      "labels_to_check": [],
+      "name": "Authority respected",
+      "verdict": "pass"
+    },
+    "8": {
+      "budget": 0,
+      "covered": [
+        "seed-001",
+        "seed-005",
+        "seed-006",
+        "seed-007",
+        "seed-008",
+        "seed-019",
+        "seed-023/2025-18469",
+        "seed-026",
+        "seed-027",
+        "seed-028"
+      ],
+      "failed": [
+        "seed-005"
+      ],
+      "gate": "8",
+      "labels_to_check": [
+        "seed-005"
+      ],
+      "name": "Exact arithmetic",
+      "verdict": "unresolved"
+    },
+    "9": {
+      "budget": 0,
+      "covered": [
+        "seed-002",
+        "seed-024",
+        "seed-029"
+      ],
+      "failed": [
+        "seed-024",
+        "seed-029"
+      ],
+      "gate": "9",
+      "labels_to_check": [
+        "seed-024",
+        "seed-029"
+      ],
+      "name": "Exact part identity",
+      "verdict": "unresolved"
+    }
+  },
+  "generation_id": "gen-20260926T215105Z-7fe9da08",
+  "git_commit": "843c5c23046139931b9a835b856fc5c8fc4e663e",
+  "mode": "batch",
+  "model": "claude-haiku-5-5",
+  "no_answer_rule": "A unit with no usable answer (a refusal, a non-JSON response, or JSON that does not match the answer schema) fails every gate it is covered by, because no safe output was produced. Only transport errors are retried, by the SDK; answers are never retried for content.",
+  "no_answer_units": [],
+  "prompt_disclosure": "The prompt contains: the outcome vocabulary and record conventions from evaluation/seed/README.md (including that operator AD records and AMOC claims are claims to check, not evidence), the list of supported engine models, the missing-fact path format, the answer format, and each document's type, publication date, and Federal Register effective date alongside its text. Documents are rendered from the XML with image placeholders, and each unit gets its directive plus the related documents published by its question date. The prompt never contains a case's title, slice, label, rationale, forbidden claims, notes, or any adjudication.",
+  "prompt_version": "e0a54c1578a5",
+  "repeat": 1,
+  "run_id": "b2-haiku-5-5-high-r1-20261007T232933Z-843c5c2",
+  "started_at": "2026-10-07T23:29:33.125398+00:00",
+  "system": "B2 full-context model",
+  "units": [
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-18469 (g) Table 1 to paragraph (g), HPT 1st-stage hub row 2A5001 PKLBST5011, limit 5,500 cycles since new"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": true,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "exact_match",
+      "unit": "seed-001"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "13": {
+          "covered": true,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/no_action_triggered",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/no_action_triggered",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-18469 (g) Table 1 to Paragraph (g), HPT 1st-stage hub rows (2A5001) and HPT 2nd-stage hub rows (2A4802)"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": true,
+          "detail": "inexact matches []; system said no_action_triggered",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "unaffected_part",
+      "unit": "seed-002"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/needs_review",
+          "passed": true
+        },
+        "3": {
+          "covered": true,
+          "detail": "system said applies/needs_review",
+          "passed": true
+        },
+        "4": {
+          "covered": true,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said needs_review",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "missing_state",
+      "unit": "seed-003"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said None",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "high",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said None",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said None",
+          "passed": true
+        },
+        "2": {
+          "covered": true,
+          "detail": "system said outside_supported_scope/None",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said outside_supported_scope/None",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-18469 (c) Applicability paragraph lists only IAE AG V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, and V2533-A5 engines",
+            "2025-18469 preamble Effective date October 29, 2025 per the Federal Register record"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said None",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "high",
+      "slice": "out_of_family",
+      "unit": "seed-004"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": true,
+          "detail": "expected/got: {'latest_engine_flight_cycles': (20900, 18100), 'readings': ({'A': 18100, 'B': 18040, 'FAA': 20900}, {'Removal required at the shop visit itself': 18040, 'Removal limit governs the later deadline': 20900})}",
+          "passed": false
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "shop_visit_trigger",
+      "unit": "seed-005"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": true,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "cycle_limit",
+      "unit": "seed-006"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": true,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "exact_match",
+      "unit": "seed-007"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "4": {
+          "covered": true,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-18469 (g) Table 1 to paragraph (g), HPT 1st-stage hub row with S/N PKLBST7489 (6,200 cycles)"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": true,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "missing_state",
+      "unit": "seed-008"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/needs_review",
+          "passed": true
+        },
+        "3": {
+          "covered": true,
+          "detail": "system said applies/needs_review",
+          "passed": true
+        },
+        "4": {
+          "covered": true,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said needs_review",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "missing_state",
+      "unit": "seed-009"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said None",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "high",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said None",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said None",
+          "passed": true
+        },
+        "2": {
+          "covered": true,
+          "detail": "system said outside_supported_scope/None",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said outside_supported_scope/None",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said None",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "high",
+      "slice": "out_of_family",
+      "unit": "seed-010"
+    },
+    {
+      "directive": "2026-16954",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required_on_event",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2026-18423 (c)', '2026-18423 (h)(2)', '2026-18423 (h)(3)']",
+          "missing_evidence": [
+            "2026-18423 (c)",
+            "2026-18423 (h)(2)",
+            "2026-18423 (h)(3)"
+          ],
+          "passed": false,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said action_required_on_event",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required_on_event",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required_on_event",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required_on_event",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required_on_event",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "exact_match",
+      "unit": "seed-011"
+    },
+    {
+      "directive": "2026-16954",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said None",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2026-18423 (c)', '2026-18423 (h)(1)(i)']",
+          "missing_evidence": [
+            "2026-18423 (c)",
+            "2026-18423 (h)(1)(i)"
+          ],
+          "passed": false,
+          "severity": "high",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said None",
+          "passed": true
+        },
+        "13": {
+          "covered": true,
+          "detail": "system said None",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said does_not_apply/None",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said does_not_apply/None",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": true,
+          "detail": "inexact matches []; system said None",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "high",
+      "slice": "unaffected_part",
+      "unit": "seed-012"
+    },
+    {
+      "directive": "2026-16954",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said no_action_triggered",
+          "passed": false
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2026-18423 (h)(3)']",
+          "missing_evidence": [
+            "2026-18423 (h)(3)"
+          ],
+          "passed": false,
+          "severity": "high",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/no_action_triggered",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/no_action_triggered",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said no_action_triggered",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "high",
+      "slice": "shop_visit_trigger",
+      "unit": "seed-013"
+    },
+    {
+      "directive": "2026-16954",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2026-18423 (h)(2)', '2026-18423 preamble']",
+          "missing_evidence": [
+            "2026-18423 (h)(2)",
+            "2026-18423 preamble"
+          ],
+          "passed": false,
+          "severity": "high",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": false,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/no_action_triggered",
+          "passed": true
+        },
+        "3": {
+          "covered": true,
+          "detail": "system said applies/no_action_triggered",
+          "passed": false
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said no_action_triggered",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "high",
+      "slice": "superseded_or_corrected",
+      "unit": "seed-014"
+    },
+    {
+      "directive": "2025-20088",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2025-20088 (a)']",
+          "missing_evidence": [
+            "2025-20088 (a)"
+          ],
+          "passed": false,
+          "severity": "high",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "13": {
+          "covered": true,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/no_action_triggered",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/no_action_triggered",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-20088 preamble Summary, DATES, and Regulatory Findings sections; the document is a Notice of proposed rulemaking, with comments due January 2, 2026"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": true,
+          "detail": "expected proposed, system said proposed",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said no_action_triggered",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "high",
+      "slice": "effective_date",
+      "unit": "seed-015"
+    },
+    {
+      "directive": "2025-17066",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2025-17066 (g)(1)(i)']",
+          "missing_evidence": [
+            "2025-17066 (g)(1)(i)"
+          ],
+          "passed": false,
+          "severity": "high",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "high",
+      "slice": "exact_match",
+      "unit": "seed-016"
+    },
+    {
+      "directive": "2025-17066",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2025-17066 (g)(1)(i)']",
+          "missing_evidence": [
+            "2025-17066 (g)(1)(i)"
+          ],
+          "passed": false,
+          "severity": "high",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "4": {
+          "covered": true,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "high",
+      "slice": "missing_state",
+      "unit": "seed-017"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2025-18469 (a)']; clear without its clearing paragraph",
+          "missing_evidence": [
+            "2025-18469 (a)"
+          ],
+          "passed": false,
+          "severity": "high",
+          "uncited_clear": true
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "13": {
+          "covered": true,
+          "detail": "system said no_action_triggered",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/no_action_triggered",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/no_action_triggered",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-18469 (g) Table 1 to paragraph (g), HPT 2nd-stage hub row for 2A4802 / PKLBSR2100 (removal cycle limit 6000)"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": true,
+          "detail": "expected published_not_yet_effective, system said published_not_yet_effective",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said no_action_triggered",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "high",
+      "slice": "effective_date",
+      "unit": "seed-018"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-18469 (g) Table 1 to Paragraph (g), HPT 1st-stage hub row, P/N 2A5001, S/N PKLBSS9200, removal cycle limit 4,800"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": true,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "cycle_limit",
+      "unit": "seed-019"
+    },
+    {
+      "directive": "2021-11960",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2021-11960 (c)(1)', '2021-11960 (c)(2)']",
+          "missing_evidence": [
+            "2021-11960 (c)(1)",
+            "2021-11960 (c)(2)"
+          ],
+          "passed": false,
+          "severity": "high",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said unknown/needs_review",
+          "passed": true
+        },
+        "3": {
+          "covered": true,
+          "detail": "system said unknown/needs_review",
+          "passed": true
+        },
+        "4": {
+          "covered": true,
+          "detail": "",
+          "hand_review_facts": [
+            "IAE NMSB V2500-ENG-72-0713 Revision 1 Appendix A Tables 1 and 2 (unavailable incorporated material)",
+            "IAE NMSB V2500-E5-72-0015 Appendix A Tables 1 and 2 (unavailable incorporated material)"
+          ],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said needs_review",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "high",
+      "slice": "effective_date",
+      "unit": "seed-020/2021-11960"
+    },
+    {
+      "directive": "2022-02574",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2022-02574 (b)']",
+          "missing_evidence": [
+            "2022-02574 (b)"
+          ],
+          "passed": false,
+          "severity": "high",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said unknown/needs_review",
+          "passed": true
+        },
+        "3": {
+          "covered": true,
+          "detail": "system said unknown/needs_review",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2022-02574 preamble Discussion of Final Airworthiness Directive, Request To Clarify USI Interval"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": true,
+          "detail": "expected published_not_yet_effective, system said published_not_yet_effective",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said needs_review",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "high",
+      "slice": "effective_date",
+      "unit": "seed-020/2022-02574"
+    },
+    {
+      "directive": "2022-02574",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2022-02574 (c)(1)', '2022-02574 (c)(2)']",
+          "missing_evidence": [
+            "2022-02574 (c)(1)",
+            "2022-02574 (c)(2)"
+          ],
+          "passed": false,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said unknown/needs_review",
+          "passed": true
+        },
+        "3": {
+          "covered": true,
+          "detail": "system said unknown/needs_review",
+          "passed": true
+        },
+        "4": {
+          "covered": true,
+          "detail": "",
+          "hand_review_facts": [
+            "IAE NMSB V2500-ENG-72-0713 Revision 1 Appendix A Tables 1 and 2 (unavailable incorporated material)",
+            "IAE NMSB V2500-E5-72-0015 Revision 1 Appendix A Tables 1 and 2 (unavailable incorporated material)"
+          ],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said needs_review",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "missing_incorporated_material",
+      "unit": "seed-021"
+    },
+    {
+      "directive": "2021-14268",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2021-14268 (k)']",
+          "missing_evidence": [
+            "2021-14268 (k)"
+          ],
+          "passed": false,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": true,
+          "detail": "system said applies/action_required",
+          "passed": false
+        },
+        "4": {
+          "covered": true,
+          "detail": "",
+          "hand_review_facts": [
+            "operator date of actual notice of Emergency AD 2021-11-51",
+            "table 1 to paragraph (g)(1) content (image-only; transcription decided in E3)",
+            "IAE NMSB V2500-ENG-72-0713 accomplishment instructions (unavailable incorporated material)"
+          ],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "missing_incorporated_material",
+      "unit": "seed-022/2021-14268"
+    },
+    {
+      "directive": "2021-11960",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2021-11960 (c)(1)']",
+          "missing_evidence": [
+            "2021-11960 (c)(1)"
+          ],
+          "passed": false,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said unknown/needs_review",
+          "passed": true
+        },
+        "3": {
+          "covered": true,
+          "detail": "system said unknown/needs_review",
+          "passed": true
+        },
+        "4": {
+          "covered": true,
+          "detail": "",
+          "hand_review_facts": [
+            "IAE NMSB V2500-ENG-72-0713 Revision 1 Appendix A Table 1 (unavailable incorporated material)"
+          ],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said needs_review",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "missing_incorporated_material",
+      "unit": "seed-022/2021-11960"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-18469 (g) Table 1 to paragraph (g), HPT 2nd-stage hub row 2A4802 / PKLBSR2100, removal cycle limit 6,000"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": true,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "multiple_directives",
+      "unit": "seed-023/2025-18469"
+    },
+    {
+      "directive": "2026-16954",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required_on_event",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2026-18423 (c)']",
+          "missing_evidence": [
+            "2026-18423 (c)"
+          ],
+          "passed": false,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said action_required_on_event",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required_on_event",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required_on_event",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required_on_event",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required_on_event",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "multiple_directives",
+      "unit": "seed-023/2026-16954"
+    },
+    {
+      "directive": "2025-17066",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said action_required_on_event",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2025-17066 (g)(1)(i)']",
+          "missing_evidence": [
+            "2025-17066 (g)(1)(i)"
+          ],
+          "passed": false,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said action_required_on_event",
+          "passed": true
+        },
+        "13": {
+          "covered": true,
+          "detail": "system said action_required_on_event",
+          "passed": false
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required_on_event",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required_on_event",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "fabricated: ['2025-17066 Table 1 to Paragraph (g)']",
+          "hand_review_locators": [],
+          "passed": false
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required_on_event",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "multiple_directives",
+      "unit": "seed-023/2025-17066"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said needs_review",
+          "passed": false
+        },
+        "13": {
+          "covered": true,
+          "detail": "system said needs_review",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/needs_review",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/needs_review",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-18469 (g) Table 1 to paragraph (g), HPT 1st-stage hub rows for P/N 2A5001 and HPT 2nd-stage hub rows for P/N 2A4802"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": true,
+          "detail": "inexact matches []; system said needs_review",
+          "passed": false
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "unaffected_part",
+      "unit": "seed-024"
+    },
+    {
+      "directive": "2025-17066",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said None",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "high",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said None",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said None",
+          "passed": true
+        },
+        "2": {
+          "covered": true,
+          "detail": "system said outside_supported_scope/None",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said outside_supported_scope/None",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said None",
+          "passed": true
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "high",
+      "slice": "out_of_family",
+      "unit": "seed-025"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-18469 (g) Table 1 to Paragraph (g), row HPT 1st-stage hub, P/N 2A5001, S/N PKLBST7489, removal cycle limit 6,200"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": true,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "changed_product",
+      "unit": "seed-026"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "uncited: ['2025-18469 (j)']",
+          "missing_evidence": [
+            "2025-18469 (j)"
+          ],
+          "passed": false,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "4": {
+          "covered": true,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-18469 (g) Table 1 to paragraph (g), row HPT 1st-stage hub, P/N 2A5001, S/N PKLBSS9200, removal cycle limit 4,800"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": true,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "operator_assertion",
+      "unit": "seed-027"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": true,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "4": {
+          "covered": false,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-18469 (g) Table 1 to paragraph (g), HPT 2nd-stage hub row 2A4802 / PKLBST5005, limit 4,000 cycles since new"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": true,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": false,
+          "detail": "inexact matches []; system said action_required",
+          "passed": true
+        }
+      },
+      "has_action_timing": true,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "operator_assertion",
+      "unit": "seed-028"
+    },
+    {
+      "directive": "2025-18469",
+      "gates": {
+        "1": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "10": {
+          "covered": true,
+          "detail": "",
+          "missing_evidence": [],
+          "passed": true,
+          "severity": "critical",
+          "uncited_clear": false
+        },
+        "12": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "13": {
+          "covered": false,
+          "detail": "system said action_required",
+          "passed": true
+        },
+        "2": {
+          "covered": false,
+          "detail": "system said applies/action_required",
+          "passed": true
+        },
+        "3": {
+          "covered": true,
+          "detail": "system said applies/action_required",
+          "passed": false
+        },
+        "4": {
+          "covered": true,
+          "detail": "",
+          "hand_review_facts": [],
+          "passed": true
+        },
+        "6": {
+          "covered": true,
+          "detail": "",
+          "hand_review_locators": [
+            "2025-18469 (g) Table 1 to paragraph (g), HPT 1st-stage hub row, P/N 2A5001, S/N PKLBSK9287, removal cycle limit 100"
+          ],
+          "passed": true
+        },
+        "7": {
+          "covered": false,
+          "detail": "expected in_force, system said in_force",
+          "passed": true
+        },
+        "8": {
+          "covered": false,
+          "detail": "",
+          "passed": true
+        },
+        "9": {
+          "covered": true,
+          "detail": "inexact matches ['PKLBSK9287']; system said action_required",
+          "passed": false
+        }
+      },
+      "has_action_timing": false,
+      "no_answer": false,
+      "severity": "critical",
+      "slice": "part_identity",
+      "unit": "seed-029"
+    }
+  ],
+  "units_scored": 33,
+  "usage": {
+    "cache_creation_input_tokens": 195501,
+    "cache_read_input_tokens": 283305,
+    "calls": 33,
+    "cost_usd": 0.0554,
+    "cost_usd_per_unit": 0.00168,
+    "input_tokens": 10092,
+    "mean_latency_seconds": 273.16,
+    "output_tokens": 164971
+  },
+  "worktree_dirty": false
+}
