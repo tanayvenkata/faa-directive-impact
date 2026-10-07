@@ -78,12 +78,37 @@ def main(argv: list[str] | None = None) -> int:
     b2_run.add_argument("--effort", default="medium")
     b2_run.add_argument("--repeat", type=int, default=1)
     b2_run.add_argument("--mode", choices=("live", "batch"), default="batch")
+    b2_summary = commands.add_parser(
+        "b2-summary", help="Summarize B2 repeats per model for the current prompt."
+    )
+    b2_summary.add_argument("--runs-root", type=Path, default=Path("evaluation/runs"))
+    b2_summary.add_argument(
+        "--output", type=Path, default=Path("evaluation/b2-summary")
+    )
     for sub in (b2_plumbing, b2_run):
         sub.add_argument("--repo", type=Path, default=Path("."))
         sub.add_argument("--storage-root", type=Path, default=Path("data/seed-frozen"))
         sub.add_argument("--runs-root", type=Path, default=Path("evaluation/runs"))
     args = parser.parse_args(argv)
 
+    if args.command == "b2-summary":
+        from faa_directive_impact.evaluation.b2_prompt import PROMPT_VERSION
+        from faa_directive_impact.evaluation.b2_summary import (
+            load_runs,
+            summarize_model,
+            summary_markdown,
+        )
+
+        runs = load_runs(args.runs_root, PROMPT_VERSION)
+        summaries = [summarize_model(model_runs) for model_runs in runs.values()]
+        args.output.with_suffix(".json").write_text(
+            json.dumps(summaries, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        )
+        args.output.with_suffix(".md").write_text(
+            summary_markdown(summaries, PROMPT_VERSION), encoding="utf-8"
+        )
+        print(args.output.with_suffix(".md"))
+        return EXIT_OK
     if args.command == "b2-plumbing":
         from faa_directive_impact.evaluation.b2_plumbing import run_plumbing
 

@@ -132,7 +132,9 @@ def prepare(repo: Path, storage_root: Path) -> list[B2Unit]:
         )
         index = CitationIndex({})
         for document in given:
-            index.add_document(document.number, paragraphs[document.number])
+            index.add_document(
+                document.number, paragraphs[document.number], document.text
+            )
         if s1_record["document"] in index.paragraphs:
             table = s1_record["table_1"]
             index.tables[s1_record["document"]] = (table["paragraph"], table["rows"])

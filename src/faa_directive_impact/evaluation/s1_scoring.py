@@ -48,9 +48,8 @@ STANDING_FORBIDDEN = (
 
 
 RECORD_PATH = re.compile(
-    r"^(engine|operator|installed_components|events|ad_records|amoc_claims)\b"
+    r"^(engine|operator|installed_components|events|ad_records|amoc_claims)[.\[]"
 )
-IDENTIFIER = re.compile(r"\b(?=[A-Z0-9-]*\d)[A-Z0-9][A-Z0-9-]{4,}\b")
 NO_ANSWER = "no_answer"
 
 
@@ -65,6 +64,7 @@ class CitationIndex:
 
     paragraphs: dict[str, dict[str, str]]
     tables: dict[str, tuple[str, list[dict[str, Any]]]] = field(default_factory=dict)
+    full_text: dict[str, str] = field(default_factory=dict)
 
     @classmethod
     def from_record(cls, record: dict[str, Any]) -> "CitationIndex":
@@ -75,10 +75,13 @@ class CitationIndex:
             {record["document"]: (table["paragraph"], table["rows"])},
         )
 
-    def add_document(self, number: str, paragraphs: list[dict[str, str]]) -> None:
-        texts = {p["id"]: p["text"] for p in paragraphs}
+    def add_document(
+        self, number: str, paragraphs: list[dict[str, str]], full_text: str = ""
+    ) -> None:
+        texts = {p["id"]: f"{p.get('heading', '')} {p['text']}" for p in paragraphs}
         texts.setdefault("preamble", "")
         self.paragraphs[number] = texts
+        self.full_text[number] = full_text
 
 
 @dataclass(frozen=True)
@@ -305,9 +308,9 @@ def resolve_locator(
     """True if the locator exists, False if it cannot, None if unknown form.
 
     The table-row forms S1 emits are checked against the record's table. Any
-    other locator resolves if it is quoted from the paragraph, or if every
-    identifier in it (a token with a digit, such as an S/N) appears in the
-    document; otherwise it goes to hand review.
+    other locator resolves if, ignoring case, it is quoted from the paragraph
+    or every word in it appears in the document's full text. Otherwise it goes
+    to hand review; this check never fails a locator by itself.
     """
     if document in index.tables:
         table_paragraph, rows = index.tables[document]
@@ -321,11 +324,11 @@ def resolve_locator(
         if match := re.fullmatch(r"table 1 rows for (.+)", locator):
             return in_table and any(r["component"] == match.group(1) for r in rows)
     texts = index.paragraphs[document]
-    if locator in texts[paragraph]:
+    if locator.lower() in texts[paragraph].lower():
         return True
-    identifiers = IDENTIFIER.findall(locator)
-    whole = " ".join(texts.values())
-    if identifiers and all(token in whole for token in identifiers):
+    whole = (index.full_text.get(document) or " ".join(texts.values())).lower()
+    words = re.findall(r"[a-z0-9][a-z0-9,./-]*[a-z0-9]|[a-z0-9]", locator.lower())
+    if words and all(word in whole for word in words):
         return True
     return None
 

@@ -1,0 +1,357 @@
+how_to_answer: For each item set your_verdict to "agree" or "disagree"; add a short your_note only if
+  you disagree or are unsure. Leave everything else as is.
+reviewer: ''
+items:
+- id: 1
+  cases:
+  - seed-005
+  gate: 5 and 11
+  question: 'Gate 5: does the answer state or imply a forbidden claim? And Gate 11: does the stated timing
+    contradict the expected timing (wrong trigger, limit, or date)?'
+  model_said:
+    seed-005:
+      summary: The AD is in force and the engine model is covered. The installed HPT 2nd-stage hub P/N
+        2A4802 S/N PKLBSS9840 is listed with a 3,900-cycle removal limit and is at 1,040 cycles since
+        new. The 11-12-2025 shop visit induction is recorded as qualifying, so removal and replacement
+        falls due at that visit, and the 100-cycle-from-effective-date window is also open.
+      timing: Paragraph (g) says to act at the next engine shop visit after the effective date, before
+        exceeding the removal cycle limit or within 100 flight cycles after the effective date, whichever
+        occurs later. The cycle limit (3,900) is far from reached, so the later date governs. On the effective-date
+        reading, the 100-cycle window ends at engine flight cycle 18,100 (18,000+100). The shop visit
+        began at cycle 18,040 and is the next shop visit, so the hub is due to be removed at this visit,
+        and no later than cycle 18,100 on that reading.
+  expected:
+    seed-005: Removal is not required at this shop visit. Remove the hub before it reaches 3,900 CSN,
+      which is engine counter 20,900 at current utilization (2,860 hub cycles from this snapshot).
+  forbidden_claims:
+    seed-005:
+    - AD 2025-19-13 requires removal of the hub at this shop visit.
+    - AD 2025-19-13 requires removal within 100 FC of the effective date.
+    - The hub may remain in service beyond 3,900 CSN.
+    - The engine is compliant.
+  my_verdict: present / contradicts
+  my_reason: 'Summary and timing say "the hub is due to be removed at this visit, and no later than cycle
+    18,100": both forbidden claims (removal at this visit; removal within 100 FC) stated as AD requirements.
+    Traces to the informal FAA reading not being in the text, but the claim is still made. Timing: States
+    removal at this shop visit (no later than 18,100); expected: not at this visit, before 3,900 CSN at
+    counter 20,900.'
+  your_verdict: ''
+  your_note: ''
+- id: 2
+  cases:
+  - seed-006
+  - seed-007
+  - seed-008
+  - seed-018
+  - seed-023/2025-18469
+  - seed-026
+  - seed-027
+  - seed-028
+  gate: '11'
+  question: 'Gate 11: does the stated timing contradict the expected timing (wrong trigger, limit, or
+    date)? All eight share one reading: removal happens only at a shop visit, so with no shop visit there
+    is no deadline.'
+  model_said:
+    seed-006: At the next engine shop visit after 2025-10-29, but not before the later of reaching the
+      100 cycles-since-new limit or 100 flight cycles after the effective date. 'Whichever occurs later'
+      means the deadline is the later of the two; here that is 100 flight cycles after the effective date
+      (engine cycle 25,600). No shop visit is recorded, so no deadline has been triggered by an event.
+    seed-007: At the next engine shop visit after 2025-10-29, at or after the later of reaching the removal
+      cycle limit (4,800 CSN for the 1st-stage hub; 4,000 CSN for the 2nd-stage hub) or 100 flight cycles
+      after the effective date (engine counter 30,100). No deadline applies unless a shop visit occurs.
+      Replacement parts must not be Table 1 parts.
+    seed-008: At the next engine shop visit after 2025-10-29, at or after the later of reaching the 6,200
+      cycles-since-new limit or 100 flight cycles after the effective date. The later-of reading puts
+      the 1st-stage hub removal at the first shop visit once the hub has passed 6,200 cycles since new;
+      no shop visit is recorded yet.
+    seed-018: 'Not yet effective (effective 2025-10-29). Once effective, remove and replace the hub at
+      the next engine shop visit after 2025-10-29 that occurs at or after the later of: the hub exceeding
+      its 6,000 cycles-since-new removal limit, or 100 flight cycles after the effective date. No deadline
+      applies absent such a shop visit.'
+    seed-023/2025-18469: At the next engine shop visit after 2025-10-29, before exceeding the 6,000 cycles-since-new
+      limit or within 100 flight cycles after the effective date, whichever occurs later. No shop visit
+      is recorded, so no fixed calendar deadline can be computed.
+    seed-026: At the next engine shop visit after October 29, 2025, at the later of reaching the 6,200
+      cycles-since-new removal limit or 100 flight cycles after the effective date. Because the shop-visit
+      trigger is a future event, no date is fixed. The 100-flight-cycle point after the effective date
+      is engine counter 20,100, already passed. The hub reaches 6,200 cycles at about engine counter 23,200
+      on the 2026-03-01 reading.
+    seed-027: At the next engine shop visit after 2025-10-29, before exceeding 4,800 CSN or within 100
+      flight cycles after the effective date, whichever occurs later. The 100-cycle window after the effective
+      date has already passed (engine cycles 15,000 to 15,100). Because the hub is now at 4,750 CSN, the
+      4,800 CSN limit has not been reached. No shop visit is recorded, so the action is event-driven and
+      no fixed deadline can be computed.
+    seed-028: At the next engine shop visit after 2025-10-29, before exceeding the 4,000 cycles-since-new
+      limit or within 100 flight cycles after the effective date, whichever occurs later. No qualifying
+      shop visit is recorded, so action is due when one occurs. Because the hub is only at 1,400 cycles,
+      the 'whichever occurs later' wording means the later date is controlling.
+  expected:
+    seed-006: Latest removal is 100 FC after 2025-10-29 (engine counter 25,600), which is 70 FC after
+      this snapshot. The 100 CSN limit comes earlier but is superseded by "whichever occurs later". This
+      holds only if no qualifying shop visit occurs first; if one does, see seed-005.
+    seed-007: 'The 1st-stage hub is due first: at the next qualifying shop visit, no later than engine
+      counter 30,800 (500 hub cycles remaining). The 2nd-stage hub is due by counter 32,000 (1,700 remaining).
+      Both require removal.'
+    seed-008: The 1st-stage hub is due at the next qualifying shop visit, no later than engine counter
+      54,200 (3,700 hub cycles remaining). The 2nd-stage hub's status is unknown until its S/N is supplied.
+    seed-018: Nothing is required yet. From 2025-10-29 the hub must be removed before 6,000 CSN. Per adjudication
+      faa-informal-2026-10-05, a shop visit within the first 100 FC does not force earlier removal. Whether
+      a later qualifying shop visit does is pending.
+    seed-023/2025-18469: Remove at the next qualifying shop visit, no later than engine counter 25,000
+      (2,500 hub cycles remaining).
+    seed-026: Remove at the next qualifying engine shop visit, no later than engine counter 23,200, when
+      the hub reaches 6,200 CSN (2,600 cycles remaining).
+    seed-027: Remove at the next qualifying engine shop visit, no later than engine counter 15,300, when
+      the hub reaches 4,800 CSN (50 cycles remaining). A verified, approved AMOC could change this.
+    seed-028: Remove at the next qualifying engine shop visit, no later than engine counter 11,000, when
+      the hub reaches 4,000 CSN (2,600 cycles remaining).
+  my_verdict: contradicts (all eight)
+  my_reason: The expected answers, and the FAA engineer's stated intent, put a hard latest point on removal
+    (the hub's limit, or 100 FC after the effective date if later). Under the model's reading a listed
+    hub could keep flying past its limit until some future shop visit.
+  your_verdict: ''
+  your_note: ''
+- id: 3
+  cases:
+  - seed-027
+  gate: '5'
+  question: 'Gate 5: does the answer state or imply a forbidden claim?'
+  model_said:
+    seed-027:
+      summary: The engine model is covered and the installed HPT 1st-stage hub P/N 2A5001 S/N PKLBSS9200
+        matches Table 1 (limit 4,800 CSN). Removal is due at the next engine shop visit, and no shop visit
+        has occurred. The cycle limit alone does not fix a deadline.
+      timing: At the next engine shop visit after 2025-10-29, before exceeding 4,800 CSN or within 100
+        flight cycles after the effective date, whichever occurs later. The 100-cycle window after the
+        effective date has already passed (engine cycles 15,000 to 15,100). Because the hub is now at
+        4,750 CSN, the 4,800 CSN limit has not been reached. No shop visit is recorded, so the action
+        is event-driven and no fixed deadline can be computed.
+  expected:
+    seed-027: Remove at the next qualifying engine shop visit, no later than engine counter 15,300, when
+      the hub reaches 4,800 CSN (50 cycles remaining). A verified, approved AMOC could change this.
+  forbidden_claims:
+    seed-027:
+    - The hub's removal limit is 5,300 CSN.
+    - The hub may stay in service past 4,800 CSN without a verified FAA-approved AMOC.
+    - No removal is required.
+    - The claimed AMOC is invalid, presented as settled.
+  my_verdict: present
+  my_reason: 'Note: "If a shop visit occurs after the hub passes 4,800 CSN, removal applies at that visit",
+    which implies the hub may stay in service past 4,800 CSN without a verified AMOC (forbidden).'
+  your_verdict: ''
+  your_note: ''
+- id: 4
+  cases:
+  - seed-019
+  gate: 5 and 11
+  question: 'Gate 5: does the answer state or imply a forbidden claim? And Gate 11: does the stated timing
+    contradict the expected timing (wrong trigger, limit, or date)?'
+  model_said:
+    seed-019:
+      summary: The AD is in force and the engine model is covered. The installed HPT 1st-stage hub 2A5001
+        S/N PKLBSS9200 matches table 1 (limit 4,800 cycles since new) and is already past that limit.
+        Removal is due at the next engine shop visit, and no later than 100 flight cycles after the effective
+        date only if that is the later of the two conditions.
+      timing: 'Paragraph (g) requires removal at the next engine shop visit after 2025-10-29, before exceeding
+        the removal cycle limit or within 100 flight cycles after the effective date, whichever occurs
+        later. The limit was already exceeded, so the 100-cycle point (engine flight cycles 60100) is
+        the later one. No shop visit is recorded yet. The text can be read two ways: the 100-cycle point
+        may be a hard deadline, or removal may wait for the next shop visit. Under the first reading,
+        the engine must not fly past 60100 cycles without a shop visit.'
+  expected:
+    seed-019: Remove within 100 FC after 2025-10-29, by engine counter 60,100 (60 FC after this snapshot).
+      The hub is 190 cycles past its listed limit.
+  forbidden_claims:
+    seed-019:
+    - The engine must be grounded immediately under AD 2025-19-13.
+    - The hub may remain installed beyond 100 FC after the effective date.
+    - The engine is compliant or noncompliant.
+  my_verdict: present / contradicts (borderline)
+  my_reason: 'Presents "removal may wait for the next shop visit" as one of two readings, which implies
+    the hub may remain installed beyond 100 FC after the effective date (forbidden). BORDERLINE: it is
+    offered as a reading, not a conclusion. Timing: Leaves the 60,100 hard deadline as one of two readings.
+    Expected: remove by 60,100. BORDERLINE: it does state 60,100.'
+  your_verdict: ''
+  your_note: ''
+- id: 5
+  cases:
+  - seed-014
+  gate: '5'
+  question: 'Gate 5: does the answer state or imply a forbidden claim?'
+  model_said:
+    seed-014:
+      summary: The V2524-A5 engine has 3rd stage HPC rotor blades P/N 6A8353 installed, so AD 2026-17-03
+        applies and is in force on 2026-10-05 (effective 2026-09-24). The 2026-10-01 shop visit was inducted
+        after the effective date, but the record shows no 3rd-stage blade was removed from the drum, so
+        on the AD's definition of exposure the replacement is not yet triggered and is due at the next
+        qualifying shop visit.
+      timing: At the next engine shop visit (induction for maintenance) after 2026-09-24 in which a 3rd
+        stage HPC rotor blade is exposed (removed from the stage 3-8 drum); no deadline otherwise.
+  expected:
+    seed-014: Replacement is not required at this visit under the corrected text. Whether it is required
+      at a later visit depends on how "next engine shop visit ... where" is read.
+  forbidden_claims:
+    seed-014:
+    - AD 2026-17-03 requires replacement at this visit because the HPC rotor was exposed.
+    - The AD no longer applies because this shop visit passed without blade exposure, presented as settled.
+    - Replacement is required at a later visit, presented as settled.
+    - The paragraph (g) text as published on 2026-08-20 controls.
+  my_verdict: present
+  my_reason: Settles "due at the next qualifying shop visit" where the case forbids "Replacement is required
+    at a later visit, presented as settled" (unadjudicated expert question).
+  your_verdict: ''
+  your_note: ''
+- id: 6
+  cases:
+  - seed-022/2021-14268
+  gate: 5, 11 and 4
+  question: 'Gate 5: does the answer state or imply a forbidden claim? And Gate 11: does the stated timing
+    contradict the expected timing (wrong trigger, limit, or date)? And Gate 4: does the answer name this
+    missing fact (judged on meaning)?'
+  model_said:
+    seed-022/2021-14268:
+      summary: The engine is a V2533-A5 with an HPT 1st-stage disk P/N 2A5001 S/N PKLBSH1829, which is
+        listed in paragraph (c)(1), so the AD applies. A USI of the 1st-stage disk is required within
+        10 flight cycles after the 2021-07-19 effective date.
+      timing: Within 10 flight cycles after the effective date of July 19, 2021. The engine counter was
+        33000 on 2021-07-19, so the deadline is engine flight cycle 33010. At 33004 on 2021-07-20, 6 cycles
+        remain.
+  expected:
+    seed-022/2021-14268: 'Ultrasonic inspection within 10 FC after the effective date that applies to
+      this operator: the date of actual notice of the emergency AD, or 2021-07-19 (engine counter 33,010)
+      without actual notice.'
+  forbidden_claims:
+    seed-022/2021-14268:
+    - Inspection steps or acceptance criteria stated without the service bulletin.
+    - The engine is not affected because table 1 lists a different engine serial for this disk.
+    - The 10-FC deadline runs from 2021-07-19, presented as settled.
+  my_verdict: present / contradicts / not_named
+  my_reason: 'Settles "within 10 flight cycles after the effective date of July 19, 2021" (engine counter
+    33,010): the forbidden "10-FC deadline runs from 2021-07-19, presented as settled". Actual notice
+    of the emergency AD is not considered. Missing facts: Names the image-only table 1 content, but not
+    the date of actual notice of the emergency AD or the service bulletin accomplishment instructions.'
+  your_verdict: ''
+  your_note: ''
+- id: 7
+  cases:
+  - seed-013
+  gate: 5 (standing claims)
+  question: 'Does the note "the (g) requirement would be met by that replacement" amount to a compliance
+    claim (standing forbidden: compliant or noncompliant)?'
+  model_said:
+    seed-013:
+      summary: The V2530-A5 engine has 3rd stage HPC blade set P/N 6A8688, so AD 2026-17-03 applies and
+        is in force on 2026-09-30. The shop visit was inducted 2026-09-14, before the 2026-09-24 effective
+        date, and paragraph (g) covers only visits after the effective date, so the replacement is not
+        triggered by this visit.
+      timing: No deadline now. Replacement is required at the next engine shop visit after 2026-09-24
+        where a 3rd stage HPC rotor blade is exposed (removed from the stage 3-8 drum).
+  expected:
+    seed-013: Replacement is not required during the visit inducted 2026-09-14. It is required at the
+      next shop visit inducted after 2026-09-24 where a 3rd-stage blade is exposed.
+  my_verdict: absent (borderline)
+  my_reason: It is conditional advice about what would satisfy paragraph (g), not a statement that the
+    engine is or is not compliant. The gate 1 false clear on this case is separate and mechanical (status
+    no_action_triggered instead of action_required_on_event).
+  your_verdict: ''
+  your_note: ''
+- id: 8
+  cases:
+  - seed-020/2021-11960
+  - seed-021
+  gate: '4'
+  question: 'Gate 4: does the answer name this missing fact (judged on meaning)? Expected: both the V2500-ENG-72-0713
+    and the V2500-E5-72-0015 service bulletin tables.'
+  model_said:
+    seed-020/2021-11960: 'If the serial numbers are listed: at the next engine shop visit after 2021-07-13
+      or before the disk accumulates 3,200 flight cycles since 2021-07-13, whichever occurs first. The
+      cycles accumulated since 2021-07-13 are not in the record.'
+    seed-021: null
+  expected:
+    seed-020/2021-11960: AD 2021-11-15 controls on this date. Its applicability depends on whether the
+      disk S/N appears in Appendix A of IAE NMSB V2500-ENG-72-0713, Revision 1, which is incorporated
+      by reference and not available.
+    seed-021: Paragraph (c) covers disks P/N 2A5001 and 2A4802 only when their S/N is listed in Appendix
+      A of IAE NMSB V2500-ENG-72-0713 Revision 1 or V2500-E5-72-0015 Revision 1. Those bulletins are incorporated
+      material that the system does not have.
+  my_verdict: not_named (both)
+  my_reason: 'The answers name only the V2500-ENG-72-0713 tables. Strict reading: a required item is missing.
+    Lenient reading: the E5 bulletin covers V2531-E5 engines and these engines are V2533-A5 / V2530-A5,
+    so it may not matter for them. The gate text says any required item absent fails.'
+  your_verdict: ''
+  your_note: ''
+- id: 9
+  cases:
+  - seed-001
+  gate: 'spot check: 5'
+  question: 'Gate 5: does the answer state or imply a forbidden claim? (Spot check of a case I marked
+    fine.)'
+  model_said:
+    seed-001:
+      summary: The V2527-A5 is within the applicability, and the installed HPT 1st-stage hub P/N 2A5001
+        S/N PKLBST5011 is listed in Table 1 (5,500 cycles-since-new limit). Removal and replacement is
+        required at the next engine shop visit, which must occur before the hub exceeds 5,500 cycles since
+        new. No shop visit is recorded.
+      timing: At the next engine shop visit after 2025-10-29, before the hub exceeds 5,500 cycles since
+        new (engine flight cycle 45050 on the record's counts). The 100-flight-cycle alternative ended
+        at engine flight cycle 41300, which is earlier, and the text uses the later of the two.
+  expected:
+    seed-001: Remove at the next qualifying engine shop visit, before the hub reaches 5,500 CSN (2,400
+      cycles remaining). The 100-FC window after 2025-10-29 has already elapsed, so it does not extend
+      the time.
+  forbidden_claims:
+    seed-001:
+    - The engine is compliant or noncompliant with AD 2025-19-13.
+    - The engine is not affected.
+    - The hub may be reinstalled in any engine after removal.
+    - The hub may remain in service beyond 5,500 CSN.
+  my_verdict: absent
+  my_reason: States removal at the next shop visit before 5,500 CSN; nothing says the hub may stay past
+    5,500, may be reinstalled, or that the engine is unaffected.
+  your_verdict: ''
+  your_note: ''
+- id: 10
+  cases:
+  - seed-024
+  gate: 'spot check: 5'
+  question: 'Gate 5: does the answer state or imply a forbidden claim? (Spot check of a case I marked
+    fine.)'
+  model_said:
+    seed-024:
+      summary: The V2528-D5 is within the AD applicability, and the AD is in force on 2026-10-06. No installed
+        part matches table 1 on both P/N and S/N, so no removal is triggered; the 2nd-stage hub S/N PKLBST5011
+        is listed only as a 1st-stage hub with a different P/N (2A5001).
+      timing: null
+  expected:
+    seed-024: 'V2528-D5 is listed, so the AD applies. No installed hub''s P/N and S/N pair appears in
+      table 1: PKLBST5011 is listed only with P/N 2A5001.'
+  forbidden_claims:
+    seed-024:
+    - AD 2025-19-13 requires removal of this 2nd-stage hub.
+    - AD 2025-19-13 does not apply to this engine.
+  my_verdict: absent
+  my_reason: No removal of the 2nd-stage hub; AD applies.
+  your_verdict: ''
+  your_note: ''
+- id: 11
+  cases:
+  - seed-016
+  gate: 'spot check: 11'
+  question: 'Gate 11: does the stated timing contradict the expected timing (wrong trigger, limit, or
+    date)? (Spot check of a case I marked fine.)'
+  model_said:
+    seed-016:
+      summary: The engine is a V2527-A5, within the applicability of AD 2025-17-16, which is in force
+        as of 2025-11-15 (effective 2025-10-10). The record shows neither the TLM ALS paragraph B.1 nor
+        the approved maintenance program yet incorporates table 1, so the paragraph (g) revisions are
+        required within 90 days after the effective date, by 2026-01-08.
+      timing: Within 90 days after the effective date of October 10, 2025, i.e., by January 8, 2026, for
+        both the (g)(1) TLM ALS revision and the (g)(2) air carrier maintenance/inspection program revision.
+  expected:
+    seed-016: By 2026-01-08, revise paragraph B.1 of the ALS in the V2500-A5 Time Limits Manual (P/N 2A4408)
+      per table 1, and revise the approved maintenance or inspection program. The table 1 inspections
+      are then scheduled at piece-part exposure. This AD does not require performing them within 90 days.
+  my_verdict: consistent
+  my_reason: By 2026-01-08 for (g)(1) and (g)(2).
+  your_verdict: ''
+  your_note: ''

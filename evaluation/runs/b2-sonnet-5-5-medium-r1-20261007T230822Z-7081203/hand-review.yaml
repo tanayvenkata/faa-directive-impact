@@ -1,0 +1,322 @@
+gate_version: 1
+reviewer: Claude (first pass, unconfirmed by project owner)
+reviewer_confirmed: false
+reviewed_on: '2026-10-07'
+allowed_results:
+  gate_5:
+  - absent
+  - present
+  gate_11:
+  - consistent
+  - contradicts
+  - not_applicable
+  locators:
+  - resolved
+  - fabricated
+  missing_facts:
+  - named
+  - not_named
+units:
+  seed-001:
+    gate_5:
+      result: absent
+      reason: States removal at the next shop visit before 5,500 CSN; nothing says the hub
+        may stay past 5,500, may be reinstalled, or that the engine is unaffected.
+    gate_11:
+      result: consistent
+      reason: Next qualifying shop visit, before 5,500 CSN, engine counter 45,050; window
+        already elapsed.
+  seed-002:
+    gate_5:
+      result: absent
+      reason: Says the AD applies and (h) still binds; flags the near-miss S/N for checking
+        without calling the engine affected.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-003:
+    gate_5:
+      result: absent
+      reason: Needs review with the unknown S/N named; neither no-removal nor a settled removal
+        is stated.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-004:
+    gate_5:
+      result: absent
+      reason: Outside supported scope, no determination.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-005:
+    gate_5:
+      result: present
+      reason: 'Summary and timing say "the hub is due to be removed at this visit, and no
+        later than cycle 18,100": both forbidden claims (removal at this visit; removal within
+        100 FC) stated as AD requirements. Traces to the informal FAA reading not being in
+        the text, but the claim is still made.'
+    gate_11:
+      result: contradicts
+      reason: 'States removal at this shop visit (no later than 18,100); expected: not at
+        this visit, before 3,900 CSN at counter 20,900.'
+  seed-006:
+    gate_5:
+      result: absent
+      reason: Forbidden list covers removal at 100 CSN and compliance; neither is stated.
+        The timing problem is gate 11.
+    gate_11:
+      result: contradicts
+      reason: 'Gives 25,600 but then says "no deadline has been triggered by an event": removal
+        made conditional on a shop visit. Expected: latest removal 25,600 regardless.'
+    locators:
+      result: resolved
+      reason: Table 1 row PKLBSK9287 exists with a 100 CSN limit.
+  seed-007:
+    gate_5:
+      result: absent
+      reason: Says both hubs match; does not say only one requires removal or that the 2nd-stage
+        hub sets the deadline.
+    gate_11:
+      result: contradicts
+      reason: '"No deadline applies unless a shop visit occurs", removal "at or after" the
+        limits. Expected: no later than 30,800 (1st-stage) and 32,000.'
+    locators:
+      result: resolved
+      reason: Both rows PKLBSS9200 and PKLBST5005 exist in table 1.
+  seed-008:
+    gate_5:
+      result: absent
+      reason: Says the 2nd-stage hub status cannot be settled; does not say removing the 1st-stage
+        hub resolves the AD.
+    gate_11:
+      result: contradicts
+      reason: 'Removal "at the first shop visit once the hub has passed 6,200": inverts "before
+        exceeding". Expected: no later than 54,200.'
+  seed-009:
+    gate_5:
+      result: absent
+      reason: Both hub records named missing; no "no removal" or "no affected hubs".
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-010:
+    gate_5:
+      result: absent
+      reason: Notes the listed hub is recorded but makes no applicability determination.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-011:
+    gate_5:
+      result: absent
+      reason: Conditional replacement at the next exposing shop visit, no cycle or calendar
+        deadline; no noncompliance claim.
+    gate_11:
+      result: consistent
+      reason: Next shop visit after 2026-09-24 exposing a 3rd-stage blade; no cycle or calendar
+        deadline.
+  seed-012:
+    gate_5:
+      result: absent
+      reason: does_not_apply on P/N 6C8368; does not say the AD applies or that blades must
+        be replaced.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-013:
+    gate_5:
+      result: absent
+      reason: 'Says the current visit (inducted before the effective date) does not trigger
+        replacement and that the next exposing visit does; does not say the engine is no longer
+        subject. BORDERLINE standing claim: a note says the requirement "would be met by"
+        replacing the set now, which edges toward a compliance statement.'
+    gate_11:
+      result: consistent
+      reason: Not at the visit inducted 2026-09-14; at the next exposing shop visit inducted
+        after 2026-09-24.
+  seed-014:
+    gate_5:
+      result: present
+      reason: Settles "due at the next qualifying shop visit" where the case forbids "Replacement
+        is required at a later visit, presented as settled" (unadjudicated expert question).
+    gate_11:
+      result: consistent
+      reason: Trigger stated is one available reading (next exposing visit); the unsettled
+        reading is scored under gates 3 and 5.
+  seed-015:
+    gate_5:
+      result: absent
+      reason: Says an NPRM requires nothing now; replacement stated only "if adopted as proposed".
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-016:
+    gate_5:
+      result: absent
+      reason: Revision of the ALS and program by 2026-01-08 under both (g)(1) and (g)(2);
+        no inspection deadline stated.
+    gate_11:
+      result: consistent
+      reason: By 2026-01-08 for (g)(1) and (g)(2).
+  seed-017:
+    gate_5:
+      result: absent
+      reason: (g)(2) left dependent on unknown air-carrier status; neither forbidden form
+        is stated.
+    gate_11:
+      result: consistent
+      reason: (g)(1) by 2026-01-08; (g)(2) same date only if air carrier.
+  seed-018:
+    gate_5:
+      result: absent
+      reason: Says no action is required on the question date and the AD is not yet effective;
+        does not say the prohibition currently applies. The action_required_on_event status
+        is scored by gate 13.
+    gate_11:
+      result: contradicts
+      reason: 'Nothing yet (right), but from the effective date says removal only at a shop
+        visit "at or after" the later point, "no deadline absent such a shop visit". Expected:
+        removal before 6,000 CSN.'
+  seed-019:
+    gate_5:
+      result: present
+      reason: 'Presents "removal may wait for the next shop visit" as one of two readings,
+        which implies the hub may remain installed beyond 100 FC after the effective date
+        (forbidden). BORDERLINE: it is offered as a reading, not a conclusion.'
+    gate_11:
+      result: contradicts
+      reason: 'Leaves the 60,100 hard deadline as one of two readings. Expected: remove by
+        60,100. BORDERLINE: it does state 60,100.'
+    locators:
+      result: resolved
+      reason: Table 1 row PKLBSS9200 exists with a 4,800 CSN limit.
+  seed-020/2021-11960:
+    gate_5:
+      result: absent
+      reason: Says the superseding AD replaces this one after the question date; neither "2022-02-09
+        controls" nor "2021-11-15 no longer applies" is stated.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+    locators:
+      result: resolved
+      reason: (g)(1) covers V2533-A5 among the listed models; "high-thrust group" is the model's
+        label for that list.
+    missing_facts:
+      result: not_named
+      reason: Names the V2500-ENG-72-0713 Appendix A tables but not the V2500-E5-72-0015 tables
+        the case also requires.
+  seed-020/2022-02574:
+    gate_5:
+      result: absent
+      reason: Not yet effective on the question date; no forbidden claim.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-021:
+    gate_5:
+      result: absent
+      reason: Applicability left undecided pending the service bulletin tables; does not call
+        the engine affected by P/N or reconstruct the lists.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+    missing_facts:
+      result: not_named
+      reason: Names the V2500-ENG-72-0713 tables but not the V2500-E5-72-0015 Revision 1 tables.
+  seed-022/2021-14268:
+    gate_5:
+      result: present
+      reason: 'Settles "within 10 flight cycles after the effective date of July 19, 2021"
+        (engine counter 33,010): the forbidden "10-FC deadline runs from 2021-07-19, presented
+        as settled". Actual notice of the emergency AD is not considered.'
+    gate_11:
+      result: contradicts
+      reason: 'Anchors the 10 FC on 2021-07-19 only. Expected: from the date of actual notice
+        of the emergency AD, or 2021-07-19 without it.'
+    missing_facts:
+      result: not_named
+      reason: Names the image-only table 1 content, but not the date of actual notice of the
+        emergency AD or the service bulletin accomplishment instructions.
+  seed-022/2021-11960:
+    gate_5:
+      result: absent
+      reason: Applicability left undecided; no inspection steps stated.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+    missing_facts:
+      result: named
+      reason: Names the V2500-ENG-72-0713 Revision 1 Appendix A Table 1 content.
+  seed-023/2025-18469:
+    gate_5:
+      result: absent
+      reason: Treats each directive separately; no combined deadline.
+    gate_11:
+      result: contradicts
+      reason: '"No fixed calendar deadline". Expected: no later than counter 25,000.'
+  seed-023/2026-16954:
+    gate_5:
+      result: absent
+      reason: Says the hub records are unrelated to this AD; no claim that replacing the hub
+        satisfies it.
+    gate_11:
+      result: consistent
+      reason: Next exposing shop visit after 2026-09-24.
+  seed-023/2025-17066:
+    gate_5:
+      result: absent
+      reason: Notes the revision date is before the deadline and calls it a screening observation,
+        not compliance.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-024:
+    gate_5:
+      result: absent
+      reason: No removal of the 2nd-stage hub; AD applies.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-025:
+    gate_5:
+      result: absent
+      reason: Outside supported scope.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-026:
+    gate_5:
+      result: absent
+      reason: Says the repair and re-inspection do not remove the hub from table 1; no "no
+        removal".
+    gate_11:
+      result: contradicts
+      reason: '"No date is fixed" because the trigger is a future shop visit. Expected: no
+        later than counter 23,200.'
+  seed-027:
+    gate_5:
+      result: present
+      reason: 'Note: "If a shop visit occurs after the hub passes 4,800 CSN, removal applies
+        at that visit", which implies the hub may stay in service past 4,800 CSN without a
+        verified AMOC (forbidden).'
+    gate_11:
+      result: contradicts
+      reason: '"Event-driven and no fixed deadline". Expected: no later than counter 15,300.'
+  seed-028:
+    gate_5:
+      result: absent
+      reason: Says the operator's "not applicable" record conflicts with the facts; no "no
+        action".
+    gate_11:
+      result: contradicts
+      reason: '"Action is due when one occurs". Expected: no later than counter 11,000.'
+  seed-029:
+    gate_5:
+      result: absent
+      reason: Removal stated only conditionally ("If it is the listed part"); identity left
+        to review.
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.

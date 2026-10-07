@@ -267,3 +267,11 @@ def test_part_number_only_listing_matches_on_part_number(index) -> None:
     output = adapt(answer(matched_parts=parts))
 
     assert score_unit(unit, output, CitationIndex({}))["9"]["passed"] is True
+
+
+def test_described_fact_starting_with_a_section_word_is_not_a_path() -> None:
+    gates = score_unit(UNITS["seed-022/2021-14268"], None, CitationIndex({}))
+
+    assert "operator date of actual notice of Emergency AD 2021-11-51" in (
+        gates["4"]["hand_review_facts"]
+    )
