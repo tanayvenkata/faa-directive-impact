@@ -1,5 +1,9 @@
 .PHONY: sync test lint format check acquire s1 s1-conclude
 
+# Local settings and secrets (ANTHROPIC_API_KEY); optional and never committed.
+-include .env
+export
+
 STORAGE_ROOT ?= data
 CORPUS_TRACK ?= frozen_evaluation
 
