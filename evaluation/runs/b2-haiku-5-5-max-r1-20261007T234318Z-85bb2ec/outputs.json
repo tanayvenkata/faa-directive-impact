@@ -1,0 +1,794 @@
+{
+  "seed-001": {
+    "cost_usd": 0.004083,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "8882b273e75ef010650464fbd516bc07c9c11b53524afe85547a1947d90d2ac5",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 366,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-002": {
+    "cost_usd": 0.004077,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "abd63f5a11cad074aed51782bf43acee8838cdbf820b1eb38ce61f82654b1ff5",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 244,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-003": {
+    "cost_usd": 0.004077,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "7e1546ed1ab8e7614dc88caa8c8f8ddee9d69602a6cf04bf2ca8cb3c0e7a7844",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 240,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-004": {
+    "cost_usd": 0.001735,
+    "error": null,
+    "latency_seconds": 182.371,
+    "output": {
+      "action_status": null,
+      "applicability": "outside_supported_scope",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": "(c) Applicability",
+          "paragraph": "(c)",
+          "supports": "Paragraph (c) names IAE AG Model V2522-A5 through V2533-A5 engines; the recorded model PW1133G-JM is not among the supported models, so the engine falls outside this screen's scope and no applicability determination is made."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "(a) Effective Date",
+          "paragraph": "(a)",
+          "supports": "The AD is effective October 29, 2025, which precedes the 2026-09-26 question date, so the directive is in force on the question date."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [],
+      "hubs": [],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "The record lists no installed components and no events; these empty lists are not evidence that any part is absent or unaffected and were not used to clear the engine.",
+        "No part matching, cycle computation, or Table 1 comparison was performed because the engine model is outside the supported scope.",
+        "The record is flagged synthetic and its serial and asset identifiers carry the SYN- prefix; this is a screening aid, not a compliance determination, and nothing here states the engine is compliant, noncompliant, safe, airworthy, or approved for return to service.",
+        "The proposed rule 2025-10764 is not relied on; the final rule 2025-18469 is the governing text."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "Engine model PW1133G-JM is not one of the supported IAE V2500 models, so this screen makes no applicability determination and reports no action under Federal Register document 2025-18469, which is in force as of the question date.",
+      "timing": null
+    },
+    "request_key": "282ac1e8852b6850f8506bf7f2ca9b5f8ad00a0923f135e5d1e2acc6abb8b20c",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 133,
+      "output_tokens": 6652,
+      "output_tokens_details": {
+        "thinking_tokens": 6055
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-005": {
+    "cost_usd": 0.004089,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "14c2b5d75b9dc2c61046d8dfc6dd1ac95395f317c3faf110e004e1e1e355d896",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 490,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-006": {
+    "cost_usd": 0.004083,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "72e8b98b6fb117d65c015c9ad1021b129f85e96887a9f6e7e6781d2295720314",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 364,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-007": {
+    "cost_usd": 0.004086,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "7a24d066db59bb095c7289a1564bad3b34bf792c797bd2e25740abcacef88c9c",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 417,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-008": {
+    "cost_usd": 0.004083,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "65761be51c31f2ab5505bdbb3f1d68959dcfb7410f74484b490d13bfe9183924",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 358,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-009": {
+    "cost_usd": 0.004071,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "024bb4a8cbcc77191fa38f36910854bb87e446c68df8a0619e612971973f058b",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 130,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-010": {
+    "cost_usd": 0.004074,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "b71939433f17807761904c043fdc1caa655b8463680f74fe3144387816c8dd7f",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 184,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 15999
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-011": {
+    "cost_usd": 0.004106,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "b8e66679c5fed4a8c810a04247097df00e91a04a3b47607c4d90380df5f81305",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 19488,
+      "inference_geo": "global",
+      "input_tokens": 175,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-012": {
+    "cost_usd": 0.004106,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "14c69f3b06f9750264b200c1ba28586c3230150b67e91172979a816d5218037d",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 19488,
+      "inference_geo": "global",
+      "input_tokens": 175,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-013": {
+    "cost_usd": 0.004115,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "f0e612be9ff917e7d9a448769a2638ffcf683de523504da61228fdd860d3331a",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 19488,
+      "inference_geo": "global",
+      "input_tokens": 345,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-014": {
+    "cost_usd": 0.004116,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "6316d1224fa5eeadd3ef8f31aee7caa1c009f479e6707cd535d660d42c939f8c",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 19488,
+      "inference_geo": "global",
+      "input_tokens": 363,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-015": {
+    "cost_usd": 0.004046,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "49d5a3a3dc9b2a0ca0934bc0ba9a68a21c711652dd7c6c605ccc22b7a2e7512c",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 7366,
+      "inference_geo": "global",
+      "input_tokens": 176,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-016": {
+    "cost_usd": 0.004082,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "4375c64876a61acb4f9d671d0c51e4caca8ab207ad0cf52a16f7236693b43966",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 14044,
+      "inference_geo": "global",
+      "input_tokens": 240,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-017": {
+    "cost_usd": 0.004078,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "56fafd1952e95b79cc890a86b88a42e42309ebe9251eb0f3da6defafe0b86244",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 14044,
+      "inference_geo": "global",
+      "input_tokens": 148,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-018": {
+    "cost_usd": 0.004077,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "dacd4c7a5c19f8e6325236e778d1f225093463e7fce229d17c239ccb3955b703",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 244,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-019": {
+    "cost_usd": 0.004083,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "1d24bdfb06c511ca2db4b241a8e4f6a6dbc3dd8b4140bce058eb9a9de95677ff",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 367,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-020/2021-11960": {
+    "cost_usd": 0.004114,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "12d9534dcb537b6b31686a84df67587fed6cd8a1d3f37637d4f2fdaebb6c9ede",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 20491,
+      "inference_geo": "global",
+      "input_tokens": 222,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-020/2022-02574": {
+    "cost_usd": 0.004114,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "d8bca130f644578aaadc8e076891ca6b3772e06f479006f38dfab779210356c0",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 20491,
+      "inference_geo": "global",
+      "input_tokens": 222,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-021": {
+    "cost_usd": 0.004114,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "41dcd3ecd0a9f0b927de5abac03d948b4d88c1fa46a808fc86e2395a8f6d2650",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 20491,
+      "inference_geo": "global",
+      "input_tokens": 222,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-022/2021-11960": {
+    "cost_usd": 0.004074,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "0bcb4d1a8b70843ac1e8d88ce35833f39977b3002a8ca6829069dfdc8b6a08b1",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 11909,
+      "inference_geo": "global",
+      "input_tokens": 287,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-022/2021-14268": {
+    "cost_usd": 0.004068,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "5723a8d54b5a5d5a22972a0590ea56fae8a4ef512dbe7901632af4dbd062f2df",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 10820,
+      "inference_geo": "global",
+      "input_tokens": 287,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-023/2025-17066": {
+    "cost_usd": 0.004098,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "109b4792b38b905707a9243bbf73f6efeecbd512d31595e3708e812637150e8e",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 14044,
+      "inference_geo": "global",
+      "input_tokens": 552,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-023/2025-18469": {
+    "cost_usd": 0.004092,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "19b7702da7b5915afcfce0afd3f83a23ebc3fe0ec233305c193c0a96ff0995f0",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 552,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-023/2026-16954": {
+    "cost_usd": 0.004125,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "30de908255ffaf9fb011a34bddf8b8b48197535e8ccd2c0e3fd80c6db5c69972",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 19488,
+      "inference_geo": "global",
+      "input_tokens": 552,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-024": {
+    "cost_usd": 0.004077,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "89819524cf4ef386dd39b9472cc35e08752090a568300c9996d18d240d9fbd07",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 244,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-025": {
+    "cost_usd": 0.002917,
+    "error": null,
+    "latency_seconds": 182.371,
+    "output": {
+      "action_status": null,
+      "applicability": "outside_supported_scope",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-17066",
+          "locator": "Applicability paragraph listing IAE AG Model V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, and V2533-A5 engines",
+          "paragraph": "(c)",
+          "supports": "Directive applicability is limited to the listed IAE AG V2500 models, and the recorded CFM56-5B4/3 engine model is not among them."
+        },
+        {
+          "document": "2025-17066",
+          "locator": "Effective Date paragraph: effective October 10, 2025",
+          "paragraph": "(a)",
+          "supports": "The final rule took effect before the 2026-10-06 question date, so its authority state on that date is in force."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [],
+      "hubs": [],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "The engine record lists engine_model CFM56-5B4/3, which is not among the IAE AG V2500 models named in the directive or in this screen's supported scope, so no applicability determination is made and no AD status is stated for this engine.",
+        "Because no applicability determination is made, the paragraph (g)(1) and (g)(2) revisions (the Maintenance Scheduling paragraph B.1 of the ALS in the TLM and the air carrier maintenance or inspection program) were not assessed, and no deadline or cycle count is computed; installed_components and events are empty and were not needed for this outcome.",
+        "The air_carrier_operation flag does not change scope, since applicability turns on engine model.",
+        "If the engine_model entry is a recording error and the engine is actually one of the ten listed IAE AG models, the screen should be rerun on the corrected record; the 90-day window in paragraph (g) ran from October 10, 2025 and ended January 8, 2026, so the rerun would need operator records showing whether those revisions were made.",
+        "The proposed rule 2024-26092 was replaced by final rule 2025-17066 and was not relied on.",
+        "The record is flagged synthetic and its identifiers carry the SYN- prefix."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "The recorded engine model CFM56-5B4/3 is not one of the IAE V2500 models in this screen's supported scope, so no applicability determination is made against final rule 2025-17066 and no action is set. The rule was effective October 10, 2025, so it is in force on the question date, but that does not bring this engine within scope.",
+      "timing": null
+    },
+    "request_key": "1343895c1c890822cd0c3e3c8f0fc799bec6606c5fcdd71d059c6d702373e19a",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 14044,
+      "inference_geo": "global",
+      "input_tokens": 177,
+      "output_tokens": 11351,
+      "output_tokens_details": {
+        "thinking_tokens": 10475
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-026": {
+    "cost_usd": 0.00409,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "9bc27e3fff8797ab1e3a20096efb874406bfaef9057182ad829403f8b0856e9f",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 494,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-027": {
+    "cost_usd": 0.004087,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "ed6122f1b2a1bb23ded9191868ae60517136258c8d5e210bab66217096515e1f",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 448,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-028": {
+    "cost_usd": 0.004086,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "1e6d7a74fe54ed20e02ded8c7ae0d6ba576988859491ac4e06ee2c90f05ae10c",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 427,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-029": {
+    "cost_usd": 0.004077,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 182.371,
+    "output": null,
+    "request_key": "397020410cce6685018addd1acbce5bcbc459a15ca03e129488eab8db395cfba",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 247,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  }
+}

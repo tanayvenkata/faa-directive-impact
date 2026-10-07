@@ -1,0 +1,265 @@
+gate_version: 1
+reviewer: ''
+reviewer_confirmed: false
+reviewed_on: ''
+allowed_results:
+  gate_5:
+  - absent
+  - present
+  gate_11:
+  - consistent
+  - contradicts
+  - not_applicable
+  locators:
+  - resolved
+  - fabricated
+  missing_facts:
+  - named
+  - not_named
+units:
+  seed-001:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-002:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-003:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-004:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-005:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-006:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-007:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-008:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-009:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-010:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-011:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-012:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-013:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-014:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-015:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-016:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-017:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-018:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-019:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-020/2021-11960:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+    missing_facts:
+      result: ''
+      reason: ''
+  seed-020/2022-02574:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-021:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+    missing_facts:
+      result: ''
+      reason: ''
+  seed-022/2021-14268:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+    missing_facts:
+      result: ''
+      reason: ''
+  seed-022/2021-11960:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+    missing_facts:
+      result: ''
+      reason: ''
+  seed-023/2025-18469:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-023/2026-16954:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-023/2025-17066:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-024:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+  seed-025:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.
+    locators:
+      result: ''
+      reason: ''
+  seed-026:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-027:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-028:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: ''
+      reason: ''
+  seed-029:
+    gate_5:
+      result: ''
+      reason: ''
+    gate_11:
+      result: not_applicable
+      reason: The case states no action_timing to compare against.

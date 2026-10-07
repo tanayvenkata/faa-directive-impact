@@ -1,0 +1,833 @@
+{
+  "seed-001": {
+    "cost_usd": 0.004083,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "8882b273e75ef010650464fbd516bc07c9c11b53524afe85547a1947d90d2ac5",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 366,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-002": {
+    "cost_usd": 0.004077,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "abd63f5a11cad074aed51782bf43acee8838cdbf820b1eb38ce61f82654b1ff5",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 244,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-003": {
+    "cost_usd": 0.004077,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "7e1546ed1ab8e7614dc88caa8c8f8ddee9d69602a6cf04bf2ca8cb3c0e7a7844",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 240,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-004": {
+    "cost_usd": 0.002267,
+    "error": null,
+    "latency_seconds": 212.692,
+    "output": {
+      "action_status": null,
+      "applicability": "outside_supported_scope",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": "Applicability paragraph",
+          "paragraph": "(c)",
+          "supports": "Limits the directive to IAE AG Model V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5 and V2533-A5 engines, which does not include the engine model in the record, so the engine falls outside the supported scope."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Effective Date paragraph",
+          "paragraph": "(a)",
+          "supports": "States the directive is effective October 29, 2025, which is before the question date of 2026-09-26, so the directive is in force on the question date."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [],
+      "hubs": [],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "The record is flagged synthetic and gives engine_model PW1133G-JM with serial number SYN-PW1100-0004; because the model is outside the supported IAE V2500 list, the screen makes no applicability determination and does not assess any hub part or serial number.",
+        "The installed_components and events lists are both empty; that emptiness is not treated as evidence that any hub is absent or unaffected, and it does not affect the outcome because the engine is outside scope.",
+        "The June 2025 notice of proposed rulemaking (Federal Register document 2025-10764) was a proposal; the final rule 2025-18469 is the operative text for this question and is the only document relied on.",
+        "If the model designation is a data-entry error and the engine is actually an IAE V2500 model, rerun the screen with the installed HPT 1st-stage and HPT 2nd-stage hub part and serial numbers, their cycles since new, and the engine shop-visit history, none of which appear in this record.",
+        "This output is a screening aid only; it is not a compliance determination and does not state whether the engine is airworthy or approved for return to service."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "The engine model in the record, PW1133G-JM, is not one of the IAE V2500 models that this screen supports or that the directive's applicability paragraph names, so no applicability determination is made and no action is triggered under Federal Register document 2025-18469.",
+      "timing": null
+    },
+    "request_key": "282ac1e8852b6850f8506bf7f2ca9b5f8ad00a0923f135e5d1e2acc6abb8b20c",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 133,
+      "output_tokens": 8783,
+      "output_tokens_details": {
+        "thinking_tokens": 7989
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-005": {
+    "cost_usd": 0.004089,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "14c2b5d75b9dc2c61046d8dfc6dd1ac95395f317c3faf110e004e1e1e355d896",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 490,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-006": {
+    "cost_usd": 0.004083,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "72e8b98b6fb117d65c015c9ad1021b129f85e96887a9f6e7e6781d2295720314",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 364,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-007": {
+    "cost_usd": 0.004086,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "7a24d066db59bb095c7289a1564bad3b34bf792c797bd2e25740abcacef88c9c",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 417,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-008": {
+    "cost_usd": 0.004083,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "65761be51c31f2ab5505bdbb3f1d68959dcfb7410f74484b490d13bfe9183924",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 358,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-009": {
+    "cost_usd": 0.004071,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "024bb4a8cbcc77191fa38f36910854bb87e446c68df8a0619e612971973f058b",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 130,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-010": {
+    "cost_usd": 0.003406,
+    "error": null,
+    "latency_seconds": 212.692,
+    "output": {
+      "action_status": null,
+      "applicability": "outside_supported_scope",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": "Applicability paragraph",
+          "paragraph": "(c)",
+          "supports": "Lists the covered IAE AG models V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, and V2533-A5; V2500-A1 is not among them and is outside the supported scope of this screen."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "DATES",
+          "paragraph": "preamble",
+          "supports": "States that the AD is effective October 29, 2025, so it is in force on the 2026-09-26 question date."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Effective Date",
+          "paragraph": "(a)",
+          "supports": "Regulatory text stating the AD is effective October 29, 2025."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [],
+      "hubs": [],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "Screening aid only: this is not a compliance determination, and no applicability finding is made for engine SYN-V2500-0010 (asset SYN-ENG-010).",
+        "The engine record is marked synthetic and carries SYN- identifiers; the engine_model field reads V2500-A1, which is not among the supported models.",
+        "No cycle calculation, shop-visit analysis, part-level comparison, or continuing obligation is reported because the engine is outside scope. If the model designation is corrected to a supported model, rerun the screen: it would need to compare the installed HPT 1st-stage hub (P/N 2A5001, S/N PKLBST5011, 2000 cycles since new) with Table 1 to paragraph (g) and review the events list, which is currently empty.",
+        "Federal Register document 2025-10764 is the June 13, 2025 NPRM; it was replaced for this question date by final rule 2025-18469 and was not relied on.",
+        "No correction or later superseding document was supplied with the question."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "The engine model V2500-A1 is not one of the IAE V2500 models this screen supports, so no applicability determination is made and the action status is none. Final rule 2025-18469 took effect October 29, 2025, so it is in force as of the 2026-09-26 question date.",
+      "timing": null
+    },
+    "request_key": "b71939433f17807761904c043fdc1caa655b8463680f74fe3144387816c8dd7f",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 184,
+      "output_tokens": 13326,
+      "output_tokens_details": {
+        "thinking_tokens": 12518
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-011": {
+    "cost_usd": 0.004106,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "b8e66679c5fed4a8c810a04247097df00e91a04a3b47607c4d90380df5f81305",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 19488,
+      "inference_geo": "global",
+      "input_tokens": 175,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-012": {
+    "cost_usd": 0.004106,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "14c69f3b06f9750264b200c1ba28586c3230150b67e91172979a816d5218037d",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 19488,
+      "inference_geo": "global",
+      "input_tokens": 175,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-013": {
+    "cost_usd": 0.004115,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "f0e612be9ff917e7d9a448769a2638ffcf683de523504da61228fdd860d3331a",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 19488,
+      "inference_geo": "global",
+      "input_tokens": 345,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-014": {
+    "cost_usd": 0.004116,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "6316d1224fa5eeadd3ef8f31aee7caa1c009f479e6707cd535d660d42c939f8c",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 19488,
+      "inference_geo": "global",
+      "input_tokens": 363,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-015": {
+    "cost_usd": 0.004046,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "49d5a3a3dc9b2a0ca0934bc0ba9a68a21c711652dd7c6c605ccc22b7a2e7512c",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 7366,
+      "inference_geo": "global",
+      "input_tokens": 176,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-016": {
+    "cost_usd": 0.004082,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "4375c64876a61acb4f9d671d0c51e4caca8ab207ad0cf52a16f7236693b43966",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 14044,
+      "inference_geo": "global",
+      "input_tokens": 240,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-017": {
+    "cost_usd": 0.004078,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "56fafd1952e95b79cc890a86b88a42e42309ebe9251eb0f3da6defafe0b86244",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 14044,
+      "inference_geo": "global",
+      "input_tokens": 148,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-018": {
+    "cost_usd": 0.004077,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "dacd4c7a5c19f8e6325236e778d1f225093463e7fce229d17c239ccb3955b703",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 244,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-019": {
+    "cost_usd": 0.004083,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "1d24bdfb06c511ca2db4b241a8e4f6a6dbc3dd8b4140bce058eb9a9de95677ff",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 367,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 15999
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-020/2021-11960": {
+    "cost_usd": 0.004114,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "12d9534dcb537b6b31686a84df67587fed6cd8a1d3f37637d4f2fdaebb6c9ede",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 20491,
+      "inference_geo": "global",
+      "input_tokens": 222,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-020/2022-02574": {
+    "cost_usd": 0.004114,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "d8bca130f644578aaadc8e076891ca6b3772e06f479006f38dfab779210356c0",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 20491,
+      "inference_geo": "global",
+      "input_tokens": 222,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 15999
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-021": {
+    "cost_usd": 0.004114,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "41dcd3ecd0a9f0b927de5abac03d948b4d88c1fa46a808fc86e2395a8f6d2650",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 20491,
+      "inference_geo": "global",
+      "input_tokens": 222,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-022/2021-11960": {
+    "cost_usd": 0.004074,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "0bcb4d1a8b70843ac1e8d88ce35833f39977b3002a8ca6829069dfdc8b6a08b1",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 11909,
+      "inference_geo": "global",
+      "input_tokens": 287,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-022/2021-14268": {
+    "cost_usd": 0.004068,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "5723a8d54b5a5d5a22972a0590ea56fae8a4ef512dbe7901632af4dbd062f2df",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 10820,
+      "inference_geo": "global",
+      "input_tokens": 287,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-023/2025-17066": {
+    "cost_usd": 0.004098,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "109b4792b38b905707a9243bbf73f6efeecbd512d31595e3708e812637150e8e",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 14044,
+      "inference_geo": "global",
+      "input_tokens": 552,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-023/2025-18469": {
+    "cost_usd": 0.004092,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "19b7702da7b5915afcfce0afd3f83a23ebc3fe0ec233305c193c0a96ff0995f0",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 552,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-023/2026-16954": {
+    "cost_usd": 0.004125,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "30de908255ffaf9fb011a34bddf8b8b48197535e8ccd2c0e3fd80c6db5c69972",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 19488,
+      "inference_geo": "global",
+      "input_tokens": 552,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-024": {
+    "cost_usd": 0.004077,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "89819524cf4ef386dd39b9472cc35e08752090a568300c9996d18d240d9fbd07",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 244,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-025": {
+    "cost_usd": 0.001513,
+    "error": null,
+    "latency_seconds": 212.692,
+    "output": {
+      "action_status": null,
+      "applicability": "outside_supported_scope",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-17066",
+          "locator": "Applicability",
+          "paragraph": "(c)",
+          "supports": "Applicability is limited to IAE AG Model V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, and V2533-A5 engines; the CFM56-5B4/3 in the record is not among them."
+        },
+        {
+          "document": "2025-17066",
+          "locator": "Effective Date",
+          "paragraph": "(a)",
+          "supports": "The AD is effective October 10, 2025, so it is in force on the 2026-10-06 question date."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [],
+      "hubs": [],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "The record lists engine_model CFM56-5B4/3, which is not in the supported IAE V2500 model list for this screen, so no applicability determination is made.",
+        "installed_components and events are empty; no component-cycle, part-match, or shop-visit analysis was performed, and the empty lists are not evidence that any part is absent or unaffected.",
+        "The operator air_carrier_operation flag does not change the scope outcome.",
+        "The operative text is final rule 2025-17066 (effective October 10, 2025); proposed rule 2024-26092 was not relied on.",
+        "The record is marked synthetic; this output is a screening aid only and is not a compliance, airworthiness, or return-to-service determination."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "The engine model CFM56-5B4/3 is outside the supported IAE V2500 model scope, so no applicability determination is made against AD 2025-17066, which is in force as of the question date. Action status is none under the supported-scope rule.",
+      "timing": null
+    },
+    "request_key": "1343895c1c890822cd0c3e3c8f0fc799bec6606c5fcdd71d059c6d702373e19a",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 14044,
+      "inference_geo": "global",
+      "input_tokens": 177,
+      "output_tokens": 5737,
+      "output_tokens_details": {
+        "thinking_tokens": 5101
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-026": {
+    "cost_usd": 0.00409,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "9bc27e3fff8797ab1e3a20096efb874406bfaef9057182ad829403f8b0856e9f",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 494,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-027": {
+    "cost_usd": 0.004087,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "ed6122f1b2a1bb23ded9191868ae60517136258c8d5e210bab66217096515e1f",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 448,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-028": {
+    "cost_usd": 0.004086,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "1e6d7a74fe54ed20e02ded8c7ae0d6ba576988859491ac4e06ee2c90f05ae10c",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 427,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-029": {
+    "cost_usd": 0.004077,
+    "error": "answer is not JSON: Expecting value: line 1 column 1 (char 0)",
+    "latency_seconds": 212.692,
+    "output": null,
+    "request_key": "397020410cce6685018addd1acbce5bcbc459a15ca03e129488eab8db395cfba",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 247,
+      "output_tokens": 16000,
+      "output_tokens_details": {
+        "thinking_tokens": 16000
+      },
+      "service_tier": "batch"
+    }
+  }
+}
