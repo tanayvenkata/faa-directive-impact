@@ -1,4 +1,4 @@
-.PHONY: sync test lint format check acquire s1 s1-conclude llm-check
+.PHONY: sync test lint format check acquire s1 s1-conclude llm-check b2
 
 # Local settings and secrets (ANTHROPIC_API_KEY); optional and never committed.
 -include .env
@@ -37,3 +37,10 @@ s1-conclude:
 # Live model call, costs < $0.01. Confirms ANTHROPIC_API_KEY in .env works.
 llm-check:
 	uv run faa-directive-impact llm-check
+
+# Live model calls (batch, half price). Example: make b2 MODEL=claude-haiku-5-5 REPEAT=1
+MODEL ?= claude-haiku-5-5
+EFFORT ?= medium
+REPEAT ?= 1
+b2:
+	uv run faa-directive-impact b2-run --model $(MODEL) --effort $(EFFORT) --repeat $(REPEAT)

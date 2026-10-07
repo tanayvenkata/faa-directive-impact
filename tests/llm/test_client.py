@@ -10,6 +10,7 @@ from faa_directive_impact.llm.client import (
     ModelRequest,
     RecordingModel,
     ReplayModel,
+    call_batch,
 )
 from faa_directive_impact.llm.pricing import cost_usd
 
@@ -153,3 +154,47 @@ def test_sdk_cannot_reach_the_network_during_tests() -> None:
         causes.append(str(error))
         error = error.__cause__ or error.__context__
     assert any("live network call attempted" in cause for cause in causes)
+
+
+class FakeBatches:
+    def __init__(self, text: str) -> None:
+        self.created = []
+        self._text = text
+        self.polls = 0
+
+    def create(self, requests):
+        self.created = requests
+        return type("Batch", (), {"id": "batch_1"})()
+
+    def retrieve(self, batch_id):
+        self.polls += 1
+        status = "ended" if self.polls > 1 else "in_progress"
+        return type("Status", (), {"processing_status": status})()
+
+    def results(self, batch_id):
+        for item in self.created:
+            result = type(
+                "Result",
+                (),
+                {"type": "succeeded", "message": FakeMessage(payload(self._text))},
+            )()
+            yield type("Item", (), {"custom_id": item["custom_id"], "result": result})()
+
+
+def test_batch_runs_at_half_price_and_keys_results_by_request() -> None:
+    batches = FakeBatches('{"applies": true}')
+    client = type("Client", (), {"messages": type("M", (), {"batches": batches})()})()
+    requests = [request("one?"), request("two?")]
+
+    responses = call_batch(client, requests, sleep=lambda _: None)
+
+    assert set(responses) == {r.key() for r in requests}
+    assert [item["params"] for item in batches.created] == [
+        r.params() for r in requests
+    ]
+    response = responses[requests[0].key()]
+    assert response.batch is True
+    assert response.answer == {"applies": True}
+    assert response.cost_usd == cost_usd(
+        "claude-sonnet-5-5", payload("")["usage"], batch=True
+    )

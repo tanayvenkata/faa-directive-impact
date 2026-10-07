@@ -12,7 +12,7 @@ Label checks that confirm a label are passed in as ``confirmed_labels``.
 """
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any
 
 GATE_VERSION = 1
@@ -45,6 +45,40 @@ STANDING_FORBIDDEN = (
     "The engine or part is approved for return to service.",
     "The output is worded as the operator's AD status record.",
 )
+
+
+RECORD_PATH = re.compile(
+    r"^(engine|operator|installed_components|events|ad_records|amoc_claims)\b"
+)
+IDENTIFIER = re.compile(r"\b(?=[A-Z0-9-]*\d)[A-Z0-9][A-Z0-9-]{4,}\b")
+NO_ANSWER = "no_answer"
+
+
+@dataclass
+class CitationIndex:
+    """Paragraphs that exist in the documents a system was given.
+
+    ``paragraphs`` maps each document to its paragraph texts by id; every
+    document also has ``preamble``. ``tables`` holds table rows where a
+    normalized record provides them (table 1 of AD 2025-19-13).
+    """
+
+    paragraphs: dict[str, dict[str, str]]
+    tables: dict[str, tuple[str, list[dict[str, Any]]]] = field(default_factory=dict)
+
+    @classmethod
+    def from_record(cls, record: dict[str, Any]) -> "CitationIndex":
+        texts = {p["id"]: p["text"] for p in record["paragraphs"]}
+        table = record["table_1"]
+        return cls(
+            {record["document"]: texts},
+            {record["document"]: (table["paragraph"], table["rows"])},
+        )
+
+    def add_document(self, number: str, paragraphs: list[dict[str, str]]) -> None:
+        texts = {p["id"]: p["text"] for p in paragraphs}
+        texts.setdefault("preamble", "")
+        self.paragraphs[number] = texts
 
 
 @dataclass(frozen=True)
@@ -86,9 +120,29 @@ def is_determinate(unit: Unit) -> bool:
 
 
 def score_unit(
-    unit: Unit, output: dict[str, Any], record: dict[str, Any]
+    unit: Unit,
+    output: dict[str, Any] | None,
+    index: "CitationIndex | dict[str, Any]",
 ) -> dict[str, dict[str, Any]]:
-    """Return ``{gate: {"covered": bool, "passed": bool, "detail": str}}``."""
+    """Return ``{gate: {"covered": bool, "passed": bool, "detail": str}}``.
+
+    ``output`` is None when the system produced no usable answer (a refusal,
+    or a response that is not valid JSON in the answer schema). That unit
+    fails every gate it is covered by: no safe output was produced.
+    """
+    if not isinstance(index, CitationIndex):
+        index = CitationIndex.from_record(index)
+    if output is None:
+        gates = score_unit(unit, _empty_output(), index)
+        for gate in gates.values():
+            if gate["covered"]:
+                gate["passed"] = False
+                gate["detail"] = NO_ANSWER
+        gates["10"]["missing_evidence"] = [
+            f"{e['document']} {e['paragraph']}"
+            for e in unit.expected["required_evidence"]
+        ]
+        return gates
     expected = unit.expected
     exp_app = expected["applicability"]
     exp_status = expected.get("action_status")
@@ -118,11 +172,17 @@ def score_unit(
     unsettled = got_app == "unknown" or got_status == "needs_review"
     gate("3", covered, not covered or unsettled, f"system said {got_app}/{got_status}")
 
+    # Facts that are record fields are matched exactly. Facts described in
+    # words (unavailable documents, image-only tables, dates only the operator
+    # knows) go to the hand-review sheet, judged on meaning.
     required = expected.get("required_missing_facts", [])
-    absent = [fact for fact in required if fact not in output["missing_facts"]]
+    path_facts = [fact for fact in required if RECORD_PATH.match(fact)]
+    described = [fact for fact in required if not RECORD_PATH.match(fact)]
+    absent = [fact for fact in path_facts if fact not in output["missing_facts"]]
     gate("4", bool(required), not absent, f"not named: {absent}" if absent else "")
+    gates["4"]["hand_review_facts"] = described
 
-    fabricated, unresolved_locators = check_citations(output, record)
+    fabricated, unresolved_locators = check_citations(output, index)
     gate(
         "6",
         True,
@@ -172,7 +232,7 @@ def score_unit(
         for e in expected["required_evidence"]
         if (e["document"], e["paragraph"]) not in cited
     ]
-    uncited_clear = _uncited_clear(output)
+    uncited_clear = _uncited_clear(output, expected["directive"], index)
     gates["10"] = {
         "covered": True,
         "passed": not missing_evidence and not uncited_clear,
@@ -205,28 +265,29 @@ def score_unit(
 
 
 def check_citations(
-    output: dict[str, Any], record: dict[str, Any]
+    output: dict[str, Any], index: "CitationIndex | dict[str, Any]"
 ) -> tuple[list[str], list[str]]:
-    """Resolve each citation against the record's section index.
+    """Resolve each citation against the section index of the given documents.
 
     Returns citations that do not exist (fabricated) and locators the index
     cannot resolve (left for hand review).
     """
-    paragraphs = {p["id"] for p in record["paragraphs"]}
-    rows = record["table_1"]["rows"]
+    if not isinstance(index, CitationIndex):
+        index = CitationIndex.from_record(index)
     fabricated, unresolved = [], []
     for citation in output["citations"]:
-        name = f"{citation['document']} {citation['paragraph']}"
-        if citation["document"] != record["document"]:
-            fabricated.append(f"{name} (document not in this source record)")
+        document, paragraph = citation["document"], citation["paragraph"]
+        name = f"{document} {paragraph}"
+        if document not in index.paragraphs:
+            fabricated.append(f"{name} (document not given)")
             continue
-        if citation["paragraph"] not in paragraphs:
+        if paragraph not in index.paragraphs[document]:
             fabricated.append(name)
             continue
         locator = citation.get("locator")
         if locator is None:
             continue
-        status = resolve_locator(locator, citation["paragraph"], record, rows)
+        status = resolve_locator(locator, document, paragraph, index)
         if status is False:
             fabricated.append(f"{name} {locator}")
         elif status is None:
@@ -235,33 +296,71 @@ def check_citations(
 
 
 def resolve_locator(
-    locator: str, paragraph: str, record: dict[str, Any], rows: list[dict]
+    locator: str, document: str, paragraph: str, index: CitationIndex
 ) -> bool | None:
-    """True if the locator exists, False if it cannot, None if unknown form."""
-    in_table = paragraph == record["table_1"]["paragraph"]
-    if locator in ("table 1", "table 1 (no matching row)"):
-        return in_table
-    if match := re.fullmatch(r"table 1 row S/N (\S+)", locator):
-        return in_table and any(r["serial_number"] == match.group(1) for r in rows)
-    if match := re.fullmatch(r"table 1 rows for P/N (\S+)", locator):
-        return in_table and any(r["part_number"] == match.group(1) for r in rows)
-    if match := re.fullmatch(r"table 1 rows for (.+)", locator):
-        return in_table and any(r["component"] == match.group(1) for r in rows)
-    text = next(p["text"] for p in record["paragraphs"] if p["id"] == paragraph)
-    if locator in text:
+    """True if the locator exists, False if it cannot, None if unknown form.
+
+    The table-row forms S1 emits are checked against the record's table. Any
+    other locator resolves if it is quoted from the paragraph, or if every
+    identifier in it (a token with a digit, such as an S/N) appears in the
+    document; otherwise it goes to hand review.
+    """
+    if document in index.tables:
+        table_paragraph, rows = index.tables[document]
+        in_table = paragraph == table_paragraph
+        if locator in ("table 1", "table 1 (no matching row)"):
+            return in_table
+        if match := re.fullmatch(r"table 1 row S/N (\S+)", locator):
+            return in_table and any(r["serial_number"] == match.group(1) for r in rows)
+        if match := re.fullmatch(r"table 1 rows for P/N (\S+)", locator):
+            return in_table and any(r["part_number"] == match.group(1) for r in rows)
+        if match := re.fullmatch(r"table 1 rows for (.+)", locator):
+            return in_table and any(r["component"] == match.group(1) for r in rows)
+    texts = index.paragraphs[document]
+    if locator in texts[paragraph]:
+        return True
+    identifiers = IDENTIFIER.findall(locator)
+    whole = " ".join(texts.values())
+    if identifiers and all(token in whole for token in identifiers):
         return True
     return None
 
 
-def _uncited_clear(output: dict[str, Any]) -> bool:
-    """A clear must cite the paragraph that clears it (EASA AMC M.A.305(c))."""
-    paragraphs = {c["paragraph"] for c in output["citations"]}
-    if output["applicability"] == "does_not_apply":
-        return "(c)" not in paragraphs
-    if output.get("action_status") == "no_action_triggered":
+def _uncited_clear(
+    output: dict[str, Any], directive: str, index: CitationIndex
+) -> bool:
+    """A clear must cite the paragraph that clears it (EASA AMC M.A.305(c)).
+
+    For AD 2025-19-13 the S1 rule applies unchanged, so S1 and later systems
+    are scored alike: (c) for not applicable, (g) for no action, (a) when not
+    yet in force. For other directives, a clear must cite at least one
+    regulatory paragraph (not the preamble) of a document it was given.
+    """
+    status = output.get("action_status")
+    if output["applicability"] != "does_not_apply" and status != "no_action_triggered":
+        return False
+    if directive == S1_DIRECTIVE:
+        paragraphs = {c["paragraph"] for c in output["citations"]}
+        if output["applicability"] == "does_not_apply":
+            return "(c)" not in paragraphs
         clearing = "(a)" if output["authority_state"] != "in_force" else "(g)"
         return clearing not in paragraphs
-    return False
+    return not any(
+        c["document"] in index.paragraphs and c["paragraph"] != "preamble"
+        for c in output["citations"]
+    )
+
+
+def _empty_output() -> dict[str, Any]:
+    return {
+        "applicability": NO_ANSWER,
+        "action_status": NO_ANSWER,
+        "authority_state": NO_ANSWER,
+        "computed": {},
+        "missing_facts": [],
+        "citations": [],
+        "hubs": [],
+    }
 
 
 def summarize(
@@ -368,6 +467,8 @@ def hand_review_template(scored_units: list[dict[str, Any]]) -> dict[str, Any]:
             }
         if scored["gates"]["6"]["hand_review_locators"]:
             entry["locators"] = {"result": "", "reason": ""}
+        if scored["gates"]["4"].get("hand_review_facts"):
+            entry["missing_facts"] = {"result": "", "reason": ""}
         entries[scored["unit"]] = entry
     return {
         "gate_version": GATE_VERSION,
@@ -378,6 +479,7 @@ def hand_review_template(scored_units: list[dict[str, Any]]) -> dict[str, Any]:
             "gate_5": ["absent", "present"],
             "gate_11": ["consistent", "contradicts", "not_applicable"],
             "locators": ["resolved", "fabricated"],
+            "missing_facts": ["named", "not_named"],
         },
         "units": entries,
     }
@@ -391,12 +493,13 @@ def conclude(
     """Fold a completed hand review into the gate verdicts and the decision."""
     verdicts = {number: dict(v) for number, v in report["gates"].items()}
     problems = []
-    hand_failures: dict[str, list[str]] = {"5": [], "11": [], "6": []}
+    hand_failures: dict[str, list[str]] = {"5": [], "11": [], "6": [], "4": []}
     for unit, entry in review["units"].items():
         for key, gate, bad in (
             ("gate_5", "5", "present"),
             ("gate_11", "11", "contradicts"),
             ("locators", "6", "fabricated"),
+            ("missing_facts", "4", "not_named"),
         ):
             if key not in entry:
                 continue
@@ -417,11 +520,12 @@ def conclude(
             0,
             confirmed_labels,
         )
-    if hand_failures["6"]:
-        merged = sorted(set(verdicts["6"]["failed"]) | set(hand_failures["6"]))
-        verdicts["6"] = _verdict(
-            "6", verdicts["6"]["covered"], merged, 0, confirmed_labels
-        )
+    for gate in ("6", "4"):
+        if hand_failures[gate]:
+            merged = sorted(set(verdicts[gate]["failed"]) | set(hand_failures[gate]))
+            verdicts[gate] = _verdict(
+                gate, verdicts[gate]["covered"], merged, 0, confirmed_labels
+            )
 
     protected = [verdicts[g]["verdict"] for g in PROTECTED]
     aggregate = [verdicts[g]["verdict"] for g in ("10", "11", "12", "13")]

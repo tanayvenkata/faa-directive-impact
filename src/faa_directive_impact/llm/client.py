@@ -149,12 +149,7 @@ class RecordingModel:
 
     def call(self, request: ModelRequest) -> ModelResponse:
         response = self._model.call(request)
-        record = {"request": request.params(), "response": asdict(response)}
-        path = self._directory / f"{request.key()}.json"
-        path.write_text(
-            json.dumps(record, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
+        record(self._directory, request, response)
         return response
 
 
@@ -170,3 +165,66 @@ class ReplayModel:
             raise MissingRecording(f"no recorded call {path.name}")
         record = json.loads(path.read_text(encoding="utf-8"))
         return ModelResponse(**record["response"])
+
+
+def call_batch(
+    client: Any,
+    requests: list[ModelRequest],
+    poll_seconds: float = 30.0,
+    sleep: Any = time.sleep,
+) -> dict[str, ModelResponse]:
+    """Run requests through the Message Batches API at half price.
+
+    Results come back in any order, so they are keyed by request key, which
+    is also each request's ``custom_id``. A request that errors or expires
+    comes back as a response with ``error`` set and no answer. Batched
+    requests run in parallel, so prompt-cache hits are best effort.
+    """
+    by_key = {request.key(): request for request in requests}
+    started = time.monotonic()
+    batch = client.messages.batches.create(
+        requests=[
+            {"custom_id": key, "params": request.params()}
+            for key, request in by_key.items()
+        ]
+    )
+    while client.messages.batches.retrieve(batch.id).processing_status != "ended":
+        sleep(poll_seconds)
+    elapsed = time.monotonic() - started
+
+    responses = {}
+    for item in client.messages.batches.results(batch.id):
+        request = by_key[item.custom_id]
+        if item.result.type == "succeeded":
+            response = response_from_message(
+                request, item.result.message.to_dict(), elapsed, None, batch=True
+            )
+        else:
+            response = ModelResponse(
+                request_key=item.custom_id,
+                model=request.model,
+                stop_reason=None,
+                text="",
+                answer=None,
+                usage={},
+                cost_usd=0.0,
+                latency_seconds=round(elapsed, 3),
+                batch=True,
+                error=f"batch result {item.result.type}",
+            )
+        response.extra["batch_id"] = batch.id
+        responses[item.custom_id] = response
+    missing = set(by_key) - set(responses)
+    if missing:
+        raise RuntimeError(f"batch {batch.id} returned no result for {len(missing)}")
+    return responses
+
+
+def record(directory: Path, request: ModelRequest, response: ModelResponse) -> None:
+    """Save one call so it can be replayed."""
+    directory.mkdir(parents=True, exist_ok=True)
+    payload = {"request": request.params(), "response": asdict(response)}
+    (directory / f"{request.key()}.json").write_text(
+        json.dumps(payload, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )

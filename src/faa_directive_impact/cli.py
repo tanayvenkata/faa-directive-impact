@@ -65,8 +65,54 @@ def main(argv: list[str] | None = None) -> int:
         help="Make one tiny model call to confirm credentials (costs < $0.01).",
     )
     llm_check.add_argument("--model", default="claude-haiku-5-5")
+    b2_plumbing = commands.add_parser(
+        "b2-plumbing",
+        help="Two format-only model calls on a synthetic engine (a few cents).",
+    )
+    b2_plumbing.add_argument("--model", default="claude-haiku-5-5")
+    b2_plumbing.add_argument("--effort", default="medium")
+    b2_run = commands.add_parser(
+        "b2-run", help="Screen every seed unit with a model reading the text."
+    )
+    b2_run.add_argument("--model", required=True)
+    b2_run.add_argument("--effort", default="medium")
+    b2_run.add_argument("--repeat", type=int, default=1)
+    b2_run.add_argument("--mode", choices=("live", "batch"), default="batch")
+    for sub in (b2_plumbing, b2_run):
+        sub.add_argument("--repo", type=Path, default=Path("."))
+        sub.add_argument("--storage-root", type=Path, default=Path("data/seed-frozen"))
+        sub.add_argument("--runs-root", type=Path, default=Path("evaluation/runs"))
     args = parser.parse_args(argv)
 
+    if args.command == "b2-plumbing":
+        from faa_directive_impact.evaluation.b2_plumbing import run_plumbing
+
+        stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+        directory = args.runs_root / f"b2-plumbing-{stamp}"
+        results = run_plumbing(
+            args.repo.resolve(), args.storage_root, directory, args.model, args.effort
+        )
+        print(json.dumps(results, indent=2))
+        print(directory)
+        return EXIT_OK
+    if args.command == "b2-run":
+        from faa_directive_impact.evaluation.b2_run import run_b2
+
+        commit, dirty = _git_state(args.repo)
+        directory = run_b2(
+            args.repo.resolve(),
+            args.runs_root,
+            args.storage_root,
+            args.model,
+            args.effort,
+            args.repeat,
+            args.mode,
+            datetime.now(UTC),
+            commit,
+            dirty,
+        )
+        print(directory)
+        return EXIT_OK
     if args.command == "llm-check":
         return _llm_check(args.model)
 

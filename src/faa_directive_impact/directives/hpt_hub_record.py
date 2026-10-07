@@ -127,8 +127,9 @@ def index_paragraphs(root: Element) -> list[dict[str, str]]:
                 paragraphs.append(
                     {"id": letter, "heading": heading.group(2), "text": ""}
                 )
-            elif letter is not None:
-                break
+            # Other headings inside the regulatory text, such as "Note 1 to
+            # paragraph (g)(1):", do not start a paragraph; their text joins
+            # the current lettered paragraph.
             continue
         if letter is None or element.tag != "P":
             continue
