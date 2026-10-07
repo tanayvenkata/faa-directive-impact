@@ -2,7 +2,15 @@
 
 ## Current Phase & Scope
 
-Milestone 1: Immutable Acquisition is complete (`CHECKPOINT_REPRODUCIBLE.md`); its accepted frozen generation is under `generations/`. Milestone 2: Evaluation Seed has written the seed cases (E1) and frozen the gates in `evaluation/GATES.md` (E2); the image-transcription decision (E3) is still open. The active work is **S1, the walking skeleton** (issue #16, `ROADMAP.md` Delivery Sequence step 3): a normalized record of AD 2025-19-13 (`src/faa_directive_impact/directives/`), deterministic rules and a static three-queue HTML page (`src/faa_directive_impact/impact/`), and a scorer that applies the frozen gates (`src/faa_directive_impact/evaluation/s1_*.py`). S1 covers that one directive only. The static page is the only UI allowed: no server, hosting, retrieval, indexing, agent, or long-term storage components yet. After S1, `ROADMAP.md` sets the order: a daily sync of all FAA airworthiness directives, then rule extraction, ahead of retrieval work. Never edit `evaluation/GATES.md` or a seed case to make a run pass; follow its "Disputed Labels" section.
+Milestone 1: Immutable Acquisition is complete (`CHECKPOINT_REPRODUCIBLE.md`); its accepted frozen generation is under `generations/`. Milestone 2: Evaluation Seed has written the seed cases (E1) and frozen the gates in `evaluation/GATES.md` (E2); the image-transcription decision (E3) is still open. S1, the rules baseline for AD 2025-19-13, is built (`evaluation/S1_BASELINE.md`): a normalized record (`src/faa_directive_impact/directives/`), deterministic rules and a static three-queue page (`src/faa_directive_impact/impact/`), and a scorer for the frozen gates (`src/faa_directive_impact/evaluation/s1_*.py`). The active work follows `ROADMAP.md` steps 4 to 6: the full-context LLM comparison (B2), LLM rule extraction (B3), then the daily sync published as a static site. `APPROACH.md` explains the workflow and the baselines.
+
+Scope rules for this phase:
+
+- **Model calls run only inside evaluation runs.** Use the Anthropic Python SDK through `src/faa_directive_impact/llm/`. Every request and response is saved in the run directory with its model, settings, tokens, and cost, so a run can be re-scored without calling the model. Tests replay saved responses and never call a model. The API key comes from the environment (`.env`, git-ignored), never from code or commits.
+- **Never tune a prompt against the scored cases.** A plumbing check may confirm the output parses; then the prompt is frozen and versioned before any scored run. Never put labels, rationales, or adjudication answers into a prompt.
+- **Static hosting only.** The site is static files on GitHub Pages. No server, database, retrieval index, or agent yet.
+- **The evaluated claim stays AD 2025-19-13.** A model scoring on other directives does not widen it.
+- Never edit `evaluation/GATES.md` or a seed case to make a run pass; follow its "Disputed Labels" section.
 
 The first vertical slice is acquisition and manifesting, not the polished fleet-impact application:
 

@@ -45,31 +45,38 @@ A newly published in-scope directive becomes visible the day it syncs, as
    score it against the seed and publish the first failure taxonomy.
    *Built; decision go, provisional on owner-confirmed hand review
    ([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)).*
-4. **Daily sync and freshness** — schedule the Milestone 1 acquisition for
-   the discovery corpus: poll from a checkpoint, build a candidate generation,
-   validate, then promote or reject while keeping the previous generation. The
-   page shows the last successful sync, the active generation, new
-   directives, and failures.
-5. **Rule extraction for new directives** — a model proposes candidate rules
+4. **Full-context LLM comparison (B2)** — give a model each directive's text
+   and the engine's records and score its answers under the same frozen gates
+   as the rules. This is a comparison, not a product component: it answers
+   "why not just ask the model?" Start with the cheaper models (Claude Haiku
+   5.5, then Claude Sonnet 5.5 at medium effort); record every response, its
+   tokens, and its cost. See [`APPROACH.md`](APPROACH.md).
+5. **Rule extraction for new directives (B3)** — a model proposes candidate rules
    (models, part and serial tables, limits, triggers), each tied to the
    paragraph it came from. Automated checks validate them, and a human
    verifies them before promotion. Extracted rules are candidate derived data,
    never authoritative. Evaluate extraction against the hand-labeled seed.
-6. **Normalize and retrieve** — normalize the evaluated threads, establish a
+   Compare it with the S1 parser run unchanged on a second directive.
+6. **Daily sync and freshness** — schedule the Milestone 1 acquisition for
+   the discovery corpus: poll from a checkpoint, build a candidate generation,
+   validate, then promote or reject while keeping the previous generation. The
+   page shows the last successful sync, the active generation, new
+   directives, and failures. Publish it as a static site (GitHub Pages).
+7. **Normalize and retrieve** — normalize the evaluated threads, establish a
    lexical baseline, add only justified retrieval techniques, and distinguish
    relevance from evidence sufficiency.
-7. **Fleet-impact queues and demo fleet** — widen the queues to every
+8. **Fleet-impact queues and demo fleet** — widen the queues to every
    evaluated directive. Build a realistic seeded demo fleet of about 100–300
    engines with the evaluation cases embedded, plausible part numbers and
    cycle counts, and engines affected by several directives at once. The
    evaluation cases are edge cases and are not the demo fleet.
-8. **Harden operations** — observability, recovery and rollback drills,
+9. **Harden operations** — observability, recovery and rollback drills,
    hostile-input checks, runbooks, security controls, and cost and latency
    measurements. Keep operating cost and attention low enough to run for a
    year while later episodes are built. Upstream failures must surface loudly
    rather than leave the page silently stale. The interface states that it is
    a screening tool, not a compliance determination, and uses no FAA branding.
-9. **Evaluate a bounded agent** — only if fixed-workflow traces demonstrate a
+10. **Evaluate a bounded agent** — only if fixed-workflow traces demonstrate a
    feedback-dependent limitation that an agent can improve safely.
 
 ## User Evidence
@@ -103,14 +110,21 @@ low cost.
 
 **Acquire** is complete, and the project is at the series' *Reproducible*
 claim level ([`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md)). The
-active milestone is **Evaluation Seed**: the 29-case seed (E1) and the
-frozen gates in [`evaluation/GATES.md`](evaluation/GATES.md) (E2) are done; the
-image-transcription decision (E3) is open. S1, the rules baseline for AD
-2025-19-13, is built and scored: every gate passes on its 18 units, and the
-go decision is provisional until the owner confirms the hand review
-([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)).
+evaluation seed (E1) and frozen gates (E2) are done; the image-transcription
+decision (E3) is open. S1, the rules baseline for AD 2025-19-13, is built and
+scored: every gate passes on its 18 units, and the go decision is provisional
+until the owner confirms the hand review
+([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)). The active step
+is the full-context LLM comparison (B2).
 
 ## Revisions
+
+- **2026-10-07** — Moved the LLM work ahead of the daily sync: a full-context
+  LLM comparison (B2) and rule extraction (B3) now come before the sync and a
+  static hosted site, so the measured AI results exist early. Retrieval,
+  the demo fleet, hardening, and the agent keep their order after them.
+  Steps renumbered: retrieval is now step 7. Frozen `evaluation/GATES.md`
+  (v1) still calls it "ROADMAP step 6"; that reference means retrieval.
 
 - **2026-10-06** — Moved a walking skeleton and the daily sync ahead of
   retrieval, so that a usable and visibly current system exists early. Set

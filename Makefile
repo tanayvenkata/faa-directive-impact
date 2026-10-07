@@ -1,4 +1,4 @@
-.PHONY: sync test lint format check acquire s1 s1-conclude
+.PHONY: sync test lint format check acquire s1 s1-conclude llm-check
 
 # Local settings and secrets (ANTHROPIC_API_KEY); optional and never committed.
 -include .env
@@ -33,3 +33,7 @@ s1:
 # Offline. Example: make s1-conclude RUN=evaluation/runs/s1-...
 s1-conclude:
 	uv run faa-directive-impact s1-conclude $(RUN)
+
+# Live model call, costs < $0.01. Confirms ANTHROPIC_API_KEY in .env works.
+llm-check:
+	uv run faa-directive-impact llm-check

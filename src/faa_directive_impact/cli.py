@@ -60,7 +60,15 @@ def main(argv: list[str] | None = None) -> int:
     )
     s1_conclude.add_argument("run_directory", type=Path)
     s1_conclude.add_argument("--repo", type=Path, default=Path("."))
+    llm_check = commands.add_parser(
+        "llm-check",
+        help="Make one tiny model call to confirm credentials (costs < $0.01).",
+    )
+    llm_check.add_argument("--model", default="claude-haiku-5-5")
     args = parser.parse_args(argv)
+
+    if args.command == "llm-check":
+        return _llm_check(args.model)
 
     if args.command == "s1-run":
         commit, dirty = _git_state(args.repo)
@@ -143,6 +151,51 @@ def main(argv: list[str] | None = None) -> int:
     if any(doc.needs_review for doc in documents):
         return EXIT_NEEDS_REVIEW
     return EXIT_OK
+
+
+def _llm_check(model: str) -> int:
+    from faa_directive_impact.llm.client import LiveModel, ModelRequest
+
+    request = ModelRequest(
+        model=model,
+        instructions="Answer in the requested JSON format.",
+        document="This is a connectivity check.",
+        question="Is this a connectivity check?",
+        output_schema={
+            "type": "object",
+            "properties": {"answer": {"type": "boolean"}},
+            "required": ["answer"],
+            "additionalProperties": False,
+        },
+        effort="low",
+        max_tokens=1024,
+    )
+    import anthropic
+
+    try:
+        response = LiveModel().call(request)
+    except anthropic.AuthenticationError:
+        print("The API key was rejected. Check ANTHROPIC_API_KEY in .env.")
+        return EXIT_FAILED
+    except anthropic.APIStatusError as exc:
+        print(f"The API refused the call ({exc.status_code}): {exc.message}")
+        return EXIT_FAILED
+    except anthropic.APIConnectionError:
+        print("Could not reach the API. Check the network connection.")
+        return EXIT_FAILED
+    print(
+        json.dumps(
+            {
+                "model": response.model,
+                "answer": response.answer,
+                "error": response.error,
+                "usage": response.usage,
+                "cost_usd": response.cost_usd,
+            },
+            indent=2,
+        )
+    )
+    return EXIT_OK if response.answer is not None else EXIT_FAILED
 
 
 def _git_state(repo: Path) -> tuple[str, bool]:

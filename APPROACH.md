@@ -127,7 +127,7 @@ New AD published                     Fleet record changes
 Daily sync fetches it, preserves exact bytes ──────────── deterministic (built)
    │
    ▼
-AD shown as "new, not yet evaluated" the same day ─────── deterministic (step 4)
+AD shown as "new, not yet evaluated" the same day ─────── deterministic (step 6)
    │
    ▼
 AI drafts the AD's rules, each value tied to ──────────── AI (step 5)
@@ -192,9 +192,9 @@ Each stage is scored against a simpler alternative on the same frozen cases.
 |---|---|---|---|
 | B0 | **Manual process** | Miss rate, time to answer an urgent AD across a fleet, and whether a later part swap is caught | No credible public figure (see below). To be measured in a practitioner session. |
 | B1 | **Hand-written rules** (S1) | Gates 1–13 on 18 units | **Done:** all gates pass; decision go, provisional ([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)) |
-| B2 | **LLM given the AD and the engine, no rules** (full context) | The same gates on the same 18 units | Not run. The obvious "just ask the model" comparison. |
+| B2 | **LLM given the AD and the engine, no rules** (full context, step 4) | The same gates on the same 18 units | Not run. The obvious "just ask the model" comparison. |
 | B3 | **LLM-drafted rules, checked and proofread** (step 5) | Field accuracy against B1's rules, whether it flags ambiguity, and proofreading minutes per AD | Not run |
-| B4 | **Retrieval of candidate ADs** (step 6) | Candidate recall (gate 14); precision and ranking metrics once the distractor set exists | Not run |
+| B4 | **Retrieval of candidate ADs** (step 7) | Candidate recall (gate 14); precision and ranking metrics once the distractor set exists | Not run |
 
 ### External reference points
 
@@ -232,7 +232,7 @@ These help orient the numbers. None of them is a baseline we have reproduced.
 Retrieval is one component here, not the core of the product.
 
 - **In this episode:** retrieval finds which of thousands of ADs could touch
-  an engine (step 6). Its key metric is recall, because a missed AD is a
+  an engine (step 7). Its key metric is recall, because a missed AD is a
   silent false clear. The impact decision itself is rules, not generated
   text.
 - **Across the series** (the *Production Evidence Systems* plan, kept in the
@@ -283,7 +283,7 @@ needs.** The portfolio piece is the reliable, cited, re-runnable join between
 system would be feature creep. Revisit with a deeper dive only if:
 
 - a practitioner names fragmented or paper records as the main obstacle, or
-- the demo fleet (ROADMAP step 7) cannot show a part moving between engines
+- the demo fleet (ROADMAP step 8) cannot show a part moving between engines
   without more history modeling than dated installation rows.
 
 ## Numbers Still to Collect
@@ -293,5 +293,5 @@ system would be feature creep. Revisit with a deeper dive only if:
 - B3: LLM rule extraction for a second AD (AD 2026-17-03, already in the
   seed), with proofreading time.
 - Hand-coding effort for B1 per AD, recorded so B3's savings can be stated.
-- For the demo fleet (step 7): how many results change after a simulated part
+- For the demo fleet (step 8): how many results change after a simulated part
   swap, and how fast the fleet is re-screened.
