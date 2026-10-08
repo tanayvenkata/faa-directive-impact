@@ -1,0 +1,491 @@
+{
+  "request": {
+    "max_tokens": 64000,
+    "messages": [
+      {
+        "content": "Question date: 2022-03-01\nDirective under question: Federal Register document 2022-02574\n\nEngine record:\nsynthetic: true\nengine:\n  asset_id: SYN-ENG-020\n  engine_serial_number: SYN-V2500-0020\n  engine_model: V2533-A5\n  snapshot_at: '2022-03-01'\ninstalled_components:\n- component_name: HPT 1st-stage disk\n  part_number: 2A5001\n  serial_number: SYN-DISK1-0020\n- component_name: HPT 2nd-stage disk\n  part_number: 2A4802\n  serial_number: SYN-DISK2-0020\nevents: []\n",
+        "role": "user"
+      }
+    ],
+    "model": "claude-haiku-5-5",
+    "output_config": {
+      "effort": "max",
+      "format": {
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "action_status": {
+              "enum": [
+                "action_required",
+                "action_required_on_event",
+                "no_action_triggered",
+                "needs_review",
+                "none"
+              ],
+              "type": "string"
+            },
+            "alternative_readings": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "explanation": {
+                    "type": "string"
+                  },
+                  "latest_engine_flight_cycles": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "latest_engine_flight_cycles",
+                  "explanation"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "applicability": {
+              "enum": [
+                "applies",
+                "does_not_apply",
+                "unknown",
+                "outside_supported_scope"
+              ],
+              "type": "string"
+            },
+            "authority_state": {
+              "enum": [
+                "proposed",
+                "published_not_yet_effective",
+                "in_force"
+              ],
+              "type": "string"
+            },
+            "citations": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document": {
+                    "pattern": "^[0-9]{4}-[0-9]{5}$",
+                    "type": "string"
+                  },
+                  "locator": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "paragraph": {
+                    "type": "string"
+                  },
+                  "supports": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document",
+                  "paragraph",
+                  "locator",
+                  "supports"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "component_cycles_remaining": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "continuing_obligations": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "paragraph": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "paragraph",
+                  "text"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "latest_engine_flight_cycles": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "matched_parts": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "component_name": {
+                    "type": "string"
+                  },
+                  "installed_part_number": {
+                    "type": "string"
+                  },
+                  "installed_serial_number": {
+                    "type": "string"
+                  },
+                  "listed_part_number": {
+                    "type": "string"
+                  },
+                  "listed_serial_number": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "component_name",
+                  "installed_part_number",
+                  "installed_serial_number",
+                  "listed_part_number",
+                  "listed_serial_number"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "missing_facts": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "record_path": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "record_path",
+                  "description"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "notes": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "timing": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "applicability",
+            "action_status",
+            "authority_state",
+            "summary",
+            "timing",
+            "latest_engine_flight_cycles",
+            "component_cycles_remaining",
+            "alternative_readings",
+            "missing_facts",
+            "continuing_obligations",
+            "matched_parts",
+            "citations",
+            "notes"
+          ],
+          "type": "object"
+        },
+        "type": "json_schema"
+      }
+    },
+    "system": [
+      {
+        "text": "You screen one aircraft engine against one FAA airworthiness directive (AD).\nYou are given the directive's Federal Register text (with any related\nproposal, correction, or superseding document published by the question\ndate) and the engine's maintenance record. Answer from the text and the record\nonly.\n\nThis is a screening aid, not a compliance determination. Never state or imply\nthat an engine or part is compliant or noncompliant, safe or airworthy, or\napproved for return to service, and never word an answer as the operator's AD\nstatus record.\n\n## Supported scope\n\nThis screen supports only these IAE V2500 engine models:\nV2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, V2533-A5.\nFor any other engine model, answer applicability \"outside_supported_scope\"\nwith action_status \"none\", and make no applicability determination.\n\n## Outcome fields\n\napplicability:\n- \"applies\": the engine is within the directive's applicability.\n- \"does_not_apply\": supplied facts place the engine outside the directive.\n- \"unknown\": a fact needed to decide applicability is missing.\n- \"outside_supported_scope\": not a supported model; no determination.\n\naction_status (when the directive applies or applicability is unknown;\notherwise \"none\"):\n- \"action_required\": supplied facts trigger a required action; say when.\n- \"action_required_on_event\": action is required only when a future event\n  occurs (for example a shop visit that exposes a part); no deadline otherwise.\n- \"no_action_triggered\": no required action is triggered now; continuing\n  obligations still bind.\n- \"needs_review\": a required fact or interpretation is missing; name it.\n\n\"action_required\" may still list missing facts when part of the obligation is\nestablished and another part depends on a missing fact.\n\nauthority_state, on the question date: \"proposed\" (a proposed rule),\n\"published_not_yet_effective\" (a final rule before its effective date), or\n\"in_force\". Only an in-force directive can require action.\n\n## Engine record conventions\n\n- \"unknown\" means the value is not known. A missing or unknown record is\n  never evidence that a part is absent or unaffected.\n- ad_records and amoc_claims hold what the operator asserts: its recorded AD\n  status and any alternative method of compliance it claims. They are claims\n  to check, never evidence that settles an outcome.\n- An event's qualifies_as_engine_shop_visit states, per AD, whether the\n  operator's record says that event meets that AD's definition of an engine\n  shop visit.\n- Identifiers starting with \"SYN-\" are synthetic.\n\n## Answer fields\n\n- summary: one or two sentences stating the outcome and why.\n- timing: when the required action is due, in words, or null.\n- latest_engine_flight_cycles: the engine flight-cycle counter by which the\n  required action must be done, when it can be computed; otherwise null.\n- component_cycles_remaining: cycles remaining before the affected part\n  reaches its listed limit (negative if already past), when it can be\n  computed; otherwise null. With several affected parts, give the smallest.\n- alternative_readings: if the text can be read more than one way and the\n  readings give different deadlines, list each reading; otherwise empty.\n- missing_facts: each fact needed but missing or unconfirmed, as an object.\n  record_path is the path of the engine-record field that would settle it,\n  exactly in one of the forms below and with no other text, or null when the\n  fact is not part of the engine record. description says in words what is\n  missing and why it matters. Path forms: <section>.<field> (sections are engine, operator,\n  and so on), <section>.<field>[<date>] for a dated reading,\n  installed_components[<component_name>] for a missing component record,\n  installed_components[<component_name>].<field>,\n  installed_components[<component_name>].<field>[<date>], and\n  <list>[<AD number>] for an item in a record list that relates to a\n  directive. A fact that is not part of the engine record (for example the\n  content of a document or image you were not given) has record_path null.\n- continuing_obligations: obligations that keep binding while the directive\n  applies, each with its paragraph.\n- matched_parts: each installed part you matched to a part the directive\n  lists, with both the installed and the listed identifiers.\n  listed_serial_number is null when the directive lists the part number only.\n- citations: every document and paragraph your answer relies on, including\n  for answers that clear an engine. document is the Federal Register\n  document number only, exactly as shown after \"Federal Register document\"\n  (for example 2025-18469), with no AD number or other text. paragraph is the\n  paragraph label as written, such as \"(c)\", \"(g)\", or \"(i)(2)\"; use\n  \"preamble\" for text before the regulatory paragraphs. Give a locator, such\n  as a table row, when it helps; otherwise null.\n- notes: anything a reviewer should know.\n",
+        "type": "text"
+      },
+      {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "text": "===== Federal Register document 2021-11960 =====\nType: Rule\nPublished: 2021-06-08\nEffective date (from the Federal Register record): 2021-07-13\n\nDEPARTMENT OF TRANSPORTATION\n\nFederal Aviation Administration\n\n14 CFR Part 39\n\n[Docket No. FAA-2021-0129; Project Identifier AD-2020-01597-E; Amendment 39-21577; AD 2021-11-15]\n\nRIN 2120-AA64\n\nAirworthiness Directives; International Aero Engines AG Turbofan Engines\n\nAGENCY:\n\nFederal Aviation Administration (FAA), DOT.\n\nACTION: Final rule.\n\nSUMMARY:\n\nThe FAA is adopting a new airworthiness directive (AD) for certain International Aero Engines AG (IAE) V2500 model turbofan engines. This AD was prompted by an analysis performed by the manufacturer after an event involving an uncontained failure of a high-pressure turbine (HPT) 1st-stage disk that resulted in high-energy debris penetrating the engine cowling. This AD requires the performance of an ultrasonic inspection (USI) of the HPT 1st-stage disk and HPT 2nd-stage disk and, depending on the results of the inspections, replacement of the HPT 1st-stage disk or HPT 2nd-stage disk. The FAA is issuing this AD to address the unsafe condition on these products.\n\nDATES:\n\nThis AD is effective July 13, 2021.\n\nThe Director of the Federal Register approved the incorporation by reference of certain publications listed in this AD as of July 13, 2021.\n\nADDRESSES:\n\nFor service information identified in this final rule, contact International Aero Engines AG, 400 Main Street, East Hartford, CT 06118; phone: (800) 565-0140; email: help24@pw.utc.com; website: http://fleetcare.pw.utc.com. You may view this service information at the FAA, Airworthiness Products Section, Operational Safety Branch, 1200 District Avenue, Burlington, MA 01803. For information on the availability of this material at the FAA, call (781) 238-7759. It is also available at https://www.regulations.gov by searching for and locating Docket No. FAA-2021-0129.\n\nExamining the AD Docket\n\nYou may examine the AD docket at https://www.regulations.gov by searching for and locating Docket No. FAA-2021-0129; or in person at Docket Operations between 9 a.m. and 5 p.m., Monday through Friday, except Federal holidays. The AD docket contains this final rule, any comments received, and other information. The address for Docket Operations is U.S. Department of Transportation, Docket Operations, M-30, West Building Ground Floor, Room W12-140, 1200 New Jersey Avenue SE, Washington, DC 20590.\n\nFOR FURTHER INFORMATION CONTACT:\n\nNicholas Paine, Aviation Safety Engineer, ECO Branch, FAA, 1200 District Avenue, Burlington, MA 01803; phone: (781) 238-7742; fax: (781) 238-7199; email: nicholas.j.paine@faa.gov.\n\nSUPPLEMENTARY INFORMATION:\n\nBackground\n\nThe FAA issued a notice of proposed rulemaking (NPRM) to amend 14 CFR part 39 by adding an AD that would apply to certain IAE V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, and V2533-A5 model turbofan engines. The NPRM published in the Federal Register on March 8, 2021 (86 FR 13225). The NPRM was prompted by an event involving an uncontained failure of an HPT 1st-stage disk that resulted in high-energy debris penetrating the engine cowling. On March 18, 2020, an Airbus Model A321-231 airplane, powered by IAE V2533-A5 model turbofan engines, experienced an uncontained HPT 1st-stage disk failure that resulted in an aborted takeoff. The uncontained failure of the HPT 1st-stage disk resulted in high-energy debris penetrating the engine cowling. The FAA published Emergency AD 2020-07-51 on March 21, 2020 (followed by publication in the Federal Register on April 13, 2020, as a Final Rule, Request for Comments (85 FR 20402)) and AD 2021-01-03 on January 6, 2021 (86 FR 458), to remove from service HPT 1st-stage and HPT 2nd-stage disks identified as having the highest risk of failure. Based on the root cause analysis performed since that event, the manufacturer identified a population of HPT 1st-stage disks and HPT 2nd-stage disks that require inspection and possible removal from service. In the NPRM, the FAA proposed to require the performance of a USI of the HPT 1st-stage disk and HPT 2nd-stage disk and, depending on the results of the inspections, replacement of the HPT 1st-stage disk or HPT 2nd-stage disk. The FAA is issuing this AD to address the unsafe condition on these products.\n\nDiscussion of Final Airworthiness Directive\n\nComments\n\nThe FAA received comments from three commenters. The commenters were Cathay Pacific Airways (Cathay), IAE, and an individual commenter. One commenter requested clarification on the compliance time for inspection. Another commenter requested clarification regarding additional inspections that are needed when parts are removed for piece part inspections. One commenter requested clarification regarding the definition of a part eligible for installation as well as the installation prohibition. An individual commenter supported the proposal without change. The following presents the comments received on the NPRM and the FAA's response to each comment.\n\nRequest To Clarify USI Interval for Different Thrust Ratings\n\nCathay asked for clarification of the interval for performing the USI for any HPT 1st-stage disk or HPT 2nd-stage disk that has operated in different thrust ratings, such as from 27K to 33K, or 33K to 27K. Cathay reasoned that during the IAE V2500 Customer Council Call in December 2020, IAE used thrust ratings to indicate when to perform the inspections of the HPT 1st-stage disk or HPT 2nd-stage disk.\n\nThe FAA reviewed IAE Non-Modification Service Bulletin (NMSB) No. V2500-ENG-72-0713, Revision 1, dated January 26, 2021 (IAE NMSB V2500-ENG-72-0713, Revision 1). This revised NMSB was published after the IAE V2500 Customer Council Call in December 2020. The revised NMSB removed references to thrust ratings in the Compliance section. Therefore, this AD does not distinguish inspection intervals based on thrust ratings.\n\nRequest To Clarify Piece-Part Opportunity Inspection Requirements\n\nIAE requested clarification on whether an HPT 1st-stage disk and HPT 2nd-stage disk with fewer than 100 flight cycles (FCs) since the last piece-part fluorescent penetrant inspection (FPI) need to undergo another FPI if the same parts were removed for the piece-part opportunity USI in accordance with IAE NMSB V2500-ENG-72-0713, Revision 1. IAE reasoned that the V2500 Maintenance Scheduling section of the Airworthiness Limitations Section (ALS) requires an FPI at each piece-part opportunity.\n\nThe FAA clarifies that when an HPT 1st-stage disk or an HPT 2nd-stage disk is removed for piece-part inspection, the ALS of the manufacturer's Instructions for Continued Airworthiness may require additional inspections not required by this AD. The FAA refers the commenter to the ALS, which indicates that additional inspections are not required unless the part has more than 100 FCs since the last piece-part opportunity inspection, is damaged, or is the cause for the removal of the engine. Engine removal for the purposes of complying with this AD is not “cause” for engine removal as stated in the ALS. The FAA added a note to paragraph (g)(1) of this AD to clarify piece-part inspection requirements.\n\nRequest To Define Part Eligible for Installation\n\nCathay requested that the FAA define “part eligible for installation” in this AD.\n\nThe FAA agrees and added a definition of a “part eligible for installation” in this AD.\n\nRequest To Clarify Prohibition on Installation of Parts\n\nCathay asked if there is a prohibition on the installation of parts in this AD.\n\nThe FAA notes that if a HPT 1st-stage disk or HPT 2nd-stage disk does not pass the inspection required by paragraphs (g)(1) through (6) of this AD, the HPT 1st-stage disk or 2nd-stage disk, as applicable, must be removed from service. Any HPT 1st-stage disk or 2nd-stage disk that passes the inspection is eligible for installation. As noted in an earlier comment response, the FAA added the definition of a “part eligible for installation” in this AD, which includes this clarification.\n\nSupport for the AD\n\nAn individual commenter expressed support for the AD as written.\n\nConclusion\n\nThe FAA reviewed the relevant data, considered any comments received, and determined that air safety requires adopting this AD as proposed. Accordingly, the FAA is issuing this AD to address the unsafe condition on these products. Except for minor editorial changes and any other changes described previously, this AD is adopted as proposed in the NPRM. None of the changes will increase the economic burden on any operator.\n\nRelated Service Information Under 1 CFR Part 51\n\nThe FAA reviewed IAE NMSB No. V2500-ENG-72-0713, Revision 1, dated January 26, 2021. The NMSB identifies the affected HPT 1st-stage disks and HPT 2nd-stage disks on IAE V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 model turbofan engines and specifies procedures for a USI of the HPT 1st-stage disk and HPT 2nd-stage disk.\n\nThe FAA also reviewed IAE NMSB No. V2500-E5-72-0015, dated December 15, 2020. The NMSB identifies the affected HPT 1st-stage disks and HPT 2nd-stage disks on IAE V2531-E5 model turbofan engines and specifies procedures for a USI of the HPT 1st-stage disk and HPT 2nd-stage disk.\n\nThis service information is reasonably available because the interested parties have access to it through their normal course of business or by the means identified in ADDRESSES .\n\nCosts of Compliance\n\nThe FAA estimates that this AD affects 1,100 engines installed on airplanes of U.S. registry.\n\nThe FAA estimates the following costs to comply with this AD:\n\nEstimated Costs\nAction | Labor cost | Parts cost | Cost per product | Cost on U.S. operators\nUSI the HPT 1st-stage disk and HPT 2nd-stage disk | 20 work-hours × $85 per hour = $1,700 | $0 | $1,700 | $1,870,000\n\nThe FAA estimates the following costs to do any necessary replacement that would be required based on the results of the inspection. The agency has no way of determining the number of aircraft that might need this replacement:\n\nOn-Condition Costs\nAction | Labor cost | Parts cost | Cost per product\nReplace the HPT 1st-stage disk or HPT 2nd-stage disk | 0 work-hours × $85 per hour = $0 | $300,000 | $300,000\n\nThe FAA has included all known costs in its cost estimate. According to the manufacturer, however, some of the costs of this AD may be covered under warranty, thereby reducing the cost impact on affected individuals.\n\nAuthority for This Rulemaking\n\nTitle 49 of the United States Code specifies the FAA's authority to issue rules on aviation safety. Subtitle I, section 106, describes the authority of the FAA Administrator. Subtitle VII: Aviation Programs, describes in more detail the scope of the Agency's authority.\n\nThe FAA is issuing this rulemaking under the authority described in Subtitle VII, Part A, Subpart III, Section 44701: General requirements. Under that section, Congress charges the FAA with promoting safe flight of civil aircraft in air commerce by prescribing regulations for practices, methods, and procedures the Administrator finds necessary for safety in air commerce. This regulation is within the scope of that authority because it addresses an unsafe condition that is likely to exist or develop on products identified in this rulemaking action.\n\nRegulatory Findings\n\nThis AD will not have federalism implications under Executive Order 13132. This AD will not have a substantial direct effect on the States, on the relationship between the national government and the States, or on the distribution of power and responsibilities among the various levels of government.\n\nFor the reasons discussed above, I certify that this AD:\n\n(1) Is not a “significant regulatory action” under Executive Order 12866,\n\n(2) Will not affect intrastate aviation in Alaska, and\n\n(3) Will not have a significant economic impact, positive or negative, on a substantial number of small entities under the criteria of the Regulatory Flexibility Act.\n\nList of Subjects in 14 CFR Part 39\n\nAir transportation, Aircraft, Aviation safety, Incorporation by reference, Safety.\n\nThe Amendment\n\nAccordingly, under the authority delegated to me by the Administrator, the FAA amends 14 CFR part 39 as follows:\n\nPART 39—AIRWORTHINESS DIRECTIVES\n\n1. The authority citation for part 39 continues to read as follows:\n\nAuthority:\n\n49 U.S.C. 106(g), 40113, 44701.\n\n§ 39.13\n\n[Amended]\n\n2. The FAA amends § 39.13 by adding the following new airworthiness directive:\n\n2021-11-15 International Aero Engines AG: Amendment 39-21577; Docket No. FAA-2021-0129; Project Identifier AD-2020-01597-E.\n\n(a) Effective Date\n\nThis airworthiness directive (AD) is effective July 13, 2021.\n\n(b) Affected ADs\n\nNone.\n\n(c) Applicability\n\nThis AD applies to International Aero Engines AG (IAE) V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, and V2533-A5 model turbofan engines with an installed:\n\n(1) High-pressure turbine (HPT) 1st-stage disk, part number (P/N) 2A5001, with a serial number (S/N) listed in Appendix A, Table 1, of IAE Non-Modification Service Bulletin (NMSB) No. V2500-ENG-72-0713, Revision 1, dated January 26, 2021 (IAE NMSB V2500-ENG-72-0713, Revision 1) or IAE NMSB No. V2500-E5-72-0015, dated December 15, 2020 (IAE NMSB V2500-E5-72-0015); and/or\n\n(2) HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in Appendix A, Table 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, or IAE NMSB V2500-E5-72-0015.\n\n(d) Subject\n\nJoint Aircraft System Component (JASC) Code 7250, Turbine Section.\n\n(e) Unsafe Condition\n\nThis AD was prompted by an analysis performed by the manufacturer after an event involving an uncontained failure of a HPT 1st-stage disk that resulted in high-energy debris penetrating the engine cowling. The FAA is issuing this AD to prevent failure of the HPT 1st-stage disk and HPT 2nd-stage disk. The unsafe condition, if not addressed, could result in uncontained HPT disk failure, damage to the engine, damage to the airplane, and loss of the airplane.\n\n(f) Compliance\n\nComply with this AD within the compliance times specified, unless already done.\n\n(g) Required Actions\n\n(1) For IAE V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 model turbofan engines with an HPT 1st-stage disk, P/N 2A5001, with an S/N listed in Appendix A, Table 1, of IAE NMSB V2500-ENG-72-0713, Revision 1, at the next engine shop visit after the effective date of this AD or before the HPT 1st-stage disk has accumulated 3,200 flight cycles (FCs) since the effective date of this AD, whichever occurs first, perform an ultrasonic inspection (USI) of the HPT 1st-stage disk using the Accomplishment Instructions, paragraph 6, of IAE NMSB V2500-ENG-72-0713, Revision 1.\n\nNote 1 to paragraph (g)(1): The USI required by paragraphs (g)(1) through (6) of this AD requires the HPT 1st-stage disk and HPT 2nd-stage disks to be removed from the engine allowing piece-part opportunity inspections. Per the Airworthiness Limitations Section of the manufacturer's Instructions for Continued Airworthiness (ICAs), the additional inspections are not required unless the part has more than 100 FCs since the last piece-part opportunity inspection, is damaged, or is the cause for the removal of the engine. Engine removal for the purposes of complying with this AD is not “cause” for removal as stated in the ALS.\n\n(2) For IAE V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 model turbofan engines with an HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in Appendix A, Table 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, at the next engine shop visit after the effective date of this AD or before the HPT 2nd-stage disk has accumulated 3,200 FCs since the effective date of this AD, whichever occurs first, perform a USI of the HPT 2nd-stage disk using the Accomplishment Instructions, paragraph 7, of IAE NMSB V2500-ENG-72-0713, Revision 1.\n\n(3) For IAE V2522-A5, V2524-A5, V2525-D5, and V2527-A5 model turbofan engines with an HPT 1st-stage disk, P/N 2A5001, with an S/N listed in Appendix A, Table 1, of IAE NMSB V2500-ENG-72-0713, Revision 1, at the next HPT rotor and stator assembly (HPT module) removal or before the HPT 1st-stage disk has accumulated 6,700 FCs since the effective date of this AD, whichever occurs first, perform a USI of the HPT 1st-stage disk using the Accomplishment Instructions, paragraph 6, of IAE NMSB V2500-ENG-72-0713, Revision 1.\n\n(4) For IAE V2522-A5, V2524-A5, V2525-D5, and V2527-A5 model turbofan engines with an HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in Appendix A, Table 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, at the next HPT module removal or before the HPT 2nd-stage disk has accumulated 6,700 FCs since the effective date of this AD, whichever occurs first, perform a USI of the HPT 2nd-stage disk using the Accomplishment Instructions, paragraph 7, of IAE NMSB V2500-ENG-72-0713, Revision 1.\n\n(5) For IAE V2531-E5 model turbofan engines with an HPT 1st-stage disk, P/N 2A5001, with an S/N listed in Appendix A, Table 1, of IAE NMSB V2500-E5-72-0015, at the next engine shop visit or before the HPT 1st-stage disk has accumulated 3,200 FCs since the effective date of this AD, whichever occurs first, perform a USI of the HPT 1st-stage disk using the Accomplishment Instructions, paragraph 6, of IAE NMSB V2500-E5-72-0015.\n\n(6) For IAE V2531-E5 model turbofan engines with an HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in Appendix A, Table 2, of IAE NMSB V2500-E5-72-0015, at the next engine shop visit or before the HPT 2nd-stage disk has accumulated 3,200 FCs since the effective date of this AD, whichever occurs first, perform a USI of the HPT 2nd-stage disk using the Accomplishment Instructions, paragraph 7, of IAE NMSB V2500-E5-72-0015.\n\n(7) If, during the USI required by paragraphs (g)(1) through (6) of this AD, a HPT 1st-stage disk or HPT 2nd-stage disk does not pass the inspection as specified in the Accomplishment Instructions, paragraph 8., of IAE NMSB V2500-ENG-72-0713, Revision 1, or IAE NMSB V2500-E5-72-0015, as applicable, before further flight, remove the HPT 1st-stage disk or 2nd-stage disk, as applicable, from service and replace with a part eligible for installation.\n\n(h) Definition\n\n(1) For the purpose of this AD, an “engine shop visit” is the induction of an engine into the shop for maintenance involving the separation of pairs of major mating engine flanges, H-P, except for the following situations, which do not constitute an engine shop visit.\n\n(i) Separation of engine flanges solely for the purposes of transportation without subsequent engine maintenance.\n\n(ii) Engine removal for the purpose of performing field maintenance activities at a maintenance facility in lieu of performing them on-wing.\n\n(2) For the purpose for this AD, a “part eligible for installation” is:\n\n(i) An HPT 1st-stage disk or HPT 2nd-stage disk listed in Appendix A, Tables 1 and 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, or Appendix A, Tables 1 and 2, of IAE NMSB V2500-E5-72-0015, that passed the USI required by paragraphs (g)(1) through (6) of this AD; or\n\n(ii) An HPT 1st-stage disk or HPT 2nd-stage disk that is not listed in Appendix A, Tables 1 and 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, or Appendix A, Tables 1 and 2, of IAE NMSB V2500-E5-72-0015.\n\n(i) Alternative Methods of Compliance (AMOCs)\n\n(1) The Manager, ECO Branch, FAA, has the authority to approve AMOCs for this AD, if requested using the procedures found in 14 CFR 39.19. In accordance with 14 CFR 39.19, send your request to your principal inspector or local Flight Standards District Office, as appropriate. If sending information directly to the manager of the certification office, send it to the attention of the person identified in Related Information. You may email your request to: ANE-AD-AMOC@faa.gov.\n\n(2) Before using any approved AMOC, notify your appropriate principal inspector, or lacking a principal inspector, the manager of the local flight standards district office/certificate holding district office.\n\n(j) Related Information\n\nFor more information about this AD, contact Nicholas Paine, Aviation Safety Engineer, ECO Branch, FAA, 1200 District Avenue, Burlington, MA 01803; phone: (781) 238-7742; fax: (781) 238-7199; email: nicholas.j.paine@faa.gov.\n\n(k) Material Incorporated by Reference\n\n(1) The Director of the Federal Register approved the incorporation by reference (IBR) of the service information listed in this paragraph under 5 U.S.C. 552(a) and 1 CFR part 51.\n\n(2) You must use this service information as applicable to do the actions required by this AD, unless the AD specifies otherwise.\n\n(i) International Aero Engines (IAE) Non-Modification Service Bulletin (NMSB) No. V2500-ENG-72-0713, Revision 1, dated January 26, 2021.\n\n(ii) IAE NMSB No. V2500-E5-72-0015, dated December 15, 2020.\n\n(3) For IAE service information identified in this AD, contact International Aero Engines AG, 400 Main Street, East Hartford, CT 06118; phone: (800) 565-0140; email: help24@pw.utc.com; website: http://fleetcare.pw.utc.com.\n\n(4) You may view this service information at FAA, Airworthiness Products Section, Operational Safety Branch, 1200 District Avenue, Burlington, MA 01803. For information on the availability of this material at the FAA, call (781) 238-7759.\n\n(5) You may view this service information that is incorporated by reference at the National Archives and Records Administration (NARA). For information on the availability of this material at NARA, email: fedreg.legal@nara.gov, or go to: https://www.archives.gov/federal-register/cfr/ibr-locations.html.\n\nIssued on May 19, 2021.\n\nLance T. Gant,\n\nDirector, Compliance & Airworthiness Division, Aircraft Certification Service.\n\n[FR Doc. 2021-11960 Filed 6-7-21; 8:45 am]\n\n===== Federal Register document 2022-02574 =====\nType: Rule\nPublished: 2022-02-08\nEffective date (from the Federal Register record): 2022-03-15\n\nDEPARTMENT OF TRANSPORTATION\n\nFederal Aviation Administration\n\n14 CFR Part 39\n\n[Docket No. FAA-2021-0835; Project Identifier AD-2021-00971-E; Amendment 39-21906; AD 2022-02-09]\n\nRIN 2120-AA64\n\nAirworthiness Directives; International Aero Engines AG Turbofan Engines\n\nAGENCY:\n\nFederal Aviation Administration (FAA), DOT.\n\nACTION: Final rule.\n\nSUMMARY:\n\nThe FAA is superseding Airworthiness Directive (AD) 2021-11-15 for certain International Aero Engines AG (IAE) V2500 model turbofan engines. AD 2021-11-15 required performance of an ultrasonic inspection (USI) of the high-pressure turbine (HPT) 1st-stage disk and HPT 2nd-stage disk and, depending on the results of the inspections, replacement of the HPT 1st-stage disk or HPT 2nd-stage disk. Since the FAA issued AD 2021-11-15, the FAA determined the need to clarify the compliance time for inspection of any HPT 1st-stage disk or HPT 2nd-stage disk that is installed on a low-thrust model engine but had been previously operated on a high-thrust model engine. This AD requires performance of a USI of the HPT 1st-stage disk and HPT 2nd-stage disk and, depending on the results of the inspections, replacement of the HPT 1st-stage disk or HPT 2nd-stage disk. The FAA is issuing this AD to address the unsafe condition on these products.\n\nDATES:\n\nThis AD is effective March 15, 2022.\n\nThe Director of the Federal Register approved the incorporation by reference of a certain publication listed in this AD as of March 15, 2022.\n\nThe Director of the Federal Register approved the incorporation by reference of a certain other publication listed in this AD as of July 13, 2021 (86 FR 30380, June 8, 2021).\n\nADDRESSES:\n\nFor service information identified in this final rule, contact International Aero Engines AG, 400 Main Street, East Hartford, CT 06118; phone: (800) 565-0140; email: help24@prattwhitney.com ; website: https://connect.prattwhitney.com. You may view this referenced service information at the FAA, Airworthiness Products Section, Operational Safety Branch, 1200 District Avenue, Burlington, MA 01803. For information on the availability of this material at the FAA, call (817) 222-5110. It is also available at https://www.regulations.gov by searching for and locating Docket No. FAA-2021-0835.\n\nExamining the AD Docket\n\nYou may examine the AD docket at https://www.regulations.gov by searching for and locating Docket No. FAA-2021-0835; or in person at Docket Operations between 9 a.m. and 5 p.m., Monday through Friday, except Federal holidays. The AD docket contains this final rule, any comments received, and other information. The address for Docket Operations is U.S. Department of Transportation, Docket Operations, M-30, West Building Ground Floor, Room W12-140, 1200 New Jersey Avenue SE, Washington, DC 20590.\n\nFOR FURTHER INFORMATION CONTACT:\n\nAlberto Hernandez, Aviation Safety Engineer, ECO Branch, FAA, 1200 District Avenue, Burlington, MA 01803; phone: (781) 238-7329; fax: (781) 238-7199; email: Alberto.J.Hernandez@faa.gov .\n\nSUPPLEMENTARY INFORMATION:\n\nBackground\n\nThe FAA issued a notice of proposed rulemaking (NPRM) to amend 14 CFR part 39 to supersede AD 2021-11-15, Amendment 39-21577 (86 FR 30380, June 8, 2021), (AD 2021-11-15). AD 2021-11-15 applied to all IAE V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, and V2533-A5 model turbofan engines with a certain HPT 1st-stage disk or HPT 2nd stage disk installed. The NPRM published in the Federal Register on October 28, 2021 (86 FR 59658). The NPRM was prompted by the FAA determining the need to clarify the compliance time for inspection of any HPT 1st-stage disk or HPT 2nd-stage disk that is installed on a V2500 low-thrust model engine but that had been previously operated on a V2500 high-thrust model engine. The manufacturer categorizes V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 model turbofan engines as high-thrust model engines and V2522-A5, V2524-A5, V2525-D5, and V2527-A model turbofan engines as low-thrust model engines. The FAA determined that any HPT 1st-stage disk and HPT 2nd-stage disk that was operated on a high-thrust model engine must follow shortened compliance thresholds. In the NPRM, the FAA proposed to require the performance of a USI of the HPT 1st-stage disk and HPT 2nd-stage disk and, depending on the results of the inspections, replacement of the HPT 1st-stage disk or HPT 2nd-stage disk.\n\nDiscussion of Final Airworthiness Directive\n\nComments\n\nThe FAA received comments from two commenters. Commenters included Air Line Pilots Association, International and United Airlines Engineering. All commenters supported the NPRM without change.\n\nConclusion\n\nThe FAA reviewed the relevant data, considered the comments received, and determined that air safety requires adopting the AD as proposed. Accordingly, the FAA is issuing this AD to address the unsafe condition on these products. Except for minor editorial changes, this AD is adopted as proposed in the NPRM.\n\nRelated Service Information Under 1 CFR Part 51\n\nThe FAA reviewed IAE Non-Modification Service Bulletin (NMSB) No. V2500-ENG-72-0713, Revision 1, dated January 26, 2021. This NMSB identifies the affected HPT 1st-stage disks and HPT 2nd-stage disks on IAE V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 model turbofan engines and specifies procedures for a USI of the HPT 1st-stage disk and HPT 2nd-stage disk. The Director of the Federal Register approved IAE NMSB V2500-ENG-72-0713, Revision 1, dated January 26, 2021 for incorporation by reference as of July 13, 2021 (86 FR 30380, June 8, 2021).\n\nThe FAA also reviewed IAE NMSB No. V2500-E5-72-0015, Revision 1, dated August 10, 2021. This NMSB identifies the affected HPT 1st-stage disks and HPT 2nd-stage disks on IAE V2531-E5 model turbofan engines and specifies procedures for a USI of the HPT 1st-stage disk and HPT 2nd-stage disk.\n\nThis service information is reasonably available because the interested parties have access to it through their normal course of business or by the means identified in ADDRESSES .\n\nCosts of Compliance\n\nThe FAA estimates that this AD affects 1,100 engines installed on airplanes of U.S. registry.\n\nThe FAA estimates the following costs to comply with this AD:\n\nEstimated Costs\nAction | Labor cost | Parts cost | Cost per product | Cost on U.S. operators\nUSI the HPT 1st-stage disk and HPT 2nd-stage disk | 20 work-hours × $85 per hour = $1,700 | $0 | $1,700 | $1,870,000\n\nThe FAA estimates the following costs to do any necessary replacement that is required based on the results of the inspection. The agency has no way of determining the number of aircraft that might need this replacement:\n\nOn-Condition Costs\nAction | Labor cost | Parts cost | Cost per product\nReplace the HPT 1st-stage disk or HPT 2nd-stage disk | 0 work-hours × $85 per hour = $0 | $300,000 | $300,000\n\nThe FAA has included all known costs in its cost estimate. According to the manufacturer, however, some of the costs of this AD may be covered under warranty, thereby reducing the cost impact on affected individuals.\n\nAuthority for This Rulemaking\n\nTitle 49 of the United States Code specifies the FAA's authority to issue rules on aviation safety. Subtitle I, Section 106, describes the authority of the FAA Administrator. Subtitle VII, Aviation Programs, describes in more detail the scope of the Agency's authority.\n\nThe FAA is issuing this rulemaking under the authority described in Subtitle VII, Part A, Subpart III, Section 44701, General requirements. Under that section, Congress charges the FAA with promoting safe flight of civil aircraft in air commerce by prescribing regulations for practices, methods, and procedures the Administrator finds necessary for safety in air commerce. This regulation is within the scope of that authority because it addresses an unsafe condition that is likely to exist or develop on products identified in this rulemaking action.\n\nRegulatory Findings\n\nThis AD will not have federalism implications under Executive Order 13132. This AD will not have a substantial direct effect on the States, on the relationship between the national government and the States, or on the distribution of power and responsibilities among the various levels of government.\n\nFor the reasons discussed above, I certify that this AD:\n\n(1) Is not a “significant regulatory action” under Executive Order 12866,\n\n(2) Will not affect intrastate aviation in Alaska, and\n\n(3) Will not have a significant economic impact, positive or negative, on a substantial number of small entities under the criteria of the Regulatory Flexibility Act.\n\nList of Subjects in 14 CFR Part 39\n\nAir transportation, Aircraft, Aviation safety, Incorporation by reference, Safety.\n\nThe Amendment\n\nAccordingly, under the authority delegated to me by the Administrator, the FAA amends 14 CFR part 39 as follows:\n\nPART 39—AIRWORTHINESS DIRECTIVES\n\n1. The authority citation for part 39 continues to read as follows:\n\nAuthority:\n\n49 U.S.C. 106(g), 40113, 44701.\n\n§ 39.13\n\n[Amended]\n\n2. The FAA amends § 39.13 by:\n\na. Removing Airworthiness Directive 2021-11-15, Amendment 39-21577 (86 FR 30380, June 8, 2021); and\n\nb. Adding the following new airworthiness directive:\n\n2022-02-09 International Aero Engines AG: Amendment 39-21906; Docket No. FAA-2021-0835; Project Identifier AD-2021-00971-E.\n\n(a) Effective Date\n\nThis airworthiness directive (AD) is effective March 15, 2022.\n\n(b) Affected ADs\n\nThis AD replaces AD 2021-11-15, Amendment 39-21577 (86 FR 30380, June 8, 2021) (AD 2021-11-15).\n\n(c) Applicability\n\nThis AD applies to International Aero Engines AG (IAE) V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, and V2533-A5 model turbofan engines with an installed:\n\n(1) High-pressure turbine (HPT) 1st-stage disk, part number (P/N) 2A5001, with a serial number (S/N) listed in Appendix A, Table 1, of IAE Non-Modification Service Bulletin (NMSB) No. V2500-ENG-72-0713, Revision 1, dated January 26, 2021 (IAE NMSB V2500-ENG-72-0713, Revision 1) or IAE NMSB No. V2500-E5-72-0015, Revision 1, dated August 10, 2021 (IAE NMSB V2500-E5-72-0015, Revision 1); or\n\n(2) HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in Appendix A, Table 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, or IAE NMSB V2500-E5-72-0015, Revision 1.\n\n(d) Subject\n\nJoint Aircraft System Component (JASC) Code 7250, Turbine Section.\n\n(e) Unsafe Condition\n\nThis AD was prompted by an analysis performed by the manufacturer after an event involving an uncontained failure of a HPT 1st-stage disk that resulted in high-energy debris penetrating the engine cowling. The FAA is issuing this AD to prevent failure of the HPT 1st-stage disk and HPT 2nd-stage disk. The unsafe condition, if not addressed, could result in uncontained HPT disk failure, damage to the engine, damage to the airplane, and loss of the airplane.\n\n(f) Compliance\n\nComply with this AD within the compliance times specified, unless already done.\n\n(g) Required Actions\n\n(1) For IAE V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 model turbofan engines with an HPT 1st-stage disk, P/N 2A5001, with an S/N listed in Appendix A, Table 1, of IAE NMSB V2500-ENG-72-0713, Revision 1, within the compliance time specified in Figure 1 to paragraph (g)(1) of this AD, or within 10 flight cycles (FCs) after the effective date of this AD, whichever occurs later, perform an ultrasonic inspection (USI) of the HPT 1st-stage disk using the Accomplishment Instructions, paragraph 6, of IAE NMSB V2500-ENG-72-0713, Revision 1.\n\n[Image ER08FE22.048 is not included in this text. It may contain a table or figure.]\n\nNote 1 to paragraph (g)(1): The USI required by paragraphs (g)(1) through (6) of this AD requires the HPT 1st-stage disk and HPT 2nd-stage disks to be removed from the engine allowing piece-part opportunity inspections. Per the Airworthiness Limitations Section of the manufacturer's Instructions for Continued Airworthiness, the additional inspections are not required unless the part has more than 100 FCs since the last piece-part opportunity inspection, is damaged, or is the cause for the removal of the engine. Engine removal for the purposes of complying with this AD is not “cause” for removal as stated in the Airworthiness Limitations Section.\n\n(2) For IAE V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 model turbofan engines with an HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in Appendix A, Table 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, within the compliance time specified in Figure 1 to paragraph (g)(1) of this AD, or within 10 FCs after the effective date of this AD, whichever occurs later, perform a USI of the HPT 2nd-stage disk using the Accomplishment Instructions, paragraph 7, of IAE NMSB V2500-ENG-72-0713, Revision 1.\n\n(3) For IAE V2522-A5, V2524-A5, V2525-D5, and V2527-A5 model turbofan engines with an HPT 1st-stage disk, P/N 2A5001, with an S/N listed in Appendix A, Table 1, of IAE NMSB V2500-ENG-72-0713, Revision 1, within the following compliance times, perform a USI of the HPT 1st-stage disk using the Accomplishment Instructions, paragraph 6, of IAE NMSB V2500-ENG-72-0713, Revision 1:\n\n(i) If the affected HPT 1st-stage disk has not operated at any time in an IAE V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, or V2533-A5 model turbofan engine, perform the inspection within the compliance time specified in Figure 2 to paragraph (g)(3)(i) of this AD, or within 10 FCs after the effective date of this AD, whichever occurs later; or\n\n[Image ER08FE22.049 is not included in this text. It may contain a table or figure.]\n\n(ii) If the affected HPT 1st-stage disk has operated at any time in an IAE V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, or V2533-A5 model turbofan engine, perform the inspection within the compliance time specified in Figure 1 to paragraph (g)(1) of this AD, or within 10 FCs after the effective date of this AD, whichever occurs later.\n\n(4) For IAE V2522-A5, V2524-A5, V2525-D5, and V2527-A5 model turbofan engines with an HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in Appendix A, Table 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, within the following compliance times, perform a USI of the HPT 2nd-stage disk using the Accomplishment Instructions, paragraph 7, of IAE NMSB V2500-ENG-72-0713, Revision 1:\n\n(i) If the affected HPT 2nd-stage disk has not operated at any time in an IAE V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, or V2533-A5 model turbofan engine, perform the inspection within the compliance time specified in Figure 2 to paragraph (g)(3)(i) of this AD, or within 10 FCs after the effective date of this AD, whichever occurs later; or\n\n(ii) If the affected HPT 2nd-stage disk has operated at any time in an IAE V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, or V2533-A5 model turbofan engine, perform the inspection within the compliance time specified in Figure 1 to paragraph (g)(1) of this AD, or within 10 FCs after the effective date of this AD, whichever occurs later.\n\n(5) For IAE V2531-E5 model turbofan engines with an HPT 1st-stage disk, P/N 2A5001, with an S/N listed in Appendix A, Table 1, of IAE NMSB V2500-E5-72-0015, Revision 1, within the compliance time specified in Figure 1 to paragraph (g)(1) of this AD, or within 10 FCs after the effective date of this AD, whichever occurs later, perform a USI of the HPT 1st-stage disk using the Accomplishment Instructions, paragraph 6, of IAE NMSB V2500-E5-72-0015, Revision 1.\n\n(6) For IAE V2531-E5 model turbofan engines with an HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in Appendix A, Table 2, of IAE NMSB V2500-E5-72-0015, Revision 1, within the compliance time specified in Figure 1 to paragraph (g)(1) of this AD, or within 10 FCs after the effective date of this AD, whichever occurs later, perform a USI of the HPT 2nd-stage disk using the Accomplishment Instructions, paragraph 7, of IAE NMSB V2500-E5-72-0015, Revision 1.\n\n(7) If, during the USI required by paragraphs (g)(1) through (6) of this AD, an HPT 1st-stage disk or HPT 2nd-stage disk does not pass the inspection as specified in the Accomplishment Instructions, paragraph 8, of IAE NMSB V2500-ENG-72-0713, Revision 1, or IAE NMSB V2500-E5-72-0015, Revision 1, as applicable, before further flight, remove the HPT 1st-stage disk or HPT 2nd-stage disk, as applicable, from service and replace with a part eligible for installation.\n\n(h) Definitions\n\n(1) For the purpose of this AD, an “engine shop visit” is the induction of an engine into the shop for maintenance involving the separation of pairs of major mating engine flanges, H-P, except for the following situations, which do not constitute an engine shop visit.\n\n(i) Separation of engine flanges solely for the purposes of transportation without subsequent engine maintenance.\n\n(ii) Engine removal for the purpose of performing field maintenance activities at a maintenance facility in lieu of performing them on-wing.\n\n(2) For the purpose of this AD, a “part eligible for installation” is:\n\n(i) An HPT 1st-stage disk or HPT 2nd-stage disk listed in Appendix A, Tables 1 and 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, or Appendix A, Tables 1 and 2, of IAE NMSB V2500-E5-72-0015, Revision 1, that passed the USI required by paragraphs (g)(1) through (6) of this AD; or\n\n(ii) An HPT 1st-stage disk or HPT 2nd-stage disk that is not listed in Appendix A, Tables 1 and 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, or Appendix A, Tables 1 and 2, of IAE NMSB V2500-E5-72-0015, Revision 1.\n\n(i) Credit for Previous Actions\n\nYou may take credit for the USI of the HPT 1st-stage disk and HPT 2nd-stage disk required by paragraphs (g)(5) and (6) of this AD and the replacement of the HPT 1st-stage disk and HPT 2nd-stage disk required by paragraph (g)(7) of this AD, if you performed these actions before the effective date of this AD in accordance with IAE NMSB No. V2500-E5-72-0015, original issue, dated December 15, 2020.\n\n(j) Alternative Methods of Compliance (AMOCs)\n\n(1) The Manager, ECO Branch, FAA, has the authority to approve AMOCs for this AD, if requested using the procedures found in 14 CFR 39.19. In accordance with 14 CFR 39.19, send your request to your principal inspector or local Flight Standards District Office, as appropriate. If sending information directly to the manager of the certification office, send it to the attention of the person identified in paragraph (k) of this AD. You may email your request to: ANE-AD-AMOC@faa.gov.\n\n(2) Before using any approved AMOC, notify your appropriate principal inspector, or lacking a principal inspector, the manager of the local flight standards district office/certificate holding district office.\n\n(k) Related Information\n\nFor more information about this AD, contact Alberto Hernandez, Aviation Safety Engineer, ECO Branch, FAA, 1200 District Avenue, Burlington, MA 01803; phone: (781) 238-7329; fax: (781) 238-7199; email: Alberto.J.Hernandez@faa.gov.\n\n(l) Material Incorporated by Reference\n\n(1) The Director of the Federal Register approved the incorporation by reference (IBR) of the service information listed in this paragraph under 5 U.S.C. 552(a) and 1 CFR part 51.\n\n(2) You must use this service information as applicable to do the actions required by this AD, unless the AD specifies otherwise.\n\n(3) The following service information was approved for IBR on March 15, 2022.\n\n(i) International Aero Engines AG (IAE) Non-Modification Service Bulletin (NMSB) No. V2500-E5-72-0015, Revision 1, dated August 10, 2021.\n\n(ii) [Reserved]\n\n(4) The following service information was approved for IBR on July 13, 2021 (86 FR 30380, June 8, 2021).\n\n(i) IAE NMSB No. V2500-ENG-72-0713, Revision 1, dated January 26, 2021.\n\n(ii) [Reserved]\n\n(5) For service information identified in this AD, contact International Aero Engines AG, 400 Main Street, East Hartford, CT 06118; phone: (800) 565-0140; email: help24@prattwhitney.com; website: https://connect.prattwhitney.com.\n\n(6) You may view this referenced service information at the FAA, Airworthiness Products Section, Operational Safety Branch, 1200 District Avenue, Burlington, MA 01803. For information on the availability of this material at the FAA, call (817) 222-5110.\n\n(7) You may view this service information that is incorporated by reference at the National Archives and Records Administration (NARA). For information on the availability of this material at NARA, email: fr.inspection@nara.gov, or go to: https://www.archives.gov/federal-register/cfr/ibr-locations.html.\n\nIssued on January 10, 2022.\n\nLance T. Gant,\n\nDirector, Compliance & Airworthiness Division, Aircraft Certification Service.\n\n[FR Doc. 2022-02574 Filed 2-7-22; 8:45 am]\n",
+        "type": "text"
+      }
+    ]
+  },
+  "response": {
+    "answer": {
+      "action_status": "needs_review",
+      "alternative_readings": [],
+      "applicability": "unknown",
+      "authority_state": "published_not_yet_effective",
+      "citations": [
+        {
+          "document": "2022-02574",
+          "locator": "DATES",
+          "paragraph": "preamble",
+          "supports": "Final rule effective March 15, 2022, after the 2022-03-01 question date, so not yet in force and unable to require action on that date."
+        },
+        {
+          "document": "2022-02574",
+          "locator": "Effective Date",
+          "paragraph": "(a)",
+          "supports": "Directive effective March 15, 2022."
+        },
+        {
+          "document": "2022-02574",
+          "locator": "Affected ADs",
+          "paragraph": "(b)",
+          "supports": "This AD replaces AD 2021-11-15."
+        },
+        {
+          "document": "2022-02574",
+          "locator": "The Amendment, item 2.a",
+          "paragraph": "preamble",
+          "supports": "Removes AD 2021-11-15 from section 39.13 effective with this amendment."
+        },
+        {
+          "document": "2022-02574",
+          "locator": "Background",
+          "paragraph": "preamble",
+          "supports": "V2533-A5 is a high-thrust model; V2522-A5, V2524-A5, V2525-D5 and V2527-A5 are low-thrust models."
+        },
+        {
+          "document": "2022-02574",
+          "locator": "(c)(1) and (c)(2)",
+          "paragraph": "(c)",
+          "supports": "V2533-A5 is an applicable model; applicability turns on disk P/N plus an S/N listed in Appendix A of the NMSBs."
+        },
+        {
+          "document": "2022-02574",
+          "locator": "Figure 1 to paragraph (g)(1), image not included in supplied text",
+          "paragraph": "(g)(1)",
+          "supports": "USI of HPT 1st-stage disk for V2533-A5; due time is the later of the Figure 1 time or 10 FCs after the effective date."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(g)(2)",
+          "supports": "USI of HPT 2nd-stage disk for V2533-A5 on the same timing as (g)(1)."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(g)(3)",
+          "supports": "Low-thrust timing in (g)(3) and (g)(4) does not govern V2533-A5."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(g)(7)",
+          "supports": "Removal from service and replacement if the USI does not pass."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "Note 1 to paragraph (g)(1)",
+          "supports": "Piece-part opportunity inspection limits under the ALS."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(f)",
+          "supports": "Compliance times govern."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(h)(1)",
+          "supports": "Definition of engine shop visit, relevant to any shop-visit-based timing."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(h)(2)",
+          "supports": "Definition of part eligible for installation used for replacement under (g)(7)."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(j)(2)",
+          "supports": "Notice obligation before using any approved AMOC."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(l)(2)",
+          "supports": "Use of incorporated NMSB service information."
+        },
+        {
+          "document": "2021-11960",
+          "locator": "DATES",
+          "paragraph": "preamble",
+          "supports": "AD 2021-11-15 effective July 13, 2021; it remains in force on 2022-03-01 until superseded."
+        },
+        {
+          "document": "2021-11960",
+          "locator": null,
+          "paragraph": "(g)(1)",
+          "supports": "Superseded USI limit for V2533-A5 disks (next engine shop visit after July 13, 2021 or 3,200 FCs after that date, whichever first); not screened here and not used for 2022-02574 timing."
+        }
+      ],
+      "component_cycles_remaining": null,
+      "continuing_obligations": [
+        {
+          "paragraph": "(f)",
+          "text": "Comply with this AD within the compliance times specified, unless already done."
+        },
+        {
+          "paragraph": "(g)(1)",
+          "text": "For V2527E-A5, V2527M-A5, V2528-D5, V2530-A5 and V2533-A5 engines with an HPT 1st-stage disk P/N 2A5001 whose S/N is listed in Appendix A, Table 1, of the NMSB: within the Figure 1 compliance time or within 10 FCs after the effective date, whichever occurs later, perform a USI of the HPT 1st-stage disk per paragraph 6 of IAE NMSB V2500-ENG-72-0713 Rev 1."
+        },
+        {
+          "paragraph": "(g)(2)",
+          "text": "For the same engine models with an HPT 2nd-stage disk P/N 2A4802 whose S/N is listed in Appendix A, Table 2: same timing; perform a USI of the HPT 2nd-stage disk per paragraph 7 of the NMSB."
+        },
+        {
+          "paragraph": "(g)(7)",
+          "text": "If a disk does not pass the USI per paragraph 8 of the NMSB, before further flight remove the disk from service and replace it with a part eligible for installation."
+        },
+        {
+          "paragraph": "Note 1 to paragraph (g)(1)",
+          "text": "Piece-part opportunity inspections are not required unless the part has more than 100 FCs since the last piece-part opportunity inspection, is damaged, or is the cause for removal of the engine; engine removal for this AD's compliance is not cause."
+        },
+        {
+          "paragraph": "(j)(2)",
+          "text": "Before using any approved AMOC, notify the appropriate principal inspector, or lacking one the manager of the local flight standards district office/certificate holding district office."
+        },
+        {
+          "paragraph": "(l)(2)",
+          "text": "Use the incorporated service information as applicable to do the actions required by this AD, unless the AD specifies otherwise."
+        }
+      ],
+      "latest_engine_flight_cycles": null,
+      "matched_parts": [
+        {
+          "component_name": "HPT 1st-stage disk",
+          "installed_part_number": "2A5001",
+          "installed_serial_number": "SYN-DISK1-0020",
+          "listed_part_number": "2A5001",
+          "listed_serial_number": null
+        },
+        {
+          "component_name": "HPT 2nd-stage disk",
+          "installed_part_number": "2A4802",
+          "installed_serial_number": "SYN-DISK2-0020",
+          "listed_part_number": "2A4802",
+          "listed_serial_number": null
+        }
+      ],
+      "missing_facts": [
+        {
+          "description": "Appendix A serial-number listings are not in the supplied text: Table 1 (HPT 1st-stage disk) and Table 2 (HPT 2nd-stage disk) of IAE NMSB V2500-ENG-72-0713 Rev 1 or NMSB V2500-E5-72-0015 Rev 1. Whether S/N SYN-DISK1-0020 and S/N SYN-DISK2-0020 are listed decides whether the engine falls within paragraph (c)(1) and/or (c)(2); matching part numbers alone do not.",
+          "record_path": null
+        },
+        {
+          "description": "Figure 1 to paragraph (g)(1), which sets the compliance time for the (g)(1) and (g)(2) inspections, is an image not included in the supplied text. Without it no due date or cycle-based deadline can be computed.",
+          "record_path": null
+        },
+        {
+          "description": "The engine flight-cycle count is not recorded. It is needed to apply the 10-flight-cycle limit that runs from 2022-03-15 and to convert any Figure 1 time into an engine flight-cycle number.",
+          "record_path": "engine.flight_cycles[2022-03-01]"
+        },
+        {
+          "description": "Accumulated flight cycles of the HPT 1st-stage disk are not recorded. They are needed to test any Figure 1 limit that counts disk cycles and to compute cycles remaining.",
+          "record_path": "installed_components[HPT 1st-stage disk].flight_cycles"
+        },
+        {
+          "description": "Accumulated flight cycles of the HPT 2nd-stage disk are not recorded, for the same reasons as the 1st-stage disk.",
+          "record_path": "installed_components[HPT 2nd-stage disk].flight_cycles"
+        },
+        {
+          "description": "The events list is empty, so no engine shop visit is recorded. If the Figure 1 time is keyed to the next engine shop visit, as the superseded AD 2021-11-15 time was, timing cannot be assessed; an empty list does not show that no shop visit has occurred.",
+          "record_path": "events[2022-02-09]"
+        }
+      ],
+      "notes": [
+        "Screened against FR doc 2022-02574 (AD 2022-02-09, Amendment 39-21906), which supersedes AD 2021-11-15 (FR doc 2021-11960). The question date precedes the 2022-03-15 effective date, so no action can be required on the question date; the timing above applies from the effective date.",
+        "V2533-A5 is in the supported scope and is a high-thrust model per the preamble, so paragraphs (g)(1) and (g)(2) govern; the low-thrust timing in (g)(3) and (g)(4) does not apply to this engine.",
+        "Both installed disk part numbers match the directive's listed part numbers (2A5001 and 2A4802). Serial-number eligibility could not be checked because the Appendix A tables are not supplied, so the listed serial number fields are null and the installed serial numbers are unverified.",
+        "The due point is the later of the Figure 1 time and 10 flight cycles after 2022-03-15. Without Figure 1 and the current engine flight-cycle count, latest_engine_flight_cycles and component_cycles_remaining are null.",
+        "The 3,200-flight-cycle limit in superseded AD 2021-11-15 is not the limit in 2022-02574 and was not used for any deadline here.",
+        "AD 2021-11-15 (FR doc 2021-11960) remains in force on the question date until 2022-02574 takes effect. Its requirements for this engine were not screened and need separate review; its inputs (engine flight-cycle count, shop visit history, serial-number listings) are absent from this record.",
+        "The record has no ad_records or amoc_claims entries, so no operator-recorded AD status or AMOC claim was supplied or relied upon. The events list is empty, which does not show that no engine shop visit occurred.",
+        "The NMSB procedures (paragraphs 6 to 8) and the Appendix A tables were not supplied; this screen relies only on the directive text and the engine record.",
+        "The record is synthetic (SYN- identifiers). This is a screening aid only, not a determination of AD status, airworthiness, or return-to-service approval for the engine or either disk."
+      ],
+      "summary": "AD 2022-02-09 (FR doc 2022-02574) does not take effect until 2022-03-15, after the 2022-03-01 question date, so it cannot require action now. The V2533-A5 engine's installed HPT 1st-stage and HPT 2nd-stage disk part numbers match the directive, but the Appendix A serial-number listings and the Figure 1 compliance times are not in the supplied text, so applicability and any due date cannot be settled.",
+      "timing": "Not before the directive's effective date of 2022-03-15. Once effective, the HPT 1st-stage disk ultrasonic inspection under paragraph (g)(1) and the HPT 2nd-stage disk inspection under paragraph (g)(2) are due within the Figure 1 to paragraph (g)(1) compliance time or within 10 flight cycles after 2022-03-15, whichever occurs later; Figure 1 is not in the supplied text, so no due date can be computed."
+    },
+    "batch": true,
+    "cost_usd": 0.014833,
+    "error": null,
+    "extra": {
+      "batch_id": "msgbatch_011eStPwjJHHnPzjbwZDKToa"
+    },
+    "latency_seconds": 911.196,
+    "model": "claude-haiku-5-5",
+    "request_id": null,
+    "request_key": "a56a6ad50ea942738b7039dc0b9d3f5c0684286d2c0997b3aee4e90a1d0cef55",
+    "stop_reason": "end_turn",
+    "text": "{\"applicability\":\"unknown\",\"action_status\":\"needs_review\",\"authority_state\":\"published_not_yet_effective\",\"summary\":\"AD 2022-02-09 (FR doc 2022-02574) does not take effect until 2022-03-15, after the 2022-03-01 question date, so it cannot require action now. The V2533-A5 engine's installed HPT 1st-stage and HPT 2nd-stage disk part numbers match the directive, but the Appendix A serial-number listings and the Figure 1 compliance times are not in the supplied text, so applicability and any due date cannot be settled.\",\"timing\":\"Not before the directive's effective date of 2022-03-15. Once effective, the HPT 1st-stage disk ultrasonic inspection under paragraph (g)(1) and the HPT 2nd-stage disk inspection under paragraph (g)(2) are due within the Figure 1 to paragraph (g)(1) compliance time or within 10 flight cycles after 2022-03-15, whichever occurs later; Figure 1 is not in the supplied text, so no due date can be computed.\",\"latest_engine_flight_cycles\":null,\"component_cycles_remaining\":null,\"alternative_readings\":[],\"missing_facts\":[{\"record_path\":null,\"description\":\"Appendix A serial-number listings are not in the supplied text: Table 1 (HPT 1st-stage disk) and Table 2 (HPT 2nd-stage disk) of IAE NMSB V2500-ENG-72-0713 Rev 1 or NMSB V2500-E5-72-0015 Rev 1. Whether S/N SYN-DISK1-0020 and S/N SYN-DISK2-0020 are listed decides whether the engine falls within paragraph (c)(1) and/or (c)(2); matching part numbers alone do not.\"},{\"record_path\":null,\"description\":\"Figure 1 to paragraph (g)(1), which sets the compliance time for the (g)(1) and (g)(2) inspections, is an image not included in the supplied text. Without it no due date or cycle-based deadline can be computed.\"},{\"record_path\":\"engine.flight_cycles[2022-03-01]\",\"description\":\"The engine flight-cycle count is not recorded. It is needed to apply the 10-flight-cycle limit that runs from 2022-03-15 and to convert any Figure 1 time into an engine flight-cycle number.\"},{\"record_path\":\"installed_components[HPT 1st-stage disk].flight_cycles\",\"description\":\"Accumulated flight cycles of the HPT 1st-stage disk are not recorded. They are needed to test any Figure 1 limit that counts disk cycles and to compute cycles remaining.\"},{\"record_path\":\"installed_components[HPT 2nd-stage disk].flight_cycles\",\"description\":\"Accumulated flight cycles of the HPT 2nd-stage disk are not recorded, for the same reasons as the 1st-stage disk.\"},{\"record_path\":\"events[2022-02-09]\",\"description\":\"The events list is empty, so no engine shop visit is recorded. If the Figure 1 time is keyed to the next engine shop visit, as the superseded AD 2021-11-15 time was, timing cannot be assessed; an empty list does not show that no shop visit has occurred.\"}],\"continuing_obligations\":[{\"paragraph\":\"(f)\",\"text\":\"Comply with this AD within the compliance times specified, unless already done.\"},{\"paragraph\":\"(g)(1)\",\"text\":\"For V2527E-A5, V2527M-A5, V2528-D5, V2530-A5 and V2533-A5 engines with an HPT 1st-stage disk P/N 2A5001 whose S/N is listed in Appendix A, Table 1, of the NMSB: within the Figure 1 compliance time or within 10 FCs after the effective date, whichever occurs later, perform a USI of the HPT 1st-stage disk per paragraph 6 of IAE NMSB V2500-ENG-72-0713 Rev 1.\"},{\"paragraph\":\"(g)(2)\",\"text\":\"For the same engine models with an HPT 2nd-stage disk P/N 2A4802 whose S/N is listed in Appendix A, Table 2: same timing; perform a USI of the HPT 2nd-stage disk per paragraph 7 of the NMSB.\"},{\"paragraph\":\"(g)(7)\",\"text\":\"If a disk does not pass the USI per paragraph 8 of the NMSB, before further flight remove the disk from service and replace it with a part eligible for installation.\"},{\"paragraph\":\"Note 1 to paragraph (g)(1)\",\"text\":\"Piece-part opportunity inspections are not required unless the part has more than 100 FCs since the last piece-part opportunity inspection, is damaged, or is the cause for removal of the engine; engine removal for this AD's compliance is not cause.\"},{\"paragraph\":\"(j)(2)\",\"text\":\"Before using any approved AMOC, notify the appropriate principal inspector, or lacking one the manager of the local flight standards district office/certificate holding district office.\"},{\"paragraph\":\"(l)(2)\",\"text\":\"Use the incorporated service information as applicable to do the actions required by this AD, unless the AD specifies otherwise.\"}],\"matched_parts\":[{\"component_name\":\"HPT 1st-stage disk\",\"installed_part_number\":\"2A5001\",\"installed_serial_number\":\"SYN-DISK1-0020\",\"listed_part_number\":\"2A5001\",\"listed_serial_number\":null},{\"component_name\":\"HPT 2nd-stage disk\",\"installed_part_number\":\"2A4802\",\"installed_serial_number\":\"SYN-DISK2-0020\",\"listed_part_number\":\"2A4802\",\"listed_serial_number\":null}],\"citations\":[{\"document\":\"2022-02574\",\"paragraph\":\"preamble\",\"locator\":\"DATES\",\"supports\":\"Final rule effective March 15, 2022, after the 2022-03-01 question date, so not yet in force and unable to require action on that date.\"},{\"document\":\"2022-02574\",\"paragraph\":\"(a)\",\"locator\":\"Effective Date\",\"supports\":\"Directive effective March 15, 2022.\"},{\"document\":\"2022-02574\",\"paragraph\":\"(b)\",\"locator\":\"Affected ADs\",\"supports\":\"This AD replaces AD 2021-11-15.\"},{\"document\":\"2022-02574\",\"paragraph\":\"preamble\",\"locator\":\"The Amendment, item 2.a\",\"supports\":\"Removes AD 2021-11-15 from section 39.13 effective with this amendment.\"},{\"document\":\"2022-02574\",\"paragraph\":\"preamble\",\"locator\":\"Background\",\"supports\":\"V2533-A5 is a high-thrust model; V2522-A5, V2524-A5, V2525-D5 and V2527-A5 are low-thrust models.\"},{\"document\":\"2022-02574\",\"paragraph\":\"(c)\",\"locator\":\"(c)(1) and (c)(2)\",\"supports\":\"V2533-A5 is an applicable model; applicability turns on disk P/N plus an S/N listed in Appendix A of the NMSBs.\"},{\"document\":\"2022-02574\",\"paragraph\":\"(g)(1)\",\"locator\":\"Figure 1 to paragraph (g)(1), image not included in supplied text\",\"supports\":\"USI of HPT 1st-stage disk for V2533-A5; due time is the later of the Figure 1 time or 10 FCs after the effective date.\"},{\"document\":\"2022-02574\",\"paragraph\":\"(g)(2)\",\"locator\":null,\"supports\":\"USI of HPT 2nd-stage disk for V2533-A5 on the same timing as (g)(1).\"},{\"document\":\"2022-02574\",\"paragraph\":\"(g)(3)\",\"locator\":null,\"supports\":\"Low-thrust timing in (g)(3) and (g)(4) does not govern V2533-A5.\"},{\"document\":\"2022-02574\",\"paragraph\":\"(g)(7)\",\"locator\":null,\"supports\":\"Removal from service and replacement if the USI does not pass.\"},{\"document\":\"2022-02574\",\"paragraph\":\"Note 1 to paragraph (g)(1)\",\"locator\":null,\"supports\":\"Piece-part opportunity inspection limits under the ALS.\"},{\"document\":\"2022-02574\",\"paragraph\":\"(f)\",\"locator\":null,\"supports\":\"Compliance times govern.\"},{\"document\":\"2022-02574\",\"paragraph\":\"(h)(1)\",\"locator\":null,\"supports\":\"Definition of engine shop visit, relevant to any shop-visit-based timing.\"},{\"document\":\"2022-02574\",\"paragraph\":\"(h)(2)\",\"locator\":null,\"supports\":\"Definition of part eligible for installation used for replacement under (g)(7).\"},{\"document\":\"2022-02574\",\"paragraph\":\"(j)(2)\",\"locator\":null,\"supports\":\"Notice obligation before using any approved AMOC.\"},{\"document\":\"2022-02574\",\"paragraph\":\"(l)(2)\",\"locator\":null,\"supports\":\"Use of incorporated NMSB service information.\"},{\"document\":\"2021-11960\",\"paragraph\":\"preamble\",\"locator\":\"DATES\",\"supports\":\"AD 2021-11-15 effective July 13, 2021; it remains in force on 2022-03-01 until superseded.\"},{\"document\":\"2021-11960\",\"paragraph\":\"(g)(1)\",\"locator\":null,\"supports\":\"Superseded USI limit for V2533-A5 disks (next engine shop visit after July 13, 2021 or 3,200 FCs after that date, whichever first); not screened here and not used for 2022-02574 timing.\"}],\"notes\":[\"Screened against FR doc 2022-02574 (AD 2022-02-09, Amendment 39-21906), which supersedes AD 2021-11-15 (FR doc 2021-11960). The question date precedes the 2022-03-15 effective date, so no action can be required on the question date; the timing above applies from the effective date.\",\"V2533-A5 is in the supported scope and is a high-thrust model per the preamble, so paragraphs (g)(1) and (g)(2) govern; the low-thrust timing in (g)(3) and (g)(4) does not apply to this engine.\",\"Both installed disk part numbers match the directive's listed part numbers (2A5001 and 2A4802). Serial-number eligibility could not be checked because the Appendix A tables are not supplied, so the listed serial number fields are null and the installed serial numbers are unverified.\",\"The due point is the later of the Figure 1 time and 10 flight cycles after 2022-03-15. Without Figure 1 and the current engine flight-cycle count, latest_engine_flight_cycles and component_cycles_remaining are null.\",\"The 3,200-flight-cycle limit in superseded AD 2021-11-15 is not the limit in 2022-02574 and was not used for any deadline here.\",\"AD 2021-11-15 (FR doc 2021-11960) remains in force on the question date until 2022-02574 takes effect. Its requirements for this engine were not screened and need separate review; its inputs (engine flight-cycle count, shop visit history, serial-number listings) are absent from this record.\",\"The record has no ad_records or amoc_claims entries, so no operator-recorded AD status or AMOC claim was supplied or relied upon. The events list is empty, which does not show that no engine shop visit occurred.\",\"The NMSB procedures (paragraphs 6 to 8) and the Appendix A tables were not supplied; this screen relies only on the directive text and the engine record.\",\"The record is synthetic (SYN- identifiers). This is a screening aid only, not a determination of AD status, airworthiness, or return-to-service approval for the engine or either disk.\"]}",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 20491
+      },
+      "cache_creation_input_tokens": 20491,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 222,
+      "output_tokens": 54164,
+      "output_tokens_details": {
+        "thinking_tokens": 50331
+      },
+      "service_tier": "batch"
+    }
+  }
+}
