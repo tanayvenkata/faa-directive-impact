@@ -198,3 +198,16 @@ def test_batch_runs_at_half_price_and_keys_results_by_request() -> None:
     assert response.cost_usd == cost_usd(
         "claude-sonnet-5-5", payload("")["usage"], batch=True
     )
+
+
+def test_haiku_prompts_over_100k_tokens_cost_five_times_more() -> None:
+    short = {"input_tokens": 90_000, "output_tokens": 1_000}
+    long = {"input_tokens": 1_000, "cache_read_input_tokens": 100_000,
+            "output_tokens": 1_000}  # fmt: skip
+
+    assert cost_usd("claude-haiku-5-5", short) == round(
+        (90_000 * 0.10 + 1_000 * 0.50) / 1_000_000, 6
+    )
+    assert cost_usd("claude-haiku-5-5", long) == round(
+        5 * (1_000 * 0.10 + 100_000 * 0.01 + 1_000 * 0.50) / 1_000_000, 6
+    )
