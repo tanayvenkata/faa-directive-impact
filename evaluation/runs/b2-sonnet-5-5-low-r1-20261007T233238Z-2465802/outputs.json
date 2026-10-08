@@ -1,0 +1,3014 @@
+{
+  "seed-001": {
+    "cost_usd": 0.007414,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Engine model V2527-A5 is within applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1, PKLBST5011 row, 5,500 cycles",
+          "paragraph": "(g)",
+          "supports": "Removal at next shop visit, at the later of the cycle limit or 100 cycles after the effective date."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Engine shop visit definition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective October 29, 2025, so in force on the question date."
+        }
+      ],
+      "computed": {
+        "component_cycles_remaining": 2400
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in Table 1 in any engine."
+        },
+        {
+          "paragraph": "(g)",
+          "text": "Remove and replace the listed hub with an eligible part at the next engine shop visit, at the later of the cycle limit or 100 flight cycles after the effective date."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001",
+          "position": "HPT 1st-stage hub",
+          "serial_number": "PKLBST5011",
+          "statement": "HPT 1st-stage hub P/N 2A5001 S/N PKLBST5011 matched listed P/N 2A5001 S/N PKLBST5011",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": "PKLBST5011"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "Current cycles since new (3,100) conflicts with the 2025-10-29 reading of 1,650 plus 1,450 engine cycles flown since (about 3,100 is consistent only if the hub flew those cycles; confirm). The remaining margin to the 5,500 limit depends on this value.",
+        "The serial number SYN-HUB2-0001 is not in Table 1, so no match, but confirm it is the true serial number of the installed part.",
+        "No shop visits are recorded. A future event meeting the AD's engine shop visit definition would trigger the removal."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 1st-stage hub].cycles_since_new",
+        "installed_components[HPT 2nd-stage hub].serial_number",
+        "events"
+      ],
+      "notes": [
+        "The 1st-stage hub is below its 5,500 limit, and the 100-cycle window after the effective date ended at engine cycle 41,300, so the removal is due at the next shop visit.",
+        "Screening aid only; not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The V2527-A5 is within the AD's applicability and its HPT 1st-stage hub P/N 2A5001 S/N PKLBST5011 is listed in Table 1 (limit 5,500 cycles since new). No engine shop visit is recorded, so removal is triggered only at the next engine shop visit, and the cycle-limit fact conflicts in the record.",
+      "timing": "At the next engine shop visit after October 29, 2025, at the later of reaching the 5,500 cycles-since-new limit or 100 flight cycles after the effective date (engine counter 41,300). No deadline applies absent a shop visit."
+    },
+    "request_key": "fb679701d7673b609eae5cda0694ec0671a872bc6400b47992f5a51e81def333",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 366,
+      "output_tokens": 1150,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-002": {
+    "cost_usd": 0.005132,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "no_action_triggered",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "V2533-A5 is within the applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1",
+          "paragraph": "(g)",
+          "supports": "Installed hub serial numbers PKLBST5012 and SYN-HUB2-0002 are not listed in Table 1, so removal is not triggered."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition continues to apply."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "The AD was effective 2025-10-29, so it is in force on the question date."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(1)",
+          "supports": "Parts not listed in Table 1 are eligible for installation."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After the effective date, do not install an HPT 1st-stage hub or HPT 2nd-stage hub with a P/N and S/N listed in table 1 to paragraph (g) in any engine."
+        },
+        {
+          "paragraph": "(j)",
+          "text": "Any AMOC must be approved under 14 CFR 39.19, and the principal inspector notified before it is used."
+        }
+      ],
+      "hubs": [],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "PKLBST5012 is one character off listed PKLBST5011; the serial number on the record should be verified against the part's physical data plate.",
+        "This is a screening aid, not a compliance determination."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "The V2533-A5 is a listed model, so the AD applies, but neither installed hub P/N and S/N matches Table 1 (the 1st-stage hub S/N PKLBST5012 differs from listed PKLBST5011), so the paragraph (g) removal is not triggered on the record. The installation prohibition and other obligations continue to bind.",
+      "timing": null
+    },
+    "request_key": "7bfc5c73e4e21e521ec150ef48c20142239d4415eb852dce1da53b550017ae29",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 244,
+      "output_tokens": 718,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-003": {
+    "cost_usd": 0.006608,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "needs_review",
+      "applicability": "unknown",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "The V2524-A5 model is within the applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "table 1",
+          "paragraph": "(g)",
+          "supports": "Action depends on installed P/N and S/N matching table 1, and on the removal cycle limit. The 2nd-stage hub S/N is not listed."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "The AD is effective October 29, 2025, before the question date, so it is in force."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in table 1 in any engine."
+        },
+        {
+          "paragraph": "(j)",
+          "text": "Any AMOC must be approved by the FAA AIR-520 Manager, and the appropriate principal inspector must be notified before an approved AMOC is used."
+        }
+      ],
+      "hubs": [],
+      "missing_fact_descriptions": [
+        "The 1st-stage hub P/N 2A5001 matches the listed P/N, but the S/N is unknown. It must be compared with the four listed S/Ns (PKLBSK9287, PKLBSS9200, PKLBST5011, PKLBST7489) to decide whether paragraph (g) is triggered.",
+        "Cycles since new for the 1st-stage hub are unknown. If the S/N is a listed one, they are needed to compare against the removal cycle limit (100 to 6,200) and compute the deadline."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 1st-stage hub].serial_number",
+        "installed_components[HPT 1st-stage hub].cycles_since_new"
+      ],
+      "notes": [
+        "The 2nd-stage hub (P/N 2A4802, S/N SYN-HUB2-0003) does not match any listed S/N, so it does not trigger paragraph (g) on the record as given.",
+        "The record has no events, so no engine shop visit is recorded since the effective date.",
+        "If the 1st-stage hub S/N is found to be listed, paragraph (g) applies at the next engine shop visit after the effective date, before exceeding the applicable removal cycle limit or within 100 flight cycles of the effective date, whichever occurs later. The record gives no flight cycles since the effective date."
+      ],
+      "queue": "needs_review",
+      "summary": "The V2524-A5 is within the AD's model applicability and the AD is in force, but the HPT 1st-stage hub serial number is unknown, so a match to table 1 cannot be ruled in or out. The 2nd-stage hub S/N SYN-HUB2-0003 is not listed in table 1.",
+      "timing": null
+    },
+    "request_key": "16f6473b23eacc85e7dc242e9d84af385f3833c9136762c570d3c63dc5f045a2",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 240,
+      "output_tokens": 1014,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-004": {
+    "cost_usd": 0.002711,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": null,
+      "applicability": "outside_supported_scope",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "The AD applicability lists only IAE V2500 models; the engine model supplied is not within this screen's supported scope."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [],
+      "hubs": [],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "No determination is made on whether the directive applies to this engine model."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "The engine model PW1133G-JM is not one of the supported IAE V2500 models, so no applicability determination is made for this screen.",
+      "timing": null
+    },
+    "request_key": "61b8f59de377e759acff08ac382d75f61bcffeda6c1e187992779f14d36e62fb",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 133,
+      "output_tokens": 256,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-005": {
+    "cost_usd": 0.008573,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Applicability includes the V2527E-A5."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1, HPT 2nd-stage hub PKLBSS9840, limit 3,900",
+          "paragraph": "(g)",
+          "supports": "Removal and replacement timing and the matched part."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Definition of engine shop visit."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date 2025-10-29, so the AD is in force on the question date."
+        }
+      ],
+      "computed": {
+        "component_cycles_remaining": 2860,
+        "latest_engine_flight_cycles": 18100,
+        "readings": {
+          "Removal at the shop visit only once the cycle limit is reached": 18040
+        }
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in table 1 in any engine."
+        },
+        {
+          "paragraph": "(j)",
+          "text": "Any AMOC must be approved by the AIR-520 Manager, and the principal inspector must be notified before it is used."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A4802",
+          "position": "HPT 2nd-stage hub",
+          "serial_number": "PKLBSS9840",
+          "statement": "HPT 2nd-stage hub P/N 2A4802 S/N PKLBSS9840 matched listed P/N 2A4802 S/N PKLBSS9840",
+          "table_row": {
+            "part_number": "2A4802",
+            "serial_number": "PKLBSS9840"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "The 1st-stage hub S/N SYN-HUB1-0005 is not listed in table 1, so it is not matched. The serial number is recorded, so this is only a confirmation item.",
+        "The shop visit qualification is asserted by the operator record. Confirm it meets the paragraph (i)(2) definition (flange separation, not transport-only or field maintenance)."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 1st-stage hub].serial_number",
+        "events[shop_visit_induction].qualifies_as_engine_shop_visit"
+      ],
+      "notes": [
+        "The 2nd-stage hub has 1,040 cycles since new against a 3,900 limit, so 2,860 cycles remain.",
+        "The replacement hub must have a P/N and S/N not listed in table 1.",
+        "The proposed rule 2025-10764 is superseded by the final rule.",
+        "This is a screening aid, not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "AD 2025-19-13 is in force and covers the V2527E-A5. The installed HPT 2nd-stage hub P/N 2A4802 S/N PKLBSS9840 is listed (limit 3,900 cycles since new, about 2,860 cycles remaining). The 2025-11-12 shop visit is after the effective date and is recorded as qualifying, so removal and replacement is triggered at that visit.",
+      "timing": "Paragraph (g) requires removal at the next engine shop visit after 2025-10-29, but not before the removal cycle limit is reached or within 100 flight cycles after the effective date, whichever is later. The cycle limit (3,900) has not been reached, so on the stated reading the later date is 100 flight cycles after the effective date: engine flight cycle 18100. The 2025-11-12 shop visit (cycle 18040) is within that window, so removal is due by engine cycle 18100, and the part must not be reinstalled."
+    },
+    "request_key": "edc665aab0ad38071e47941c5fe7714403ff16ba507a1735afb635155a252dd1",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 490,
+      "output_tokens": 1357,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-006": {
+    "cost_usd": 0.007407,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "V2530-A5 is within applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1, row PKLBSK9287, limit 100",
+          "paragraph": "(g)",
+          "supports": "Hub is listed; removal at next shop visit, later of limit or 100 cycles after effective date."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date 2025-10-29."
+        }
+      ],
+      "computed": {
+        "component_cycles_remaining": -30,
+        "latest_engine_flight_cycles": 25600,
+        "readings": {
+          "Shop visit required only after the 100-cycle window": 25600
+        }
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After 2025-10-29, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in table 1 in any engine."
+        },
+        {
+          "paragraph": "(j)(2)",
+          "text": "Before using any approved AMOC, notify the appropriate principal inspector or the flight standards district office."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001",
+          "position": "HPT 1st-stage hub",
+          "serial_number": "PKLBSK9287",
+          "statement": "HPT 1st-stage hub P/N 2A5001 S/N PKLBSK9287 matched listed P/N 2A5001 S/N PKLBSK9287",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": "PKLBSK9287"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "Hub cycles-since-new is 90 at 2025-11-20 versus the limit of 100 per the record. Cycles remaining is computed as 100-90=10, so the sign in component_cycles_remaining reflects the interpretation that the limit is not yet exceeded only if the record is read that way; verify.",
+        "The record shows the hub at 60 cycles since new at 2025-10-29 and 90 at 2025-11-20, while the engine accrued 30 cycles; the figures are consistent.",
+        "The hub was installed 2025-09-30, after the NPRM but before the effective date; installation is not barred by (h) since that applies after the effective date.",
+        "This is a screening aid, not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "AD 2025-19-13 is in force and the V2530-A5 engine has an HPT 1st-stage hub (P/N 2A5001, S/N PKLBSK9287) listed in table 1, so removal and replacement is required at the next engine shop visit; no shop visit has occurred. The 2nd-stage hub S/N is not listed.",
+      "timing": "At the next engine shop visit after 2025-10-29, before exceeding the 100 cycles-since-new limit or within 100 flight cycles after the effective date, whichever occurs later. The 100-cycle limit is already exceeded, so the later date is the 100 flight cycles after the effective date; that window ends at engine flight cycle 25600. The engine is at 25530, leaving 70 cycles. The removal is tied to a shop visit, with no deadline absent one."
+    },
+    "request_key": "947738b62f246da18e193e1edff93e70480e2d98750d3b658608ca1b84b1095d",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 364,
+      "output_tokens": 1149,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-007": {
+    "cost_usd": 0.0076,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "The V2531-E5 model is within the applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1 rows PKLBSS9200 (4,800) and PKLBST5005 (4,000)",
+          "paragraph": "(g)",
+          "supports": "The installed hubs match listed parts. Removal is due at the next shop visit after the effective date, once the cycle limit is passed or within 100 cycles, whichever is later."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Defines engine shop visit."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "The AD is effective October 29, 2025, so it is in force on the question date."
+        }
+      ],
+      "computed": {
+        "component_cycles_remaining": 500
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After October 29, 2025, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in Table 1 in any engine."
+        },
+        {
+          "paragraph": "(j)(2)",
+          "text": "Before using any approved AMOC, notify the appropriate principal inspector or the flight standards district office."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001",
+          "position": "HPT 1st-stage hub",
+          "serial_number": "PKLBSS9200",
+          "statement": "HPT 1st-stage hub P/N 2A5001 S/N PKLBSS9200 matched listed P/N 2A5001 S/N PKLBSS9200",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": "PKLBSS9200"
+          }
+        },
+        {
+          "outcome": "matched",
+          "part_number": "2A4802",
+          "position": "HPT 2nd-stage hub",
+          "serial_number": "PKLBST5005",
+          "statement": "HPT 2nd-stage hub P/N 2A4802 S/N PKLBST5005 matched listed P/N 2A4802 S/N PKLBST5005",
+          "table_row": {
+            "part_number": "2A4802",
+            "serial_number": "PKLBST5005"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "No engine shop visit is recorded since the effective date. A future shop visit, or confirmation that none has occurred, determines when removal is due. The record cannot show if the hubs would be past their limits at that visit."
+      ],
+      "missing_facts": [
+        "events"
+      ],
+      "notes": [
+        "Current cycles since new on 2025-12-01: 1st-stage hub 4300 (limit 4800, 500 remaining); 2nd-stage hub 2300 (limit 4000, 1700 remaining). The smallest remaining is 500.",
+        "The hub cycle counts are on the record's own readings. Engine flight cycles rose 300 from 2025-10-29 to 2025-12-01, matching the hub increases.",
+        "The removal requirement binds only at a shop visit, so the 'whichever is later' wording leaves no fixed date before one occurs.",
+        "This is a screening aid, not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The engine is a listed model and has two hubs matching Table 1 (HPT 1st-stage 2A5001/PKLBSS9200 and HPT 2nd-stage 2A4802/PKLBST5005). Removal is tied to the next engine shop visit after 2025-10-29; no shop visit is recorded, so action is due on that event, not before.",
+      "timing": "At the next engine shop visit after October 29, 2025, or within 100 flight cycles after the effective date, whichever occurs later. No shop visit is recorded, so no fixed deadline can be computed."
+    },
+    "request_key": "e018d8f710d3f64900e65c4cda0bf17668c8f1baaa3a6378d917062a0d3ce2a6",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 417,
+      "output_tokens": 1177,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-008": {
+    "cost_usd": 0.007636,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Model V2528-D5 is within applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1, PKLBST7489 row",
+          "paragraph": "(g)",
+          "supports": "Listed hub with 6,200 cycle limit; removal at next engine shop visit, later of limit or 100 cycles after effective date."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date October 29, 2025, so the AD is in force on the question date."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Definition of engine shop visit."
+        }
+      ],
+      "computed": {
+        "component_cycles_remaining": 3700
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in table 1 in any engine."
+        },
+        {
+          "paragraph": "(j)",
+          "text": "Any AMOC must be approved by the AIR-520 Manager, and the principal inspector must be notified before using an approved AMOC."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001",
+          "position": "HPT 1st-stage hub",
+          "serial_number": "PKLBST7489",
+          "statement": "HPT 1st-stage hub P/N 2A5001 S/N PKLBST7489 matched listed P/N 2A5001 S/N PKLBST7489",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": "PKLBST7489"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "The 2nd-stage hub serial number is unknown. It must be checked against table 1 (P/N 2A4802 is a listed part number), and a match would bring in another removal requirement.",
+        "The 2nd-stage hub cycles since new are unknown, needed to compare against the removal cycle limit if its serial number matches a listed entry."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 2nd-stage hub].serial_number",
+        "installed_components[HPT 2nd-stage hub].cycles_since_new"
+      ],
+      "notes": [
+        "No shop visit is recorded (events empty), so no removal is currently triggered by an event.",
+        "The 1st-stage hub cycles since new were 2,000 at 2025-10-29 and 2,500 at 2026-03-10, consistent with the 500 engine cycles flown; remaining is 6,200 minus 2,500.",
+        "The record lists no ad_records or amoc_claims for this AD."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The V2528-D5 is within the AD, and the installed HPT 1st-stage hub P/N 2A5001 S/N PKLBST7489 is listed in table 1 (limit 6,200 cycles since new). Removal is due at the next engine shop visit, which is the later of that visit-or-limit point and 100 flight cycles after the effective date; no shop visit has occurred. The 2nd-stage hub serial number is unknown, so it cannot be cleared.",
+      "timing": "At the next engine shop visit after 2025-10-29, and not before the hub exceeds 6,200 cycles since new or 100 flight cycles after the effective date, whichever is later. The 100-cycle point is engine cycle 50,100, already passed (engine at 50,500), so the hub is now removable at the next shop visit. The hub has 3,700 cycles remaining before reaching 6,200."
+    },
+    "request_key": "1d305f38ef15a3d79f63a14df5e1e10c70bc4cdc7eeabcb9589f55a7727291a3",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 358,
+      "output_tokens": 1196,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-009": {
+    "cost_usd": 0.005578,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "needs_review",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Model V2522-A5 is within the applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "AD effective October 29, 2025, so in force on 2026-09-26."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1",
+          "paragraph": "(g)",
+          "supports": "Action depends on an installed listed hub P/N and S/N; none can be matched from the record."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition applies to all engines in the applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Engine shop visit definition."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After October 29, 2025, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in table 1 to paragraph (g) in any engine."
+        }
+      ],
+      "hubs": [],
+      "missing_fact_descriptions": [
+        "No record of the installed HPT 1st-stage hub P/N, S/N and cycles since new; needed to match against table 1 and compute the removal cycle limit.",
+        "No record of the installed HPT 2nd-stage hub P/N, S/N and cycles since new; needed to match against table 1 and compute the removal cycle limit.",
+        "No shop visit history; needed to identify the next engine shop visit after October 29, 2025 and the engine flight-cycle counter for the 100-cycle window."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 1st-stage hub]",
+        "installed_components[HPT 2nd-stage hub]",
+        "events"
+      ],
+      "notes": [
+        "The proposed rule 2025-10764 was superseded by the final rule 2025-18469.",
+        "Screening aid only; not a compliance determination."
+      ],
+      "queue": "needs_review",
+      "summary": "The engine model V2522-A5 is within the AD applicability and the AD is in force on the question date. The record lists no installed components, so it cannot be determined whether an affected HPT 1st-stage or 2nd-stage hub is installed; an empty record is not evidence that the parts are absent.",
+      "timing": null
+    },
+    "request_key": "af10c0eb18fbae8b8903a9ea7bd0c1deff89e38fc678d16649614b9e667a07a1",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 130,
+      "output_tokens": 830,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-010": {
+    "cost_usd": 0.003067,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": null,
+      "applicability": "outside_supported_scope",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Directive applicability lists specific models; the engine model V2500-A1 is outside the supported-model list for this screen."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [],
+      "hubs": [],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "The directive 2025-18469 was effective 2025-10-29 and is in force on the question date, but no determination is made for an unsupported model.",
+        "The installed hub P/N and S/N appear in table 1, but no applicability determination is made for this unsupported model."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "Engine model V2500-A1 is not one of the supported IAE V2500 models for this screen, so no applicability determination is made.",
+      "timing": null
+    },
+    "request_key": "0c15447ef5d48755529560262f01ec8cb06adfa9d8009b1ae2221df0ba12435e",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 184,
+      "output_tokens": 317,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-011": {
+    "cost_usd": 0.02942,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Applicability to V2527-A5 engines with 3rd stage HPC rotor blade P/N 6A8353 or 6A8688 installed."
+        },
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(g)",
+          "supports": "Replacement of full blade set at next engine shop visit after the effective date where the rotor is exposed."
+        },
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(h)(3)",
+          "supports": "Engine shop visit means induction of an engine into the shop for maintenance."
+        },
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date September 24, 2026, so in force on the question date."
+        },
+        {
+          "document": "2026-18423",
+          "locator": null,
+          "paragraph": "(g)",
+          "supports": "Correction restoring the word 'blade' in paragraph (g); effective date unchanged."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(g)",
+          "text": "At the next engine shop visit after the effective date where the 3rd stage HPC rotor blade is exposed, replace the full set of 3rd stage HPC rotor blades with parts eligible for installation."
+        },
+        {
+          "paragraph": "(i)(2)",
+          "text": "Before using any approved AMOC, notify the appropriate principal inspector or the manager of the local flight standards district office/certificate holding district office."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "6A8353",
+          "position": "3rd stage HPC rotor blade set",
+          "serial_number": "not tracked at set level",
+          "statement": "3rd stage HPC rotor blade set P/N 6A8353 S/N not tracked at set level matched listed P/N 6A8353 S/N None",
+          "table_row": {
+            "part_number": "6A8353",
+            "serial_number": null
+          }
+        }
+      ],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "The question names document 2026-16954. Its paragraph (g) omitted the word 'blade' and was corrected by 2026-18423; the correction does not change the outcome here.",
+        "No shop-visit events are recorded, so no event has triggered replacement. The record does not show any prior blade replacement or AMOC claim.",
+        "This is a screening aid only, not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The V2527-A5 engine has 3rd stage HPC rotor blades P/N 6A8353 installed, so AD 2026-17-03 applies and is in force on 2026-10-05. Replacement of the full blade set is required only at the next engine shop visit after 2026-09-24 where a 3rd stage HPC rotor blade is exposed; no deadline is triggered otherwise.",
+      "timing": "At the next engine shop visit after September 24, 2026 where a 3rd stage HPC rotor blade is exposed (removed from the HPC stage 3 to 8 drum); no calendar or cycle deadline."
+    },
+    "request_key": "1981130c0ec52c85b27d02b80c01c143880b1df708e3eb8c51e06f6eb9941156",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 19488
+      },
+      "cache_creation_input_tokens": 19488,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 175,
+      "output_tokens": 977,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-012": {
+    "cost_usd": 0.004924,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": null,
+      "applicability": "does_not_apply",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2026-16954",
+          "locator": "Applicability",
+          "paragraph": "(c)",
+          "supports": "AD applies only to listed models with a 3rd stage HPC rotor blade P/N 6A8353 or 6A8688 installed."
+        },
+        {
+          "document": "2026-16954",
+          "locator": "part eligible for installation",
+          "paragraph": "(h)(1)(i)",
+          "supports": "P/N 6C8368 is a part eligible for installation, not an affected P/N."
+        },
+        {
+          "document": "2026-16954",
+          "locator": "DATES",
+          "paragraph": "preamble",
+          "supports": "AD effective September 24, 2026, so in force on the question date."
+        },
+        {
+          "document": "2026-18423",
+          "locator": "correction",
+          "paragraph": "(g)",
+          "supports": "Correction of a typographical error in (g); effective date unchanged and applicability unchanged."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [],
+      "hubs": [],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "Blade set is tracked at set level without a serial number; the record shows one part number for the set. If individual blades with different P/Ns (6A8353 or 6A8688) are actually installed in the set, this conclusion would change.",
+        "This is a screening result, not a compliance determination."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "The V2533-A5 is a supported model, but the record shows 3rd stage HPC rotor blade set P/N 6C8368, which is not P/N 6A8353 or 6A8688, so the engine is outside the AD's applicability on the supplied facts.",
+      "timing": null
+    },
+    "request_key": "1bcc0d697ef4062632af33ff81841cf8077cc333d63f7bbaa5ff04abf5932b38",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 19488,
+      "inference_geo": "global",
+      "input_tokens": 175,
+      "output_tokens": 560,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-013": {
+    "cost_usd": 0.029965,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "no_action_triggered",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Applicability to the V2530-A5 with P/N 6A8688 installed."
+        },
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(g)",
+          "supports": "Replacement at the next engine shop visit after the effective date where the rotor is exposed."
+        },
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(h)(3)",
+          "supports": "An engine shop visit is the induction of an engine into the shop for maintenance. The induction on 2026-09-14 is therefore the shop visit and it precedes the effective date."
+        },
+        {
+          "document": "2026-16954",
+          "locator": "Request To Revise Compliance Language",
+          "paragraph": "preamble",
+          "supports": "The FAA does not intend engines inducted before the effective date to comply."
+        },
+        {
+          "document": "2026-18423",
+          "locator": null,
+          "paragraph": "(g)",
+          "supports": "The correction restores the word 'blade' in (g). The effective date is unchanged."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(g)",
+          "text": "At the next engine shop visit after the effective date where the 3rd stage HPC rotor blade is exposed, replace the full set of 3rd stage HPC rotor blades with parts eligible for installation."
+        },
+        {
+          "paragraph": "(i)(2)",
+          "text": "Before using any approved AMOC, notify the appropriate principal inspector or the manager of the flight standards district office or certificate holding district office."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "6A8688",
+          "position": "3rd stage HPC rotor blade set",
+          "serial_number": "not tracked at set level",
+          "statement": "3rd stage HPC rotor blade set P/N 6A8688 S/N not tracked at set level matched listed P/N 6A8688 S/N None",
+          "table_row": {
+            "part_number": "6A8688",
+            "serial_number": null
+          }
+        }
+      ],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "The blade removal on 2026-09-30 falls after the effective date, but the visit was inducted 2026-09-14, before it. Under (g) as adopted and (h)(3), the shop visit is measured from induction, so this visit is not one 'after the effective date'.",
+        "A reviewer may wish to confirm this reading. If the blades are reinstalled, or if the engine is inducted again after 2026-09-24, the requirement will apply at that later visit.",
+        "Correction document 2026-18423 fixes a typographical error in (g) and does not change the substance.",
+        "This is a screening aid, not a compliance determination."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "The V2530-A5 engine has 3rd stage HPC blade set P/N 6A8688, so AD 2026-17-03 applies and is in force on 2026-09-30. The shop visit was inducted 2026-09-14, before the 2026-09-24 effective date, so the paragraph (g) replacement is not triggered by that visit.",
+      "timing": "Replacement is due at the next engine shop visit after 2026-09-24 in which the 3rd stage HPC rotor blade is exposed. The 2026-09-14 visit does not count, and no deadline applies until then."
+    },
+    "request_key": "90155b4cddd4d458c4a1734dad36e0b78101d671dd04a7beed675c72276f7b2d",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 19488
+      },
+      "cache_creation_input_tokens": 19488,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 345,
+      "output_tokens": 1052,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-014": {
+    "cost_usd": 0.030838,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Applicability to V2524-A5 engines with 3rd stage HPC rotor blade P/N 6A8353 installed."
+        },
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(g)",
+          "supports": "Replacement is required at the next engine shop visit after the effective date where the 3rd stage HPC rotor is exposed."
+        },
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(h)(2)",
+          "supports": "Exposure means a 3rd stage blade is removed from the HPC stage 3 to 8 drum."
+        },
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(h)(3)",
+          "supports": "An engine shop visit is the induction of an engine into the shop for maintenance."
+        },
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date September 24, 2026, so the AD is in force on the question date."
+        },
+        {
+          "document": "2026-18423",
+          "locator": null,
+          "paragraph": "(g)",
+          "supports": "Correction restores the word blade in (g): where the 3rd stage HPC rotor blade is exposed; the effective date is unchanged."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(g)",
+          "text": "At the next engine shop visit where a 3rd stage HPC rotor blade is exposed, replace the full set of 3rd stage HPC rotor blades with parts eligible for installation."
+        },
+        {
+          "paragraph": "(i)(2)",
+          "text": "Before using any approved AMOC, notify the appropriate principal inspector or the manager of the local flight standards district office/certificate holding district office."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "6A8353",
+          "position": "3rd stage HPC rotor blade set",
+          "serial_number": "not tracked at set level",
+          "statement": "3rd stage HPC rotor blade set P/N 6A8353 S/N not tracked at set level matched listed P/N 6A8353 S/N None",
+          "table_row": {
+            "part_number": "6A8353",
+            "serial_number": null
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "The record states the 2026-10-02 HPC rotor exposure involved no 3rd-stage blade removal from the stage 3-8 drum. This should be confirmed against work records, because any blade removal during the 2026-10-01 to 2026-10-04 visit would trigger replacement under (g)."
+      ],
+      "missing_facts": [],
+      "notes": [
+        "Paragraph (g) as originally published in 2026-16954 reads 'rotor is exposed'; the correction in 2026-18423 changes it to 'rotor blade is exposed'. Under either wording, the record shows no blade removal, so the conclusion is the same.",
+        "The 2026-10-01 induction was after the effective date, so it was a shop visit within the AD period, but it did not expose a blade per the record.",
+        "This is a screening aid only and not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The V2524-A5 has 3rd stage HPC rotor blades P/N 6A8353 installed, so AD 2026-17-03 applies and is in force on 2026-10-05. The 2026-10-01 shop visit was inducted after the 2026-09-24 effective date, but no 3rd stage blade was removed from the drum, so no blade exposure occurred and replacement is not yet triggered; it is due at the next qualifying shop visit where a blade is exposed.",
+      "timing": "At the next engine shop visit after 2026-09-24 where a 3rd stage HPC rotor blade is exposed (removed from the stage 3-8 drum); no deadline otherwise."
+    },
+    "request_key": "49d17ed6fdabf4e9cb56e5b0b26f4148e1cea4a568e465b623e7d0cccb25d25f",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 19488
+      },
+      "cache_creation_input_tokens": 19488,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 363,
+      "output_tokens": 1223,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-015": {
+    "cost_usd": 0.012618,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "no_action_triggered",
+      "applicability": "applies",
+      "authority_state": "proposed",
+      "citations": [
+        {
+          "document": "2025-20088",
+          "locator": "Applicability",
+          "paragraph": "(c)",
+          "supports": "Engine model and P/N 6A8353 blade installed fall within the proposed applicability."
+        },
+        {
+          "document": "2025-20088",
+          "locator": "Required Actions",
+          "paragraph": "(g)",
+          "supports": "Proposed replacement of the full set at next blade exposure after the effective date."
+        },
+        {
+          "document": "2025-20088",
+          "locator": "Type: Proposed Rule",
+          "paragraph": "preamble",
+          "supports": "The document is an NPRM with no effective date, so it is not in force."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "6A8353",
+          "position": "3rd stage HPC rotor blade set",
+          "serial_number": "not tracked at set level",
+          "statement": "3rd stage HPC rotor blade set P/N 6A8353 S/N not tracked at set level matched listed P/N 6A8353 S/N None",
+          "table_row": {
+            "part_number": "6A8353",
+            "serial_number": null
+          }
+        }
+      ],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "Proposed text may change after comments (due 2026-01-02) before any final rule.",
+        "The record shows no events, so no blade exposure is recorded. Even after a final rule, action would arise only at a future exposure.",
+        "Blades are tracked at set level only; the record does not show whether the installed blades are already modified to -001 or an eligible P/N. This is not needed now.",
+        "This screening is not a compliance determination."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "The V2527E-A5 engine has 3rd stage HPC rotor blades P/N 6A8353 installed, so it is within the proposed applicability. The document is only an NPRM on the question date, so it cannot require action now.",
+      "timing": "If adopted as proposed, replacement of the full blade set would be due at the next 3rd stage HPC rotor blade exposure after the final rule's effective date. No effective date exists yet."
+    },
+    "request_key": "c7ce8ba1bf84833f68d34a8602f8a168ed83022bb6c692d0e1559b530771260b",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 7366
+      },
+      "cache_creation_input_tokens": 7366,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 176,
+      "output_tokens": 647,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-016": {
+    "cost_usd": 0.022685,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "V2527-A5 is within the applicability."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date October 10, 2025, so the AD is in force on the question date."
+        },
+        {
+          "document": "2025-17066",
+          "locator": "Table 1 to paragraph (g)",
+          "paragraph": "(g)(1)",
+          "supports": "Revise TLM ALS paragraph B.1 within 90 days after the effective date to add the HPT stage 1 and stage 2 hub inspection tasks."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(g)(2)",
+          "supports": "Air carrier operations must also revise the approved maintenance or inspection program within 90 days."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Restriction on alternative actions after the revisions are done."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Notification before using an approved AMOC."
+        },
+        {
+          "document": "2024-26092",
+          "locator": null,
+          "paragraph": "preamble",
+          "supports": "Earlier proposed version, superseded by the final rule and not the operative text."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After the (g)(1) and (g)(2) actions are done, no alternative actions are allowed unless approved as specified in paragraph (i)."
+        },
+        {
+          "paragraph": "(i)(2)",
+          "text": "Before using any approved AMOC, notify the appropriate principal inspector, or lacking one, the manager of the local flight standards district office or certificate holding district office."
+        }
+      ],
+      "hubs": [],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "The record has no installed component entries, but the required action is a documentation revision that does not depend on part installation, so no parts are matched.",
+        "The 90-day deadline is calendar-based, so no flight-cycle count is computed.",
+        "The AD requires the revisions only; the inspection tasks themselves are performed under other regulations once incorporated.",
+        "This is a screening aid, not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The V2527-A5 is a listed model, so AD 2025-17-16 applies. The AD has been in force since 2025-10-10, and the record shows neither the V2500-A5 TLM ALS paragraph B.1 nor the approved maintenance program yet incorporates table 1; both revisions are due within 90 days after the effective date.",
+      "timing": "Within 90 days after the effective date of October 10, 2025, i.e. by January 8, 2026, for both the TLM ALS revision under (g)(1) and, because this is air carrier operation, the program revision under (g)(2)."
+    },
+    "request_key": "8b0ed98824d3b6c5f269746c5f4e546c1cc70ba4b332a560c98f0e116e4afe7a",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 14044
+      },
+      "cache_creation_input_tokens": 14044,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 240,
+      "output_tokens": 978,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-017": {
+    "cost_usd": 0.006502,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Applicability includes V2522-A5 engines."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date October 10, 2025, so the AD is in force on the question date."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(g)(1)",
+          "supports": "TLM ALS revision within 90 days after the effective date."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(g)(2)",
+          "supports": "Air carrier operations must also revise the maintenance or inspection program within 90 days."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Restriction on alternative actions."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Notification before using an AMOC."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After the (g)(1) and (g)(2) actions are done, no alternative actions are allowed unless approved as an AMOC under paragraph (i)."
+        },
+        {
+          "paragraph": "(i)(2)",
+          "text": "Before using any approved AMOC, notify the principal inspector or the local flight standards district office/certificate holding district office."
+        }
+      ],
+      "hubs": [],
+      "missing_fact_descriptions": [
+        "Whether the engine is used in air carrier operations is unknown; this determines whether paragraph (g)(2) (revision of the approved maintenance or inspection program) applies.",
+        "Whether the TLM ALS revision under (g)(1) has already been done is not in the record (no ad_records supplied), so completion cannot be confirmed."
+      ],
+      "missing_facts": [
+        "operator.air_carrier_operation"
+      ],
+      "notes": [
+        "The AD requires only revision of the ALS/program, so no installed-part matching or cycle computation is needed; the hub part numbers in Table 1 (2A5001, 2A4802) are inspection tasks at piece-part exposure.",
+        "The proposed rule 2024-26092 is superseded by the final rule and was not relied on for requirements.",
+        "This is a screening aid only, not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The engine model V2522-A5 is within the AD applicability and the AD was in force on the question date (effective 2025-10-10). The paragraph (g)(1) ALS/TLM revision was due within 90 days after the effective date, and paragraph (g)(2) applies only if this is an air carrier operation, which is unknown.",
+      "timing": "Paragraph (g)(1): within 90 days after October 10, 2025, i.e. by January 8, 2026. Paragraph (g)(2), if air carrier operations: same 90-day deadline."
+    },
+    "request_key": "7d6a2e576e19eb4ee06c94896eebc2effd61af5bb391caea5e108dfb0688c413",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 14044,
+      "inference_geo": "global",
+      "input_tokens": 148,
+      "output_tokens": 990,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-018": {
+    "cost_usd": 0.006937,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "published_not_yet_effective",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "V2525-D5 is within the applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1, HPT 2nd-stage hub PKLBSR2100, 6,000",
+          "paragraph": "(g)",
+          "supports": "Listed hub is installed; removal at next shop visit after the effective date, with the later of the cycle limit or 100 flight cycles."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date is October 29, 2025, after the question date."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Engine shop visit definition."
+        }
+      ],
+      "computed": {
+        "component_cycles_remaining": 5010
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in Table 1 in any engine."
+        },
+        {
+          "paragraph": "(g)",
+          "text": "Replacement must be with a part eligible for installation, meaning a hub whose P/N and S/N are not listed in Table 1."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A4802",
+          "position": "HPT 2nd-stage hub",
+          "serial_number": "PKLBSR2100",
+          "statement": "HPT 2nd-stage hub P/N 2A4802 S/N PKLBSR2100 matched listed P/N 2A4802 S/N PKLBSR2100",
+          "table_row": {
+            "part_number": "2A4802",
+            "serial_number": "PKLBSR2100"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "Engine flight-cycle counter at the 2025-10-29 effective date is not supplied. It is needed to convert the 100-flight-cycle window into an engine cycle deadline."
+      ],
+      "missing_facts": [
+        "engine.cycles_since_new"
+      ],
+      "notes": [
+        "The HPT 1st-stage hub S/N SYN-HUB1-0018 is not listed in Table 1, so it is not matched.",
+        "No events are recorded, so no engine shop visit has occurred. The NPRM 2025-10764 is superseded by the final rule.",
+        "This is a screening aid, not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The V2525-D5 is within the AD's applicability, and its HPT 2nd-stage hub P/N 2A4802 S/N PKLBSR2100 is listed in Table 1 (limit 6,000 cycles since new). The AD is published but not effective until 2025-10-29, so no action is required yet; removal is tied to a future engine shop visit.",
+      "timing": "Not yet in force on 2025-10-15 (effective 2025-10-29). Once in force, remove at the next engine shop visit after the effective date, before the hub exceeds 6,000 cycles since new or within 100 flight cycles after the effective date, whichever occurs later. The hub has 990 cycles, so the later limit is the 100-flight-cycle window. No fixed deadline is computable because the engine's flight-cycle counter at the effective date is not supplied."
+    },
+    "request_key": "d34d77299f7e700129ebb89b9a6962c93c2ccb943afd018861d5f2fe3976c80a",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 244,
+      "output_tokens": 1079,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-019": {
+    "cost_usd": 0.00761,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "V2531-E5 is within applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1, PKLBSS9200 row",
+          "paragraph": "(g)",
+          "supports": "Hub match, 4,800 cycle limit, and shop-visit/100-cycle timing."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Engine shop visit definition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date 2025-10-29, so in force on question date."
+        }
+      ],
+      "computed": {
+        "component_cycles_remaining": -190,
+        "readings": {
+          "Whichever-later read as 100 cycles after effective date, if a shop visit has occurred": 60100
+        }
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After 2025-10-29, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in table 1 in any engine."
+        },
+        {
+          "paragraph": "(g)",
+          "text": "Replacement part must be a part eligible for installation, meaning its P/N and S/N are not listed in table 1."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001",
+          "position": "HPT 1st-stage hub",
+          "serial_number": "PKLBSS9200",
+          "statement": "HPT 1st-stage hub P/N 2A5001 S/N PKLBSS9200 matched listed P/N 2A5001 S/N PKLBSS9200",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": "PKLBSS9200"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "The 2nd-stage hub S/N SYN-HUB2-0019 is not in table 1, so it does not match. Its identity as recorded should be confirmed."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 2nd-stage hub].serial_number"
+      ],
+      "notes": [
+        "Hub cycles since new were 4950 on 2025-10-29 and 4990 on 2025-11-05, which is 190 over the 4,800 limit; the limit was already exceeded before the effective date.",
+        "The 40 engine cycles flown between readings match the 40-cycle hub increase.",
+        "No events are recorded, so no engine shop visit after the effective date is shown. The record does not show whether one has occurred.",
+        "The operator has no recorded AMOC or AD record for this AD.",
+        "This is a screening aid only, not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The engine model is covered and the HPT 1st-stage hub P/N 2A5001 S/N PKLBSS9200 matches table 1 (limit 4,800 cycles since new). The hub is already past its limit, so removal falls due at the next engine shop visit after 2025-10-29, but not later than that visit; no shop visit is recorded.",
+      "timing": "At the next engine shop visit after 2025-10-29. The limit has already been exceeded, so the later-of date is 100 flight cycles after the effective date, which is engine cycle 60100. The shop-visit trigger is the controlling event. No deadline applies if no shop visit occurs."
+    },
+    "request_key": "26022e63c8d74c87677341d0683e7c9ed40aa77ec9c8cc2966247801a72212a4",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 367,
+      "output_tokens": 1189,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-020/2021-11960": {
+    "cost_usd": 0.032221,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "needs_review",
+      "applicability": "unknown",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2021-11960",
+          "locator": "(c)(1),(c)(2)",
+          "paragraph": "(c)",
+          "supports": "Applicability depends on P/N and listed S/N of the HPT disks."
+        },
+        {
+          "document": "2021-11960",
+          "locator": null,
+          "paragraph": "(g)(1)",
+          "supports": "V2533-A5 1st-stage disk USI timing."
+        },
+        {
+          "document": "2021-11960",
+          "locator": null,
+          "paragraph": "(g)(2)",
+          "supports": "V2533-A5 2nd-stage disk USI timing."
+        },
+        {
+          "document": "2021-11960",
+          "locator": null,
+          "paragraph": "(g)(7)",
+          "supports": "Removal and replacement if the inspection fails."
+        },
+        {
+          "document": "2021-11960",
+          "locator": null,
+          "paragraph": "(h)(1)",
+          "supports": "Engine shop visit definition."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(g)(7)",
+          "text": "If a disk does not pass the USI, remove it from service and replace it with a part eligible for installation before further flight."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001",
+          "position": "HPT 1st-stage disk",
+          "serial_number": "SYN-DISK1-0020",
+          "statement": "HPT 1st-stage disk P/N 2A5001 S/N SYN-DISK1-0020 matched listed P/N 2A5001 S/N None",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": null
+          }
+        },
+        {
+          "outcome": "matched",
+          "part_number": "2A4802",
+          "position": "HPT 2nd-stage disk",
+          "serial_number": "SYN-DISK2-0020",
+          "statement": "HPT 2nd-stage disk P/N 2A4802 S/N SYN-DISK2-0020 matched listed P/N 2A4802 S/N None",
+          "table_row": {
+            "part_number": "2A4802",
+            "serial_number": null
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "Content of IAE NMSB V2500-ENG-72-0713 Rev 1 Appendix A Tables 1 and 2 was not provided; needed to determine whether serials SYN-DISK1-0020 and SYN-DISK2-0020 are listed.",
+        "Flight cycles accumulated by the HPT 1st-stage disk since July 13, 2021, needed to compute the 3,200 FC limit.",
+        "Flight cycles accumulated by the HPT 2nd-stage disk since July 13, 2021, needed to compute the 3,200 FC limit.",
+        "No AD record or USI accomplishment is supplied, so whether the USI was already done is unknown."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 1st-stage disk].flight_cycles_since_2021-07-13",
+        "installed_components[HPT 2nd-stage disk].flight_cycles_since_2021-07-13",
+        "ad_records[2021-11-15]"
+      ],
+      "notes": [
+        "Part numbers match, but the serial-number match was not confirmed because the Appendix A list was not supplied, so matched_parts is provisional.",
+        "AD 2022-02-09 (2022-02574) supersedes this AD effective 2022-03-15, after the question date, so 2021-11960 remains the AD in force on 2022-03-01.",
+        "This is a screening aid only and not a compliance determination."
+      ],
+      "queue": "needs_review",
+      "summary": "The engine model V2533-A5 is supported and AD 2021-11-15 (2021-11960) was in force on 2022-03-01, but applicability depends on whether the installed disk serial numbers appear in the service bulletin Appendix A tables, which were not supplied. The record also gives no flight-cycle or shop visit data.",
+      "timing": "If the disks are listed: at the next engine shop visit after July 13, 2021, or before the disk accumulates 3,200 FCs since July 13, 2021, whichever occurs first (g)(1)/(g)(2). No shop visit events are recorded, and the FC accumulation since the effective date is not supplied."
+    },
+    "request_key": "4997226ed63c6576755c75e9ddacd1b8c3476d056b65afb7de2fbdf071d97cce",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 20491
+      },
+      "cache_creation_input_tokens": 20491,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 222,
+      "output_tokens": 1277,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-020/2022-02574": {
+    "cost_usd": 0.032356,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "needs_review",
+      "applicability": "unknown",
+      "authority_state": "published_not_yet_effective",
+      "citations": [
+        {
+          "document": "2022-02574",
+          "locator": "(c)(1) and (c)(2)",
+          "paragraph": "(c)",
+          "supports": "Applicability depends on part number and a serial number listed in the NMSB tables."
+        },
+        {
+          "document": "2022-02574",
+          "locator": "Figure 1",
+          "paragraph": "(g)(1)",
+          "supports": "V2533-A5 is a high-thrust model; USI timing is per Figure 1 or within 10 FCs after the effective date, whichever is later."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(g)(2)",
+          "supports": "The same timing applies to the HPT 2nd-stage disk."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "The AD is effective 2022-03-15, after the question date."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(g)(7)",
+          "text": "If a disk fails the USI, remove it from service before further flight and replace it with a part eligible for installation."
+        },
+        {
+          "paragraph": "(f)",
+          "text": "Comply within the specified compliance times, unless already done."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001",
+          "position": "HPT 1st-stage disk",
+          "serial_number": "SYN-DISK1-0020",
+          "statement": "HPT 1st-stage disk P/N 2A5001 S/N SYN-DISK1-0020 matched listed P/N 2A5001 S/N None",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": null
+          }
+        },
+        {
+          "outcome": "matched",
+          "part_number": "2A4802",
+          "position": "HPT 2nd-stage disk",
+          "serial_number": "SYN-DISK2-0020",
+          "statement": "HPT 2nd-stage disk P/N 2A4802 S/N SYN-DISK2-0020 matched listed P/N 2A4802 S/N None",
+          "table_row": {
+            "part_number": "2A4802",
+            "serial_number": null
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "Appendix A, Table 1 of IAE NMSB V2500-ENG-72-0713 Rev 1 (listed HPT 1st-stage disk serial numbers) was not supplied. It is needed to confirm that S/N SYN-DISK1-0020 is listed.",
+        "Appendix A, Table 2 of IAE NMSB V2500-ENG-72-0713 Rev 1 (listed HPT 2nd-stage disk serial numbers) was not supplied. It is needed to confirm that S/N SYN-DISK2-0020 is listed.",
+        "Figure 1 to paragraph (g)(1), the compliance-time table, is an image that was not included in the text. It is needed to compute any deadline.",
+        "Disk cycle accumulation is not in the record. It is needed to apply the Figure 1 thresholds.",
+        "Disk cycle accumulation is not in the record. It is needed to apply the Figure 1 thresholds."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 1st-stage disk].flight_cycles_since_new",
+        "installed_components[HPT 2nd-stage disk].flight_cycles_since_new"
+      ],
+      "notes": [
+        "The record shows no events, so no shop visit history is available.",
+        "Matched parts are by part number only. The serial numbers still need to be checked against the NMSB tables.",
+        "This is a screening aid only, not a compliance determination."
+      ],
+      "queue": "needs_review",
+      "summary": "AD 2022-02-09 is published but not effective until 2022-03-15, so no action is required on 2022-03-01. The engine model is in scope and both disks have the listed part numbers, but their serial numbers cannot be checked against the NMSB Appendix A tables, which were not supplied.",
+      "timing": "Not yet in force. Once effective on 2022-03-15, (g)(1)/(g)(2) would require the USI within the Figure 1 compliance time or within 10 FCs after the effective date, whichever is later. Figure 1 was not provided, so no deadline can be computed."
+    },
+    "request_key": "a9ef0d2a544e97424ded0516570170b4be012079042891f864fe8041990bee00",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 20491
+      },
+      "cache_creation_input_tokens": 20491,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 222,
+      "output_tokens": 1304,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-021": {
+    "cost_usd": 0.032751,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "needs_review",
+      "applicability": "unknown",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2022-02574",
+          "locator": "(c)(1)-(2)",
+          "paragraph": "(c)",
+          "supports": "Applicability depends on model, part number, and serial number listed in the NMSB Appendix A tables."
+        },
+        {
+          "document": "2022-02574",
+          "locator": "(g)(1)-(2) and Figure 1",
+          "paragraph": "(g)(1)",
+          "supports": "V2530-A5 inspection timing is set by Figure 1 or 10 FCs after the effective date, whichever is later."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(g)(7)",
+          "supports": "Removal and replacement if a disk fails the USI."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(h)(2)",
+          "supports": "Definition of a part eligible for installation."
+        },
+        {
+          "document": "2022-02574",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "The AD has been effective since March 15, 2022, so it is in force on the question date."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(g)(7)",
+          "text": "If a disk does not pass the USI, remove it from service and replace it with a part eligible for installation before further flight."
+        },
+        {
+          "paragraph": "(h)(2)",
+          "text": "Only a part eligible for installation, as defined in (h)(2), may be used as a replacement disk."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001",
+          "position": "HPT 1st-stage disk",
+          "serial_number": "SYN-DISK1-0021",
+          "statement": "HPT 1st-stage disk P/N 2A5001 S/N SYN-DISK1-0021 matched listed P/N 2A5001 S/N None",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": null
+          }
+        },
+        {
+          "outcome": "matched",
+          "part_number": "2A4802",
+          "position": "HPT 2nd-stage disk",
+          "serial_number": "SYN-DISK2-0021",
+          "statement": "HPT 2nd-stage disk P/N 2A4802 S/N SYN-DISK2-0021 matched listed P/N 2A4802 S/N None",
+          "table_row": {
+            "part_number": "2A4802",
+            "serial_number": null
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "Appendix A, Table 1 of IAE NMSB V2500-ENG-72-0713 Rev 1 was not provided, so it cannot be confirmed whether HPT 1st-stage disk S/N SYN-DISK1-0021 is listed. Listing determines applicability under (c)(1).",
+        "Appendix A, Table 2 of IAE NMSB V2500-ENG-72-0713 Rev 1 was not provided, so it cannot be confirmed whether HPT 2nd-stage disk S/N SYN-DISK2-0021 is listed. Listing determines applicability under (c)(2).",
+        "Figure 1 to paragraph (g)(1) was an image not included in the text, so the compliance time for a V2530-A5 cannot be computed.",
+        "Disk flight-cycle counts and the engine flight-cycle counter are not in the record, so a cycle-based deadline cannot be computed even if the disks are listed.",
+        "The event list is empty, so there is no shop visit or inspection history. Any prior USI of either disk is not documented, which matters for credit and timing."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 1st-stage disk].cycles_since_new",
+        "events"
+      ],
+      "notes": [
+        "This is a screening result only and not a compliance determination.",
+        "The effective date of March 15, 2022 has passed, and the 10-FC grace period after it has long elapsed. The Figure 1 time is unknown, so the status cannot be set.",
+        "The previous AD 2021-11-15 is superseded by this document.",
+        "Serial numbers are synthetic and cannot be checked against the real service bulletin list."
+      ],
+      "queue": "needs_review",
+      "summary": "The V2530-A5 is a listed model and the installed disks carry the listed part numbers (2A5001 and 2A4802). Applicability depends on whether the disk serial numbers appear in Appendix A, Tables 1 and 2 of the service bulletin, and that appendix was not supplied. The compliance times in Figure 1 were also not supplied.",
+      "timing": null
+    },
+    "request_key": "fe2215206b0c40fbb27a3dee3ec9f0ffe948aa786be7994867c7ac37ae481126",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 20491
+      },
+      "cache_creation_input_tokens": 20491,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 222,
+      "output_tokens": 1383,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-022/2021-11960": {
+    "cost_usd": 0.021308,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "needs_review",
+      "applicability": "unknown",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2021-11960",
+          "locator": "(c)(1)-(2)",
+          "paragraph": "(c)",
+          "supports": "Applicability depends on part numbers and serial numbers listed in the NMSB Appendix A tables."
+        },
+        {
+          "document": "2021-11960",
+          "locator": "V2533-A5",
+          "paragraph": "(g)(1)",
+          "supports": "Inspection of the 1st-stage disk at the next engine shop visit or within 3,200 FCs after the effective date."
+        },
+        {
+          "document": "2021-11960",
+          "locator": "V2533-A5",
+          "paragraph": "(g)(2)",
+          "supports": "Inspection of the 2nd-stage disk at the next engine shop visit or within 3,200 FCs after the effective date."
+        },
+        {
+          "document": "2021-11960",
+          "locator": null,
+          "paragraph": "(g)(7)",
+          "supports": "Removal and replacement of a disk that fails the inspection."
+        },
+        {
+          "document": "2021-11960",
+          "locator": "DATES",
+          "paragraph": "preamble",
+          "supports": "The AD is effective 2021-07-13, so it is in force on the question date."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(g)(7)",
+          "text": "If a disk fails the USI, remove it from service before further flight and replace it with a part eligible for installation."
+        },
+        {
+          "paragraph": "(h)(2)",
+          "text": "A replacement disk must be a part eligible for installation."
+        }
+      ],
+      "hubs": [],
+      "missing_fact_descriptions": [
+        "Appendix A, Table 1 of IAE NMSB V2500-ENG-72-0713 Rev 1 was not provided, so it cannot be confirmed whether HPT 1st-stage disk S/N PKLBSH1829 (P/N 2A5001) is listed.",
+        "Appendix A, Table 2 of IAE NMSB V2500-ENG-72-0713 Rev 1 was not provided, so it cannot be confirmed whether HPT 2nd-stage disk S/N SYN-DISK2-0022 (P/N 2A4802) is listed.",
+        "Disk cycle counts, and the counts at the 2021-07-13 effective date, are not recorded. They are needed to compute the 3,200-cycle limit.",
+        "No shop visit events are recorded since 2021-07-13, so it is unknown whether an engine shop visit has occurred that would have triggered the inspection."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 1st-stage disk].cycles_since_new",
+        "events"
+      ],
+      "notes": [
+        "The installed part numbers match the AD's part numbers, but the serial numbers cannot be matched without the NMSB tables.",
+        "The 1st-stage disk serial number has a real-looking format, while the 2nd-stage serial number is synthetic.",
+        "Engine flight cycles (33,004) are not disk cycles, so no engine-cycle deadline can be computed."
+      ],
+      "queue": "needs_review",
+      "summary": "The V2533-A5 is a supported model and the AD is in force (effective 2021-07-13). Whether it applies depends on whether the installed disk serial numbers appear in Appendix A Tables 1 and 2 of IAE NMSB V2500-ENG-72-0713 Rev 1, and that service bulletin content was not supplied.",
+      "timing": "If either disk is listed: at the next engine shop visit after 2021-07-13 or before that disk accumulates 3,200 flight cycles since 2021-07-13, whichever occurs first. The disk cycle count at the effective date is not supplied."
+    },
+    "request_key": "d7e97c8bd5db2e95e071f925ae257cf53d379a11c8c9c2f999042e7d79e44f9e",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 11909
+      },
+      "cache_creation_input_tokens": 11909,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 287,
+      "output_tokens": 1227,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-022/2021-14268": {
+    "cost_usd": 0.018712,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2021-14268",
+          "locator": "listed 1st-stage disk serial PKLBSH1829",
+          "paragraph": "(c)(1)",
+          "supports": "Engine model and disk P/N and S/N match the applicability."
+        },
+        {
+          "document": "2021-14268",
+          "locator": null,
+          "paragraph": "(g)(1)",
+          "supports": "USI of the 1st-stage disk within 10 flight cycles after the effective date."
+        },
+        {
+          "document": "2021-14268",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date July 19, 2021, so the AD is in force on the question date."
+        },
+        {
+          "document": "2021-14268",
+          "locator": null,
+          "paragraph": "(g)(3)",
+          "supports": "Removal if the USI fails."
+        }
+      ],
+      "computed": {
+        "latest_engine_flight_cycles": 33010
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(g)(3)",
+          "text": "If a disk does not pass the USI, remove it from service before further flight and replace it with a part eligible for installation."
+        },
+        {
+          "paragraph": "(h)",
+          "text": "Replacement parts must be a 'part eligible for installation' as defined."
+        },
+        {
+          "paragraph": "(i)(2)",
+          "text": "Before using any approved AMOC, notify the appropriate principal inspector or flight standards office."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001",
+          "position": "HPT 1st-stage disk",
+          "serial_number": "PKLBSH1829",
+          "statement": "HPT 1st-stage disk P/N 2A5001 S/N PKLBSH1829 matched listed P/N 2A5001 S/N PKLBSH1829",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": "PKLBSH1829"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "The 2nd-stage disk S/N SYN-DISK2-0022 is not among the serials in paragraph (c)(2); Table 2 to paragraph (g)(2) is an image not provided, so it cannot be checked. It does not change the applicability or the 1st-stage deadline.",
+        "No record of whether the USI has already been done (paragraph (f) 'unless already done') or of any AMOC claimed."
+      ],
+      "missing_facts": [
+        "ad_records[2021-11-51]"
+      ],
+      "notes": [
+        "The 10-cycle count starts from the engine cycle reading on the effective date (33000).",
+        "Screening aid only; not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The V2533-A5 engine has an HPT 1st-stage disk P/N 2A5001, S/N PKLBSH1829, which is listed in paragraph (c)(1), so the AD applies. A USI of that disk is required within 10 flight cycles after the July 19, 2021 effective date, i.e. by engine flight cycle 33010.",
+      "timing": "Within 10 flight cycles after the effective date of July 19, 2021 (engine at 33000 cycles on that date), so by 33010 engine flight cycles; 4 cycles used as of 2021-07-20."
+    },
+    "request_key": "2d7cd479db100e538f4f3d211363655e59709fd6242dc309c5e5679a54ddfab0",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 10820
+      },
+      "cache_creation_input_tokens": 10820,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 287,
+      "output_tokens": 980,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-023/2025-17066": {
+    "cost_usd": 0.009186,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "no_action_triggered",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "The V2527M-A5 model is within the AD applicability."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "The AD is effective 2025-10-10, so it was in force on the question date."
+        },
+        {
+          "document": "2025-17066",
+          "locator": "Table 1",
+          "paragraph": "(g)(1)",
+          "supports": "The TLM ALS must be revised within 90 days after the effective date; the table lists P/N 2A5001 and 2A4802."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(g)(2)",
+          "supports": "Air carrier operations must revise the approved maintenance or inspection program within 90 days after the effective date."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Alternative actions are allowed only if approved under paragraph (i)."
+        },
+        {
+          "document": "2025-17066",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Notification is required before using an approved AMOC."
+        },
+        {
+          "document": "2024-26092",
+          "locator": null,
+          "paragraph": "preamble",
+          "supports": "The earlier proposed rule is superseded by the final rule."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After the paragraph (g)(1) and (2) actions are done, no alternative actions are allowed unless approved as AMOCs under paragraph (i)."
+        },
+        {
+          "paragraph": "(i)(2)",
+          "text": "Before using any approved AMOC, notify the appropriate principal inspector or the manager of the local flight standards district office/certificate holding district office."
+        },
+        {
+          "paragraph": "(g)",
+          "text": "The inspection tasks for the HPT stage 1 hub (P/N 2A5001) and stage 2 hub (P/N 2A4802) are in paragraph B.1 of the Maintenance Scheduling section, performed at piece-part exposure, so they stay in the program."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001",
+          "position": "HPT 1st-stage hub",
+          "serial_number": "SYN-HUB1-0023",
+          "statement": "HPT 1st-stage hub P/N 2A5001 S/N SYN-HUB1-0023 matched listed P/N 2A5001 S/N None",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": null
+          }
+        },
+        {
+          "outcome": "matched",
+          "part_number": "2A4802",
+          "position": "HPT 2nd-stage hub",
+          "serial_number": "PKLBSR2100",
+          "statement": "HPT 2nd-stage hub P/N 2A4802 S/N PKLBSR2100 matched listed P/N 2A4802 S/N None",
+          "table_row": {
+            "part_number": "2A4802",
+            "serial_number": null
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "The content of Revision 48 and the TLM ALS revision was not supplied. Whether they incorporate table 1 tasks 72-45-11-200-006 and 72-45-31-200-009 in paragraph B.1 of the Maintenance Scheduling section of each applicable TLM cannot be confirmed from the record summary alone.",
+        "The record gives conflicting cycles-since-new for the HPT 2nd-stage hub: 1000 at 2025-10-29 versus 3500 current, while it was installed 2024-01-09. This should be reconciled. It does not change the screening outcome because the AD sets no cycle threshold."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 2nd-stage hub].cycles_since_new"
+      ],
+      "notes": [
+        "This is a screening aid only and not a compliance determination.",
+        "The AD requires revising the ALS and program; the inspections themselves apply at piece-part exposure under the revised program.",
+        "No engine-cycle deadline applies because the AD uses a calendar-based compliance time."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "The V2527M-A5 engine is within the applicability of AD 2025-17-16, which was in force on 2026-10-06 (effective 2025-10-10). The record shows the TLM ALS and the approved maintenance program were revised on 2025-12-01, within 90 days of the effective date (deadline 2026-01-08), so no further action is triggered by this screen.",
+      "timing": "The paragraph (g)(1) and (g)(2) revisions were due within 90 days after 2025-10-10, that is by 2026-01-08. The record shows both were revised on 2025-12-01."
+    },
+    "request_key": "60cd85d05c59a6092c5adfdbc689a4cbc9d05380e0211684c4863cd3679c32dd",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 14044,
+      "inference_geo": "global",
+      "input_tokens": 552,
+      "output_tokens": 1446,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-023/2025-18469": {
+    "cost_usd": 0.008585,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Applicability to the V2527M-A5 model."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1, HPT 2nd-stage hub 2A4802 PKLBSR2100, 6,000",
+          "paragraph": "(g)",
+          "supports": "Removal at the next shop visit; listed part and its limit."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Definition of engine shop visit."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date of 2025-10-29, so the AD is in force on 2026-10-06."
+        }
+      ],
+      "computed": {
+        "component_cycles_remaining": 2500
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After 2025-10-29, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in table 1 in any engine."
+        },
+        {
+          "paragraph": "(g)",
+          "text": "Remove the listed HPT 2nd-stage hub and replace it with a part eligible for installation at the next engine shop visit, under the timing in paragraph (g)."
+        },
+        {
+          "paragraph": "(j)",
+          "text": "Any AMOC must be approved by the FAA, and the principal inspector notified before it is used. None is claimed in the record."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A4802",
+          "position": "HPT 2nd-stage hub",
+          "serial_number": "PKLBSR2100",
+          "statement": "HPT 2nd-stage hub P/N 2A4802 S/N PKLBSR2100 matched listed P/N 2A4802 S/N PKLBSR2100",
+          "table_row": {
+            "part_number": "2A4802",
+            "serial_number": "PKLBSR2100"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "The hub's cycles since new at 2026-10-06 is recorded as 3500, but the 2025-10-29 reading was 1000. The two readings are inconsistent given the engine accrued 2500 cycles in between, so the 2500 remaining is based on the snapshot value and needs confirmation.",
+        "The 1st-stage hub S/N SYN-HUB1-0023 is not listed in table 1, so it is not matched. Its listing status depends on the serial number being correct.",
+        "No engine shop visit is recorded since 2025-10-29. A future shop visit would trigger removal of the 2nd-stage hub.",
+        "The record holds no entry for AD 2025-19-13. The maintenance program revision cites AD 2025-17-16, which is a different AD and is not supplied, so it does not address this AD."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 2nd-stage hub].cycles_since_new",
+        "installed_components[HPT 1st-stage hub].serial_number",
+        "events",
+        "ad_records[2025-19-13]"
+      ],
+      "notes": [
+        "The record's maintenance program revision refers to AD 2025-17-16, not this AD, and does not show action under AD 2025-19-13.",
+        "The wording of (g) combines the shop visit with the cycle limit or 100 cycles, and is read here as requiring removal at the next shop visit.",
+        "The proposed rule 2025-10764 was superseded by the final rule."
+      ],
+      "queue": "potentially_affected",
+      "summary": "AD 2025-19-13 is in force and applies to the V2527M-A5. The installed HPT 2nd-stage hub P/N 2A4802 S/N PKLBSR2100 is listed in table 1, so it must be removed at the next engine shop visit; no deadline applies without such a visit.",
+      "timing": "At the next engine shop visit after 2025-10-29, before exceeding the 6,000 cycles-since-new limit or within 100 flight cycles after the effective date, whichever occurs later. No shop visit is recorded, so no fixed deadline can be computed."
+    },
+    "request_key": "30f05006fe9fe0bf13b8394dfcd5aa533a759852533f857ffaf195d4c5aff581",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 552,
+      "output_tokens": 1347,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-023/2026-16954": {
+    "cost_usd": 0.008281,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Applies to V2527M-A5 engines with 3rd stage HPC rotor blade P/N 6A8353 or 6A8688 installed."
+        },
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(g)",
+          "supports": "Replacement required at next engine shop visit after the effective date where the blades are exposed."
+        },
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(h)(3)",
+          "supports": "Engine shop visit is induction of an engine into the shop for maintenance."
+        },
+        {
+          "document": "2026-16954",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective September 24, 2026, so in force on the question date."
+        },
+        {
+          "document": "2026-18423",
+          "locator": "correction",
+          "paragraph": "(g)",
+          "supports": "Correction adds the omitted word 'blade' to (g); the meaning is unchanged for this screen."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(g)",
+          "text": "At each qualifying engine shop visit after the effective date where a 3rd stage HPC rotor blade is exposed, replace the full set of 3rd stage HPC rotor blades with parts eligible for installation, unless already done."
+        },
+        {
+          "paragraph": "(i)",
+          "text": "Any AMOC must be approved by the Manager, AIR-520, and the principal inspector must be notified before an approved AMOC is used."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "6A8688",
+          "position": "3rd stage HPC rotor blade set",
+          "serial_number": "not tracked at set level",
+          "statement": "3rd stage HPC rotor blade set P/N 6A8688 S/N not tracked at set level matched listed P/N 6A8688 S/N None",
+          "table_row": {
+            "part_number": "6A8688",
+            "serial_number": null
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "No engine shop visit or blade-exposure event after 2026-09-24 is recorded, so it is not known whether the action has been triggered. Any such event must be checked against the AD's definitions of shop visit and blade exposure.",
+        "Blade set serials are not tracked at set level; the AD lists the part number only, so applicability rests on the P/N. Confirm that all installed blades are P/N 6A8688 or 6A8353 and whether any were already replaced or modified to an eligible P/N."
+      ],
+      "missing_facts": [
+        "events",
+        "installed_components[3rd stage HPC rotor blade set].serial_number"
+      ],
+      "notes": [
+        "The record's maintenance program revision cites AD 2025-17-16, a different directive, and does not bear on this AD.",
+        "The HPT hub records are unrelated to this AD and were not used.",
+        "This is a screening aid only and not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "AD 2026-17-03 is in force on 2026-10-06 (effective 2026-09-24) and applies to this V2527M-A5 engine because it has a 3rd stage HPC rotor blade set P/N 6A8688 installed. Replacement is required only at the next engine shop visit after 2026-09-24 where a 3rd stage HPC rotor blade is exposed; no deadline is triggered otherwise.",
+      "timing": "At the next engine shop visit after September 24, 2026 in which any 3rd stage HPC rotor blade is removed from the HPC stage 3 to 8 drum; no calendar or cycle deadline otherwise."
+    },
+    "request_key": "f1cd3d28f9e313673bae89ecb6886b479780213f07270fb405922b7e8d5c3390",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 19488,
+      "inference_geo": "global",
+      "input_tokens": 552,
+      "output_tokens": 1156,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-024": {
+    "cost_usd": 0.005187,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "no_action_triggered",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Model V2528-D5 is within applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1",
+          "paragraph": "(g)",
+          "supports": "Action applies only to installed parts with a P/N and S/N listed in the table; the installed hub identifiers do not match a listed pair."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition continues to apply."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective October 29, 2025, so in force on 2026-10-06."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in table 1 to paragraph (g) in any engine."
+        }
+      ],
+      "hubs": [],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "Installed 2nd-stage hub S/N PKLBST5011 matches a serial listed in Table 1 only for the 1st-stage hub P/N 2A5001; the P/N 2A4802 differs, so it is not treated as a match. Reviewer may wish to verify the serial number and part number against the hub's records for a possible data entry error.",
+        "The installed 1st-stage hub S/N SYN-HUB1-0024 is not listed in Table 1.",
+        "This is a screening aid only, not a compliance determination."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "The engine model is within the AD applicability and the AD is in force. The installed hubs do not match a listed P/N and S/N pair (the 2nd-stage hub S/N PKLBST5011 is listed only under P/N 2A5001 as a 1st-stage hub, and the installed 2nd-stage hub is P/N 2A4802), so no removal action is triggered by the record; the installation prohibition continues to bind.",
+      "timing": null
+    },
+    "request_key": "84789fc92ff030642f04400f810db2b54c00a17b832f8eb90525c1bd5c1126fe",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 244,
+      "output_tokens": 729,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-025": {
+    "cost_usd": 0.018977,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": null,
+      "applicability": "outside_supported_scope",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-17066",
+          "locator": "Applicability",
+          "paragraph": "(c)",
+          "supports": "The directive lists only IAE V2500 models; the record's model is outside the screening aid's supported scope."
+        }
+      ],
+      "computed": {},
+      "continuing_obligations": [],
+      "hubs": [],
+      "missing_fact_descriptions": [],
+      "missing_facts": [],
+      "notes": [
+        "No applicability determination was made for this engine model."
+      ],
+      "queue": "no_action_or_not_applicable",
+      "summary": "The engine model CFM56-5B4/3 is not one of the supported IAE V2500 models, so no applicability determination is made.",
+      "timing": null
+    },
+    "request_key": "c601686ea809249de9f6299e5e5e83e960ec984d3de64508e97aae8ef7988bcf",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 14044
+      },
+      "cache_creation_input_tokens": 14044,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 177,
+      "output_tokens": 249,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-026": {
+    "cost_usd": 0.007477,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Engine model V2530-A5 is within the applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1, PKLBST7489, 6,200",
+          "paragraph": "(g)",
+          "supports": "The hub is listed, and removal is required at the next shop visit."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Definition of engine shop visit."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "The AD is effective 2025-10-29, so it is in force on the question date."
+        }
+      ],
+      "computed": {
+        "component_cycles_remaining": 2600
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in table 1 in any engine."
+        },
+        {
+          "paragraph": "(g)",
+          "text": "Remove the listed hub and replace it with an eligible part (P/N and S/N not listed in table 1) at the applicable engine shop visit."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001",
+          "position": "HPT 1st-stage hub",
+          "serial_number": "PKLBST7489",
+          "statement": "HPT 1st-stage hub P/N 2A5001 S/N PKLBST7489 matched listed P/N 2A5001 S/N PKLBST7489",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": "PKLBST7489"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "The 2nd-stage hub serial number is a synthetic placeholder, not a real S/N. It cannot be matched against the table 1 serial numbers, so it is unconfirmed whether it is a listed part.",
+        "No engine shop visit after 2025-10-29 is recorded. A future shop visit triggers the removal requirement."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 2nd-stage hub].serial_number"
+      ],
+      "notes": [
+        "Cycles remaining is 6,200 minus the current 3,600 cycles since new, which is 2,600. The record's cycles_since_new reading of 3,000 at 2025-10-29 and 3,600 now is consistent with the 600 engine cycles flown in that period.",
+        "The 2024 blend repair and clean repeat ultrasonic inspection do not appear in the AD as an exception or terminating action. Any AMOC would need to be approved under paragraph (j).",
+        "The cycle limit is not reached, but the removal trigger is the shop visit. Shop-visit status of any future event should be checked against the (i)(2) definition."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The engine model is covered and the installed HPT 1st-stage hub P/N 2A5001 S/N PKLBST7489 is listed in table 1 (limit 6,200 cycles since new). Removal is required at the next engine shop visit after 2025-10-29, and no deadline applies until such a visit occurs.",
+      "timing": "At the next engine shop visit after October 29, 2025, which must be before the hub exceeds 6,200 cycles since new or within 100 flight cycles after the effective date, whichever occurs later. No shop visit is recorded, so no fixed date can be computed."
+    },
+    "request_key": "df71881e8f83ed422947a372bff5d28870346464c2af429733cc8570fd281aef",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 494,
+      "output_tokens": 1137,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-027": {
+    "cost_usd": 0.008836,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Engine model V2527-A5 is within applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1, HPT 1st-stage hub PKLBSS9200, 4,800",
+          "paragraph": "(g)",
+          "supports": "Matched hub, removal at next shop visit with the cycle limit and 100-cycle provision."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date October 29, 2025, so the AD is in force on the question date."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Engine shop visit definition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(j)",
+          "supports": "AMOC claim needs FAA approval."
+        }
+      ],
+      "computed": {
+        "component_cycles_remaining": 50
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "Do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in Table 1 in any engine after the effective date."
+        },
+        {
+          "paragraph": "(g)",
+          "text": "Remove the affected hub and replace it with an eligible part at the next engine shop visit, subject to the cycle limit and 100-cycle provisions."
+        },
+        {
+          "paragraph": "(j)",
+          "text": "Any AMOC must be approved by the AIR-520 Manager, and the principal inspector notified before use."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001",
+          "position": "HPT 1st-stage hub",
+          "serial_number": "PKLBSS9200",
+          "statement": "HPT 1st-stage hub P/N 2A5001 S/N PKLBSS9200 matched listed P/N 2A5001 S/N PKLBSS9200",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": "PKLBSS9200"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "The planning note claims an AMOC extending the limit to 5,300 CSN, but no FAA approval reference or letter is on file. Without an approved AMOC under paragraph (j) it cannot be relied on to change the 4,800 limit.",
+        "No shop visit events are recorded. Whether and when the next engine shop visit (as defined in (i)(2)) occurs determines when removal is due.",
+        "The 2nd-stage hub S/N SYN-HUB2-0027 is not in Table 1 and so is not matched, but the record is synthetic and the identity should be confirmed."
+      ],
+      "missing_facts": [
+        "amoc_claims[AD 2025-19-13]",
+        "events",
+        "installed_components[HPT 2nd-stage hub].serial_number"
+      ],
+      "notes": [
+        "Hub CSN on 2026-01-20 is 4,750, so 50 cycles remain to the 4,800 limit (about 250 cycles flown since 2025-10-29 at 4,500 CSN matches 4,750).",
+        "If the hub passes 4,800 CSN before a shop visit, the 'whichever occurs later' wording means removal is still at the next shop visit; the text does not require removal outside a shop visit.",
+        "The claimed 5,300 CSN AMOC is unverified and was not used.",
+        "This is a screening aid, not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The engine model is covered, and the installed HPT 1st-stage hub P/N 2A5001 S/N PKLBSS9200 matches Table 1 (limit 4,800 CSN). The AD is in force, but the removal is tied to the next engine shop visit, and the record shows none, so no deadline is set until one occurs.",
+      "timing": "At the next engine shop visit after 2025-10-29, before exceeding 4,800 cycles since new or within 100 flight cycles after the effective date, whichever occurs later. The 100-cycle window ended at engine cycle 15,100. Because the hub is under its 4,800 limit and no shop visit has occurred, the removal is triggered only when a shop visit occurs. The hub must not be allowed to bypass the shop visit requirement, and the installation prohibition applies now."
+    },
+    "request_key": "426526e9183fcdc02bf32715af299372b817cc374713c505ab9ecf194b5e4125",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 448,
+      "output_tokens": 1418,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-028": {
+    "cost_usd": 0.007285,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "action_required_on_event",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "V2524-A5 is within applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1, HPT 2nd-stage hub PKLBST5005, 4,000",
+          "paragraph": "(g)",
+          "supports": "Match, removal limit and shop-visit trigger."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Engine shop visit definition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Effective date",
+          "paragraph": "preamble",
+          "supports": "In force since 2025-10-29."
+        }
+      ],
+      "computed": {
+        "component_cycles_remaining": 2600
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in table 1 in any engine."
+        },
+        {
+          "paragraph": "(g)",
+          "text": "Remove and replace the affected hub at the next engine shop visit per the timing in (g); replace only with a part eligible for installation."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A4802",
+          "position": "HPT 2nd-stage hub",
+          "serial_number": "PKLBST5005",
+          "statement": "HPT 2nd-stage hub P/N 2A4802 S/N PKLBST5005 matched listed P/N 2A4802 S/N PKLBST5005",
+          "table_row": {
+            "part_number": "2A4802",
+            "serial_number": "PKLBST5005"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "The 1st-stage hub S/N SYN-HUB1-0028 is not in table 1, so it does not match. Confirm the serial number is correct, since a mismatch would change the result.",
+        "The 2nd-stage hub shows 1,400 cycles now and 1,000 at 2025-10-29 while the engine flew 400 cycles over the same period. This is consistent, but the installed date of 2025-06-03 precedes the effective date and the cycle count should be confirmed."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 1st-stage hub].serial_number",
+        "installed_components[HPT 2nd-stage hub].cycles_since_new"
+      ],
+      "notes": [
+        "The operator's record marking the AD not applicable with 'no affected hubs installed' is contradicted by the 2nd-stage hub match; the AD applies to all listed models regardless.",
+        "No events are recorded, so no shop visit has occurred that would trigger removal.",
+        "This is a screening aid, not a compliance determination."
+      ],
+      "queue": "potentially_affected",
+      "summary": "The engine model is listed and the installed HPT 2nd-stage hub P/N 2A4802 S/N PKLBST5005 matches table 1 (limit 4,000 cycles since new). Action is due at the next engine shop visit; the hub is at 1,400 cycles, so the removal limit is not yet exceeded, and the 'later of' timing means removal is tied to a shop visit, not a calendar date.",
+      "timing": "At the next engine shop visit after October 29, 2025, before exceeding 4,000 cycles since new or within 100 flight cycles after the effective date, whichever occurs later. No deadline arises without a shop visit."
+    },
+    "request_key": "8e4b897ab278af264e6f47afbc927d6f7e208ee1f2d258028d1f06d3ba5c843c",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 427,
+      "output_tokens": 1112,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  },
+  "seed-029": {
+    "cost_usd": 0.007075,
+    "error": null,
+    "latency_seconds": 454.637,
+    "output": {
+      "action_status": "needs_review",
+      "applicability": "applies",
+      "authority_state": "in_force",
+      "citations": [
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(c)",
+          "supports": "Engine model V2525-D5 is within applicability."
+        },
+        {
+          "document": "2025-18469",
+          "locator": "Table 1, HPT 1st-stage hub PKLBSK9287, 100 cycles",
+          "paragraph": "(g)",
+          "supports": "Removal and replacement at next shop visit after effective date, later of the cycle limit or 100 flight cycles; the hub has 2400 cycles since new, 2300 over the limit."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(h)",
+          "supports": "Installation prohibition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(i)(2)",
+          "supports": "Engine shop visit definition."
+        },
+        {
+          "document": "2025-18469",
+          "locator": null,
+          "paragraph": "(a)",
+          "supports": "Effective date October 29, 2025, so the AD is in force on the question date."
+        }
+      ],
+      "computed": {
+        "component_cycles_remaining": -2300
+      },
+      "continuing_obligations": [
+        {
+          "paragraph": "(h)",
+          "text": "After October 29, 2025, do not install an HPT 1st-stage or 2nd-stage hub with a P/N and S/N listed in Table 1 in any engine."
+        }
+      ],
+      "hubs": [
+        {
+          "outcome": "matched",
+          "part_number": "2A5001-01",
+          "position": "HPT 1st-stage hub",
+          "serial_number": "PKLBSK9287",
+          "statement": "HPT 1st-stage hub P/N 2A5001-01 S/N PKLBSK9287 matched listed P/N 2A5001 S/N PKLBSK9287",
+          "table_row": {
+            "part_number": "2A5001",
+            "serial_number": "PKLBSK9287"
+          }
+        }
+      ],
+      "missing_fact_descriptions": [
+        "Installed P/N is 2A5001-01 while Table 1 lists 2A5001 for S/N PKLBSK9287. Confirm whether the -01 dash suffix is the same listed part; it determines whether the hub is an affected part.",
+        "Current engine flight-cycle counter and the counter at the effective date (2025-10-29) are not supplied, so the 100-flight-cycle point cannot be computed."
+      ],
+      "missing_facts": [
+        "installed_components[HPT 1st-stage hub].part_number",
+        "engine.flight_cycles[2026-02-01]"
+      ],
+      "notes": [
+        "The 2nd-stage hub S/N SYN-HUB2-0029 is not listed in Table 1, so it is not matched.",
+        "The record has no events, so no engine shop visit since the effective date is recorded; action is tied to the next shop visit.",
+        "The part-number suffix mismatch is not resolved by the AD text; this screen does not determine the hub's status."
+      ],
+      "queue": "needs_review",
+      "summary": "The V2525-D5 is within the AD applicability and the AD is in force. The 1st-stage hub S/N PKLBSK9287 appears in Table 1, but the installed P/N is 2A5001-01 versus listed 2A5001, so the match needs review. If it matches, the removal limit of 100 cycles is already exceeded and removal is due at the next engine shop visit.",
+      "timing": "If the part matches: at the next engine shop visit after October 29, 2025 (the limit of 100 cycles since new is already passed, so the later-of 100 flight cycles from the effective date applies). No shop visit is recorded, so the deadline cannot be computed."
+    },
+    "request_key": "c26b56e1cdca818065cf1c5a431b40e05c7c364d7f32c89ab455a7bd24736b11",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12979,
+      "inference_geo": "global",
+      "input_tokens": 247,
+      "output_tokens": 1106,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "service_tier": "batch"
+    }
+  }
+}
