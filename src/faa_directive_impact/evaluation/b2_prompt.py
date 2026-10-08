@@ -159,6 +159,7 @@ def build_request(
     as_of: date,
     asset: dict[str, Any],
     documents: list[SourceDocument],
+    max_tokens: int = 16000,
 ) -> ModelRequest:
     return ModelRequest(
         model=model,
@@ -167,4 +168,5 @@ def build_request(
         question=question(directive, as_of, asset),
         output_schema=ANSWER_SCHEMA,
         effort=effort,
+        max_tokens=max_tokens,
     )

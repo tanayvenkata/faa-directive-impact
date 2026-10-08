@@ -78,6 +78,7 @@ def main(argv: list[str] | None = None) -> int:
     b2_run.add_argument("--effort", default="medium")
     b2_run.add_argument("--repeat", type=int, default=1)
     b2_run.add_argument("--mode", choices=("live", "batch"), default="batch")
+    b2_run.add_argument("--max-tokens", type=int, default=16000)
     b2_summary = commands.add_parser(
         "b2-summary", help="Summarize B2 repeats per model for the current prompt."
     )
@@ -135,6 +136,7 @@ def main(argv: list[str] | None = None) -> int:
             datetime.now(UTC),
             commit,
             dirty,
+            max_tokens=args.max_tokens,
         )
         print(directory)
         return EXIT_OK

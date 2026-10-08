@@ -42,5 +42,6 @@ llm-check:
 MODEL ?= claude-haiku-5-5
 EFFORT ?= medium
 REPEAT ?= 1
+MAX_TOKENS ?= 16000
 b2:
-	uv run faa-directive-impact b2-run --model $(MODEL) --effort $(EFFORT) --repeat $(REPEAT)
+	uv run faa-directive-impact b2-run --model $(MODEL) --effort $(EFFORT) --repeat $(REPEAT) --max-tokens $(MAX_TOKENS)

@@ -24,7 +24,8 @@ def load_runs(runs_root: Path, prompt_version: str) -> dict[str, list[dict]]:
             continue
         outputs = json.loads((path.parent / "outputs.json").read_text("utf-8"))
         report["outputs"] = outputs
-        by_model[f"{report['model']} @ {report['effort']}"].append(report)
+        cap = report.get("max_tokens", 16000)
+        by_model[f"{report['model']} @ {report['effort']} cap {cap}"].append(report)
     for runs in by_model.values():
         runs.sort(key=lambda report: report["repeat"])
     return dict(by_model)
@@ -53,6 +54,7 @@ def summarize_model(runs: list[dict]) -> dict[str, Any]:
     return {
         "model": runs[0]["model"],
         "effort": runs[0]["effort"],
+        "max_tokens": runs[0].get("max_tokens", 16000),
         "repeats": len(runs),
         "run_ids": [run["run_id"] for run in runs],
         "cost_usd": round(cost, 4),
@@ -89,7 +91,8 @@ def summary_markdown(summaries: list[dict], prompt_version: str) -> str:
         k = s["repeats"]
         lines += [
             "",
-            f"## `{s['model']}` at {s['effort']} effort",
+            f"## `{s['model']}` at {s['effort']} effort, output cap "
+            f"{s['max_tokens']:,}",
             "",
             "Failures per unit, as runs failing out of "
             f"{k}. Protected gates are marked *.",

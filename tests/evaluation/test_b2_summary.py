@@ -35,7 +35,7 @@ def test_failures_are_counted_across_repeats_and_changes_flagged(tmp_path) -> No
     write_run(tmp_path, 3, "no_action_triggered", gate_1_passed=False)
 
     runs = load_runs(tmp_path, "v-test")
-    summary = summarize_model(runs["claude-test @ medium"])
+    summary = summarize_model(runs["claude-test @ medium cap 16000"])
 
     assert summary["repeats"] == 3
     assert summary["failures"] == {"seed-013": {"1": 2}}

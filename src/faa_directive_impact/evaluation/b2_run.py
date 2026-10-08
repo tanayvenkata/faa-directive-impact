@@ -67,7 +67,8 @@ from faa_directive_impact.llm.client import (
 )
 
 META_KEYS = (
-    "run_id", "system", "model", "effort", "repeat", "mode", "prompt_version",
+    "run_id", "system", "model", "effort", "max_tokens", "repeat", "mode",
+    "prompt_version",
     "gate_version", "started_at", "git_commit", "worktree_dirty", "generation_id",
 )  # fmt: skip
 QUEUES = {
@@ -142,7 +143,9 @@ def prepare(repo: Path, storage_root: Path) -> list[B2Unit]:
     return prepared
 
 
-def request_for(item: B2Unit, model: str, effort: str) -> ModelRequest:
+def request_for(
+    item: B2Unit, model: str, effort: str, max_tokens: int = 16000
+) -> ModelRequest:
     return build_request(
         model,
         effort,
@@ -150,6 +153,7 @@ def request_for(item: B2Unit, model: str, effort: str) -> ModelRequest:
         item.as_of,
         item.unit.record["asset_snapshot"],
         list(item.documents),
+        max_tokens,
     )
 
 
@@ -225,6 +229,7 @@ def run_b2(
     commit: str,
     dirty: bool,
     client: Any = None,
+    max_tokens: int = 16000,
 ) -> Path:
     """Run one model over every unit, record the calls, and score them."""
     items = prepare(repo, storage_root)
@@ -233,7 +238,7 @@ def run_b2(
     directory = runs_root / f"b2-{name}-{effort}-r{repeat}-{stamp}-{commit[:7]}"
     directory.mkdir(parents=True, exist_ok=False)
     calls = directory / "calls"
-    requests = [request_for(item, model, effort) for item in items]
+    requests = [request_for(item, model, effort, max_tokens) for item in items]
 
     if client is None:
         import anthropic
@@ -255,6 +260,7 @@ def run_b2(
         "system": "B2 full-context model",
         "model": model,
         "effort": effort,
+        "max_tokens": max_tokens,
         "repeat": repeat,
         "mode": mode,
         "prompt_version": PROMPT_VERSION,
@@ -499,12 +505,17 @@ def replay_results(repo: Path, storage_root: Path, directory: Path) -> dict[str,
     """Re-score a recorded run from its calls, without the model."""
     report = json.loads((directory / "report.json").read_text(encoding="utf-8"))
     items = prepare(repo, storage_root)
-    requests = [request_for(item, report["model"], report["effort"]) for item in items]
+    max_tokens = report.get("max_tokens", 16000)
+    requests = [
+        request_for(item, report["model"], report["effort"], max_tokens)
+        for item in items
+    ]
     responses = []
     for request in requests:
         recorded = json.loads(
             (directory / "calls" / f"{request.key()}.json").read_text("utf-8")
         )
         responses.append(ModelResponse(**recorded["response"]))
-    meta = {key: report[key] for key in META_KEYS}
+    meta = {key: report[key] for key in META_KEYS if key in report}
+    meta.setdefault("max_tokens", 16000)
     return write_results(repo, directory, meta, items, requests, responses)
