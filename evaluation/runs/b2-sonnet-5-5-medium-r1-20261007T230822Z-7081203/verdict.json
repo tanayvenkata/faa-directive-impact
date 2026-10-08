@@ -1,0 +1,813 @@
+{
+  "all_units": {
+    "gate_version": 1,
+    "gates": {
+      "1": {
+        "budget": 0,
+        "covered": [
+          "seed-001",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-011",
+          "seed-013",
+          "seed-016",
+          "seed-017",
+          "seed-019",
+          "seed-023/2025-18469",
+          "seed-023/2026-16954",
+          "seed-026",
+          "seed-027",
+          "seed-028"
+        ],
+        "failed": [
+          "seed-013"
+        ],
+        "gate": "1",
+        "labels_to_check": [
+          "seed-013"
+        ],
+        "name": "No false clear",
+        "verdict": "unresolved"
+      },
+      "10": {
+        "budget": "0 on critical units, 0 uncited clears, at most 1 on high",
+        "covered": [
+          "seed-001",
+          "seed-002",
+          "seed-003",
+          "seed-004",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-009",
+          "seed-010",
+          "seed-011",
+          "seed-012",
+          "seed-013",
+          "seed-014",
+          "seed-015",
+          "seed-016",
+          "seed-017",
+          "seed-018",
+          "seed-019",
+          "seed-020/2021-11960",
+          "seed-020/2022-02574",
+          "seed-021",
+          "seed-022/2021-14268",
+          "seed-022/2021-11960",
+          "seed-023/2025-18469",
+          "seed-023/2026-16954",
+          "seed-023/2025-17066",
+          "seed-024",
+          "seed-025",
+          "seed-026",
+          "seed-027",
+          "seed-028",
+          "seed-029"
+        ],
+        "critical_units_with_uncited_evidence": [
+          "seed-011",
+          "seed-021",
+          "seed-022/2021-14268",
+          "seed-022/2021-11960",
+          "seed-023/2026-16954",
+          "seed-023/2025-17066",
+          "seed-029"
+        ],
+        "failed": [
+          "seed-011",
+          "seed-012",
+          "seed-013",
+          "seed-014",
+          "seed-015",
+          "seed-016",
+          "seed-017",
+          "seed-020/2021-11960",
+          "seed-020/2022-02574",
+          "seed-021",
+          "seed-022/2021-11960",
+          "seed-022/2021-14268",
+          "seed-023/2025-17066",
+          "seed-023/2026-16954",
+          "seed-029"
+        ],
+        "gate": "10",
+        "high_uncited_entries": 11,
+        "labels_to_check": [
+          "seed-011",
+          "seed-021",
+          "seed-022/2021-14268",
+          "seed-022/2021-11960",
+          "seed-023/2026-16954",
+          "seed-023/2025-17066",
+          "seed-029",
+          "seed-012",
+          "seed-013",
+          "seed-014",
+          "seed-015",
+          "seed-016",
+          "seed-017",
+          "seed-020/2021-11960",
+          "seed-020/2022-02574"
+        ],
+        "name": "Required evidence cited",
+        "scope": "citation part only; locators are on the hand-review sheet",
+        "uncited_clears": [],
+        "verdict": "unresolved"
+      },
+      "11": {
+        "budget": 0,
+        "covered": [
+          "seed-001",
+          "seed-002",
+          "seed-003",
+          "seed-004",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-009",
+          "seed-010",
+          "seed-011",
+          "seed-012",
+          "seed-013",
+          "seed-014",
+          "seed-015",
+          "seed-016",
+          "seed-017",
+          "seed-018",
+          "seed-019",
+          "seed-020/2021-11960",
+          "seed-020/2022-02574",
+          "seed-021",
+          "seed-022/2021-14268",
+          "seed-022/2021-11960",
+          "seed-023/2025-18469",
+          "seed-023/2026-16954",
+          "seed-023/2025-17066",
+          "seed-024",
+          "seed-025",
+          "seed-026",
+          "seed-027",
+          "seed-028",
+          "seed-029"
+        ],
+        "failed": [
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-018",
+          "seed-019",
+          "seed-022/2021-14268",
+          "seed-023/2025-18469",
+          "seed-026",
+          "seed-027",
+          "seed-028"
+        ],
+        "gate": "11",
+        "labels_to_check": [
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-018",
+          "seed-019",
+          "seed-022/2021-14268",
+          "seed-023/2025-18469",
+          "seed-026",
+          "seed-027",
+          "seed-028"
+        ],
+        "name": "Timing stated correctly",
+        "verdict": "unresolved"
+      },
+      "12": {
+        "budget": 1,
+        "covered": [
+          "seed-001",
+          "seed-002",
+          "seed-004",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-010",
+          "seed-011",
+          "seed-012",
+          "seed-013",
+          "seed-015",
+          "seed-016",
+          "seed-018",
+          "seed-019",
+          "seed-023/2025-18469",
+          "seed-023/2026-16954",
+          "seed-023/2025-17066",
+          "seed-024",
+          "seed-025",
+          "seed-026",
+          "seed-028"
+        ],
+        "failed": [],
+        "gate": "12",
+        "labels_to_check": [],
+        "name": "No needless escalation",
+        "verdict": "pass"
+      },
+      "13": {
+        "budget": 1,
+        "covered": [
+          "seed-002",
+          "seed-012",
+          "seed-015",
+          "seed-018",
+          "seed-023/2025-17066",
+          "seed-024"
+        ],
+        "failed": [
+          "seed-018"
+        ],
+        "gate": "13",
+        "labels_to_check": [],
+        "name": "No false alarm",
+        "verdict": "pass"
+      },
+      "14": {
+        "gate": "14",
+        "name": "Candidate recall",
+        "reason": "S1 receives its directive directly and does no retrieval.",
+        "verdict": "not_exercised"
+      },
+      "2": {
+        "budget": 0,
+        "covered": [
+          "seed-004",
+          "seed-010",
+          "seed-025"
+        ],
+        "failed": [],
+        "gate": "2",
+        "labels_to_check": [],
+        "name": "No scope leak",
+        "verdict": "pass"
+      },
+      "3": {
+        "budget": 0,
+        "covered": [
+          "seed-003",
+          "seed-009",
+          "seed-014",
+          "seed-020/2021-11960",
+          "seed-020/2022-02574",
+          "seed-021",
+          "seed-022/2021-14268",
+          "seed-022/2021-11960",
+          "seed-029"
+        ],
+        "failed": [
+          "seed-014",
+          "seed-022/2021-14268"
+        ],
+        "gate": "3",
+        "labels_to_check": [
+          "seed-014",
+          "seed-022/2021-14268"
+        ],
+        "name": "No false confidence",
+        "verdict": "unresolved"
+      },
+      "4": {
+        "budget": 0,
+        "covered": [
+          "seed-003",
+          "seed-008",
+          "seed-009",
+          "seed-017",
+          "seed-020/2021-11960",
+          "seed-021",
+          "seed-022/2021-14268",
+          "seed-022/2021-11960",
+          "seed-027",
+          "seed-029"
+        ],
+        "failed": [
+          "seed-020/2021-11960",
+          "seed-021",
+          "seed-022/2021-14268"
+        ],
+        "gate": "4",
+        "labels_to_check": [
+          "seed-020/2021-11960",
+          "seed-021",
+          "seed-022/2021-14268"
+        ],
+        "name": "Every missing fact named",
+        "verdict": "unresolved"
+      },
+      "5": {
+        "budget": 0,
+        "covered": [
+          "seed-001",
+          "seed-002",
+          "seed-003",
+          "seed-004",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-009",
+          "seed-010",
+          "seed-011",
+          "seed-012",
+          "seed-013",
+          "seed-014",
+          "seed-015",
+          "seed-016",
+          "seed-017",
+          "seed-018",
+          "seed-019",
+          "seed-020/2021-11960",
+          "seed-020/2022-02574",
+          "seed-021",
+          "seed-022/2021-14268",
+          "seed-022/2021-11960",
+          "seed-023/2025-18469",
+          "seed-023/2026-16954",
+          "seed-023/2025-17066",
+          "seed-024",
+          "seed-025",
+          "seed-026",
+          "seed-027",
+          "seed-028",
+          "seed-029"
+        ],
+        "failed": [
+          "seed-005",
+          "seed-014",
+          "seed-019",
+          "seed-022/2021-14268",
+          "seed-027"
+        ],
+        "gate": "5",
+        "labels_to_check": [
+          "seed-005",
+          "seed-014",
+          "seed-019",
+          "seed-022/2021-14268",
+          "seed-027"
+        ],
+        "name": "No forbidden claim",
+        "verdict": "unresolved"
+      },
+      "6": {
+        "budget": 0,
+        "covered": [
+          "seed-001",
+          "seed-002",
+          "seed-003",
+          "seed-004",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-009",
+          "seed-010",
+          "seed-011",
+          "seed-012",
+          "seed-013",
+          "seed-014",
+          "seed-015",
+          "seed-016",
+          "seed-017",
+          "seed-018",
+          "seed-019",
+          "seed-020/2021-11960",
+          "seed-020/2022-02574",
+          "seed-021",
+          "seed-022/2021-14268",
+          "seed-022/2021-11960",
+          "seed-023/2025-18469",
+          "seed-023/2026-16954",
+          "seed-023/2025-17066",
+          "seed-024",
+          "seed-025",
+          "seed-026",
+          "seed-027",
+          "seed-028",
+          "seed-029"
+        ],
+        "failed": [],
+        "gate": "6",
+        "labels_to_check": [],
+        "name": "No fabricated citation",
+        "verdict": "pass"
+      },
+      "7": {
+        "budget": 0,
+        "covered": [
+          "seed-015",
+          "seed-018",
+          "seed-020/2022-02574"
+        ],
+        "failed": [],
+        "gate": "7",
+        "labels_to_check": [],
+        "name": "Authority respected",
+        "verdict": "pass"
+      },
+      "8": {
+        "budget": 0,
+        "covered": [
+          "seed-001",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-019",
+          "seed-023/2025-18469",
+          "seed-026",
+          "seed-027",
+          "seed-028"
+        ],
+        "failed": [
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-023/2025-18469",
+          "seed-026",
+          "seed-027",
+          "seed-028"
+        ],
+        "gate": "8",
+        "labels_to_check": [
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-023/2025-18469",
+          "seed-026",
+          "seed-027",
+          "seed-028"
+        ],
+        "name": "Exact arithmetic",
+        "verdict": "unresolved"
+      },
+      "9": {
+        "budget": 0,
+        "covered": [
+          "seed-002",
+          "seed-012",
+          "seed-024",
+          "seed-029"
+        ],
+        "failed": [
+          "seed-029"
+        ],
+        "gate": "9",
+        "labels_to_check": [
+          "seed-029"
+        ],
+        "name": "Exact part identity",
+        "verdict": "unresolved"
+      }
+    },
+    "provisional": true,
+    "reviewer": "Claude (first pass, unconfirmed by project owner)",
+    "reviewer_confirmed": false,
+    "run_id": "b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203"
+  },
+  "s1_units": {
+    "gate_version": 1,
+    "gates": {
+      "1": {
+        "budget": 0,
+        "covered": [
+          "seed-001",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-019",
+          "seed-023/2025-18469",
+          "seed-026",
+          "seed-027",
+          "seed-028"
+        ],
+        "failed": [],
+        "gate": "1",
+        "labels_to_check": [],
+        "name": "No false clear",
+        "verdict": "pass"
+      },
+      "10": {
+        "budget": "0 on critical units, 0 uncited clears, at most 1 on high",
+        "covered": [
+          "seed-001",
+          "seed-002",
+          "seed-003",
+          "seed-004",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-009",
+          "seed-010",
+          "seed-018",
+          "seed-019",
+          "seed-023/2025-18469",
+          "seed-024",
+          "seed-026",
+          "seed-027",
+          "seed-028",
+          "seed-029"
+        ],
+        "critical_units_with_uncited_evidence": [
+          "seed-029"
+        ],
+        "failed": [
+          "seed-029"
+        ],
+        "gate": "10",
+        "high_uncited_entries": 0,
+        "labels_to_check": [
+          "seed-029"
+        ],
+        "name": "Required evidence cited",
+        "scope": "citation part only; locators are on the hand-review sheet",
+        "uncited_clears": [],
+        "verdict": "unresolved"
+      },
+      "11": {
+        "budget": 0,
+        "covered": [
+          "seed-001",
+          "seed-002",
+          "seed-003",
+          "seed-004",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-009",
+          "seed-010",
+          "seed-018",
+          "seed-019",
+          "seed-023/2025-18469",
+          "seed-024",
+          "seed-026",
+          "seed-027",
+          "seed-028",
+          "seed-029"
+        ],
+        "failed": [
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-018",
+          "seed-019",
+          "seed-023/2025-18469",
+          "seed-026",
+          "seed-027",
+          "seed-028"
+        ],
+        "gate": "11",
+        "labels_to_check": [
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-018",
+          "seed-019",
+          "seed-023/2025-18469",
+          "seed-026",
+          "seed-027",
+          "seed-028"
+        ],
+        "name": "Timing stated correctly",
+        "verdict": "unresolved"
+      },
+      "12": {
+        "budget": 1,
+        "covered": [
+          "seed-001",
+          "seed-002",
+          "seed-004",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-010",
+          "seed-018",
+          "seed-019",
+          "seed-023/2025-18469",
+          "seed-024",
+          "seed-026",
+          "seed-028"
+        ],
+        "failed": [],
+        "gate": "12",
+        "labels_to_check": [],
+        "name": "No needless escalation",
+        "verdict": "pass"
+      },
+      "13": {
+        "budget": 1,
+        "covered": [
+          "seed-002",
+          "seed-018",
+          "seed-024"
+        ],
+        "failed": [
+          "seed-018"
+        ],
+        "gate": "13",
+        "labels_to_check": [],
+        "name": "No false alarm",
+        "verdict": "pass"
+      },
+      "14": {
+        "gate": "14",
+        "name": "Candidate recall",
+        "reason": "S1 receives its directive directly and does no retrieval.",
+        "verdict": "not_exercised"
+      },
+      "2": {
+        "budget": 0,
+        "covered": [
+          "seed-004",
+          "seed-010"
+        ],
+        "failed": [],
+        "gate": "2",
+        "labels_to_check": [],
+        "name": "No scope leak",
+        "verdict": "pass"
+      },
+      "3": {
+        "budget": 0,
+        "covered": [
+          "seed-003",
+          "seed-009",
+          "seed-029"
+        ],
+        "failed": [],
+        "gate": "3",
+        "labels_to_check": [],
+        "name": "No false confidence",
+        "verdict": "pass"
+      },
+      "4": {
+        "budget": 0,
+        "covered": [
+          "seed-003",
+          "seed-008",
+          "seed-009",
+          "seed-027",
+          "seed-029"
+        ],
+        "failed": [],
+        "gate": "4",
+        "labels_to_check": [],
+        "name": "Every missing fact named",
+        "verdict": "pass"
+      },
+      "5": {
+        "budget": 0,
+        "covered": [
+          "seed-001",
+          "seed-002",
+          "seed-003",
+          "seed-004",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-009",
+          "seed-010",
+          "seed-018",
+          "seed-019",
+          "seed-023/2025-18469",
+          "seed-024",
+          "seed-026",
+          "seed-027",
+          "seed-028",
+          "seed-029"
+        ],
+        "failed": [
+          "seed-005",
+          "seed-019",
+          "seed-027"
+        ],
+        "gate": "5",
+        "labels_to_check": [
+          "seed-005",
+          "seed-019",
+          "seed-027"
+        ],
+        "name": "No forbidden claim",
+        "verdict": "unresolved"
+      },
+      "6": {
+        "budget": 0,
+        "covered": [
+          "seed-001",
+          "seed-002",
+          "seed-003",
+          "seed-004",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-009",
+          "seed-010",
+          "seed-018",
+          "seed-019",
+          "seed-023/2025-18469",
+          "seed-024",
+          "seed-026",
+          "seed-027",
+          "seed-028",
+          "seed-029"
+        ],
+        "failed": [],
+        "gate": "6",
+        "labels_to_check": [],
+        "name": "No fabricated citation",
+        "verdict": "pass"
+      },
+      "7": {
+        "budget": 0,
+        "covered": [
+          "seed-018"
+        ],
+        "failed": [],
+        "gate": "7",
+        "labels_to_check": [],
+        "name": "Authority respected",
+        "verdict": "pass"
+      },
+      "8": {
+        "budget": 0,
+        "covered": [
+          "seed-001",
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-019",
+          "seed-023/2025-18469",
+          "seed-026",
+          "seed-027",
+          "seed-028"
+        ],
+        "failed": [
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-023/2025-18469",
+          "seed-026",
+          "seed-027",
+          "seed-028"
+        ],
+        "gate": "8",
+        "labels_to_check": [
+          "seed-005",
+          "seed-006",
+          "seed-007",
+          "seed-008",
+          "seed-023/2025-18469",
+          "seed-026",
+          "seed-027",
+          "seed-028"
+        ],
+        "name": "Exact arithmetic",
+        "verdict": "unresolved"
+      },
+      "9": {
+        "budget": 0,
+        "covered": [
+          "seed-002",
+          "seed-024",
+          "seed-029"
+        ],
+        "failed": [
+          "seed-029"
+        ],
+        "gate": "9",
+        "labels_to_check": [
+          "seed-029"
+        ],
+        "name": "Exact part identity",
+        "verdict": "unresolved"
+      }
+    },
+    "provisional": true,
+    "reviewer": "Claude (first pass, unconfirmed by project owner)",
+    "reviewer_confirmed": false,
+    "run_id": "b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203"
+  }
+}

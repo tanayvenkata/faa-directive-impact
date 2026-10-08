@@ -5,15 +5,19 @@
   with no hand-written rules, how close does it get to the rules (S1)?
 - **Scored under:** frozen gates v1, the same 33 units as S1, prompt version
   `e0a54c1578a5`
-- **Status:** mechanical results final; the hand review of gates 5 and 11 is
-  a first pass by Claude, awaiting the owner
-  (`evaluation/review/b2-sonnet-r1/`)
+- **Status:** mechanical results final. Gates 5 and 11 have a first-pass
+  hand review by Claude on Sonnet repeat 1 at medium and high effort,
+  awaiting the owner (`evaluation/review/b2-sonnet-r1/`)
 
 ## The Short Version
 
 No model setting matched the rules. On the 18 AD 2025-19-13 units, where
 the rules fail nothing, the best setting (Claude Sonnet 5.5 at high effort)
-still failed about 2 protected checks per run. Cheaper settings failed 3–10.
+still failed about 2 code-checked protected gates per run. Adding the
+first-pass hand review of its repeat 1, two of the 18 units fail a protected
+gate: seed-005 (a forbidden claim and the deadline, both from knowledge that
+is not in the text) and seed-029 (part identity). Cheaper settings failed
+3–10 code-checked protected gates per run.
 
 Three things stand out:
 
@@ -21,15 +25,17 @@ Three things stand out:
    effort, Sonnet read paragraph (g) as "remove the hub at the next shop
    visit, so with no shop visit there is no deadline." Under that reading a
    listed hub could keep flying past its removal limit. The FAA engineer's
-   informal answer and the labels rule it out. At high effort the misreading
-   mostly disappeared.
+   informal answer and the labels rule it out. At high effort the computed
+   deadlines (gate 8) were right on all but one unit, and the first-pass hand
+   review finds the misreading gone from the written timing on all but
+   seed-018, where it says "no deadline applies absent a shop visit."
 2. **More effort helped one model and not the other.** Sonnet's deadline
    errors fell from about 8 per run to 1 between medium and high. Haiku was
    flat from low to high, and at max it reasoned past 64,000 tokens without
    answering on about 30% of units.
-3. **One false clear recurs.** Every setting except Sonnet at high cleared
-   seed-013, an engine whose blades must be replaced at its next qualifying
-   shop visit.
+3. **One false clear recurs.** Every setting that answered seed-013, except
+   Sonnet at high, cleared it: an engine whose blades must be replaced at its
+   next qualifying shop visit.
 
 This supports the architecture in `APPROACH.md`: the final call should come
 from rules a person has reviewed. The model's place is drafting those rules
@@ -42,7 +48,7 @@ returned nothing usable; those units are counted separately from wrong
 answers here. The gate reports count a no-answer as failing every gate it
 covers.
 
-| Setting | Cost per run (33 units) | Cost per engine check | No answer per run | Protected failures per run, 18 S1 units (answered) | Deadline errors (gate 8) | False clears, all 33 units |
+| Setting | Cost per run (33 units) | Cost per engine check | No answer per run | Code-checked protected failures per run (gates 1–4, 6–9), 18 S1 units, answered | Deadline errors (gate 8) | False clears, all 33 units, answered |
 |---|---|---|---|---|---|---|
 | **S1 rules** | ~$0 | ~$0 | 0 | **0** | 0 | 0 |
 | Haiku 5.5, low | $0.024 | $0.0007 | 0 | 3.3 | 1.3 | 0.7 |
@@ -68,7 +74,7 @@ in [`b2-summary.md`](b2-summary.md).
 |---|---|---|---|
 | seed-005 | Removal stated at the current shop visit, or within 100 FC. The expected answer follows the FAA engineer's informal reply, which is not in the text. | All | Needs knowledge outside the text; written down before the first run |
 | seed-006, 007, 008, 023, 026, 027, 028 | "No deadline unless a shop visit occurs"; the latest removal point left blank | Sonnet low and medium | Confident misreading of paragraph (g) |
-| seed-013 | Cleared (`no_action_triggered`) instead of action at the next qualifying shop visit. The written timing states the future requirement correctly; the status field contradicts it. | All except Sonnet high | Protected false clear |
+| seed-013 | Cleared (`no_action_triggered`) instead of action at the next qualifying shop visit. The written timing states the future requirement correctly; the status field contradicts it. | Every setting that answered it, except Sonnet high | Protected false clear |
 | seed-029 | The listed S/N under a dash-number P/N was put in `matched_parts` while the status said needs review | All | Part identity (gate 9); see the note below |
 | seed-014 | A settled answer on an unadjudicated expert question | All | False confidence (gate 3) |
 | seed-022/2021-14268 | The 10-FC deadline anchored on the effective date, ignoring actual notice of an emergency AD | All | False confidence (gate 3) and a missing fact |
@@ -95,6 +101,10 @@ re-screen is about 6,000 engine checks. With prompt caching and the Batch API:
 | S1 rules | about $0, the same answer every time |
 | Sonnet 5.5 at high effort | about $100, with 1–3 answers per 33 changing between runs |
 | Haiku 5.5 at low effort | about $4, with up to a third of answers changing between runs |
+
+The per-check costs come from runs where about 18 engines shared one
+directive's prompt cache. With 300 engines per directive more of each
+prompt is read from cache, so the Sonnet figure is an upper estimate.
 
 A rules design pays a model once per directive, to draft its rules (B3).
 A model-only design pays per engine, per directive, every time records change.
@@ -149,10 +159,12 @@ Each was recorded in the run directories and commits when it happened.
   setting. These are exact counts, not rates.
 - **Public cases.** The seed cases are on GitHub, so later models may have
   seen them in training. This does not affect the models run here.
-- **Hand-checked gates are pending.** Gates 5 (forbidden claims) and 11
-  (timing wording) have a first pass on Sonnet medium repeat 1 only, and the
-  owner has not confirmed it. That first pass marks the shop-visit
-  misreading as a timing contradiction on 8 units.
+- **Hand-checked gates are a first pass.** Gates 5 (forbidden claims) and 11
+  (timing wording) were checked by Claude on Sonnet repeat 1 at medium and
+  at high effort, and the owner has not confirmed either. At medium the
+  shop-visit misreading contradicts the expected timing on 10 of the 18 S1
+  units; at high, on 2 (seed-005 and seed-018). The other settings and
+  repeats have no hand review.
 
 ## Next
 

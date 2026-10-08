@@ -1,5 +1,6 @@
 how_to_answer: For each item set your_verdict to "agree" or "disagree"; add a short your_note only if
-  you disagree or are unsure. Leave everything else as is.
+  you disagree or are unsure. Leave everything else as is. Items 1-11 are Sonnet at medium effort; items
+  12-15 are Sonnet at high effort, the setting the B2 write-up leads with.
 reviewer: ''
 items:
 - id: 1
@@ -37,6 +38,7 @@ items:
     counter 20,900.'
   your_verdict: ''
   your_note: ''
+  run: b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203
 - id: 2
   cases:
   - seed-006
@@ -111,6 +113,7 @@ items:
     hub could keep flying past its limit until some future shop visit.
   your_verdict: ''
   your_note: ''
+  run: b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203
 - id: 3
   cases:
   - seed-027
@@ -140,6 +143,7 @@ items:
     which implies the hub may stay in service past 4,800 CSN without a verified AMOC (forbidden).'
   your_verdict: ''
   your_note: ''
+  run: b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203
 - id: 4
   cases:
   - seed-019
@@ -173,6 +177,7 @@ items:
     Expected: remove by 60,100. BORDERLINE: it does state 60,100.'
   your_verdict: ''
   your_note: ''
+  run: b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203
 - id: 5
   cases:
   - seed-014
@@ -201,6 +206,7 @@ items:
     at a later visit, presented as settled" (unadjudicated expert question).
   your_verdict: ''
   your_note: ''
+  run: b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203
 - id: 6
   cases:
   - seed-022/2021-14268
@@ -232,6 +238,7 @@ items:
     the date of actual notice of the emergency AD or the service bulletin accomplishment instructions.'
   your_verdict: ''
   your_note: ''
+  run: b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203
 - id: 7
   cases:
   - seed-013
@@ -255,6 +262,7 @@ items:
     no_action_triggered instead of action_required_on_event).
   your_verdict: ''
   your_note: ''
+  run: b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203
 - id: 8
   cases:
   - seed-020/2021-11960
@@ -280,6 +288,7 @@ items:
     so it may not matter for them. The gate text says any required item absent fails.'
   your_verdict: ''
   your_note: ''
+  run: b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203
 - id: 9
   cases:
   - seed-001
@@ -310,6 +319,7 @@ items:
     5,500, may be reinstalled, or that the engine is unaffected.
   your_verdict: ''
   your_note: ''
+  run: b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203
 - id: 10
   cases:
   - seed-024
@@ -333,6 +343,7 @@ items:
   my_reason: No removal of the 2nd-stage hub; AD applies.
   your_verdict: ''
   your_note: ''
+  run: b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203
 - id: 11
   cases:
   - seed-016
@@ -353,5 +364,120 @@ items:
       are then scheduled at piece-part exposure. This AD does not require performing them within 90 days.
   my_verdict: consistent
   my_reason: By 2026-01-08 for (g)(1) and (g)(2).
+  your_verdict: ''
+  your_note: ''
+  run: b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203
+- id: 12
+  run: b2-sonnet-5-5-high-r1-20261007T235558Z-85bb2ec
+  cases:
+  - seed-005
+  gate: 5 and 11
+  question: 'Gate 5: does the answer state or imply a forbidden claim? And Gate 11: does the stated timing
+    contradict the expected timing (wrong trigger, limit, or date)?'
+  model_said:
+    seed-005:
+      summary: AD 2025-19-13 was in force on 2025-11-12 and covers the V2527E-A5. The installed HPT 2nd-stage
+        hub P/N 2A4802 S/N PKLBSS9840 is listed in Table 1, so removal and replacement is required. The
+        reading that gives the later deadline is 100 flight cycles after the effective date, which is
+        engine flight cycle 18100.
+      timing: Remove the HPT 2nd-stage hub from service and replace it with an eligible part at the next
+        engine shop visit after 2025-10-29, or within 100 flight cycles after the effective date, whichever
+        occurs later. The 100-cycle point is engine flight cycle 18100. The recorded shop visit was inducted
+        at 18040, so the hub is exposed now and the 18100 point is only 60 cycles beyond the latest reading.
+  expected:
+    seed-005: Removal is not required at this shop visit. Remove the hub before it reaches 3,900 CSN,
+      which is engine counter 20,900 at current utilization (2,860 hub cycles from this snapshot).
+  forbidden_claims:
+    seed-005:
+    - AD 2025-19-13 requires removal of the hub at this shop visit.
+    - AD 2025-19-13 requires removal within 100 FC of the effective date.
+    - The hub may remain in service beyond 3,900 CSN.
+    - The engine is compliant.
+  my_verdict: present / contradicts
+  my_reason: 'States "removal and replacement is required" with the later deadline at "engine flight cycle
+    18100" (100 FC after the effective date): the forbidden "requires removal within 100 FC of the effective
+    date". Traces to the informal FAA reading not being in the text. Timing: Says removal is required
+    with 18,100 as the latest point. Expected: not at this visit; before 3,900 CSN at counter 20,900.'
+  your_verdict: ''
+  your_note: ''
+- id: 13
+  run: b2-sonnet-5-5-high-r1-20261007T235558Z-85bb2ec
+  cases:
+  - seed-018
+  gate: '11'
+  question: 'Gate 11: does the stated timing contradict the expected timing (wrong trigger, limit, or
+    date)? This is the one unit where the event-only reading survives at high effort.'
+  model_said:
+    seed-018:
+      summary: The V2525-D5 is within the applicability of AD 2025-19-13, and its installed HPT 2nd-stage
+        hub P/N 2A4802 S/N PKLBSR2100 is listed in table 1 (limit 6,000 cycles since new). The AD is published
+        but not effective until 2025-10-29 on the question date, so no action is required yet; removal
+        is tied to the next engine shop visit after the effective date.
+      timing: Not yet in force on 2025-10-15 (effective 2025-10-29). After the effective date, remove
+        and replace at the next engine shop visit, at or after the later of the 6,000 cycles-since-new
+        limit or 100 flight cycles from the effective date. No deadline applies absent a shop visit.
+  expected:
+    seed-018: Nothing is required yet. From 2025-10-29 the hub must be removed before 6,000 CSN. Per adjudication
+      faa-informal-2026-10-05, a shop visit within the first 100 FC does not force earlier removal. Whether
+      a later qualifying shop visit does is pending.
+  my_verdict: contradicts
+  my_reason: '"No deadline applies absent a shop visit": the event-only reading persists here. Expected:
+    from 2025-10-29, removal before 6,000 CSN.'
+  your_verdict: ''
+  your_note: ''
+- id: 14
+  run: b2-sonnet-5-5-high-r1-20261007T235558Z-85bb2ec
+  cases:
+  - seed-027
+  gate: '5'
+  question: 'Gate 5: does the answer state or imply a forbidden claim?'
+  model_said:
+    seed-027:
+      summary: The V2527-A5 engine is within AD 2025-19-13, which has been in force since 2025-10-29.
+        Its installed HPT 1st-stage hub P/N 2A5001 S/N PKLBSS9200 is listed in table 1 with a 4,800 cycles-since-new
+        removal limit. On the primary reading, removal and replacement is due by engine flight cycle 15,300,
+        which is 50 component cycles away.
+      timing: At the next engine shop visit after 2025-10-29, before the hub exceeds 4,800 cycles since
+        new or within 100 flight cycles after the effective date, whichever is later. On the primary reading
+        that is when the hub reaches 4,800 CSN, at engine flight cycle 15,300, about 50 cycles after the
+        2026-01-20 reading of 15,250.
+  expected:
+    seed-027: Remove at the next qualifying engine shop visit, no later than engine counter 15,300, when
+      the hub reaches 4,800 CSN (50 cycles remaining). A verified, approved AMOC could change this.
+  forbidden_claims:
+    seed-027:
+    - The hub's removal limit is 5,300 CSN.
+    - The hub may stay in service past 4,800 CSN without a verified FAA-approved AMOC.
+    - No removal is required.
+    - The claimed AMOC is invalid, presented as settled.
+  my_verdict: absent (borderline)
+  my_reason: 'Takes 15,300 (4,800 CSN) as the latest point on its primary reading and leaves the other
+    reading to a reviewer. BORDERLINE: naming the "removal at any later shop visit" reading edges toward
+    "may stay past 4,800 CSN", but it does not adopt it.'
+  your_verdict: ''
+  your_note: ''
+- id: 15
+  run: b2-sonnet-5-5-high-r1-20261007T235558Z-85bb2ec
+  cases:
+  - seed-006
+  gate: 'spot check: 11'
+  question: 'Gate 11: does the stated timing contradict the expected timing (wrong trigger, limit, or
+    date)? (Spot check: Claude marked the misreading gone here.)'
+  model_said:
+    seed-006:
+      summary: The AD is in force (effective 2025-10-29) and covers the V2530-A5. The installed HPT 1st-stage
+        hub P/N 2A5001, S/N PKLBSK9287 is listed in table 1 with a 100 cycles-since-new removal limit.
+        Read as the later of the removal limit and 100 flight cycles after the effective date, removal
+        and replacement is due by engine flight cycle 25600.
+      timing: By the later of (a) the hub reaching its 100 cycles-since-new limit (engine cycle about
+        25540) and (b) 100 flight cycles after the 2025-10-29 effective date (engine cycle 25600). The
+        later is 25600, about 70 engine cycles after the 25530 reading on 2025-11-20. The record shows
+        no engine shop visit yet.
+  expected:
+    seed-006: Latest removal is 100 FC after 2025-10-29 (engine counter 25,600), which is 70 FC after
+      this snapshot. The 100 CSN limit comes earlier but is superseded by "whichever occurs later". This
+      holds only if no qualifying shop visit occurs first; if one does, see seed-005.
+  my_verdict: consistent
+  my_reason: Same trigger, limit, and date as the expected timing.
   your_verdict: ''
   your_note: ''

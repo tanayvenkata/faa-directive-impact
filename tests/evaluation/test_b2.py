@@ -276,3 +276,70 @@ def test_described_fact_starting_with_a_section_word_is_not_a_path() -> None:
         "operator date of actual notice of Emergency AD 2021-11-51"
         in (gates["4"]["hand_review_facts"])
     )
+
+
+def test_rescoring_keeps_a_started_hand_review(tmp_path) -> None:
+    from faa_directive_impact.evaluation import b2_run
+
+    review = tmp_path / "hand-review.yaml"
+    review.write_text("reviewer: owner\nunits: {}\n")
+    b2_run.write_results(
+        REPO,
+        tmp_path,
+        {key: 0 for key in b2_run.META_KEYS} | {"prompt_version": PROMPT_VERSION},
+        [],
+        [],
+        [],
+    )
+
+    assert review.read_text() == "reviewer: owner\nunits: {}\n"
+
+
+def test_b2_conclude_scopes_the_review_to_s1_and_all_units(tmp_path) -> None:
+    import json as json_module
+
+    import yaml as yaml_module
+
+    from faa_directive_impact.evaluation.b2_run import conclude_b2
+
+    gates = {
+        "5": {"gate": "5", "name": "", "verdict": "pending_hand_review",
+              "covered": ["seed-001", "seed-011"]},
+        "11": {"gate": "11", "name": "", "verdict": "pending_hand_review",
+               "covered": ["seed-001", "seed-011"]},
+    }  # fmt: skip
+    for number in ("1", "2", "3", "4", "6", "7", "8", "9", "10", "12", "13"):
+        gates[number] = {"gate": number, "name": "", "verdict": "pass",
+                         "covered": [], "failed": []}  # fmt: skip
+    report = {
+        "run_id": "b2-test",
+        "gate_version": 1,
+        "units": [
+            {"unit": "seed-001", "directive": "2025-18469"},
+            {"unit": "seed-011", "directive": "2026-16954"},
+        ],
+        "gates_s1_units": {n: {**g, "covered": ["seed-001"]} for n, g in gates.items()},
+        "gates_all_units": gates,
+    }
+    entry = {"gate_5": {"result": "absent", "reason": ""},
+             "gate_11": {"result": "consistent", "reason": ""}}  # fmt: skip
+    review = {
+        "reviewer": "owner",
+        "reviewer_confirmed": True,
+        "allowed_results": {
+            "gate_5": ["absent", "present"],
+            "gate_11": ["consistent", "contradicts", "not_applicable"],
+        },
+        "units": {
+            "seed-001": entry,
+            "seed-011": {**entry, "gate_5": {"result": "present", "reason": ""}},
+        },
+    }
+    (tmp_path / "report.json").write_text(json_module.dumps(report))
+    (tmp_path / "hand-review.yaml").write_text(yaml_module.safe_dump(review))
+
+    verdicts = conclude_b2(tmp_path)
+
+    assert verdicts["s1_units"]["gates"]["5"]["failed"] == []
+    assert verdicts["all_units"]["gates"]["5"]["failed"] == ["seed-011"]
+    assert verdicts["all_units"]["provisional"] is False

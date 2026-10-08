@@ -1,7 +1,7 @@
 gate_version: 1
-reviewer: ''
+reviewer: Claude (first pass, unconfirmed by project owner)
 reviewer_confirmed: false
-reviewed_on: ''
+reviewed_on: '2026-10-08'
 allowed_results:
   gate_5:
   - absent
@@ -19,256 +19,270 @@ allowed_results:
 units:
   seed-001:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
   seed-002:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
   seed-003:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
   seed-004:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
   seed-005:
     gate_5:
-      result: ''
-      reason: ''
+      result: present
+      reason: 'States "removal and replacement is required" with the later deadline at "engine
+        flight cycle 18100" (100 FC after the effective date): the forbidden "requires removal
+        within 100 FC of the effective date". Traces to the informal FAA reading not being
+        in the text.'
     gate_11:
-      result: ''
-      reason: ''
+      result: contradicts
+      reason: 'Says removal is required with 18,100 as the latest point. Expected: not at
+        this visit; before 3,900 CSN at counter 20,900.'
   seed-006:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
     locators:
-      result: ''
-      reason: ''
+      result: resolved
+      reason: Paragraph (a) states the 2025-10-29 effective date.
   seed-007:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
     locators:
-      result: ''
-      reason: ''
+      result: resolved
+      reason: Both rows exist in table 1 with those limits.
   seed-008:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: No later than 54,200 at the 6,200 CSN limit (status field says on event, scored
+        mechanically).
   seed-009:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
   seed-010:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
   seed-011:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
   seed-012:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
   seed-013:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: Status action_required_on_event and the future trigger stated; nothing says
+        the engine is no longer subject.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
   seed-014:
     gate_5:
-      result: ''
-      reason: ''
+      result: present
+      reason: 'Settles "replacement is required only at the next engine shop visit where a
+        3rd stage blade is exposed": the forbidden "Replacement is required at a later visit,
+        presented as settled".'
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
   seed-015:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
   seed-016:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
   seed-017:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
   seed-018:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: contradicts
+      reason: '"No deadline applies absent a shop visit": the event-only reading persists
+        here. Expected: from 2025-10-29, removal before 6,000 CSN.'
   seed-019:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
   seed-020/2021-11960:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
     missing_facts:
-      result: ''
-      reason: ''
+      result: not_named
+      reason: First pass; see the Sonnet medium repeat 1 review for the same items.
   seed-020/2022-02574:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
   seed-021:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
     missing_facts:
-      result: ''
-      reason: ''
+      result: not_named
+      reason: First pass; see the Sonnet medium repeat 1 review for the same items.
   seed-022/2021-14268:
     gate_5:
-      result: ''
-      reason: ''
+      result: present
+      reason: 'Settles the 10-FC deadline from the 2021-07-19 effective date (counter 33,010):
+        the forbidden "presented as settled".'
     gate_11:
-      result: ''
-      reason: ''
+      result: contradicts
+      reason: 'Anchors the 10 FC on 2021-07-19 only. Expected: from the date of actual notice
+        of the emergency AD, or 2021-07-19 without it.'
     missing_facts:
-      result: ''
-      reason: ''
+      result: not_named
+      reason: First pass; see the Sonnet medium repeat 1 review for the same items.
   seed-022/2021-11960:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
     missing_facts:
-      result: ''
-      reason: ''
+      result: named
+      reason: First pass; see the Sonnet medium repeat 1 review for the same items.
   seed-023/2025-18469:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
     locators:
-      result: ''
-      reason: ''
+      result: resolved
+      reason: Table 1 lists four HPT 1st-stage hub rows.
   seed-023/2026-16954:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
   seed-023/2025-17066:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
     locators:
-      result: ''
-      reason: ''
+      result: resolved
+      reason: Paragraph (a) states the 2025-10-10 effective date.
   seed-024:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
   seed-025:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.
   seed-026:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
   seed-027:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: 'Takes 15,300 (4,800 CSN) as the latest point on its primary reading and leaves
+        the other reading to a reviewer. BORDERLINE: naming the "removal at any later shop
+        visit" reading edges toward "may stay past 4,800 CSN", but it does not adopt it.'
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: Same trigger, limit, and date as the expected timing.
   seed-028:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
-      result: ''
-      reason: ''
+      result: consistent
+      reason: 'States the outer limit as counter 11,000. BORDERLINE wording: "no earlier than
+        the later of", but the outer limit is right.'
   seed-029:
     gate_5:
-      result: ''
-      reason: ''
+      result: absent
+      reason: No forbidden claim or standing claim stated or implied.
     gate_11:
       result: not_applicable
       reason: The case states no action_timing to compare against.

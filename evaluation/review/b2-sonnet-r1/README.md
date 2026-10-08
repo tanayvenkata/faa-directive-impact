@@ -1,6 +1,6 @@
-# Review: B2, Sonnet 5.5, repeat 1
+# Review: B2, Sonnet 5.5, repeat 1 (medium and high effort)
 
-About 15 minutes. Open `review.yaml`, read each item, and set `your_verdict`
+About 20 minutes. Open `review.yaml`, read each item, and set `your_verdict`
 to `agree` or `disagree`. Add `your_note` only if you disagree or are unsure.
 Put your name in `reviewer`. Then tell Claude it is done.
 
@@ -26,10 +26,13 @@ citations). Two gates judge wording, which code cannot check reliably:
   judge that reading once.
 - **Items 9–11:** spot checks of cases Claude marked fine, so you can see
   whether the first pass is too lenient.
+- **Items 12–15:** Sonnet at high effort, the setting the B2 write-up leads
+  with. Its other units mostly lost the misreading; these are the ones that
+  still fail or are borderline, plus one spot check.
 
 Each item shows what the model said, what the case expects, Claude's verdict
-and reason, and blank lines for you. The full answers are in
-`evaluation/runs/b2-sonnet-5-5-medium-r1-20261007T230822Z-7081203/`.
+and reason, and blank lines for you. Each item names its run directory; the full answers are in that
+run's `outputs.json` and `hand-review.md`.
 
 You are not judging whether the expected answers are right; that is the
 practitioner review (issue #9). If you think an expected answer is wrong,

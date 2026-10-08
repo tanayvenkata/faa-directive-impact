@@ -52,6 +52,7 @@ from faa_directive_impact.evaluation.s1_scoring import (
     STANDING_FORBIDDEN,
     CitationIndex,
     Unit,
+    conclude,
     hand_review_template,
     score_unit,
     summarize,
@@ -331,10 +332,19 @@ def write_results(
     (directory / "hand-review.md").write_text(
         hand_review_markdown(items, outputs, scored), "utf-8"
     )
-    (directory / "hand-review.yaml").write_text(
-        yaml.safe_dump(hand_review_template(scored), sort_keys=False, width=88),
-        "utf-8",
+    # Never overwrite a review someone has started: re-scoring a run must
+    # keep its hand review.
+    review_path = directory / "hand-review.yaml"
+    existing = (
+        yaml.safe_load(review_path.read_text("utf-8"))
+        if review_path.is_file()
+        else None
     )
+    if not (existing and existing.get("reviewer")):
+        review_path.write_text(
+            yaml.safe_dump(hand_review_template(scored), sort_keys=False, width=88),
+            "utf-8",
+        )
     return report
 
 
@@ -499,6 +509,36 @@ def hand_review_markdown(
         lines += [f"- {claim}" for claim in unit.record["forbidden_claims"]]
     lines.append("")
     return "\n".join(lines)
+
+
+def conclude_b2(directory: Path) -> dict[str, Any]:
+    """Fold a completed hand review into gate verdicts for one B2 run.
+
+    Verdicts are given twice: on the 18 AD 2025-19-13 units, paired with S1,
+    and on all 33. The go / constrain / switch field that ``conclude``
+    computes is the S1 decision rule and does not apply to a comparison run.
+    """
+    report = json.loads((directory / "report.json").read_text(encoding="utf-8"))
+    review = yaml.safe_load((directory / "hand-review.yaml").read_text("utf-8"))
+    s1_names = {u["unit"] for u in report["units"] if u["directive"] == S1_DIRECTIVE}
+    verdicts = {}
+    for scope, key, names in (
+        ("s1_units", "gates_s1_units", s1_names),
+        ("all_units", "gates_all_units", {u["unit"] for u in report["units"]}),
+    ):
+        scoped = {**review, "units": {
+            name: entry for name, entry in review["units"].items() if name in names
+        }}  # fmt: skip
+        result = conclude(
+            {"run_id": report["run_id"], "gate_version": report["gate_version"],
+             "gates": report[key]},
+            scoped,
+        )  # fmt: skip
+        result.pop("decision")
+        result.pop("why")
+        verdicts[scope] = result
+    (directory / "verdict.json").write_text(canonical_json(verdicts), "utf-8")
+    return verdicts
 
 
 def replay_results(repo: Path, storage_root: Path, directory: Path) -> dict[str, Any]:

@@ -86,12 +86,28 @@ def main(argv: list[str] | None = None) -> int:
     b2_summary.add_argument(
         "--output", type=Path, default=Path("evaluation/b2-summary")
     )
+    b2_conclude = commands.add_parser(
+        "b2-conclude", help="Fold a completed hand review into a B2 run's verdict."
+    )
+    b2_conclude.add_argument("run_directory", type=Path)
     for sub in (b2_plumbing, b2_run):
         sub.add_argument("--repo", type=Path, default=Path("."))
         sub.add_argument("--storage-root", type=Path, default=Path("data/seed-frozen"))
         sub.add_argument("--runs-root", type=Path, default=Path("evaluation/runs"))
     args = parser.parse_args(argv)
 
+    if args.command == "b2-conclude":
+        from faa_directive_impact.evaluation.b2_run import conclude_b2
+
+        verdicts = conclude_b2(args.run_directory)
+        for scope, result in verdicts.items():
+            failing = {
+                n: g["failed"] for n, g in result["gates"].items() if g.get("failed")
+            }
+            print(
+                scope, "provisional" if result["provisional"] else "confirmed", failing
+            )
+        return EXIT_OK
     if args.command == "b2-summary":
         from faa_directive_impact.evaluation.b2_prompt import PROMPT_VERSION
         from faa_directive_impact.evaluation.b2_summary import (
