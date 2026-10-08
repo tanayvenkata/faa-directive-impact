@@ -51,6 +51,8 @@ A newly published in-scope directive becomes visible the day it syncs, as
    "why not just ask the model?" Start with the cheaper models (Claude Haiku
    5.5, then Claude Sonnet 5.5 at medium effort); record every response, its
    tokens, and its cost. See [`APPROACH.md`](APPROACH.md).
+   *Done; hand review pending owner confirmation
+   ([`evaluation/B2_FULL_CONTEXT.md`](evaluation/B2_FULL_CONTEXT.md)).*
 5. **Rule extraction for new directives (B3)** — a model proposes candidate rules
    (models, part and serial tables, limits, triggers), each tied to the
    paragraph it came from. Automated checks validate them, and a human
@@ -114,8 +116,10 @@ evaluation seed (E1) and frozen gates (E2) are done; the image-transcription
 decision (E3) is open. S1, the rules baseline for AD 2025-19-13, is built and
 scored: every gate passes on its 18 units, and the go decision is provisional
 until the owner confirms the hand review
-([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)). The active step
-is the full-context LLM comparison (B2).
+([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)). The full-context
+LLM comparison (B2) is scored: no model setting matched the rules
+([`evaluation/B2_FULL_CONTEXT.md`](evaluation/B2_FULL_CONTEXT.md)). The active
+step is rule extraction (B3).
 
 ## Revisions
 

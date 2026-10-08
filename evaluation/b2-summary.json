@@ -225,6 +225,7 @@
         "9": 3
       }
     },
+    "max_tokens": 16000,
     "mean_latency_seconds": 212.6,
     "model": "claude-haiku-5-5",
     "repeats": 3,
@@ -468,6 +469,7 @@
         "9": 3
       }
     },
+    "max_tokens": 16000,
     "mean_latency_seconds": 212.6,
     "model": "claude-haiku-5-5",
     "repeats": 3,
@@ -861,6 +863,7 @@
         "9": 3
       }
     },
+    "max_tokens": 16000,
     "mean_latency_seconds": 252.9,
     "model": "claude-haiku-5-5",
     "repeats": 3,
@@ -871,6 +874,322 @@
     ],
     "unstable_units": [
       "seed-010"
+    ]
+  },
+  {
+    "answers": {
+      "seed-001": [
+        "applies/action_required",
+        "no_answer"
+      ],
+      "seed-002": [
+        "applies/no_action_triggered"
+      ],
+      "seed-003": [
+        "applies/needs_review"
+      ],
+      "seed-004": [
+        "outside_supported_scope/None"
+      ],
+      "seed-005": [
+        "applies/action_required"
+      ],
+      "seed-006": [
+        "applies/action_required",
+        "no_answer"
+      ],
+      "seed-007": [
+        "applies/action_required",
+        "no_answer"
+      ],
+      "seed-008": [
+        "applies/action_required"
+      ],
+      "seed-009": [
+        "applies/needs_review"
+      ],
+      "seed-010": [
+        "outside_supported_scope/None"
+      ],
+      "seed-011": [
+        "applies/action_required_on_event"
+      ],
+      "seed-012": [
+        "does_not_apply/None"
+      ],
+      "seed-013": [
+        "applies/action_required_on_event",
+        "no_answer"
+      ],
+      "seed-014": [
+        "no_answer"
+      ],
+      "seed-015": [
+        "applies/no_action_triggered"
+      ],
+      "seed-016": [
+        "applies/action_required"
+      ],
+      "seed-017": [
+        "applies/action_required"
+      ],
+      "seed-018": [
+        "applies/action_required_on_event",
+        "applies/no_action_triggered"
+      ],
+      "seed-019": [
+        "applies/action_required"
+      ],
+      "seed-020/2021-11960": [
+        "no_answer",
+        "unknown/needs_review"
+      ],
+      "seed-020/2022-02574": [
+        "no_answer",
+        "unknown/needs_review"
+      ],
+      "seed-021": [
+        "unknown/needs_review"
+      ],
+      "seed-022/2021-11960": [
+        "no_answer",
+        "unknown/needs_review"
+      ],
+      "seed-022/2021-14268": [
+        "applies/action_required",
+        "no_answer"
+      ],
+      "seed-023/2025-17066": [
+        "no_answer"
+      ],
+      "seed-023/2025-18469": [
+        "no_answer"
+      ],
+      "seed-023/2026-16954": [
+        "applies/action_required_on_event"
+      ],
+      "seed-024": [
+        "applies/no_action_triggered"
+      ],
+      "seed-025": [
+        "outside_supported_scope/None"
+      ],
+      "seed-026": [
+        "no_answer"
+      ],
+      "seed-027": [
+        "applies/action_required",
+        "no_answer"
+      ],
+      "seed-028": [
+        "applies/action_required",
+        "no_answer"
+      ],
+      "seed-029": [
+        "no_answer"
+      ]
+    },
+    "cost_usd": 1.328,
+    "cost_usd_per_unit": 0.01341,
+    "directive": {
+      "seed-001": "2025-18469",
+      "seed-002": "2025-18469",
+      "seed-003": "2025-18469",
+      "seed-004": "2025-18469",
+      "seed-005": "2025-18469",
+      "seed-006": "2025-18469",
+      "seed-007": "2025-18469",
+      "seed-008": "2025-18469",
+      "seed-009": "2025-18469",
+      "seed-010": "2025-18469",
+      "seed-011": "2026-16954",
+      "seed-012": "2026-16954",
+      "seed-013": "2026-16954",
+      "seed-014": "2026-16954",
+      "seed-015": "2025-20088",
+      "seed-016": "2025-17066",
+      "seed-017": "2025-17066",
+      "seed-018": "2025-18469",
+      "seed-019": "2025-18469",
+      "seed-020/2021-11960": "2021-11960",
+      "seed-020/2022-02574": "2022-02574",
+      "seed-021": "2022-02574",
+      "seed-022/2021-11960": "2021-11960",
+      "seed-022/2021-14268": "2021-14268",
+      "seed-023/2025-17066": "2025-17066",
+      "seed-023/2025-18469": "2025-18469",
+      "seed-023/2026-16954": "2026-16954",
+      "seed-024": "2025-18469",
+      "seed-025": "2025-17066",
+      "seed-026": "2025-18469",
+      "seed-027": "2025-18469",
+      "seed-028": "2025-18469",
+      "seed-029": "2025-18469"
+    },
+    "effort": "max",
+    "failures": {
+      "seed-001": {
+        "1": 1,
+        "10": 1,
+        "12": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1
+      },
+      "seed-005": {
+        "8": 3
+      },
+      "seed-006": {
+        "1": 2,
+        "10": 2,
+        "12": 2,
+        "6": 2,
+        "7": 2,
+        "8": 2
+      },
+      "seed-007": {
+        "1": 1,
+        "10": 1,
+        "12": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1
+      },
+      "seed-011": {
+        "10": 3
+      },
+      "seed-012": {
+        "10": 3
+      },
+      "seed-013": {
+        "1": 1,
+        "10": 3,
+        "12": 1,
+        "6": 1,
+        "7": 1
+      },
+      "seed-014": {
+        "10": 3,
+        "3": 3,
+        "6": 3,
+        "7": 3
+      },
+      "seed-015": {
+        "10": 1
+      },
+      "seed-016": {
+        "10": 2,
+        "6": 1
+      },
+      "seed-017": {
+        "10": 2
+      },
+      "seed-018": {
+        "13": 1
+      },
+      "seed-020/2021-11960": {
+        "10": 3,
+        "3": 2,
+        "4": 2,
+        "6": 2,
+        "7": 2
+      },
+      "seed-020/2022-02574": {
+        "10": 1,
+        "3": 1,
+        "6": 3,
+        "7": 1
+      },
+      "seed-021": {
+        "10": 3,
+        "6": 2
+      },
+      "seed-022/2021-11960": {
+        "10": 2,
+        "3": 1,
+        "4": 1,
+        "6": 2,
+        "7": 1
+      },
+      "seed-022/2021-14268": {
+        "10": 3,
+        "3": 3,
+        "4": 1,
+        "6": 1,
+        "7": 1
+      },
+      "seed-023/2025-17066": {
+        "10": 3,
+        "12": 3,
+        "13": 3,
+        "6": 3,
+        "7": 3
+      },
+      "seed-023/2025-18469": {
+        "1": 3,
+        "10": 3,
+        "12": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3
+      },
+      "seed-023/2026-16954": {
+        "10": 3
+      },
+      "seed-026": {
+        "1": 3,
+        "10": 3,
+        "12": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3
+      },
+      "seed-027": {
+        "1": 2,
+        "10": 3,
+        "4": 2,
+        "6": 2,
+        "7": 2,
+        "8": 2
+      },
+      "seed-028": {
+        "1": 1,
+        "10": 1,
+        "12": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1
+      },
+      "seed-029": {
+        "10": 3,
+        "3": 3,
+        "4": 3,
+        "6": 3,
+        "7": 3,
+        "9": 3
+      }
+    },
+    "max_tokens": 64000,
+    "mean_latency_seconds": 678.0,
+    "model": "claude-haiku-5-5",
+    "repeats": 3,
+    "run_ids": [
+      "b2-haiku-5-5-max-r1-20261008T001737Z-6d080d8",
+      "b2-haiku-5-5-max-r2-20261008T002445Z-6d080d8",
+      "b2-haiku-5-5-max-r3-20261008T003625Z-6d080d8"
+    ],
+    "unstable_units": [
+      "seed-001",
+      "seed-006",
+      "seed-007",
+      "seed-013",
+      "seed-018",
+      "seed-020/2021-11960",
+      "seed-020/2022-02574",
+      "seed-022/2021-11960",
+      "seed-022/2021-14268",
+      "seed-027",
+      "seed-028"
     ]
   },
   {
@@ -1090,6 +1409,7 @@
         "9": 3
       }
     },
+    "max_tokens": 16000,
     "mean_latency_seconds": 242.9,
     "model": "claude-haiku-5-5",
     "repeats": 3,
@@ -1309,6 +1629,7 @@
         "9": 3
       }
     },
+    "max_tokens": 16000,
     "mean_latency_seconds": 404.8,
     "model": "claude-sonnet-5-5",
     "repeats": 3,
@@ -1548,6 +1869,7 @@
         "9": 3
       }
     },
+    "max_tokens": 16000,
     "mean_latency_seconds": 465.0,
     "model": "claude-sonnet-5-5",
     "repeats": 3,
@@ -1783,6 +2105,7 @@
         "9": 3
       }
     },
+    "max_tokens": 16000,
     "mean_latency_seconds": 455.2,
     "model": "claude-sonnet-5-5",
     "repeats": 3,
