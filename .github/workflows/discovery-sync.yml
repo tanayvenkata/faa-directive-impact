@@ -52,9 +52,11 @@ jobs:
             git worktree add --detach state FETCH_HEAD
           else
             # First run: start an empty, unrelated history for the state.
+            # switch --orphan starts with an empty index and working tree;
+            # checkout --orphan keeps main's files staged, and git rm then
+            # refuses to remove them (the first live run failed that way).
             git worktree add --detach state
-            git -C state checkout --orphan "$STATE_BRANCH"
-            git -C state rm -rq --ignore-unmatch .
+            git -C state switch --orphan "$STATE_BRANCH"
           fi
           mkdir -p "$DISCOVERY_ROOT"
           if [ -d state/discovery ]; then
