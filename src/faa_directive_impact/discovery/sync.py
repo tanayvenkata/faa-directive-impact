@@ -21,6 +21,7 @@ for that, so a sync runs the same way in CI, where only receipts persist.
 
 import hashlib
 import json
+import re
 import traceback
 from collections import defaultdict
 from dataclasses import dataclass, field
@@ -360,6 +361,9 @@ def _consider(
         decision = needs_review(
             "A Federal Register correction or republication of an IAE "
             "directive; read it and the document it corrects by hand."
+            if FEDERAL_REGISTER_REISSUE.match(number)
+            else "An IAE directive with an older document number, from before "
+            "the full-text representations this sync reads; read it by hand."
         )
     elif iae:
         candidate.counts["read_in_full"] += 1
@@ -394,9 +398,13 @@ def _consider(
     record["coverage_state"] = decision.coverage_state
     candidate.new_documents.append(number)
     candidate.counts["new"] += 1
-    if not record["ad_numbers"]:
+    if not record["ad_numbers"] and iae:
         record["review_reason"] = "No AD number appears in the docket identifiers."
-    elif decision.needs_review:
+    elif not record["ad_numbers"]:
+        # Outside scope by title already; a missing AD number is noted, not a
+        # task for a person.
+        record["note"] = "No AD number appears in the docket identifiers."
+    if decision.needs_review and "review_reason" not in record:
         record["review_reason"] = decision.detail
     if "review_reason" in record:
         candidate.counts["quarantined"] += 1
@@ -438,6 +446,9 @@ def _classify_document(
         return decision
     return classify_applicability(body, document.document_number)
 
+
+# Federal Register corrections and republications carry a prefix: C1-, R1-.
+FEDERAL_REGISTER_REISSUE = re.compile(r"^[CR]\d+-")
 
 # Checks that fail when a directive's text is laid out differently from the
 # ones the parser was built on, with every representation intact. Seen live:

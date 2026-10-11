@@ -92,38 +92,109 @@ def record_path(digest: str) -> str:
     return f"records/{digest[:2]}/{digest}.json"
 
 
+# A full generation lists about 13,000 references (about 2 MB). Most days
+# change a handful, so a generation normally stores only its changes from
+# the previous one, and every SNAPSHOT_EVERY-th stores the full lists so a
+# rebuild never walks a long chain. Measured 2026-10-11: a full manifest of
+# the 1994-2026 backfill was 2.2 MB; daily full manifests would add about
+# 0.5 GB a year to the state branch.
+SNAPSHOT_EVERY = 30
+
+
 def write_generation(storage: RawStorage, generation: dict[str, Any]) -> None:
-    """Store each record once by its hash, then the generation's references."""
+    """Store each record once by its hash, then the generation's references.
+
+    The references are stored in full, or as changes from the previous
+    generation (``delta_from``), which ``read_generation`` reverses.
+    """
     stored = dict(generation)
+    references: dict[str, dict[str, str]] = {}
     for key in RECORD_LISTS:
-        references = []
+        references[key] = {}
         for record in generation[key]:
             digest = record_digest(record)
             if not (storage.root / record_path(digest)).is_file():
                 storage.write_json(record_path(digest), record)
-            references.append(
-                {"document_number": record["document_number"], "record_sha256": digest}
-            )
-        stored[key] = references
+            references[key][record["document_number"]] = digest
+
+    base_id = generation.get("previous_generation_id")
+    depth = _delta_depth(storage.root, base_id) if base_id else None
+    if base_id is None or depth is None or depth + 1 >= SNAPSHOT_EVERY:
+        for key in RECORD_LISTS:
+            stored[key] = _reference_list(references[key])
+    else:
+        base = _resolved_references(storage.root, base_id)
+        stored["delta_from"] = base_id
+        for key in RECORD_LISTS:
+            current, before = references[key], base[key]
+            stored[key] = {
+                "set": _reference_list(
+                    {n: d for n, d in current.items() if before.get(n) != d}
+                ),
+                "removed": sorted(set(before) - set(current)),
+            }
     storage.write_json(generation_path(generation["generation_id"]), stored)
 
 
 def read_generation(root: Path, generation_id: str) -> dict[str, Any]:
     """Return a generation with its record references resolved and verified."""
     generation = read_json(root / generation_path(generation_id))
+    references = _resolved_references(root, generation_id)
+    generation.pop("delta_from", None)
     for key in RECORD_LISTS:
         records = []
-        for reference in generation[key]:
-            digest = reference["record_sha256"]
+        for number, digest in references[key].items():
             path = root / record_path(digest)
             if not path.is_file():
                 raise RecordStoreError(f"{generation_id}: record {digest} is missing")
             record = read_json(path)
-            if record_digest(record) != digest:
+            if record_digest(record) != digest or record["document_number"] != number:
                 raise RecordStoreError(f"{generation_id}: record {digest} was altered")
             records.append(record)
-        generation[key] = records
+        generation[key] = sorted(
+            records, key=lambda r: (r["publication_date"], r["document_number"])
+        )
     return generation
+
+
+def _reference_list(references: dict[str, str]) -> list[dict[str, str]]:
+    return [
+        {"document_number": number, "record_sha256": digest}
+        for number, digest in sorted(references.items())
+    ]
+
+
+def _resolved_references(root: Path, generation_id: str) -> dict[str, dict[str, str]]:
+    """Each list's document-to-digest map, following deltas to a full snapshot."""
+    chain = []
+    current = read_json(root / generation_path(generation_id))
+    while "delta_from" in current:
+        chain.append(current)
+        current = read_json(root / generation_path(current["delta_from"]))
+    resolved = {
+        key: {r["document_number"]: r["record_sha256"] for r in current[key]}
+        for key in RECORD_LISTS
+    }
+    for delta in reversed(chain):
+        for key in RECORD_LISTS:
+            for number in delta[key]["removed"]:
+                resolved[key].pop(number, None)
+            for reference in delta[key]["set"]:
+                resolved[key][reference["document_number"]] = reference["record_sha256"]
+    return resolved
+
+
+def _delta_depth(root: Path, generation_id: str) -> int | None:
+    """How many deltas lie between a generation and its snapshot, if it exists."""
+    path = root / generation_path(generation_id)
+    if not path.is_file():
+        return None
+    depth = 0
+    current = read_json(path)
+    while "delta_from" in current:
+        depth += 1
+        current = read_json(root / generation_path(current["delta_from"]))
+    return depth
 
 
 def decision_path(receipt_id: str) -> str:

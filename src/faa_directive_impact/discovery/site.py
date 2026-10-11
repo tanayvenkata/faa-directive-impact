@@ -249,9 +249,8 @@ def _status(
         (
             "Coverage",
             "FAA airworthiness directives published on or after "
-            f"{escape(generation['coverage_start'])}. Older directives are not "
-            "in this corpus, including V2500 directives that may still be in "
-            "force."
+            f"{escape(generation['coverage_start'])}. Directives published "
+            "earlier are not in this corpus."
             if generation and generation.get("coverage_start")
             else "coverage start not recorded",
         ),

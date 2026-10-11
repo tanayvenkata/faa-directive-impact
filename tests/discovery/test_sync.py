@@ -332,3 +332,15 @@ def test_unknown_text_layout_goes_to_review_without_rejecting_the_sync(harness):
         in (quarantined["2026-16954"]["review_reason"])
     )
     assert "2026-16954" not in harness.records(generation)
+
+
+def test_non_iae_directive_without_an_ad_number_is_noted_not_quarantined(harness):
+    corpus = seed_corpus()
+    corpus.add("2026-18900", "2026-09-16", ad_number=None)
+
+    attempt = harness.sync(corpus)
+
+    assert attempt["outcome"] == "promoted", attempt["failures"]
+    records = harness.records(harness.generation(attempt))
+    assert records["2026-18900"]["coverage_state"] == "outside_supported_scope"
+    assert "No AD number" in records["2026-18900"]["note"]
