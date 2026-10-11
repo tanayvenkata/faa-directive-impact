@@ -1,0 +1,110 @@
+# Daily discovery sync (ROADMAP step 6). See DISCOVERY_SYNC.md.
+#
+# Restores the small discovery state from the `discovery-state` branch, runs
+# one sync, commits the new state back (never raw bytes; REDISTRIBUTION.md),
+# and deploys the freshness page to GitHub Pages. The page is deployed even
+# when the sync fails, so the failure is visible; the run is then marked
+# failed so it also shows in the Actions tab.
+name: Discovery sync
+
+on:
+  schedule:
+    # Daily, after the Federal Register's 06:00 ET publication.
+    - cron: "17 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: discovery-sync
+  cancel-in-progress: false
+
+env:
+  STATE_BRANCH: discovery-state
+  DISCOVERY_ROOT: data/discovery
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write # push the state branch
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+
+      - name: Install
+        run: uv sync --locked
+
+      - name: Restore discovery state
+        run: |
+          set -euo pipefail
+          if git fetch --depth=1 origin "$STATE_BRANCH"; then
+            git worktree add --detach state FETCH_HEAD
+          else
+            # First run: start an empty, unrelated history for the state.
+            git worktree add --detach state
+            git -C state checkout --orphan "$STATE_BRANCH"
+            git -C state rm -rq --ignore-unmatch .
+          fi
+          mkdir -p "$DISCOVERY_ROOT"
+          if [ -d state/discovery ]; then
+            cp -R state/discovery/. "$DISCOVERY_ROOT/"
+          fi
+
+      - name: Sync
+        id: sync
+        continue-on-error: true
+        run: uv run faa-directive-impact discovery-sync --storage-root "$DISCOVERY_ROOT"
+
+      - name: Save discovery state (receipts, manifests, decisions, log; no raw bytes)
+        if: always()
+        run: |
+          set -euo pipefail
+          mkdir -p state/discovery
+          # Append-only: nothing is deleted from the state branch.
+          rsync -a --exclude 'raw/' --exclude '.staging/' --exclude '.active-*' \
+            "$DISCOVERY_ROOT/" state/discovery/
+          cd state
+          git add -A discovery
+          if git diff --cached --quiet; then
+            echo "No state changes."
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "discovery: state after run ${GITHUB_RUN_ID}"
+          git push origin "HEAD:refs/heads/$STATE_BRANCH"
+
+      - name: Build freshness page
+        if: always()
+        run: uv run faa-directive-impact discovery-site --storage-root "$DISCOVERY_ROOT" --output site
+
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        if: always()
+        with:
+          path: site
+
+      - name: Fail the run when the sync did not succeed
+        if: steps.sync.outcome != 'success'
+        run: |
+          echo "::error::Discovery sync did not succeed; see the freshness page and the attempt log."
+          exit 1
+
+  deploy:
+    needs: sync
+    # Deploy even when the sync failed, so the page shows the failure.
+    if: always() && needs.sync.result != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
