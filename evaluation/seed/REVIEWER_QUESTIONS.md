@@ -21,6 +21,17 @@ once. Each item names the cases it would settle. Do not send these piecemeal.
    "HPT 1st-stage disk". Are these the same part, so records should match by
    P/N rather than by name? *Affects multi-directive matching.*
 
+4a. **AD 2026-17-03, paragraph (g): what does "is exposed" mean?** (g) says
+   "where the 3rd stage HPC rotor blade is exposed"; (h)(2) defines "3rd
+   stage HPC rotor blade exposure" as removing a blade from the stage 3–8
+   drum. Does (g) mean that definition, or any visit where the blades become
+   accessible (for example, the HPC case is opened)? Raised by the B3 model
+   drafts, not by the seed labels. *Settles seed-014's reading of (g).*
+4b. **AD 2025-19-13, paragraph (i)(2): what is "major mating engine flanges,
+   H-P"?** Flanges H through P, or something else? It decides which
+   maintenance counts as an engine shop visit. Raised by the B3 model
+   drafts. *Affects shop-visit timing for every hub case.*
+
 ## Realism of Synthetic Records
 
 4. Do the synthetic engine records carry the fields an operator really has?
