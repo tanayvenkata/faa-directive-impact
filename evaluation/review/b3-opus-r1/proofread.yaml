@@ -1,4 +1,5 @@
-# B3 proofreading of repeat 1. See README.md in this directory.
+# B3 proofreading of repeat 1, part 1 only. See README.md in this directory.
+# Parts 2 and 3 are in judgments.yaml; do not open it until part 1 is done.
 run: b3-opus-5-5-high-r1-20261011T155547Z-9f32a55
 reviewer: ""
 reviewed_on: ""
@@ -14,36 +15,3 @@ proofreading:
   - directive: 2026-16954   # AD 2026-17-03 (with correction 2026-18423)
     minutes: null
     corrections: []
-
-# Part 2: after reading evaluation/B3_RULE_EXTRACTION.md.
-ambiguities:
-  - directive: 2025-18469
-    paragraph: "(g)"
-    drafted: What "whichever occurs later" compares among the shop visit, the table 1 limit, and the 100-cycle window.
-    claude_first_pass: {real: real, same_as_reference: "yes"}
-    your_verdict: {real: "", same_as_reference: ""}
-    your_note: ""
-  - directive: 2025-18469
-    paragraph: "(i)(2)"
-    drafted: What "major mating engine flanges, H-P" means (flanges H through P, or something else).
-    claude_first_pass: {real: unsure, same_as_reference: "no reference ambiguity"}
-    your_verdict: {real: "", same_as_reference: ""}
-    your_note: ""
-  - directive: 2026-16954
-    paragraph: "(g)"
-    drafted: Whether "is exposed" carries the (h)(2) definition (a blade removed from the drum) or its ordinary meaning.
-    claude_first_pass: {real: real, same_as_reference: "no; the reference lists carry forward or lapse"}
-    your_verdict: {real: "", same_as_reference: ""}
-    your_note: ""
-  - directive: 2026-16954
-    paragraph: "(g)"
-    reference_only: Carry forward or lapse after a qualifying visit without exposure (seed-014).
-    claude_first_pass: {flagged_by_draft: "no"}
-    your_verdict: {flagged_by_draft: ""}
-    your_note: ""
-
-# Part 3: confirm the AD 2026-17-03 reference record and labels are a fair
-# reading (they are Claude drafts). Leave blank if you have no view.
-reference_2026_16954_confirmed: null
-labels_2026_17_03_confirmed: null   # seed-011, -012, -013, -014, -023
-part_3_note: ""   # what you would change, if either is false

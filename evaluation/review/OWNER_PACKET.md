@@ -5,16 +5,18 @@ is a sign-off that Claude cannot give on its own work. About 2 hours in all.
 
 **Do item 1 first, blind.** Until it is done, do not open
 `writeups/02-evaluated.md`, `evaluation/B3_RULE_EXTRACTION.md`,
-`evaluation/b3-summary.md`, `evaluation/b3/reference/`, or any B3 run's
-`report.md`. Nothing in this packet states a B3 result.
+`evaluation/b3-summary.md`, `evaluation/b3/reference/`, or
+`evaluation/review/b3-opus-r1/judgments.yaml`. In a B3 run directory, open
+only `proofread.md` and `extractions/`. Nothing in this packet states a B3
+result.
 
 Paths below are from the repository root; run commands from there.
 
 | # | Item | Where | Time | Why it needs you |
 |---|---|---|---|---|
 | 1 | Proofread B3's drafted rules with a timer, **before reading any B3 results** | `evaluation/review/b3-opus-r1/README.md` part 1; fill in `proofread.yaml` beside it | 30–45 min | Proofreading minutes per AD is a B3 measure; it means nothing if Claude proofreads its own drafts |
-| 2 | Judge B3's drafted ambiguities | same README, part 2 | 10 min | Whether an ambiguity is real is a reading of the text, and Claude wrote the reference it is scored against |
-| 3 | Confirm or dispute the AD 2026-17-03 labels and reference record | same README, part 3: `evaluation/seed/cases/seed-011.yaml` to `seed-014.yaml` and `seed-023.yaml` (its 2026-16954 outcome), and `evaluation/b3/reference/2026-16954.json` | 15 min | They are Claude drafts (`labeled_by: claude-draft`); B3's AD 2026-17-03 results stay provisional until then |
+| 2 | Judge B3's drafted ambiguities | same README, part 2; `judgments.yaml` beside it | 10 min | Whether an ambiguity is real is a reading of the text, and Claude wrote the reference it is scored against |
+| 3 | Confirm or dispute the AD 2026-17-03 labels and reference record | same README, part 3 (`judgments.yaml`): `evaluation/seed/cases/seed-011.yaml` to `seed-014.yaml` and `seed-023.yaml` (its 2026-16954 outcome), and `evaluation/b3/reference/2026-16954.json` | 15 min | They are Claude drafts (`labeled_by: claude-draft`); B3's AD 2026-17-03 results stay provisional until then |
 | 4 | Confirm S1's hand review (gates 5 and 11) | Read `evaluation/runs/s1-20261006T223638Z-6a301b1/hand-review.md`. In `hand-review.yaml` beside it, change any `result` you disagree with, set `reviewer:` to your name and `reviewer_confirmed: true`, then run `make s1-conclude RUN=evaluation/runs/s1-20261006T223638Z-6a301b1` | 15 min | S1's go decision is provisional until you do |
 | 5 | Confirm B2's first-pass hand review | `evaluation/review/b2-sonnet-r1/README.md`; fill in `review.yaml` | 20 min | Same reason, for the B2 comparison |
 | 6 | ~~Turn on the daily sync~~ Done 2026-10-11 under your delegation: Pages enabled, first run promoted | <https://tanayvenkata.github.io/faa-directive-impact/> | — | — |
