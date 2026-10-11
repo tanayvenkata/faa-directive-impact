@@ -33,3 +33,12 @@ any of their outputs or reports were opened.
    vocabulary was designed from the two scored directives and partly supplies
    its own answers. End-to-end results are reported both as the delta from
    the reference record and as absolute gates against S1.
+
+## Deviation recorded afterwards
+
+- **2026-10-11: the proofreading is not blind.** Item 4 asks for the owner to
+  proofread before seeing results. Claude's progress messages in the working
+  session reported the headline results (every data field right; AD
+  2025-19-13 (g) coded `"unclear"`) before the proofreading sheet existed.
+  The sheet records whether the owner saw them, and the write-up discloses
+  it. Nothing else above changed.

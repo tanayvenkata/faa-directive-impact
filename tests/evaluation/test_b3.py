@@ -74,6 +74,36 @@ def test_declined_action_is_a_safe_escalation_but_a_false_clear_never_is() -> No
     assert classify_unit(plain) == {"safe_escalation": [], "substantive": ["8"]}
 
 
+def test_one_combination_correction_reproduces_the_reference_in_every_repeat() -> None:
+    """The write-up's claim: fixing (g)'s "unclear" gives the reference outcomes."""
+    cases = [c.record for c in load_seed_cases(REPO / "evaluation/seed/cases")]
+    by_name = {u.name: u for u in units(cases)}
+    runs = sorted((REPO / "evaluation/runs").glob("b3-opus-5-5-high-r*"))
+    assert len(runs) == 3
+    for run in runs:
+        for unit in json.loads((run / "units.json").read_text()):
+            draft = json.loads(
+                (run / "extractions" / f"{unit['directive']}.json").read_text()
+            )
+            for action in draft["required_actions"]:
+                if action["combination"] == "unclear":
+                    action["combination"] = "whichever_occurs_later"
+            case = by_name[unit["unit"]]
+            asset = case.record["asset_snapshot"]
+            as_of = date.fromisoformat(case.record["source_snapshot"]["as_of"])
+            drafted = screen_rules(draft, asset, as_of)
+            reference = screen_rules(REFERENCES[unit["directive"]], asset, as_of)
+            assert (
+                drafted.applicability,
+                drafted.action_status,
+                drafted.computed,
+            ) == (
+                reference.applicability,
+                reference.action_status,
+                reference.computed,
+            ), (run.name, unit["unit"])
+
+
 def test_recorded_run_replays_offline_through_the_interpreter() -> None:
     recorded = json.loads((RUN / "units.json").read_text())
     cases = [c.record for c in load_seed_cases(REPO / "evaluation/seed/cases")]
