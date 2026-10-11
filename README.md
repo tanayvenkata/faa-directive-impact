@@ -4,10 +4,17 @@ This project is building a continuously refreshable, evidence-backed FAA
 directive-impact system. The first supported evaluation boundary is the
 International Aero Engines V2500-A5/D5/E5 family.
 
-**Status: Reproducible** — see [`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md).
+**Status: Reproducible** — see [`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md)
+and the write-up [*Reproducible: Getting the Same FAA Directive Twice*](writeups/01-reproducible.md).
 Milestone 1 (immutable official-source acquisition) is complete, and the
 evaluation seed and frozen gates are written. S1, the rules baseline for AD
-2025-19-13, is in [`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md).
+2025-19-13, is in [`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md);
+the model comparisons are in
+[`evaluation/B2_FULL_CONTEXT.md`](evaluation/B2_FULL_CONTEXT.md) and
+[`evaluation/B3_RULE_EXTRACTION.md`](evaluation/B3_RULE_EXTRACTION.md), and
+the daily discovery sync in [`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md). These
+results are provisional until the owner's reviews
+([`evaluation/review/OWNER_PACKET.md`](evaluation/review/OWNER_PACKET.md)).
 Retrieval and agent work remain deferred.
 
 ## Current Flow
