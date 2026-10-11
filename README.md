@@ -46,6 +46,8 @@ make format   # apply the formatter
 make check    # run lint and tests
 make s1       # run the S1 rules baseline offline; writes evaluation/runs/<run-id>/
 make s1-conclude RUN=evaluation/runs/<run-id>   # fold in the completed hand review
+make b3-replay RUN=evaluation/runs/<run-id>     # re-score a recorded B3 run offline
+make b3-summary                                 # summarize B3 repeats
 ```
 
 Each S1 run directory holds the normalized record, every unit's output, the

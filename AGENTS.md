@@ -2,7 +2,7 @@
 
 ## Current Phase & Scope
 
-Milestone 1: Immutable Acquisition is complete (`CHECKPOINT_REPRODUCIBLE.md`); its accepted frozen generation is under `generations/`. Milestone 2: Evaluation Seed has written the seed cases (E1) and frozen the gates in `evaluation/GATES.md` (E2); the image-transcription decision (E3) is still open. S1, the rules baseline for AD 2025-19-13, is built (`evaluation/S1_BASELINE.md`): a normalized record (`src/faa_directive_impact/directives/`), deterministic rules and a static three-queue page (`src/faa_directive_impact/impact/`), and a scorer for the frozen gates (`src/faa_directive_impact/evaluation/s1_*.py`). The active work follows `ROADMAP.md` steps 4 to 6: the full-context LLM comparison (B2), LLM rule extraction (B3), then the daily sync published as a static site. `APPROACH.md` explains the workflow and the baselines.
+Milestone 1: Immutable Acquisition is complete (`CHECKPOINT_REPRODUCIBLE.md`); its accepted frozen generation is under `generations/`. Milestone 2: Evaluation Seed has written the seed cases (E1) and frozen the gates in `evaluation/GATES.md` (E2); the image-transcription decision (E3) is still open. S1, the rules baseline for AD 2025-19-13, is built (`evaluation/S1_BASELINE.md`): a normalized record (`src/faa_directive_impact/directives/`), deterministic rules and a static three-queue page (`src/faa_directive_impact/impact/`), and a scorer for the frozen gates (`src/faa_directive_impact/evaluation/s1_*.py`). The full-context LLM comparison (B2, `evaluation/B2_FULL_CONTEXT.md`) and LLM rule extraction (B3, `evaluation/B3_RULE_EXTRACTION.md`: a shared rule schema in `src/faa_directive_impact/schemas/b3-rule-record.schema.json` and a general interpreter in `src/faa_directive_impact/rules/`) are scored. The active work is `ROADMAP.md` step 6, the daily sync published as a static site. Owner sign-offs are listed in `evaluation/review/OWNER_PACKET.md`. `APPROACH.md` explains the workflow and the baselines.
 
 Scope rules for this phase:
 
@@ -60,6 +60,13 @@ management, and a root `Makefile` as the documented command entry point.
   kept run directory under `evaluation/runs/`.
 - `make s1-conclude RUN=evaluation/runs/<run-id>` — fold a completed
   hand-review sheet (gates 5 and 11) into that run's verdict.
+- `make b3 MODEL=claude-opus-5-5 EFFORT=high REPEAT=1` — live model calls
+  (batch); a model drafts the rule records for AD 2025-19-13 and AD
+  2026-17-03, and the run is scored and kept under `evaluation/runs/`.
+  `make b3-plumbing` is the format-only check made before a prompt freeze.
+- `make b3-replay RUN=evaluation/runs/<run-id>` — offline; re-score a
+  recorded B3 run. `make b3-summary` — offline; summarize B3 repeats under
+  `evaluation/b3/PREREGISTRATION.md`.
 
 Run all commands from the repository root. Update this section and the README
 when commands or tooling change.

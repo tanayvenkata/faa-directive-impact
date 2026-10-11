@@ -193,7 +193,7 @@ Each stage is scored against a simpler alternative on the same frozen cases.
 | B0 | **Manual process** | Miss rate, time to answer an urgent AD across a fleet, and whether a later part swap is caught | No credible public figure (see below). To be measured in a practitioner session. |
 | B1 | **Hand-written rules** (S1) | Gates 1–13 on 18 units | **Done:** all gates pass; decision go, provisional ([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)) |
 | B2 | **LLM given the AD and the engine, no rules** (full context, step 4) | The same gates on the same 18 units | **Done:** no setting matched the rules; best was Sonnet 5.5 at high effort, about 2 protected failures per run ([`evaluation/B2_FULL_CONTEXT.md`](evaluation/B2_FULL_CONTEXT.md)) |
-| B3 | **LLM-drafted rules, checked and proofread** (step 5) | Field accuracy against B1's rules, whether it flags ambiguity, and proofreading minutes per AD | Not run |
+| B3 | **LLM-drafted rules, checked and proofread** (step 5) | Field accuracy against B1's rules, whether it flags ambiguity, and proofreading minutes per AD | **Done:** Opus 5.5 drafted every data field right on two ADs in 3 of 3 repeats, but left AD 2025-19-13 (g)'s timing open, so 10 of 18 units went to review; proofreading time awaits the owner ([`evaluation/B3_RULE_EXTRACTION.md`](evaluation/B3_RULE_EXTRACTION.md)) |
 | B4 | **Retrieval of candidate ADs** (step 7) | Candidate recall (gate 14); precision and ranking metrics once the distractor set exists | Not run |
 
 ### External reference points

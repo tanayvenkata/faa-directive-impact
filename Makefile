@@ -1,4 +1,4 @@
-.PHONY: sync test lint format check acquire s1 s1-conclude llm-check b2 b3-plumbing b3
+.PHONY: sync test lint format check acquire s1 s1-conclude llm-check b2 b3-plumbing b3 b3-replay b3-summary
 
 # Local settings and secrets (ANTHROPIC_API_KEY); optional and never committed.
 -include .env
@@ -53,3 +53,11 @@ b3-plumbing:
 # Live model calls (batch). Example: make b3 MODEL=claude-sonnet-5-5 EFFORT=high REPEAT=1
 b3:
 	uv run faa-directive-impact b3-run --model $(MODEL) --effort $(EFFORT) --repeat $(REPEAT)
+
+# Offline. Example: make b3-replay RUN=evaluation/runs/b3-...
+b3-replay:
+	uv run faa-directive-impact b3-replay $(RUN)
+
+# Offline. Writes evaluation/b3-summary.md and .json.
+b3-summary:
+	uv run faa-directive-impact b3-summary
