@@ -81,5 +81,6 @@ sources:
 
 The rungs since this one (evaluation cases with frozen pass/fail gates, a
 rules baseline, and model comparisons) are in the
-[repository](https://github.com/tanayvenkata/faa-directive-impact) and get
-their own write-ups when their claims are confirmed.
+[repository](https://github.com/tanayvenkata/faa-directive-impact) and in the
+next write-up, [*Evaluated*](02-evaluated.md), published as provisional until
+the owner's sign-offs.
