@@ -104,7 +104,12 @@ def main(argv: list[str] | None = None) -> int:
     b3_run.add_argument("--repeat", type=int, default=1)
     b3_run.add_argument("--mode", choices=("live", "batch"), default="batch")
     b3_run.add_argument("--max-tokens", type=int, default=32000)
-    for sub in (b2_plumbing, b2_run, b3_plumbing, b3_run):
+    b3_replay = commands.add_parser(
+        "b3-replay",
+        help="Re-score a recorded B3 run offline; finish its report if missing.",
+    )
+    b3_replay.add_argument("run_directory", type=Path)
+    for sub in (b2_plumbing, b2_run, b3_plumbing, b3_run, b3_replay):
         sub.add_argument("--repo", type=Path, default=Path("."))
         sub.add_argument("--storage-root", type=Path, default=Path("data/seed-frozen"))
         sub.add_argument("--runs-root", type=Path, default=Path("evaluation/runs"))
@@ -182,6 +187,14 @@ def main(argv: list[str] | None = None) -> int:
         )
         print(json.dumps(results, indent=2))
         print(directory)
+        return EXIT_OK
+    if args.command == "b3-replay":
+        from faa_directive_impact.evaluation.b3_run import replay_results
+
+        results = replay_results(
+            args.repo.resolve(), args.storage_root, args.run_directory
+        )
+        print(json.dumps(results["summary"], indent=2))
         return EXIT_OK
     if args.command == "b3-run":
         from faa_directive_impact.evaluation.b3_run import run_b3

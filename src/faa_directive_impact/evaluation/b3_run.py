@@ -172,14 +172,42 @@ def run_b3(
 
 
 def replay_results(repo: Path, storage_root: Path, directory: Path) -> dict[str, Any]:
-    """Re-score a recorded run without calling the model."""
-    meta = json.loads((directory / "report.json").read_text(encoding="utf-8"))["meta"]
+    """Re-score a recorded run without calling the model.
+
+    The model settings come from the recorded calls, so a run that stopped
+    after its calls were recorded but before its report was written can be
+    finished here: its report is written then, and an existing report is
+    never overwritten.
+    """
+    recorded = json.loads(
+        next(iter(sorted((directory / "calls").glob("*.json")))).read_text(
+            encoding="utf-8"
+        )
+    )["request"]
+    model = recorded["model"]
+    effort = recorded["output_config"]["effort"]
+    max_tokens = recorded["max_tokens"]
     threads = prepare_threads(repo, storage_root)
     replay = ReplayModel(directory / "calls")
     responses = [
-        replay.call(request_for(t, meta["model"], meta["effort"], meta["max_tokens"]))
-        for t in threads
+        replay.call(request_for(t, model, effort, max_tokens)) for t in threads
     ]
+    if not (directory / "report.json").exists():
+        meta = {
+            "run_id": directory.name,
+            "system": "B3 model-drafted rules, interpreted",
+            "model": model,
+            "effort": effort,
+            "max_tokens": max_tokens,
+            "repeat": int(directory.name.split("-r")[-1].split("-")[0]),
+            "mode": "replay of recorded calls",
+            "prompt_version": PROMPT_VERSION,
+            "interpreter_version": INTERPRETER_VERSION,
+            "gate_version": GATE_VERSION,
+            "git_commit": directory.name.rsplit("-", 1)[-1],
+            "generation_id": GENERATION_ID,
+        }
+        write_results(repo, directory, meta, threads, responses)
     return score(repo, threads, responses)
 
 
@@ -198,7 +226,7 @@ def screen_unit(
         return None, "no valid rule record"
     try:
         screened = screen_rules(rules, item.unit.record["asset_snapshot"], item.as_of)
-    except (KeyError, TypeError, ValueError) as error:
+    except Exception as error:  # any failure on a drafted record is that unit's answer
         return None, f"interpreter rejected the record: {type(error).__name__}: {error}"
     return screened.to_dict(), None
 
