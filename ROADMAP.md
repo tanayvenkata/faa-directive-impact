@@ -125,8 +125,12 @@ LLM comparison (B2) is scored: no model setting matched the rules
 ([`evaluation/B2_FULL_CONTEXT.md`](evaluation/B2_FULL_CONTEXT.md)). Rule
 extraction (B3) is scored: Opus 5.5 drafted every data field right but left
 AD 2025-19-13 (g)'s timing open for a person
-([`evaluation/B3_RULE_EXTRACTION.md`](evaluation/B3_RULE_EXTRACTION.md)). The
-active step is the daily sync (step 6). What waits on the owner is listed in
+([`evaluation/B3_RULE_EXTRACTION.md`](evaluation/B3_RULE_EXTRACTION.md)). The daily
+sync (step 6) is built and run locally against the live API; it goes live
+once the owner enables GitHub Pages and the scheduled workflow
+([`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md)). The active work is the episode
+exit bar below: owner sign-offs, the sync running publicly, and a
+practitioner review. What waits on the owner is listed in
 [`evaluation/review/OWNER_PACKET.md`](evaluation/review/OWNER_PACKET.md).
 
 ## Revisions
