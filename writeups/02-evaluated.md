@@ -66,8 +66,9 @@ the owner confirms the hand review of gates 5 and 11.
 (a deadline that depends on an informal FAA answer not in the text) and
 seed-029 (part identity) in every run. At low and medium effort Sonnet read
 paragraph (g) as "no shop visit, no deadline", a confident misreading under
-which a listed hub could fly past its limit. Every setting that answered
-seed-013, except Sonnet high, cleared an engine that needs action. Haiku
+which a listed hub could fly past its limit. On AD 2026-17-03's seed-013, outside
+the 18 units, every setting that answered it except Sonnet high cleared an
+engine that needs action. Haiku
 changed its answer on 6–11 of 33 units between identical runs; Sonnet on
 1–3. B2's hand-checked gates are PROVISIONAL.
 
@@ -104,16 +105,24 @@ its first check: nothing in S1 transfers.
   seed units before the freeze, so the reference passing through it is not
   independent evidence ([`B3_RULE_EXTRACTION.md`](../evaluation/B3_RULE_EXTRACTION.md),
   "Deviations").
+- **S1 leans on two outside inputs.** It encodes an informal FAA reply on
+  a shop visit inside the 100-cycle window (T2), and it assumes a hub gains
+  cycles one-for-one with its engine from the effective date (T3)
+  ([`S1_BASELINE.md`](../evaluation/S1_BASELINE.md), "Failure Taxonomy").
 - **Hand-checked gates are first passes**, and the B2 hand review covers
   only Sonnet repeat 1 at medium and high.
+- **The B3 proofread is not fully blind.** The owner saw B3's headline
+  before proofreading, which can make it faster
+  ([`PREREGISTRATION.md`](../evaluation/b3/PREREGISTRATION.md), "Deviation
+  recorded afterwards").
 
 ## Failures and gaps, in one place
 
 | What | Where |
 |---|---|
-| seed-005 needs an informal FAA answer no text supplies; every approach but hand-written rules misses it | B2, B3 |
+| seed-005 needs an informal FAA answer no text supplies. Only S1 passes it, because S1 encodes that answer (taxonomy T2); B2 and B3's own hand-written reference both fail it | B2, B3 |
 | Paragraph (g) misread at Sonnet low/medium; left open by B3 | B2, B3 |
-| False clear on seed-013 at every B2 setting that answered it, except Sonnet high | B2 |
+| False clear on seed-013 (AD 2026-17-03, outside the evaluated claim) at every B2 setting that answered it, except Sonnet high | B2 |
 | Haiku at max effort ran out of tokens on about 30% of units | B2 |
 | Structured outputs refused B3's schema as too large; JSON is validated afterwards | B3 |
 | S1's rules are hand-written for one directive (taxonomy T4) | S1 |
@@ -125,8 +134,8 @@ its first check: nothing in S1 transfers.
 The final call should come from rules a person has reviewed. A model is
 useful for drafting those rules once per directive, where a person catches a
 mistake once rather than once per engine. Re-screening a 300-engine fleet
-against about 20 directives would cost about $100 with Sonnet at high effort,
-and about $0 with rules ([`B2_FULL_CONTEXT.md`](../evaluation/B2_FULL_CONTEXT.md),
+against about 20 directives would cost up to about $100 with Sonnet at high effort
+(an upper estimate), and about $0 with rules ([`B2_FULL_CONTEXT.md`](../evaluation/B2_FULL_CONTEXT.md),
 "What It Would Cost at Fleet Scale").
 
 ## What makes this final
