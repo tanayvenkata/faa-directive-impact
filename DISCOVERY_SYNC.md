@@ -167,6 +167,14 @@ A local `make discovery-sync` keeps raw bytes under `data/discovery/raw/`.
 
 ## Known Limitations
 
+- **Coverage starts at the first sync's start date (2025-01-01 by default).**
+  Directives published earlier are not in the corpus, including V2500
+  directives that may still be in force, such as AD 2021-11-51 (2021-14268)
+  and AD 2022-02-09 (2022-02574). The date is recorded in every generation
+  as `coverage_start` and shown on the page. It exists because one search
+  returns at most 10,000 documents; reaching further back needs a backfill
+  that searches in date windows, which is not built yet.
+
 - **Scheduled workflows stop after 60 days of inactivity.** "In a public
   repository, scheduled workflows are automatically disabled when no
   repository activity has occurred in 60 days"

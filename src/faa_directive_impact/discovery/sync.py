@@ -848,6 +848,14 @@ def _generation(
             "reported_count": search.count,
         },
         "checkpoint": checkpoint,
+        # The earliest publication date the corpus covers: the first
+        # promotion's start date, carried forward unchanged.
+        "coverage_start": (previous or {}).get("coverage_start")
+        or (
+            min(r["publication_date"] for r in previous["records"])
+            if previous and previous.get("records")
+            else candidate.since.isoformat()
+        ),
         "counts": {
             **dict(sorted(candidate.counts.items())),
             "records": len(records),
