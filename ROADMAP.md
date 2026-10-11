@@ -9,7 +9,7 @@ whose first supported evaluation boundary is the IAE V2500-A5/D5/E5 family.
 
 | Layer | Contents | Refresh | Claim |
 |---|---|---|---|
-| Discovery corpus | All FAA airworthiness directives from the Federal Register | Daily scheduled sync | Searchable and current; no correctness claim |
+| Discovery corpus | FAA airworthiness directives from the Federal Register, published since the coverage start shown on the page (2025-01-01; earlier years need a backfill) | Daily scheduled sync | Searchable and current; no correctness claim |
 | Evaluated slice | V2500-A5/D5/E5 directives with labeled cases | Frozen generations, promoted explicitly | Impact results measured against the disclosed evaluation |
 | Retrieval distractor set | Curated, frozen near-neighbor V2500 and adjacent-family records | Frozen with the evaluation | Controls retrieval evaluation; not a limit on discovery width |
 

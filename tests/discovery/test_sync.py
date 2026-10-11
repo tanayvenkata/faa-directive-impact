@@ -96,6 +96,10 @@ def test_checkpoint_window_is_searched_again_and_deduplicated(harness):
     assert len(numbers) == len(set(numbers)) == 7
     assert generation["previous_generation_id"] == first["generation_id"]
     assert read_active(harness.root)["checkpoint"] == "2026-09-15"
+    # Coverage still starts where the first promotion started, not at the
+    # later search window.
+    assert harness.generation(first)["coverage_start"] == "2025-01-01"
+    assert generation["coverage_start"] == "2025-01-01"
 
 
 def test_unexpected_metadata_change_rejects_and_keeps_active(harness):

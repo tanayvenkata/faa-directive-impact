@@ -247,6 +247,15 @@ def _status(
         ("Last successful sync", escape(when(last_success))),
         ("Checkpoint", escape(active["checkpoint"]) if active else "none yet"),
         (
+            "Coverage",
+            "FAA airworthiness directives published on or after "
+            f"{escape(generation['coverage_start'])}. Older directives are not "
+            "in this corpus, including V2500 directives that may still be in "
+            "force."
+            if generation and generation.get("coverage_start")
+            else "coverage start not recorded",
+        ),
+        (
             "Active generation",
             f"<code>{escape(active['generation_id'])}</code>" if active else "none",
         ),

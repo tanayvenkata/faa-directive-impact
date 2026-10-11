@@ -33,6 +33,8 @@ def test_page_embeds_last_success_and_a_browser_staleness_check(tmp_path):
     assert "Not yet evaluated: unverified candidate" in page
     assert "IAE NMSB V2500-ENG-72-0000" in page
     assert "not redistributed" in page
+    assert "published on or after 2025-01-01" in page
+    assert "may still be in force" in page
     assert 'name="viewport"' in page
     assert "<img" not in page and "logo" not in page.lower()
 
