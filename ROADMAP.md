@@ -59,6 +59,8 @@ A newly published in-scope directive becomes visible the day it syncs, as
    verifies them before promotion. Extracted rules are candidate derived data,
    never authoritative. Evaluate extraction against the hand-labeled seed.
    Compare it with the S1 parser run unchanged on a second directive.
+   *Done; proofreading time and the AD 2026-17-03 labels await the owner
+   ([`evaluation/B3_RULE_EXTRACTION.md`](evaluation/B3_RULE_EXTRACTION.md)).*
 6. **Daily sync and freshness** — schedule the Milestone 1 acquisition for
    the discovery corpus: poll from a checkpoint, build a candidate generation,
    validate, then promote or reject while keeping the previous generation. The
@@ -118,8 +120,12 @@ scored: every gate passes on its 18 units, and the go decision is provisional
 until the owner confirms the hand review
 ([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)). The full-context
 LLM comparison (B2) is scored: no model setting matched the rules
-([`evaluation/B2_FULL_CONTEXT.md`](evaluation/B2_FULL_CONTEXT.md)). The active
-step is rule extraction (B3).
+([`evaluation/B2_FULL_CONTEXT.md`](evaluation/B2_FULL_CONTEXT.md)). Rule
+extraction (B3) is scored: Opus 5.5 drafted every data field right but left
+AD 2025-19-13 (g)'s timing open for a person
+([`evaluation/B3_RULE_EXTRACTION.md`](evaluation/B3_RULE_EXTRACTION.md)). The
+active step is the daily sync (step 6). What waits on the owner is listed in
+[`evaluation/review/OWNER_PACKET.md`](evaluation/review/OWNER_PACKET.md).
 
 ## Revisions
 
