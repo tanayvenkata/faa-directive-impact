@@ -1,4 +1,5 @@
 import json
+from dataclasses import replace
 from pathlib import Path
 
 import anthropic
@@ -110,6 +111,21 @@ def test_non_json_answer_is_recorded_as_an_error() -> None:
 
     assert response.answer is None
     assert "not JSON" in response.error
+
+
+def test_unconstrained_request_sends_no_grammar_and_accepts_a_fenced_answer() -> None:
+    unconstrained = replace(request(), constrained=False)
+    assert "format" not in unconstrained.params()["output_config"]
+
+    fenced = '```json\n{"applies": true}\n```'
+    response = LiveModel(FakeClient(payload(fenced))).call(unconstrained)
+    assert response.answer == {"applies": True}
+
+
+def test_constrained_answer_is_never_unfenced() -> None:
+    fenced = '```json\n{"applies": true}\n```'
+    response = LiveModel(FakeClient(payload(fenced))).call(request())
+    assert response.answer is None
 
 
 def test_recorded_calls_replay_without_the_model(tmp_path: Path) -> None:

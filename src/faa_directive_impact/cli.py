@@ -109,6 +109,13 @@ def main(argv: list[str] | None = None) -> int:
         help="Re-score a recorded B3 run offline; finish its report if missing.",
     )
     b3_replay.add_argument("run_directory", type=Path)
+    b3_summary = commands.add_parser(
+        "b3-summary", help="Summarize B3 repeats under the pre-registered rules."
+    )
+    b3_summary.add_argument("--runs-root", type=Path, default=Path("evaluation/runs"))
+    b3_summary.add_argument(
+        "--output", type=Path, default=Path("evaluation/b3-summary")
+    )
     for sub in (b2_plumbing, b2_run, b3_plumbing, b3_run, b3_replay):
         sub.add_argument("--repo", type=Path, default=Path("."))
         sub.add_argument("--storage-root", type=Path, default=Path("data/seed-frozen"))
@@ -187,6 +194,32 @@ def main(argv: list[str] | None = None) -> int:
         )
         print(json.dumps(results, indent=2))
         print(directory)
+        return EXIT_OK
+    if args.command == "b3-summary":
+        from faa_directive_impact.evaluation.b3_prompt import (
+            PROMPT_VERSION as B3_PROMPT_VERSION,
+        )
+        from faa_directive_impact.evaluation.b3_summary import (
+            load_runs as load_b3_runs,
+        )
+        from faa_directive_impact.evaluation.b3_summary import (
+            summarize_run,
+        )
+        from faa_directive_impact.evaluation.b3_summary import (
+            summary_markdown as b3_summary_markdown,
+        )
+
+        summaries = [
+            summarize_run(run)
+            for run in load_b3_runs(args.runs_root, B3_PROMPT_VERSION)
+        ]
+        args.output.with_suffix(".json").write_text(
+            json.dumps(summaries, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        )
+        args.output.with_suffix(".md").write_text(
+            b3_summary_markdown(summaries, B3_PROMPT_VERSION), encoding="utf-8"
+        )
+        print(args.output.with_suffix(".md"))
         return EXIT_OK
     if args.command == "b3-replay":
         from faa_directive_impact.evaluation.b3_run import replay_results

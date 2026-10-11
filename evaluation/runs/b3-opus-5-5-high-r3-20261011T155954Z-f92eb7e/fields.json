@@ -1,0 +1,499 @@
+{
+  "2025-18469": {
+    "fields": 20,
+    "correct": 19,
+    "accuracy": 0.95,
+    "checks": [
+      {
+        "field": "governing_document",
+        "correct": true,
+        "expected": "2025-18469",
+        "drafted": "2025-18469"
+      },
+      {
+        "field": "corrections.paragraphs",
+        "correct": true,
+        "expected": [],
+        "drafted": []
+      },
+      {
+        "field": "effective_date",
+        "correct": true,
+        "expected": "2025-10-29",
+        "drafted": "2025-10-29"
+      },
+      {
+        "field": "effective_date.paragraph",
+        "correct": true,
+        "expected": "(a)",
+        "drafted": "(a)"
+      },
+      {
+        "field": "applicability.engine_models",
+        "correct": true,
+        "expected": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2525-D5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2528-D5",
+          "V2530-A5",
+          "V2531-E5",
+          "V2533-A5"
+        ],
+        "drafted": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2525-D5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2528-D5",
+          "V2530-A5",
+          "V2531-E5",
+          "V2533-A5"
+        ]
+      },
+      {
+        "field": "applicability.models_paragraph",
+        "correct": true,
+        "expected": "(c)",
+        "drafted": "(c)"
+      },
+      {
+        "field": "applicability.part_condition.part_numbers",
+        "correct": true,
+        "expected": [],
+        "drafted": []
+      },
+      {
+        "field": "affected_parts",
+        "correct": true,
+        "expected": [
+          [
+            "2A4802",
+            "PKLBSR2100",
+            6000
+          ],
+          [
+            "2A4802",
+            "PKLBSS0301",
+            5000
+          ],
+          [
+            "2A4802",
+            "PKLBSS9840",
+            3900
+          ],
+          [
+            "2A4802",
+            "PKLBST5005",
+            4000
+          ],
+          [
+            "2A5001",
+            "PKLBSK9287",
+            100
+          ],
+          [
+            "2A5001",
+            "PKLBSS9200",
+            4800
+          ],
+          [
+            "2A5001",
+            "PKLBST5011",
+            5500
+          ],
+          [
+            "2A5001",
+            "PKLBST7489",
+            6200
+          ]
+        ],
+        "drafted": [
+          [
+            "2A4802",
+            "PKLBSR2100",
+            6000
+          ],
+          [
+            "2A4802",
+            "PKLBSS0301",
+            5000
+          ],
+          [
+            "2A4802",
+            "PKLBSS9840",
+            3900
+          ],
+          [
+            "2A4802",
+            "PKLBST5005",
+            4000
+          ],
+          [
+            "2A5001",
+            "PKLBSK9287",
+            100
+          ],
+          [
+            "2A5001",
+            "PKLBSS9200",
+            4800
+          ],
+          [
+            "2A5001",
+            "PKLBST5011",
+            5500
+          ],
+          [
+            "2A5001",
+            "PKLBST7489",
+            6200
+          ]
+        ]
+      },
+      {
+        "field": "affected_parts.component_names",
+        "correct": true,
+        "expected": [
+          "HPT 1st-stage hub",
+          "HPT 2nd-stage hub"
+        ],
+        "drafted": [
+          "HPT 1st-stage hub",
+          "HPT 2nd-stage hub"
+        ]
+      },
+      {
+        "field": "eligible_parts.part_numbers",
+        "correct": true,
+        "expected": [],
+        "drafted": []
+      },
+      {
+        "field": "required_actions.paragraphs",
+        "correct": true,
+        "expected": [
+          "(g)"
+        ],
+        "drafted": [
+          "(g)"
+        ]
+      },
+      {
+        "field": "required_actions[(g)].applies_to",
+        "correct": true,
+        "expected": "listed_parts",
+        "drafted": "listed_parts"
+      },
+      {
+        "field": "required_actions[(g)].trigger",
+        "correct": true,
+        "expected": "next_shop_visit_after_effective_date",
+        "drafted": "next_shop_visit_after_effective_date"
+      },
+      {
+        "field": "required_actions[(g)].shop_visit_definition_paragraph",
+        "correct": true,
+        "expected": "(i)(2)",
+        "drafted": "(i)(2)"
+      },
+      {
+        "field": "required_actions[(g)].combination",
+        "correct": false,
+        "expected": "whichever_occurs_later",
+        "drafted": "unclear"
+      },
+      {
+        "field": "required_actions[(g)].condition.definition_paragraph",
+        "correct": true,
+        "expected": null,
+        "drafted": null
+      },
+      {
+        "field": "required_actions[(g)].limits",
+        "correct": true,
+        "expected": [
+          [
+            "flight_cycles_after_effective_date",
+            100
+          ],
+          [
+            "listed_part_cycles_since_new",
+            null
+          ]
+        ],
+        "drafted": [
+          [
+            "flight_cycles_after_effective_date",
+            100
+          ],
+          [
+            "listed_part_cycles_since_new",
+            null
+          ]
+        ]
+      },
+      {
+        "field": "installation_prohibitions",
+        "correct": true,
+        "expected": [
+          [
+            "(h)",
+            "listed_parts"
+          ]
+        ],
+        "drafted": [
+          [
+            "(h)",
+            "listed_parts"
+          ]
+        ]
+      },
+      {
+        "field": "definitions.paragraphs",
+        "correct": true,
+        "expected": [
+          "(i)(1)",
+          "(i)(2)"
+        ],
+        "drafted": [
+          "(i)(1)",
+          "(i)(2)"
+        ]
+      },
+      {
+        "field": "amoc_paragraph",
+        "correct": true,
+        "expected": "(j)",
+        "drafted": "(j)"
+      }
+    ],
+    "ambiguities": {
+      "expected": [
+        {
+          "paragraph": "(g)",
+          "description": "\"At the next engine shop visit ... before exceeding the removal cycle limit ... or within 100 flight cycles ..., whichever occurs later\" does not say which deadline the 100-cycle window competes with when a shop visit falls inside the window.",
+          "flagged": true
+        }
+      ],
+      "additional": [
+        {
+          "paragraph": "(i)(2)",
+          "description": "The engine shop visit definition refers to 'separation of any major mating engine flanges, H-P' without saying what 'H-P' means. This affects which maintenance events count as an engine shop visit, and so when paragraph (g) is triggered.",
+          "readings": [
+            "Separation of any major mating flange in the range of flange designations H through P.",
+            "Separation of the flanges designated H and P only."
+          ]
+        }
+      ]
+    }
+  },
+  "2026-16954": {
+    "fields": 21,
+    "correct": 21,
+    "accuracy": 1.0,
+    "checks": [
+      {
+        "field": "governing_document",
+        "correct": true,
+        "expected": "2026-18423",
+        "drafted": "2026-18423"
+      },
+      {
+        "field": "corrections.paragraphs",
+        "correct": true,
+        "expected": [
+          [
+            "2026-18423",
+            "(g)"
+          ]
+        ],
+        "drafted": [
+          [
+            "2026-18423",
+            "(g)"
+          ]
+        ]
+      },
+      {
+        "field": "effective_date",
+        "correct": true,
+        "expected": "2026-09-24",
+        "drafted": "2026-09-24"
+      },
+      {
+        "field": "effective_date.paragraph",
+        "correct": true,
+        "expected": "(a)",
+        "drafted": "(a)"
+      },
+      {
+        "field": "applicability.engine_models",
+        "correct": true,
+        "expected": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2525-D5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2528-D5",
+          "V2530-A5",
+          "V2531-E5",
+          "V2533-A5"
+        ],
+        "drafted": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2525-D5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2528-D5",
+          "V2530-A5",
+          "V2531-E5",
+          "V2533-A5"
+        ]
+      },
+      {
+        "field": "applicability.models_paragraph",
+        "correct": true,
+        "expected": "(c)",
+        "drafted": "(c)"
+      },
+      {
+        "field": "applicability.part_condition.part_numbers",
+        "correct": true,
+        "expected": [
+          "6A8353",
+          "6A8688"
+        ],
+        "drafted": [
+          "6A8353",
+          "6A8688"
+        ]
+      },
+      {
+        "field": "applicability.part_condition.paragraph",
+        "correct": true,
+        "expected": "(c)",
+        "drafted": "(c)"
+      },
+      {
+        "field": "affected_parts",
+        "correct": true,
+        "expected": [],
+        "drafted": []
+      },
+      {
+        "field": "affected_parts.component_names",
+        "correct": true,
+        "expected": [],
+        "drafted": []
+      },
+      {
+        "field": "eligible_parts.part_numbers",
+        "correct": true,
+        "expected": [
+          "6A8353-001",
+          "6A8688-001",
+          "6C8368",
+          "6C8403"
+        ],
+        "drafted": [
+          "6A8353-001",
+          "6A8688-001",
+          "6C8368",
+          "6C8403"
+        ]
+      },
+      {
+        "field": "required_actions.paragraphs",
+        "correct": true,
+        "expected": [
+          "(g)"
+        ],
+        "drafted": [
+          "(g)"
+        ]
+      },
+      {
+        "field": "required_actions[(g)].applies_to",
+        "correct": true,
+        "expected": "part_condition_parts",
+        "drafted": "part_condition_parts"
+      },
+      {
+        "field": "required_actions[(g)].trigger",
+        "correct": true,
+        "expected": "next_shop_visit_after_effective_date_with_condition",
+        "drafted": "next_shop_visit_after_effective_date_with_condition"
+      },
+      {
+        "field": "required_actions[(g)].shop_visit_definition_paragraph",
+        "correct": true,
+        "expected": "(h)(3)",
+        "drafted": "(h)(3)"
+      },
+      {
+        "field": "required_actions[(g)].combination",
+        "correct": true,
+        "expected": "single",
+        "drafted": "single"
+      },
+      {
+        "field": "required_actions[(g)].condition.definition_paragraph",
+        "correct": true,
+        "expected": "(h)(2)",
+        "drafted": "(h)(2)"
+      },
+      {
+        "field": "required_actions[(g)].limits",
+        "correct": true,
+        "expected": [],
+        "drafted": []
+      },
+      {
+        "field": "installation_prohibitions",
+        "correct": true,
+        "expected": [],
+        "drafted": []
+      },
+      {
+        "field": "definitions.paragraphs",
+        "correct": true,
+        "expected": [
+          "(h)(1)",
+          "(h)(2)",
+          "(h)(3)"
+        ],
+        "drafted": [
+          "(h)(1)",
+          "(h)(2)",
+          "(h)(3)"
+        ]
+      },
+      {
+        "field": "amoc_paragraph",
+        "correct": true,
+        "expected": "(i)",
+        "drafted": "(i)"
+      }
+    ],
+    "ambiguities": {
+      "expected": [
+        {
+          "paragraph": "(g)",
+          "description": "If the next shop visit after the effective date exposes no blade, the text does not say whether the requirement carries forward to a later visit that does, or is spent.",
+          "flagged": true
+        }
+      ],
+      "additional": []
+    }
+  }
+}
