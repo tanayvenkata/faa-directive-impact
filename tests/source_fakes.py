@@ -38,6 +38,7 @@ def directive_xml(
     root: str = "RULE",
     incorporated: tuple[str, ...] = (),
     replaces: str | None = None,
+    applicability: str | None = None,
 ) -> bytes:
     if incorporated:
         items = "".join(
@@ -50,9 +51,14 @@ def directive_xml(
     affected = (
         f"This AD replaces AD {replaces}, Amendment 39-00000." if replaces else "None."
     )
+    models = (
+        f"<HD>(c) Applicability</HD><P>{applicability}</P>"
+        if applicability is not None
+        else ""
+    )
     return (
         f"<{root}><PREAMB><AGENCY>DEPARTMENT OF TRANSPORTATION</AGENCY></PREAMB>"
-        f"<HD>(b) Affected ADs</HD><P>{affected}</P>"
+        f"<HD>(b) Affected ADs</HD><P>{affected}</P>{models}"
         f"<HD>(k) Additional Information</HD><P>Contact the FAA.</P>"
         f"<HD>(l) Material Incorporated by Reference</HD>{section}"
         f"<FRDOC>[FR Doc. {number} Filed 9-23-25; 8:45 am]</FRDOC></{root}>"
@@ -77,6 +83,7 @@ def document_pages(
     replaces: str | None = None,
     action: str = "Final rule.",
     title: str = "Airworthiness Directives; International Aero Engines AG Engines",
+    applicability: str | None = None,
 ) -> dict[str, bytes | None]:
     """Return URL → body for every representation of one document."""
     package = f"FR-{publication_date}"
@@ -92,7 +99,9 @@ def document_pages(
     }
     root = "PRORULE" if document_type == "Proposed Rule" else "RULE"
     pages: dict[str, bytes | None] = {
-        urls["full_text_xml_url"]: directive_xml(number, root, incorporated, replaces),
+        urls["full_text_xml_url"]: directive_xml(
+            number, root, incorporated, replaces, applicability
+        ),
         urls[
             "body_html_url"
         ]: f"\n  <div><p id='p-1'>FR Doc. {number}</p></div>".encode(),
@@ -150,5 +159,64 @@ def serve(pages: dict[str, bytes | None]):
         return (
             httpx.Response(404) if body is None else httpx.Response(200, content=body)
         )
+
+    return handler
+
+
+SEARCH_PATH = "/api/v1/documents.json"
+
+
+def search_entry(
+    number: str,
+    publication_date: str,
+    title: str = "Airworthiness Directives; Airbus SAS Airplanes",
+    ad_number: str | None = None,
+    action: str = "Final rule.",
+    docket: str = "Docket No. FAA-2026-0001",
+) -> dict:
+    """One search result carrying the fields the discovery search requests."""
+    docket_ids = [docket, "Amendment 39-00000"]
+    if ad_number is not None:
+        docket_ids.append(f"AD {ad_number}")
+    return {
+        "document_number": number,
+        "title": title,
+        "type": "Rule",
+        "action": action,
+        "publication_date": publication_date,
+        "effective_on": None,
+        "docket_ids": docket_ids,
+        "correction_of": None,
+        "corrections": [],
+        "citation": "91 FR 1",
+        "html_url": f"https://www.federalregister.gov/documents/{number}",
+    }
+
+
+def serve_search(entries: list[dict], pages: dict[str, bytes | None] | None = None):
+    """Serve the documents search over ``entries`` and ``pages`` for the rest.
+
+    The fake reads the query parameters the way the API does: results on or
+    after ``conditions[publication_date][gte]``, oldest first, ``per_page`` at
+    a time, page ``page``.
+    """
+    documents = serve(pages or {})
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path != SEARCH_PATH:
+            return documents(request)
+        params = request.url.params
+        since = params["conditions[publication_date][gte]"]
+        per_page = int(params["per_page"])
+        page = int(params["page"])
+        matching = sorted(
+            (e for e in entries if e["publication_date"] >= since),
+            key=lambda e: (e["publication_date"], e["document_number"]),
+        )
+        body: dict = {"count": len(matching)}
+        if matching:
+            body["total_pages"] = -(-len(matching) // per_page)
+            body["results"] = matching[(page - 1) * per_page : page * per_page]
+        return httpx.Response(200, json=body)
 
     return handler

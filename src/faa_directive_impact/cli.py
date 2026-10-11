@@ -4,7 +4,7 @@ import argparse
 import json
 import subprocess
 import sys
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 from faa_directive_impact.acquisition.document import acquire_document
@@ -120,7 +120,11 @@ def main(argv: list[str] | None = None) -> int:
         sub.add_argument("--repo", type=Path, default=Path("."))
         sub.add_argument("--storage-root", type=Path, default=Path("data/seed-frozen"))
         sub.add_argument("--runs-root", type=Path, default=Path("evaluation/runs"))
+    _add_discovery_commands(commands)
     args = parser.parse_args(argv)
+
+    if args.command.startswith("discovery-"):
+        return _run_discovery_command(args)
 
     if args.command == "b2-conclude":
         from faa_directive_impact.evaluation.b2_run import conclude_b2
@@ -332,6 +336,87 @@ def main(argv: list[str] | None = None) -> int:
     if any(doc.needs_review for doc in documents):
         return EXIT_NEEDS_REVIEW
     return EXIT_OK
+
+
+# Discovery corpus (ROADMAP step 6): daily sync, rollback, and freshness page.
+DISCOVERY_STORAGE_ROOT = Path("data/discovery")
+
+
+def _add_discovery_commands(commands: argparse._SubParsersAction) -> None:
+    sync = commands.add_parser(
+        "discovery-sync",
+        help="Live network call: search for new FAA ADs, then promote or reject.",
+    )
+    sync.add_argument(
+        "--start-date",
+        type=date.fromisoformat,
+        default=None,
+        help="first-sync search start (YYYY-MM-DD); later syncs use the checkpoint",
+    )
+    sync.add_argument(
+        "--accept-changed",
+        nargs="*",
+        default=[],
+        metavar="DOCUMENT",
+        help="documents whose changed metadata was investigated and accepted",
+    )
+    sync.add_argument("--timeout", type=float, default=DEFAULT_TIMEOUT_SECONDS)
+    rollback = commands.add_parser(
+        "discovery-rollback",
+        help="Point the active discovery generation back at an earlier one.",
+    )
+    rollback.add_argument("--to", dest="to_generation", default=None)
+    site = commands.add_parser(
+        "discovery-site", help="Write the static freshness page for the corpus."
+    )
+    site.add_argument("--output", type=Path, default=Path("site"))
+    site.add_argument("--runs-root", type=Path, default=Path("evaluation/runs"))
+    for sub in (sync, rollback, site):
+        sub.add_argument("--storage-root", type=Path, default=DISCOVERY_STORAGE_ROOT)
+
+
+def _run_discovery_command(args: argparse.Namespace) -> int:
+    from faa_directive_impact.discovery.state import StorageRootRefused
+    from faa_directive_impact.discovery.sync import (
+        DEFAULT_START_DATE,
+        SUCCESSFUL_OUTCOMES,
+        RollbackError,
+        rollback,
+        run_sync,
+    )
+
+    try:
+        if args.command == "discovery-site":
+            from faa_directive_impact.discovery.site import (
+                build_site,
+                latest_s1_queues,
+            )
+
+            root = args.storage_root.resolve()
+            print(build_site(root, args.output, latest_s1_queues(args.runs_root)))
+            return EXIT_OK
+        if args.command == "discovery-rollback":
+            try:
+                pointer = rollback(args.storage_root, to_generation=args.to_generation)
+            except RollbackError as error:
+                print(f"rollback refused: {error}")
+                return EXIT_FAILED
+            print(json.dumps(pointer, indent=2, sort_keys=True))
+            return EXIT_OK
+        with build_client(args.timeout) as client:
+            attempt = run_sync(
+                args.storage_root,
+                client,
+                start_date=args.start_date or DEFAULT_START_DATE,
+                accept_changed=frozenset(args.accept_changed),
+            )
+    except StorageRootRefused as error:
+        print(error)
+        return EXIT_FAILED
+    attempt.pop("traceback", None)
+    json.dump(attempt, sys.stdout, indent=2, sort_keys=True)
+    print()
+    return EXIT_OK if attempt["outcome"] in SUCCESSFUL_OUTCOMES else EXIT_FAILED
 
 
 def _llm_check(model: str) -> int:
