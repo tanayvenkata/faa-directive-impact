@@ -52,10 +52,12 @@ REDISTRIBUTION_NOTE = (
 
 STYLE = """
 :root { --fg:#1d1d1f; --muted:#5f6368; --bg:#ffffff; --card:#f6f7f9;
-  --line:#d9dce1; --bad:#b3261e; --warn:#8a5a00; --ok:#2f6f3e; }
+  --line:#d9dce1; --bad:#b3261e; --warn:#8a5a00; --ok:#2f6f3e; --link:#0b57d0; }
 @media (prefers-color-scheme: dark) {
   :root { --fg:#e8eaed; --muted:#a0a4aa; --bg:#16181b; --card:#202328;
-    --line:#3a3e44; --bad:#f2b8b5; --warn:#f5c26b; --ok:#8fd19e; } }
+    --line:#3a3e44; --bad:#f2b8b5; --warn:#f5c26b; --ok:#8fd19e;
+    --link:#8ab4f8; } }
+a { color: var(--link); }
 * { box-sizing: border-box; }
 body { margin:0; padding:24px 16px 48px; background:var(--bg); color:var(--fg);
   font:15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
@@ -152,12 +154,12 @@ def render_page(state: dict[str, Any], s1_queues_href: str | None = None) -> str
             "corpus below is empty or incomplete.</div>"
         )
         as_of = '<p class="muted">No successful sync yet.</p>'
+        script = ""
     else:
         stamp = last_success["finished_at_utc"]
-        freshness = (
-            '<div id="stale-banner" class="alert" role="alert" hidden></div>'
-            f"<script>{STALENESS_SCRIPT}</script>"
-        )
+        freshness = '<div id="stale-banner" class="alert" role="alert" hidden></div>'
+        # After the elements it reads, so they exist when it runs.
+        script = f"<script>{STALENESS_SCRIPT}</script>"
         as_of = (
             f'<p>As of <time id="last-success" datetime="{escape(stamp)}">'
             f"{escape(stamp[:10])}</time> (last successful sync, "
@@ -218,6 +220,7 @@ Department of Transportation. This project is independent and not affiliated
 with the FAA.</p>
 </footer>
 </main>
+{script}
 </body>
 </html>
 """
