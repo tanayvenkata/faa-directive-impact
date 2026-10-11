@@ -196,9 +196,10 @@ def search_entry(
 def serve_search(entries: list[dict], pages: dict[str, bytes | None] | None = None):
     """Serve the documents search over ``entries`` and ``pages`` for the rest.
 
-    The fake reads the query parameters the way the API does: results on or
-    after ``conditions[publication_date][gte]``, oldest first, ``per_page`` at
-    a time, page ``page``.
+        The fake reads the query parameters the way the API does: results on or
+        after ``conditions[publication_date][gte]`` (and on or before ``[lte]``
+    when given), oldest first, ``per_page`` at
+        a time, page ``page``.
     """
     documents = serve(pages or {})
 
@@ -207,10 +208,11 @@ def serve_search(entries: list[dict], pages: dict[str, bytes | None] | None = No
             return documents(request)
         params = request.url.params
         since = params["conditions[publication_date][gte]"]
+        until = params.get("conditions[publication_date][lte]", "9999-12-31")
         per_page = int(params["per_page"])
         page = int(params["page"])
         matching = sorted(
-            (e for e in entries if e["publication_date"] >= since),
+            (e for e in entries if since <= e["publication_date"] <= until),
             key=lambda e: (e["publication_date"], e["document_number"]),
         )
         body: dict = {"count": len(matching)}

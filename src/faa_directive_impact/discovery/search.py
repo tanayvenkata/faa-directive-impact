@@ -10,6 +10,9 @@ https://www.federalregister.gov/developers/documentation/api/v1):
 - ``conditions[cfr][title]=14`` and ``conditions[cfr][part]=39``: documents
   affecting 14 CFR part 39, the airworthiness-directive part
 - ``conditions[publication_date][gte]``: published on or after a date
+- ``conditions[publication_date][lte]``: published on or before a date (used
+  to search one calendar year at a time; checked live, 2026-10-11: each
+  window returned its own count)
 - ``order=oldest``: publication date, then document number, ascending
 - ``per_page`` (1000 maximum) and ``page``
 - ``fields[]``: the document attributes to return
@@ -21,13 +24,17 @@ response's ``next_page_url``, and a search fails loudly when it could be
 truncated or when the collected documents disagree with ``count``.
 
 Each page's exact bytes are kept with a receipt like any other acquisition.
+
+The first sync can reach back further than one search allows (about 13,000
+FAA directives were published 1994–2026), so it searches one calendar year at
+a time (``search_by_year``); no year comes near the cap.
 """
 
 import json
 import math
 import re
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, timedelta
 from typing import Any
 from urllib.parse import urlencode
 
@@ -45,8 +52,13 @@ from faa_directive_impact.acquisition.retrieval import (
 SEARCH_NAMESPACE = "federal_register_search_query"
 # Besides numbers like 2025-18469, the search returns documents the Federal
 # Register itself corrected or republished, numbered like C1-2025-03880 and
-# R1-2025-04334; their ``correction_of`` names the original document.
-DISCOVERED_DOCUMENT_NUMBER = re.compile(r"^(?:[A-Z]\d+-)?\d{4}-\d{5}$")
+# R1-2025-04334; their ``correction_of`` names the original document. Older
+# numbers are shorter: 93-31908 and 94-21 (1990s), E6-11333 (2006-2007), and
+# 2010-103. Every FAA part 39 rule from 1994 to 2026 has one of these forms
+# (checked live, 2026-10-11, all 12,961 documents).
+DISCOVERED_DOCUMENT_NUMBER = re.compile(
+    r"^(?:[A-Z]\d+-)?(?:\d{2}|\d{4})-\d{1,5}$|^[A-Z]\d-\d{1,5}$"
+)
 PER_PAGE = 1000
 RESULT_WINDOW = 10_000
 # The attributes each search result carries. Every name was checked against a
@@ -82,7 +94,9 @@ class SearchOutcome:
         return not self.problems
 
 
-def search_url(since: date, page: int, per_page: int = PER_PAGE) -> str:
+def search_url(
+    since: date, page: int, per_page: int = PER_PAGE, until: date | None = None
+) -> str:
     """Return the search URL for one page; parameter order is fixed."""
     parameters: list[tuple[str, str | int]] = [
         ("conditions[agencies][]", "federal-aviation-administration"),
@@ -90,6 +104,10 @@ def search_url(since: date, page: int, per_page: int = PER_PAGE) -> str:
         ("conditions[cfr][title]", 14),
         ("conditions[cfr][part]", 39),
         ("conditions[publication_date][gte]", since.isoformat()),
+    ]
+    if until is not None:
+        parameters.append(("conditions[publication_date][lte]", until.isoformat()))
+    parameters += [
         ("order", "oldest"),
         ("per_page", per_page),
         ("page", page),
@@ -99,24 +117,36 @@ def search_url(since: date, page: int, per_page: int = PER_PAGE) -> str:
 
 
 def search_request(
-    since: date, page: int, run_id: str, per_page: int = PER_PAGE
+    since: date,
+    page: int,
+    run_id: str,
+    per_page: int = PER_PAGE,
+    until: date | None = None,
 ) -> RepresentationRequest:
     """Request one search page, kept under ``raw/federal-register-search/``."""
+    window = f"since-{since.isoformat()}"
+    folder = f"raw/federal-register-search/{run_id}"
+    if until is not None:
+        window += f"-until-{until.isoformat()}"
+        folder += f"/{since.isoformat()}_{until.isoformat()}"
     return RepresentationRequest(
         source_system="federal_register",
         identity_namespace=SEARCH_NAMESPACE,
-        identity_value=f"faa-14cfr39-rules-since-{since.isoformat()}-page-{page}",
+        identity_value=f"faa-14cfr39-rules-{window}-page-{page}",
         representation_role=SEARCH_RESULTS_ROLE,
         authority_role="discovery_metadata",
-        url=search_url(since, page, per_page),
-        relative_path=f"raw/federal-register-search/{run_id}/page-{page:04d}.json",
+        url=search_url(since, page, per_page, until),
+        relative_path=f"{folder}/page-{page:04d}.json",
         redistribution_status=TEXT_REDISTRIBUTION[0],
         redistribution_basis=TEXT_REDISTRIBUTION[1],
     )
 
 
 def search_directives(
-    context: AcquisitionContext, since: date, per_page: int = PER_PAGE
+    context: AcquisitionContext,
+    since: date,
+    per_page: int = PER_PAGE,
+    until: date | None = None,
 ) -> SearchOutcome:
     """Fetch every page of the search and collect each document once.
 
@@ -135,7 +165,7 @@ def search_directives(
                 f"page {page} lies beyond the API's {RESULT_WINDOW}-result window"
             )
             break
-        request = search_request(since, page, context.run_id, per_page)
+        request = search_request(since, page, context.run_id, per_page, until)
         receipt = retrieve(context, request)
         outcome.receipts.append(receipt)
         if receipt["acquisition_status"] != "succeeded":
@@ -190,6 +220,46 @@ def search_directives(
                 f"reported {outcome.count}"
             )
     return outcome
+
+
+def search_by_year(
+    context: AcquisitionContext,
+    since: date,
+    today: date,
+    per_page: int = PER_PAGE,
+) -> SearchOutcome:
+    """Search one calendar year at a time from ``since``, and merge the results.
+
+    Every year before ``today``'s is closed with an end date; the last window
+    stays open, so documents the Federal Register lists ahead of their
+    publication date are still found. Any window's problem is the whole
+    search's problem.
+    """
+    merged = SearchOutcome(since, count=0)
+    start = since
+    while True:
+        last = start.year >= today.year
+        until = None if last else date(start.year, 12, 31)
+        window = search_directives(context, start, per_page, until)
+        merged.receipts.extend(window.receipts)
+        merged.problems.extend(
+            f"{start.year}: {problem}" for problem in window.problems
+        )
+        for entry in window.entries:
+            number = entry["document_number"]
+            if number in merged.entry_receipts:
+                merged.problems.append(f"{number} appeared in two year windows")
+                continue
+            merged.entries.append(entry)
+            merged.entry_receipts[number] = window.entry_receipts[number]
+        if window.count is not None and merged.count is not None:
+            merged.count += window.count
+        else:
+            merged.count = None
+        if last or window.problems:
+            break
+        start = until + timedelta(days=1)
+    return merged
 
 
 def _read_page(

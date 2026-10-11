@@ -241,6 +241,7 @@ def test_a_crash_is_still_logged(harness, monkeypatch):
         raise RuntimeError("boom")
 
     monkeypatch.setattr(sync_module, "search_directives", explode)
+    monkeypatch.setattr(sync_module, "search_by_year", explode)
 
     attempt = harness.sync(seed_corpus())
 
@@ -295,3 +296,39 @@ def test_federal_register_corrections_link_by_correction_of(harness):
     }
     [held] = generation["review"]
     assert held["document_number"] == "C1-2026-16954"
+
+
+def test_first_sync_searches_one_year_at_a_time(harness):
+    attempt = harness.sync(seed_corpus())
+
+    assert attempt["outcome"] == "promoted", attempt["failures"]
+    generation = harness.generation(attempt)
+    receipts = generation["query"]["search_receipt_ids"]
+    # The harness starts at 2025-01-01 and its clock is in 2026: one closed
+    # window for 2025 and one open window for 2026.
+    assert len(receipts) == 2
+    assert {r["document_number"] for r in generation["records"]} >= {
+        "2025-18469",
+        "2026-16954",
+    }
+
+
+def test_unknown_text_layout_goes_to_review_without_rejecting_the_sync(harness):
+    corpus = seed_corpus()
+    xml = next(url for url in corpus.pages if url.endswith("2026-16954.xml"))
+    original = corpus.pages[xml]
+    assert original is not None and b"Material Incorporated by Reference" in original
+    corpus.pages[xml] = original.replace(
+        b"Material Incorporated by Reference", b"Related Information"
+    )
+
+    attempt = harness.sync(corpus)
+
+    assert attempt["outcome"] == "promoted", attempt["failures"]
+    generation = harness.generation(attempt)
+    quarantined = {r["document_number"]: r for r in generation["review"]}
+    assert (
+        "did not match the expected layout"
+        in (quarantined["2026-16954"]["review_reason"])
+    )
+    assert "2026-16954" not in harness.records(generation)

@@ -203,7 +203,8 @@ def _is_https_url(value: Any) -> TypeGuard[str]:
 
 
 FAA_DOCKET_PATTERN = re.compile(r"^Docket No\. (FAA-\d{4}-\d+)$")
-AIRWORTHINESS_DIRECTIVE_PATTERN = re.compile(r"^AD (\d{4}-\d{2}-\d{2})$")
+# Before 2000, AD numbers had two-digit years ("AD 93-25-17").
+AIRWORTHINESS_DIRECTIVE_PATTERN = re.compile(r"^AD ((?:\d{2}|\d{4})-\d{2}-\d{2})$")
 
 
 def faa_docket_numbers(api_record: dict[str, Any]) -> set[str]:
