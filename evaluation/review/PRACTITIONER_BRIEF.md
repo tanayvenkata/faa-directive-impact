@@ -35,5 +35,7 @@ engineer has already been asked twice.
   `evaluation/seed/adjudication/` (informal correspondence is labeled as
   such, as with `faa-informal-2026-10-05`).
 - Label changes go through "Disputed Labels" in `../GATES.md`.
-- If nobody agrees to review, record the attempt in issue #9. The public
-  claim then stays capped below *Evaluated* until a review happens.
+- If nobody agrees to review, record the attempt in issue #9; an attempt
+  meets the episode exit bar (ROADMAP "Publishing and Exit"). The public
+  claim then stays at *Evaluated* and cannot reach *Practitioner-reviewed*,
+  the next rung of the series claim ladder, until a review happens.
