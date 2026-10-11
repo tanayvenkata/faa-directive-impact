@@ -216,11 +216,16 @@ A local `make discovery-sync` keeps raw bytes under `data/discovery/raw/`.
 
 ## Cost
 
-- **Compute:** a run takes about a minute: one or two search pages and a few
-  documents. GitHub Actions is free on standard runners in public
+- **Compute:** a daily run takes about a minute: one or two search pages and
+  a few documents. The first run backfills 1994 onward (about 13,000
+  directives, 45 IAE directives read in full); locally it took a few minutes. GitHub Actions is free on standard runners in public
   repositories ("GitHub Actions usage is free for self-hosted runners and for
   public repositories that use standard GitHub-hosted runners"; [Actions
   billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions)).
 - **Model calls:** none. GitHub Pages hosting is also free.
-- **Storage:** the state branch grows by roughly the new records each day,
-  plus a reference list of about 60 KB per promoted generation.
+- **Storage:** the first backfill writes about 30 MB of state (one record
+  file per directive and one 2.2 MB generation listing, measured
+  2026-10-11). After that, a promotion stores only its changed records and
+  references, and every 30th generation stores a full listing so a rebuild
+  never walks a long chain: roughly 20 MB a year at one promotion per
+  business day.
