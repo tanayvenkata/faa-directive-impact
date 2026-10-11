@@ -1,0 +1,62 @@
+{
+  "ad_number": "AD 2026-17-03",
+  "final_rule_document": "2026-16954",
+  "governing_document": {
+    "document": "2026-18423",
+    "reason": "The correction republishes the whole regulatory text with paragraph (g) corrected."
+  },
+  "corrections": [
+    {"document": "2026-18423", "paragraph": "(g)", "original_text": "where the 3rd stage HPC rotor is exposed", "corrected_text": "where the 3rd stage HPC rotor blade is exposed"}
+  ],
+  "effective_date": {
+    "date": "2026-09-24",
+    "source": {"document": "2026-18423", "paragraph": "(a)", "locator": null}
+  },
+  "applicability": {
+    "engine_models": [
+      "V2522-A5", "V2524-A5", "V2525-D5", "V2527-A5", "V2527E-A5",
+      "V2527M-A5", "V2528-D5", "V2530-A5", "V2531-E5", "V2533-A5"
+    ],
+    "models_source": {"document": "2026-18423", "paragraph": "(c)", "locator": null},
+    "part_condition": {
+      "component": "3rd stage HPC rotor blade",
+      "part_numbers": ["6A8353", "6A8688"],
+      "source": {"document": "2026-18423", "paragraph": "(c)", "locator": null}
+    }
+  },
+  "affected_parts": [],
+  "eligible_parts": [
+    {"component": "3rd stage HPC rotor blade", "part_numbers": ["6C8368", "6C8403"], "description": "P/N 6C8368, 6C8403, or a later approved P/N.", "source": {"document": "2026-18423", "paragraph": "(h)(1)(i)", "locator": null}},
+    {"component": "3rd stage HPC rotor blade", "part_numbers": ["6A8353-001", "6A8688-001"], "description": "A blade modified to P/N 6A8353-001 or 6A8688-001.", "source": {"document": "2026-18423", "paragraph": "(h)(1)(ii)", "locator": null}}
+  ],
+  "required_actions": [
+    {
+      "paragraph": "(g)",
+      "description": "Replace the full set of 3rd stage HPC rotor blades with parts eligible for installation.",
+      "applies_to": "part_condition_parts",
+      "trigger": "next_shop_visit_after_effective_date_with_condition",
+      "shop_visit_definition_paragraph": "(h)(3)",
+      "condition": {"description": "a 3rd stage HPC rotor blade is exposed (removed from the HPC stage 3 to 8 drum)", "definition_paragraph": "(h)(2)"},
+      "limits": [],
+      "combination": "single"
+    }
+  ],
+  "installation_prohibitions": [],
+  "definitions": [
+    {"term": "part eligible for installation", "paragraph": "(h)(1)"},
+    {"term": "3rd stage HPC rotor blade exposure", "paragraph": "(h)(2)"},
+    {"term": "engine shop visit", "paragraph": "(h)(3)"}
+  ],
+  "amoc_paragraph": "(i)",
+  "ambiguities": [
+    {
+      "paragraph": "(g)",
+      "description": "If the next shop visit after the effective date exposes no blade, the text does not say whether the requirement carries forward to a later visit that does, or is spent.",
+      "readings": [
+        {"name": "Carry forward", "meaning": "Required at the next shop visit after the effective date where a blade is exposed."},
+        {"name": "Lapse", "meaning": "Only the first shop visit after the effective date counts; if no blade is exposed then, paragraph (g) is spent."}
+      ]
+    }
+  ],
+  "notes": []
+}

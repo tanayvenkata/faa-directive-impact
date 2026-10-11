@@ -1,0 +1,586 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ad_number",
+    "final_rule_document",
+    "governing_document",
+    "corrections",
+    "effective_date",
+    "applicability",
+    "affected_parts",
+    "eligible_parts",
+    "required_actions",
+    "installation_prohibitions",
+    "definitions",
+    "amoc_paragraph",
+    "ambiguities",
+    "notes"
+  ],
+  "properties": {
+    "ad_number": {
+      "type": "string"
+    },
+    "final_rule_document": {
+      "type": "string"
+    },
+    "governing_document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document",
+        "reason"
+      ],
+      "properties": {
+        "document": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "corrections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "document",
+          "paragraph",
+          "original_text",
+          "corrected_text"
+        ],
+        "properties": {
+          "document": {
+            "type": "string"
+          },
+          "paragraph": {
+            "type": "string"
+          },
+          "original_text": {
+            "type": "string"
+          },
+          "corrected_text": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "effective_date": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "date",
+        "source"
+      ],
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "document",
+            "paragraph",
+            "locator"
+          ],
+          "properties": {
+            "document": {
+              "type": "string"
+            },
+            "paragraph": {
+              "type": "string"
+            },
+            "locator": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "engine_models",
+        "models_source",
+        "part_condition"
+      ],
+      "properties": {
+        "engine_models": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "models_source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "document",
+            "paragraph",
+            "locator"
+          ],
+          "properties": {
+            "document": {
+              "type": "string"
+            },
+            "paragraph": {
+              "type": "string"
+            },
+            "locator": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "part_condition": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "component",
+                "part_numbers",
+                "source"
+              ],
+              "properties": {
+                "component": {
+                  "type": "string"
+                },
+                "part_numbers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "source": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "document",
+                    "paragraph",
+                    "locator"
+                  ],
+                  "properties": {
+                    "document": {
+                      "type": "string"
+                    },
+                    "paragraph": {
+                      "type": "string"
+                    },
+                    "locator": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "affected_parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "component",
+          "part_number",
+          "serial_number",
+          "removal_limit_cycles_since_new",
+          "source"
+        ],
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "part_number": {
+            "type": "string"
+          },
+          "serial_number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "removal_limit_cycles_since_new": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "document",
+              "paragraph",
+              "locator"
+            ],
+            "properties": {
+              "document": {
+                "type": "string"
+              },
+              "paragraph": {
+                "type": "string"
+              },
+              "locator": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "eligible_parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "component",
+          "part_numbers",
+          "description",
+          "source"
+        ],
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "part_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "document",
+              "paragraph",
+              "locator"
+            ],
+            "properties": {
+              "document": {
+                "type": "string"
+              },
+              "paragraph": {
+                "type": "string"
+              },
+              "locator": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "required_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "paragraph",
+          "description",
+          "applies_to",
+          "trigger",
+          "shop_visit_definition_paragraph",
+          "condition",
+          "limits",
+          "combination"
+        ],
+        "properties": {
+          "paragraph": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "applies_to": {
+            "type": "string",
+            "enum": [
+              "listed_parts",
+              "part_condition_parts",
+              "engine",
+              "other"
+            ]
+          },
+          "trigger": {
+            "type": "string",
+            "enum": [
+              "next_shop_visit_after_effective_date",
+              "next_shop_visit_after_effective_date_with_condition",
+              "compliance_time_only",
+              "other"
+            ]
+          },
+          "shop_visit_definition_paragraph": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "condition": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "description",
+                  "definition_paragraph"
+                ],
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "definition_paragraph": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "limits": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "value",
+                "source"
+              ],
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "listed_part_cycles_since_new",
+                    "flight_cycles_after_effective_date",
+                    "days_after_effective_date",
+                    "other"
+                  ]
+                },
+                "value": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "source": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "document",
+                    "paragraph",
+                    "locator"
+                  ],
+                  "properties": {
+                    "document": {
+                      "type": "string"
+                    },
+                    "paragraph": {
+                      "type": "string"
+                    },
+                    "locator": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "combination": {
+            "type": "string",
+            "enum": [
+              "single",
+              "whichever_occurs_later",
+              "whichever_occurs_first",
+              "unclear"
+            ]
+          }
+        }
+      }
+    },
+    "installation_prohibitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "paragraph",
+          "description",
+          "applies_to"
+        ],
+        "properties": {
+          "paragraph": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "applies_to": {
+            "type": "string",
+            "enum": [
+              "listed_parts",
+              "part_condition_parts",
+              "other"
+            ]
+          }
+        }
+      }
+    },
+    "definitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "term",
+          "paragraph"
+        ],
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "paragraph": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "amoc_paragraph": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ambiguities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "paragraph",
+          "description",
+          "readings"
+        ],
+        "properties": {
+          "paragraph": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "readings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "meaning"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "meaning": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
