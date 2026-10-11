@@ -12,6 +12,13 @@ on:
     # Daily, after the Federal Register's 06:00 ET publication.
     - cron: "17 12 * * *"
   workflow_dispatch:
+    inputs:
+      accept_changed:
+        description: >-
+          Space-separated document numbers whose changed metadata you have
+          investigated and accept (see DISCOVERY_SYNC.md). Leave empty normally.
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -57,7 +64,16 @@ jobs:
       - name: Sync
         id: sync
         continue-on-error: true
-        run: uv run faa-directive-impact discovery-sync --storage-root "$DISCOVERY_ROOT"
+        env:
+          ACCEPT_CHANGED: ${{ inputs.accept_changed }}
+        run: |
+          set -euo pipefail
+          args=(--storage-root "$DISCOVERY_ROOT")
+          if [ -n "${ACCEPT_CHANGED:-}" ]; then
+            read -r -a accepted <<< "$ACCEPT_CHANGED"
+            args+=(--accept-changed "${accepted[@]}")
+          fi
+          uv run faa-directive-impact discovery-sync "${args[@]}" | tee sync-attempt.json
 
       - name: Save discovery state (receipts, manifests, decisions, log; no raw bytes)
         if: always()
@@ -76,7 +92,20 @@ jobs:
           git -c user.name="github-actions[bot]" \
               -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
               commit -q -m "discovery: state after run ${GITHUB_RUN_ID}"
-          git push origin "HEAD:refs/heads/$STATE_BRANCH"
+          cd ..
+          # Push from the main checkout, which holds checkout's credentials;
+          # the worktree shares its object store.
+          git push origin "$(git -C state rev-parse HEAD):refs/heads/$STATE_BRANCH"
+
+      - name: Summarize the attempt
+        if: always()
+        run: |
+          {
+            echo "## Discovery sync"
+            echo '```json'
+            cat sync-attempt.json 2>/dev/null || echo '{"outcome": "no attempt record"}'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Build freshness page
         if: always()

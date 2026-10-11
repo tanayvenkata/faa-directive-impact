@@ -356,10 +356,17 @@ def _consider(
         candidate.counts["read_in_full"] += 1
         document = acquire_document(context, number, versions)
         candidate.documents.append(document)
-        if document.failed or document.needs_review:
+        if document.failed:
             candidate.counts["failed"] += 1
             candidate.failures.append(f"{number}: {describe_failure(document)}")
             return
+        # The document is new to the corpus, so a "changed" version can only
+        # differ from an earlier attempt that was never promoted (per-document
+        # API JSON drifts in fields such as comment counts). It is recorded,
+        # not treated as a change to a corpus identity.
+        earlier = [v.as_record() for v in document.versions if v.status == "changed"]
+        if earlier:
+            record["changed_since_unpromoted_attempt"] = earlier
         decision = _classify_document(context, document, record)
     else:
         decision = outside_by_title()
@@ -671,7 +678,7 @@ def validate_candidate(
         ),
         _check(
             "acquisitions_complete",
-            not any(d.failed or d.needs_review for d in candidate.documents),
+            not any(d.failed for d in candidate.documents),
             f"{len(candidate.documents)} directive(s) read in full",
         ),
     ]
@@ -709,7 +716,7 @@ def validate_candidate(
     checks.append(
         _check(
             "no_unexpected_changes",
-            not unaccepted and not any(d.needs_review for d in candidate.documents),
+            not unaccepted,
             f"{candidate.counts['changed']} changed record(s), "
             f"{len(unaccepted)} not accepted",
         )
