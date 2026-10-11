@@ -6,6 +6,9 @@ import httpx
 import pytest
 from source_fakes import search_entry, serve_search
 
+from faa_directive_impact.acquisition.federal_register import (
+    airworthiness_directive_numbers,
+)
 from faa_directive_impact.acquisition.retrieval import (
     AcquisitionContext,
     build_client,
@@ -13,6 +16,7 @@ from faa_directive_impact.acquisition.retrieval import (
 )
 from faa_directive_impact.acquisition.storage import RawStorage
 from faa_directive_impact.discovery.search import (
+    DISCOVERED_DOCUMENT_NUMBER,
     RESULT_WINDOW,
     SEARCH_FIELDS,
     search_directives,
@@ -129,3 +133,32 @@ def test_malformed_page_is_a_problem(tmp_path, body):
     )
 
     assert not outcome.complete
+
+
+@pytest.mark.parametrize(
+    "number",
+    [
+        "2025-18469",
+        "93-31908",
+        "94-21",
+        "00-6",
+        "E6-11333",
+        "E7-39",
+        "2010-103",
+        "2011-51",
+        "C1-2010-14979",
+        "R1-2025-04334",
+    ],
+)
+def test_every_historical_document_number_form_is_accepted(number):
+    assert DISCOVERED_DOCUMENT_NUMBER.fullmatch(number)
+
+
+@pytest.mark.parametrize("number", ["2025-1846x", "2025", "AD-2025-19-13"])
+def test_malformed_document_numbers_are_rejected(number):
+    assert not DISCOVERED_DOCUMENT_NUMBER.fullmatch(number)
+
+
+def test_two_digit_year_ad_numbers_are_read():
+    entry = {"docket_ids": ["AD 93-25-17", "Docket No. 93-NM-68-AD"]}
+    assert airworthiness_directive_numbers(entry) == {"93-25-17"}

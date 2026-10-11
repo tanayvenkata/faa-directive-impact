@@ -18,14 +18,22 @@ Each run (`make discovery-sync`, or the scheduled workflow) does this:
    reported count at 10,000, so a search that could be truncated, or that
    collects a different number of documents than it reports, fails.
 2. **Start date.** The first sync starts at `--start-date` (default
-   2025-01-01). Later syncs start 7 days before the active checkpoint. The
+   1994-01-01, where the API's documents begin) and searches one calendar
+   year at a time, because the full history (about 13,000 FAA part 39 rules,
+   counted live 2026-10-11) is more than one search returns; no year comes
+   near the cap. Later syncs start 7 days before the active checkpoint. The
    checkpoint is the latest publication date seen, and the 7-day lookback
    catches documents that appear late. Documents seen before are matched by
    number and by the SHA-256 of their search entry, so a rerun adds nothing.
 3. **Read IAE directives in full.** Every AD whose title names International
    Aero Engines is acquired like the frozen corpus: API JSON, XML, HTML, text,
    GovInfo PDF and MODS, and figures, each validated. Other ADs keep only
-   their search entry.
+   their search entry. A directive whose representations all arrive intact
+   but whose text is laid out in a way the parser does not know (seen live:
+   no "Material Incorporated by Reference" paragraph in 2010-23832 and
+   2020-08703) goes to the review list; it does not reject the sync. Any
+   other failure (a missing representation, an identity or media-type
+   mismatch) still rejects it, so the next run retries.
 4. **Coverage state.** The state comes from paragraph (c), "Applicability", in
    the XML, not from the title:
    - `evaluated`: only AD 2025-19-13 (2025-18469).
@@ -167,13 +175,15 @@ A local `make discovery-sync` keeps raw bytes under `data/discovery/raw/`.
 
 ## Known Limitations
 
-- **Coverage starts at the first sync's start date (2025-01-01 by default).**
-  Directives published earlier are not in the corpus, including V2500
-  directives that may still be in force, such as AD 2021-11-51 (2021-14268)
-  and AD 2022-02-09 (2022-02574). The date is recorded in every generation
-  as `coverage_start` and shown on the page. It exists because one search
-  returns at most 10,000 documents; reaching further back needs a backfill
-  that searches in date windows, which is not built yet.
+- **Coverage starts at the first sync's start date (1994-01-01 by
+  default).** That is where the Federal Register API's documents begin, so
+  directives published earlier are not in the corpus. The date is recorded
+  in every generation as `coverage_start` and shown on the page. A first sync
+  started later (for a quick local run) covers only from its own date.
+- **Pre-2000 AD numbers and old document numbers.** Before 2000, AD numbers
+  had two-digit years (`AD 93-25-17`) and document numbers came in shorter
+  forms (`93-31908`, `94-21`, `E6-11333`); both are accepted. Directives with
+  no parseable AD number in their docket identifiers go to the review list.
 
 - **Scheduled workflows stop after 60 days of inactivity.** "In a public
   repository, scheduled workflows are automatically disabled when no

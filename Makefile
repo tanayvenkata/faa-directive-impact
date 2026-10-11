@@ -69,7 +69,8 @@ DISCOVERY_ROOT ?= data/discovery
 
 # Live network call. Example: make discovery-sync (START_DATE applies only
 # before the first promotion).
-START_DATE ?= 2025-01-01
+# 1994 is where the Federal Register API's documents begin.
+START_DATE ?= 1994-01-01
 discovery-sync:
 	uv run faa-directive-impact discovery-sync --storage-root $(DISCOVERY_ROOT) --start-date $(START_DATE)
 

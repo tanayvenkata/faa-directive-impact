@@ -70,6 +70,7 @@ from faa_directive_impact.discovery.scope import (
 from faa_directive_impact.discovery.search import (
     DISCOVERED_DOCUMENT_NUMBER,
     SearchOutcome,
+    search_by_year,
     search_directives,
 )
 from faa_directive_impact.discovery.state import (
@@ -84,7 +85,9 @@ from faa_directive_impact.discovery.state import (
 
 GENERATION_SCHEMA_VERSION = "1.0.0"
 CORPUS_TRACK = "refreshable_discovery"
-DEFAULT_START_DATE = date(2025, 1, 1)
+# The Federal Register API's documents begin in 1994, so the first sync covers
+# every FAA airworthiness directive it can return.
+DEFAULT_START_DATE = date(1994, 1, 1)
 # Each search re-reads this many days before the checkpoint, so a document
 # that becomes visible after a later-dated one is still found. Re-read
 # documents are deduplicated against the corpus.
@@ -213,7 +216,13 @@ def _sync(
     context = AcquisitionContext(
         run_id=run_id, storage=storage, client=client, clock=clock, new_id=new_id
     )
-    search = search_directives(context, since)
+    # The first sync may reach back years, past one search's cap, so it
+    # searches a calendar year at a time; later syncs cover days.
+    search = (
+        search_directives(context, since)
+        if active
+        else search_by_year(context, since, clock().date())
+    )
     candidate.failures.extend(search.problems)
     if search.complete:
         versions = VersionIndex.from_receipts(
@@ -356,18 +365,29 @@ def _consider(
         candidate.counts["read_in_full"] += 1
         document = acquire_document(context, number, versions)
         candidate.documents.append(document)
-        if document.failed:
+        if document.failed and only_content_shape_failed(document):
+            # Every representation arrived intact; the text is just laid out
+            # in a way the parser does not know (older directives). A person
+            # reads it; the rest of the sync goes ahead.
+            decision = needs_review(
+                "Read in full, but its text did not match the expected "
+                f"layout: {describe_failure(document)}"
+            )
+        elif document.failed:
             candidate.counts["failed"] += 1
             candidate.failures.append(f"{number}: {describe_failure(document)}")
             return
-        # The document is new to the corpus, so a "changed" version can only
-        # differ from an earlier attempt that was never promoted (per-document
-        # API JSON drifts in fields such as comment counts). It is recorded,
-        # not treated as a change to a corpus identity.
-        earlier = [v.as_record() for v in document.versions if v.status == "changed"]
-        if earlier:
-            record["changed_since_unpromoted_attempt"] = earlier
-        decision = _classify_document(context, document, record)
+        else:
+            # The document is new to the corpus, so a "changed" version can
+            # only differ from an earlier attempt that was never promoted
+            # (per-document API JSON drifts in fields such as comment counts).
+            # It is recorded, not treated as a change to a corpus identity.
+            earlier = [
+                v.as_record() for v in document.versions if v.status == "changed"
+            ]
+            if earlier:
+                record["changed_since_unpromoted_attempt"] = earlier
+            decision = _classify_document(context, document, record)
     else:
         decision = outside_by_title()
     record["scope"] = decision.as_record()
@@ -417,6 +437,30 @@ def _classify_document(
             )
         return decision
     return classify_applicability(body, document.document_number)
+
+
+# Checks that fail when a directive's text is laid out differently from the
+# ones the parser was built on, with every representation intact. Seen live:
+# 2010-23832 and 2020-08703 have no "Material Incorporated by Reference"
+# paragraph. Identity, media-type, and missing-artifact failures are not in
+# this set and still reject the sync.
+CONTENT_SHAPE_CHECKS = frozenset({"incorporated_material"})
+
+
+def only_content_shape_failed(document: DocumentAcquisition) -> bool:
+    """True when every failure is a known text-layout mismatch."""
+    failed = [
+        record["check"]
+        for validation in document.validations
+        for record in validation.records()
+        if record["outcome"] == "failed"
+    ]
+    return (
+        bool(failed)
+        and not document.missing
+        and not document.problems
+        and set(failed) <= CONTENT_SHAPE_CHECKS
+    )
 
 
 def describe_failure(document: DocumentAcquisition) -> str:
@@ -678,8 +722,13 @@ def validate_candidate(
         ),
         _check(
             "acquisitions_complete",
-            not any(d.failed for d in candidate.documents),
-            f"{len(candidate.documents)} directive(s) read in full",
+            not any(
+                d.failed and not only_content_shape_failed(d)
+                for d in candidate.documents
+            ),
+            f"{len(candidate.documents)} directive(s) read in full; "
+            f"{sum(only_content_shape_failed(d) for d in candidate.documents)} "
+            "complete but quarantined for an unknown text layout",
         ),
     ]
     identifier_failures = [
