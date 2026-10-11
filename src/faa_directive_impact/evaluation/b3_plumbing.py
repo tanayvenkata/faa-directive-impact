@@ -42,7 +42,7 @@ def run_plumbing(
         repo / "generations" / GENERATION_ID, storage_root
     )
     given = documents_for(DIRECTIVE, AS_OF, documents, relationships)
-    request = build_request(model, effort, DIRECTIVE, given)
+    request = build_request(model, effort, DIRECTIVE, given, max_tokens=16000)
     response = LiveModel().call(request)
     record(directory, request, response)
 
@@ -51,7 +51,9 @@ def run_plumbing(
     if draft is None:
         problems.append(f"no valid record (stop reason {response.stop_reason})")
     else:
-        sources = _sources(draft)
+        sources = [draft["governing_document"]["document"]] + [
+            c["document"] for c in draft["corrections"]
+        ]
         bad = sorted({s for s in sources if not DOCUMENT_NUMBER.match(s)})
         if bad:
             problems.append(f"source documents not in number form: {bad}")
@@ -66,16 +68,3 @@ def run_plumbing(
         "cost_usd": response.cost_usd,
         "problems": problems,
     }
-
-
-def _sources(value: Any) -> list[str]:
-    found = []
-    if isinstance(value, dict):
-        if set(value) >= {"document", "paragraph"}:
-            found.append(value["document"])
-        for item in value.values():
-            found.extend(_sources(item))
-    elif isinstance(value, list):
-        for item in value:
-            found.extend(_sources(item))
-    return found

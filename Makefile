@@ -1,4 +1,4 @@
-.PHONY: sync test lint format check acquire s1 s1-conclude llm-check b2
+.PHONY: sync test lint format check acquire s1 s1-conclude llm-check b2 b3-plumbing b3
 
 # Local settings and secrets (ANTHROPIC_API_KEY); optional and never committed.
 -include .env
@@ -45,3 +45,11 @@ REPEAT ?= 1
 MAX_TOKENS ?= 16000
 b2:
 	uv run faa-directive-impact b2-run --model $(MODEL) --effort $(EFFORT) --repeat $(REPEAT) --max-tokens $(MAX_TOKENS)
+
+# Live model call, one format-only rule draft on an unscored directive.
+b3-plumbing:
+	uv run faa-directive-impact b3-plumbing --model $(MODEL) --effort $(EFFORT)
+
+# Live model calls (batch). Example: make b3 MODEL=claude-sonnet-5-5 EFFORT=high REPEAT=1
+b3:
+	uv run faa-directive-impact b3-run --model $(MODEL) --effort $(EFFORT) --repeat $(REPEAT)
