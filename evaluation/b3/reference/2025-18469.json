@@ -1,0 +1,68 @@
+{
+  "ad_number": "AD 2025-19-13",
+  "final_rule_document": "2025-18469",
+  "governing_document": {
+    "document": "2025-18469",
+    "reason": "The final rule; no correction was published."
+  },
+  "corrections": [],
+  "effective_date": {
+    "date": "2025-10-29",
+    "source": {"document": "2025-18469", "paragraph": "(a)", "locator": null}
+  },
+  "applicability": {
+    "engine_models": [
+      "V2522-A5", "V2524-A5", "V2525-D5", "V2527-A5", "V2527E-A5",
+      "V2527M-A5", "V2528-D5", "V2530-A5", "V2531-E5", "V2533-A5"
+    ],
+    "models_source": {"document": "2025-18469", "paragraph": "(c)", "locator": null},
+    "part_condition": null
+  },
+  "affected_parts": [
+    {"component": "HPT 1st-stage hub", "part_number": "2A5001", "serial_number": "PKLBSK9287", "removal_limit_cycles_since_new": 100, "source": {"document": "2025-18469", "paragraph": "(g)", "locator": "table 1"}},
+    {"component": "HPT 1st-stage hub", "part_number": "2A5001", "serial_number": "PKLBSS9200", "removal_limit_cycles_since_new": 4800, "source": {"document": "2025-18469", "paragraph": "(g)", "locator": "table 1"}},
+    {"component": "HPT 1st-stage hub", "part_number": "2A5001", "serial_number": "PKLBST5011", "removal_limit_cycles_since_new": 5500, "source": {"document": "2025-18469", "paragraph": "(g)", "locator": "table 1"}},
+    {"component": "HPT 1st-stage hub", "part_number": "2A5001", "serial_number": "PKLBST7489", "removal_limit_cycles_since_new": 6200, "source": {"document": "2025-18469", "paragraph": "(g)", "locator": "table 1"}},
+    {"component": "HPT 2nd-stage hub", "part_number": "2A4802", "serial_number": "PKLBST5005", "removal_limit_cycles_since_new": 4000, "source": {"document": "2025-18469", "paragraph": "(g)", "locator": "table 1"}},
+    {"component": "HPT 2nd-stage hub", "part_number": "2A4802", "serial_number": "PKLBSS9840", "removal_limit_cycles_since_new": 3900, "source": {"document": "2025-18469", "paragraph": "(g)", "locator": "table 1"}},
+    {"component": "HPT 2nd-stage hub", "part_number": "2A4802", "serial_number": "PKLBSS0301", "removal_limit_cycles_since_new": 5000, "source": {"document": "2025-18469", "paragraph": "(g)", "locator": "table 1"}},
+    {"component": "HPT 2nd-stage hub", "part_number": "2A4802", "serial_number": "PKLBSR2100", "removal_limit_cycles_since_new": 6000, "source": {"document": "2025-18469", "paragraph": "(g)", "locator": "table 1"}}
+  ],
+  "eligible_parts": [
+    {"component": "HPT 1st-stage hub or HPT 2nd-stage hub", "part_numbers": [], "description": "Any hub whose P/N and S/N pair is not listed in table 1.", "source": {"document": "2025-18469", "paragraph": "(i)(1)", "locator": null}}
+  ],
+  "required_actions": [
+    {
+      "paragraph": "(g)",
+      "description": "Remove the listed hub from service and replace it with a part eligible for installation.",
+      "applies_to": "listed_parts",
+      "trigger": "next_shop_visit_after_effective_date",
+      "shop_visit_definition_paragraph": "(i)(2)",
+      "condition": null,
+      "limits": [
+        {"kind": "listed_part_cycles_since_new", "value": null, "source": {"document": "2025-18469", "paragraph": "(g)", "locator": "table 1"}},
+        {"kind": "flight_cycles_after_effective_date", "value": 100, "source": {"document": "2025-18469", "paragraph": "(g)", "locator": null}}
+      ],
+      "combination": "whichever_occurs_later"
+    }
+  ],
+  "installation_prohibitions": [
+    {"paragraph": "(h)", "description": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine.", "applies_to": "listed_parts"}
+  ],
+  "definitions": [
+    {"term": "part eligible for installation", "paragraph": "(i)(1)"},
+    {"term": "engine shop visit", "paragraph": "(i)(2)"}
+  ],
+  "amoc_paragraph": "(j)",
+  "ambiguities": [
+    {
+      "paragraph": "(g)",
+      "description": "\"At the next engine shop visit ... before exceeding the removal cycle limit ... or within 100 flight cycles ..., whichever occurs later\" does not say which deadline the 100-cycle window competes with when a shop visit falls inside the window.",
+      "readings": [
+        {"name": "A", "meaning": "The later of (the shop visit, capped at the limit) and the 100-cycle window."},
+        {"name": "B", "meaning": "The shop visit, but not earlier than the later of the limit and the 100-cycle window."}
+      ]
+    }
+  ],
+  "notes": []
+}

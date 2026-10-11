@@ -90,7 +90,21 @@ def main(argv: list[str] | None = None) -> int:
         "b2-conclude", help="Fold a completed hand review into a B2 run's verdict."
     )
     b2_conclude.add_argument("run_directory", type=Path)
-    for sub in (b2_plumbing, b2_run):
+    b3_plumbing = commands.add_parser(
+        "b3-plumbing",
+        help="One format-only rule-drafting call on an unscored directive.",
+    )
+    b3_plumbing.add_argument("--model", default="claude-haiku-5-5")
+    b3_plumbing.add_argument("--effort", default="medium")
+    b3_run = commands.add_parser(
+        "b3-run", help="Draft each B3 directive's rule record with a model; score it."
+    )
+    b3_run.add_argument("--model", required=True)
+    b3_run.add_argument("--effort", default="high")
+    b3_run.add_argument("--repeat", type=int, default=1)
+    b3_run.add_argument("--mode", choices=("live", "batch"), default="batch")
+    b3_run.add_argument("--max-tokens", type=int, default=32000)
+    for sub in (b2_plumbing, b2_run, b3_plumbing, b3_run):
         sub.add_argument("--repo", type=Path, default=Path("."))
         sub.add_argument("--storage-root", type=Path, default=Path("data/seed-frozen"))
         sub.add_argument("--runs-root", type=Path, default=Path("evaluation/runs"))
@@ -142,6 +156,38 @@ def main(argv: list[str] | None = None) -> int:
 
         commit, dirty = _git_state(args.repo)
         directory = run_b2(
+            args.repo.resolve(),
+            args.runs_root,
+            args.storage_root,
+            args.model,
+            args.effort,
+            args.repeat,
+            args.mode,
+            datetime.now(UTC),
+            commit,
+            dirty,
+            max_tokens=args.max_tokens,
+        )
+        print(directory)
+        return EXIT_OK
+    if args.command == "b3-plumbing":
+        from faa_directive_impact.evaluation.b3_plumbing import (
+            run_plumbing as run_b3_plumbing,
+        )
+
+        stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+        directory = args.runs_root / f"b3-plumbing-{stamp}"
+        results = run_b3_plumbing(
+            args.repo.resolve(), args.storage_root, directory, args.model, args.effort
+        )
+        print(json.dumps(results, indent=2))
+        print(directory)
+        return EXIT_OK
+    if args.command == "b3-run":
+        from faa_directive_impact.evaluation.b3_run import run_b3
+
+        commit, dirty = _git_state(args.repo)
+        directory = run_b3(
             args.repo.resolve(),
             args.runs_root,
             args.storage_root,
