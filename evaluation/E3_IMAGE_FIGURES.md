@@ -1,8 +1,14 @@
-# E3: Image-Only Figures — Proposed Decision
+# E3: Image-Only Figures — Decision
 
-- **Issue:** #14
-- **Status:** proposed by Claude 2026-10-11; **the owner decides** (labeling
-  and transcription policy are the owner's calls). Nothing below is built yet.
+- **Issue:** #14 (closes on merge)
+- **Decision:** option B, a double read (model and person, compared cell by
+  cell), as recommended below.
+- **Decided by:** Claude, 2026-10-11, under the owner's explicit delegation
+  that day ("i give u permission to do this yourself"). The owner may
+  overturn it; nothing is built yet.
+- **Still needs a person:** the second read of each table. A model reading
+  twice is not a double read, so until a person reads them the four tables
+  stay unverified and their engines stay `needs_review`.
 
 ## The question
 
@@ -57,8 +63,10 @@ Why B over A: the cost is the same at this size, and the second read catches
 the transposed digit a single typist would miss. Serial numbers decide
 applicability, so that miss would be a wrong answer, not a cosmetic one.
 
-## What the owner decides
+## Open details
 
-- A, B, or C (or a variant). If B: whether the person's read can be the
-  owner's own, and whether a spot check of agreed cells is required.
-- Once decided, this file becomes the decision record and issue #14 closes.
+- The person's read can be the owner's own. Agreed cells are spot-checked
+  (at least one row per table) rather than all re-read.
+- Issue #14's acceptance (a written decision with its review protocol, and
+  the XML-first answer for the compressor-blade and ALS threads) is met by
+  this file.

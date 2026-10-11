@@ -11,7 +11,7 @@ is a sign-off that Claude cannot give on its own work. About 2 hours in all.
 | 4 | Confirm S1's hand review (gates 5 and 11) | `runs/s1-20261006T223638Z-6a301b1/hand-review.yaml`, set `reviewer_confirmed: true`, then `make s1-conclude RUN=evaluation/runs/s1-20261006T223638Z-6a301b1` | 15 min | S1's go decision is provisional until you do |
 | 5 | Confirm B2's first-pass hand review | [`b2-sonnet-r1/`](b2-sonnet-r1/) | 20 min | Same reason, for the B2 comparison |
 | 6 | Decide whether to turn on the daily sync on GitHub (Pages and the scheduled workflow) | `DISCOVERY_SYNC.md` once the step-6 branch lands | 5 min | It publishes a public page and runs on a schedule from your account |
-| 6a | Decide E3: how image-only tables become data (recommended: model drafts, you verify, as a double read) | [`../E3_IMAGE_FIGURES.md`](../E3_IMAGE_FIGURES.md) | 5 min | A transcription policy for evidence is a labeling decision; the four tables are small, so verifying them afterwards takes minutes |
+| 6a | E3 is decided (double read, under your delegation). Do the person's read of the four image tables when the transcription tool exists | [`../E3_IMAGE_FIGURES.md`](../E3_IMAGE_FIGURES.md) | 15 min, later | A model reading twice is not a double read |
 | 7 | Attempt one practitioner review | issue #9; message and brief in [`PRACTITIONER_BRIEF.md`](PRACTITIONER_BRIEF.md) | 10 min to send | An exit criterion for the episode. Do not re-ask the AD 2025-19-13 engineer; batch questions to anyone new |
 
 Disagreements with a label go through "Disputed Labels" in
