@@ -66,8 +66,9 @@ A newly published in-scope directive becomes visible the day it syncs, as
    validate, then promote or reject while keeping the previous generation. The
    page shows the last successful sync, the active generation, new
    directives, and failures. Publish it as a static site (GitHub Pages).
-   *Built and run locally against the live API; the scheduled workflow is
-   committed but not yet enabled ([`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md)).*
+   *Live since 2026-10-11: daily at 12:17 UTC, published at
+   <https://tanayvenkata.github.io/faa-directive-impact/>, covering every FAA
+   airworthiness directive since 1994 ([`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md)).*
 7. **Normalize and retrieve** — normalize the evaluated threads, establish a
    lexical baseline, add only justified retrieval techniques, and distinguish
    relevance from evidence sufficiency.
@@ -117,7 +118,7 @@ low cost.
 **Acquire** is complete, and the project is at the series' *Reproducible*
 claim level ([`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md)). The
 evaluation seed (E1) and frozen gates (E2) are done; the image-transcription
-decision (E3) is open. S1, the rules baseline for AD 2025-19-13, is built and
+decision (E3) is recorded. S1, the rules baseline for AD 2025-19-13, is built and
 scored: every gate passes on its 18 units, and the go decision is provisional
 until the owner confirms the hand review
 ([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)). The full-context
@@ -126,11 +127,12 @@ LLM comparison (B2) is scored: no model setting matched the rules
 extraction (B3) is scored: Opus 5.5 drafted every data field right but left
 AD 2025-19-13 (g)'s timing open for a person
 ([`evaluation/B3_RULE_EXTRACTION.md`](evaluation/B3_RULE_EXTRACTION.md)). The daily
-sync (step 6) is built and run locally against the live API; it goes live
-once the owner enables GitHub Pages and the scheduled workflow
-([`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md)). The active work is the episode
-exit bar below: owner sign-offs, the sync running publicly, and a
-practitioner review. What waits on the owner is listed in
+sync (step 6) is live with a public freshness page
+([`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md)). The image-figure decision (E3)
+is recorded ([`evaluation/E3_IMAGE_FIGURES.md`](evaluation/E3_IMAGE_FIGURES.md)).
+The active work is the rest of the episode exit bar below: the owner's
+sign-offs, which make the evaluated results final, and a practitioner
+review. What waits on the owner is listed in
 [`evaluation/review/OWNER_PACKET.md`](evaluation/review/OWNER_PACKET.md).
 
 ## Revisions
