@@ -98,6 +98,9 @@ def summary_markdown(summaries: list[dict[str, Any]], prompt_version: str) -> st
         "",
         f"Prompt `{prompt_version}`; classes as pre-registered in "
         "`evaluation/b3/PREREGISTRATION.md`. Fractions are correct/total.",
+        "An ambiguity counts as flagged when the draft lists one on the same "
+        "paragraph; whether it is the same ambiguity is checked in "
+        "`evaluation/B3_RULE_EXTRACTION.md` and by the owner, and can differ.",
         "",
         "| Run | Directive | Data fields | Vocabulary fields | Ambiguities flagged "
         "| Units with safe escalation | Units with substantive errors | Protected "

@@ -21,9 +21,10 @@
 Opus drafted every data field right in all three repeats: effective dates,
 the ten engine models, the AD 2026-17-03 part condition, all eight AD
 2025-19-13 table rows with their serial numbers and limits, eligible parts,
-and the paragraph behind each (17/17 and 18/18 per repeat). It never cleared
-an engine that needs action, and no drafted rule caused an error the
-hand-written reference did not also have.
+and the scored paragraph labels (effective date, models, part condition,
+actions, definitions, AMOC): 17/17 and 18/18 per repeat. It never cleared an
+engine that needs action, and it made no substantive extraction error (the
+pre-registered class).
 
 It did not reproduce the hand-written rules end to end. In every repeat it
 coded AD 2025-19-13 paragraph (g)'s timing as `"unclear"` rather than
@@ -32,12 +33,14 @@ interpreter does not guess at an unclear rule, so it sent 10 of the 18 units
 to review without a deadline where the hand-written rules give one. That is
 a safe failure, not a wrong answer, but it is a failure: those engines get no
 deadline until a person settles the clause. Correcting that one field in each
-draft reproduces the hand-written reference on all 23 units (checked
-offline).
+draft reproduces the hand-written reference's outcomes and deadlines on all
+23 units.
 
 The clause it flagged is the one the project had to ask the FAA about. One of
 its readings in each repeat is "the later of the hub's limit and the
-100-cycle window", which is what the FAA engineer said informally. Under the
+100-cycle window". That matches the FAA engineer's informal answer for a
+shop visit inside the window; the FAA's view of a visit after the window is
+still pending, and the drafts' reading goes further than the answer does. Under the
 pre-registered rule this still counts as a field error, because the text
 does say "whichever occurs later"; the open question is what that phrase
 compares, not whether it is there.
@@ -187,17 +190,24 @@ That is the cost B3 is meant to remove.
   labels and reference are drafts awaiting the owner, and its results do not
   widen the evaluated claim beyond AD 2025-19-13.
 - **Proofreading time is not measured yet.** It is the third B3 measure in
-  `APPROACH.md` and needs a person with a timer.
+  `APPROACH.md` and needs a person with a timer. It will not be fully blind:
+  the owner saw the headline results (every data field right; (g) coded
+  unclear) in Claude's progress messages before proofreading, which can make
+  the proofread faster and better aimed. The sheet records whether the
+  proofreader saw results first.
+- **Not every paragraph label is scored.** Listed-part and eligible-part rows
+  are compared on their identifiers and limits, not their paragraph labels.
 
 ## Next
 
 - Owner: proofread repeat 1 with a timer, then check the ambiguity readings
   ([`review/b3-opus-r1/`](review/b3-opus-r1/)).
-- One proofreading correction closes the gap. Checked offline: changing
-  only the (g) combination from `"unclear"` to "whichever occurs later" in
-  each repeat's draft reproduces the reference's outcomes, deadlines, and
-  gate results on all 23 units, and so S1's on every AD 2025-19-13 unit but
-  seed-005. That is the intended workflow: the model drafts, a person
+- One proofreading correction closes the gap. Changing only the (g)
+  combination from `"unclear"` to "whichever occurs later" in each repeat's
+  draft reproduces the reference's applicability, status, and computed
+  deadlines on all 23 units (a test asserts this), and so S1's on every AD
+  2025-19-13 unit but seed-005. Gate results were also compared locally,
+  where the source documents are available, and matched. That is the intended workflow: the model drafts, a person
   settles what it flagged. Whether the owner makes that correction is the
   owner's call, not this write-up's.
 - Add the AD 2026-17-03 "is exposed" ambiguity to its reference record if the
