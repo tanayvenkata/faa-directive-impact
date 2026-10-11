@@ -72,7 +72,7 @@ class _Run:
     def screen(self) -> Screen:
         result = self.result
         applicability = self.rules["applicability"]
-        models_paragraph = applicability["models_source"]["paragraph"]
+        models_paragraph = applicability["models_paragraph"]
         model = self.asset["engine"]["engine_model"]
         if model == UNKNOWN:
             result.applicability, result.action_status = "unknown", "needs_review"
@@ -99,7 +99,7 @@ class _Run:
         self.cite(models_paragraph, f"{model} is a listed model")
 
         condition_parts = []
-        if applicability["part_condition"] is not None:
+        if applicability["part_condition"]["part_numbers"]:
             condition_parts = self._check_part_condition(
                 applicability["part_condition"]
             )
@@ -107,7 +107,7 @@ class _Run:
                 return result
 
         effective = date.fromisoformat(self.rules["effective_date"]["date"])
-        effective_paragraph = self.rules["effective_date"]["source"]["paragraph"]
+        effective_paragraph = self.rules["effective_date"]["paragraph"]
         in_force = self.as_of >= effective
         if not in_force:
             result.authority_state = "published_not_yet_effective"
@@ -165,7 +165,7 @@ class _Run:
         record names nowhere) is not evidence of absence and goes to review.
         """
         result = self.result
-        paragraph = condition["source"]["paragraph"]
+        paragraph = condition["paragraph"]
         listed = set(condition["part_numbers"])
         eligible = {
             number: part
@@ -210,7 +210,7 @@ class _Run:
             for component in cleared:
                 part = eligible[component["part_number"]]
                 self.cite(
-                    part["source"]["paragraph"],
+                    part["paragraph"],
                     f"P/N {component['part_number']} is eligible for installation",
                     f"P/N {component['part_number']}",
                 )
@@ -266,7 +266,7 @@ class _Run:
     ) -> list[HubFinding]:
         """Compare the installed part in one listed position with the listed rows."""
         result = self.result
-        paragraph = position_rows[0]["source"]["paragraph"]
+        paragraph = position_rows[0]["paragraph"]
         if component is None:
             result.missing_facts.append(f"installed_components[{position}]")
             self.cite(paragraph, f"no {position} record to compare")
@@ -365,7 +365,7 @@ class _Run:
             )
             for part in self.rules["eligible_parts"]:
                 self.cite(
-                    part["source"]["paragraph"],
+                    part["paragraph"],
                     "which parts are eligible for installation",
                 )
             findings.append(
@@ -489,7 +489,7 @@ class _Run:
             return "needs_review"
 
         self.cite(
-            self.rules["effective_date"]["source"]["paragraph"],
+            self.rules["effective_date"]["paragraph"],
             f"effective date {effective.isoformat()} anchors the timing",
         )
         if action["shop_visit_definition_paragraph"]:
@@ -579,12 +579,14 @@ class _Run:
         self.cite(action["paragraph"], "the required action and when it is due")
         if action["shop_visit_definition_paragraph"]:
             self.cite(action["shop_visit_definition_paragraph"], "engine shop visit")
-        condition = action["condition"]
-        if condition and condition["definition_paragraph"]:
-            self.cite(condition["definition_paragraph"], "what the condition means")
+        condition = action["condition_description"]
+        if action["condition_definition_paragraph"]:
+            self.cite(
+                action["condition_definition_paragraph"], "what the condition means"
+            )
         when = (
             f"at the next engine shop visit inducted after {effective.isoformat()}"
-            + (f" where {condition['description']}" if condition else "")
+            + (f" where {condition}" if condition else "")
         )
         visits = self._visits_after(effective)
         unknown = [v for v in visits if v["qualifies"] not in ("yes", "no")]
@@ -605,7 +607,7 @@ class _Run:
         if trigger.endswith("_with_condition"):
             self.result.notes.append(
                 f"A qualifying shop visit was inducted on {first['at']}. Whether "
-                f"{condition['description'] if condition else 'the condition'} "
+                f"{condition or 'the condition'} "
                 "occurred at it, as the directive defines it, is not a structured "
                 "record field, so a person must decide whether the action is due."
             )

@@ -2,6 +2,9 @@
 
 The model reads a directive thread (proposal, final rule, corrections) and
 fills the shared rule-record schema, citing the paragraph behind each value.
+The schema exceeds the structured-output grammar limit, so it is stated in
+the instructions and the answer is validated afterwards; an answer that does
+not validate is no answer.
 The instructions describe the schema and the interpreter's fixed vocabulary
 only. They never contain a seed case, a label, a reference rule record, an
 ambiguity the project has found, or an adjudication. A change to the
@@ -37,28 +40,38 @@ differs. governing_document is the document whose regulatory text controls
 reason. List under corrections each paragraph a correction changed, quoting
 the original and corrected wording.
 
-## Sources
+## Documents and paragraphs
 
-Every source names the Federal Register document number only (for example
-2025-18469) and the paragraph label exactly as written, such as "(c)", "(g)",
-or "(h)(1)(i)". Cite paragraphs in governing_document. locator is a short
-pointer within the paragraph, such as a table name, or null.
+A document field holds the Federal Register document number only (for
+example 2025-18469). A paragraph field holds the paragraph label exactly as
+written in governing_document, such as "(c)", "(g)", or "(h)(1)(i)". Where a
+paragraph field does not apply, give an empty string.
+
+## Answer format
+
+Reply with one JSON object that validates against the JSON Schema at the end
+of these instructions, and nothing else.
 
 ## Fields
 
 - ad_number: as "AD yyyy-nn-nn". final_rule_document: the final rule's
   document number.
-- effective_date: the date the AD takes effect, as YYYY-MM-DD.
+- governing_document: its document number, and why its text controls.
+- effective_date: the date the AD takes effect, as YYYY-MM-DD, and the
+  paragraph that states it.
 - applicability.engine_models: every engine model the applicability
   paragraph lists, written exactly as the text writes it.
 - applicability.part_condition: if the applicability paragraph covers only
   engines with certain parts installed, the component and those part
-  numbers; otherwise null. A parts list that appears only in a required
-  action, not in the applicability paragraph, is not a part condition.
+  numbers; otherwise an empty component, an empty part_numbers list, and the
+  applicability paragraph. A parts list that appears only in a
+  required action, not in the applicability paragraph, is not a part
+  condition.
 - affected_parts: each row of a list or table of specific parts that a
   required action acts on, with its component name exactly as the text
   writes it, part number, serial number (null if the text lists the part
-  number only), and removal limit in cycles since new (null if none).
+  number only), removal limit in cycles since new (null if none), and the
+  paragraph that lists it.
 - eligible_parts: each definition of a part eligible for installation that
   names part numbers, with those part numbers. If the definition names no
   part numbers, give an empty list and describe it.
@@ -74,9 +87,10 @@ pointer within the paragraph, such as a table name, or null.
     "compliance_time_only" if it is due within stated compliance times with
     no shop visit trigger; otherwise "other".
   - shop_visit_definition_paragraph: the paragraph that defines an engine
-    shop visit, or null.
-  - condition: for a conditional trigger, the condition in words and the
-    paragraph that defines it (or null if none does); otherwise null.
+    shop visit, or an empty string.
+  - condition_description and condition_definition_paragraph: for a
+    conditional trigger, the condition in words and the paragraph that
+    defines it (empty if none does); otherwise both empty.
   - limits: each compliance limit. "listed_part_cycles_since_new" means the
     per-part limit given in affected_parts (value null);
     "flight_cycles_after_effective_date" and "days_after_effective_date"
@@ -87,17 +101,20 @@ pointer within the paragraph, such as a table name, or null.
 - installation_prohibitions: each paragraph that prohibits installing
   parts, and which parts.
 - definitions: each defined term and its paragraph.
-- amoc_paragraph: the paragraph on alternative methods of compliance, or null.
+- amoc_paragraph: the paragraph on alternative methods of compliance, or empty.
 - ambiguities: each place where the controlling text can reasonably be read
   more than one way in a way that could change whether or when an action is
-  required. Give the paragraph, what is unclear, and each reading. Leave it
-  empty if there is none; do not invent one.
+  required. Give the paragraph, what is unclear, and each reading in words.
+  Leave it empty if there is none; do not invent one.
 - notes: anything a proofreader should know.
+
+## JSON Schema
 """
 
-PROMPT_VERSION = hashlib.sha256(
-    (INSTRUCTIONS + json.dumps(RULE_SCHEMA, sort_keys=True)).encode("utf-8")
-).hexdigest()[:12]
+# The schema is too large for the structured-output grammar, so it is given
+# in the instructions and the answer is validated against it afterwards.
+PROMPT = INSTRUCTIONS + json.dumps(RULE_SCHEMA, indent=1) + "\n"
+PROMPT_VERSION = hashlib.sha256(PROMPT.encode("utf-8")).hexdigest()[:12]
 
 
 def question(directive: str) -> str:
@@ -116,10 +133,11 @@ def build_request(
 ) -> ModelRequest:
     return ModelRequest(
         model=model,
-        instructions=INSTRUCTIONS,
+        instructions=PROMPT,
         document=render_documents(documents),
         question=question(directive),
         output_schema=RULE_SCHEMA,
         effort=effort,
         max_tokens=max_tokens,
+        constrained=False,
     )

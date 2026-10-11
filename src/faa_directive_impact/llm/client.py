@@ -8,9 +8,11 @@ A request has three parts, in cache order:
    reads the instructions and document from the prompt cache;
 3. ``question`` — the per-engine part, after the breakpoint.
 
-The answer is constrained to ``output_schema`` with structured outputs.
-Refusals are recorded as results, not retried on another model: a fallback
-would hide which model answered.
+The answer is constrained to ``output_schema`` with structured outputs. A
+schema too large for the structured-output grammar can be sent unconstrained
+(``constrained=False``): the model writes the JSON as text, and the caller
+validates it against the schema. Refusals are recorded as results, not retried
+on another model: a fallback would hide which model answered.
 """
 
 import hashlib
@@ -32,9 +34,16 @@ class ModelRequest:
     output_schema: dict[str, Any]
     effort: str = "medium"
     max_tokens: int = 16000
+    constrained: bool = True
 
     def params(self) -> dict[str, Any]:
         """The Messages API parameters for this request."""
+        output_config: dict[str, Any] = {"effort": self.effort}
+        if self.constrained:
+            output_config["format"] = {
+                "type": "json_schema",
+                "schema": self.output_schema,
+            }
         return {
             "model": self.model,
             "max_tokens": self.max_tokens,
@@ -47,10 +56,7 @@ class ModelRequest:
                 },
             ],
             "messages": [{"role": "user", "content": self.question}],
-            "output_config": {
-                "effort": self.effort,
-                "format": {"type": "json_schema", "schema": self.output_schema},
-            },
+            "output_config": output_config,
         }
 
     def key(self) -> str:
@@ -120,8 +126,9 @@ def response_from_message(
     if message.get("stop_reason") == "refusal":
         error = f"refusal: {message.get('stop_details')}"
     else:
+        body = text if request.constrained else _unfenced(text)
         try:
-            answer = json.loads(text)
+            answer = json.loads(body)
         except json.JSONDecodeError as exc:
             error = f"answer is not JSON: {exc}"
     return ModelResponse(
@@ -137,6 +144,15 @@ def response_from_message(
         batch=batch,
         error=error,
     )
+
+
+def _unfenced(text: str) -> str:
+    """An unconstrained answer may wrap its JSON in one ```json fence."""
+    stripped = text.strip()
+    if stripped.startswith("```") and stripped.endswith("```"):
+        stripped = stripped.removeprefix("```json").removeprefix("```")
+        stripped = stripped.removesuffix("```")
+    return stripped
 
 
 class RecordingModel:

@@ -45,9 +45,9 @@ def compare(draft: dict[str, Any], reference: dict[str, Any]) -> dict[str, Any]:
         draft["effective_date"]["date"],
     )
     check(
-        "effective_date.source",
-        _source(reference["effective_date"]["source"]),
-        _source(draft["effective_date"]["source"]),
+        "effective_date.paragraph",
+        reference["effective_date"]["paragraph"],
+        draft["effective_date"]["paragraph"],
     )
     ref_app, app = reference["applicability"], draft["applicability"]
     check(
@@ -56,21 +56,21 @@ def compare(draft: dict[str, Any], reference: dict[str, Any]) -> dict[str, Any]:
         set(app["engine_models"]),
     )
     check(
-        "applicability.models_source",
-        _source(ref_app["models_source"]),
-        _source(app["models_source"]),
+        "applicability.models_paragraph",
+        ref_app["models_paragraph"],
+        app["models_paragraph"],
     )
     ref_condition, condition = ref_app["part_condition"], app["part_condition"]
     check(
         "applicability.part_condition.part_numbers",
-        set(ref_condition["part_numbers"]) if ref_condition else None,
-        set(condition["part_numbers"]) if condition else None,
+        set(ref_condition["part_numbers"]),
+        set(condition["part_numbers"]),
     )
-    if ref_condition and condition:
+    if ref_condition["part_numbers"] and condition["part_numbers"]:
         check(
-            "applicability.part_condition.source",
-            _source(ref_condition["source"]),
-            _source(condition["source"]),
+            "applicability.part_condition.paragraph",
+            ref_condition["paragraph"],
+            condition["paragraph"],
         )
     check(
         "affected_parts",
@@ -158,10 +158,6 @@ def compare(draft: dict[str, Any], reference: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def _source(source: dict[str, Any]) -> tuple[str, str]:
-    return (source["document"], source["paragraph"])
-
-
 def _row(row: dict[str, Any]) -> tuple[Any, ...]:
     return (
         row["part_number"],
@@ -171,10 +167,9 @@ def _row(row: dict[str, Any]) -> tuple[Any, ...]:
 
 
 def _condition(action: dict[str, Any]) -> str | None:
-    condition = action["condition"]
-    if condition is None:
+    if not action["condition_description"]:
         return None
-    return condition["definition_paragraph"] or "(no definition paragraph)"
+    return action["condition_definition_paragraph"] or "(no definition paragraph)"
 
 
 def _plain(value: Any) -> Any:

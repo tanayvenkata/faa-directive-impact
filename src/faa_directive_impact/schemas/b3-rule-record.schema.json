@@ -72,38 +72,14 @@
       "additionalProperties": false,
       "required": [
         "date",
-        "source"
+        "paragraph"
       ],
       "properties": {
         "date": {
           "type": "string"
         },
-        "source": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "document",
-            "paragraph",
-            "locator"
-          ],
-          "properties": {
-            "document": {
-              "type": "string"
-            },
-            "paragraph": {
-              "type": "string"
-            },
-            "locator": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            }
-          }
+        "paragraph": {
+          "type": "string"
         }
       }
     },
@@ -112,7 +88,7 @@
       "additionalProperties": false,
       "required": [
         "engine_models",
-        "models_source",
+        "models_paragraph",
         "part_condition"
       ],
       "properties": {
@@ -122,86 +98,31 @@
             "type": "string"
           }
         },
-        "models_source": {
+        "models_paragraph": {
+          "type": "string"
+        },
+        "part_condition": {
           "type": "object",
           "additionalProperties": false,
           "required": [
-            "document",
-            "paragraph",
-            "locator"
+            "component",
+            "part_numbers",
+            "paragraph"
           ],
           "properties": {
-            "document": {
+            "component": {
               "type": "string"
+            },
+            "part_numbers": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "paragraph": {
               "type": "string"
-            },
-            "locator": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
             }
           }
-        },
-        "part_condition": {
-          "anyOf": [
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "component",
-                "part_numbers",
-                "source"
-              ],
-              "properties": {
-                "component": {
-                  "type": "string"
-                },
-                "part_numbers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "source": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "document",
-                    "paragraph",
-                    "locator"
-                  ],
-                  "properties": {
-                    "document": {
-                      "type": "string"
-                    },
-                    "paragraph": {
-                      "type": "string"
-                    },
-                    "locator": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
         }
       }
     },
@@ -215,7 +136,7 @@
           "part_number",
           "serial_number",
           "removal_limit_cycles_since_new",
-          "source"
+          "paragraph"
         ],
         "properties": {
           "component": {
@@ -244,32 +165,8 @@
               }
             ]
           },
-          "source": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "document",
-              "paragraph",
-              "locator"
-            ],
-            "properties": {
-              "document": {
-                "type": "string"
-              },
-              "paragraph": {
-                "type": "string"
-              },
-              "locator": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              }
-            }
+          "paragraph": {
+            "type": "string"
           }
         }
       }
@@ -283,7 +180,7 @@
           "component",
           "part_numbers",
           "description",
-          "source"
+          "paragraph"
         ],
         "properties": {
           "component": {
@@ -298,32 +195,8 @@
           "description": {
             "type": "string"
           },
-          "source": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "document",
-              "paragraph",
-              "locator"
-            ],
-            "properties": {
-              "document": {
-                "type": "string"
-              },
-              "paragraph": {
-                "type": "string"
-              },
-              "locator": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              }
-            }
+          "paragraph": {
+            "type": "string"
           }
         }
       }
@@ -339,7 +212,8 @@
           "applies_to",
           "trigger",
           "shop_visit_definition_paragraph",
-          "condition",
+          "condition_description",
+          "condition_definition_paragraph",
           "limits",
           "combination"
         ],
@@ -369,44 +243,13 @@
             ]
           },
           "shop_visit_definition_paragraph": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
-          "condition": {
-            "anyOf": [
-              {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "description",
-                  "definition_paragraph"
-                ],
-                "properties": {
-                  "description": {
-                    "type": "string"
-                  },
-                  "definition_paragraph": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "null"
-              }
-            ]
+          "condition_description": {
+            "type": "string"
+          },
+          "condition_definition_paragraph": {
+            "type": "string"
           },
           "limits": {
             "type": "array",
@@ -415,8 +258,7 @@
               "additionalProperties": false,
               "required": [
                 "kind",
-                "value",
-                "source"
+                "value"
               ],
               "properties": {
                 "kind": {
@@ -437,33 +279,6 @@
                       "type": "null"
                     }
                   ]
-                },
-                "source": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "document",
-                    "paragraph",
-                    "locator"
-                  ],
-                  "properties": {
-                    "document": {
-                      "type": "string"
-                    },
-                    "paragraph": {
-                      "type": "string"
-                    },
-                    "locator": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    }
-                  }
                 }
               }
             }
@@ -528,14 +343,7 @@
       }
     },
     "amoc_paragraph": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": "string"
     },
     "ambiguities": {
       "type": "array",
@@ -557,20 +365,7 @@
           "readings": {
             "type": "array",
             "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "name",
-                "meaning"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "meaning": {
-                  "type": "string"
-                }
-              }
+              "type": "string"
             }
           }
         }
