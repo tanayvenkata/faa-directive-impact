@@ -1,4 +1,5 @@
-.PHONY: sync test lint format check acquire s1 s1-conclude llm-check b2 b3-plumbing b3 b3-replay b3-summary
+.PHONY: sync test lint format check acquire s1 s1-conclude llm-check b2 b3-plumbing b3 \
+	b3-replay b3-summary discovery-sync discovery-rollback discovery-site
 
 # Local settings and secrets (ANTHROPIC_API_KEY); optional and never committed.
 -include .env
@@ -61,3 +62,21 @@ b3-replay:
 # Offline. Writes evaluation/b3-summary.md and .json.
 b3-summary:
 	uv run faa-directive-impact b3-summary
+
+# Discovery corpus (ROADMAP step 6). Never writes to data/seed-frozen,
+# data/frozen-evaluation, or generations/.
+DISCOVERY_ROOT ?= data/discovery
+
+# Live network call. Example: make discovery-sync (START_DATE applies only
+# before the first promotion).
+START_DATE ?= 2025-01-01
+discovery-sync:
+	uv run faa-directive-impact discovery-sync --storage-root $(DISCOVERY_ROOT) --start-date $(START_DATE)
+
+# Offline. Example: make discovery-rollback  (or TO=gen-... for a specific one)
+discovery-rollback:
+	uv run faa-directive-impact discovery-rollback --storage-root $(DISCOVERY_ROOT) $(if $(TO),--to $(TO),)
+
+# Offline. Writes site/index.html from the discovery state.
+discovery-site:
+	uv run faa-directive-impact discovery-site --storage-root $(DISCOVERY_ROOT) --output site

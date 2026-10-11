@@ -67,6 +67,14 @@ management, and a root `Makefile` as the documented command entry point.
 - `make b3-replay RUN=evaluation/runs/<run-id>` — offline; re-score a
   recorded B3 run. `make b3-summary` — offline; summarize B3 repeats under
   `evaluation/b3/PREREGISTRATION.md`.
+- `make discovery-sync` — live network call; one checkpointed sync of the
+  discovery corpus (all FAA airworthiness directives) into `DISCOVERY_ROOT`
+  (default `data/discovery/`), promoting or rejecting a candidate generation.
+  `START_DATE` applies only before the first promotion.
+- `make discovery-rollback [TO=gen-...]` — offline; point the active
+  discovery generation back at an earlier promoted one, with a receipt.
+- `make discovery-site` — offline; write the static freshness page to
+  `site/index.html`. Operations: `DISCOVERY_SYNC.md`.
 
 Run all commands from the repository root. Update this section and the README
 when commands or tooling change.

@@ -10,6 +10,9 @@ __pycache__/
 # Live acquisitions remain local until retention and redistribution are decided.
 data/
 
+# The freshness page is built by `make discovery-site` and by CI.
+site/
+
 
 # Local Claude Code state (other sessions' worktrees, personal settings).
 .claude/worktrees/
