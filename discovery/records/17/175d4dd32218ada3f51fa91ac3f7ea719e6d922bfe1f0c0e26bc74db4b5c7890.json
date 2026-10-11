@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-22-18"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-24621",
+  "effective_on": "2004-12-14",
+  "entry_sha256": "0475c3fbd283b87d99f25c1294e7518c92e325af23b32c04db292c800eb4b98e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/11/09/04-24621/airworthiness-directives-mcdonnell-douglas-model-md-11-and--11f-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2004-11-09",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 64849",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-32-AD",
+      "Amendment 39-13846",
+      "AD 2004-22-18"
+    ],
+    "document_number": "04-24621",
+    "effective_on": "2004-12-14",
+    "html_url": "https://www.federalregister.gov/documents/2004/11/09/04-24621/airworthiness-directives-mcdonnell-douglas-model-md-11-and--11f-airplanes",
+    "publication_date": "2004-11-09",
+    "title": "Airworthiness Directives; McDonnell Douglas Model MD-11 and -11F Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model MD-11 and -11F Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "0475c3fbd283b87d99f25c1294e7518c92e325af23b32c04db292c800eb4b98e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

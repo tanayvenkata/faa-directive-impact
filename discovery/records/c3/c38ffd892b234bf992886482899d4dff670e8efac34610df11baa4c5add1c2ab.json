@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-20-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E6-15958",
+  "effective_on": "2006-11-03",
+  "entry_sha256": "63d22e79d3b993ab21445ebc0e3aaf9a7dfcd88ac777fa9227f9126188f0bc15",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2006-24785"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/09/29/E6-15958/airworthiness-directives-lycoming-engines-lo-360-lio-360-aeio-360-o-540-io-540-aeio-540-ltio-540",
+  "kind": "final_rule",
+  "publication_date": "2006-09-29",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "71 FR 57407",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2006-24785",
+      "Directorate Identifier 2006-NE-20-AD",
+      "Amendment 39-14778",
+      "AD 2006-20-09"
+    ],
+    "document_number": "E6-15958",
+    "effective_on": "2006-11-03",
+    "html_url": "https://www.federalregister.gov/documents/2006/09/29/E6-15958/airworthiness-directives-lycoming-engines-lo-360-lio-360-aeio-360-o-540-io-540-aeio-540-ltio-540",
+    "publication_date": "2006-09-29",
+    "title": "Airworthiness Directives; Lycoming Engines (L)O-360, (L)IO-360, AEIO-360, O-540, IO-540, AEIO-540, (L)TIO-540, IO-580, and IO-720 Series Reciprocating Engines.",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Lycoming Engines (L)O-360, (L)IO-360, AEIO-360, O-540, IO-540, AEIO-540, (L)TIO-540, IO-580, and IO-720 Series Reciprocating Engines.",
+  "versions": [
+    {
+      "entry_sha256": "63d22e79d3b993ab21445ebc0e3aaf9a7dfcd88ac777fa9227f9126188f0bc15",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

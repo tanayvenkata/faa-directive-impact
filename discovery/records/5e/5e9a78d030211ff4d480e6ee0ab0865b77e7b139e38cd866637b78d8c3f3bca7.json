@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-04-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-4718",
+  "effective_on": "2002-04-05",
+  "entry_sha256": "83dc5baafb3a5c1cb89ee9062815bd53725394dadc555d5349015cfb86dfbaae",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/03/01/02-4718/airworthiness-directives-bae-systems-operations-limited-model-bae-146-series-airplanes-and-model",
+  "kind": "final_rule",
+  "publication_date": "2002-03-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 9394",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-186-AD",
+      "Amendment 39-12666",
+      "AD 2002-04-09"
+    ],
+    "document_number": "02-4718",
+    "effective_on": "2002-04-05",
+    "html_url": "https://www.federalregister.gov/documents/2002/03/01/02-4718/airworthiness-directives-bae-systems-operations-limited-model-bae-146-series-airplanes-and-model",
+    "publication_date": "2002-03-01",
+    "title": "Airworthiness Directives; BAE Systems (Operations) Limited Model BAe 146 Series Airplanes and Model Avro 146-RJ Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; BAE Systems (Operations) Limited Model BAe 146 Series Airplanes and Model Avro 146-RJ Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "83dc5baafb3a5c1cb89ee9062815bd53725394dadc555d5349015cfb86dfbaae",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2026-02-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2026-01180",
+  "effective_on": "2026-02-26",
+  "entry_sha256": "9064133d318259d0625630380c8b009d9e19a3667df9aed8c839e73bbc41b5dc",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165839Z-21d7bc73",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165839Z-21d7bc73.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2025-0629"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2026/01/22/2026-01180/airworthiness-directives-airbus-helicopters-deutschland-gmbh-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2026-01-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "91 FR 2681",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2025-0629",
+      "Project Identifier MCAI-2023-01183-R",
+      "Amendment 39-23237",
+      "AD 2026-02-01"
+    ],
+    "document_number": "2026-01180",
+    "effective_on": "2026-02-26",
+    "html_url": "https://www.federalregister.gov/documents/2026/01/22/2026-01180/airworthiness-directives-airbus-helicopters-deutschland-gmbh-helicopters",
+    "publication_date": "2026-01-22",
+    "title": "Airworthiness Directives; Airbus Helicopters Deutschland GmbH Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Helicopters Deutschland GmbH Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "9064133d318259d0625630380c8b009d9e19a3667df9aed8c839e73bbc41b5dc",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165839Z-21d7bc73"
+    }
+  ]
+}

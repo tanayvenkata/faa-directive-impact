@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2008-16-19"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E8-18236",
+  "effective_on": "2008-09-17",
+  "entry_sha256": "ce8ad7edd6e4c0eb48486f3f34486c32eab8d1c0f1ce2e488dc80132c7cba2ff",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9badc618",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9badc618.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2008/08/13/E8-18236/airworthiness-directives-pilatus-aircraft-ltd-model-pc-6-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2008-08-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "73 FR 47039",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2008-0626 Directorate Identifier 2008-CE-035-AD",
+      "Amendment 39-15637",
+      "AD 2008-16-19"
+    ],
+    "document_number": "E8-18236",
+    "effective_on": "2008-09-17",
+    "html_url": "https://www.federalregister.gov/documents/2008/08/13/E8-18236/airworthiness-directives-pilatus-aircraft-ltd-model-pc-6-airplanes",
+    "publication_date": "2008-08-13",
+    "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Model PC-6 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Model PC-6 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ce8ad7edd6e4c0eb48486f3f34486c32eab8d1c0f1ce2e488dc80132c7cba2ff",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9badc618"
+    }
+  ]
+}

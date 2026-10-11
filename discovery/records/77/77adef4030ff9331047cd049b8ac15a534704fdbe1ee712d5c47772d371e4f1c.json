@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-09-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-10591",
+  "effective_on": "2001-05-22",
+  "entry_sha256": "2e5138cf6590669e518b730ef582ad435819e9b393fbdee97ddd3a9587d2fdb4",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/05/07/01-10591/airworthiness-directives-airbus-model-a310-324-a310-325-and-a300-b4-622r-series-airplanes-equipped",
+  "kind": "final_rule",
+  "publication_date": "2001-05-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "66 FR 22908",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-68-AD",
+      "Amendment 39-12210",
+      "AD 2001-09-05"
+    ],
+    "document_number": "01-10591",
+    "effective_on": "2001-05-22",
+    "html_url": "https://www.federalregister.gov/documents/2001/05/07/01-10591/airworthiness-directives-airbus-model-a310-324-a310-325-and-a300-b4-622r-series-airplanes-equipped",
+    "publication_date": "2001-05-07",
+    "title": "Airworthiness Directives; Airbus Model A310-324, A310-325, and A300 B4-622R Series Airplanes Equipped with Pratt & Whitney PW4000 Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A310-324, A310-325, and A300 B4-622R Series Airplanes Equipped with Pratt & Whitney PW4000 Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "2e5138cf6590669e518b730ef582ad435819e9b393fbdee97ddd3a9587d2fdb4",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

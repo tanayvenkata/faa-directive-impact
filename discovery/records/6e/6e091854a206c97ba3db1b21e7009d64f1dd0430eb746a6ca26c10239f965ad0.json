@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-20-21"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-26569",
+  "effective_on": "2010-11-09",
+  "entry_sha256": "f99d60f6c8ef409809054b01896c345cbe3f16831dd7bd635dedbc1f315ce22d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2010-0449"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/10/22/2010-26569/airworthiness-directives-agusta-spa-model-a109e-helicopters",
+  "kind": "correction",
+  "publication_date": "2010-10-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "75 FR 65224",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-0449",
+      "Directorate Identifier 2009-SW-38-AD",
+      "Amendment 39-16456",
+      "AD 2010-20-21"
+    ],
+    "document_number": "2010-26569",
+    "effective_on": "2010-11-09",
+    "html_url": "https://www.federalregister.gov/documents/2010/10/22/2010-26569/airworthiness-directives-agusta-spa-model-a109e-helicopters",
+    "publication_date": "2010-10-22",
+    "title": "Airworthiness Directives; Agusta S.p.A. Model A109E Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Agusta S.p.A. Model A109E Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "f99d60f6c8ef409809054b01896c345cbe3f16831dd7bd635dedbc1f315ce22d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

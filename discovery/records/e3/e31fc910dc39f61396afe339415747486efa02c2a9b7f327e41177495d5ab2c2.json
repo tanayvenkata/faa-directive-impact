@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2013-02583",
+  "effective_on": "2013-03-19",
+  "entry_sha256": "fe75c964df29987d7183d0fcc792df02fccdb2e85d97e0c5980a13dbf5c2d72c",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-fe5d2608",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-fe5d2608.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2012-0602"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2013/02/12/2013-02583/airworthiness-directives-schweizer-aircraft-corporation",
+  "kind": "final_rule",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "2013-02-12",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "78 FR 9789",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2012-0602",
+      "Directorate Identifier 2009-SW-061-AD"
+    ],
+    "document_number": "2013-02583",
+    "effective_on": "2013-03-19",
+    "html_url": "https://www.federalregister.gov/documents/2013/02/12/2013-02583/airworthiness-directives-schweizer-aircraft-corporation",
+    "publication_date": "2013-02-12",
+    "title": "Airworthiness Directives; Schweizer Aircraft Corporation",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Schweizer Aircraft Corporation",
+  "versions": [
+    {
+      "entry_sha256": "fe75c964df29987d7183d0fcc792df02fccdb2e85d97e0c5980a13dbf5c2d72c",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-fe5d2608"
+    }
+  ]
+}

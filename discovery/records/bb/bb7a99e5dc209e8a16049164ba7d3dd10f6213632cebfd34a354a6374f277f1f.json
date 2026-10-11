@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-09-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-9947",
+  "effective_on": "2009-06-11",
+  "entry_sha256": "b11a751d11f4d91a2f07c5a7e463706604d37d2a092bf71258f647ec71b41308",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2008-1275"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/05/07/E9-9947/airworthiness-directives-boeing-model-737-100--200--200c--300--400-and--500-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2009-05-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "74 FR 21254",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2008-1275",
+      "Directorate Identifier 2007-NM-167-AD",
+      "Amendment 39-15892",
+      "AD 2009-09-06"
+    ],
+    "document_number": "E9-9947",
+    "effective_on": "2009-06-11",
+    "html_url": "https://www.federalregister.gov/documents/2009/05/07/E9-9947/airworthiness-directives-boeing-model-737-100--200--200c--300--400-and--500-series-airplanes",
+    "publication_date": "2009-05-07",
+    "title": "Airworthiness Directives; Boeing Model 737-100, -200, -200C, -300, -400, and -500 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 737-100, -200, -200C, -300, -400, and -500 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "b11a751d11f4d91a2f07c5a7e463706604d37d2a092bf71258f647ec71b41308",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

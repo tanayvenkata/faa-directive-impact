@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-20-20"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-25663",
+  "effective_on": "2001-11-01",
+  "entry_sha256": "ae533415bb3b780d27caa5dc6ad12191dc7648e4084ea51ce50971216da53e2d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/10/17/01-25663/airworthiness-directives-mcdonnell-douglas-model-md-90-30-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2001-10-17",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "66 FR 52668",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-171-AD",
+      "Amendment 39-12469",
+      "AD 2001-20-20"
+    ],
+    "document_number": "01-25663",
+    "effective_on": "2001-11-01",
+    "html_url": "https://www.federalregister.gov/documents/2001/10/17/01-25663/airworthiness-directives-mcdonnell-douglas-model-md-90-30-series-airplanes",
+    "publication_date": "2001-10-17",
+    "title": "Airworthiness Directives; McDonnell Douglas Model MD-90-30 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model MD-90-30 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ae533415bb3b780d27caa5dc6ad12191dc7648e4084ea51ce50971216da53e2d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

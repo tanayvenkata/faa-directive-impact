@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-22-03"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-27631",
+  "effective_on": "2000-12-04",
+  "entry_sha256": "590dd987041549d7bcd8784d7485c3d5b8f14b37654a736c753ecedae6b18282",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/10/30/00-27631/airworthiness-directives-raytheon-model-dh125-model-hs125-model-bh125-model-bae125-series-800a",
+  "kind": "final_rule",
+  "publication_date": "2000-10-30",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 64602",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-376-AD",
+      "Amendment 39-11949",
+      "AD 2000-22-03"
+    ],
+    "document_number": "00-27631",
+    "effective_on": "2000-12-04",
+    "html_url": "https://www.federalregister.gov/documents/2000/10/30/00-27631/airworthiness-directives-raytheon-model-dh125-model-hs125-model-bh125-model-bae125-series-800a",
+    "publication_date": "2000-10-30",
+    "title": "Airworthiness Directives; Raytheon Model DH.125, Model HS.125, Model BH.125, Model BAe.125 Series 800A (Including Major Variants C-29A and U1-25), Model Hawker 800, Model Hawker 800XP, and Model Hawker 1000 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Raytheon Model DH.125, Model HS.125, Model BH.125, Model BAe.125 Series 800A (Including Major Variants C-29A and U1-25), Model Hawker 800, Model Hawker 800XP, and Model Hawker 1000 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "590dd987041549d7bcd8784d7485c3d5b8f14b37654a736c753ecedae6b18282",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

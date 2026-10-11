@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2023-01-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2023-01101",
+  "effective_on": "2023-02-06",
+  "entry_sha256": "828edb3ee140803524aed3352f1457ab79223b9e9fb4dda6811049c12a4bdf04",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165838Z-8ae1818a",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165838Z-8ae1818a.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2023-0020"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2023/01/20/2023-01101/airworthiness-directives-safran-helicopter-engines-sa-type-certificate-previously-held-by-turbomeca",
+  "kind": "final_rule",
+  "publication_date": "2023-01-20",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "88 FR 3631",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2023-0020",
+      "Project Identifier MCAI-2022-01566-E",
+      "Amendment 39-22305",
+      "AD 2023-01-11"
+    ],
+    "document_number": "2023-01101",
+    "effective_on": "2023-02-06",
+    "html_url": "https://www.federalregister.gov/documents/2023/01/20/2023-01101/airworthiness-directives-safran-helicopter-engines-sa-type-certificate-previously-held-by-turbomeca",
+    "publication_date": "2023-01-20",
+    "title": "Airworthiness Directives; Safran Helicopter Engines, S.A. (Type Certificate Previously Held by Turbomeca, S.A.) Turboshaft Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Safran Helicopter Engines, S.A. (Type Certificate Previously Held by Turbomeca, S.A.) Turboshaft Engines",
+  "versions": [
+    {
+      "entry_sha256": "828edb3ee140803524aed3352f1457ab79223b9e9fb4dda6811049c12a4bdf04",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165838Z-8ae1818a"
+    }
+  ]
+}

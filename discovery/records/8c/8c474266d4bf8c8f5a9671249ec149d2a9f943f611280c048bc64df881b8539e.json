@@ -1,0 +1,57 @@
+{
+  "ad_numbers": [
+    "2008-25-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E8-29182",
+  "effective_on": "2008-12-26",
+  "entry_sha256": "cd7f67c112a734f421f1f65cce3a2e0b9f91ec7f94f56052797df7fc47a1999b",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9badc618",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9badc618.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2008-1274"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2008/12/11/E8-29182/airworthiness-directives-airbus-model-a319-a320-and-a321-series-airplanes-equipped-with",
+  "kind": "final_rule",
+  "publication_date": "2008-12-11",
+  "review_reason": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "73 FR 75316",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2008-1274",
+      "Directorate Identifier 2008-NM-197-AD",
+      "Amendment 39-15764",
+      "AD 2008-25-06"
+    ],
+    "document_number": "E8-29182",
+    "effective_on": "2008-12-26",
+    "html_url": "https://www.federalregister.gov/documents/2008/12/11/E8-29182/airworthiness-directives-airbus-model-a319-a320-and-a321-series-airplanes-equipped-with",
+    "publication_date": "2008-12-11",
+    "title": "Airworthiness Directives; Airbus Model A319, A320, and A321 Series Airplanes Equipped With International Aero Engines (IAE) Model V2500-A1 Engines or Model V25xx-A5 Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A319, A320, and A321 Series Airplanes Equipped With International Aero Engines (IAE) Model V2500-A1 Engines or Model V25xx-A5 Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "cd7f67c112a734f421f1f65cce3a2e0b9f91ec7f94f56052797df7fc47a1999b",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9badc618"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-24700",
+  "effective_on": "1999-11-29",
+  "entry_sha256": "e290ffba85fadfe6e7e4af644a26fb86eda8ed57c6f1304b242317f51b011d5c",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/09/29/99-24700/airworthiness-directives-alliedsignal-inc-tfe731-series-turbofan-engines",
+  "kind": "final_rule",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "1999-09-29",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 52423",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-ANE-51-AD",
+      "Amendment 39-11332",
+      "AD 98-17-01 R1"
+    ],
+    "document_number": "99-24700",
+    "effective_on": "1999-11-29",
+    "html_url": "https://www.federalregister.gov/documents/1999/09/29/99-24700/airworthiness-directives-alliedsignal-inc-tfe731-series-turbofan-engines",
+    "publication_date": "1999-09-29",
+    "title": "Airworthiness Directives; AlliedSignal Inc. TFE731 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; AlliedSignal Inc. TFE731 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "e290ffba85fadfe6e7e4af644a26fb86eda8ed57c6f1304b242317f51b011d5c",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

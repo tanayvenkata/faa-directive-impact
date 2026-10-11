@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-20-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-26713",
+  "effective_on": "1999-11-02",
+  "entry_sha256": "00a6d1b491a74deafe88a70db703ed262e66c42adc1495bfb794dde70885c894",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/10/18/99-26713/airworthiness-directives-eurocopter-canada-ltd-model-bo-105-ls-a-3-helicopters",
+  "kind": "final_rule",
+  "publication_date": "1999-10-18",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "64 FR 56156",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-SW-56-AD",
+      "Amendment 39-11371",
+      "AD 99-20-13"
+    ],
+    "document_number": "99-26713",
+    "effective_on": "1999-11-02",
+    "html_url": "https://www.federalregister.gov/documents/1999/10/18/99-26713/airworthiness-directives-eurocopter-canada-ltd-model-bo-105-ls-a-3-helicopters",
+    "publication_date": "1999-10-18",
+    "title": "Airworthiness Directives; Eurocopter Canada Ltd. Model BO 105 LS A-3 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eurocopter Canada Ltd. Model BO 105 LS A-3 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "00a6d1b491a74deafe88a70db703ed262e66c42adc1495bfb794dde70885c894",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

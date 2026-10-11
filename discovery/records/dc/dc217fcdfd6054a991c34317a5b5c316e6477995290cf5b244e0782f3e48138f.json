@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2012-16-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2012-20842",
+  "effective_on": "2012-09-28",
+  "entry_sha256": "5c531ffa23ca6dddc77b077dece58090edc5d158a451d8d61ca1d089b56736b6",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-8477c4ef",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-8477c4ef.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2012-0079"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2012/08/24/2012-20842/airworthiness-directives-pratt-and-whitney-division-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2012-08-24",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "77 FR 51459",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2012-0079",
+      "Directorate Identifier 2012-NE-06-AD",
+      "Amendment 39-17148",
+      "AD 2012-16-01"
+    ],
+    "document_number": "2012-20842",
+    "effective_on": "2012-09-28",
+    "html_url": "https://www.federalregister.gov/documents/2012/08/24/2012-20842/airworthiness-directives-pratt-and-whitney-division-turbofan-engines",
+    "publication_date": "2012-08-24",
+    "title": "Airworthiness Directives; Pratt & Whitney Division Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pratt & Whitney Division Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "5c531ffa23ca6dddc77b077dece58090edc5d158a451d8d61ca1d089b56736b6",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-8477c4ef"
+    }
+  ]
+}

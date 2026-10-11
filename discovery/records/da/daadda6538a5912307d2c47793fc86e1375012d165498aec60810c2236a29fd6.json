@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-13-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-12417",
+  "effective_on": "2005-07-08",
+  "entry_sha256": "9de693df6aa1198a2ee26c2d97df2a56ea3ed2fb937d57cabe9dda14ac479a6e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-21588"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/06/23/05-12417/airworthiness-directives-sikorsky-aircraft-corporation-model-s-92a-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2005-06-23",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "70 FR 36333",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-21588",
+      "Directorate Identifier 2005-SW-24-AD",
+      "Amendment 39-14150",
+      "AD 2005-13-13"
+    ],
+    "document_number": "05-12417",
+    "effective_on": "2005-07-08",
+    "html_url": "https://www.federalregister.gov/documents/2005/06/23/05-12417/airworthiness-directives-sikorsky-aircraft-corporation-model-s-92a-helicopters",
+    "publication_date": "2005-06-23",
+    "title": "Airworthiness Directives; Sikorsky Aircraft Corporation Model S-92A Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Sikorsky Aircraft Corporation Model S-92A Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "9de693df6aa1198a2ee26c2d97df2a56ea3ed2fb937d57cabe9dda14ac479a6e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

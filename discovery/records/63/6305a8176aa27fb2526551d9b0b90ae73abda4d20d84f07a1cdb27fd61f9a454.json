@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2004-23-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-25191",
+  "effective_on": "2004-12-01",
+  "entry_sha256": "1acde0b8ae00511325271aa16e52e7934f55d15c7d22c73d5307899e1cf5fa90",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2004-19569"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/11/16/04-25191/airworthiness-directives-boeing-model-767-200--300-and--300f-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2004-11-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "69 FR 67043",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2004-19569",
+      "Directorate Identifier 2004-NM-179-AD",
+      "Amendment 39-13869",
+      "AD 2004-23-14"
+    ],
+    "document_number": "04-25191",
+    "effective_on": "2004-12-01",
+    "html_url": "https://www.federalregister.gov/documents/2004/11/16/04-25191/airworthiness-directives-boeing-model-767-200--300-and--300f-series-airplanes",
+    "publication_date": "2004-11-16",
+    "title": "Airworthiness Directives; Boeing Model 767-200, -300, and -300F Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 767-200, -300, and -300F Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "1acde0b8ae00511325271aa16e52e7934f55d15c7d22c73d5307899e1cf5fa90",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

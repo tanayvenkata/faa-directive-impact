@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2026-03-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2026-04331",
+  "effective_on": "2026-03-13",
+  "entry_sha256": "6d0502cd4405a41e544c3769ec83341653a5f89e2f0ecda394a42075b35eba07",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165839Z-21d7bc73",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165839Z-21d7bc73.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2025-5037"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2026/03/04/2026-04331/airworthiness-directives-textron-aviation-inc-type-certificate-previously-held-by-cessna-aircraft",
+  "kind": "correction",
+  "publication_date": "2026-03-04",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "91 FR 10508",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2025-5037",
+      "Project Identifier AD-2025-00212-A",
+      "Amendment 39-23255",
+      "AD 2026-03-06"
+    ],
+    "document_number": "2026-04331",
+    "effective_on": "2026-03-13",
+    "html_url": "https://www.federalregister.gov/documents/2026/03/04/2026-04331/airworthiness-directives-textron-aviation-inc-type-certificate-previously-held-by-cessna-aircraft",
+    "publication_date": "2026-03-04",
+    "title": "Airworthiness Directives; Textron Aviation, Inc. (Type Certificate Previously Held by Cessna Aircraft Company) Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Textron Aviation, Inc. (Type Certificate Previously Held by Cessna Aircraft Company) Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "6d0502cd4405a41e544c3769ec83341653a5f89e2f0ecda394a42075b35eba07",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165839Z-21d7bc73"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-10982",
+  "effective_on": "2007-07-16",
+  "entry_sha256": "9da71f1dc32600e72527af3a2b04e2b6df964d48f91aa55ce1e77ec5878595b1",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-687de582",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-687de582.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2007-27525"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2007/06/11/E7-10982/airworthiness-directives-boeing-model-747-100-747-100b-747-100b-sud-747-200b-747-200c-747-300",
+  "kind": "final_rule",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "2007-06-11",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "72 FR 31984",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-27525",
+      "Directorate Identifier 2006-NM-"
+    ],
+    "document_number": "E7-10982",
+    "effective_on": "2007-07-16",
+    "html_url": "https://www.federalregister.gov/documents/2007/06/11/E7-10982/airworthiness-directives-boeing-model-747-100-747-100b-747-100b-sud-747-200b-747-200c-747-300",
+    "publication_date": "2007-06-11",
+    "title": "Airworthiness Directives; Boeing Model 747-100, 747-100B, 747-100B SUD, 747-200B, 747-200C, 747-300, 747-400, 747-400D, 747SR, and 747SP Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747-100, 747-100B, 747-100B SUD, 747-200B, 747-200C, 747-300, 747-400, 747-400D, 747SR, and 747SP Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "9da71f1dc32600e72527af3a2b04e2b6df964d48f91aa55ce1e77ec5878595b1",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-687de582"
+    }
+  ]
+}

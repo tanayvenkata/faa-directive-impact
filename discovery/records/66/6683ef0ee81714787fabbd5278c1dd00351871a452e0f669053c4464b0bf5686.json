@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-22-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-26916",
+  "effective_on": "2003-11-12",
+  "entry_sha256": "a8fdce66a3b9a0c648b745830309aefaa0df578867f23e97bcb3b6e31c971616",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/10/28/03-26916/airworthiness-directives-rolls-royce-plc-rb211-524-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2003-10-28",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "68 FR 61336",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NE-33-AD",
+      "Amendment 39-13351",
+      "AD 2003-22-04"
+    ],
+    "document_number": "03-26916",
+    "effective_on": "2003-11-12",
+    "html_url": "https://www.federalregister.gov/documents/2003/10/28/03-26916/airworthiness-directives-rolls-royce-plc-rb211-524-series-turbofan-engines",
+    "publication_date": "2003-10-28",
+    "title": "Airworthiness Directives; Rolls-Royce plc RB211-524 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Rolls-Royce plc RB211-524 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "a8fdce66a3b9a0c648b745830309aefaa0df578867f23e97bcb3b6e31c971616",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

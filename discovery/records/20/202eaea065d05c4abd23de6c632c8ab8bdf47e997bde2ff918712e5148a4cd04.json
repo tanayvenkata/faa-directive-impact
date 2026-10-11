@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-04-12"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "06-1594",
+  "effective_on": "2006-03-30",
+  "entry_sha256": "f47180688ff5624f5830561551ad938ca26b7b2b05b2c908c4bc987fd842b569",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2004-18648"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/02/23/06-1594/airworthiness-directives-general-electric-company-cf34-1a--3a--3a1--3a2--3b-and--3b1-series-turbofan",
+  "kind": "final_rule",
+  "publication_date": "2006-02-23",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "71 FR 9257",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2004-18648",
+      "Directorate Identifier 2004-NE-26-AD",
+      "Amendment 39-14494",
+      "AD 2006-04-12"
+    ],
+    "document_number": "06-1594",
+    "effective_on": "2006-03-30",
+    "html_url": "https://www.federalregister.gov/documents/2006/02/23/06-1594/airworthiness-directives-general-electric-company-cf34-1a--3a--3a1--3a2--3b-and--3b1-series-turbofan",
+    "publication_date": "2006-02-23",
+    "title": "Airworthiness Directives; General Electric Company CF34-1A, -3A, -3A1, -3A2, -3B, and -3B1 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; General Electric Company CF34-1A, -3A, -3A1, -3A2, -3B, and -3B1 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "f47180688ff5624f5830561551ad938ca26b7b2b05b2c908c4bc987fd842b569",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

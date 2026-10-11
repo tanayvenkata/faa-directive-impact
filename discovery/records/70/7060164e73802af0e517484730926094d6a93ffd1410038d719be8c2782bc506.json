@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-25-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-31449",
+  "effective_on": "2000-12-28",
+  "entry_sha256": "64f64194a4071244211d4b9e347465bd2511f87f059d5f019a2501e7c988ec49",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/12/13/00-31449/airworthiness-directives-empresa-brasileira-de-aeronautica-sa-embraer-model-emb-135-and-emb-145",
+  "kind": "final_rule",
+  "publication_date": "2000-12-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "65 FR 77783",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-384-AD",
+      "Amendment 39-12039",
+      "AD 2000-25-05"
+    ],
+    "document_number": "00-31449",
+    "effective_on": "2000-12-28",
+    "html_url": "https://www.federalregister.gov/documents/2000/12/13/00-31449/airworthiness-directives-empresa-brasileira-de-aeronautica-sa-embraer-model-emb-135-and-emb-145",
+    "publication_date": "2000-12-13",
+    "title": "Airworthiness Directives; Empresa Brasileira de Aeronautica S.A. (EMBRAER) Model EMB-135 and EMB-145 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Empresa Brasileira de Aeronautica S.A. (EMBRAER) Model EMB-135 and EMB-145 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "64f64194a4071244211d4b9e347465bd2511f87f059d5f019a2501e7c988ec49",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

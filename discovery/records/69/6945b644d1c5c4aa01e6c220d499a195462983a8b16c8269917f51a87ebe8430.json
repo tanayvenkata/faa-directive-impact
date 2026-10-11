@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-13-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "06-5586",
+  "effective_on": "2006-08-07",
+  "entry_sha256": "85d98b4e7106213a507fce0539dc31d7fc4ab243d25506426fa759ef729c4cb5",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-23319"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/06/26/06-5586/airworthiness-directives-raytheon-aircraft-company-65-90-99-and-100-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2006-06-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "71 FR 36185",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-23319",
+      "Directorate Identifier 2005-CE-52-AD",
+      "Amendment 39-14663",
+      "AD 2006-13-10"
+    ],
+    "document_number": "06-5586",
+    "effective_on": "2006-08-07",
+    "html_url": "https://www.federalregister.gov/documents/2006/06/26/06-5586/airworthiness-directives-raytheon-aircraft-company-65-90-99-and-100-series-airplanes",
+    "publication_date": "2006-06-26",
+    "title": "Airworthiness Directives; Raytheon Aircraft Company 65, 90, 99, and 100 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Raytheon Aircraft Company 65, 90, 99, and 100 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "85d98b4e7106213a507fce0539dc31d7fc4ab243d25506426fa759ef729c4cb5",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

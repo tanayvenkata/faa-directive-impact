@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-04-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-3588",
+  "effective_on": null,
+  "entry_sha256": "3086945fcd8275ef39f6bb2f8575fddfe2c54dfbaf2c42f3d9f86fb2aaf9b82f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/02/16/99-3588/airworthiness-directives-schweizer-aircraft-corporation-model-269c-1-helicopters",
+  "kind": "final_rule",
+  "publication_date": "1999-02-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 7493",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-SW-39-AD",
+      "Amendment 39-11038",
+      "AD 99-04-14"
+    ],
+    "document_number": "99-3588",
+    "effective_on": null,
+    "html_url": "https://www.federalregister.gov/documents/1999/02/16/99-3588/airworthiness-directives-schweizer-aircraft-corporation-model-269c-1-helicopters",
+    "publication_date": "1999-02-16",
+    "title": "Airworthiness Directives; Schweizer Aircraft Corporation Model 269C-1 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Schweizer Aircraft Corporation Model 269C-1 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "3086945fcd8275ef39f6bb2f8575fddfe2c54dfbaf2c42f3d9f86fb2aaf9b82f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

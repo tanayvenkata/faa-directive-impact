@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-11-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-12974",
+  "effective_on": "1999-06-15",
+  "entry_sha256": "15e1933d98f0687afc3233a42337bd5208ac6a44f1588d5bf1d3848fa96d4c20",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/05/24/99-12974/airworthiness-directives-mooney-aircraft-corporation-model-m20r-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1999-05-24",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "64 FR 27911",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-CE-14-AD",
+      "Amendment 39-11178",
+      "AD 99-11-07"
+    ],
+    "document_number": "99-12974",
+    "effective_on": "1999-06-15",
+    "html_url": "https://www.federalregister.gov/documents/1999/05/24/99-12974/airworthiness-directives-mooney-aircraft-corporation-model-m20r-airplanes",
+    "publication_date": "1999-05-24",
+    "title": "Airworthiness Directives; Mooney Aircraft Corporation Model M20R Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Mooney Aircraft Corporation Model M20R Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "15e1933d98f0687afc3233a42337bd5208ac6a44f1588d5bf1d3848fa96d4c20",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

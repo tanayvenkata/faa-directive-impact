@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-13-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-16015",
+  "effective_on": "1998-07-08",
+  "entry_sha256": "d09d88ad2d1bb2529f660379a8af55639f9a7e0820f2b21df55eebb7260ab4ca",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/06/17/98-16015/airworthiness-directives-cessna-aircraft-company-model-182s-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-06-17",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "63 FR 32973",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-CE-59-AD",
+      "Amendment 39-10598",
+      "AD 98-13-10"
+    ],
+    "document_number": "98-16015",
+    "effective_on": "1998-07-08",
+    "html_url": "https://www.federalregister.gov/documents/1998/06/17/98-16015/airworthiness-directives-cessna-aircraft-company-model-182s-airplanes",
+    "publication_date": "1998-06-17",
+    "title": "Airworthiness Directives; Cessna Aircraft Company Model 182S Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Cessna Aircraft Company Model 182S Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "d09d88ad2d1bb2529f660379a8af55639f9a7e0820f2b21df55eebb7260ab4ca",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

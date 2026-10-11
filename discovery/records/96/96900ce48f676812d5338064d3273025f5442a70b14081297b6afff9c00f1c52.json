@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2012-06-03"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2012-8041",
+  "effective_on": "2012-05-10",
+  "entry_sha256": "5cbe4ee893f971a42f98c716e6be652a1d3ebf7485bd90ae1089dab6cde1bdce",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-8477c4ef",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-8477c4ef.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2011-1064"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2012/04/05/2012-8041/airworthiness-directives-bombardier-inc-model-bd-100-1a10-challenger-300-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2012-04-05",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "77 FR 20520",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2011-1064",
+      "Directorate Identifier 2011-NM-075-AD",
+      "Amendment 39-16984",
+      "AD 2012-06-03"
+    ],
+    "document_number": "2012-8041",
+    "effective_on": "2012-05-10",
+    "html_url": "https://www.federalregister.gov/documents/2012/04/05/2012-8041/airworthiness-directives-bombardier-inc-model-bd-100-1a10-challenger-300-airplanes",
+    "publication_date": "2012-04-05",
+    "title": "Airworthiness Directives; Bombardier, Inc. Model BD-100-1A10 (Challenger 300) Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier, Inc. Model BD-100-1A10 (Challenger 300) Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "5cbe4ee893f971a42f98c716e6be652a1d3ebf7485bd90ae1089dab6cde1bdce",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-8477c4ef"
+    }
+  ]
+}

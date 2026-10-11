@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-20-18"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-19876",
+  "effective_on": "2005-11-08",
+  "entry_sha256": "df81f8d770464c117a5c3fd8b305005a33427580b61db74ce079381cad8b0f1f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-20917"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/10/04/05-19876/airworthiness-directives-boeing-model-747-100--200b--200f--200c--100b--300--100b-sud--400--400d-and",
+  "kind": "final_rule",
+  "publication_date": "2005-10-04",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 57740",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-20917",
+      "Directorate Identifier 2004-NM-85-AD",
+      "Amendment 39-14312",
+      "AD 2005-20-18"
+    ],
+    "document_number": "05-19876",
+    "effective_on": "2005-11-08",
+    "html_url": "https://www.federalregister.gov/documents/2005/10/04/05-19876/airworthiness-directives-boeing-model-747-100--200b--200f--200c--100b--300--100b-sud--400--400d-and",
+    "publication_date": "2005-10-04",
+    "title": "Airworthiness Directives; Boeing Model 747-100, -200B, -200F, -200C, -100B, -300, -100B SUD, -400, -400D, and -400F Series Airplanes; and Model 747SR Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747-100, -200B, -200F, -200C, -100B, -300, -100B SUD, -400, -400D, and -400F Series Airplanes; and Model 747SR Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "df81f8d770464c117a5c3fd8b305005a33427580b61db74ce079381cad8b0f1f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

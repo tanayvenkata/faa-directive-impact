@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-05-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-3784",
+  "effective_on": "2005-04-06",
+  "entry_sha256": "cc57a59dba83d303a532f05440858197d674ea7a7420bf691b0c4de502d5210f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2004-19202"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/03/02/05-3784/airworthiness-directives-boeing-model-757-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2005-03-02",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 10030",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2004-19202",
+      "Directorate Identifier 2004-NM-95-AD",
+      "Amendment 39-13989",
+      "AD 2005-05-01"
+    ],
+    "document_number": "05-3784",
+    "effective_on": "2005-04-06",
+    "html_url": "https://www.federalregister.gov/documents/2005/03/02/05-3784/airworthiness-directives-boeing-model-757-series-airplanes",
+    "publication_date": "2005-03-02",
+    "title": "Airworthiness Directives; Boeing Model 757 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 757 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "cc57a59dba83d303a532f05440858197d674ea7a7420bf691b0c4de502d5210f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

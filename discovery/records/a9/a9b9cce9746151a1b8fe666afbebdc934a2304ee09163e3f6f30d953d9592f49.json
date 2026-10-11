@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-18-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-23286",
+  "effective_on": "2002-10-21",
+  "entry_sha256": "8821346ada0a105d669da93261d9714d2fa07e981406bdecea797213b292bbc6",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/09/16/02-23286/airworthiness-directives-eurocopter-france-model-as332c-l-l1-and-model-sa330f-g-and-j-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2002-09-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 58325",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-SW-47-AD",
+      "Amendment 39-12880",
+      "AD 2002-18-06"
+    ],
+    "document_number": "02-23286",
+    "effective_on": "2002-10-21",
+    "html_url": "https://www.federalregister.gov/documents/2002/09/16/02-23286/airworthiness-directives-eurocopter-france-model-as332c-l-l1-and-model-sa330f-g-and-j-helicopters",
+    "publication_date": "2002-09-16",
+    "title": "Airworthiness Directives; Eurocopter France Model AS332C, L, L1, and Model SA330F, G, and J Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eurocopter France Model AS332C, L, L1, and Model SA330F, G, and J Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "8821346ada0a105d669da93261d9714d2fa07e981406bdecea797213b292bbc6",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

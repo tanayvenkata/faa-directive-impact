@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "95-06-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "95-9623",
+  "effective_on": "1995-04-13",
+  "entry_sha256": "1bf9e417acce86867a164e78f16152a914fa959a5689cd28bcc00fe65ae64f46",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165831Z-a185d5f2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165831Z-a185d5f2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1995/04/19/95-9623/airworthiness-directives-boeing-model-747-series-airplanes-excluding-airplanes-equipped-with-pratt",
+  "kind": "correction",
+  "publication_date": "1995-04-19",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "60 FR 19492",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 94-NM-123-AD",
+      "Amendment 39-9172",
+      "AD 95-06-02"
+    ],
+    "document_number": "95-9623",
+    "effective_on": "1995-04-13",
+    "html_url": "https://www.federalregister.gov/documents/1995/04/19/95-9623/airworthiness-directives-boeing-model-747-series-airplanes-excluding-airplanes-equipped-with-pratt",
+    "publication_date": "1995-04-19",
+    "title": "Airworthiness Directives; Boeing Model 747 Series Airplanes, Excluding Airplanes Equipped With Pratt & Whitney PW4000 and General Electric CF6-80C2 Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747 Series Airplanes, Excluding Airplanes Equipped With Pratt & Whitney PW4000 and General Electric CF6-80C2 Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "1bf9e417acce86867a164e78f16152a914fa959a5689cd28bcc00fe65ae64f46",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165831Z-a185d5f2"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-04-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-3851",
+  "effective_on": "2001-03-28",
+  "entry_sha256": "6a60ac149d43d98a0b6b8d229b23d07cd569bb7bc1ebcd9bdfd1fd53eae2c773",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/02/21/01-3851/airworthiness-directives-bombardier-model-dhc-8-100--200-and--300-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2001-02-21",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "66 FR 10960",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-102-AD",
+      "Amendment 39-12120",
+      "AD 2001-04-02"
+    ],
+    "document_number": "01-3851",
+    "effective_on": "2001-03-28",
+    "html_url": "https://www.federalregister.gov/documents/2001/02/21/01-3851/airworthiness-directives-bombardier-model-dhc-8-100--200-and--300-series-airplanes",
+    "publication_date": "2001-02-21",
+    "title": "Airworthiness Directives; Bombardier Model DHC-8-100, -200, and -300 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier Model DHC-8-100, -200, and -300 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "6a60ac149d43d98a0b6b8d229b23d07cd569bb7bc1ebcd9bdfd1fd53eae2c773",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

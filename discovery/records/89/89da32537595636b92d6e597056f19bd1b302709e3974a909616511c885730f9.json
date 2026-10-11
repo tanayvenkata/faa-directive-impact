@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-11-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-10536",
+  "effective_on": "2005-05-27",
+  "entry_sha256": "e75d200e589cb171b16c5005e75033704e04ecd659de0d7d534898383e286894",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-21315"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/05/27/05-10536/airworthiness-directives-bombardier-model-cl-600-1a11-cl-600-cl-600-2a12-cl-601-and-cl-600-2b16",
+  "kind": "final_rule",
+  "publication_date": "2005-05-27",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "70 FR 30621",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-21315",
+      "Directorate Identifier 2005-NM-090-AD",
+      "Amendment 39-14106",
+      "AD 2005-11-04"
+    ],
+    "document_number": "05-10536",
+    "effective_on": "2005-05-27",
+    "html_url": "https://www.federalregister.gov/documents/2005/05/27/05-10536/airworthiness-directives-bombardier-model-cl-600-1a11-cl-600-cl-600-2a12-cl-601-and-cl-600-2b16",
+    "publication_date": "2005-05-27",
+    "title": "Airworthiness Directives; Bombardier Model CL-600-1A11 (CL-600), CL-600-2A12 (CL-601), and CL-600-2B16 (CL-601-3A, CL-601-3R, and CL-604) Airplanes Modified by Supplemental Type Certificate (STC) SA4900SW",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier Model CL-600-1A11 (CL-600), CL-600-2A12 (CL-601), and CL-600-2B16 (CL-601-3A, CL-601-3R, and CL-604) Airplanes Modified by Supplemental Type Certificate (STC) SA4900SW",
+  "versions": [
+    {
+      "entry_sha256": "e75d200e589cb171b16c5005e75033704e04ecd659de0d7d534898383e286894",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

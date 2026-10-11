@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-16-25"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-21098",
+  "effective_on": "1998-09-11",
+  "entry_sha256": "cc851275d999efa8d2b1d6ee8c47913de03609e7127adf0f8d99d1a79a421b97",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/08/07/98-21098/airworthiness-directives-bombardier-model-cl-600-2b19-regional-jet-series-100-and-200-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-08-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "63 FR 42217",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-NM-116-AD",
+      "Amendment 39-10702",
+      "AD 98-16-25"
+    ],
+    "document_number": "98-21098",
+    "effective_on": "1998-09-11",
+    "html_url": "https://www.federalregister.gov/documents/1998/08/07/98-21098/airworthiness-directives-bombardier-model-cl-600-2b19-regional-jet-series-100-and-200-airplanes",
+    "publication_date": "1998-08-07",
+    "title": "Airworthiness Directives; Bombardier Model CL-600-2B19 (Regional Jet Series 100 and 200) Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier Model CL-600-2B19 (Regional Jet Series 100 and 200) Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "cc851275d999efa8d2b1d6ee8c47913de03609e7127adf0f8d99d1a79a421b97",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

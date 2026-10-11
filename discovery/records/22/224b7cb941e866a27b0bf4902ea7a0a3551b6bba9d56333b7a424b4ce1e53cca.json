@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "97-12-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "97-14285",
+  "effective_on": "1997-06-19",
+  "entry_sha256": "a0b38e0bc1d91c6a7a073dc91e2980fd5fdf9cd6dd45660271b436484fc32029",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-78e05434",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-78e05434.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1997/06/04/97-14285/airworthiness-directives-cessna-model-650-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1997-06-04",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "62 FR 30433",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-NM-101-AD",
+      "Amendment 39-10044",
+      "AD 97-12-01"
+    ],
+    "document_number": "97-14285",
+    "effective_on": "1997-06-19",
+    "html_url": "https://www.federalregister.gov/documents/1997/06/04/97-14285/airworthiness-directives-cessna-model-650-airplanes",
+    "publication_date": "1997-06-04",
+    "title": "Airworthiness Directives; Cessna Model 650 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Cessna Model 650 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "a0b38e0bc1d91c6a7a073dc91e2980fd5fdf9cd6dd45660271b436484fc32029",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-78e05434"
+    }
+  ]
+}

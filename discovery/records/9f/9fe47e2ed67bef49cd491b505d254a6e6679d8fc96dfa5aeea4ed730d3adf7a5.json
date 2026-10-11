@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-26-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-46",
+  "effective_on": "2004-01-22",
+  "entry_sha256": "e897d1fde87e45d123ab7d36ddebe863a9ec15cf394a63335bc4fabc1d5f0b96",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/01/07/04-46/airworthiness-directives-airbus-model-a300-b2-and-b4-series-airplanes-and-a300-b4-600-b4-600r",
+  "kind": "final_rule",
+  "publication_date": "2004-01-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "69 FR 867",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NM-248-AD",
+      "Amendment 39-13408",
+      "AD 2003-26-10"
+    ],
+    "document_number": "04-46",
+    "effective_on": "2004-01-22",
+    "html_url": "https://www.federalregister.gov/documents/2004/01/07/04-46/airworthiness-directives-airbus-model-a300-b2-and-b4-series-airplanes-and-a300-b4-600-b4-600r",
+    "publication_date": "2004-01-07",
+    "title": "Airworthiness Directives; Airbus Model A300 B2 and B4 Series Airplanes; and A300 B4-600, B4-600R, C4-605R Variant F, and F4-600R (Collectively Called A300-600) Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A300 B2 and B4 Series Airplanes; and A300 B4-600, B4-600R, C4-605R Variant F, and F4-600R (Collectively Called A300-600) Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "e897d1fde87e45d123ab7d36ddebe863a9ec15cf394a63335bc4fabc1d5f0b96",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

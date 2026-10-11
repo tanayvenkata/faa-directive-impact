@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-22-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-27152",
+  "effective_on": "2003-11-14",
+  "entry_sha256": "bf02090f70fe7ac850833cc60510303d52f58491863672343b5d52370b87d7f5",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/10/30/03-27152/airworthiness-directives-rolls-royce-plc-trent-556-61-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2003-10-30",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "68 FR 61737",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NE-42-AD",
+      "Amendment 39-13349",
+      "AD 2003-22-02"
+    ],
+    "document_number": "03-27152",
+    "effective_on": "2003-11-14",
+    "html_url": "https://www.federalregister.gov/documents/2003/10/30/03-27152/airworthiness-directives-rolls-royce-plc-trent-556-61-turbofan-engines",
+    "publication_date": "2003-10-30",
+    "title": "Airworthiness Directives; Rolls-Royce plc Trent 556-61 Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Rolls-Royce plc Trent 556-61 Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "bf02090f70fe7ac850833cc60510303d52f58491863672343b5d52370b87d7f5",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

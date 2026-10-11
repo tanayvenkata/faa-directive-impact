@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-14-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-17533",
+  "effective_on": "2002-08-23",
+  "entry_sha256": "b03619a2eee1c4a00384baaa72dce85b409867a68a4b3841345438bce1204509",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/07/19/02-17533/airworthiness-directives-mcdonnell-douglas-model-md-11-and--11f-airplanes-equipped-with-general",
+  "kind": "final_rule",
+  "publication_date": "2002-07-19",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 47656",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-159-AD",
+      "Amendment 39-12814",
+      "AD 2002-14-14"
+    ],
+    "document_number": "02-17533",
+    "effective_on": "2002-08-23",
+    "html_url": "https://www.federalregister.gov/documents/2002/07/19/02-17533/airworthiness-directives-mcdonnell-douglas-model-md-11-and--11f-airplanes-equipped-with-general",
+    "publication_date": "2002-07-19",
+    "title": "Airworthiness Directives; McDonnell Douglas Model MD-11 and -11F Airplanes Equipped With General Electric Tail Engine Buildup Units (EBU)",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model MD-11 and -11F Airplanes Equipped With General Electric Tail Engine Buildup Units (EBU)",
+  "versions": [
+    {
+      "entry_sha256": "b03619a2eee1c4a00384baaa72dce85b409867a68a4b3841345438bce1204509",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

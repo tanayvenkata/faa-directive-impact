@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-03-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "06-987",
+  "effective_on": "2006-03-13",
+  "entry_sha256": "a012ece6d7c74e75804b6b1425a2a1b5e91f1d031d37fa4f7042290d293e511c",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-22425"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/02/06/06-987/airworthiness-directives-mcdonnell-douglas-model-dc-8-33-dc-8-51-dc-8-53-dc-8-55-dc-8f-54-dc-8f-55",
+  "kind": "final_rule",
+  "publication_date": "2006-02-06",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "71 FR 5969",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-22425",
+      "Directorate Identifier 2005-NM-066-AD",
+      "Amendment 39-14468",
+      "AD 2006-03-04"
+    ],
+    "document_number": "06-987",
+    "effective_on": "2006-03-13",
+    "html_url": "https://www.federalregister.gov/documents/2006/02/06/06-987/airworthiness-directives-mcdonnell-douglas-model-dc-8-33-dc-8-51-dc-8-53-dc-8-55-dc-8f-54-dc-8f-55",
+    "publication_date": "2006-02-06",
+    "title": "Airworthiness Directives; McDonnell Douglas Model DC-8-33, DC-8-51, DC-8-53, DC-8-55, DC-8F-54, DC-8F-55, DC-8-63, DC-8-62F, DC-8-63F, DC-8-71, DC-8-73, DC-8-71F, DC-8-72F, and DC-8-73F Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model DC-8-33, DC-8-51, DC-8-53, DC-8-55, DC-8F-54, DC-8F-55, DC-8-63, DC-8-62F, DC-8-63F, DC-8-71, DC-8-73, DC-8-71F, DC-8-72F, and DC-8-73F Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "a012ece6d7c74e75804b6b1425a2a1b5e91f1d031d37fa4f7042290d293e511c",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

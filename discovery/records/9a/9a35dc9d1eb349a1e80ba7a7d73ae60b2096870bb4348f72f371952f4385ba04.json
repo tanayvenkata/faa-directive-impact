@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-12-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-13334",
+  "effective_on": "2004-07-26",
+  "entry_sha256": "14674e0d549dce903d55a4cfb79d0949fb3cd2d9c20411a27d7a98490507070d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/06/16/04-13334/airworthiness-directives-pilatus-aircraft-ltd-models-pc-12-and-pc-1245-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2004-06-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 33558",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2004-CE-08-AD",
+      "Amendment 39-13670",
+      "AD 2004-12-11"
+    ],
+    "document_number": "04-13334",
+    "effective_on": "2004-07-26",
+    "html_url": "https://www.federalregister.gov/documents/2004/06/16/04-13334/airworthiness-directives-pilatus-aircraft-ltd-models-pc-12-and-pc-1245-airplanes",
+    "publication_date": "2004-06-16",
+    "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Models PC-12 and PC-12/45 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Models PC-12 and PC-12/45 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "14674e0d549dce903d55a4cfb79d0949fb3cd2d9c20411a27d7a98490507070d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

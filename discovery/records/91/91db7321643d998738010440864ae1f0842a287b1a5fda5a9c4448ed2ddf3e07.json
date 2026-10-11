@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-07-08"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "06-3061",
+  "effective_on": "2006-05-05",
+  "entry_sha256": "b3a70772e8b8ae268c3c7dfcbef1f6c71fd748df4b461b6491fad3106b382ecf",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-23197"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/03/31/06-3061/airworthiness-directives-mcdonnell-douglas-model-dc-9-10-dc-9-20-dc-9-30-dc-9-40-and-dc-9-50-series",
+  "kind": "final_rule",
+  "publication_date": "2006-03-31",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "71 FR 16201",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-23197",
+      "Directorate Identifier 2005-NM-109-AD",
+      "Amendment 39-14535",
+      "AD 2006-07-08"
+    ],
+    "document_number": "06-3061",
+    "effective_on": "2006-05-05",
+    "html_url": "https://www.federalregister.gov/documents/2006/03/31/06-3061/airworthiness-directives-mcdonnell-douglas-model-dc-9-10-dc-9-20-dc-9-30-dc-9-40-and-dc-9-50-series",
+    "publication_date": "2006-03-31",
+    "title": "Airworthiness Directives; McDonnell Douglas Model DC-9-10, DC-9-20, DC-9-30, DC-9-40, and DC-9-50 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model DC-9-10, DC-9-20, DC-9-30, DC-9-40, and DC-9-50 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "b3a70772e8b8ae268c3c7dfcbef1f6c71fd748df4b461b6491fad3106b382ecf",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

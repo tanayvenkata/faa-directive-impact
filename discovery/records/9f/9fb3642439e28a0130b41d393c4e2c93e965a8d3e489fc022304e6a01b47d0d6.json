@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-17-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-22759",
+  "effective_on": null,
+  "entry_sha256": "a06c8e794d6cff5f384bac27541b69ef2a73fc4af89bf5a28fbe041719264792",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/09/09/02-22759/airworthiness-directives-pratt-and-whitney-jt8d-series-turbofan-engines-correction",
+  "kind": "correction",
+  "publication_date": "2002-09-09",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "67 FR 57145",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-ANE-48-AD",
+      "Amendment 39-12867",
+      "AD 2002-17-02"
+    ],
+    "document_number": "02-22759",
+    "effective_on": null,
+    "html_url": "https://www.federalregister.gov/documents/2002/09/09/02-22759/airworthiness-directives-pratt-and-whitney-jt8d-series-turbofan-engines-correction",
+    "publication_date": "2002-09-09",
+    "title": "Airworthiness Directives; Pratt & Whitney JT8D Series Turbofan Engines; Correction",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pratt & Whitney JT8D Series Turbofan Engines; Correction",
+  "versions": [
+    {
+      "entry_sha256": "a06c8e794d6cff5f384bac27541b69ef2a73fc4af89bf5a28fbe041719264792",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

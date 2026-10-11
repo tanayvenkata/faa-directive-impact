@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-24343",
+  "effective_on": null,
+  "entry_sha256": "f75c22dbe6bd68a2733a27a838cef544524c0ab5aee6df8e7727d564161ac319",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/12/22/05-24343/airworthiness-directives-airbus-model-a320-111--211--212--214--231--232-and--233-airplanes",
+  "kind": "final_rule",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "2005-12-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; rescission.",
+    "citation": "70 FR 75932",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "FAA-2005-23400",
+      "Directorate Identifier 2005-NM-217-AD",
+      "Amendment 39-14429",
+      "AD 2005-19-16 R1"
+    ],
+    "document_number": "05-24343",
+    "effective_on": null,
+    "html_url": "https://www.federalregister.gov/documents/2005/12/22/05-24343/airworthiness-directives-airbus-model-a320-111--211--212--214--231--232-and--233-airplanes",
+    "publication_date": "2005-12-22",
+    "title": "Airworthiness Directives; Airbus Model A320-111, -211, -212, -214, -231, -232, and -233 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A320-111, -211, -212, -214, -231, -232, and -233 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "f75c22dbe6bd68a2733a27a838cef544524c0ab5aee6df8e7727d564161ac319",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

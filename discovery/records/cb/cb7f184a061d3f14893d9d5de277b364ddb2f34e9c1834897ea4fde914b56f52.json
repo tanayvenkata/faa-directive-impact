@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-13-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-15934",
+  "effective_on": "2001-08-01",
+  "entry_sha256": "74fd8e6d894640160ed86c8aaf69051e8d3f5a53b9eb0398a733f4aa7b1389f0",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/06/27/01-15934/airworthiness-directives-boeing-model-737-300-737-400-737-500-737-600-737-700-737-800-757-200",
+  "kind": "final_rule",
+  "publication_date": "2001-06-27",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "66 FR 34091",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-308-AD",
+      "Amendment 39-12287",
+      "AD 2001-13-07"
+    ],
+    "document_number": "01-15934",
+    "effective_on": "2001-08-01",
+    "html_url": "https://www.federalregister.gov/documents/2001/06/27/01-15934/airworthiness-directives-boeing-model-737-300-737-400-737-500-737-600-737-700-737-800-757-200",
+    "publication_date": "2001-06-27",
+    "title": "Airworthiness Directives; Boeing Model 737-300, 737-400, 737-500, 737-600, 737-700, 737-800, 757-200, 757-200PF, 757-200CB, and 757-300 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 737-300, 737-400, 737-500, 737-600, 737-700, 737-800, 757-200, 757-200PF, 757-200CB, and 757-300 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "74fd8e6d894640160ed86c8aaf69051e8d3f5a53b9eb0398a733f4aa7b1389f0",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-16-19"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-20969",
+  "effective_on": "1998-08-24",
+  "entry_sha256": "5f052a6edd19fc1b67777ee108c2cf6e53271a341a31d08d079eeb8e43d42b97",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/08/07/98-20969/airworthiness-directives-boeing-model-747-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-08-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "63 FR 42210",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-NM-180-AD",
+      "Amendment 39-10695",
+      "AD 98-16-19"
+    ],
+    "document_number": "98-20969",
+    "effective_on": "1998-08-24",
+    "html_url": "https://www.federalregister.gov/documents/1998/08/07/98-20969/airworthiness-directives-boeing-model-747-series-airplanes",
+    "publication_date": "1998-08-07",
+    "title": "Airworthiness Directives; Boeing Model 747 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "5f052a6edd19fc1b67777ee108c2cf6e53271a341a31d08d079eeb8e43d42b97",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

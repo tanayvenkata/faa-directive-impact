@@ -1,0 +1,55 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2020-20001",
+  "effective_on": "2020-09-11",
+  "entry_sha256": "cd37e642ef9d2e7c95d69e79f09fd2d4ea9cfdd7d69aed5cc40428579914346f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165838Z-9c1361aa",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165838Z-9c1361aa.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2020-0463"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2020/09/11/2020-20001/airworthiness-directives-airbus-helicopters",
+  "kind": "final_rule",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "2020-09-11",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; removal of airworthiness directive (AD).",
+    "citation": "85 FR 56161",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2020-0463",
+      "Product Identifier 2013-SW-041-AD",
+      "Amendment 39-21246",
+      "AD 2015-17-01R1"
+    ],
+    "document_number": "2020-20001",
+    "effective_on": "2020-09-11",
+    "html_url": "https://www.federalregister.gov/documents/2020/09/11/2020-20001/airworthiness-directives-airbus-helicopters",
+    "publication_date": "2020-09-11",
+    "title": "Airworthiness Directives; Airbus Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "cd37e642ef9d2e7c95d69e79f09fd2d4ea9cfdd7d69aed5cc40428579914346f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165838Z-9c1361aa"
+    }
+  ]
+}

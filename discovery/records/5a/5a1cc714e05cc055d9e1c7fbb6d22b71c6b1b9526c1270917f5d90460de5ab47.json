@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-13-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-16356",
+  "effective_on": "2000-07-18",
+  "entry_sha256": "27f6a2edc970b1ccf9d4732f63a619ed17ac51f23bb1dfaddcdcc128a98fd3de",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/07/03/00-16356/airworthiness-directives-sikorsky-model-s-61-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2000-07-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "65 FR 40988",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-SW-18-AD",
+      "Amendment 39-11805",
+      "AD 2000-13-06"
+    ],
+    "document_number": "00-16356",
+    "effective_on": "2000-07-18",
+    "html_url": "https://www.federalregister.gov/documents/2000/07/03/00-16356/airworthiness-directives-sikorsky-model-s-61-helicopters",
+    "publication_date": "2000-07-03",
+    "title": "Airworthiness Directives; Sikorsky Model S-61 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Sikorsky Model S-61 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "27f6a2edc970b1ccf9d4732f63a619ed17ac51f23bb1dfaddcdcc128a98fd3de",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

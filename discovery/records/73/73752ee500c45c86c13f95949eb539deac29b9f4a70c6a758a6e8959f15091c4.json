@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-03-52"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-10532",
+  "effective_on": "2002-04-04",
+  "entry_sha256": "52fdf4fdd6b5ffe13917fd55d761b3c5988ad90e37af2f19cccefbc307c419b1",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/05/02/02-10532/airworthiness-directives-eurocopter-france-model-as350b-as350ba-as350b1-as350b2-as350b3-as350c",
+  "kind": "correction",
+  "publication_date": "2002-05-02",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "67 FR 21975",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-SW-09-AD",
+      "Amendment 39-12681",
+      "AD 2002-03-52"
+    ],
+    "document_number": "02-10532",
+    "effective_on": "2002-04-04",
+    "html_url": "https://www.federalregister.gov/documents/2002/05/02/02-10532/airworthiness-directives-eurocopter-france-model-as350b-as350ba-as350b1-as350b2-as350b3-as350c",
+    "publication_date": "2002-05-02",
+    "title": "Airworthiness Directives; Eurocopter France Model AS350B, AS350BA, AS350B1, AS350B2, AS350B3, AS350C, AS350D, AS350D1, AS355E, AS355F, AS355F1, AS355F2, AS355N, and EC130 B4 Helicopters; Correction",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eurocopter France Model AS350B, AS350BA, AS350B1, AS350B2, AS350B3, AS350C, AS350D, AS350D1, AS355E, AS355F, AS355F1, AS355F2, AS355N, and EC130 B4 Helicopters; Correction",
+  "versions": [
+    {
+      "entry_sha256": "52fdf4fdd6b5ffe13917fd55d761b3c5988ad90e37af2f19cccefbc307c419b1",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

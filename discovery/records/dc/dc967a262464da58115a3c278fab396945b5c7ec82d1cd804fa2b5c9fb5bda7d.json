@@ -1,0 +1,74 @@
+{
+  "ad_numbers": [
+    "2018-13-03"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2018-13639",
+  "effective_on": "2018-07-11",
+  "entry_sha256": "fb0596e47bc91560c8017bd4eef55254d3410e696a3e3c45d37f7550f49b6d62",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T165846Z-eb041659",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165846Z-eb041659.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T165846Z-dc8a98a9",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165846Z-dc8a98a9.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165837Z-1c95b837",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165837Z-1c95b837.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2018-0564"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2018/06/26/2018-13639/airworthiness-directives-international-aero-engines-turbofan-engines",
+  "incorporated_material": {
+    "items": [
+      "Pratt & Whitney Service Bulletin PW1000G-C-72-00-0104-00A-930A-D, Issue No. 002, dated May 31, 2018.",
+      "Reserved."
+    ],
+    "paragraph": "k"
+  },
+  "kind": "final_rule",
+  "publication_date": "2018-06-26",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "outside_supported_scope",
+    "detail": "Paragraph (c) lists no V2500 model.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "83 FR 29665",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2018-0564",
+      "Product Identifier 2018-NE-23-AD",
+      "Amendment 39-19315",
+      "AD 2018-13-03"
+    ],
+    "document_number": "2018-13639",
+    "effective_on": "2018-07-11",
+    "html_url": "https://www.federalregister.gov/documents/2018/06/26/2018-13639/airworthiness-directives-international-aero-engines-turbofan-engines",
+    "publication_date": "2018-06-26",
+    "title": "Airworthiness Directives; International Aero Engines Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "fb0596e47bc91560c8017bd4eef55254d3410e696a3e3c45d37f7550f49b6d62",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165837Z-1c95b837"
+    }
+  ]
+}

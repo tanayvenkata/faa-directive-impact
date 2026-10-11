@@ -1,0 +1,50 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-23583",
+  "effective_on": null,
+  "entry_sha256": "147b1429cea5c75b5dc4d6575f3f692494af3d166310169a8a85c86e6d14292d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/09/14/00-23583/airworthiness-directives-sikorsky-aircraft-manufactured-model-ch-54a-helicopters",
+  "kind": "final_rule",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "2000-09-14",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 55453",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-SW-81-AD"
+    ],
+    "document_number": "00-23583",
+    "effective_on": null,
+    "html_url": "https://www.federalregister.gov/documents/2000/09/14/00-23583/airworthiness-directives-sikorsky-aircraft-manufactured-model-ch-54a-helicopters",
+    "publication_date": "2000-09-14",
+    "title": "Airworthiness Directives; Sikorsky Aircraft-Manufactured Model CH-54A Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Sikorsky Aircraft-Manufactured Model CH-54A Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "147b1429cea5c75b5dc4d6575f3f692494af3d166310169a8a85c86e6d14292d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

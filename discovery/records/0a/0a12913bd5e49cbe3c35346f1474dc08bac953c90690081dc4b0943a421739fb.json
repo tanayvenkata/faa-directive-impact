@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "97-13-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "97-16104",
+  "effective_on": "1997-07-07",
+  "entry_sha256": "95825fed7ccc5a7f0873562c96f17ba3a58b555c910875b18b66ed4a0861103d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-78e05434",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-78e05434.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1997/06/20/97-16104/airworthiness-directives-saab-model-saab-340b-and-saab-2000-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1997-06-20",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "62 FR 33545",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-NM-76-AD",
+      "Amendment 39-10052",
+      "AD 97-13-06"
+    ],
+    "document_number": "97-16104",
+    "effective_on": "1997-07-07",
+    "html_url": "https://www.federalregister.gov/documents/1997/06/20/97-16104/airworthiness-directives-saab-model-saab-340b-and-saab-2000-series-airplanes",
+    "publication_date": "1997-06-20",
+    "title": "Airworthiness Directives; Saab Model SAAB 340B and SAAB 2000 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Saab Model SAAB 340B and SAAB 2000 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "95825fed7ccc5a7f0873562c96f17ba3a58b555c910875b18b66ed4a0861103d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-78e05434"
+    }
+  ]
+}

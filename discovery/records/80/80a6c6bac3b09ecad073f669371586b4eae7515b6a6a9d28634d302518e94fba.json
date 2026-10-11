@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-06-03"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "06-2408",
+  "effective_on": "2006-04-20",
+  "entry_sha256": "09747f5abbfdb207916611d1bc9e60c75ebd963b134176726f1337b62033231d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-20970"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/03/16/06-2408/airworthiness-directives-cessna-model-500-501-550-s550-551-and-560-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2006-03-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "71 FR 13526",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-20970",
+      "Directorate Identifier 2004-NM-53-AD",
+      "Amendment 39-14511",
+      "AD 2006-06-03"
+    ],
+    "document_number": "06-2408",
+    "effective_on": "2006-04-20",
+    "html_url": "https://www.federalregister.gov/documents/2006/03/16/06-2408/airworthiness-directives-cessna-model-500-501-550-s550-551-and-560-airplanes",
+    "publication_date": "2006-03-16",
+    "title": "Airworthiness Directives; Cessna Model 500, 501, 550, S550, 551, and 560 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Cessna Model 500, 501, 550, S550, 551, and 560 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "09747f5abbfdb207916611d1bc9e60c75ebd963b134176726f1337b62033231d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

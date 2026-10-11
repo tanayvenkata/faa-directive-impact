@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-09-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-10593",
+  "effective_on": "1998-06-01",
+  "entry_sha256": "2cc10b5fab29001fc3c58dae3efacecd49fb8fdaebf95059b6583250d209676c",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/04/24/98-10593/airworthiness-directives-alexander-schleicher-gmbh-segelflugzeugbau-model-ash-26e-sailplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-04-24",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "63 FR 20308",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-CE-118-AD",
+      "Amendment 39-10489",
+      "AD 98-09-09"
+    ],
+    "document_number": "98-10593",
+    "effective_on": "1998-06-01",
+    "html_url": "https://www.federalregister.gov/documents/1998/04/24/98-10593/airworthiness-directives-alexander-schleicher-gmbh-segelflugzeugbau-model-ash-26e-sailplanes",
+    "publication_date": "1998-04-24",
+    "title": "Airworthiness Directives; Alexander Schleicher GmbH Segelflugzeugbau Model ASH-26E Sailplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Alexander Schleicher GmbH Segelflugzeugbau Model ASH-26E Sailplanes",
+  "versions": [
+    {
+      "entry_sha256": "2cc10b5fab29001fc3c58dae3efacecd49fb8fdaebf95059b6583250d209676c",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

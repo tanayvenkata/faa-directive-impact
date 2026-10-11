@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2007-12-16"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-11203",
+  "effective_on": "2007-07-19",
+  "entry_sha256": "2386d2d0496f1031fba1bff618674ed893424a3a12e9e9d3276ce7da7c11a885",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-687de582",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-687de582.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2007-27849"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2007/06/14/E7-11203/airworthiness-directives-dassault-model-falcon-2000ex-and-falcon-900ex-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2007-06-14",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "72 FR 32776",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-27849",
+      "Directorate Identifier 2006-NM-249-AD",
+      "Amendment 39-15094",
+      "AD 2007-12-16"
+    ],
+    "document_number": "E7-11203",
+    "effective_on": "2007-07-19",
+    "html_url": "https://www.federalregister.gov/documents/2007/06/14/E7-11203/airworthiness-directives-dassault-model-falcon-2000ex-and-falcon-900ex-airplanes",
+    "publication_date": "2007-06-14",
+    "title": "Airworthiness Directives; Dassault Model Falcon 2000EX and Falcon 900EX Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Dassault Model Falcon 2000EX and Falcon 900EX Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "2386d2d0496f1031fba1bff618674ed893424a3a12e9e9d3276ce7da7c11a885",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-687de582"
+    }
+  ]
+}

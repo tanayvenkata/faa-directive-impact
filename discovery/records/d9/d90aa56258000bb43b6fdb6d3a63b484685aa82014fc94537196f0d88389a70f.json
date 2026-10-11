@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "95-01-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "95-176",
+  "effective_on": "1995-01-20",
+  "entry_sha256": "9fa9fab322ad8bb1ad9a7bb86da122461fabe1a9da6cfd77aa63f82de814c4b2",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165831Z-a185d5f2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165831Z-a185d5f2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1995/01/05/95-176/airworthiness-directives-boeing-model-757-equipped-with-pratt-and-whitney-model-pw2000-series",
+  "kind": "final_rule",
+  "publication_date": "1995-01-05",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "60 FR 1712",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 94-NM-231-AD",
+      "Amendment 39-9116",
+      "AD 95-01-05"
+    ],
+    "document_number": "95-176",
+    "effective_on": "1995-01-20",
+    "html_url": "https://www.federalregister.gov/documents/1995/01/05/95-176/airworthiness-directives-boeing-model-757-equipped-with-pratt-and-whitney-model-pw2000-series",
+    "publication_date": "1995-01-05",
+    "title": "Airworthiness Directives; Boeing Model 757 Equipped With Pratt & Whitney Model PW2000 Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 757 Equipped With Pratt & Whitney Model PW2000 Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "9fa9fab322ad8bb1ad9a7bb86da122461fabe1a9da6cfd77aa63f82de814c4b2",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165831Z-a185d5f2"
+    }
+  ]
+}

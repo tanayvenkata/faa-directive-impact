@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-10-18"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-12814",
+  "effective_on": "2000-06-30",
+  "entry_sha256": "92c8c99ea3874ea5cc195d97b82082bbc0e743fc1f0e7b12c55c721cdbc8c0e1",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/05/26/00-12814/airworthiness-directives-airbus-industrie-model-a300-a300-600-and-a310-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-05-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 34055",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-251-AD",
+      "Amendment 39-11742",
+      "AD 2000-10-18"
+    ],
+    "document_number": "00-12814",
+    "effective_on": "2000-06-30",
+    "html_url": "https://www.federalregister.gov/documents/2000/05/26/00-12814/airworthiness-directives-airbus-industrie-model-a300-a300-600-and-a310-series-airplanes",
+    "publication_date": "2000-05-26",
+    "title": "Airworthiness Directives; Airbus Industrie Model A300, A300-600, and A310 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Industrie Model A300, A300-600, and A310 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "92c8c99ea3874ea5cc195d97b82082bbc0e743fc1f0e7b12c55c721cdbc8c0e1",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

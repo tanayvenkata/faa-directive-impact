@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-14-08"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-13432",
+  "effective_on": "2005-08-15",
+  "entry_sha256": "6ec5140dda8bd7061e594c6899e808d347fbeed66b4da211d39858a775d778fe",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-20243"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/07/11/05-13432/airworthiness-directives-boeing-model-747-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2005-07-11",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 39644",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-20243",
+      "Directorate Identifier 2004-NM-153-AD",
+      "Amendment 39-14185",
+      "AD 2005-14-08"
+    ],
+    "document_number": "05-13432",
+    "effective_on": "2005-08-15",
+    "html_url": "https://www.federalregister.gov/documents/2005/07/11/05-13432/airworthiness-directives-boeing-model-747-airplanes",
+    "publication_date": "2005-07-11",
+    "title": "Airworthiness Directives; Boeing Model 747 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "6ec5140dda8bd7061e594c6899e808d347fbeed66b4da211d39858a775d778fe",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

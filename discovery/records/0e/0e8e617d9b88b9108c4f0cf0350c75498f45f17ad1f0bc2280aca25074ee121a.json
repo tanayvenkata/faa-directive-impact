@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-11-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-11989",
+  "effective_on": "2009-07-02",
+  "entry_sha256": "b56407a900abfcf747d4077079cc3de53d8d52ee0c3a41ce956693bc99b1cff1",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-0119"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/05/28/E9-11989/airworthiness-directives-m7-aerospace-lp-models-sa226-at-sa226-t-sa226-tc-sa227-ac-c-26a-sa227-at",
+  "kind": "final_rule",
+  "publication_date": "2009-05-28",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "74 FR 25390",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-0119",
+      "Directorate Identifier 2008-CE-068-AD",
+      "Amendment 39-15916",
+      "AD 2009-11-06"
+    ],
+    "document_number": "E9-11989",
+    "effective_on": "2009-07-02",
+    "html_url": "https://www.federalregister.gov/documents/2009/05/28/E9-11989/airworthiness-directives-m7-aerospace-lp-models-sa226-at-sa226-t-sa226-tc-sa227-ac-c-26a-sa227-at",
+    "publication_date": "2009-05-28",
+    "title": "Airworthiness Directives; M7 Aerospace LP Models SA226-AT, SA226-T, SA226-TC, SA227-AC (C-26A), SA227-AT, SA227-BC (C-26A), SA227-CC, and SA227-DC (C-26B) Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; M7 Aerospace LP Models SA226-AT, SA226-T, SA226-TC, SA227-AC (C-26A), SA227-AT, SA227-BC (C-26A), SA227-CC, and SA227-DC (C-26B) Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "b56407a900abfcf747d4077079cc3de53d8d52ee0c3a41ce956693bc99b1cff1",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "ad_numbers": [
+    "2005-12-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-11613",
+  "effective_on": "2005-06-22",
+  "entry_sha256": "456d6da07e5ab6d30e8653662228ec7f87d686a81831065643a6e3cd22b15073",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/06/14/05-11613/airworthiness-directives-cessna-aircraft-company-models-402c-and-414a-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2005-06-14",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments",
+    "citation": "70 FR 34325",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-05-21177",
+      "Directorate Identifier 2005-CE-26-AD",
+      "Amendment 39-14129",
+      "AD 2005-12-13"
+    ],
+    "document_number": "05-11613",
+    "effective_on": "2005-06-22",
+    "html_url": "https://www.federalregister.gov/documents/2005/06/14/05-11613/airworthiness-directives-cessna-aircraft-company-models-402c-and-414a-airplanes",
+    "publication_date": "2005-06-14",
+    "title": "Airworthiness Directives; Cessna Aircraft Company Models 402C and 414A Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Cessna Aircraft Company Models 402C and 414A Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "456d6da07e5ab6d30e8653662228ec7f87d686a81831065643a6e3cd22b15073",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

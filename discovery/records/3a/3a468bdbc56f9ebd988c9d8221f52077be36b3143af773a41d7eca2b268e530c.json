@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2016-14-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2016-16212",
+  "effective_on": "2016-08-16",
+  "entry_sha256": "639ffbc8b17e09e040a697cfda9f8a2a39c69155e6fb6125b4425331a3b8047a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165837Z-50466c8d",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165837Z-50466c8d.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2015-3632"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2016/07/12/2016-16212/airworthiness-directives-airbus-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2016-07-12",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "81 FR 44989",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2015-3632",
+      "Directorate Identifier 2015-NM-023-AD",
+      "Amendment 39-18590",
+      "AD 2016-14-09"
+    ],
+    "document_number": "2016-16212",
+    "effective_on": "2016-08-16",
+    "html_url": "https://www.federalregister.gov/documents/2016/07/12/2016-16212/airworthiness-directives-airbus-airplanes",
+    "publication_date": "2016-07-12",
+    "title": "Airworthiness Directives; Airbus Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "639ffbc8b17e09e040a697cfda9f8a2a39c69155e6fb6125b4425331a3b8047a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165837Z-50466c8d"
+    }
+  ]
+}

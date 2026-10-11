@@ -1,0 +1,84 @@
+{
+  "ad_numbers": [
+    "2016-18-10"
+  ],
+  "coverage_state": "not_yet_evaluated",
+  "document_number": "2016-21061",
+  "effective_on": "2016-10-07",
+  "entry_sha256": "1f8a35caf32f389c62f8b6e2da462d14e01a262874a2f1e8d15f010b7a310328",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T165842Z-9408c76c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165842Z-9408c76c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T165842Z-deabd01f",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165842Z-deabd01f.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165837Z-50466c8d",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165837Z-50466c8d.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2016-4123"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2016/09/02/2016-21061/airworthiness-directives-international-aero-engines-ag-turbofan-engines",
+  "incorporated_material": {
+    "items": [
+      "International Aero Engines AG Non-Modification Service Bulletin V2500-ENG-72-0661, Revision 2, dated May 27, 2016.",
+      "Reserved."
+    ],
+    "paragraph": "j"
+  },
+  "kind": "final_rule",
+  "publication_date": "2016-09-02",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "not_yet_evaluated",
+    "detail": "Paragraph (c) lists only V2500-A5/D5/E5 models.",
+    "models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2533-A5"
+    ],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "81 FR 60582",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2016-4123",
+      "Directorate Identifier 2016-NE-06-AD",
+      "Amendment 39-18640",
+      "AD 2016-18-10"
+    ],
+    "document_number": "2016-21061",
+    "effective_on": "2016-10-07",
+    "html_url": "https://www.federalregister.gov/documents/2016/09/02/2016-21061/airworthiness-directives-international-aero-engines-ag-turbofan-engines",
+    "publication_date": "2016-09-02",
+    "title": "Airworthiness Directives; International Aero Engines AG Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "1f8a35caf32f389c62f8b6e2da462d14e01a262874a2f1e8d15f010b7a310328",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165837Z-50466c8d"
+    }
+  ]
+}

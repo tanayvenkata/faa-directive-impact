@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-07-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-8612",
+  "effective_on": "2001-05-15",
+  "entry_sha256": "70694f0f608dae1cc5dcd4fcde1fb40b6d229ee2f7ac6f9903c77062b6d16d07",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/04/10/01-8612/airworthiness-directives-boeing-model-767-series-airplanes-powered-by-general-electric-or-pratt-and",
+  "kind": "final_rule",
+  "publication_date": "2001-04-10",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "66 FR 18523",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-157-AD",
+      "Amendment 39-12170",
+      "AD 2001-07-05"
+    ],
+    "document_number": "01-8612",
+    "effective_on": "2001-05-15",
+    "html_url": "https://www.federalregister.gov/documents/2001/04/10/01-8612/airworthiness-directives-boeing-model-767-series-airplanes-powered-by-general-electric-or-pratt-and",
+    "publication_date": "2001-04-10",
+    "title": "Airworthiness Directives; Boeing Model 767 Series Airplanes Powered by General Electric or Pratt & Whitney Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 767 Series Airplanes Powered by General Electric or Pratt & Whitney Engines",
+  "versions": [
+    {
+      "entry_sha256": "70694f0f608dae1cc5dcd4fcde1fb40b6d229ee2f7ac6f9903c77062b6d16d07",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

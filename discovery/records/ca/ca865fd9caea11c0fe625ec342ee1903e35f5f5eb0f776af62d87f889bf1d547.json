@@ -1,0 +1,57 @@
+{
+  "ad_numbers": [
+    "2019-06-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "R1-2019-05582",
+  "effective_on": "2019-04-10",
+  "entry_sha256": "869efe010eadf16c7cecd54ed60b8ff097bc58c118106eb9e87af1be41b821ea",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165837Z-82a53998",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165837Z-82a53998.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2018-0735"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2019/04/04/R1-2019-05582/airworthiness-directives-international-aero-engines-turbofan-engines",
+  "kind": "correction",
+  "publication_date": "2019-04-04",
+  "review_reason": "A Federal Register correction or republication of an IAE directive; read it and the document it corrects by hand.",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "A Federal Register correction or republication of an IAE directive; read it and the document it corrects by hand.",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "84 FR 13105",
+    "correction_of": "https://www.federalregister.gov/api/v1/documents/2019-05582",
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2018-0735",
+      "Product Identifier 2018-NE-26-AD",
+      "Amendment 39-19599",
+      "AD 2019-06-01"
+    ],
+    "document_number": "R1-2019-05582",
+    "effective_on": "2019-04-10",
+    "html_url": "https://www.federalregister.gov/documents/2019/04/04/R1-2019-05582/airworthiness-directives-international-aero-engines-turbofan-engines",
+    "publication_date": "2019-04-04",
+    "title": "Airworthiness Directives; International Aero Engines Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "869efe010eadf16c7cecd54ed60b8ff097bc58c118106eb9e87af1be41b821ea",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165837Z-82a53998"
+    }
+  ]
+}

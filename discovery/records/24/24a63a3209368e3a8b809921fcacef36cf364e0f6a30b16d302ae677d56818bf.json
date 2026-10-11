@@ -1,0 +1,71 @@
+{
+  "ad_numbers": [
+    "2018-22-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2018-24250",
+  "effective_on": "2018-12-12",
+  "entry_sha256": "05d0140d9c79100dd692b11df1c31f629fbc201c3548e7695a5b33a1509398f4",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T165852Z-b6ea8a54",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165852Z-b6ea8a54.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T165852Z-2bfe1bfb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165852Z-2bfe1bfb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165837Z-1c95b837",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165837Z-1c95b837.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2018-0431"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2018/11/07/2018-24250/airworthiness-directives-international-aero-engines-turbofan-engines",
+  "incorporated_material": {
+    "items": [],
+    "paragraph": "j"
+  },
+  "kind": "final_rule",
+  "publication_date": "2018-11-07",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "outside_supported_scope",
+    "detail": "Paragraph (c) lists no V2500 model.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "83 FR 55619",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2018-0431",
+      "Product Identifier 2018-NE-16-AD",
+      "Amendment 39-19475",
+      "AD 2018-22-02"
+    ],
+    "document_number": "2018-24250",
+    "effective_on": "2018-12-12",
+    "html_url": "https://www.federalregister.gov/documents/2018/11/07/2018-24250/airworthiness-directives-international-aero-engines-turbofan-engines",
+    "publication_date": "2018-11-07",
+    "title": "Airworthiness Directives; International Aero Engines Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "05d0140d9c79100dd692b11df1c31f629fbc201c3548e7695a5b33a1509398f4",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165837Z-1c95b837"
+    }
+  ]
+}

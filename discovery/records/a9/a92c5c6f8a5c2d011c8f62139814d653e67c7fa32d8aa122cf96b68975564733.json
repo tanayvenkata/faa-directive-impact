@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-11-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-13609",
+  "effective_on": "2002-07-12",
+  "entry_sha256": "90f2ae3af925f0462dc72d93d8598bed787c92b83936d8a7be80cda7b1419cd0",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/05/31/02-13609/airworthiness-directives-air-tractor-inc-models-at-400-at-401-at-401b-at-402-at-402a-at-402b-at-501",
+  "kind": "final_rule",
+  "publication_date": "2002-05-31",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 37967",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-CE-36-AD",
+      "Amendment 39-12766",
+      "AD 2002-11-05"
+    ],
+    "document_number": "02-13609",
+    "effective_on": "2002-07-12",
+    "html_url": "https://www.federalregister.gov/documents/2002/05/31/02-13609/airworthiness-directives-air-tractor-inc-models-at-400-at-401-at-401b-at-402-at-402a-at-402b-at-501",
+    "publication_date": "2002-05-31",
+    "title": "Airworthiness Directives; Air Tractor, Inc. Models AT-400, AT-401, AT-401B, AT-402, AT-402A, AT-402B, AT-501, AT-802, and AT-802A Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Air Tractor, Inc. Models AT-400, AT-401, AT-401B, AT-402, AT-402A, AT-402B, AT-501, AT-802, and AT-802A Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "90f2ae3af925f0462dc72d93d8598bed787c92b83936d8a7be80cda7b1419cd0",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

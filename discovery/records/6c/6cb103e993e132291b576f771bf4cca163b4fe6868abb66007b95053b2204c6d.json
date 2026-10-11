@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2008-02-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E8-751",
+  "effective_on": "2008-02-26",
+  "entry_sha256": "6f5353cb4ca6e52330bf47b09e42b36d53254744102f8b2ef1c6ef431c23c56f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9badc618",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9badc618.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2007-29316"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2008/01/22/E8-751/airworthiness-directives-eclipse-aviation-corporation-model-ea500-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2008-01-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "73 FR 3618",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-29316",
+      "Directorate Identifier 2007-CE-078-AD",
+      "Amendment 39-15334",
+      "AD 2008-02-04"
+    ],
+    "document_number": "E8-751",
+    "effective_on": "2008-02-26",
+    "html_url": "https://www.federalregister.gov/documents/2008/01/22/E8-751/airworthiness-directives-eclipse-aviation-corporation-model-ea500-airplanes",
+    "publication_date": "2008-01-22",
+    "title": "Airworthiness Directives; Eclipse Aviation Corporation Model EA500 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eclipse Aviation Corporation Model EA500 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "6f5353cb4ca6e52330bf47b09e42b36d53254744102f8b2ef1c6ef431c23c56f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9badc618"
+    }
+  ]
+}

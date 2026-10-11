@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-16-03"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-19156",
+  "effective_on": "2010-09-09",
+  "entry_sha256": "70a36e077878f9fd695ff255a1037ad02bb2d50fd0e035f9cab27b5ec611c6ce",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2008-0403"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/08/05/2010-19156/airworthiness-directives-mcdonnell-douglas-corporation-model-md-11-and-md-11f-airplanes-equipped",
+  "kind": "final_rule",
+  "publication_date": "2010-08-05",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "75 FR 47203",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2008-0403",
+      "Directorate Identifier 2007-NM-166-AD",
+      "Amendment 39-16379",
+      "AD 2010-16-03"
+    ],
+    "document_number": "2010-19156",
+    "effective_on": "2010-09-09",
+    "html_url": "https://www.federalregister.gov/documents/2010/08/05/2010-19156/airworthiness-directives-mcdonnell-douglas-corporation-model-md-11-and-md-11f-airplanes-equipped",
+    "publication_date": "2010-08-05",
+    "title": "Airworthiness Directives; McDonnell Douglas Corporation Model MD-11 and MD-11F Airplanes Equipped With General Electric CF6-80C2 Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Corporation Model MD-11 and MD-11F Airplanes Equipped With General Electric CF6-80C2 Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "70a36e077878f9fd695ff255a1037ad02bb2d50fd0e035f9cab27b5ec611c6ce",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-24-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-30318",
+  "effective_on": "2001-01-05",
+  "entry_sha256": "22cd86bcbfb598604f6628e869638ee477c6949c8e1ac77b23607afccf989b98",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/12/04/00-30318/airworthiness-directives-raytheon-aircraft-company-beech-models-a36-b36tc-and-58-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-12-04",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 75597",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-CE-06-AD",
+      "Amendment 39-12011",
+      "AD 2000-24-04"
+    ],
+    "document_number": "00-30318",
+    "effective_on": "2001-01-05",
+    "html_url": "https://www.federalregister.gov/documents/2000/12/04/00-30318/airworthiness-directives-raytheon-aircraft-company-beech-models-a36-b36tc-and-58-airplanes",
+    "publication_date": "2000-12-04",
+    "title": "Airworthiness Directives; Raytheon Aircraft Company Beech Models A36, B36TC, and 58 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Raytheon Aircraft Company Beech Models A36, B36TC, and 58 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "22cd86bcbfb598604f6628e869638ee477c6949c8e1ac77b23607afccf989b98",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

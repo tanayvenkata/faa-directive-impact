@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-24-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-30520",
+  "effective_on": "2000-01-14",
+  "entry_sha256": "030447ad1fe3fef8b6e04cf46c9dd25b17badd4a045e63ab8f1828d4554c76b1",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/11/26/99-30520/airworthiness-directives-pilatus-aircraft-ltd-models-pc-12-and-pc-1245-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1999-11-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 66365",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-CE-54-AD",
+      "Amendment 39-11433",
+      "AD 99-24-09"
+    ],
+    "document_number": "99-30520",
+    "effective_on": "2000-01-14",
+    "html_url": "https://www.federalregister.gov/documents/1999/11/26/99-30520/airworthiness-directives-pilatus-aircraft-ltd-models-pc-12-and-pc-1245-airplanes",
+    "publication_date": "1999-11-26",
+    "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Models PC-12 and PC-12/45 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Models PC-12 and PC-12/45 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "030447ad1fe3fef8b6e04cf46c9dd25b17badd4a045e63ab8f1828d4554c76b1",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

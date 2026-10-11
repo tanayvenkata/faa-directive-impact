@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-02-26"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-2391",
+  "effective_on": "2000-03-27",
+  "entry_sha256": "0169dfed96f90aa65d05712f23a666c0f056b4d586ec8fe8219d0f2f37fb8e5f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/02/04/00-2391/airworthiness-directives-harbin-aircraft-manufacturing-corporation-model-y12-iv-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-02-04",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 5419",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-CE-41-AD",
+      "Amendment 39-11544",
+      "AD 2000-02-26"
+    ],
+    "document_number": "00-2391",
+    "effective_on": "2000-03-27",
+    "html_url": "https://www.federalregister.gov/documents/2000/02/04/00-2391/airworthiness-directives-harbin-aircraft-manufacturing-corporation-model-y12-iv-airplanes",
+    "publication_date": "2000-02-04",
+    "title": "Airworthiness Directives; Harbin Aircraft Manufacturing Corporation Model Y12 IV Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Harbin Aircraft Manufacturing Corporation Model Y12 IV Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "0169dfed96f90aa65d05712f23a666c0f056b4d586ec8fe8219d0f2f37fb8e5f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

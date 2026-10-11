@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-21-16"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-25929",
+  "effective_on": "1999-11-12",
+  "entry_sha256": "477b2faa80ba53ecfb8ec4cb7df3e48a40bd65295aaef060d7f1445168eaccc9",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/10/08/99-25929/airworthiness-directives-british-aerospace-bae-model-atp-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1999-10-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 54774",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-NM-345-AD",
+      "Amendment 39-11361",
+      "AD 99-21-16"
+    ],
+    "document_number": "99-25929",
+    "effective_on": "1999-11-12",
+    "html_url": "https://www.federalregister.gov/documents/1999/10/08/99-25929/airworthiness-directives-british-aerospace-bae-model-atp-airplanes",
+    "publication_date": "1999-10-08",
+    "title": "Airworthiness Directives; British Aerospace BAe Model ATP Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; British Aerospace BAe Model ATP Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "477b2faa80ba53ecfb8ec4cb7df3e48a40bd65295aaef060d7f1445168eaccc9",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-10-21"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-13085",
+  "effective_on": "2000-06-12",
+  "entry_sha256": "53aee6d134fa4d64356969489f244815a93a0fb2f0519c4f87705cc41f451874",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/05/26/00-13085/airworthiness-directives-boeing-model-737-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-05-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "65 FR 34063",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-111-AD",
+      "Amendment 39-11745",
+      "AD 2000-10-21"
+    ],
+    "document_number": "00-13085",
+    "effective_on": "2000-06-12",
+    "html_url": "https://www.federalregister.gov/documents/2000/05/26/00-13085/airworthiness-directives-boeing-model-737-series-airplanes",
+    "publication_date": "2000-05-26",
+    "title": "Airworthiness Directives; Boeing Model 737 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 737 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "53aee6d134fa4d64356969489f244815a93a0fb2f0519c4f87705cc41f451874",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

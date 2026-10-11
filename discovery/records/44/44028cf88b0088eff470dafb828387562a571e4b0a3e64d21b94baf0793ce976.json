@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2011-15-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2011-18242",
+  "effective_on": "2011-09-06",
+  "entry_sha256": "960e56b505303a393e6e8fc2212c2d5b150265a58ac0d0577ea1abfd13c3ea48",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-20b5ccf0",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-20b5ccf0.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2011-0450"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2011/08/01/2011-18242/airworthiness-directives-cessna-aircraft-company-cessna-models-337-337a-usaf-02b-337b-337c-337d-337e",
+  "kind": "final_rule",
+  "publication_date": "2011-08-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "76 FR 45657",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2011-0450",
+      "Directorate Identifier 2011-CE-010-AD",
+      "Amendment 39-16758",
+      "AD 2011-15-11"
+    ],
+    "document_number": "2011-18242",
+    "effective_on": "2011-09-06",
+    "html_url": "https://www.federalregister.gov/documents/2011/08/01/2011-18242/airworthiness-directives-cessna-aircraft-company-cessna-models-337-337a-usaf-02b-337b-337c-337d-337e",
+    "publication_date": "2011-08-01",
+    "title": "Airworthiness Directives; Cessna Aircraft Company (Cessna) Models 337, 337A (USAF 02B), 337B, 337C, 337D, 337E, T337E, 337F, T337F, 337G, T337G, M337B, F 337E, FT337E, F 337F, FT337F, F 337G, and FT337GP Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Cessna Aircraft Company (Cessna) Models 337, 337A (USAF 02B), 337B, 337C, 337D, 337E, T337E, 337F, T337F, 337G, T337G, M337B, F 337E, FT337E, F 337F, FT337F, F 337G, and FT337GP Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "960e56b505303a393e6e8fc2212c2d5b150265a58ac0d0577ea1abfd13c3ea48",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-20b5ccf0"
+    }
+  ]
+}

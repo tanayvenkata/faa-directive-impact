@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-18-12"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-23745",
+  "effective_on": "2010-10-07",
+  "entry_sha256": "529b41e181649d8aa05fef334c39443e5cc6fb1b893a92a6d343c3e3794879d0",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2010-0632"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/09/23/2010-23745/airworthiness-directives-robert-e-rust-jr-model-dehavilland-dhc1-chipmunk-21-dhc1-chipmunk-22-and",
+  "kind": "correction",
+  "publication_date": "2010-09-23",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "75 FR 57846",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-0632",
+      "Directorate Identifier 2010-CE-025-AD",
+      "Amendment 39-16426",
+      "AD 2010-18-12"
+    ],
+    "document_number": "2010-23745",
+    "effective_on": "2010-10-07",
+    "html_url": "https://www.federalregister.gov/documents/2010/09/23/2010-23745/airworthiness-directives-robert-e-rust-jr-model-dehavilland-dhc1-chipmunk-21-dhc1-chipmunk-22-and",
+    "publication_date": "2010-09-23",
+    "title": "Airworthiness Directives; Robert E. Rust, Jr. Model DeHavilland DH.C1 Chipmunk 21, DH.C1 Chipmunk 22, and DH.C1 Chipmunk 22A Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Robert E. Rust, Jr. Model DeHavilland DH.C1 Chipmunk 21, DH.C1 Chipmunk 22, and DH.C1 Chipmunk 22A Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "529b41e181649d8aa05fef334c39443e5cc6fb1b893a92a6d343c3e3794879d0",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

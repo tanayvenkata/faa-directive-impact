@@ -1,0 +1,54 @@
+{
+  "ad_numbers": [
+    "99-08-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-8861",
+  "effective_on": "1999-05-13",
+  "entry_sha256": "305fe89d50ebc0ae6e8dc51bd7be0a292f20a86e5b3b20c6c28d436f8c79bb5e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/04/13/99-8861/airworthiness-directives-international-aero-engines-ag-iae-v2500-a1-a5-d5-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "1999-04-13",
+  "review_reason": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 17956",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-ANE-45-AD",
+      "Amendment 39-11117",
+      "AD 99-08-11"
+    ],
+    "document_number": "99-8861",
+    "effective_on": "1999-05-13",
+    "html_url": "https://www.federalregister.gov/documents/1999/04/13/99-8861/airworthiness-directives-international-aero-engines-ag-iae-v2500-a1-a5-d5-series-turbofan-engines",
+    "publication_date": "1999-04-13",
+    "title": "Airworthiness Directives; International Aero Engines AG (IAE) V2500-A1/-A5/-D5 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG (IAE) V2500-A1/-A5/-D5 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "305fe89d50ebc0ae6e8dc51bd7be0a292f20a86e5b3b20c6c28d436f8c79bb5e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

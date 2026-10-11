@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2012-25-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2012-30058",
+  "effective_on": "2012-12-17",
+  "entry_sha256": "03bde8bdd96af2c9515dda534f2f0ff01b9ab19d15fb88e508dc84e63f2d9b6f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-8477c4ef",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-8477c4ef.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2012-1225"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2012/12/17/2012-30058/airworthiness-directives-gulfstream-aerospace-corporation-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2012-12-17",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "77 FR 74579",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2012-1225",
+      "Directorate Identifier 2012-NM-219-AD",
+      "Amendment 39-17288",
+      "AD 2012-25-07"
+    ],
+    "document_number": "2012-30058",
+    "effective_on": "2012-12-17",
+    "html_url": "https://www.federalregister.gov/documents/2012/12/17/2012-30058/airworthiness-directives-gulfstream-aerospace-corporation-airplanes",
+    "publication_date": "2012-12-17",
+    "title": "Airworthiness Directives; Gulfstream Aerospace Corporation Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Gulfstream Aerospace Corporation Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "03bde8bdd96af2c9515dda534f2f0ff01b9ab19d15fb88e508dc84e63f2d9b6f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-8477c4ef"
+    }
+  ]
+}

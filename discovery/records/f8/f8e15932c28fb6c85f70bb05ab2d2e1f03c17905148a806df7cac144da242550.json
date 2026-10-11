@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-24-21"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-30652",
+  "effective_on": "2001-01-10",
+  "entry_sha256": "38243ce8a09cabd93301c6d57f01d144ae65f564bbf4b93fa649e33ed9e875dd",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/12/06/00-30652/airworthiness-directives-siam-hiller-holdings-inc-model-uh-12-uh-12a-uh-12b-uh-12c-uh-12d-uh-12e",
+  "kind": "final_rule",
+  "publication_date": "2000-12-06",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 76149",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-SW-27-AD",
+      "Amendment 39-12028",
+      "AD 2000-24-21"
+    ],
+    "document_number": "00-30652",
+    "effective_on": "2001-01-10",
+    "html_url": "https://www.federalregister.gov/documents/2000/12/06/00-30652/airworthiness-directives-siam-hiller-holdings-inc-model-uh-12-uh-12a-uh-12b-uh-12c-uh-12d-uh-12e",
+    "publication_date": "2000-12-06",
+    "title": "Airworthiness Directives; Siam Hiller Holdings, Inc. Model UH-12, UH-12A, UH-12B, UH-12C, UH-12D, UH-12E, UH-12E-L, UH-12L, and UH-12L4 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Siam Hiller Holdings, Inc. Model UH-12, UH-12A, UH-12B, UH-12C, UH-12D, UH-12E, UH-12E-L, UH-12L, and UH-12L4 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "38243ce8a09cabd93301c6d57f01d144ae65f564bbf4b93fa649e33ed9e875dd",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

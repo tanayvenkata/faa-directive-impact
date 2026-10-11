@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-24-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-30624",
+  "effective_on": "1999-12-13",
+  "entry_sha256": "d9a8494d7e7278f8b0e265d7f4d887c43916ab40790402f27db63e7b27358aac",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/11/26/99-30624/airworthiness-directives-general-electric-company-cf6-80e1a2-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "1999-11-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "64 FR 66366",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NE-52-AD",
+      "Amendment 39-11438",
+      "AD 99-24-14"
+    ],
+    "document_number": "99-30624",
+    "effective_on": "1999-12-13",
+    "html_url": "https://www.federalregister.gov/documents/1999/11/26/99-30624/airworthiness-directives-general-electric-company-cf6-80e1a2-series-turbofan-engines",
+    "publication_date": "1999-11-26",
+    "title": "Airworthiness Directives; General Electric Company CF6-80E1A2 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; General Electric Company CF6-80E1A2 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "d9a8494d7e7278f8b0e265d7f4d887c43916ab40790402f27db63e7b27358aac",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

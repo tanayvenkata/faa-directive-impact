@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2004-14-22"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-16005",
+  "effective_on": "2004-08-03",
+  "entry_sha256": "1e36e45e476108cab068ecfc9243bf605a344a2e9d03da96300fbc7c78a5b584",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2004-18585"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/07/19/04-16005/airworthiness-directives-pratt-and-whitney-canada-pw206b-pw206c-pw206e-pw207d-and-pw207e-turboshaft",
+  "kind": "final_rule",
+  "publication_date": "2004-07-19",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "69 FR 42855",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2004-18585",
+      "Directorate Identifier 2004-NE-28-AD",
+      "Amendment 39-13731",
+      "AD 2004-14-22"
+    ],
+    "document_number": "04-16005",
+    "effective_on": "2004-08-03",
+    "html_url": "https://www.federalregister.gov/documents/2004/07/19/04-16005/airworthiness-directives-pratt-and-whitney-canada-pw206b-pw206c-pw206e-pw207d-and-pw207e-turboshaft",
+    "publication_date": "2004-07-19",
+    "title": "Airworthiness Directives; Pratt & Whitney Canada PW206B, PW206C, PW206E, PW207D, and PW207E Turboshaft Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pratt & Whitney Canada PW206B, PW206C, PW206E, PW207D, and PW207E Turboshaft Engines",
+  "versions": [
+    {
+      "entry_sha256": "1e36e45e476108cab068ecfc9243bf605a344a2e9d03da96300fbc7c78a5b584",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

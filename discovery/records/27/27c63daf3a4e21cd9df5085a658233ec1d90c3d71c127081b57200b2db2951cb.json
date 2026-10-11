@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-24-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-30628",
+  "effective_on": "2000-01-04",
+  "entry_sha256": "800ff6caef1bb2e1af24f6a296f6f1567446471ce7684361b955101610d55a18",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/11/30/99-30628/airworthiness-directives-boeing-model-757-200-and--300-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1999-11-30",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 66754",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-89-AD",
+      "Amendment 39-11435",
+      "AD 99-24-11"
+    ],
+    "document_number": "99-30628",
+    "effective_on": "2000-01-04",
+    "html_url": "https://www.federalregister.gov/documents/1999/11/30/99-30628/airworthiness-directives-boeing-model-757-200-and--300-series-airplanes",
+    "publication_date": "1999-11-30",
+    "title": "Airworthiness Directives; Boeing Model 757-200 and -300 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 757-200 and -300 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "800ff6caef1bb2e1af24f6a296f6f1567446471ce7684361b955101610d55a18",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2011-01-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-32995",
+  "effective_on": "2011-01-20",
+  "entry_sha256": "5a7f86ddf1ef142a6428ea14e410c0e3d6bccf30af65fd5c08bdc9371ba41dcc",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-20b5ccf0",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-20b5ccf0.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2010-1278"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2011/01/05/2010-32995/airworthiness-directives-airbus-model-a300-b4-600-b4-600r-and-f4-600r-series-airplanes-and-model",
+  "kind": "final_rule",
+  "publication_date": "2011-01-05",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "76 FR 441",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-1278",
+      "Directorate Identifier 2010-NM-260-AD",
+      "Amendment 39-16567",
+      "AD 2011-01-13"
+    ],
+    "document_number": "2010-32995",
+    "effective_on": "2011-01-20",
+    "html_url": "https://www.federalregister.gov/documents/2011/01/05/2010-32995/airworthiness-directives-airbus-model-a300-b4-600-b4-600r-and-f4-600r-series-airplanes-and-model",
+    "publication_date": "2011-01-05",
+    "title": "Airworthiness Directives; Airbus Model A300 B4-600, B4-600R, and F4-600R Series Airplanes, and Model C4-605R Variant F Airplanes (Collectively Called A300-600 Series Airplanes)",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A300 B4-600, B4-600R, and F4-600R Series Airplanes, and Model C4-605R Variant F Airplanes (Collectively Called A300-600 Series Airplanes)",
+  "versions": [
+    {
+      "entry_sha256": "5a7f86ddf1ef142a6428ea14e410c0e3d6bccf30af65fd5c08bdc9371ba41dcc",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-20b5ccf0"
+    }
+  ]
+}

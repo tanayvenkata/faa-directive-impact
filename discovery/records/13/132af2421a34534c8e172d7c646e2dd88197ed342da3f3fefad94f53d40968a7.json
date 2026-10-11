@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-13-23"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-15378",
+  "effective_on": "2004-08-13",
+  "entry_sha256": "ab4f231bb4d9325752bada7f4bfde6cbf7994968cbf6de87c6feb5dd65a2798f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/07/09/04-15378/airworthiness-directives-mcdonnell-douglas-dc-9-82-md-82-and-dc-9-83-md-83-airplanes-and-model-md-88",
+  "kind": "final_rule",
+  "publication_date": "2004-07-09",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 41419",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NM-251-AD",
+      "Amendment 39-13705",
+      "AD 2004-13-23"
+    ],
+    "document_number": "04-15378",
+    "effective_on": "2004-08-13",
+    "html_url": "https://www.federalregister.gov/documents/2004/07/09/04-15378/airworthiness-directives-mcdonnell-douglas-dc-9-82-md-82-and-dc-9-83-md-83-airplanes-and-model-md-88",
+    "publication_date": "2004-07-09",
+    "title": "Airworthiness Directives; McDonnell Douglas DC-9-82 (MD-82) and DC-9-83 (MD-83) Airplanes; and Model MD-88 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas DC-9-82 (MD-82) and DC-9-83 (MD-83) Airplanes; and Model MD-88 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ab4f231bb4d9325752bada7f4bfde6cbf7994968cbf6de87c6feb5dd65a2798f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

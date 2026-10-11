@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2023-13-12"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2023-16121",
+  "effective_on": "2023-09-05",
+  "entry_sha256": "bc16c98395f009a8269a9c8e92654ca1c965a1e58556809eb976084f05b3d756",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165838Z-8ae1818a",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165838Z-8ae1818a.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2022-1479"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2023/07/31/2023-16121/airworthiness-directives-the-boeing-company-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2023-07-31",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "88 FR 49284",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2022-1479",
+      "Project Identifier AD-2022-00703-T",
+      "Amendment 39-22497",
+      "AD 2023-13-12"
+    ],
+    "document_number": "2023-16121",
+    "effective_on": "2023-09-05",
+    "html_url": "https://www.federalregister.gov/documents/2023/07/31/2023-16121/airworthiness-directives-the-boeing-company-airplanes",
+    "publication_date": "2023-07-31",
+    "title": "Airworthiness Directives; The Boeing Company Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; The Boeing Company Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "bc16c98395f009a8269a9c8e92654ca1c965a1e58556809eb976084f05b3d756",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165838Z-8ae1818a"
+    }
+  ]
+}

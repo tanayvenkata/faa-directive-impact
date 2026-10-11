@@ -1,0 +1,54 @@
+{
+  "ad_numbers": [
+    "99-13-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-14933",
+  "effective_on": "1999-06-25",
+  "entry_sha256": "f9779b6e13944514bc4de40e6e966474483dc3b322847470b72b5d6cfc5cb52a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/06/15/99-14933/airworthiness-directives-international-aero-engines-ag-v2500-a1-and-v2500-a5-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "1999-06-15",
+  "review_reason": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "64 FR 31967",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NE-37-AD",
+      "Amendment 39-11194",
+      "AD 99-13-01"
+    ],
+    "document_number": "99-14933",
+    "effective_on": "1999-06-25",
+    "html_url": "https://www.federalregister.gov/documents/1999/06/15/99-14933/airworthiness-directives-international-aero-engines-ag-v2500-a1-and-v2500-a5-series-turbofan-engines",
+    "publication_date": "1999-06-15",
+    "title": "Airworthiness Directives; International Aero Engines AG V2500-A1 and V2500-A5 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG V2500-A1 and V2500-A5 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "f9779b6e13944514bc4de40e6e966474483dc3b322847470b72b5d6cfc5cb52a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

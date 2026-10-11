@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-17-19"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-16980",
+  "effective_on": "2005-10-13",
+  "entry_sha256": "a3bf58cef99ef87048e53f0117669f0bdbfd2c696cb0126c14a292366e5901b5",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2004-19694"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/09/01/05-16980/airworthiness-directives-cirrus-design-corporation-models-sr20-and-sr22-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2005-09-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 51999",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2004-19694",
+      "Directorate Identifier 2004-CE-41-AD",
+      "Amendment 39-14240",
+      "AD 2005-17-19"
+    ],
+    "document_number": "05-16980",
+    "effective_on": "2005-10-13",
+    "html_url": "https://www.federalregister.gov/documents/2005/09/01/05-16980/airworthiness-directives-cirrus-design-corporation-models-sr20-and-sr22-airplanes",
+    "publication_date": "2005-09-01",
+    "title": "Airworthiness Directives; Cirrus Design Corporation Models SR20 and SR22 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Cirrus Design Corporation Models SR20 and SR22 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "a3bf58cef99ef87048e53f0117669f0bdbfd2c696cb0126c14a292366e5901b5",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

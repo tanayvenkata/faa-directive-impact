@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-26-25"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-89",
+  "effective_on": "2002-01-31",
+  "entry_sha256": "b8bc0a8bddba67fa987e2cff7327c64509928434f193ec179ddad87210c01902",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/01/08/02-89/airworthiness-directives-grob-werke-gmbh-and-co-kg-models-g102-club-astir-iii-g102-club-astir-iiib",
+  "kind": "final_rule",
+  "publication_date": "2002-01-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "67 FR 809",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-CE-48-AD",
+      "Amendment 39-12591",
+      "AD 2001-26-25"
+    ],
+    "document_number": "02-89",
+    "effective_on": "2002-01-31",
+    "html_url": "https://www.federalregister.gov/documents/2002/01/08/02-89/airworthiness-directives-grob-werke-gmbh-and-co-kg-models-g102-club-astir-iii-g102-club-astir-iiib",
+    "publication_date": "2002-01-08",
+    "title": "Airworthiness Directives; Grob-Werke Gmbh & Co KG Models G102 Club Astir III, G102 Club Astir IIIb, and G102 Standard Astir III Sailplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Grob-Werke Gmbh & Co KG Models G102 Club Astir III, G102 Club Astir IIIb, and G102 Standard Astir III Sailplanes",
+  "versions": [
+    {
+      "entry_sha256": "b8bc0a8bddba67fa987e2cff7327c64509928434f193ec179ddad87210c01902",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

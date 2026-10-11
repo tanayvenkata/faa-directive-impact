@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-13-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-16531",
+  "effective_on": "2002-08-12",
+  "entry_sha256": "417cc307f943aa25435361572e4df7ce0c6fc5cb4cfc6b98487c2697869d92d0",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/07/08/02-16531/airworthiness-directives-mcdonnell-douglas-model-dc-10-10--10f--15--30--30f--30f-kc10a-and-kdc-10",
+  "kind": "final_rule",
+  "publication_date": "2002-07-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 45053",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-46-AD",
+      "Amendment 39-12798",
+      "AD 2002-13-10"
+    ],
+    "document_number": "02-16531",
+    "effective_on": "2002-08-12",
+    "html_url": "https://www.federalregister.gov/documents/2002/07/08/02-16531/airworthiness-directives-mcdonnell-douglas-model-dc-10-10--10f--15--30--30f--30f-kc10a-and-kdc-10",
+    "publication_date": "2002-07-08",
+    "title": "Airworthiness Directives; McDonnell Douglas Model DC-10-10, -10F, -15, -30, -30F, -30F (KC10A and KDC-10), -40, and -40F Airplanes; Model MD-10-10F and -30F Airplanes; and Model MD-11 and -11F Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model DC-10-10, -10F, -15, -30, -30F, -30F (KC10A and KDC-10), -40, and -40F Airplanes; Model MD-10-10F and -30F Airplanes; and Model MD-11 and -11F Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "417cc307f943aa25435361572e4df7ce0c6fc5cb4cfc6b98487c2697869d92d0",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

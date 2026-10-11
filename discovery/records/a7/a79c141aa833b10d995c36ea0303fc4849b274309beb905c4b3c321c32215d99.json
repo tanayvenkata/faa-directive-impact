@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-16-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-19580",
+  "effective_on": "1999-09-07",
+  "entry_sha256": "6c2531a291bb147073891ee69fc438725ece1ed75c1c97d14e65f266201c1757",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/08/03/99-19580/airworthiness-directives-saab-model-saab-2000-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1999-08-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 42007",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-NM-151-AD",
+      "Amendment 39-11240",
+      "AD 99-16-05"
+    ],
+    "document_number": "99-19580",
+    "effective_on": "1999-09-07",
+    "html_url": "https://www.federalregister.gov/documents/1999/08/03/99-19580/airworthiness-directives-saab-model-saab-2000-series-airplanes",
+    "publication_date": "1999-08-03",
+    "title": "Airworthiness Directives; Saab Model SAAB 2000 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Saab Model SAAB 2000 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "6c2531a291bb147073891ee69fc438725ece1ed75c1c97d14e65f266201c1757",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

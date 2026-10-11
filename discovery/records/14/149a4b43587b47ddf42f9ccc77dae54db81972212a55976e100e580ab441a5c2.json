@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-22-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-21800",
+  "effective_on": "2005-12-19",
+  "entry_sha256": "23b2b03a940adab25b41ca32faf811a845824fc8f9664d948ccee84089274be0",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-21998"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/11/03/05-21800/airworthiness-directives-grob-werke-model-g120a-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2005-11-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 66747",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-21998",
+      "Directorate Identifier 2005-CE-40-AD",
+      "Amendment 39-14358",
+      "AD 2005-22-14"
+    ],
+    "document_number": "05-21800",
+    "effective_on": "2005-12-19",
+    "html_url": "https://www.federalregister.gov/documents/2005/11/03/05-21800/airworthiness-directives-grob-werke-model-g120a-airplanes",
+    "publication_date": "2005-11-03",
+    "title": "Airworthiness Directives; GROB-WERKE Model G120A Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; GROB-WERKE Model G120A Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "23b2b03a940adab25b41ca32faf811a845824fc8f9664d948ccee84089274be0",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

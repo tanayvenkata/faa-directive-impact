@@ -1,0 +1,57 @@
+{
+  "ad_numbers": [
+    "2007-21-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-19924",
+  "effective_on": "2007-11-15",
+  "entry_sha256": "6fc1561815a2703be3088cc000a58472561a93964df7d399b282c258e3d79e85",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-687de582",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-687de582.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-23500"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2007/10/11/E7-19924/airworthiness-directives-international-aero-engines-iae-v2500-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2007-10-11",
+  "review_reason": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "72 FR 57854",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-23500",
+      "Directorate Identifier 2005-NE-46-AD",
+      "Amendment 39-15223",
+      "AD 2007-21-05"
+    ],
+    "document_number": "E7-19924",
+    "effective_on": "2007-11-15",
+    "html_url": "https://www.federalregister.gov/documents/2007/10/11/E7-19924/airworthiness-directives-international-aero-engines-iae-v2500-series-turbofan-engines",
+    "publication_date": "2007-10-11",
+    "title": "Airworthiness Directives; International Aero Engines (IAE) V2500 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines (IAE) V2500 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "6fc1561815a2703be3088cc000a58472561a93964df7d399b282c258e3d79e85",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-687de582"
+    }
+  ]
+}

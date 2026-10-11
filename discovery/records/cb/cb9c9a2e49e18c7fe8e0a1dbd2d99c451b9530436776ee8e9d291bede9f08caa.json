@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-21-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-25595",
+  "effective_on": "1999-11-05",
+  "entry_sha256": "2dc7df2d8562a4baf58e9c384df4796316cf020444594566e0127ea192a1b737",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/10/01/99-25595/airworthiness-directives-airbus-model-a330-301-and-model-a340--211--212--311-and--312-series",
+  "kind": "final_rule",
+  "publication_date": "1999-10-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 53189",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-119-AD",
+      "Amendment 39-11347",
+      "AD 99-21-04"
+    ],
+    "document_number": "99-25595",
+    "effective_on": "1999-11-05",
+    "html_url": "https://www.federalregister.gov/documents/1999/10/01/99-25595/airworthiness-directives-airbus-model-a330-301-and-model-a340--211--212--311-and--312-series",
+    "publication_date": "1999-10-01",
+    "title": "Airworthiness Directives; Airbus Model A330-301, and Model A340- 211, -212, -311, and -312 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A330-301, and Model A340- 211, -212, -311, and -312 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "2dc7df2d8562a4baf58e9c384df4796316cf020444594566e0127ea192a1b737",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-04-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-4476",
+  "effective_on": "2003-04-04",
+  "entry_sha256": "a0fee351a042ce4661f1ec02850737cc06a1bd53ed2247b92ad34e3970f6a74c",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/02/28/03-4476/airworthiness-directives-bell-helicopter-textron-canada-bell-model-427-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2003-02-28",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "68 FR 9520",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-SW-19-AD",
+      "Amendment 39-13063",
+      "AD 2003-04-14"
+    ],
+    "document_number": "03-4476",
+    "effective_on": "2003-04-04",
+    "html_url": "https://www.federalregister.gov/documents/2003/02/28/03-4476/airworthiness-directives-bell-helicopter-textron-canada-bell-model-427-helicopters",
+    "publication_date": "2003-02-28",
+    "title": "Airworthiness Directives; Bell Helicopter Textron Canada (Bell) Model 427 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bell Helicopter Textron Canada (Bell) Model 427 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "a0fee351a042ce4661f1ec02850737cc06a1bd53ed2247b92ad34e3970f6a74c",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

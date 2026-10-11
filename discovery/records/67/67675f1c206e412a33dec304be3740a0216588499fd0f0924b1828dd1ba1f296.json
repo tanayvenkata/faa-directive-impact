@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-24-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-29591",
+  "effective_on": "2002-01-07",
+  "entry_sha256": "3068a6bc323ce97a05fac8040833eb18031e29385a23b533c83b6fc00d7668e5",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/12/03/01-29591/airworthiness-directives-agusta-spa-model-a109c-a109e-and-a109k2-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2001-12-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "66 FR 60144",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-SW-15-AD",
+      "Amendment 39-12523",
+      "AD 2001-24-07"
+    ],
+    "document_number": "01-29591",
+    "effective_on": "2002-01-07",
+    "html_url": "https://www.federalregister.gov/documents/2001/12/03/01-29591/airworthiness-directives-agusta-spa-model-a109c-a109e-and-a109k2-helicopters",
+    "publication_date": "2001-12-03",
+    "title": "Airworthiness Directives; Agusta S.p.A. Model A109C, A109E, and A109K2 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Agusta S.p.A. Model A109C, A109E, and A109K2 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "3068a6bc323ce97a05fac8040833eb18031e29385a23b533c83b6fc00d7668e5",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

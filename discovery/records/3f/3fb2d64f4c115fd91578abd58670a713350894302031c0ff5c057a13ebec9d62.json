@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-07-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-7052",
+  "effective_on": "2005-03-29",
+  "entry_sha256": "4b63f0465d1f347ef64dda0ff27796592c880e94c1555fa8a1ad3fd55a7c02cc",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-20514"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/04/08/05-7052/airworthiness-directives-the-cessna-aircraft-company-models-208-and-208b-airplanes",
+  "kind": "correction",
+  "publication_date": "2005-04-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "70 FR 17889",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-20514",
+      "Directorate Identifier 2005-CE-08-AD",
+      "Amendment 39-14025",
+      "AD 2005-07-01"
+    ],
+    "document_number": "05-7052",
+    "effective_on": "2005-03-29",
+    "html_url": "https://www.federalregister.gov/documents/2005/04/08/05-7052/airworthiness-directives-the-cessna-aircraft-company-models-208-and-208b-airplanes",
+    "publication_date": "2005-04-08",
+    "title": "Airworthiness Directives; the Cessna Aircraft Company Models 208 and 208B Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; the Cessna Aircraft Company Models 208 and 208B Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "4b63f0465d1f347ef64dda0ff27796592c880e94c1555fa8a1ad3fd55a7c02cc",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

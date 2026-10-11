@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2008-01-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-25613",
+  "effective_on": "2008-01-23",
+  "entry_sha256": "ca7ef3dcf54cb2aad5fa8666624647a26ba6543cec2f7b7aae56abb0521a7d6e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9badc618",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9badc618.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2008-0410"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2008/01/08/E7-25613/airworthiness-directives-viking-air-limited-model-caribou-dhc-4-and-caribou-dhc-4a-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2008-01-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "73 FR 1269",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2008-0410",
+      "Directorate Identifier 2007-NM-338-AD",
+      "Amendment 39-15325",
+      "AD 2008-01-02"
+    ],
+    "document_number": "E7-25613",
+    "effective_on": "2008-01-23",
+    "html_url": "https://www.federalregister.gov/documents/2008/01/08/E7-25613/airworthiness-directives-viking-air-limited-model-caribou-dhc-4-and-caribou-dhc-4a-airplanes",
+    "publication_date": "2008-01-08",
+    "title": "Airworthiness Directives; Viking Air Limited Model (Caribou) DHC-4 and (Caribou) DHC-4A Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Viking Air Limited Model (Caribou) DHC-4 and (Caribou) DHC-4A Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ca7ef3dcf54cb2aad5fa8666624647a26ba6543cec2f7b7aae56abb0521a7d6e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9badc618"
+    }
+  ]
+}

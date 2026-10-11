@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-26-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-33335",
+  "effective_on": "2001-01-16",
+  "entry_sha256": "0c7dfb274f93784fecf034558c9e78dff20c1f3ee51cd62cf48a327fbf9721bf",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/12/29/00-33335/airworthiness-directives-agusta-spa-model-a109e-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2000-12-29",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "65 FR 82903",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-SW-58-AD",
+      "Amendment 39-12061",
+      "AD 2000-26-11"
+    ],
+    "document_number": "00-33335",
+    "effective_on": "2001-01-16",
+    "html_url": "https://www.federalregister.gov/documents/2000/12/29/00-33335/airworthiness-directives-agusta-spa-model-a109e-helicopters",
+    "publication_date": "2000-12-29",
+    "title": "Airworthiness Directives; Agusta S.p.A. Model A109E Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Agusta S.p.A. Model A109E Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "0c7dfb274f93784fecf034558c9e78dff20c1f3ee51cd62cf48a327fbf9721bf",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

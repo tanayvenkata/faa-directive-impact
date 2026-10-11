@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2008-22-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E8-25284",
+  "effective_on": "2008-11-03",
+  "entry_sha256": "afaa5af65284bf29f44f07293bd9a2f1313f0fce4d57c4bd328a8810afdbc421",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9badc618",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9badc618.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2008-1127"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2008/10/24/E8-25284/airworthiness-directives-hawker-beechcraft-corporation-model-390-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2008-10-24",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "73 FR 63357",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2008-1127",
+      "Directorate Identifier 2008-CE-061-AD",
+      "Amendment 39-15707",
+      "AD 2008-22-11"
+    ],
+    "document_number": "E8-25284",
+    "effective_on": "2008-11-03",
+    "html_url": "https://www.federalregister.gov/documents/2008/10/24/E8-25284/airworthiness-directives-hawker-beechcraft-corporation-model-390-airplanes",
+    "publication_date": "2008-10-24",
+    "title": "Airworthiness Directives; Hawker Beechcraft Corporation Model 390 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Hawker Beechcraft Corporation Model 390 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "afaa5af65284bf29f44f07293bd9a2f1313f0fce4d57c4bd328a8810afdbc421",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9badc618"
+    }
+  ]
+}

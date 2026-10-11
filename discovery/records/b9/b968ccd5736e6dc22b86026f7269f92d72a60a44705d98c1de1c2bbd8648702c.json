@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2013-15-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2013-23578",
+  "effective_on": "2013-10-16",
+  "entry_sha256": "21595fc2085685884dbb8889e66585fea69c86118613212d10a71cf5f9061270",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-fe5d2608",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-fe5d2608.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2013-0640"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2013/10/01/2013-23578/airworthiness-directives-agustawestland-spa-agusta-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2013-10-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "78 FR 60186",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2013-0640",
+      "Directorate Identifier 2013-SW-016-AD",
+      "Amendment 39-17517",
+      "AD 2013-15-01"
+    ],
+    "document_number": "2013-23578",
+    "effective_on": "2013-10-16",
+    "html_url": "https://www.federalregister.gov/documents/2013/10/01/2013-23578/airworthiness-directives-agustawestland-spa-agusta-helicopters",
+    "publication_date": "2013-10-01",
+    "title": "Airworthiness Directives; AgustaWestland S.p.A. (Agusta) Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; AgustaWestland S.p.A. (Agusta) Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "21595fc2085685884dbb8889e66585fea69c86118613212d10a71cf5f9061270",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-fe5d2608"
+    }
+  ]
+}

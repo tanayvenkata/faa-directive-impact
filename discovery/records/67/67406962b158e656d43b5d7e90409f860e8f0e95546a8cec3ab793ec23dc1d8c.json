@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-01-15"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-312",
+  "effective_on": "1998-01-28",
+  "entry_sha256": "170064ac5b9cd19777aafd95ccfde01e92829f9add7cca92158ae0a4e9d3971b",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/01/13/98-312/airworthiness-directives-airbus-model-a330-and-a340-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-01-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "63 FR 1909",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-NM-314-AD",
+      "Amendment 39-10277",
+      "AD 98-01-15"
+    ],
+    "document_number": "98-312",
+    "effective_on": "1998-01-28",
+    "html_url": "https://www.federalregister.gov/documents/1998/01/13/98-312/airworthiness-directives-airbus-model-a330-and-a340-series-airplanes",
+    "publication_date": "1998-01-13",
+    "title": "Airworthiness Directives; Airbus Model A330 and A340 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A330 and A340 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "170064ac5b9cd19777aafd95ccfde01e92829f9add7cca92158ae0a4e9d3971b",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

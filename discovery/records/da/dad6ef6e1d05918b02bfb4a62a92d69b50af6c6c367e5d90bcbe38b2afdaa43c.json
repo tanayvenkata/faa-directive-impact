@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2008-10-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E8-9897",
+  "effective_on": "2008-06-12",
+  "entry_sha256": "f2e68f9eccfde0008864e1a518c61eac4ebdf7b6f2c34603a4a27bae00833016",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9badc618",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9badc618.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2007-28386"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2008/05/08/E8-9897/airworthiness-directives-boeing-model-747-400--400d-and--400f-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2008-05-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "73 FR 25990",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-28386",
+      "Directorate Identifier 2006-NM-162-AD",
+      "Amendment 39-15512",
+      "AD 2008-10-06"
+    ],
+    "document_number": "E8-9897",
+    "effective_on": "2008-06-12",
+    "html_url": "https://www.federalregister.gov/documents/2008/05/08/E8-9897/airworthiness-directives-boeing-model-747-400--400d-and--400f-series-airplanes",
+    "publication_date": "2008-05-08",
+    "title": "Airworthiness Directives; Boeing Model 747-400, -400D, and -400F Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747-400, -400D, and -400F Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "f2e68f9eccfde0008864e1a518c61eac4ebdf7b6f2c34603a4a27bae00833016",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9badc618"
+    }
+  ]
+}

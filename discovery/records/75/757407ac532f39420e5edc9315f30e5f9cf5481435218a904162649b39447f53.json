@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2007-06-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-4382",
+  "effective_on": "2007-04-19",
+  "entry_sha256": "7c009685060af65ebae4f1d9f33a12ff45ba96a9b4b7a15963011c829916a0e0",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-687de582",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-687de582.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2006-26516"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2007/03/15/E7-4382/airworthiness-directives-airbus-model-a318-a319-a320-and-a321-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2007-03-15",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "72 FR 12072",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2006-26516",
+      "Directorate Identifier 2006-NM-173-AD",
+      "Amendment 39-14983",
+      "AD 2007-06-02"
+    ],
+    "document_number": "E7-4382",
+    "effective_on": "2007-04-19",
+    "html_url": "https://www.federalregister.gov/documents/2007/03/15/E7-4382/airworthiness-directives-airbus-model-a318-a319-a320-and-a321-airplanes",
+    "publication_date": "2007-03-15",
+    "title": "Airworthiness Directives; Airbus Model A318, A319, A320, and A321 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A318, A319, A320, and A321 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "7c009685060af65ebae4f1d9f33a12ff45ba96a9b4b7a15963011c829916a0e0",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-687de582"
+    }
+  ]
+}

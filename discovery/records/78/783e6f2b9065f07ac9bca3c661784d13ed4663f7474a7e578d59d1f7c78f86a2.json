@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-23-20"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-30024",
+  "effective_on": "2003-01-03",
+  "entry_sha256": "075436ade04976d48d9aac3decdcf7f7bd512c68f1101b2167ced785bb30a28a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/11/29/02-30024/airworthiness-directives-dassault-model-falcon-900ex-and-mystere-falcon-900-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2002-11-29",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 71098",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-418-AD",
+      "Amendment 39-12964",
+      "AD 2002-23-20"
+    ],
+    "document_number": "02-30024",
+    "effective_on": "2003-01-03",
+    "html_url": "https://www.federalregister.gov/documents/2002/11/29/02-30024/airworthiness-directives-dassault-model-falcon-900ex-and-mystere-falcon-900-series-airplanes",
+    "publication_date": "2002-11-29",
+    "title": "Airworthiness Directives; Dassault Model Falcon 900EX and Mystere Falcon 900 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Dassault Model Falcon 900EX and Mystere Falcon 900 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "075436ade04976d48d9aac3decdcf7f7bd512c68f1101b2167ced785bb30a28a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

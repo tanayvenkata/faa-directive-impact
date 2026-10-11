@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-03-27"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-7618",
+  "effective_on": "2004-03-19",
+  "entry_sha256": "f57577f51a6d59f148ff282b0911f5c6443586bc31467d833adfdc6d9cbdfa3d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/04/06/04-7618/airworthiness-directives-eurocopter-france-model-as332c-l-and-l1-helicopters-correction",
+  "kind": "correction",
+  "publication_date": "2004-04-06",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "69 FR 17901",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-SW-45-AD",
+      "Amendment 39-13471",
+      "AD 2004-03-27"
+    ],
+    "document_number": "04-7618",
+    "effective_on": "2004-03-19",
+    "html_url": "https://www.federalregister.gov/documents/2004/04/06/04-7618/airworthiness-directives-eurocopter-france-model-as332c-l-and-l1-helicopters-correction",
+    "publication_date": "2004-04-06",
+    "title": "Airworthiness Directives; Eurocopter France Model AS332C, L, and L1 Helicopters; Correction",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eurocopter France Model AS332C, L, and L1 Helicopters; Correction",
+  "versions": [
+    {
+      "entry_sha256": "f57577f51a6d59f148ff282b0911f5c6443586bc31467d833adfdc6d9cbdfa3d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

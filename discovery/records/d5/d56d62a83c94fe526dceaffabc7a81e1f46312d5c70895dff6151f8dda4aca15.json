@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2014-13-03"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2014-14807",
+  "effective_on": "2014-07-14",
+  "entry_sha256": "9bd3d8ace7a1652bcbb2cbe7043866d318cf14931c79c25b53fc0e7a4771ec27",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-0cd8760c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-0cd8760c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2014-0281"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2014/06/27/2014-14807/airworthiness-directives-rolls-royce-plc-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2014-06-27",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "79 FR 36387",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2014-0281",
+      "Directorate Identifier 2014-NE-05-AD",
+      "Amendment 39-17878",
+      "AD 2014-13-03"
+    ],
+    "document_number": "2014-14807",
+    "effective_on": "2014-07-14",
+    "html_url": "https://www.federalregister.gov/documents/2014/06/27/2014-14807/airworthiness-directives-rolls-royce-plc-turbofan-engines",
+    "publication_date": "2014-06-27",
+    "title": "Airworthiness Directives; Rolls-Royce plc Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Rolls-Royce plc Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "9bd3d8ace7a1652bcbb2cbe7043866d318cf14931c79c25b53fc0e7a4771ec27",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-0cd8760c"
+    }
+  ]
+}

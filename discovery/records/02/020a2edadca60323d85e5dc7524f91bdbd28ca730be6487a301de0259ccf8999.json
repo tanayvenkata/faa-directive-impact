@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-14-03"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-15394",
+  "effective_on": "2009-08-12",
+  "entry_sha256": "fbffbf9308dca52c4c7a0569c1680a1cfcc4903a4431af25fd1170e3f42716dc",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-0044"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/07/08/E9-15394/airworthiness-directives-bombardier-model-cl-600-1a11-cl-600-cl-600-2a12-cl-601-cl-600-2b16",
+  "kind": "final_rule",
+  "publication_date": "2009-07-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "74 FR 32411",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-0044",
+      "Directorate Identifier 2008-NM-132-AD",
+      "Amendment 39-15953",
+      "AD 2009-14-03"
+    ],
+    "document_number": "E9-15394",
+    "effective_on": "2009-08-12",
+    "html_url": "https://www.federalregister.gov/documents/2009/07/08/E9-15394/airworthiness-directives-bombardier-model-cl-600-1a11-cl-600-cl-600-2a12-cl-601-cl-600-2b16",
+    "publication_date": "2009-07-08",
+    "title": "Airworthiness Directives; Bombardier Model CL-600-1A11 (CL-600), CL-600-2A12 (CL-601), CL-600-2B16 (CL-601-3A, CL-601-3R, and CL-604) Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier Model CL-600-1A11 (CL-600), CL-600-2A12 (CL-601), CL-600-2B16 (CL-601-3A, CL-601-3R, and CL-604) Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "fbffbf9308dca52c4c7a0569c1680a1cfcc4903a4431af25fd1170e3f42716dc",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

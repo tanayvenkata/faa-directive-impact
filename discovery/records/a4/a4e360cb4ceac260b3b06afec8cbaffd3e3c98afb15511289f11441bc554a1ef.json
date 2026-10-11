@@ -1,0 +1,54 @@
+{
+  "ad_numbers": [
+    "2003-11-23"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-14133",
+  "effective_on": "2003-06-20",
+  "entry_sha256": "58b97ce6663439bac2867405f8bcbf57a9cf7b36cecd930cb0ec9723f1c42955",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/06/05/03-14133/airworthiness-directives-international-aero-engines-ag-iae-v2522-a5-v2524-a5-v2527-a5-v2527e-a5",
+  "kind": "final_rule",
+  "publication_date": "2003-06-05",
+  "review_reason": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "68 FR 33621",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NE-21-AD",
+      "Amendment 39-13183",
+      "AD 2003-11-23"
+    ],
+    "document_number": "03-14133",
+    "effective_on": "2003-06-20",
+    "html_url": "https://www.federalregister.gov/documents/2003/06/05/03-14133/airworthiness-directives-international-aero-engines-ag-iae-v2522-a5-v2524-a5-v2527-a5-v2527e-a5",
+    "publication_date": "2003-06-05",
+    "title": "Airworthiness Directives; International Aero Engines AG (IAE) V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, and V2530-A5 Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG (IAE) V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, and V2530-A5 Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "58b97ce6663439bac2867405f8bcbf57a9cf7b36cecd930cb0ec9723f1c42955",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-20-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-23661",
+  "effective_on": "2009-11-17",
+  "entry_sha256": "232767d0b5ec1bce583eb1e948ea1670eb61a53a2c75506beb369d3fe7c60970",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-0057"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/10/13/E9-23661/airworthiness-directives-rolls-royce-plc-rr-rb211-535e4-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2009-10-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "74 FR 52393",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-0057",
+      "Directorate Identifier 85-ANE-25-AD",
+      "Amendment 39-16037",
+      "AD 2009-20-14"
+    ],
+    "document_number": "E9-23661",
+    "effective_on": "2009-11-17",
+    "html_url": "https://www.federalregister.gov/documents/2009/10/13/E9-23661/airworthiness-directives-rolls-royce-plc-rr-rb211-535e4-series-turbofan-engines",
+    "publication_date": "2009-10-13",
+    "title": "Airworthiness Directives; Rolls-Royce plc (RR) RB211-535E4 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Rolls-Royce plc (RR) RB211-535E4 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "232767d0b5ec1bce583eb1e948ea1670eb61a53a2c75506beb369d3fe7c60970",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

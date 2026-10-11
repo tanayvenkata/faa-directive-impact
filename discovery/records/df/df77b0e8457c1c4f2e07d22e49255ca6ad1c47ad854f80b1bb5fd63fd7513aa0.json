@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-04-12"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-4070",
+  "effective_on": "2000-03-13",
+  "entry_sha256": "75c40961624919847638a98b3ff1f5599fb2185b72c9efaad563f56e823dac0a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/02/22/00-4070/airworthiness-directives-cameron-balloons-ltd-thunder-and-colt-titanium-propane-cylinders-part",
+  "kind": "final_rule",
+  "publication_date": "2000-02-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "65 FR 8653",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-CE-08-AD",
+      "Amendment 39-11594",
+      "AD 2000-04-12"
+    ],
+    "document_number": "00-4070",
+    "effective_on": "2000-03-13",
+    "html_url": "https://www.federalregister.gov/documents/2000/02/22/00-4070/airworthiness-directives-cameron-balloons-ltd-thunder-and-colt-titanium-propane-cylinders-part",
+    "publication_date": "2000-02-22",
+    "title": "Airworthiness Directives; Cameron Balloons Ltd. (Thunder & Colt) Titanium Propane Cylinders, Part Number (P/N) CB2380 and P/N CB2383",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Cameron Balloons Ltd. (Thunder & Colt) Titanium Propane Cylinders, Part Number (P/N) CB2380 and P/N CB2383",
+  "versions": [
+    {
+      "entry_sha256": "75c40961624919847638a98b3ff1f5599fb2185b72c9efaad563f56e823dac0a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

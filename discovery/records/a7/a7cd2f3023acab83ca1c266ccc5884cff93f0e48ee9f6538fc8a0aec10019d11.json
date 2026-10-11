@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-23-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-26199",
+  "effective_on": "2009-12-08",
+  "entry_sha256": "d75a60db320b5176724d4b4110d1e0f1b1433f010ce40e2e7f4341ceb809ae29",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2008-1312"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/11/03/E9-26199/airworthiness-directives-hawker-beechcraft-corporation-model-1900-1900c-and-1900d-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2009-11-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "74 FR 56710",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2008-1312",
+      "Directorate Identifier 2008-CE-065-AD",
+      "Amendment 39-16072",
+      "AD 2009-23-01"
+    ],
+    "document_number": "E9-26199",
+    "effective_on": "2009-12-08",
+    "html_url": "https://www.federalregister.gov/documents/2009/11/03/E9-26199/airworthiness-directives-hawker-beechcraft-corporation-model-1900-1900c-and-1900d-airplanes",
+    "publication_date": "2009-11-03",
+    "title": "Airworthiness Directives; Hawker Beechcraft Corporation Model 1900, 1900C, and 1900D Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Hawker Beechcraft Corporation Model 1900, 1900C, and 1900D Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "d75a60db320b5176724d4b4110d1e0f1b1433f010ce40e2e7f4341ceb809ae29",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

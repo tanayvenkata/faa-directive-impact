@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-04-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "06-1295",
+  "effective_on": "2006-03-22",
+  "entry_sha256": "aa9819af7ec13eab6118f703ac87889ea45fdff75692f4368eae1b85bb06667f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-22632"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/02/15/06-1295/airworthiness-directives-bombardier-model-cl-600-2c10-regional-jet-series-700-701-and-702",
+  "kind": "final_rule",
+  "publication_date": "2006-02-15",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "71 FR 7843",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-22632",
+      "Directorate Identifier 2005-NM-158-AD",
+      "Amendment 39-14486",
+      "AD 2006-04-05"
+    ],
+    "document_number": "06-1295",
+    "effective_on": "2006-03-22",
+    "html_url": "https://www.federalregister.gov/documents/2006/02/15/06-1295/airworthiness-directives-bombardier-model-cl-600-2c10-regional-jet-series-700-701-and-702",
+    "publication_date": "2006-02-15",
+    "title": "Airworthiness Directives; Bombardier Model CL-600-2C10 (Regional Jet Series 700, 701, & 702), CL-600-2D15 (Regional Jet Series 705), and CL-600-2D24 (Regional Jet Series 900) Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier Model CL-600-2C10 (Regional Jet Series 700, 701, & 702), CL-600-2D15 (Regional Jet Series 705), and CL-600-2D24 (Regional Jet Series 900) Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "aa9819af7ec13eab6118f703ac87889ea45fdff75692f4368eae1b85bb06667f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

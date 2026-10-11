@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-07-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-10429",
+  "effective_on": "2004-04-01",
+  "entry_sha256": "304ff2fb35d0e260d4b430f030925b2d8cbd9e71b0965e822349ed1f8273c0be",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/05/07/04-10429/airworthiness-directives-general-electric-company-cf6-80c2-series-turbofan-engines-correction",
+  "kind": "correction",
+  "publication_date": "2004-05-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "69 FR 25488",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NE-46-AD",
+      "Amendment 39-13557",
+      "AD 2004-07-13"
+    ],
+    "document_number": "04-10429",
+    "effective_on": "2004-04-01",
+    "html_url": "https://www.federalregister.gov/documents/2004/05/07/04-10429/airworthiness-directives-general-electric-company-cf6-80c2-series-turbofan-engines-correction",
+    "publication_date": "2004-05-07",
+    "title": "Airworthiness Directives; General Electric Company CF6-80C2 Series Turbofan Engines; Correction",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; General Electric Company CF6-80C2 Series Turbofan Engines; Correction",
+  "versions": [
+    {
+      "entry_sha256": "304ff2fb35d0e260d4b430f030925b2d8cbd9e71b0965e822349ed1f8273c0be",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

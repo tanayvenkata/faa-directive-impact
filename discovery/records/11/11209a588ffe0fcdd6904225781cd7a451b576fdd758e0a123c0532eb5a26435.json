@@ -1,0 +1,71 @@
+{
+  "ad_numbers": [
+    "2024-14-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2024-15466",
+  "effective_on": "2024-08-20",
+  "entry_sha256": "d7246818efa50c86cf2cf94564bf6835eecaa3a8316fc33f59189a20429fc9a2",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T170014Z-d9b21b96",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T170014Z-d9b21b96.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T170014Z-dd81a534",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T170014Z-dd81a534.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165839Z-f534379c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165839Z-f534379c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2024-0763"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2024/07/16/2024-15466/airworthiness-directives-international-aero-engines-llc",
+  "incorporated_material": {
+    "items": [],
+    "paragraph": "k"
+  },
+  "kind": "final_rule",
+  "publication_date": "2024-07-16",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "outside_supported_scope",
+    "detail": "Paragraph (c) lists no V2500 model.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "89 FR 57725",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2024-0763",
+      "Project Identifier AD-2023-00924-E",
+      "Amendment 39-22785",
+      "AD 2024-14-04"
+    ],
+    "document_number": "2024-15466",
+    "effective_on": "2024-08-20",
+    "html_url": "https://www.federalregister.gov/documents/2024/07/16/2024-15466/airworthiness-directives-international-aero-engines-llc",
+    "publication_date": "2024-07-16",
+    "title": "Airworthiness Directives; International Aero Engines, LLC",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines, LLC",
+  "versions": [
+    {
+      "entry_sha256": "d7246818efa50c86cf2cf94564bf6835eecaa3a8316fc33f59189a20429fc9a2",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165839Z-f534379c"
+    }
+  ]
+}

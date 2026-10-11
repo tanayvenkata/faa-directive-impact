@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2016-08-21"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2016-09434",
+  "effective_on": "2016-05-31",
+  "entry_sha256": "e67dd5ded04c3e51d9b7f18ca2e88ec91a39396bb8e42ce78a463890928aa8fe",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165837Z-50466c8d",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165837Z-50466c8d.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2016-0183"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2016/04/25/2016-09434/airworthiness-directives-kaman-aerospace-corporation",
+  "kind": "final_rule",
+  "publication_date": "2016-04-25",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "81 FR 24012",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2016-0183",
+      "Directorate Identifier 2015-SW-016-AD",
+      "Amendment 39-18498",
+      "AD 2016-08-21"
+    ],
+    "document_number": "2016-09434",
+    "effective_on": "2016-05-31",
+    "html_url": "https://www.federalregister.gov/documents/2016/04/25/2016-09434/airworthiness-directives-kaman-aerospace-corporation",
+    "publication_date": "2016-04-25",
+    "title": "Airworthiness Directives; Kaman Aerospace Corporation",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Kaman Aerospace Corporation",
+  "versions": [
+    {
+      "entry_sha256": "e67dd5ded04c3e51d9b7f18ca2e88ec91a39396bb8e42ce78a463890928aa8fe",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165837Z-50466c8d"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-14-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-17955",
+  "effective_on": "1998-08-11",
+  "entry_sha256": "ad93032338b2ca14afdfd41639b3947479c4df65b3650990af13ba1d6a34479b",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/07/07/98-17955/airworthiness-directives-turbopropeller-powered-mcdonnell-douglas-model-dc-3-and-dc-3c-series",
+  "kind": "final_rule",
+  "publication_date": "1998-07-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "63 FR 36553",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-NM-72-AD",
+      "Amendment 39-10647",
+      "AD 98-14-14"
+    ],
+    "document_number": "98-17955",
+    "effective_on": "1998-08-11",
+    "html_url": "https://www.federalregister.gov/documents/1998/07/07/98-17955/airworthiness-directives-turbopropeller-powered-mcdonnell-douglas-model-dc-3-and-dc-3c-series",
+    "publication_date": "1998-07-07",
+    "title": "Airworthiness Directives; Turbopropeller-Powered McDonnell Douglas Model DC-3 and DC-3C Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Turbopropeller-Powered McDonnell Douglas Model DC-3 and DC-3C Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ad93032338b2ca14afdfd41639b3947479c4df65b3650990af13ba1d6a34479b",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-05-17"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-4827",
+  "effective_on": "2005-04-18",
+  "entry_sha256": "2a86ecf17db85c422864fbfa5582fc7ddab0cae8cb76beec18ca0e548c02bda9",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2004-19891"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/03/14/05-4827/airworthiness-directives-boeing-model-737-300--400-and--500-series-airplanes-modified-in-accordance",
+  "kind": "final_rule",
+  "publication_date": "2005-03-14",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 12401",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2004-19891",
+      "Directorate Identifier 2004-NM-136-AD",
+      "Amendment 39-14006",
+      "AD 2005-05-17"
+    ],
+    "document_number": "05-4827",
+    "effective_on": "2005-04-18",
+    "html_url": "https://www.federalregister.gov/documents/2005/03/14/05-4827/airworthiness-directives-boeing-model-737-300--400-and--500-series-airplanes-modified-in-accordance",
+    "publication_date": "2005-03-14",
+    "title": "Airworthiness Directives; Boeing Model 737-300, -400, and -500 Series Airplanes Modified In Accordance With Supplemental Type Certificate (STC) ST00127BO",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 737-300, -400, and -500 Series Airplanes Modified In Accordance With Supplemental Type Certificate (STC) ST00127BO",
+  "versions": [
+    {
+      "entry_sha256": "2a86ecf17db85c422864fbfa5582fc7ddab0cae8cb76beec18ca0e548c02bda9",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

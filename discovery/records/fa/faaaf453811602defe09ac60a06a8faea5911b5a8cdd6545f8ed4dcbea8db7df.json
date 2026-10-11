@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-11-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-12571",
+  "effective_on": "2004-07-13",
+  "entry_sha256": "4a678e7ee55fdee0d892dc3f8d250ec88a546b4777a6901fa8522db05867cf56",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/06/08/04-12571/airworthiness-directives-boeing-model-737-600-737-700-737-700c-737-800-and-737-900-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2004-06-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 31876",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-NM-323-AD",
+      "Amendment 39-13657",
+      "AD 2004-11-11"
+    ],
+    "document_number": "04-12571",
+    "effective_on": "2004-07-13",
+    "html_url": "https://www.federalregister.gov/documents/2004/06/08/04-12571/airworthiness-directives-boeing-model-737-600-737-700-737-700c-737-800-and-737-900-series-airplanes",
+    "publication_date": "2004-06-08",
+    "title": "Airworthiness Directives; Boeing Model 737-600, 737-700, 737-700C, 737-800, and 737-900 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 737-600, 737-700, 737-700C, 737-800, and 737-900 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "4a678e7ee55fdee0d892dc3f8d250ec88a546b4777a6901fa8522db05867cf56",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-23-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-29186",
+  "effective_on": "2001-12-31",
+  "entry_sha256": "9c6fa56573da3a5b93fa8ca9a35752b1a6784c34073506f12fb54364232835ff",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/11/26/01-29186/airworthiness-directives-boeing-model-757-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2001-11-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "66 FR 58922",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-405-AD",
+      "Amendment 39-12513",
+      "AD 2001-23-14"
+    ],
+    "document_number": "01-29186",
+    "effective_on": "2001-12-31",
+    "html_url": "https://www.federalregister.gov/documents/2001/11/26/01-29186/airworthiness-directives-boeing-model-757-series-airplanes",
+    "publication_date": "2001-11-26",
+    "title": "Airworthiness Directives; Boeing Model 757 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 757 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "9c6fa56573da3a5b93fa8ca9a35752b1a6784c34073506f12fb54364232835ff",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2013-19-17"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2013-23452",
+  "effective_on": "2013-11-07",
+  "entry_sha256": "72601694d45d09c2edc9a29ba9829c68ad83cc4fc6ae49bc59fa5718b47122a6",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-fe5d2608",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-fe5d2608.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2013-0029"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2013/10/03/2013-23452/airworthiness-directives-rolls-royce-plc-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2013-10-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "78 FR 61171",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2013-0029",
+      "Directorate Identifier 2013-NE-01-AD",
+      "Amendment 39-17599",
+      "AD 2013-19-17"
+    ],
+    "document_number": "2013-23452",
+    "effective_on": "2013-11-07",
+    "html_url": "https://www.federalregister.gov/documents/2013/10/03/2013-23452/airworthiness-directives-rolls-royce-plc-turbofan-engines",
+    "publication_date": "2013-10-03",
+    "title": "Airworthiness Directives; Rolls-Royce plc Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Rolls-Royce plc Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "72601694d45d09c2edc9a29ba9829c68ad83cc4fc6ae49bc59fa5718b47122a6",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-fe5d2608"
+    }
+  ]
+}

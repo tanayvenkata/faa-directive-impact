@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-02-31"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-2399",
+  "effective_on": "2000-03-27",
+  "entry_sha256": "9fd5c79588238984a5bfc41d76cc37d7a6d6a4f3bd38c023aa7adf6f8ab39615",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/02/04/00-2399/airworthiness-directives-pilatus-aircraft-ltd-models-pc-12-and-pc-1245-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-02-04",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 5428",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-CE-64-AD",
+      "Amendment 39-11549",
+      "AD 2000-02-31"
+    ],
+    "document_number": "00-2399",
+    "effective_on": "2000-03-27",
+    "html_url": "https://www.federalregister.gov/documents/2000/02/04/00-2399/airworthiness-directives-pilatus-aircraft-ltd-models-pc-12-and-pc-1245-airplanes",
+    "publication_date": "2000-02-04",
+    "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Models PC-12 and PC-12/45 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Models PC-12 and PC-12/45 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "9fd5c79588238984a5bfc41d76cc37d7a6d6a4f3bd38c023aa7adf6f8ab39615",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

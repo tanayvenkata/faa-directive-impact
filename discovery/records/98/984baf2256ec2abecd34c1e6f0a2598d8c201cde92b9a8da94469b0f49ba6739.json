@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "97-01-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "97-537",
+  "effective_on": "1997-02-19",
+  "entry_sha256": "462d5d812704a9466ab1cfd9c381dbb1201e8ffa691476563ecbff4f17a1839a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-78e05434",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-78e05434.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1997/01/15/97-537/airworthiness-directives-boeing-model-737-100-and--200-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1997-01-15",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "62 FR 2007",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 96-NM-145-AD",
+      "Amendment 39-9881",
+      "AD 97-01-10"
+    ],
+    "document_number": "97-537",
+    "effective_on": "1997-02-19",
+    "html_url": "https://www.federalregister.gov/documents/1997/01/15/97-537/airworthiness-directives-boeing-model-737-100-and--200-series-airplanes",
+    "publication_date": "1997-01-15",
+    "title": "Airworthiness Directives; Boeing Model 737-100 and -200 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 737-100 and -200 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "462d5d812704a9466ab1cfd9c381dbb1201e8ffa691476563ecbff4f17a1839a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-78e05434"
+    }
+  ]
+}

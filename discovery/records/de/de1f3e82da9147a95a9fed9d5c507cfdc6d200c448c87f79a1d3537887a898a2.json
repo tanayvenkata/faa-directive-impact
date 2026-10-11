@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-08-23"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-10054",
+  "effective_on": "1998-05-01",
+  "entry_sha256": "4fa7e290e3ff2af220726c076226776a2a6ca0e6d64fd662e8c01540af017214",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/04/16/98-10054/airworthiness-directives-boeing-model-747-and-767-series-airplanes-equipped-with-general-electric-ge",
+  "kind": "final_rule",
+  "publication_date": "1998-04-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "63 FR 18817",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-NM-79-AD",
+      "Amendment 39-10472",
+      "AD 98-08-23"
+    ],
+    "document_number": "98-10054",
+    "effective_on": "1998-05-01",
+    "html_url": "https://www.federalregister.gov/documents/1998/04/16/98-10054/airworthiness-directives-boeing-model-747-and-767-series-airplanes-equipped-with-general-electric-ge",
+    "publication_date": "1998-04-16",
+    "title": "Airworthiness Directives; Boeing Model 747 and 767 Series Airplanes Equipped With General Electric (GE) CF6-80C2 Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747 and 767 Series Airplanes Equipped With General Electric (GE) CF6-80C2 Engines",
+  "versions": [
+    {
+      "entry_sha256": "4fa7e290e3ff2af220726c076226776a2a6ca0e6d64fd662e8c01540af017214",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

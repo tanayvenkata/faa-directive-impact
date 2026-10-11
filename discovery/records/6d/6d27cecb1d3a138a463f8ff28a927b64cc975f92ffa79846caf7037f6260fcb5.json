@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-01-08"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-3276",
+  "effective_on": "2009-03-27",
+  "entry_sha256": "14f2b68faadfd7130c6a9dc0f2223cec8e84745fc13032088b77c1ac3d0dba57",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2008-0657"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/02/20/E9-3276/airworthiness-directives-airbus-model-a300-a310-and-a300-600-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2009-02-20",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "74 FR 7804",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2008-0657",
+      "Directorate Identifier 2007-NM-296-AD",
+      "Amendment 39-15787",
+      "AD 2009-01-08"
+    ],
+    "document_number": "E9-3276",
+    "effective_on": "2009-03-27",
+    "html_url": "https://www.federalregister.gov/documents/2009/02/20/E9-3276/airworthiness-directives-airbus-model-a300-a310-and-a300-600-series-airplanes",
+    "publication_date": "2009-02-20",
+    "title": "Airworthiness Directives; Airbus Model A300, A310, and A300-600 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A300, A310, and A300-600 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "14f2b68faadfd7130c6a9dc0f2223cec8e84745fc13032088b77c1ac3d0dba57",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

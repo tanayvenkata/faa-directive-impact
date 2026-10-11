@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-06-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "06-2409",
+  "effective_on": "2006-04-20",
+  "entry_sha256": "b5af040b23b874b386deafb7880e460300af278d4f6021c44411318d5812781e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-22121"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/03/16/06-2409/airworthiness-directives-mcdonnell-douglas-model-dc-9-10--20--30--40-and--50-series-airplanes-and",
+  "kind": "final_rule",
+  "publication_date": "2006-03-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "71 FR 13529",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-22121",
+      "Directorate Identifier 2004-NM-128-AD",
+      "Amendment 39-14512",
+      "AD 2006-06-04"
+    ],
+    "document_number": "06-2409",
+    "effective_on": "2006-04-20",
+    "html_url": "https://www.federalregister.gov/documents/2006/03/16/06-2409/airworthiness-directives-mcdonnell-douglas-model-dc-9-10--20--30--40-and--50-series-airplanes-and",
+    "publication_date": "2006-03-16",
+    "title": "Airworthiness Directives; McDonnell Douglas Model DC-9-10, -20, -30, -40 and -50 Series Airplanes, and Model DC-9-81 (MD-81), and DC-9-82 (MD-82) Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model DC-9-10, -20, -30, -40 and -50 Series Airplanes, and Model DC-9-81 (MD-81), and DC-9-82 (MD-82) Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "b5af040b23b874b386deafb7880e460300af278d4f6021c44411318d5812781e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

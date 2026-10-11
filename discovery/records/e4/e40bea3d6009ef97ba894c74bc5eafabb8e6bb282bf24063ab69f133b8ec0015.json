@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-14-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-15372",
+  "effective_on": "2004-08-13",
+  "entry_sha256": "a047c0e054400f694af8f715e361f3414a34bc519ed1cc9790972fc0541eac36",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/07/09/04-15372/airworthiness-directives-airbus-model-a320-111--211--212-and--231-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2004-07-09",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 41398",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-NM-177-AD",
+      "Amendment 39-13718",
+      "AD 2004-14-09"
+    ],
+    "document_number": "04-15372",
+    "effective_on": "2004-08-13",
+    "html_url": "https://www.federalregister.gov/documents/2004/07/09/04-15372/airworthiness-directives-airbus-model-a320-111--211--212-and--231-series-airplanes",
+    "publication_date": "2004-07-09",
+    "title": "Airworthiness Directives; Airbus Model A320-111, -211, -212, and -231 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A320-111, -211, -212, and -231 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "a047c0e054400f694af8f715e361f3414a34bc519ed1cc9790972fc0541eac36",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

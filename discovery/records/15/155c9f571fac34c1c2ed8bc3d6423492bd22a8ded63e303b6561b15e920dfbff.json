@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-17-23"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-21494",
+  "effective_on": "2001-10-03",
+  "entry_sha256": "ea30b5d1986cfe1f918bcc9542a754e1987ce6aa59235e89354cf5c167543f34",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/08/29/01-21494/airworthiness-directives-bombardier-model-dhc-8-100--200-and--300-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2001-08-29",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "66 FR 45570",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-371-AD",
+      "Amendment 39-12414",
+      "AD 2001-17-23"
+    ],
+    "document_number": "01-21494",
+    "effective_on": "2001-10-03",
+    "html_url": "https://www.federalregister.gov/documents/2001/08/29/01-21494/airworthiness-directives-bombardier-model-dhc-8-100--200-and--300-series-airplanes",
+    "publication_date": "2001-08-29",
+    "title": "Airworthiness Directives; Bombardier Model DHC-8-100, -200, and -300 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier Model DHC-8-100, -200, and -300 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ea30b5d1986cfe1f918bcc9542a754e1987ce6aa59235e89354cf5c167543f34",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

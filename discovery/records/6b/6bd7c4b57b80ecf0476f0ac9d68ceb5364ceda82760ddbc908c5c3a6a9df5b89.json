@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-16-16"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-20707",
+  "effective_on": "2002-09-23",
+  "entry_sha256": "ecb012597683cff2a1fcac88f1fc12a84048f0d55bfc0a3915d097d4475c5d7a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/08/19/02-20707/airworthiness-directives-dornier-model-328-100-and--300-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2002-08-19",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 53731",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-318-AD",
+      "Amendment 39-12855",
+      "AD 2002-16-16"
+    ],
+    "document_number": "02-20707",
+    "effective_on": "2002-09-23",
+    "html_url": "https://www.federalregister.gov/documents/2002/08/19/02-20707/airworthiness-directives-dornier-model-328-100-and--300-series-airplanes",
+    "publication_date": "2002-08-19",
+    "title": "Airworthiness Directives; Dornier Model 328-100 and -300 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Dornier Model 328-100 and -300 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ecb012597683cff2a1fcac88f1fc12a84048f0d55bfc0a3915d097d4475c5d7a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

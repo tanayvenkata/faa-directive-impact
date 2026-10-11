@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-05-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-4650",
+  "effective_on": "2009-03-20",
+  "entry_sha256": "b168499d515142d9cda76569fc659f0d11284c082d1cb0116bc8df8fea232e07",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-0199"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/03/05/E9-4650/airworthiness-directives-boeing-model-777-200-and--300-series-airplanes-equipped-with-rolls-royce",
+  "kind": "final_rule",
+  "publication_date": "2009-03-05",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "74 FR 9565",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-0199",
+      "Directorate Identifier 2009-NM-017-AD",
+      "Amendment 39-15835",
+      "AD 2009-05-11"
+    ],
+    "document_number": "E9-4650",
+    "effective_on": "2009-03-20",
+    "html_url": "https://www.federalregister.gov/documents/2009/03/05/E9-4650/airworthiness-directives-boeing-model-777-200-and--300-series-airplanes-equipped-with-rolls-royce",
+    "publication_date": "2009-03-05",
+    "title": "Airworthiness Directives; Boeing Model 777-200 and -300 Series Airplanes Equipped With Rolls-Royce Model RB211-TRENT 800 Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 777-200 and -300 Series Airplanes Equipped With Rolls-Royce Model RB211-TRENT 800 Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "b168499d515142d9cda76569fc659f0d11284c082d1cb0116bc8df8fea232e07",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

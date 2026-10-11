@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-25-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-23779",
+  "effective_on": "2005-12-27",
+  "entry_sha256": "4be24e9455382206ada8c8e60c4fd786521d162e6e1a984d83568d1058043a34",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-23214"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/12/12/05-23779/airworthiness-directives-fokker-model-f27-mark-050-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2005-12-12",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "70 FR 73347",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-23214",
+      "Directorate Identifier 2001-NM-338-AD",
+      "Amendment 39-14399",
+      "AD 2005-25-06"
+    ],
+    "document_number": "05-23779",
+    "effective_on": "2005-12-27",
+    "html_url": "https://www.federalregister.gov/documents/2005/12/12/05-23779/airworthiness-directives-fokker-model-f27-mark-050-airplanes",
+    "publication_date": "2005-12-12",
+    "title": "Airworthiness Directives; Fokker Model F27 Mark 050 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Fokker Model F27 Mark 050 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "4be24e9455382206ada8c8e60c4fd786521d162e6e1a984d83568d1058043a34",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

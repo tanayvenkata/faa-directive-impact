@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-21-30"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-27460",
+  "effective_on": "1998-11-20",
+  "entry_sha256": "8c7e1a17cf915c433f28e5ca4db86842bd02364d74874784ea01d64eb032ee5d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/10/16/98-27460/airworthiness-directives-airbus-model-a300-a310-and-a300-600-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-10-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "63 FR 55515",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-NM-74-AD",
+      "Amendment 39-10838",
+      "AD 98-21-30"
+    ],
+    "document_number": "98-27460",
+    "effective_on": "1998-11-20",
+    "html_url": "https://www.federalregister.gov/documents/1998/10/16/98-27460/airworthiness-directives-airbus-model-a300-a310-and-a300-600-series-airplanes",
+    "publication_date": "1998-10-16",
+    "title": "Airworthiness Directives; Airbus Model A300, A310, and A300-600 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A300, A310, and A300-600 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "8c7e1a17cf915c433f28e5ca4db86842bd02364d74874784ea01d64eb032ee5d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

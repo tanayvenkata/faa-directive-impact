@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-19-08"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-25151",
+  "effective_on": "1998-10-07",
+  "entry_sha256": "b6d34f32e8dfee9e06ce9e33ddf787b8925ab1e77fe5fb4933561914f3184c87",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/09/22/98-25151/airworthiness-directives-airbus-model-a321-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-09-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "63 FR 50503",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-NM-246-AD",
+      "Amendment 39-10750",
+      "AD 98-19-08"
+    ],
+    "document_number": "98-25151",
+    "effective_on": "1998-10-07",
+    "html_url": "https://www.federalregister.gov/documents/1998/09/22/98-25151/airworthiness-directives-airbus-model-a321-series-airplanes",
+    "publication_date": "1998-09-22",
+    "title": "Airworthiness Directives; Airbus Model A321 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A321 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "b6d34f32e8dfee9e06ce9e33ddf787b8925ab1e77fe5fb4933561914f3184c87",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

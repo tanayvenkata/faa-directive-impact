@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-04-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-4921",
+  "effective_on": "2004-04-13",
+  "entry_sha256": "e0b1b7da6b45156ddec35ff1f2dd6217ca82a2d8cbe40513e90c924a0afe82fc",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/03/09/04-4921/airworthiness-directives-airbus-model-a300-b2-and-a300-b4-series-airplanes-a300-b4-600-b4-600r",
+  "kind": "final_rule",
+  "publication_date": "2004-03-09",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 10919",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-NM-04-AD",
+      "Amendment 39-13491",
+      "AD 2004-04-10"
+    ],
+    "document_number": "04-4921",
+    "effective_on": "2004-04-13",
+    "html_url": "https://www.federalregister.gov/documents/2004/03/09/04-4921/airworthiness-directives-airbus-model-a300-b2-and-a300-b4-series-airplanes-a300-b4-600-b4-600r",
+    "publication_date": "2004-03-09",
+    "title": "Airworthiness Directives; Airbus Model A300 B2 and A300 B4 Series Airplanes; A300 B4-600, B4-600R, C4-605R Variant F, and F4-600R (Collectively Called A300-600); and A310 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A300 B2 and A300 B4 Series Airplanes; A300 B4-600, B4-600R, C4-605R Variant F, and F4-600R (Collectively Called A300-600); and A310 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "e0b1b7da6b45156ddec35ff1f2dd6217ca82a2d8cbe40513e90c924a0afe82fc",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

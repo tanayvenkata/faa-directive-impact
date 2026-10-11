@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-16-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E6-12109",
+  "effective_on": "2006-08-30",
+  "entry_sha256": "ffa1fbcb5e17b777bcb1d94d551de68b94e459940dcef66447d124f969aea9ae",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-21691"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/07/31/E6-12109/airworthiness-directives-hamilton-sundstrand-model-14rf-19-propellers",
+  "kind": "final_rule",
+  "publication_date": "2006-07-31",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "71 FR 43041",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-21691",
+      "Directorate Identifier 2005-NE-13-AD",
+      "Amendment 39-14701",
+      "AD 2006-16-01"
+    ],
+    "document_number": "E6-12109",
+    "effective_on": "2006-08-30",
+    "html_url": "https://www.federalregister.gov/documents/2006/07/31/E6-12109/airworthiness-directives-hamilton-sundstrand-model-14rf-19-propellers",
+    "publication_date": "2006-07-31",
+    "title": "Airworthiness Directives; Hamilton Sundstrand Model 14RF-19 Propellers",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Hamilton Sundstrand Model 14RF-19 Propellers",
+  "versions": [
+    {
+      "entry_sha256": "ffa1fbcb5e17b777bcb1d94d551de68b94e459940dcef66447d124f969aea9ae",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

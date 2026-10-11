@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-07-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-7117",
+  "effective_on": "1999-04-12",
+  "entry_sha256": "5d5a77b3a8f1397981b0d2685d7cab3b1827b2237a0465f74f473f78e7245d84",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/03/26/99-7117/airworthiness-directives-boeing-model-767-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1999-03-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "64 FR 14578",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-39-AD",
+      "Amendment 39-11091",
+      "AD 99-07-06"
+    ],
+    "document_number": "99-7117",
+    "effective_on": "1999-04-12",
+    "html_url": "https://www.federalregister.gov/documents/1999/03/26/99-7117/airworthiness-directives-boeing-model-767-series-airplanes",
+    "publication_date": "1999-03-26",
+    "title": "Airworthiness Directives; Boeing Model 767 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 767 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "5d5a77b3a8f1397981b0d2685d7cab3b1827b2237a0465f74f473f78e7245d84",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

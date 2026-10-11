@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-07-25"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-8585",
+  "effective_on": "2004-05-21",
+  "entry_sha256": "8358881e6aac5b115d4aed5c7ae402b38dd5a5569ade69cb7d23360f699c2868",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/04/16/04-8585/airworthiness-directives-hartzell-propeller-inc-models-hc-b5mp-3cm10876k-propellers",
+  "kind": "final_rule",
+  "publication_date": "2004-04-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 20539",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NE-44-AD",
+      "Amendment 39-13569",
+      "AD 2004-07-25"
+    ],
+    "document_number": "04-8585",
+    "effective_on": "2004-05-21",
+    "html_url": "https://www.federalregister.gov/documents/2004/04/16/04-8585/airworthiness-directives-hartzell-propeller-inc-models-hc-b5mp-3cm10876k-propellers",
+    "publication_date": "2004-04-16",
+    "title": "Airworthiness Directives; Hartzell Propeller Inc. Models HC-B5MP-3C/M10876K Propellers",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Hartzell Propeller Inc. Models HC-B5MP-3C/M10876K Propellers",
+  "versions": [
+    {
+      "entry_sha256": "8358881e6aac5b115d4aed5c7ae402b38dd5a5569ade69cb7d23360f699c2868",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

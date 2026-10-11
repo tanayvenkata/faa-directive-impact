@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-05-03"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-5274",
+  "effective_on": "2001-04-27",
+  "entry_sha256": "2f2f2b914333638ab1266c7906277efc36e5e371a700c138a846d10a1b63dba7",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/03/12/01-5274/airworthiness-directives-socata-groupe-aerospatiale-model-tbm-700-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2001-03-12",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "66 FR 14308",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-CE-61-AD",
+      "Amendment 39-12139",
+      "AD 2001-05-03"
+    ],
+    "document_number": "01-5274",
+    "effective_on": "2001-04-27",
+    "html_url": "https://www.federalregister.gov/documents/2001/03/12/01-5274/airworthiness-directives-socata-groupe-aerospatiale-model-tbm-700-airplanes",
+    "publication_date": "2001-03-12",
+    "title": "Airworthiness Directives; SOCATA-Groupe AEROSPATIALE Model TBM 700 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; SOCATA-Groupe AEROSPATIALE Model TBM 700 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "2f2f2b914333638ab1266c7906277efc36e5e371a700c138a846d10a1b63dba7",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

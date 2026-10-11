@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-17-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-21053",
+  "effective_on": "2000-10-06",
+  "entry_sha256": "f9e867eeae1c2fdab2fdd59583cf85be55cb136323583763561363c6a3d8ff06",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/08/22/00-21053/airworthiness-directives-fairchild-aircraft-inc-models-sa226-t-sa226-at-sa226-tb-sa226-tc-sa227-at",
+  "kind": "final_rule",
+  "publication_date": "2000-08-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 50909",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-CE-62-AD",
+      "Amendment 39-11874",
+      "AD 2000-17-01"
+    ],
+    "document_number": "00-21053",
+    "effective_on": "2000-10-06",
+    "html_url": "https://www.federalregister.gov/documents/2000/08/22/00-21053/airworthiness-directives-fairchild-aircraft-inc-models-sa226-t-sa226-at-sa226-tb-sa226-tc-sa227-at",
+    "publication_date": "2000-08-22",
+    "title": "Airworthiness Directives; Fairchild Aircraft, Inc. Models SA226-T, SA226-AT, SA226-T(B), SA226-TC, SA227-AT, SA-227-TT, and SA-227-AC Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Fairchild Aircraft, Inc. Models SA226-T, SA226-AT, SA226-T(B), SA226-TC, SA227-AT, SA-227-TT, and SA-227-AC Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "f9e867eeae1c2fdab2fdd59583cf85be55cb136323583763561363c6a3d8ff06",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

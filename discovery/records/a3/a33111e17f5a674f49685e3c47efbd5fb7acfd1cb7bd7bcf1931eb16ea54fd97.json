@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-13-17"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-14576",
+  "effective_on": "2004-08-05",
+  "entry_sha256": "b5a3eb5bb4b12d4b3e527ee3272b8fd59bb167c7dd0a87bce2219acf0bdf3f65",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/07/01/04-14576/airworthiness-directives-fokker-model-f28-mark-0070-and-0100-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2004-07-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 39833",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-NM-223-AD",
+      "Amendment 39-13699",
+      "AD 2004-13-17"
+    ],
+    "document_number": "04-14576",
+    "effective_on": "2004-08-05",
+    "html_url": "https://www.federalregister.gov/documents/2004/07/01/04-14576/airworthiness-directives-fokker-model-f28-mark-0070-and-0100-series-airplanes",
+    "publication_date": "2004-07-01",
+    "title": "Airworthiness Directives; Fokker Model F.28 Mark 0070 and 0100 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Fokker Model F.28 Mark 0070 and 0100 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "b5a3eb5bb4b12d4b3e527ee3272b8fd59bb167c7dd0a87bce2219acf0bdf3f65",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

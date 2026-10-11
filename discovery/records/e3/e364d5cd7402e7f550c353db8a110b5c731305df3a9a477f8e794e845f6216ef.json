@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-03-08"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-2587",
+  "effective_on": "2005-03-21",
+  "entry_sha256": "8dcd11f277f26b07e9417c944f0fcca20c7fa65d969ddc0ab3b870fe814c9609",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2004-19038"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/02/14/05-2587/airworthiness-directives-eurocopter-france-model-as350b-ba-b1-b2-b3-c-d-d1-and-ec130-b4-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2005-02-14",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 7381",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2004-19038",
+      "Directorate Identifier 2004-SW-24-AD",
+      "Amendment 39-13964",
+      "AD 2005-03-08"
+    ],
+    "document_number": "05-2587",
+    "effective_on": "2005-03-21",
+    "html_url": "https://www.federalregister.gov/documents/2005/02/14/05-2587/airworthiness-directives-eurocopter-france-model-as350b-ba-b1-b2-b3-c-d-d1-and-ec130-b4-helicopters",
+    "publication_date": "2005-02-14",
+    "title": "Airworthiness Directives; Eurocopter France Model AS350B, BA, B1, B2, B3, C, D, D1, and EC130 B4 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eurocopter France Model AS350B, BA, B1, B2, B3, C, D, D1, and EC130 B4 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "8dcd11f277f26b07e9417c944f0fcca20c7fa65d969ddc0ab3b870fe814c9609",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

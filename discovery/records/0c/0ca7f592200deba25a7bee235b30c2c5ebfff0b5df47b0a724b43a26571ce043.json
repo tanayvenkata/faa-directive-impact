@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-24-51"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-32883",
+  "effective_on": "2003-01-07",
+  "entry_sha256": "1972f6ccd49b461faa70e500f05e52524cd5d5858a764d34989f5947c1041182",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/01/02/02-32883/airworthiness-directives-boeing-model-737-600--700--700c--800-and--900-series-airplanes-model-747",
+  "kind": "final_rule",
+  "publication_date": "2003-01-02",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "68 FR 10",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-NM-309-AD",
+      "Amendment 39-12992",
+      "AD 2002-24-51"
+    ],
+    "document_number": "02-32883",
+    "effective_on": "2003-01-07",
+    "html_url": "https://www.federalregister.gov/documents/2003/01/02/02-32883/airworthiness-directives-boeing-model-737-600--700--700c--800-and--900-series-airplanes-model-747",
+    "publication_date": "2003-01-02",
+    "title": "Airworthiness Directives; Boeing Model 737-600, -700, -700C, -800, and -900 Series Airplanes; Model 747 Series Airplanes; and Model 757 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 737-600, -700, -700C, -800, and -900 Series Airplanes; Model 747 Series Airplanes; and Model 757 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "1972f6ccd49b461faa70e500f05e52524cd5d5858a764d34989f5947c1041182",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

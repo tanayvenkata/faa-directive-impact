@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2007-02-17"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-1082",
+  "effective_on": "2007-03-02",
+  "entry_sha256": "b5d4a0a8c63dbf16e355ea536ca49aafc45bc4679b7e4baa045cd7011fff19b4",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-687de582",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-687de582.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2006-26091"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2007/01/26/E7-1082/airworthiness-directives-turbomeca-arriel-1-series-turboshaft-engines",
+  "kind": "final_rule",
+  "publication_date": "2007-01-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "72 FR 3706",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2006-26091",
+      "Directorate Identifier 2006-NE-28-AD",
+      "Amendment 39-14904",
+      "AD 2007-02-17"
+    ],
+    "document_number": "E7-1082",
+    "effective_on": "2007-03-02",
+    "html_url": "https://www.federalregister.gov/documents/2007/01/26/E7-1082/airworthiness-directives-turbomeca-arriel-1-series-turboshaft-engines",
+    "publication_date": "2007-01-26",
+    "title": "Airworthiness Directives; Turbomeca Arriel 1 Series Turboshaft Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Turbomeca Arriel 1 Series Turboshaft Engines",
+  "versions": [
+    {
+      "entry_sha256": "b5d4a0a8c63dbf16e355ea536ca49aafc45bc4679b7e4baa045cd7011fff19b4",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-687de582"
+    }
+  ]
+}

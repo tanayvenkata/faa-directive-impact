@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-16-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-20963",
+  "effective_on": "2000-09-25",
+  "entry_sha256": "209936856d76957b0cf80afa428699c92f85e234cf354e56fc485a9e4790da01",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/08/21/00-20963/airworthiness-directives-boeing-model-767-200--300-and--300f-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-08-21",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 50630",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-54-AD",
+      "Amendment 39-11871",
+      "AD 2000-16-14"
+    ],
+    "document_number": "00-20963",
+    "effective_on": "2000-09-25",
+    "html_url": "https://www.federalregister.gov/documents/2000/08/21/00-20963/airworthiness-directives-boeing-model-767-200--300-and--300f-series-airplanes",
+    "publication_date": "2000-08-21",
+    "title": "Airworthiness Directives; Boeing Model 767-200, -300, and -300F Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 767-200, -300, and -300F Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "209936856d76957b0cf80afa428699c92f85e234cf354e56fc485a9e4790da01",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

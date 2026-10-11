@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-20-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "06-8230",
+  "effective_on": "2006-11-02",
+  "entry_sha256": "21129626da4454a1ca356fedbaac890e756cb3b718af3a83abcc8c11b7bf36c1",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-23392"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/09/28/06-8230/airworthiness-directives-rolls-royce-corporation-models-250-c30-250-c40-and-250-c47-series",
+  "kind": "final_rule",
+  "publication_date": "2006-09-28",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "71 FR 56864",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-23392",
+      "Directorate Identifier 2005-NE-47-AD",
+      "Amendment 39-14776",
+      "AD 2006-20-07"
+    ],
+    "document_number": "06-8230",
+    "effective_on": "2006-11-02",
+    "html_url": "https://www.federalregister.gov/documents/2006/09/28/06-8230/airworthiness-directives-rolls-royce-corporation-models-250-c30-250-c40-and-250-c47-series",
+    "publication_date": "2006-09-28",
+    "title": "Airworthiness Directives; Rolls-Royce Corporation Models 250-C30, 250-C40, and 250-C47 Series Turboshaft Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Rolls-Royce Corporation Models 250-C30, 250-C40, and 250-C47 Series Turboshaft Engines",
+  "versions": [
+    {
+      "entry_sha256": "21129626da4454a1ca356fedbaac890e756cb3b718af3a83abcc8c11b7bf36c1",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

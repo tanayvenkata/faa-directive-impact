@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2013-22188",
+  "effective_on": "2013-10-18",
+  "entry_sha256": "9ecfcad3d3a96ba023a415470ef3df7ece22219112716515fd52e11bb7daea45",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-fe5d2608",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-fe5d2608.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2013-0379"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2013/09/13/2013-22188/airworthiness-directives-bell-helicopter-textron-inc-bell-helicopters",
+  "kind": "final_rule",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "2013-09-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "78 FR 56592",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2013-0379",
+      "Directorate Identifier 2009-SW-26-AD"
+    ],
+    "document_number": "2013-22188",
+    "effective_on": "2013-10-18",
+    "html_url": "https://www.federalregister.gov/documents/2013/09/13/2013-22188/airworthiness-directives-bell-helicopter-textron-inc-bell-helicopters",
+    "publication_date": "2013-09-13",
+    "title": "Airworthiness Directives; Bell Helicopter Textron, Inc. (Bell) Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bell Helicopter Textron, Inc. (Bell) Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "9ecfcad3d3a96ba023a415470ef3df7ece22219112716515fd52e11bb7daea45",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-fe5d2608"
+    }
+  ]
+}

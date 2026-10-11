@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2023-22-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2023-25521",
+  "effective_on": "2023-12-26",
+  "entry_sha256": "a83f5e4a62d8fbe1598d02f39b9fd55eb2ef490432af83cd902964f0305e0b9a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165838Z-8ae1818a",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165838Z-8ae1818a.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2023-1637"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2023/11/20/2023-25521/airworthiness-directives-rolls-royce-deutschland-ltd-and-co-kg-engines",
+  "kind": "final_rule",
+  "publication_date": "2023-11-20",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "88 FR 80575",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2023-1637",
+      "Project Identifier MCAI-2023-00184-E",
+      "Amendment 39-22588",
+      "AD 2023-22-04"
+    ],
+    "document_number": "2023-25521",
+    "effective_on": "2023-12-26",
+    "html_url": "https://www.federalregister.gov/documents/2023/11/20/2023-25521/airworthiness-directives-rolls-royce-deutschland-ltd-and-co-kg-engines",
+    "publication_date": "2023-11-20",
+    "title": "Airworthiness Directives; Rolls-Royce Deutschland Ltd & Co KG Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Rolls-Royce Deutschland Ltd & Co KG Engines",
+  "versions": [
+    {
+      "entry_sha256": "a83f5e4a62d8fbe1598d02f39b9fd55eb2ef490432af83cd902964f0305e0b9a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165838Z-8ae1818a"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-11-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-12518",
+  "effective_on": "2009-06-17",
+  "entry_sha256": "ba00bd2a58d39c806cae624a3c482a96b3e91ac88daf540da56e54630914ac15",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-0498"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/06/02/E9-12518/airworthiness-directives-learjet-model-45-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2009-06-02",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "74 FR 26288",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-0498",
+      "Directorate Identifier 2009-NM-065-AD",
+      "Amendment 39-15923",
+      "AD 2009-11-13"
+    ],
+    "document_number": "E9-12518",
+    "effective_on": "2009-06-17",
+    "html_url": "https://www.federalregister.gov/documents/2009/06/02/E9-12518/airworthiness-directives-learjet-model-45-airplanes",
+    "publication_date": "2009-06-02",
+    "title": "Airworthiness Directives; Learjet Model 45 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Learjet Model 45 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ba00bd2a58d39c806cae624a3c482a96b3e91ac88daf540da56e54630914ac15",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

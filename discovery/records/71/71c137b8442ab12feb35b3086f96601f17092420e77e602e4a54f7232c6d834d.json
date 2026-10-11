@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-01-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-34383",
+  "effective_on": "1999-03-12",
+  "entry_sha256": "eb220e3caa01be3bf865df18a6446d149bc17023962a4801a425ebcc28cb2d9a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/12/31/98-34383/airworthiness-directives-avions-pierre-robin-model-r2160-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-12-31",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "63 FR 72137",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-CE-83-AD",
+      "Amendment 39-10971",
+      "AD 99-01-04"
+    ],
+    "document_number": "98-34383",
+    "effective_on": "1999-03-12",
+    "html_url": "https://www.federalregister.gov/documents/1998/12/31/98-34383/airworthiness-directives-avions-pierre-robin-model-r2160-airplanes",
+    "publication_date": "1998-12-31",
+    "title": "Airworthiness Directives; Avions Pierre Robin Model R2160 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Avions Pierre Robin Model R2160 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "eb220e3caa01be3bf865df18a6446d149bc17023962a4801a425ebcc28cb2d9a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

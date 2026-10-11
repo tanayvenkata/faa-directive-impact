@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-05-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-5039",
+  "effective_on": "1999-05-03",
+  "entry_sha256": "5aafb7cded79c337e638cc1158d8cfc930a88a3fe03e1947e5629283f75a2664",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/03/03/99-5039/airworthiness-directives-bell-helicopter-textron-inc-model-214b-and-214b-1-helicopters",
+  "kind": "final_rule",
+  "publication_date": "1999-03-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 10208",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 94-SW-23-AD",
+      "Amendment 39-11055",
+      "AD 99-05-07"
+    ],
+    "document_number": "99-5039",
+    "effective_on": "1999-05-03",
+    "html_url": "https://www.federalregister.gov/documents/1999/03/03/99-5039/airworthiness-directives-bell-helicopter-textron-inc-model-214b-and-214b-1-helicopters",
+    "publication_date": "1999-03-03",
+    "title": "Airworthiness Directives; Bell Helicopter Textron, Inc. Model 214B and 214B-1 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bell Helicopter Textron, Inc. Model 214B and 214B-1 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "5aafb7cded79c337e638cc1158d8cfc930a88a3fe03e1947e5629283f75a2664",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

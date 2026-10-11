@@ -1,0 +1,54 @@
+{
+  "ad_numbers": [
+    "2000-12-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-14787",
+  "effective_on": "2000-08-11",
+  "entry_sha256": "dae026c9d51d4ac98a7e5feb5281e30f99324e70b2d98fe38edaa697f2909b2e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/06/12/00-14787/airworthiness-directives-international-aero-engines-ag-v2500-a1-a5-d5-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2000-06-12",
+  "review_reason": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 36783",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-ANE-45-AD",
+      "Amendment 39-11783",
+      "AD 2000-12-05"
+    ],
+    "document_number": "00-14787",
+    "effective_on": "2000-08-11",
+    "html_url": "https://www.federalregister.gov/documents/2000/06/12/00-14787/airworthiness-directives-international-aero-engines-ag-v2500-a1-a5-d5-series-turbofan-engines",
+    "publication_date": "2000-06-12",
+    "title": "Airworthiness Directives; International Aero Engines AG V2500-A1/-A5/-D5 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG V2500-A1/-A5/-D5 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "dae026c9d51d4ac98a7e5feb5281e30f99324e70b2d98fe38edaa697f2909b2e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

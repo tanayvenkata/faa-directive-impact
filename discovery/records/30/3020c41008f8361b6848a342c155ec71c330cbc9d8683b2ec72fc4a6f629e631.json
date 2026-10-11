@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2007-03-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-1397",
+  "effective_on": "2007-02-15",
+  "entry_sha256": "4004f50e05a077de33e0a9b35d041a68e8584f72a8767068fcecc3123d75fd67",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-687de582",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-687de582.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2007-27077"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2007/01/31/E7-1397/airworthiness-directives-gulfstream-aerospace-lp-model-gulfstream-100-airplanes-and-model-astra-spx",
+  "kind": "final_rule",
+  "publication_date": "2007-01-31",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "72 FR 4414",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-27077",
+      "Directorate Identifier 2006-NM-286-AD",
+      "Amendment 39-14916",
+      "AD 2007-03-05"
+    ],
+    "document_number": "E7-1397",
+    "effective_on": "2007-02-15",
+    "html_url": "https://www.federalregister.gov/documents/2007/01/31/E7-1397/airworthiness-directives-gulfstream-aerospace-lp-model-gulfstream-100-airplanes-and-model-astra-spx",
+    "publication_date": "2007-01-31",
+    "title": "Airworthiness Directives; Gulfstream Aerospace LP Model Gulfstream 100 Airplanes, and Model Astra SPX and 1125 Westwind Astra Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Gulfstream Aerospace LP Model Gulfstream 100 Airplanes, and Model Astra SPX and 1125 Westwind Astra Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "4004f50e05a077de33e0a9b35d041a68e8584f72a8767068fcecc3123d75fd67",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-687de582"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2010-12-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-13400",
+  "effective_on": "2010-07-13",
+  "entry_sha256": "ffcb0d057c846a20b98613246490072fce7373a6f0c70a29d16f3458008eb441",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/06/08/2010-13400/airworthiness-directives-pilatus-aircraft-ltd-model-pc-7-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2010-06-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final Rule.",
+    "citation": "75 FR 32251",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-0250 Directorate Identifier 2010-CE-011-AD",
+      "Amendment 39-16325",
+      "AD 2010-12-04"
+    ],
+    "document_number": "2010-13400",
+    "effective_on": "2010-07-13",
+    "html_url": "https://www.federalregister.gov/documents/2010/06/08/2010-13400/airworthiness-directives-pilatus-aircraft-ltd-model-pc-7-airplanes",
+    "publication_date": "2010-06-08",
+    "title": "Airworthiness Directives; PILATUS Aircraft Ltd. Model PC-7 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; PILATUS Aircraft Ltd. Model PC-7 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ffcb0d057c846a20b98613246490072fce7373a6f0c70a29d16f3458008eb441",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

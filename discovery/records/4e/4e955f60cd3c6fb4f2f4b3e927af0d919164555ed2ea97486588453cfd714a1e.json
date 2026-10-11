@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2016-25-20"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2016-30048",
+  "effective_on": "2017-01-31",
+  "entry_sha256": "17fafc91b8f5c7b8fdeabf5453de2d66ccaf562d7d924d70382c22a08d3a4928",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165837Z-50466c8d",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165837Z-50466c8d.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2015-3929"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2016/12/27/2016-30048/airworthiness-directives-airbus-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2016-12-27",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "81 FR 94954",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2015-3929",
+      "Directorate Identifier 2015-SW-031-AD",
+      "Amendment 39-18746",
+      "AD 2016-25-20"
+    ],
+    "document_number": "2016-30048",
+    "effective_on": "2017-01-31",
+    "html_url": "https://www.federalregister.gov/documents/2016/12/27/2016-30048/airworthiness-directives-airbus-helicopters",
+    "publication_date": "2016-12-27",
+    "title": "Airworthiness Directives; Airbus Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "17fafc91b8f5c7b8fdeabf5453de2d66ccaf562d7d924d70382c22a08d3a4928",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165837Z-50466c8d"
+    }
+  ]
+}

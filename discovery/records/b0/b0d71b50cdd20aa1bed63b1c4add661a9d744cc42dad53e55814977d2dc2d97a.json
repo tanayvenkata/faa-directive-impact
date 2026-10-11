@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-24-52"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-32884",
+  "effective_on": "2003-01-06",
+  "entry_sha256": "7bff5909d135f143395d0e53d1ad1a30ce26e52ae048cbecc670711041e0c8dc",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/01/02/02-32884/airworthiness-directives-boeing-model-747-400--400d-and--400f-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2003-01-02",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "68 FR 14",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-NM-314-AD",
+      "Amendment 39-12993",
+      "AD 2002-24-52"
+    ],
+    "document_number": "02-32884",
+    "effective_on": "2003-01-06",
+    "html_url": "https://www.federalregister.gov/documents/2003/01/02/02-32884/airworthiness-directives-boeing-model-747-400--400d-and--400f-series-airplanes",
+    "publication_date": "2003-01-02",
+    "title": "Airworthiness Directives; Boeing Model 747-400, -400D, and -400F Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747-400, -400D, and -400F Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "7bff5909d135f143395d0e53d1ad1a30ce26e52ae048cbecc670711041e0c8dc",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

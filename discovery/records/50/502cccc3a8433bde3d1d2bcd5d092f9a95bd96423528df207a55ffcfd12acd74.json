@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "95-03-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "95-3246",
+  "effective_on": "1995-03-31",
+  "entry_sha256": "8df3bdee2d9fd740788baeaa265ede649a49ab3452dafbb2d20c915b5be80612",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165831Z-a185d5f2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165831Z-a185d5f2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1995/03/01/95-3246/airworthiness-directives-canadair-model-cl-600-1a11--2a12-and--2b16-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1995-03-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "60 FR 11020",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 93-NM-207-AD",
+      "Amendment 39-9143",
+      "AD 95-03-06"
+    ],
+    "document_number": "95-3246",
+    "effective_on": "1995-03-31",
+    "html_url": "https://www.federalregister.gov/documents/1995/03/01/95-3246/airworthiness-directives-canadair-model-cl-600-1a11--2a12-and--2b16-series-airplanes",
+    "publication_date": "1995-03-01",
+    "title": "Airworthiness Directives; Canadair Model CL-600-1A11, -2A12, and -2B16 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Canadair Model CL-600-1A11, -2A12, and -2B16 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "8df3bdee2d9fd740788baeaa265ede649a49ab3452dafbb2d20c915b5be80612",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165831Z-a185d5f2"
+    }
+  ]
+}

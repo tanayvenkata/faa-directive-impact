@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2004-18-03"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-23927",
+  "effective_on": "2004-09-17",
+  "entry_sha256": "95628881571067289c2a8389890abdb002854b31e75b098afef7c1521dac0239",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2004-18993"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/10/26/04-23927/airworthiness-directives-bombardier-model-cl-600-2c10-regional-jet-series-700-and-701-and",
+  "kind": "correction",
+  "publication_date": "2004-10-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "69 FR 62400",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2004-18993",
+      "Directorate Identifier 2004-NM-125-AD",
+      "Amendment 39-13781",
+      "AD 2004-18-03"
+    ],
+    "document_number": "04-23927",
+    "effective_on": "2004-09-17",
+    "html_url": "https://www.federalregister.gov/documents/2004/10/26/04-23927/airworthiness-directives-bombardier-model-cl-600-2c10-regional-jet-series-700-and-701-and",
+    "publication_date": "2004-10-26",
+    "title": "Airworthiness Directives; Bombardier Model CL-600-2C10 (Regional Jet Series 700 & 701), and CL-600-2D24 (Regional Jet Series 900) Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier Model CL-600-2C10 (Regional Jet Series 700 & 701), and CL-600-2D24 (Regional Jet Series 900) Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "95628881571067289c2a8389890abdb002854b31e75b098afef7c1521dac0239",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

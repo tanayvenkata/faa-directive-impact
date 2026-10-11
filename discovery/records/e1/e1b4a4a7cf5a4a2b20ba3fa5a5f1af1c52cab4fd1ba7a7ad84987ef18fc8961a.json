@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-06-08"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-7186",
+  "effective_on": "2003-05-16",
+  "entry_sha256": "668c784f47fde3a199a2796c5bc3da582f399ceb37e6c2d08ad69bf1a8e77fa6",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/03/27/03-7186/airworthiness-directives-dornier-werke-gmbh-model-do-27-q-6-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2003-03-27",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "68 FR 14889",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-CE-55-AD",
+      "Amendment 39-13096",
+      "AD 2003-06-08"
+    ],
+    "document_number": "03-7186",
+    "effective_on": "2003-05-16",
+    "html_url": "https://www.federalregister.gov/documents/2003/03/27/03-7186/airworthiness-directives-dornier-werke-gmbh-model-do-27-q-6-airplanes",
+    "publication_date": "2003-03-27",
+    "title": "Airworthiness Directives; Dornier-Werke G.m.b.H. Model Do 27 Q-6 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Dornier-Werke G.m.b.H. Model Do 27 Q-6 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "668c784f47fde3a199a2796c5bc3da582f399ceb37e6c2d08ad69bf1a8e77fa6",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

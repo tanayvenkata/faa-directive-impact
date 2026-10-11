@@ -1,0 +1,44 @@
+{
+  "acquisition_run_id": "run-20261011T165831Z-6cea777a",
+  "acquisition_status": "succeeded",
+  "artifact": {
+    "byte_length": 155444,
+    "declared_media_type": "application/pdf",
+    "detected_media_type": "application/pdf",
+    "relative_path": "raw/govinfo/2011-31663/run-20261011T165831Z-6cea777a/official.pdf",
+    "sha256": "a6c8c6badcdd1361abf4a71c04bf11990c987c5c3e6f72af062f41516af4ed8e"
+  },
+  "authority_role": "official_edition",
+  "parent_document_identity": {
+    "namespace": "federal_register_document_number",
+    "value": "2011-31663"
+  },
+  "receipt_id": "receipt-20261011T165840Z-c59b758e",
+  "redistribution": {
+    "basis": "U.S. Government work, 17 U.S.C. 105; GovInfo policy permits reprinting with credit to the issuing agency (FAA). See REDISTRIBUTION.md.",
+    "status": "permitted"
+  },
+  "representation_role": "official_pdf",
+  "request": {
+    "method": "GET",
+    "requested_url": "https://www.govinfo.gov/content/pkg/FR-2011-12-12/pdf/2011-31663.pdf",
+    "resolved_url": "https://www.govinfo.gov/content/pkg/FR-2011-12-12/pdf/2011-31663.pdf"
+  },
+  "response": {
+    "headers": {
+      "content_disposition": "inline; filename=\"2011-31663.pdf\"",
+      "content_length": 155444,
+      "content_type": "application/pdf",
+      "last_modified": "Tue, 23 Sep 2025 00:35:32 GMT"
+    },
+    "status_code": 200
+  },
+  "retrieval_id": "retrieval-20261011T165840Z-c59b758e",
+  "retrieved_at_utc": "2026-10-11T16:58:40Z",
+  "schema_version": "1.0.0",
+  "source_document_identity": {
+    "namespace": "govinfo_package_granule",
+    "value": "FR-2011-12-12/2011-31663"
+  },
+  "source_system": "govinfo"
+}

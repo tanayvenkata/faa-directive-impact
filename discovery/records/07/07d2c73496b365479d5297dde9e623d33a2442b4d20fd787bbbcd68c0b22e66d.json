@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-11-12"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-12574",
+  "effective_on": "2004-07-27",
+  "entry_sha256": "c0363b4d1e4ba6776e54cd4f5f7ca79a6d2996b9133d05ba11cf7feb69285748",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/06/08/04-12574/airworthiness-directives-alexander-schleicher-model-asw-27-sailplanes",
+  "kind": "final_rule",
+  "publication_date": "2004-06-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 31870",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-CE-53-AD",
+      "Amendment 39-13658",
+      "AD 2004-11-12"
+    ],
+    "document_number": "04-12574",
+    "effective_on": "2004-07-27",
+    "html_url": "https://www.federalregister.gov/documents/2004/06/08/04-12574/airworthiness-directives-alexander-schleicher-model-asw-27-sailplanes",
+    "publication_date": "2004-06-08",
+    "title": "Airworthiness Directives; Alexander Schleicher Model ASW 27 Sailplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Alexander Schleicher Model ASW 27 Sailplanes",
+  "versions": [
+    {
+      "entry_sha256": "c0363b4d1e4ba6776e54cd4f5f7ca79a6d2996b9133d05ba11cf7feb69285748",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

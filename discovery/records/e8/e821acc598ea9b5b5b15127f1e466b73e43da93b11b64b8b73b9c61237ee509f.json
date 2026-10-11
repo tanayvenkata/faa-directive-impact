@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2007-03-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-1398",
+  "effective_on": "2007-03-08",
+  "entry_sha256": "fc7877ead39970a5f8b44a477596737dcbd8ebb1213dcd83703c94a15d0dd927",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-687de582",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-687de582.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2007/02/01/E7-1398/airworthiness-directives-pilatus-aircraft-limited-pc-12-and-pc-1245-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2007-02-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "72 FR 4633",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2006-26371 Directorate Identifier 2006-CE-70-AD",
+      "Amendment 39-14917",
+      "AD 2007-03-06"
+    ],
+    "document_number": "E7-1398",
+    "effective_on": "2007-03-08",
+    "html_url": "https://www.federalregister.gov/documents/2007/02/01/E7-1398/airworthiness-directives-pilatus-aircraft-limited-pc-12-and-pc-1245-airplanes",
+    "publication_date": "2007-02-01",
+    "title": "Airworthiness Directives; Pilatus Aircraft Limited PC-12 and PC-12/45 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pilatus Aircraft Limited PC-12 and PC-12/45 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "fc7877ead39970a5f8b44a477596737dcbd8ebb1213dcd83703c94a15d0dd927",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-687de582"
+    }
+  ]
+}

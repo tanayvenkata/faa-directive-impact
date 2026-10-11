@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2008-20-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E8-22035",
+  "effective_on": "2008-11-03",
+  "entry_sha256": "8cb00c50217b887ae6e6a8cd2318e6f618412d25c198c278394348f5b44d27e0",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9badc618",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9badc618.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2008-0638"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2008/09/29/E8-22035/airworthiness-directives-lockheed-model-382-382b-382e-382f-and-382g-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2008-09-29",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "73 FR 56464",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2008-0638",
+      "Directorate Identifier 2008-NM-035-AD",
+      "Amendment 39-15680",
+      "AD 2008-20-01"
+    ],
+    "document_number": "E8-22035",
+    "effective_on": "2008-11-03",
+    "html_url": "https://www.federalregister.gov/documents/2008/09/29/E8-22035/airworthiness-directives-lockheed-model-382-382b-382e-382f-and-382g-series-airplanes",
+    "publication_date": "2008-09-29",
+    "title": "Airworthiness Directives; Lockheed Model 382, 382B, 382E, 382F, and 382G Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Lockheed Model 382, 382B, 382E, 382F, and 382G Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "8cb00c50217b887ae6e6a8cd2318e6f618412d25c198c278394348f5b44d27e0",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9badc618"
+    }
+  ]
+}

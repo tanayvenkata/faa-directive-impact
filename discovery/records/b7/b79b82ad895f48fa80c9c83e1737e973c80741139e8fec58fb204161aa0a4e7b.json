@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-23-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-28963",
+  "effective_on": "2000-12-27",
+  "entry_sha256": "af97e03d6181fe4876063be9b2267944f96bc35baa516cbffb866d3c2507a27b",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/11/22/00-28963/airworthiness-directives-lockheed-model-188a-and-188c-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-11-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 70294",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-265-AD",
+      "Amendment 39-11980",
+      "AD 2000-23-10"
+    ],
+    "document_number": "00-28963",
+    "effective_on": "2000-12-27",
+    "html_url": "https://www.federalregister.gov/documents/2000/11/22/00-28963/airworthiness-directives-lockheed-model-188a-and-188c-series-airplanes",
+    "publication_date": "2000-11-22",
+    "title": "Airworthiness Directives; Lockheed Model 188A and 188C Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Lockheed Model 188A and 188C Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "af97e03d6181fe4876063be9b2267944f96bc35baa516cbffb866d3c2507a27b",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

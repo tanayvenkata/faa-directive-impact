@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2023-02-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2023-04955",
+  "effective_on": "2023-04-17",
+  "entry_sha256": "b01ecc0c55d636d22cfeeac1807576cedb220de1a1d9fba6b32dd3be12c4b475",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165838Z-8ae1818a",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165838Z-8ae1818a.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2022-1300"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2023/03/13/2023-04955/airworthiness-directives-airbus-sas-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2023-03-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "88 FR 15269",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2022-1300",
+      "Project Identifier MCAI-2022-00663-T",
+      "Amendment 39-22318",
+      "AD 2023-02-11"
+    ],
+    "document_number": "2023-04955",
+    "effective_on": "2023-04-17",
+    "html_url": "https://www.federalregister.gov/documents/2023/03/13/2023-04955/airworthiness-directives-airbus-sas-airplanes",
+    "publication_date": "2023-03-13",
+    "title": "Airworthiness Directives; Airbus SAS Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus SAS Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "b01ecc0c55d636d22cfeeac1807576cedb220de1a1d9fba6b32dd3be12c4b475",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165838Z-8ae1818a"
+    }
+  ]
+}

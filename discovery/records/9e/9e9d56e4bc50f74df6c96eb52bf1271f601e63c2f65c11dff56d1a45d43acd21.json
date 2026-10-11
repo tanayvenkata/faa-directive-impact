@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-21-33"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-26933",
+  "effective_on": "1999-11-04",
+  "entry_sha256": "c156f1720334b9ffcfc65fa5fd780b8f9595ddc5c1a26d872504c4b2aa0402db",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/10/20/99-26933/airworthiness-directives-fokker-model-f27-mark-050-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1999-10-20",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "64 FR 56422",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-225-AD",
+      "Amendment 39-11379",
+      "AD 99-21-33"
+    ],
+    "document_number": "99-26933",
+    "effective_on": "1999-11-04",
+    "html_url": "https://www.federalregister.gov/documents/1999/10/20/99-26933/airworthiness-directives-fokker-model-f27-mark-050-series-airplanes",
+    "publication_date": "1999-10-20",
+    "title": "Airworthiness Directives; Fokker Model F.27 Mark 050 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Fokker Model F.27 Mark 050 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "c156f1720334b9ffcfc65fa5fd780b8f9595ddc5c1a26d872504c4b2aa0402db",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

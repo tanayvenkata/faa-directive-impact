@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2008-11-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E8-11359",
+  "effective_on": "2008-07-03",
+  "entry_sha256": "21372569b0f30798f97bab933871fa4228a27c94a503fed45df70452ef96e51d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9badc618",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9badc618.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2007-0265"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2008/05/29/E8-11359/airworthiness-directives-boeing-model-727-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2008-05-29",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "73 FR 30763",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-0265",
+      "Directorate Identifier 2007-NM-213-AD",
+      "Amendment 39-15531",
+      "AD 2008-11-09"
+    ],
+    "document_number": "E8-11359",
+    "effective_on": "2008-07-03",
+    "html_url": "https://www.federalregister.gov/documents/2008/05/29/E8-11359/airworthiness-directives-boeing-model-727-airplanes",
+    "publication_date": "2008-05-29",
+    "title": "Airworthiness Directives; Boeing Model 727 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 727 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "21372569b0f30798f97bab933871fa4228a27c94a503fed45df70452ef96e51d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9badc618"
+    }
+  ]
+}

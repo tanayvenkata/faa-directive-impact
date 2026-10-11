@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-24-31"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-909",
+  "effective_on": "1999-02-03",
+  "entry_sha256": "3d7e56828e1ba9c5a2baa7fbbabbb0db7d00dc2e7f521902528183239198a7d0",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/01/19/99-909/airworthiness-directives-bell-helicopter-textron-canada-bhtc-model-430-helicopters",
+  "kind": "final_rule",
+  "publication_date": "1999-01-19",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "64 FR 2819",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-SW-68-AD",
+      "Amendment 39-10998",
+      "AD 98-24-31"
+    ],
+    "document_number": "99-909",
+    "effective_on": "1999-02-03",
+    "html_url": "https://www.federalregister.gov/documents/1999/01/19/99-909/airworthiness-directives-bell-helicopter-textron-canada-bhtc-model-430-helicopters",
+    "publication_date": "1999-01-19",
+    "title": "Airworthiness Directives; Bell Helicopter Textron Canada (BHTC) Model 430 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bell Helicopter Textron Canada (BHTC) Model 430 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "3d7e56828e1ba9c5a2baa7fbbabbb0db7d00dc2e7f521902528183239198a7d0",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

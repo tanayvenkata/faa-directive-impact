@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-04-22"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-3750",
+  "effective_on": "1999-03-04",
+  "entry_sha256": "e594c810937f9ffdc0348e55e948600a4d8e1088c33da6c78caeb5e69e94150b",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/02/17/99-3750/airworthiness-directives-boeing-model-727-727-100-727-200-727c-727-100c-and-727-200f-series",
+  "kind": "final_rule",
+  "publication_date": "1999-02-17",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "64 FR 7774",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-16-AD",
+      "Amendment 39-11047",
+      "AD 99-04-22"
+    ],
+    "document_number": "99-3750",
+    "effective_on": "1999-03-04",
+    "html_url": "https://www.federalregister.gov/documents/1999/02/17/99-3750/airworthiness-directives-boeing-model-727-727-100-727-200-727c-727-100c-and-727-200f-series",
+    "publication_date": "1999-02-17",
+    "title": "Airworthiness Directives; Boeing Model 727, 727-100, 727-200, 727C, 727-100C, and 727-200F Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 727, 727-100, 727-200, 727C, 727-100C, and 727-200F Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "e594c810937f9ffdc0348e55e948600a4d8e1088c33da6c78caeb5e69e94150b",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-02-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-1368",
+  "effective_on": "2000-02-29",
+  "entry_sha256": "85e094f0e99db7559911d42027cdb9817eb0f69fbbfb8ac9c594f79e5497862f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/01/25/00-1368/airworthiness-directives-mcdonnell-douglas-model-dc-8-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-01-25",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 3794",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-NM-309-AD",
+      "Amendment 39-11518",
+      "AD 2000-02-01"
+    ],
+    "document_number": "00-1368",
+    "effective_on": "2000-02-29",
+    "html_url": "https://www.federalregister.gov/documents/2000/01/25/00-1368/airworthiness-directives-mcdonnell-douglas-model-dc-8-series-airplanes",
+    "publication_date": "2000-01-25",
+    "title": "Airworthiness Directives; McDonnell Douglas Model DC-8 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model DC-8 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "85e094f0e99db7559911d42027cdb9817eb0f69fbbfb8ac9c594f79e5497862f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

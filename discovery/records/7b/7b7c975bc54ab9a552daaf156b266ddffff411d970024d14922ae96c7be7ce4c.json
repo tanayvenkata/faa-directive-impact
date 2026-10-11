@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-20-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-25548",
+  "effective_on": "2000-11-27",
+  "entry_sha256": "e22fae37137b596f4843736158d230fc60695570f73982c8a397fc88c6d94752",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/10/13/00-25548/airworthiness-directives-let-aeronautical-works-model-l-13-blanik-sailplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-10-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 60845",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-CE-91-AD",
+      "Amendment 39-11922",
+      "AD 2000-20-11"
+    ],
+    "document_number": "00-25548",
+    "effective_on": "2000-11-27",
+    "html_url": "https://www.federalregister.gov/documents/2000/10/13/00-25548/airworthiness-directives-let-aeronautical-works-model-l-13-blanik-sailplanes",
+    "publication_date": "2000-10-13",
+    "title": "Airworthiness Directives; LET Aeronautical Works Model L-13 \u201cBlanik\u201d Sailplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; LET Aeronautical Works Model L-13 \u201cBlanik\u201d Sailplanes",
+  "versions": [
+    {
+      "entry_sha256": "e22fae37137b596f4843736158d230fc60695570f73982c8a397fc88c6d94752",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

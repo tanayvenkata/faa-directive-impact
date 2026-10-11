@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2008-05-03"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E8-3749",
+  "effective_on": "2008-04-08",
+  "entry_sha256": "b25f11834d9e1f16e9d3ac2bcb5c97bd83c3cef7b9e6448045f006e58b95eb7f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9badc618",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9badc618.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2007-0204"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2008/03/04/E8-3749/airworthiness-directives-boeing-model-747-100--100b--100b-sud--200b--200c--200f--300-747sp-and-747sr",
+  "kind": "final_rule",
+  "publication_date": "2008-03-04",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "73 FR 11534",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-0204",
+      "Directorate Identifier 2007-NM-083-AD",
+      "Amendment 39-15397",
+      "AD 2008-05-03"
+    ],
+    "document_number": "E8-3749",
+    "effective_on": "2008-04-08",
+    "html_url": "https://www.federalregister.gov/documents/2008/03/04/E8-3749/airworthiness-directives-boeing-model-747-100--100b--100b-sud--200b--200c--200f--300-747sp-and-747sr",
+    "publication_date": "2008-03-04",
+    "title": "Airworthiness Directives; Boeing Model 747-100, -100B, -100B SUD, -200B, -200C, -200F, -300, 747SP, and 747SR Series Airplanes Powered by General Electric (GE) CF6-45/50 and Pratt & Whitney (P&W) JT9D-70, JT9D-3 or JT9D-7 Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747-100, -100B, -100B SUD, -200B, -200C, -200F, -300, 747SP, and 747SR Series Airplanes Powered by General Electric (GE) CF6-45/50 and Pratt & Whitney (P&W) JT9D-70, JT9D-3 or JT9D-7 Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "b25f11834d9e1f16e9d3ac2bcb5c97bd83c3cef7b9e6448045f006e58b95eb7f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9badc618"
+    }
+  ]
+}

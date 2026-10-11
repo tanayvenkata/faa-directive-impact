@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-04-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-3679",
+  "effective_on": "2004-03-09",
+  "entry_sha256": "362e72cc8231e590e1bbf26151b0606e9434c55a897d438a3eb3a1901afdc13c",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/02/23/04-3679/airworthiness-directives-general-electric-company-cf34-8e-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2004-02-23",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "69 FR 8098",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2004-NE-06-AD",
+      "Amendment 39-13485",
+      "AD 2004-04-04"
+    ],
+    "document_number": "04-3679",
+    "effective_on": "2004-03-09",
+    "html_url": "https://www.federalregister.gov/documents/2004/02/23/04-3679/airworthiness-directives-general-electric-company-cf34-8e-series-turbofan-engines",
+    "publication_date": "2004-02-23",
+    "title": "Airworthiness Directives; General Electric Company CF34-8E Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; General Electric Company CF34-8E Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "362e72cc8231e590e1bbf26151b0606e9434c55a897d438a3eb3a1901afdc13c",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-12-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-14609",
+  "effective_on": "1998-06-18",
+  "entry_sha256": "bc3a6dff1ecbc4cc3ed8bce50480e262ca036a9f447a7f80b752e0e1693ad69a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/06/03/98-14609/airworthiness-directives-airbus-model-a320-111-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-06-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Direct final rule; confirmation of effective date.",
+    "citation": "63 FR 30124",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-NM-22-AD",
+      "Amendment 39-10410",
+      "AD 98-12-05"
+    ],
+    "document_number": "98-14609",
+    "effective_on": "1998-06-18",
+    "html_url": "https://www.federalregister.gov/documents/1998/06/03/98-14609/airworthiness-directives-airbus-model-a320-111-series-airplanes",
+    "publication_date": "1998-06-03",
+    "title": "Airworthiness Directives; Airbus Model A320-111 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A320-111 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "bc3a6dff1ecbc4cc3ed8bce50480e262ca036a9f447a7f80b752e0e1693ad69a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

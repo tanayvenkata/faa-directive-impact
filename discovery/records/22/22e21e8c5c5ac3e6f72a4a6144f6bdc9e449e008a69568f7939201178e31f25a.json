@@ -1,0 +1,52 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-12829",
+  "effective_on": "1999-05-12",
+  "entry_sha256": "18e5f85d366d0bff4568eba5a636f4329283442766663f824120c3ec114389f4",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/06/03/99-12829/airworthiness-directives-mcdonnell-douglas-model-dc-9-and-c-9-military-series-airplanes",
+  "kind": "correction",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "1999-06-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "64 FR 29777",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-NM-110-AD",
+      "Amendment 39-11177",
+      "AD 99-08-05 R1"
+    ],
+    "document_number": "99-12829",
+    "effective_on": "1999-05-12",
+    "html_url": "https://www.federalregister.gov/documents/1999/06/03/99-12829/airworthiness-directives-mcdonnell-douglas-model-dc-9-and-c-9-military-series-airplanes",
+    "publication_date": "1999-06-03",
+    "title": "Airworthiness Directives; McDonnell Douglas Model DC-9 and C-9 (Military) Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model DC-9 and C-9 (Military) Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "18e5f85d366d0bff4568eba5a636f4329283442766663f824120c3ec114389f4",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

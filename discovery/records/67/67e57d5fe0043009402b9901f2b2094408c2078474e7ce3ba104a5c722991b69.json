@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-15-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-17064",
+  "effective_on": "2010-08-26",
+  "entry_sha256": "02b7a3e68ba15941199504aff9bcdca27e457d24f88c6a3531fc74875f62a7e2",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-0003"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/07/22/2010-17064/airworthiness-directives-airbus-model-a330-200-and--300-series-airplanes-and-a340-200--300--500-and",
+  "kind": "final_rule",
+  "publication_date": "2010-07-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "75 FR 42589",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-0003",
+      "Directorate Identifier 2007-NM-251-AD",
+      "Amendment 39-16368",
+      "AD 2010-15-02"
+    ],
+    "document_number": "2010-17064",
+    "effective_on": "2010-08-26",
+    "html_url": "https://www.federalregister.gov/documents/2010/07/22/2010-17064/airworthiness-directives-airbus-model-a330-200-and--300-series-airplanes-and-a340-200--300--500-and",
+    "publication_date": "2010-07-22",
+    "title": "Airworthiness Directives; Airbus Model A330-200 and -300 Series Airplanes, and A340-200, -300, -500, and -600 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A330-200 and -300 Series Airplanes, and A340-200, -300, -500, and -600 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "02b7a3e68ba15941199504aff9bcdca27e457d24f88c6a3531fc74875f62a7e2",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

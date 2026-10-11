@@ -1,0 +1,57 @@
+{
+  "ad_numbers": [
+    "2010-06-18"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-5860",
+  "effective_on": "2010-04-22",
+  "entry_sha256": "18c5a654a3127def28ea7105ff9ba82b480a37fbd7d41eed0232cb6c4aaa9051",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2007-29060"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/03/18/2010-5860/airworthiness-directives-international-aero-engines-iae-v2500-a1-v2522-a5-v2524-a5-v2525-d5-v2527-a5",
+  "kind": "final_rule",
+  "publication_date": "2010-03-18",
+  "review_reason": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "75 FR 12971",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-29060",
+      "Directorate Identifier 2007-NE-34-AD",
+      "Amendment 39-16243",
+      "AD 2010-06-18"
+    ],
+    "document_number": "2010-5860",
+    "effective_on": "2010-04-22",
+    "html_url": "https://www.federalregister.gov/documents/2010/03/18/2010-5860/airworthiness-directives-international-aero-engines-iae-v2500-a1-v2522-a5-v2524-a5-v2525-d5-v2527-a5",
+    "publication_date": "2010-03-18",
+    "title": "Airworthiness Directives; International Aero Engines (IAE) V2500-A1, V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines (IAE) V2500-A1, V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "18c5a654a3127def28ea7105ff9ba82b480a37fbd7d41eed0232cb6c4aaa9051",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

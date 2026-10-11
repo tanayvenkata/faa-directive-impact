@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2012-06-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2012-6531",
+  "effective_on": "2012-04-25",
+  "entry_sha256": "a0a475873c4014ee301871008d444aa3393a5c6d05237b734c8b23801c0d9145",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-8477c4ef",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-8477c4ef.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2011-1088"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2012/03/21/2012-6531/airworthiness-directives-bombardier-inc-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2012-03-21",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "77 FR 16428",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2011-1088",
+      "Directorate Identifier 2011-NM-099-AD",
+      "Amendment 39-16985",
+      "AD 2012-06-04"
+    ],
+    "document_number": "2012-6531",
+    "effective_on": "2012-04-25",
+    "html_url": "https://www.federalregister.gov/documents/2012/03/21/2012-6531/airworthiness-directives-bombardier-inc-airplanes",
+    "publication_date": "2012-03-21",
+    "title": "Airworthiness Directives; Bombardier, Inc. Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier, Inc. Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "a0a475873c4014ee301871008d444aa3393a5c6d05237b734c8b23801c0d9145",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-8477c4ef"
+    }
+  ]
+}

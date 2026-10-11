@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-02-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-1767",
+  "effective_on": "2000-03-02",
+  "entry_sha256": "0f479d03a606cd0808a751dc35d05b899baa6eaa6e91bf030109b5f2d98dd0bb",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/01/27/00-1767/airworthiness-directives-bombardier-model-dhc-7-100-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-01-27",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 4354",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-107-AD",
+      "Amendment 39-11526",
+      "AD 2000-02-07"
+    ],
+    "document_number": "00-1767",
+    "effective_on": "2000-03-02",
+    "html_url": "https://www.federalregister.gov/documents/2000/01/27/00-1767/airworthiness-directives-bombardier-model-dhc-7-100-series-airplanes",
+    "publication_date": "2000-01-27",
+    "title": "Airworthiness Directives; Bombardier Model DHC-7-100 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier Model DHC-7-100 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "0f479d03a606cd0808a751dc35d05b899baa6eaa6e91bf030109b5f2d98dd0bb",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

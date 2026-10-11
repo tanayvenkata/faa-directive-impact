@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-25-15"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-31879",
+  "effective_on": "2000-01-18",
+  "entry_sha256": "dd735b519741f9960178e27d19cb634a9005d8907c77c68a138322bf0fcb8235",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/12/13/99-31879/airworthiness-directives-airbus-model-a300-a310-a300-600-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1999-12-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 69386",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-NM-303-AD",
+      "Amendment 39-11458",
+      "AD 99-25-15"
+    ],
+    "document_number": "99-31879",
+    "effective_on": "2000-01-18",
+    "html_url": "https://www.federalregister.gov/documents/1999/12/13/99-31879/airworthiness-directives-airbus-model-a300-a310-a300-600-series-airplanes",
+    "publication_date": "1999-12-13",
+    "title": "Airworthiness Directives; Airbus Model A300, A310, A300-600 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A300, A310, A300-600 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "dd735b519741f9960178e27d19cb634a9005d8907c77c68a138322bf0fcb8235",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

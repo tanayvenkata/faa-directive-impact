@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-19-23"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-18785",
+  "effective_on": "2005-10-27",
+  "entry_sha256": "df719375825cc08f37a77798ed0f253a164d5fcec33ec170a9d340fd1e2dce38",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-21355"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/09/22/05-18785/airworthiness-directives-boeing-model-767-200--300-and--300f-series-airplanes-powered-by-general",
+  "kind": "final_rule",
+  "publication_date": "2005-09-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 55519",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-21355",
+      "Directorate Identifier 2005-NM-037-AD",
+      "Amendment 39-14288",
+      "AD 2005-19-23"
+    ],
+    "document_number": "05-18785",
+    "effective_on": "2005-10-27",
+    "html_url": "https://www.federalregister.gov/documents/2005/09/22/05-18785/airworthiness-directives-boeing-model-767-200--300-and--300f-series-airplanes-powered-by-general",
+    "publication_date": "2005-09-22",
+    "title": "Airworthiness Directives; Boeing Model 767-200, -300, and -300F Series Airplanes Powered by General Electric or Pratt & Whitney Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 767-200, -300, and -300F Series Airplanes Powered by General Electric or Pratt & Whitney Engines",
+  "versions": [
+    {
+      "entry_sha256": "df719375825cc08f37a77798ed0f253a164d5fcec33ec170a9d340fd1e2dce38",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

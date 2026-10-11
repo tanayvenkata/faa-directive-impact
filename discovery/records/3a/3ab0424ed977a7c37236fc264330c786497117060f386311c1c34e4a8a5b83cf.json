@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-3884",
+  "effective_on": null,
+  "entry_sha256": "ddba60531cc200af504b8040ceb48dac6ac71a26e208a61dcb9b2f244f6b0b2e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2000-8460"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/02/15/01-3884/airworthiness-directives",
+  "kind": "final_rule",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "2001-02-15",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Notice of proposed rulemaking (NPRM); extension of comment period.",
+    "citation": "66 FR 10360",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2000-8460",
+      "Notice No. 01-02"
+    ],
+    "document_number": "01-3884",
+    "effective_on": null,
+    "html_url": "https://www.federalregister.gov/documents/2001/02/15/01-3884/airworthiness-directives",
+    "publication_date": "2001-02-15",
+    "title": "Airworthiness Directives",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives",
+  "versions": [
+    {
+      "entry_sha256": "ddba60531cc200af504b8040ceb48dac6ac71a26e208a61dcb9b2f244f6b0b2e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

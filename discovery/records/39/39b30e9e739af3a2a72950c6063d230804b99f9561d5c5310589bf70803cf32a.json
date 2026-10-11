@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-22-25"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-28666",
+  "effective_on": "2004-12-14",
+  "entry_sha256": "7c53d631a5d86f8313f3ea31f8405953580d435ef26e3efae3a02424d8d24709",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/01/03/04-28666/airworthiness-directives-boeing-model-767-200--300-and--300f-series-airplanes",
+  "kind": "correction",
+  "publication_date": "2005-01-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "70 FR 10",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-409-AD",
+      "Amendment 39-13853",
+      "AD 2004-22-25"
+    ],
+    "document_number": "04-28666",
+    "effective_on": "2004-12-14",
+    "html_url": "https://www.federalregister.gov/documents/2005/01/03/04-28666/airworthiness-directives-boeing-model-767-200--300-and--300f-series-airplanes",
+    "publication_date": "2005-01-03",
+    "title": "Airworthiness Directives; Boeing Model 767-200, -300, and -300F Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 767-200, -300, and -300F Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "7c53d631a5d86f8313f3ea31f8405953580d435ef26e3efae3a02424d8d24709",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

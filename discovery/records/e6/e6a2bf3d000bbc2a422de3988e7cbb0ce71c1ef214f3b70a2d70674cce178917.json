@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2020-02-19"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2020-03828",
+  "effective_on": "2020-03-18",
+  "entry_sha256": "ac9a4b41c261a39b9b08411707657d93a1a564daf1c0aa15e24af2969f635a59",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165838Z-9c1361aa",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165838Z-9c1361aa.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2019-0720"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2020/02/26/2020-03828/airworthiness-directives-bombardier-inc-airplanes",
+  "kind": "correction",
+  "publication_date": "2020-02-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "85 FR 10978",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2019-0720",
+      "Product Identifier 2019-NM-117-AD",
+      "Amendment 39-19831",
+      "AD 2020-02-19"
+    ],
+    "document_number": "2020-03828",
+    "effective_on": "2020-03-18",
+    "html_url": "https://www.federalregister.gov/documents/2020/02/26/2020-03828/airworthiness-directives-bombardier-inc-airplanes",
+    "publication_date": "2020-02-26",
+    "title": "Airworthiness Directives; Bombardier, Inc., Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier, Inc., Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ac9a4b41c261a39b9b08411707657d93a1a564daf1c0aa15e24af2969f635a59",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165838Z-9c1361aa"
+    }
+  ]
+}

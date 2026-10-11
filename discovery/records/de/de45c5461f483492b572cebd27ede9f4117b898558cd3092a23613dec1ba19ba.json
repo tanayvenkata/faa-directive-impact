@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-22-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-26951",
+  "effective_on": null,
+  "entry_sha256": "4c1bc92a73dbce0d75b56c4e4f4f4d4997d1be6998ce00844f256cb8196a5cf8",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/10/26/01-26951/airworthiness-directives-boeing-model-b-17e-f-and-g-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2001-10-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "66 FR 54111",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 95-NM-15-AD",
+      "Amendment 39-12485",
+      "AD 2001-22-06"
+    ],
+    "document_number": "01-26951",
+    "effective_on": null,
+    "html_url": "https://www.federalregister.gov/documents/2001/10/26/01-26951/airworthiness-directives-boeing-model-b-17e-f-and-g-airplanes",
+    "publication_date": "2001-10-26",
+    "title": "Airworthiness Directives; Boeing Model B-17E, F, and G Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model B-17E, F, and G Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "4c1bc92a73dbce0d75b56c4e4f4f4d4997d1be6998ce00844f256cb8196a5cf8",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

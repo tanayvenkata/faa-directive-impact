@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2011-21-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2011-26082",
+  "effective_on": "2011-11-23",
+  "entry_sha256": "033ef33ff0341b61b9d09b96989852b333a09f96de40043d81c46907e2c368f1",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-20b5ccf0",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-20b5ccf0.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2011-0478"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2011/10/19/2011-26082/airworthiness-directives-airbus-model-a300-b4-103-b4-203-and-b4-2c-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2011-10-19",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "76 FR 64798",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2011-0478",
+      "Directorate Identifier 2010-NM-138-AD",
+      "Amendment 39-16832",
+      "AD 2011-21-09"
+    ],
+    "document_number": "2011-26082",
+    "effective_on": "2011-11-23",
+    "html_url": "https://www.federalregister.gov/documents/2011/10/19/2011-26082/airworthiness-directives-airbus-model-a300-b4-103-b4-203-and-b4-2c-airplanes",
+    "publication_date": "2011-10-19",
+    "title": "Airworthiness Directives; Airbus Model A300 B4-103, B4-203, and B4-2C Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A300 B4-103, B4-203, and B4-2C Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "033ef33ff0341b61b9d09b96989852b333a09f96de40043d81c46907e2c368f1",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-20b5ccf0"
+    }
+  ]
+}

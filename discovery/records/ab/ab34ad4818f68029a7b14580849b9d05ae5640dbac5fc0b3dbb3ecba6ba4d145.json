@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-25-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-23556",
+  "effective_on": "2006-01-09",
+  "entry_sha256": "691404ac16254be0759875598d6511f63dc7d5c7fab0a9a1698178b8a550b50d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-22454"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/12/05/05-23556/airworthiness-directives-aerospatiale-model-atr42-200-atr42-300-and-atr42-320-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2005-12-05",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 72368",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-22454",
+      "Directorate Identifier 2001-NM-108-AD",
+      "Amendment 39-14395",
+      "AD 2005-25-02"
+    ],
+    "document_number": "05-23556",
+    "effective_on": "2006-01-09",
+    "html_url": "https://www.federalregister.gov/documents/2005/12/05/05-23556/airworthiness-directives-aerospatiale-model-atr42-200-atr42-300-and-atr42-320-airplanes",
+    "publication_date": "2005-12-05",
+    "title": "Airworthiness Directives; Aerospatiale Model ATR42-200, ATR42-300, and ATR42-320 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Aerospatiale Model ATR42-200, ATR42-300, and ATR42-320 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "691404ac16254be0759875598d6511f63dc7d5c7fab0a9a1698178b8a550b50d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

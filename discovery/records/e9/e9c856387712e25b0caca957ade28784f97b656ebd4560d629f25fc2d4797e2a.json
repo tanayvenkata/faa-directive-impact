@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-08-15"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-10022",
+  "effective_on": "2001-05-14",
+  "entry_sha256": "0c62c7fa9c4fb73fc7d79a85e71e783755320810cd415784730ad4d5bbfe61ed",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/04/27/01-10022/airworthiness-directives-rolls-royce-corporation-formerly-allison-engine-company-ae-3007-series",
+  "kind": "final_rule",
+  "publication_date": "2001-04-27",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "66 FR 21067",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NE-29-AD",
+      "Amendment 39-12192",
+      "AD 2001-08-15"
+    ],
+    "document_number": "01-10022",
+    "effective_on": "2001-05-14",
+    "html_url": "https://www.federalregister.gov/documents/2001/04/27/01-10022/airworthiness-directives-rolls-royce-corporation-formerly-allison-engine-company-ae-3007-series",
+    "publication_date": "2001-04-27",
+    "title": "Airworthiness Directives; Rolls-Royce Corporation (Formerly Allison Engine Company) AE 3007 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Rolls-Royce Corporation (Formerly Allison Engine Company) AE 3007 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "0c62c7fa9c4fb73fc7d79a85e71e783755320810cd415784730ad4d5bbfe61ed",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-02-33"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-2413",
+  "effective_on": "2000-03-13",
+  "entry_sha256": "13f22e1137a0c74001d2544b5109e0211a8a0e6ab8902aa4a9d7d2e2babb1b24",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/02/07/00-2413/airworthiness-directives-boeing-model-747-400-series-airplanes-equipped-with-general-electric",
+  "kind": "final_rule",
+  "publication_date": "2000-02-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 5742",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-NM-252-AD",
+      "Amendment 39-11551",
+      "AD 2000-02-33"
+    ],
+    "document_number": "00-2413",
+    "effective_on": "2000-03-13",
+    "html_url": "https://www.federalregister.gov/documents/2000/02/07/00-2413/airworthiness-directives-boeing-model-747-400-series-airplanes-equipped-with-general-electric",
+    "publication_date": "2000-02-07",
+    "title": "Airworthiness Directives; Boeing Model 747-400 Series Airplanes Equipped With General Electric CF6-80C2 Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747-400 Series Airplanes Equipped With General Electric CF6-80C2 Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "13f22e1137a0c74001d2544b5109e0211a8a0e6ab8902aa4a9d7d2e2babb1b24",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

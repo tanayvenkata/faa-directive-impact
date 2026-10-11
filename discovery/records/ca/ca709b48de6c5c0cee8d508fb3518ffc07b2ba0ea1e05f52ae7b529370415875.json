@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-12-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-14607",
+  "effective_on": "1998-07-13",
+  "entry_sha256": "2073b67d6af29af680dd91aa8b3e33fe9fae58866f98a56faa187e5b286250ae",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/06/04/98-14607/airworthiness-directives-pilatus-aircraft-ltd-models-pc-6-pc--6a-pc-6b-and-pc-6c-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-06-04",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "63 FR 30370",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-CE-09-AD",
+      "Amendment 39-10558",
+      "AD 98-12-01"
+    ],
+    "document_number": "98-14607",
+    "effective_on": "1998-07-13",
+    "html_url": "https://www.federalregister.gov/documents/1998/06/04/98-14607/airworthiness-directives-pilatus-aircraft-ltd-models-pc-6-pc--6a-pc-6b-and-pc-6c-series-airplanes",
+    "publication_date": "1998-06-04",
+    "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Models PC-6, PC- 6/A, PC-6/B, and PC-6/C Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Models PC-6, PC- 6/A, PC-6/B, and PC-6/C Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "2073b67d6af29af680dd91aa8b3e33fe9fae58866f98a56faa187e5b286250ae",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

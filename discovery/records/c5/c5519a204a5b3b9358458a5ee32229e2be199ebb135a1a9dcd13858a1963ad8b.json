@@ -1,0 +1,58 @@
+{
+  "ad_numbers": [
+    "2023-25-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2023-28849",
+  "effective_on": "2023-02-07",
+  "entry_sha256": "2546ed2e897958f995cc3b1167627b0f36cc7a5ee004806852ae77c6f4bd0501",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165839Z-f534379c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165839Z-f534379c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2023-1715"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2024/01/03/2023-28849/airworthiness-directives-bombardier-inc-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2024-01-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "89 FR 256",
+    "correction_of": null,
+    "corrections": [
+      "https://www.federalregister.gov/api/v1/documents/R1-2023-28849"
+    ],
+    "docket_ids": [
+      "Docket No. FAA-2023-1715",
+      "Project Identifier MCAI-2023-00548-T",
+      "Amendment 39-22640",
+      "AD 2023-25-13"
+    ],
+    "document_number": "2023-28849",
+    "effective_on": "2023-02-07",
+    "html_url": "https://www.federalregister.gov/documents/2024/01/03/2023-28849/airworthiness-directives-bombardier-inc-airplanes",
+    "publication_date": "2024-01-03",
+    "title": "Airworthiness Directives; Bombardier, Inc., Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier, Inc., Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "2546ed2e897958f995cc3b1167627b0f36cc7a5ee004806852ae77c6f4bd0501",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165839Z-f534379c"
+    }
+  ]
+}

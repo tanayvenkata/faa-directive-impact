@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-10-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-11968",
+  "effective_on": "2001-06-08",
+  "entry_sha256": "634e81eff8651d768a8f35f9a6fdd6c6df8a0f9e67e921b45b8e0cc93311a05f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/05/16/01-11968/airworthiness-directives-air-tractor-inc-at-400-at-500-and-at-800-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2001-05-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "66 FR 27014",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-CE-72-AD",
+      "Amendment 39-12230",
+      "AD 2001-10-04"
+    ],
+    "document_number": "01-11968",
+    "effective_on": "2001-06-08",
+    "html_url": "https://www.federalregister.gov/documents/2001/05/16/01-11968/airworthiness-directives-air-tractor-inc-at-400-at-500-and-at-800-series-airplanes",
+    "publication_date": "2001-05-16",
+    "title": "Airworthiness Directives; Air Tractor, Inc. AT-400, AT-500, and AT-800 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Air Tractor, Inc. AT-400, AT-500, and AT-800 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "634e81eff8651d768a8f35f9a6fdd6c6df8a0f9e67e921b45b8e0cc93311a05f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

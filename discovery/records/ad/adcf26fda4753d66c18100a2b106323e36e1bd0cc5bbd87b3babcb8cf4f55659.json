@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-02-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-1675",
+  "effective_on": "2003-03-03",
+  "entry_sha256": "165344a2d3cb37253cd4770082ef8feb82866abd09bb8bad7290b166bc26cf6a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/01/27/03-1675/airworthiness-directives-general-electric-company-cf6-50-and-cf6-80c2-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2003-01-27",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "68 FR 3805",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NE-19-AD",
+      "Amendment 39-13024",
+      "AD 2003-02-07"
+    ],
+    "document_number": "03-1675",
+    "effective_on": "2003-03-03",
+    "html_url": "https://www.federalregister.gov/documents/2003/01/27/03-1675/airworthiness-directives-general-electric-company-cf6-50-and-cf6-80c2-turbofan-engines",
+    "publication_date": "2003-01-27",
+    "title": "Airworthiness Directives; General Electric Company CF6-50 and CF6-80C2 Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; General Electric Company CF6-50 and CF6-80C2 Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "165344a2d3cb37253cd4770082ef8feb82866abd09bb8bad7290b166bc26cf6a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

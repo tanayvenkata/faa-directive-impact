@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-16-19"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-20699",
+  "effective_on": "2003-08-13",
+  "entry_sha256": "3071b21ee0b10fe9bbcb845facb714d810b42fe79530022297089d88f31284f9",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/08/13/03-20699/airworthiness-directives-learjet-model-45-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2003-08-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "68 FR 48274",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NM-142-AD",
+      "Amendment 39-13272",
+      "AD 2003-16-19"
+    ],
+    "document_number": "03-20699",
+    "effective_on": "2003-08-13",
+    "html_url": "https://www.federalregister.gov/documents/2003/08/13/03-20699/airworthiness-directives-learjet-model-45-airplanes",
+    "publication_date": "2003-08-13",
+    "title": "Airworthiness Directives; Learjet Model 45 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Learjet Model 45 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "3071b21ee0b10fe9bbcb845facb714d810b42fe79530022297089d88f31284f9",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

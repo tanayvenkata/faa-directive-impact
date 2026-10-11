@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2007-23-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-22000",
+  "effective_on": "2007-12-20",
+  "entry_sha256": "3dbdf3c0a7efb459c788a8b266c73a679754b0fed55da3fa911e5ac9cb0f3e72",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-687de582",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-687de582.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2007-27740"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2007/11/15/E7-22000/airworthiness-directives-boeing-model-737-600--700--700c--800-and--900-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2007-11-15",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "72 FR 64143",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-27740",
+      "Directorate Identifier 2006-NM-290-AD",
+      "Amendment 39-15256",
+      "AD 2007-23-10"
+    ],
+    "document_number": "E7-22000",
+    "effective_on": "2007-12-20",
+    "html_url": "https://www.federalregister.gov/documents/2007/11/15/E7-22000/airworthiness-directives-boeing-model-737-600--700--700c--800-and--900-series-airplanes",
+    "publication_date": "2007-11-15",
+    "title": "Airworthiness Directives; Boeing Model 737-600, -700, -700C, -800 and -900 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 737-600, -700, -700C, -800 and -900 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "3dbdf3c0a7efb459c788a8b266c73a679754b0fed55da3fa911e5ac9cb0f3e72",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-687de582"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-16-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-17756",
+  "effective_on": "2004-09-14",
+  "entry_sha256": "040c52c7900f0fd0353a0d53863f6d92ca3d3555966b4d2821bda06d237495a5",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/08/10/04-17756/airworthiness-directives-bae-systems-operations-limited-model-avro-146-rj-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2004-08-10",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 48368",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NM-92-AD",
+      "Amendment 39-13762",
+      "AD 2004-16-06"
+    ],
+    "document_number": "04-17756",
+    "effective_on": "2004-09-14",
+    "html_url": "https://www.federalregister.gov/documents/2004/08/10/04-17756/airworthiness-directives-bae-systems-operations-limited-model-avro-146-rj-series-airplanes",
+    "publication_date": "2004-08-10",
+    "title": "Airworthiness Directives; BAE Systems (Operations) Limited Model Avro 146-RJ Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; BAE Systems (Operations) Limited Model Avro 146-RJ Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "040c52c7900f0fd0353a0d53863f6d92ca3d3555966b4d2821bda06d237495a5",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

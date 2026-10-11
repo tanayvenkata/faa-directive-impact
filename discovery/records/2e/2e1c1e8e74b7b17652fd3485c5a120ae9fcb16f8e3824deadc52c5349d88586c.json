@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-15-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-19257",
+  "effective_on": "2002-09-13",
+  "entry_sha256": "ee2ea47033711141c61ba51dd64a12396343bc44de225f8652dbd034aa9f4e3e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/08/01/02-19257/airworthiness-directives-air-tractor-inc-models-at-802-and-at-802a-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2002-08-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 49861",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-CE-76-AD",
+      "Amendment 39-12834",
+      "AD 2002-15-06"
+    ],
+    "document_number": "02-19257",
+    "effective_on": "2002-09-13",
+    "html_url": "https://www.federalregister.gov/documents/2002/08/01/02-19257/airworthiness-directives-air-tractor-inc-models-at-802-and-at-802a-airplanes",
+    "publication_date": "2002-08-01",
+    "title": "Airworthiness Directives; Air Tractor, Inc. Models AT-802 and AT-802A Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Air Tractor, Inc. Models AT-802 and AT-802A Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ee2ea47033711141c61ba51dd64a12396343bc44de225f8652dbd034aa9f4e3e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

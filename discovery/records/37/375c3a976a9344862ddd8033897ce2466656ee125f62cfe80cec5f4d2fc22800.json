@@ -1,0 +1,82 @@
+{
+  "ad_numbers": [
+    "2025-17-16"
+  ],
+  "coverage_state": "not_yet_evaluated",
+  "document_number": "2025-17066",
+  "effective_on": "2025-10-10",
+  "entry_sha256": "75cdcc172109af936e5f5320102f049f7105253b2f9923741067cc48a176baa0",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T170014Z-a6d03137",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T170014Z-a6d03137.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T170014Z-cfb66567",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T170014Z-cfb66567.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165839Z-be295ef6",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165839Z-be295ef6.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2024-2423"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2025/09/05/2025-17066/airworthiness-directives-international-aero-engines-ag-engines",
+  "incorporated_material": {
+    "items": [],
+    "paragraph": "k"
+  },
+  "kind": "final_rule",
+  "publication_date": "2025-09-05",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "not_yet_evaluated",
+    "detail": "Paragraph (c) lists only V2500-A5/D5/E5 models.",
+    "models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "90 FR 42805",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2024-2423",
+      "Project Identifier AD-2024-00320-E",
+      "Amendment 39-23126",
+      "AD 2025-17-16"
+    ],
+    "document_number": "2025-17066",
+    "effective_on": "2025-10-10",
+    "html_url": "https://www.federalregister.gov/documents/2025/09/05/2025-17066/airworthiness-directives-international-aero-engines-ag-engines",
+    "publication_date": "2025-09-05",
+    "title": "Airworthiness Directives; International Aero Engines AG Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG Engines",
+  "versions": [
+    {
+      "entry_sha256": "75cdcc172109af936e5f5320102f049f7105253b2f9923741067cc48a176baa0",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165839Z-be295ef6"
+    }
+  ]
+}

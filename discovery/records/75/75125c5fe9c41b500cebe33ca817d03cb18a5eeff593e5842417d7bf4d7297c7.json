@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-13-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-14307",
+  "effective_on": "2009-07-24",
+  "entry_sha256": "cd07fe61c21ce2f293c1f2562f7f2b855f704b759d37cc850142174b2e35ee4e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-0218"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/06/19/E9-14307/airworthiness-directives-piper-aircraft-inc-pa-23-pa-31-and-pa-42-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2009-06-19",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "74 FR 29118",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-0218",
+      "Directorate Identifier 2009-CE-006-AD",
+      "Amendment 39-15944",
+      "AD 2009-13-06"
+    ],
+    "document_number": "E9-14307",
+    "effective_on": "2009-07-24",
+    "html_url": "https://www.federalregister.gov/documents/2009/06/19/E9-14307/airworthiness-directives-piper-aircraft-inc-pa-23-pa-31-and-pa-42-series-airplanes",
+    "publication_date": "2009-06-19",
+    "title": "Airworthiness Directives; Piper Aircraft, Inc. PA-23, PA-31, and PA-42 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Piper Aircraft, Inc. PA-23, PA-31, and PA-42 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "cd07fe61c21ce2f293c1f2562f7f2b855f704b759d37cc850142174b2e35ee4e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

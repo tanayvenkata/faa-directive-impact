@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-19-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-30135",
+  "effective_on": "1999-12-27",
+  "entry_sha256": "876424c000a4bfa9d286e51d33531a1d56dcb5a9674648fad951a3bcbe1024f4",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/11/22/99-30135/airworthiness-directives-fairchild-model-f-27-and-fh-227-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1999-11-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 63591",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-143-AD",
+      "Amendment 39-11298",
+      "AD 99-19-09"
+    ],
+    "document_number": "99-30135",
+    "effective_on": "1999-12-27",
+    "html_url": "https://www.federalregister.gov/documents/1999/11/22/99-30135/airworthiness-directives-fairchild-model-f-27-and-fh-227-series-airplanes",
+    "publication_date": "1999-11-22",
+    "title": "Airworthiness Directives; Fairchild Model F-27 and FH-227 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Fairchild Model F-27 and FH-227 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "876424c000a4bfa9d286e51d33531a1d56dcb5a9674648fad951a3bcbe1024f4",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

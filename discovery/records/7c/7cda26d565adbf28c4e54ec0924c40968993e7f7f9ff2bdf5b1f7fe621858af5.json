@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-04-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-3309",
+  "effective_on": "2003-03-18",
+  "entry_sha256": "1c7fa32d00c598d36db44c18c60822391026b9f76010f333cce4826c3b1425b6",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/02/11/03-3309/airworthiness-directives-hartzell-propeller-inc-model-hd-e6c-3be13890k-propellers",
+  "kind": "final_rule",
+  "publication_date": "2003-02-11",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "68 FR 6815",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NE-45-AD",
+      "Amendment 39-13049",
+      "AD 2003-04-01"
+    ],
+    "document_number": "03-3309",
+    "effective_on": "2003-03-18",
+    "html_url": "https://www.federalregister.gov/documents/2003/02/11/03-3309/airworthiness-directives-hartzell-propeller-inc-model-hd-e6c-3be13890k-propellers",
+    "publication_date": "2003-02-11",
+    "title": "Airworthiness Directives; Hartzell Propeller Inc., Model HD-E6C-3B/E13890K Propellers",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Hartzell Propeller Inc., Model HD-E6C-3B/E13890K Propellers",
+  "versions": [
+    {
+      "entry_sha256": "1c7fa32d00c598d36db44c18c60822391026b9f76010f333cce4826c3b1425b6",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

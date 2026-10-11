@@ -1,0 +1,73 @@
+{
+  "ad_numbers": [
+    "2022-19-15"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2022-23168",
+  "effective_on": "2022-11-07",
+  "entry_sha256": "d4d32f26f55df131c0f7282bce0ba0ddabd32365741dff6ddaece42dfa7ac447",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T165949Z-6cc483e4",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165949Z-6cc483e4.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T165949Z-b8e028fd",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165949Z-b8e028fd.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165838Z-5aa308ef",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165838Z-5aa308ef.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2022-0292"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2022/10/24/2022-23168/airworthiness-directives-international-aero-engines-llc-turbofan-engines",
+  "incorporated_material": {
+    "items": [
+      "Pratt & Whitney Service Bulletin PW1000G-C-72-00-0188-00A-930A-D, Issue No: 002, dated July 8, 2022."
+    ],
+    "paragraph": "m"
+  },
+  "kind": "correction",
+  "publication_date": "2022-10-24",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "outside_supported_scope",
+    "detail": "Paragraph (c) lists no V2500 model.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "87 FR 64156",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2022-0292",
+      "Project Identifier AD-2021-01297-E",
+      "Amendment 39-22184",
+      "AD 2022-19-15"
+    ],
+    "document_number": "2022-23168",
+    "effective_on": "2022-11-07",
+    "html_url": "https://www.federalregister.gov/documents/2022/10/24/2022-23168/airworthiness-directives-international-aero-engines-llc-turbofan-engines",
+    "publication_date": "2022-10-24",
+    "title": "Airworthiness Directives; International Aero Engines, LLC Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines, LLC Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "d4d32f26f55df131c0f7282bce0ba0ddabd32365741dff6ddaece42dfa7ac447",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165838Z-5aa308ef"
+    }
+  ]
+}

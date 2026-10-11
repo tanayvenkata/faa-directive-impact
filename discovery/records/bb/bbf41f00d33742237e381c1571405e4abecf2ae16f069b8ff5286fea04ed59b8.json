@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2011-20-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2011-23768",
+  "effective_on": "2011-10-31",
+  "entry_sha256": "dcf47a026e68040f06479db276e8c6e6a0023e072fd9aaac984348399d0b4a86",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-20b5ccf0",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-20b5ccf0.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2011-0713"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2011/09/26/2011-23768/airworthiness-directives-empresa-brasileira-de-aeronutica-sa-embraer-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2011-09-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "76 FR 59240",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2011-0713",
+      "Directorate Identifier 2011-CE-023-AD",
+      "Amendment 39-16810",
+      "AD 2011-20-01"
+    ],
+    "document_number": "2011-23768",
+    "effective_on": "2011-10-31",
+    "html_url": "https://www.federalregister.gov/documents/2011/09/26/2011-23768/airworthiness-directives-empresa-brasileira-de-aeronutica-sa-embraer-airplanes",
+    "publication_date": "2011-09-26",
+    "title": "Airworthiness Directives; Empresa Brasileira de Aeron\u00e1utica S.A. (EMBRAER) Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Empresa Brasileira de Aeron\u00e1utica S.A. (EMBRAER) Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "dcf47a026e68040f06479db276e8c6e6a0023e072fd9aaac984348399d0b4a86",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-20b5ccf0"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2008-14-08"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E8-14972",
+  "effective_on": "2008-08-14",
+  "entry_sha256": "cd4627ebccffead75573b715bfdf148135d000dff1bb2d321cd187279dbeb5b4",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9badc618",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9badc618.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2008-0166"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2008/07/10/E8-14972/airworthiness-directives-boeing-model-747-100-747-100b-747-100b-sud-747-200b-747-200c-747-200f",
+  "kind": "final_rule",
+  "publication_date": "2008-07-10",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "73 FR 39579",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2008-0166",
+      "Directorate Identifier 2007-NM-329-AD",
+      "Amendment 39-15603",
+      "AD 2008-14-08"
+    ],
+    "document_number": "E8-14972",
+    "effective_on": "2008-08-14",
+    "html_url": "https://www.federalregister.gov/documents/2008/07/10/E8-14972/airworthiness-directives-boeing-model-747-100-747-100b-747-100b-sud-747-200b-747-200c-747-200f",
+    "publication_date": "2008-07-10",
+    "title": "Airworthiness Directives; Boeing Model 747-100, 747-100B, 747-100B SUD, 747-200B, 747-200C, 747-200F, 747-300, 747-400, 747-400D, 747-400F, 747SR, and 747SP Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747-100, 747-100B, 747-100B SUD, 747-200B, 747-200C, 747-200F, 747-300, 747-400, 747-400D, 747-400F, 747SR, and 747SP Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "cd4627ebccffead75573b715bfdf148135d000dff1bb2d321cd187279dbeb5b4",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9badc618"
+    }
+  ]
+}

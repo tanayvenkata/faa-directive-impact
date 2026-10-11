@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-25-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-29428",
+  "effective_on": "2010-01-19",
+  "entry_sha256": "804587035af0555485a1c1660f5070af78b75e69616e087598d303bcb3a33fa5",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-0143"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/12/14/E9-29428/airworthiness-directives-general-electric-company-ge90-110b1-ge90-113b-and-ge90-115b-series-turbofan",
+  "kind": "final_rule",
+  "publication_date": "2009-12-14",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "74 FR 66042",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-0143",
+      "Directorate Identifier 2009-NE-05-AD",
+      "Amendment 39-16135",
+      "AD 2009-25-14"
+    ],
+    "document_number": "E9-29428",
+    "effective_on": "2010-01-19",
+    "html_url": "https://www.federalregister.gov/documents/2009/12/14/E9-29428/airworthiness-directives-general-electric-company-ge90-110b1-ge90-113b-and-ge90-115b-series-turbofan",
+    "publication_date": "2009-12-14",
+    "title": "Airworthiness Directives; General Electric Company GE90-110B1, GE90-113B, and GE90-115B Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; General Electric Company GE90-110B1, GE90-113B, and GE90-115B Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "804587035af0555485a1c1660f5070af78b75e69616e087598d303bcb3a33fa5",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

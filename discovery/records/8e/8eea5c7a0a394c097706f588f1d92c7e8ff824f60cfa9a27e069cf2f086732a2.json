@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2008-04-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E8-3403",
+  "effective_on": "2008-04-01",
+  "entry_sha256": "a26e83a7261f491aa32a4ce3367dd6cb352a29a179f98a259614141c2a0f1c33",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9badc618",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9badc618.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2007-28941"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2008/02/26/E8-3403/airworthiness-directives-dassault-model-falcon-2000-falcon-2000ex-mystere-falcon-900-falcon-900ex",
+  "kind": "final_rule",
+  "publication_date": "2008-02-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "73 FR 10139",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-28941",
+      "Directorate Identifier 2006-NM-276-AD",
+      "Amendment 39-15386",
+      "AD 2008-04-14"
+    ],
+    "document_number": "E8-3403",
+    "effective_on": "2008-04-01",
+    "html_url": "https://www.federalregister.gov/documents/2008/02/26/E8-3403/airworthiness-directives-dassault-model-falcon-2000-falcon-2000ex-mystere-falcon-900-falcon-900ex",
+    "publication_date": "2008-02-26",
+    "title": "Airworthiness Directives; Dassault Model Falcon 2000, Falcon 2000EX, Mystere-Falcon 900, Falcon 900EX, Fan Jet Falcon, Mystere-Falcon 50, Mystere-Falcon 20, Mystere-Falcon 200, and Falcon 10 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Dassault Model Falcon 2000, Falcon 2000EX, Mystere-Falcon 900, Falcon 900EX, Fan Jet Falcon, Mystere-Falcon 50, Mystere-Falcon 20, Mystere-Falcon 200, and Falcon 10 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "a26e83a7261f491aa32a4ce3367dd6cb352a29a179f98a259614141c2a0f1c33",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9badc618"
+    }
+  ]
+}

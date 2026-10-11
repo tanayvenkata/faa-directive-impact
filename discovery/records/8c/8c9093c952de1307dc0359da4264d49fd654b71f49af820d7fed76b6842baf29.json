@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2025-23-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2025-22238",
+  "effective_on": "2026-01-12",
+  "entry_sha256": "2b335ae2030e01b0805c5101d1a3cb6ac060b09ebb7aad93792582a52834b6b3",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165839Z-be295ef6",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165839Z-be295ef6.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2025-0910"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2025/12/08/2025-22238/airworthiness-directives-airbus-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2025-12-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "90 FR 56668",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2025-0910",
+      "Project Identifier MCAI-2023-01167-R",
+      "Amendment 39-23184",
+      "AD 2025-23-01"
+    ],
+    "document_number": "2025-22238",
+    "effective_on": "2026-01-12",
+    "html_url": "https://www.federalregister.gov/documents/2025/12/08/2025-22238/airworthiness-directives-airbus-helicopters",
+    "publication_date": "2025-12-08",
+    "title": "Airworthiness Directives; Airbus Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "2b335ae2030e01b0805c5101d1a3cb6ac060b09ebb7aad93792582a52834b6b3",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165839Z-be295ef6"
+    }
+  ]
+}

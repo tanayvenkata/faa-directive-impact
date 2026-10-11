@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-24-12"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-30073",
+  "effective_on": "2003-12-18",
+  "entry_sha256": "7a53ee5b9a177b2fa8088154aad9a5c7bf25790fa5469201cf3457973374fd01",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/12/03/03-30073/airworthiness-directives-pratt-and-whitney-jt9d-3a--7--7a--7f--7h--7ah-and--7j-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2003-12-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "68 FR 67585",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NE-52-AD",
+      "Amendment 39-13381",
+      "AD 2003-24-12"
+    ],
+    "document_number": "03-30073",
+    "effective_on": "2003-12-18",
+    "html_url": "https://www.federalregister.gov/documents/2003/12/03/03-30073/airworthiness-directives-pratt-and-whitney-jt9d-3a--7--7a--7f--7h--7ah-and--7j-turbofan-engines",
+    "publication_date": "2003-12-03",
+    "title": "Airworthiness Directives; Pratt & Whitney JT9D-3A, -7, -7A, -7F, -7H, -7AH, and -7J Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pratt & Whitney JT9D-3A, -7, -7A, -7F, -7H, -7AH, and -7J Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "7a53ee5b9a177b2fa8088154aad9a5c7bf25790fa5469201cf3457973374fd01",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

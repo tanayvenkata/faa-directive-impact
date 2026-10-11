@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-05-20"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-4937",
+  "effective_on": "2004-04-15",
+  "entry_sha256": "937c8ef367531831480585a9d20c990a24f19d1b6c0abdda289109e63ba7eb19",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/03/11/04-4937/airworthiness-directives-mcdonnell-douglas-model-dc-10-10-dc-10-10f-dc-10-15-dc-10-30-dc-10-30f",
+  "kind": "final_rule",
+  "publication_date": "2004-03-11",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 11504",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-362-AD",
+      "Amendment 39-13515",
+      "AD 2004-05-20"
+    ],
+    "document_number": "04-4937",
+    "effective_on": "2004-04-15",
+    "html_url": "https://www.federalregister.gov/documents/2004/03/11/04-4937/airworthiness-directives-mcdonnell-douglas-model-dc-10-10-dc-10-10f-dc-10-15-dc-10-30-dc-10-30f",
+    "publication_date": "2004-03-11",
+    "title": "Airworthiness Directives; McDonnell Douglas Model DC-10-10, DC-10-10F, DC-10-15, DC-10-30, DC-10-30F (KC-10A and KDC-10), DC-10-40, DC-10-40F, MD-10-10F, MD-10-30F, MD-11, and MD-11F Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model DC-10-10, DC-10-10F, DC-10-15, DC-10-30, DC-10-30F (KC-10A and KDC-10), DC-10-40, DC-10-40F, MD-10-10F, MD-10-30F, MD-11, and MD-11F Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "937c8ef367531831480585a9d20c990a24f19d1b6c0abdda289109e63ba7eb19",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

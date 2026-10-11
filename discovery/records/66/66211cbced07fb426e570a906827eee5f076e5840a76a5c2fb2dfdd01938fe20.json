@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-18-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-22908",
+  "effective_on": "2000-10-13",
+  "entry_sha256": "18626fdcca838c378e4edf370e78a9d5b33b25475757429b801342021a28171a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/09/08/00-22908/airworthiness-directives-aerospatiale-model-atr42-and-atr72-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-09-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 54403",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-183-AD",
+      "Amendment 39-11890",
+      "AD 2000-18-05"
+    ],
+    "document_number": "00-22908",
+    "effective_on": "2000-10-13",
+    "html_url": "https://www.federalregister.gov/documents/2000/09/08/00-22908/airworthiness-directives-aerospatiale-model-atr42-and-atr72-series-airplanes",
+    "publication_date": "2000-09-08",
+    "title": "Airworthiness Directives; Aerospatiale Model ATR42 and ATR72 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Aerospatiale Model ATR42 and ATR72 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "18626fdcca838c378e4edf370e78a9d5b33b25475757429b801342021a28171a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

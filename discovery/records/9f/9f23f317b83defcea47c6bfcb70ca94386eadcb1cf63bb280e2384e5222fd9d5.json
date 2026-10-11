@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2026-21-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2026-20818",
+  "effective_on": "2026-10-14",
+  "entry_sha256": "eb066d056f6576f3bc4dcf67050f15e9775731a2861c485993b6f49db52246cf",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165839Z-21d7bc73",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165839Z-21d7bc73.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2026-11804"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2026/10/13/2026-20818/airworthiness-directives-elixir-aircraft",
+  "kind": "final_rule",
+  "publication_date": "2026-10-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "91 FR 64753",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2026-11804",
+      "Project Identifier MCAI-2026-01087-A",
+      "Amendment 39-23490",
+      "AD 2026-21-01"
+    ],
+    "document_number": "2026-20818",
+    "effective_on": "2026-10-14",
+    "html_url": "https://www.federalregister.gov/documents/2026/10/13/2026-20818/airworthiness-directives-elixir-aircraft",
+    "publication_date": "2026-10-13",
+    "title": "Airworthiness Directives; Elixir Aircraft",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Elixir Aircraft",
+  "versions": [
+    {
+      "entry_sha256": "eb066d056f6576f3bc4dcf67050f15e9775731a2861c485993b6f49db52246cf",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165839Z-21d7bc73"
+    }
+  ]
+}

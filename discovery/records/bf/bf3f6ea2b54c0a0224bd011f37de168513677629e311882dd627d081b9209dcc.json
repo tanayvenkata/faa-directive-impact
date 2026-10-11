@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2004-12-17"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-13699",
+  "effective_on": "2004-07-27",
+  "entry_sha256": "6c129833c045ece24a021e988e3cb0e32b9647f4bf668c0e65bea89df0a661e9",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2003-16646"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/06/22/04-13699/airworthiness-directives-boeing-model-757-200-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2004-06-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 34557",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2003-16646",
+      "Directorate Docket No. 2003-NM-177-AD",
+      "Amendment 39-13678",
+      "AD 2004-12-17"
+    ],
+    "document_number": "04-13699",
+    "effective_on": "2004-07-27",
+    "html_url": "https://www.federalregister.gov/documents/2004/06/22/04-13699/airworthiness-directives-boeing-model-757-200-series-airplanes",
+    "publication_date": "2004-06-22",
+    "title": "Airworthiness Directives; Boeing Model 757-200 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 757-200 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "6c129833c045ece24a021e988e3cb0e32b9647f4bf668c0e65bea89df0a661e9",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

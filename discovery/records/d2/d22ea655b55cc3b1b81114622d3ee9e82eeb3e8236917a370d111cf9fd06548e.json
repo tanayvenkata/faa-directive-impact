@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-09-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-9898",
+  "effective_on": "2004-06-14",
+  "entry_sha256": "18ba101f7b95226b20d84474e1012abf1e508e6f0659ef087c42922862857e0b",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/05/05/04-9898/airworthiness-directives-raytheon-aircraft-company-model-1900-1900c-1900c-c-12j-and-1900d-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2004-05-05",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 24941",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 95-CE-46-AD",
+      "Amendment 39-13596",
+      "AD 2004-09-07"
+    ],
+    "document_number": "04-9898",
+    "effective_on": "2004-06-14",
+    "html_url": "https://www.federalregister.gov/documents/2004/05/05/04-9898/airworthiness-directives-raytheon-aircraft-company-model-1900-1900c-1900c-c-12j-and-1900d-airplanes",
+    "publication_date": "2004-05-05",
+    "title": "Airworthiness Directives; Raytheon Aircraft Company Model 1900, 1900C, 1900C (C-12J), and 1900D Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Raytheon Aircraft Company Model 1900, 1900C, 1900C (C-12J), and 1900D Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "18ba101f7b95226b20d84474e1012abf1e508e6f0659ef087c42922862857e0b",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

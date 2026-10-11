@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-14-16"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-17758",
+  "effective_on": "2001-08-21",
+  "entry_sha256": "0c171f320aed6ea60a25b8e3813ebb3ef13dff2e51db758e1f09fb07589627a2",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/07/17/01-17758/airworthiness-directives-gulfstream-model-g-v-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2001-07-17",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "66 FR 37130",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-357-AD",
+      "Amendment 39-12327",
+      "AD 2001-14-16"
+    ],
+    "document_number": "01-17758",
+    "effective_on": "2001-08-21",
+    "html_url": "https://www.federalregister.gov/documents/2001/07/17/01-17758/airworthiness-directives-gulfstream-model-g-v-series-airplanes",
+    "publication_date": "2001-07-17",
+    "title": "Airworthiness Directives; Gulfstream Model G-V Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Gulfstream Model G-V Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "0c171f320aed6ea60a25b8e3813ebb3ef13dff2e51db758e1f09fb07589627a2",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

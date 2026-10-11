@@ -1,0 +1,74 @@
+{
+  "ad_numbers": [
+    "2019-06-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2019-05885",
+  "effective_on": "2019-04-12",
+  "entry_sha256": "ba43c61cacb76d4453f00c04a3a9989dc387dd9d41877a22f38bfd062fe75c1e",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T165901Z-75cf17c8",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165901Z-75cf17c8.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T165901Z-badef69b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165901Z-badef69b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165837Z-82a53998",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165837Z-82a53998.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2019-0151"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2019/03/28/2019-05885/airworthiness-directives-international-aero-engines-ag-turbofan-engines",
+  "incorporated_material": {
+    "items": [
+      "International Aero Engines (IAE) Alert Non-Modification Service Bulletin V2500-ENG-72-A0706, dated February 14, 2019."
+    ],
+    "paragraph": "k"
+  },
+  "kind": "final_rule",
+  "publication_date": "2019-03-28",
+  "replaced_ads": [],
+  "review_reason": "Paragraph (c) names V2500 designations outside A5/D5/E5: V2500-A1",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "Paragraph (c) names V2500 designations outside A5/D5/E5: V2500-A1",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "84 FR 11642",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2019-0151",
+      "Product Identifier 2019-NE-04-AD",
+      "Amendment 39-19604",
+      "AD 2019-06-06"
+    ],
+    "document_number": "2019-05885",
+    "effective_on": "2019-04-12",
+    "html_url": "https://www.federalregister.gov/documents/2019/03/28/2019-05885/airworthiness-directives-international-aero-engines-ag-turbofan-engines",
+    "publication_date": "2019-03-28",
+    "title": "Airworthiness Directives; International Aero Engines AG Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "ba43c61cacb76d4453f00c04a3a9989dc387dd9d41877a22f38bfd062fe75c1e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165837Z-82a53998"
+    }
+  ]
+}

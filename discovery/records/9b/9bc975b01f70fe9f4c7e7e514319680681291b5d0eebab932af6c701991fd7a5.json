@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-04-12"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-3591",
+  "effective_on": null,
+  "entry_sha256": "a149e57acee27cf6737719abfdf58f87f96e59c72c3bc3da8a59d68ea033ffad",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/02/16/99-3591/airworthiness-directives-mcdonnell-douglas-helicopter-systems-model-369d-369e-369ff-369h-md500n-and",
+  "kind": "final_rule",
+  "publication_date": "1999-02-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 7498",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-SW-61-AD",
+      "Amendment 39-11036",
+      "AD 99-04-12"
+    ],
+    "document_number": "99-3591",
+    "effective_on": null,
+    "html_url": "https://www.federalregister.gov/documents/1999/02/16/99-3591/airworthiness-directives-mcdonnell-douglas-helicopter-systems-model-369d-369e-369ff-369h-md500n-and",
+    "publication_date": "1999-02-16",
+    "title": "Airworthiness Directives; McDonnell Douglas Helicopter Systems Model 369D, 369E, 369FF, 369H, MD500N, and MD600N Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Helicopter Systems Model 369D, 369E, 369FF, 369H, MD500N, and MD600N Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "a149e57acee27cf6737719abfdf58f87f96e59c72c3bc3da8a59d68ea033ffad",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2004-14-12"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-15507",
+  "effective_on": "2004-08-10",
+  "entry_sha256": "c43e5b2cc4a60d1c0e155eddeda5280df0f8a2b789386494fd0ad1fa92b6b7b6",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2004-18032"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/07/09/04-15507/airworthiness-directives-the-new-piper-aircraft-inc-models-pa-28-161-pa-28-181-pa-28r-201-pa-32r-301",
+  "kind": "final_rule",
+  "publication_date": "2004-07-09",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "69 FR 41407",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2004-18032",
+      "Directorate Identifier 2004-CE-15-AD",
+      "Amendment 39-13721",
+      "AD 2004-14-12"
+    ],
+    "document_number": "04-15507",
+    "effective_on": "2004-08-10",
+    "html_url": "https://www.federalregister.gov/documents/2004/07/09/04-15507/airworthiness-directives-the-new-piper-aircraft-inc-models-pa-28-161-pa-28-181-pa-28r-201-pa-32r-301",
+    "publication_date": "2004-07-09",
+    "title": "Airworthiness Directives; The New Piper Aircraft, Inc., Models PA-28-161, PA-28-181, PA-28R-201, PA-32R-301 (HP), PA-32R-301T, PA-32-301FT, PA-32-301XTC, PA-34-220T, PA-44-180, PA-46-350P, and PA-46-500TP Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; The New Piper Aircraft, Inc., Models PA-28-161, PA-28-181, PA-28R-201, PA-32R-301 (HP), PA-32R-301T, PA-32-301FT, PA-32-301XTC, PA-34-220T, PA-44-180, PA-46-350P, and PA-46-500TP Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "c43e5b2cc4a60d1c0e155eddeda5280df0f8a2b789386494fd0ad1fa92b6b7b6",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

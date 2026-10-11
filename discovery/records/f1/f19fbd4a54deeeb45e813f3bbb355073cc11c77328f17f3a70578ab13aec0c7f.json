@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-10-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-11320",
+  "effective_on": "1999-06-03",
+  "entry_sha256": "ce6d471b4b8d4329d52831c414f8a4bec2de6857e8e24501338529375cdce490",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/05/07/99-11320/airworthiness-directives-raytheon-aircraft-corporation-model-beech-2000-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1999-05-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "64 FR 24507",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-CE-17-AD",
+      "Amendment 39-11160",
+      "AD 99-10-06"
+    ],
+    "document_number": "99-11320",
+    "effective_on": "1999-06-03",
+    "html_url": "https://www.federalregister.gov/documents/1999/05/07/99-11320/airworthiness-directives-raytheon-aircraft-corporation-model-beech-2000-airplanes",
+    "publication_date": "1999-05-07",
+    "title": "Airworthiness Directives; Raytheon Aircraft Corporation Model Beech 2000 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Raytheon Aircraft Corporation Model Beech 2000 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ce6d471b4b8d4329d52831c414f8a4bec2de6857e8e24501338529375cdce490",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

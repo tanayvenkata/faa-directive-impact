@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-11-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-13290",
+  "effective_on": "2002-06-14",
+  "entry_sha256": "b748d3cf7dd05c79c645595c7838d80d62950eaf582b3537817a77f82f87f3e3",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/05/30/02-13290/airworthiness-directives-eurocopter-deutschland-model-ec135-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2002-05-30",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "67 FR 37666",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-SW-69-AD",
+      "Amendment 39-12762",
+      "AD 2002-11-01"
+    ],
+    "document_number": "02-13290",
+    "effective_on": "2002-06-14",
+    "html_url": "https://www.federalregister.gov/documents/2002/05/30/02-13290/airworthiness-directives-eurocopter-deutschland-model-ec135-helicopters",
+    "publication_date": "2002-05-30",
+    "title": "Airworthiness Directives; Eurocopter Deutschland Model EC135 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eurocopter Deutschland Model EC135 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "b748d3cf7dd05c79c645595c7838d80d62950eaf582b3537817a77f82f87f3e3",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

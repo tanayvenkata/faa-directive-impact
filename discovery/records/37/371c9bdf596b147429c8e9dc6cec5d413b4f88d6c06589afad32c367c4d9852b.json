@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2014-28478",
+  "effective_on": "2015-01-09",
+  "entry_sha256": "fc676acd2afbde908853943a0bd985ce4a40e8b77014180f26ff3a3d14664ff0",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-0cd8760c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-0cd8760c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2013-0159"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2014/12/05/2014-28478/airworthiness-directives-robinson-helicopter-company-helicopters",
+  "kind": "final_rule",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "2014-12-05",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "79 FR 72132",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2013-0159",
+      "Directorate Identifier 2012-SW-010-AD"
+    ],
+    "document_number": "2014-28478",
+    "effective_on": "2015-01-09",
+    "html_url": "https://www.federalregister.gov/documents/2014/12/05/2014-28478/airworthiness-directives-robinson-helicopter-company-helicopters",
+    "publication_date": "2014-12-05",
+    "title": "Airworthiness Directives; Robinson Helicopter Company Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Robinson Helicopter Company Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "fc676acd2afbde908853943a0bd985ce4a40e8b77014180f26ff3a3d14664ff0",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-0cd8760c"
+    }
+  ]
+}

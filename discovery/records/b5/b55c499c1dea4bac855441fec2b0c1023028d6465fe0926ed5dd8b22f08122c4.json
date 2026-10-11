@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-09-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-10723",
+  "effective_on": "2001-05-17",
+  "entry_sha256": "f540dd7287f4034867f3e02620fd56a78a68d477ec6d15e0a053e541cdbbf28d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/05/02/01-10723/airworthiness-directives-mcdonnell-douglas-model-md-11-series-airplanes-equipped-with-pratt-and",
+  "kind": "final_rule",
+  "publication_date": "2001-05-02",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "66 FR 21853",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-115-AD",
+      "Amendment 39-12215",
+      "AD 2001-09-10"
+    ],
+    "document_number": "01-10723",
+    "effective_on": "2001-05-17",
+    "html_url": "https://www.federalregister.gov/documents/2001/05/02/01-10723/airworthiness-directives-mcdonnell-douglas-model-md-11-series-airplanes-equipped-with-pratt-and",
+    "publication_date": "2001-05-02",
+    "title": "Airworthiness Directives; McDonnell Douglas Model MD-11 Series Airplanes Equipped With Pratt & Whitney Model PW4400 Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model MD-11 Series Airplanes Equipped With Pratt & Whitney Model PW4400 Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "f540dd7287f4034867f3e02620fd56a78a68d477ec6d15e0a053e541cdbbf28d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "97-15-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "97-18933",
+  "effective_on": "1997-08-01",
+  "entry_sha256": "3b5db1cc1e927c245d2e515828f5677b39b820cf8a5eee839ae415d0ecdfef58",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-78e05434",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-78e05434.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1997/07/17/97-18933/airworthiness-directives-boeing-model-757-and-767-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1997-07-17",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "62 FR 38204",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-NM-122-AD",
+      "Amendment 39-10083",
+      "AD 97-15-09"
+    ],
+    "document_number": "97-18933",
+    "effective_on": "1997-08-01",
+    "html_url": "https://www.federalregister.gov/documents/1997/07/17/97-18933/airworthiness-directives-boeing-model-757-and-767-series-airplanes",
+    "publication_date": "1997-07-17",
+    "title": "Airworthiness Directives; Boeing Model 757 and 767 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 757 and 767 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "3b5db1cc1e927c245d2e515828f5677b39b820cf8a5eee839ae415d0ecdfef58",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-78e05434"
+    }
+  ]
+}

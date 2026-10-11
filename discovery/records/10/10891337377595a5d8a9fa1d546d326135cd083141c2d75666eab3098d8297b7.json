@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-25-03"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-31070",
+  "effective_on": "2000-01-07",
+  "entry_sha256": "1a6690eea9f3329e545fb9887f1f12b3b9cca6ae3d77a28bc457689add234557",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/12/03/99-31070/airworthiness-directives-international-aero-engines-ag-v2500-a1-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "1999-12-03",
+  "review_reason": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 67708",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-ANE-76-AD Amendment 39-11446",
+      "AD 99-25-03"
+    ],
+    "document_number": "99-31070",
+    "effective_on": "2000-01-07",
+    "html_url": "https://www.federalregister.gov/documents/1999/12/03/99-31070/airworthiness-directives-international-aero-engines-ag-v2500-a1-series-turbofan-engines",
+    "publication_date": "1999-12-03",
+    "title": "Airworthiness Directives; International Aero Engines AG V2500-A1 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG V2500-A1 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "1a6690eea9f3329e545fb9887f1f12b3b9cca6ae3d77a28bc457689add234557",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

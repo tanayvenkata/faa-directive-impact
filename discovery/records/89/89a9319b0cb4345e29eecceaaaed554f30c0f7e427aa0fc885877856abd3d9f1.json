@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-12-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-14410",
+  "effective_on": "2002-07-16",
+  "entry_sha256": "0466fb04a44533202b6d57765a83aaed0c14fb03c76862e6eb5b942ca370f76e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/06/11/02-14410/airworthiness-directives-bae-systems-operations-limited-jetstream-model-4101-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2002-06-11",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 39843",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-151-AD",
+      "Amendment 39-12773",
+      "AD 2002-12-01"
+    ],
+    "document_number": "02-14410",
+    "effective_on": "2002-07-16",
+    "html_url": "https://www.federalregister.gov/documents/2002/06/11/02-14410/airworthiness-directives-bae-systems-operations-limited-jetstream-model-4101-airplanes",
+    "publication_date": "2002-06-11",
+    "title": "Airworthiness Directives; BAE Systems (Operations) Limited (Jetstream) Model 4101 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; BAE Systems (Operations) Limited (Jetstream) Model 4101 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "0466fb04a44533202b6d57765a83aaed0c14fb03c76862e6eb5b942ca370f76e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

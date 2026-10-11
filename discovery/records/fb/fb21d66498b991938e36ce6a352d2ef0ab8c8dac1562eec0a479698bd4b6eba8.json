@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-18-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-21869",
+  "effective_on": "2010-10-18",
+  "entry_sha256": "4ddc7695058085eeb6ed231a2540f9fade180c42a71b5bb8b846527810889d67",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2010-0217"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/09/13/2010-21869/airworthiness-directives-pratt-and-whitney-pw-pw4000-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2010-09-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "75 FR 55459",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-0217",
+      "Directorate Identifier 2009-NE-23-AD",
+      "Amendment 39-16427",
+      "AD 2010-18-13"
+    ],
+    "document_number": "2010-21869",
+    "effective_on": "2010-10-18",
+    "html_url": "https://www.federalregister.gov/documents/2010/09/13/2010-21869/airworthiness-directives-pratt-and-whitney-pw-pw4000-series-turbofan-engines",
+    "publication_date": "2010-09-13",
+    "title": "Airworthiness Directives; Pratt & Whitney (PW) PW4000 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pratt & Whitney (PW) PW4000 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "4ddc7695058085eeb6ed231a2540f9fade180c42a71b5bb8b846527810889d67",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

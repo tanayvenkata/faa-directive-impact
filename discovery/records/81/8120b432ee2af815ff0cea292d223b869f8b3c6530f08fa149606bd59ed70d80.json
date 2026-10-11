@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2015-12-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2015-14852",
+  "effective_on": "2015-07-23",
+  "entry_sha256": "9705f79643bfe9fa461d0402701e8a28ed738822c9b74b924842f179a8150a4a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-55fa20f1",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-55fa20f1.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2014-0577"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2015/06/18/2015-14852/airworthiness-directives-airbus-helicopters-deutschland-gmbh-previously-eurocopter-deutschland-gmbh",
+  "kind": "final_rule",
+  "publication_date": "2015-06-18",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "80 FR 34831",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2014-0577",
+      "Directorate Identifier 2013-SW-042-AD",
+      "Amendment 39-18184",
+      "AD 2015-12-09"
+    ],
+    "document_number": "2015-14852",
+    "effective_on": "2015-07-23",
+    "html_url": "https://www.federalregister.gov/documents/2015/06/18/2015-14852/airworthiness-directives-airbus-helicopters-deutschland-gmbh-previously-eurocopter-deutschland-gmbh",
+    "publication_date": "2015-06-18",
+    "title": "Airworthiness Directives; Airbus Helicopters Deutschland GmbH (Previously Eurocopter Deutschland GmbH) (Airbus Helicopters)",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Helicopters Deutschland GmbH (Previously Eurocopter Deutschland GmbH) (Airbus Helicopters)",
+  "versions": [
+    {
+      "entry_sha256": "9705f79643bfe9fa461d0402701e8a28ed738822c9b74b924842f179a8150a4a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-55fa20f1"
+    }
+  ]
+}

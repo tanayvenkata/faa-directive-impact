@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2026-08-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2026-08303",
+  "effective_on": "2026-06-03",
+  "entry_sha256": "500949ddb41c0ec282e8f4aa7d32eb47b39f26a8b86c09c810326582bae2394c",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165839Z-21d7bc73",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165839Z-21d7bc73.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2025-5402"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2026/04/29/2026-08303/airworthiness-directives-de-havilland-aircraft-of-canada-limited-type-certificate-previously-held-by",
+  "kind": "final_rule",
+  "publication_date": "2026-04-29",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "91 FR 23009",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2025-5402",
+      "Project Identifier MCAI-2025-00425-T",
+      "Amendment 39-23315",
+      "AD 2026-08-07"
+    ],
+    "document_number": "2026-08303",
+    "effective_on": "2026-06-03",
+    "html_url": "https://www.federalregister.gov/documents/2026/04/29/2026-08303/airworthiness-directives-de-havilland-aircraft-of-canada-limited-type-certificate-previously-held-by",
+    "publication_date": "2026-04-29",
+    "title": "Airworthiness Directives; De Havilland Aircraft of Canada Limited (Type Certificate Previously Held by Bombardier, Inc.) Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; De Havilland Aircraft of Canada Limited (Type Certificate Previously Held by Bombardier, Inc.) Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "500949ddb41c0ec282e8f4aa7d32eb47b39f26a8b86c09c810326582bae2394c",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165839Z-21d7bc73"
+    }
+  ]
+}

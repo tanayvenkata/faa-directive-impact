@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-10-15"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-11781",
+  "effective_on": "1999-05-26",
+  "entry_sha256": "37896b4874829dad6fb3565009203cbf41e4096b48571339251e1f29bc6f1c5f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/05/11/99-11781/airworthiness-directives-eurocopter-france-model-as332l2",
+  "kind": "final_rule",
+  "publication_date": "1999-05-11",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "64 FR 25198",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-SW-09-AD",
+      "Amendment 39-11168",
+      "AD 99-10-15"
+    ],
+    "document_number": "99-11781",
+    "effective_on": "1999-05-26",
+    "html_url": "https://www.federalregister.gov/documents/1999/05/11/99-11781/airworthiness-directives-eurocopter-france-model-as332l2",
+    "publication_date": "1999-05-11",
+    "title": "Airworthiness Directives; Eurocopter France Model AS332L2",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eurocopter France Model AS332L2",
+  "versions": [
+    {
+      "entry_sha256": "37896b4874829dad6fb3565009203cbf41e4096b48571339251e1f29bc6f1c5f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

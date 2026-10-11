@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-23-29"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-29800",
+  "effective_on": "2000-12-27",
+  "entry_sha256": "f59fb09225570e970006633058e9ded02fbd528f2347da268bd76dd49713344f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/11/22/00-29800/airworthiness-directives-saab-model-saab-340b-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-11-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 70300",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-13-AD",
+      "Amendment 39-12002",
+      "AD 2000-23-29"
+    ],
+    "document_number": "00-29800",
+    "effective_on": "2000-12-27",
+    "html_url": "https://www.federalregister.gov/documents/2000/11/22/00-29800/airworthiness-directives-saab-model-saab-340b-series-airplanes",
+    "publication_date": "2000-11-22",
+    "title": "Airworthiness Directives; Saab Model SAAB 340B Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Saab Model SAAB 340B Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "f59fb09225570e970006633058e9ded02fbd528f2347da268bd76dd49713344f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

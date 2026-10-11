@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2012-12-18"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2012-15066",
+  "effective_on": "2012-07-30",
+  "entry_sha256": "58037d9298afc7bd36246257d17419724bb5b74a68d4519baf8bb81b09a7afad",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-8477c4ef",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-8477c4ef.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2012-0265"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2012/06/25/2012-15066/airworthiness-directives-dassault-aviation-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2012-06-25",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "77 FR 37795",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2012-0265",
+      "Directorate Identifier 2010-NM-216-AD",
+      "Amendment 39-17098",
+      "AD 2012-12-18"
+    ],
+    "document_number": "2012-15066",
+    "effective_on": "2012-07-30",
+    "html_url": "https://www.federalregister.gov/documents/2012/06/25/2012-15066/airworthiness-directives-dassault-aviation-airplanes",
+    "publication_date": "2012-06-25",
+    "title": "Airworthiness Directives; Dassault Aviation Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Dassault Aviation Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "58037d9298afc7bd36246257d17419724bb5b74a68d4519baf8bb81b09a7afad",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-8477c4ef"
+    }
+  ]
+}

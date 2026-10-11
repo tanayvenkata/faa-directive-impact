@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2023-22-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2023-25525",
+  "effective_on": "2023-12-26",
+  "entry_sha256": "900b6d3f2a952dbfc8ae57d6d2453ec44aad4a4a1214d48c9bf4db90662560ca",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165838Z-8ae1818a",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165838Z-8ae1818a.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2023-1504"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2023/11/20/2023-25525/airworthiness-directives-embraer-sa-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2023-11-20",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "88 FR 80565",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2023-1504",
+      "Project Identifier MCAI-2023-00473-A",
+      "Amendment 39-22595",
+      "AD 2023-22-11"
+    ],
+    "document_number": "2023-25525",
+    "effective_on": "2023-12-26",
+    "html_url": "https://www.federalregister.gov/documents/2023/11/20/2023-25525/airworthiness-directives-embraer-sa-airplanes",
+    "publication_date": "2023-11-20",
+    "title": "Airworthiness Directives; Embraer S.A. Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Embraer S.A. Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "900b6d3f2a952dbfc8ae57d6d2453ec44aad4a4a1214d48c9bf4db90662560ca",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165838Z-8ae1818a"
+    }
+  ]
+}

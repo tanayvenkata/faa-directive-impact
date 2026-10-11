@@ -1,0 +1,77 @@
+{
+  "ad_numbers": [
+    "2013-07-10"
+  ],
+  "coverage_state": "not_yet_evaluated",
+  "document_number": "2013-08448",
+  "effective_on": "2013-05-20",
+  "entry_sha256": "ba8f42cd5f04ff1c15b10a58ac33e0ee5d7afd99e612a4b8cc89767cdc5061ac",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T165841Z-7323554a",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165841Z-7323554a.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T165841Z-fb22b4a3",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165841Z-fb22b4a3.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-fe5d2608",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-fe5d2608.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2012-1217"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2013/04/15/2013-08448/airworthiness-directives-international-aero-engines-ag-turbofan-engines",
+  "incorporated_material": {
+    "items": [
+      "International Aero Engines AG Non-Modification Service Bulletin No. V2500-ENG-72-0630, Revision 1, dated September 20, 2012.",
+      "Reserved."
+    ],
+    "paragraph": "k"
+  },
+  "kind": "final_rule",
+  "publication_date": "2013-04-15",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "not_yet_evaluated",
+    "detail": "Paragraph (c) lists only V2500-A5/D5/E5 models.",
+    "models": [
+      "V2525-D5",
+      "V2528-D5"
+    ],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "78 FR 22168",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2012-1217",
+      "Directorate Identifier 2012-NE-39-AD",
+      "Amendment 39-17414",
+      "AD 2013-07-10"
+    ],
+    "document_number": "2013-08448",
+    "effective_on": "2013-05-20",
+    "html_url": "https://www.federalregister.gov/documents/2013/04/15/2013-08448/airworthiness-directives-international-aero-engines-ag-turbofan-engines",
+    "publication_date": "2013-04-15",
+    "title": "Airworthiness Directives; International Aero Engines AG Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "ba8f42cd5f04ff1c15b10a58ac33e0ee5d7afd99e612a4b8cc89767cdc5061ac",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-fe5d2608"
+    }
+  ]
+}

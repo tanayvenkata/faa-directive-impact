@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-08-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-7791",
+  "effective_on": "2009-05-13",
+  "entry_sha256": "245f8a0d16f7cb77b12371290b440d5750cd7ca43de1b88566205ac56623ba32",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2008-1324"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/04/08/E9-7791/airworthiness-directives-mcdonnell-douglas-model-dc-8-50-series-airplanes-model-dc-8f-54-and",
+  "kind": "final_rule",
+  "publication_date": "2009-04-08",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "74 FR 15841",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2008-1324",
+      "Directorate Identifier 2008-NM-101-AD",
+      "Amendment 39-15875",
+      "AD 2009-08-02"
+    ],
+    "document_number": "E9-7791",
+    "effective_on": "2009-05-13",
+    "html_url": "https://www.federalregister.gov/documents/2009/04/08/E9-7791/airworthiness-directives-mcdonnell-douglas-model-dc-8-50-series-airplanes-model-dc-8f-54-and",
+    "publication_date": "2009-04-08",
+    "title": "Airworthiness Directives; McDonnell Douglas Model DC-8-50 Series Airplanes; Model DC-8F-54 and DC-8F-55 Airplanes; Model DC-8-60 Series Airplanes; Model DC-8-60F Series Airplanes; Model DC-8-70 Series Airplanes; and Model DC-8-70F Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model DC-8-50 Series Airplanes; Model DC-8F-54 and DC-8F-55 Airplanes; Model DC-8-60 Series Airplanes; Model DC-8-60F Series Airplanes; Model DC-8-70 Series Airplanes; and Model DC-8-70F Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "245f8a0d16f7cb77b12371290b440d5750cd7ca43de1b88566205ac56623ba32",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

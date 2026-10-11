@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-07-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-11537",
+  "effective_on": null,
+  "entry_sha256": "83851a41ccd25f2fa8219f205f38d8944bc7816f68f32f99fcf6dab427bf8993",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/05/09/03-11537/airworthiness-directives-rolls-royce-deutschland-ltd-and-co-kg-models-br700-710a1-10-and",
+  "kind": "correction",
+  "publication_date": "2003-05-09",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments, correction.",
+    "citation": "68 FR 24861",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NE-48-AD",
+      "Amendment 39-13107",
+      "AD 2003-07-11"
+    ],
+    "document_number": "03-11537",
+    "effective_on": null,
+    "html_url": "https://www.federalregister.gov/documents/2003/05/09/03-11537/airworthiness-directives-rolls-royce-deutschland-ltd-and-co-kg-models-br700-710a1-10-and",
+    "publication_date": "2003-05-09",
+    "title": "Airworthiness Directives; Rolls-Royce Deutschland Ltd & Co KG Models BR700-710A1-10 and BR700-710A2-20 Turbofan Engines; Correction",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Rolls-Royce Deutschland Ltd & Co KG Models BR700-710A1-10 and BR700-710A2-20 Turbofan Engines; Correction",
+  "versions": [
+    {
+      "entry_sha256": "83851a41ccd25f2fa8219f205f38d8944bc7816f68f32f99fcf6dab427bf8993",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

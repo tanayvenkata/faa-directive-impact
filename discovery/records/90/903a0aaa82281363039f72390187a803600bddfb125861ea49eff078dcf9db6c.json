@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-02-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-559",
+  "effective_on": "2003-02-18",
+  "entry_sha256": "9952d3516483375c1a15c256d4bd6e6bdf1ae0d4e3c1bfd0bdcecef2fc72aa32",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/01/13/03-559/airworthiness-directives-boeing-model-747-400-and--400d-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2003-01-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "68 FR 1528",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-NM-46-AD",
+      "Amendment 39-13018",
+      "AD 2003-02-02"
+    ],
+    "document_number": "03-559",
+    "effective_on": "2003-02-18",
+    "html_url": "https://www.federalregister.gov/documents/2003/01/13/03-559/airworthiness-directives-boeing-model-747-400-and--400d-series-airplanes",
+    "publication_date": "2003-01-13",
+    "title": "Airworthiness Directives; Boeing Model 747-400 and -400D Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747-400 and -400D Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "9952d3516483375c1a15c256d4bd6e6bdf1ae0d4e3c1bfd0bdcecef2fc72aa32",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

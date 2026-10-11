@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2023-21-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2023-24564",
+  "effective_on": "2023-12-12",
+  "entry_sha256": "f99c987cfd2047bfa4fe6007635bc29d22f87062d7d0ceb0c047496308512898",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165838Z-8ae1818a",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165838Z-8ae1818a.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2023-1716"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2023/11/07/2023-24564/airworthiness-directives-thales-avs-france-sas-flight-management-computer-navigation-modules",
+  "kind": "final_rule",
+  "publication_date": "2023-11-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "88 FR 76652",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2023-1716",
+      "Project Identifier MCAI-2022-00168-Q",
+      "Amendment 39-22577",
+      "AD 2023-21-05"
+    ],
+    "document_number": "2023-24564",
+    "effective_on": "2023-12-12",
+    "html_url": "https://www.federalregister.gov/documents/2023/11/07/2023-24564/airworthiness-directives-thales-avs-france-sas-flight-management-computer-navigation-modules",
+    "publication_date": "2023-11-07",
+    "title": "Airworthiness Directives; Thales AVS France SAS Flight Management Computer Navigation Modules",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Thales AVS France SAS Flight Management Computer Navigation Modules",
+  "versions": [
+    {
+      "entry_sha256": "f99c987cfd2047bfa4fe6007635bc29d22f87062d7d0ceb0c047496308512898",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165838Z-8ae1818a"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "ad_numbers": [
+    "2003-10-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-12836",
+  "effective_on": "2003-06-09",
+  "entry_sha256": "8bf1ee916cdb1b9766e79191127e05a022544d902506812bfe3734fb1e608dc8",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/05/23/03-12836/airworthiness-directives-airbus-model-a319-131--132-and--133-a320-232-and--233-and-a321-231-series",
+  "kind": "final_rule",
+  "publication_date": "2003-05-23",
+  "review_reason": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "68 FR 28119",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NM-124-AD",
+      "Amendment 39-13159",
+      "AD 2003-10-14"
+    ],
+    "document_number": "03-12836",
+    "effective_on": "2003-06-09",
+    "html_url": "https://www.federalregister.gov/documents/2003/05/23/03-12836/airworthiness-directives-airbus-model-a319-131--132-and--133-a320-232-and--233-and-a321-231-series",
+    "publication_date": "2003-05-23",
+    "title": "Airworthiness Directives; Airbus Model A319-131, -132, and -133; A320-232 and -233; and A321-231 Series Airplanes; Equipped With International Aero Engines (IAE) V2500-A5 Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A319-131, -132, and -133; A320-232 and -233; and A321-231 Series Airplanes; Equipped With International Aero Engines (IAE) V2500-A5 Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "8bf1ee916cdb1b9766e79191127e05a022544d902506812bfe3734fb1e608dc8",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

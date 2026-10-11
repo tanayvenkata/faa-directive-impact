@@ -1,0 +1,52 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-28247",
+  "effective_on": "1999-12-07",
+  "entry_sha256": "189c7950a80899a8981d244c107d402e180d27be3150dda5ad7eba889aea24f8",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/11/02/99-28247/airworthiness-directives-boeing-777-200-series-airplanes",
+  "kind": "final_rule",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "1999-11-02",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 59115",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-03-AD",
+      "Amendment 39-11396",
+      "AD 98-02-06 R1"
+    ],
+    "document_number": "99-28247",
+    "effective_on": "1999-12-07",
+    "html_url": "https://www.federalregister.gov/documents/1999/11/02/99-28247/airworthiness-directives-boeing-777-200-series-airplanes",
+    "publication_date": "1999-11-02",
+    "title": "Airworthiness Directives; Boeing 777-200 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing 777-200 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "189c7950a80899a8981d244c107d402e180d27be3150dda5ad7eba889aea24f8",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

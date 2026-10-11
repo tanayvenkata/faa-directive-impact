@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2012-01-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2012-202",
+  "effective_on": "2012-01-26",
+  "entry_sha256": "fb4d407df435cebd1ca86b15289efc9fbdaa37ef6a874a106dc499a1e29622a1",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-8477c4ef",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-8477c4ef.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2012-0001"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2012/01/11/2012-202/airworthiness-directives-various-aircraft-equipped-with-rotax-aircraft-engines-912-a-series-engine",
+  "kind": "final_rule",
+  "publication_date": "2012-01-11",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "77 FR 1626",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2012-0001",
+      "Directorate Identifier 2011-CE-041-AD",
+      "Amendment 39-16912",
+      "AD 2012-01-01"
+    ],
+    "document_number": "2012-202",
+    "effective_on": "2012-01-26",
+    "html_url": "https://www.federalregister.gov/documents/2012/01/11/2012-202/airworthiness-directives-various-aircraft-equipped-with-rotax-aircraft-engines-912-a-series-engine",
+    "publication_date": "2012-01-11",
+    "title": "Airworthiness Directives; Various Aircraft Equipped With Rotax Aircraft Engines 912 A Series Engine",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Various Aircraft Equipped With Rotax Aircraft Engines 912 A Series Engine",
+  "versions": [
+    {
+      "entry_sha256": "fb4d407df435cebd1ca86b15289efc9fbdaa37ef6a874a106dc499a1e29622a1",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-8477c4ef"
+    }
+  ]
+}

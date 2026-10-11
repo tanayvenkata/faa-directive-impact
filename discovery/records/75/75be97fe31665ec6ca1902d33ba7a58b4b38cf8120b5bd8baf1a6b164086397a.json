@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2008-03-15"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E8-2026",
+  "effective_on": "2008-03-11",
+  "entry_sha256": "de7f08e980086f07fef8f6602b29c9f682983814fc02e71b0ad21f64a643cd9d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9badc618",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9badc618.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2008/02/05/E8-2026/airworthiness-directives-eads-socata-model-tbm-700-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2008-02-05",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "73 FR 6596",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-0349 Directorate Identifier 2007-CE-094-AD",
+      "Amendment 39-15366",
+      "AD 2008-03-15"
+    ],
+    "document_number": "E8-2026",
+    "effective_on": "2008-03-11",
+    "html_url": "https://www.federalregister.gov/documents/2008/02/05/E8-2026/airworthiness-directives-eads-socata-model-tbm-700-airplanes",
+    "publication_date": "2008-02-05",
+    "title": "Airworthiness Directives; EADS SOCATA Model TBM 700 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; EADS SOCATA Model TBM 700 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "de7f08e980086f07fef8f6602b29c9f682983814fc02e71b0ad21f64a643cd9d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9badc618"
+    }
+  ]
+}

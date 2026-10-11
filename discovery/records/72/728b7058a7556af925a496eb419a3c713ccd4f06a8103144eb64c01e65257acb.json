@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-24-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-30894",
+  "effective_on": "1999-01-04",
+  "entry_sha256": "904abc037dacf0ce4c18bbe13cf2a54ac118309be4229922a638c86579ccc150",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/11/23/98-30894/airworthiness-directives-hoac-austria-model-dv-20-katana-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-11-23",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "63 FR 64602",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-CE-83-AD",
+      "Amendment 39-10891",
+      "AD 98-24-05"
+    ],
+    "document_number": "98-30894",
+    "effective_on": "1999-01-04",
+    "html_url": "https://www.federalregister.gov/documents/1998/11/23/98-30894/airworthiness-directives-hoac-austria-model-dv-20-katana-airplanes",
+    "publication_date": "1998-11-23",
+    "title": "Airworthiness Directives; HOAC-Austria Model DV-20 Katana Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; HOAC-Austria Model DV-20 Katana Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "904abc037dacf0ce4c18bbe13cf2a54ac118309be4229922a638c86579ccc150",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

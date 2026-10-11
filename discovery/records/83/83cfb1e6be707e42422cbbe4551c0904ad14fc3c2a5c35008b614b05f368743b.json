@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2007-19-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-20816",
+  "effective_on": "2007-11-28",
+  "entry_sha256": "73c962842e41191f373b059cd4f06415d0171c2b68e8366770bbbf2bb988127a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-687de582",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-687de582.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2007-27560"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2007/10/24/E7-20816/airworthiness-directives-boeing-model-757-200--200pf-and--200cb-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2007-10-24",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "72 FR 60244",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-27560",
+      "Directorate Identifier 2006-NM-211-AD",
+      "Amendment 39-15198",
+      "AD 2007-19-07"
+    ],
+    "document_number": "E7-20816",
+    "effective_on": "2007-11-28",
+    "html_url": "https://www.federalregister.gov/documents/2007/10/24/E7-20816/airworthiness-directives-boeing-model-757-200--200pf-and--200cb-series-airplanes",
+    "publication_date": "2007-10-24",
+    "title": "Airworthiness Directives; Boeing Model 757-200, -200PF, and -200CB Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 757-200, -200PF, and -200CB Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "73c962842e41191f373b059cd4f06415d0171c2b68e8366770bbbf2bb988127a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-687de582"
+    }
+  ]
+}

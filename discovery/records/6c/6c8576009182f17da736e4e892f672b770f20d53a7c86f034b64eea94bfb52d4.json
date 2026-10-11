@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-12-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-14823",
+  "effective_on": "2001-07-02",
+  "entry_sha256": "0c5055650c7c3e16b95c15c10d27b3e1c27f30f797f67c72fa41c439ea9bb9d1",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/06/15/01-14823/airworthiness-directives-general-electric-company-ct58-series-and-former-military-t58-series",
+  "kind": "final_rule",
+  "publication_date": "2001-06-15",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "66 FR 32535",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NE-07-AD",
+      "Amendment 39-12262",
+      "AD 2001-12-07"
+    ],
+    "document_number": "01-14823",
+    "effective_on": "2001-07-02",
+    "html_url": "https://www.federalregister.gov/documents/2001/06/15/01-14823/airworthiness-directives-general-electric-company-ct58-series-and-former-military-t58-series",
+    "publication_date": "2001-06-15",
+    "title": "Airworthiness Directives; General Electric Company CT58 Series and Former Military T58 Series Turboshaft Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; General Electric Company CT58 Series and Former Military T58 Series Turboshaft Engines",
+  "versions": [
+    {
+      "entry_sha256": "0c5055650c7c3e16b95c15c10d27b3e1c27f30f797f67c72fa41c439ea9bb9d1",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "acquisition_run_id": "run-20261011T165831Z-6cea777a",
+  "acquisition_status": "succeeded",
+  "artifact": {
+    "byte_length": 370220,
+    "declared_media_type": "application/pdf",
+    "detected_media_type": "application/pdf",
+    "relative_path": "raw/govinfo/2024-06419/run-20261011T165831Z-6cea777a/official.pdf",
+    "sha256": "f8e3dee6899d2f3bbef54a4f11701088d86ef29f8def29a32f390a5c65a161d0"
+  },
+  "authority_role": "official_edition",
+  "parent_document_identity": {
+    "namespace": "federal_register_document_number",
+    "value": "2024-06419"
+  },
+  "receipt_id": "receipt-20261011T170004Z-412a5784",
+  "redistribution": {
+    "basis": "U.S. Government work, 17 U.S.C. 105; GovInfo policy permits reprinting with credit to the issuing agency (FAA). See REDISTRIBUTION.md.",
+    "status": "permitted"
+  },
+  "representation_role": "official_pdf",
+  "request": {
+    "method": "GET",
+    "requested_url": "https://www.govinfo.gov/content/pkg/FR-2024-03-27/pdf/2024-06419.pdf",
+    "resolved_url": "https://www.govinfo.gov/content/pkg/FR-2024-03-27/pdf/2024-06419.pdf"
+  },
+  "response": {
+    "headers": {
+      "content_disposition": "inline; filename=\"2024-06419.pdf\"",
+      "content_length": 370220,
+      "content_type": "application/pdf",
+      "last_modified": "Mon, 22 Sep 2025 23:45:13 GMT"
+    },
+    "status_code": 200
+  },
+  "retrieval_id": "retrieval-20261011T170004Z-412a5784",
+  "retrieved_at_utc": "2026-10-11T17:00:04Z",
+  "schema_version": "1.0.0",
+  "source_document_identity": {
+    "namespace": "govinfo_package_granule",
+    "value": "FR-2024-03-27/2024-06419"
+  },
+  "source_system": "govinfo"
+}

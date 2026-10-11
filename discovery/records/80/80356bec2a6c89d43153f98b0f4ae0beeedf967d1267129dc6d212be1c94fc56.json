@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-21-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E6-17326",
+  "effective_on": "2006-11-24",
+  "entry_sha256": "19e10feaaf8c37da4f85db94467c3540f7338c33e6ee29e46055e1d1da9cdc99",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-23809"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/10/19/E6-17326/airworthiness-directives-turbomeca-arriel-2b-series-turboshaft-engines",
+  "kind": "final_rule",
+  "publication_date": "2006-10-19",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "71 FR 61634",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-23809",
+      "Directorate Identifier 2005-NE-52-AD",
+      "Amendment 39-14795",
+      "AD 2006-21-10"
+    ],
+    "document_number": "E6-17326",
+    "effective_on": "2006-11-24",
+    "html_url": "https://www.federalregister.gov/documents/2006/10/19/E6-17326/airworthiness-directives-turbomeca-arriel-2b-series-turboshaft-engines",
+    "publication_date": "2006-10-19",
+    "title": "Airworthiness Directives; Turbomeca Arriel 2B Series Turboshaft Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Turbomeca Arriel 2B Series Turboshaft Engines",
+  "versions": [
+    {
+      "entry_sha256": "19e10feaaf8c37da4f85db94467c3540f7338c33e6ee29e46055e1d1da9cdc99",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

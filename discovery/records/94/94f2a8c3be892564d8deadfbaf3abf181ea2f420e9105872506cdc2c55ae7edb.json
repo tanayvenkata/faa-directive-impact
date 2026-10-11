@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-15-52"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-31628",
+  "effective_on": "2000-12-28",
+  "entry_sha256": "58245a9c9558b6547b61245d2625bedf0aad178bd1e4257976fc12b2e6d4c435",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/12/13/00-31628/airworthiness-directives-bell-helicopter-textron-inc-model-204b-205a-205a-1-205b-and-212-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2000-12-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "65 FR 77785",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-SW-28-AD",
+      "Amendment 39-12042",
+      "AD 2000-15-52"
+    ],
+    "document_number": "00-31628",
+    "effective_on": "2000-12-28",
+    "html_url": "https://www.federalregister.gov/documents/2000/12/13/00-31628/airworthiness-directives-bell-helicopter-textron-inc-model-204b-205a-205a-1-205b-and-212-helicopters",
+    "publication_date": "2000-12-13",
+    "title": "Airworthiness Directives; Bell Helicopter Textron, Inc. Model 204B, 205A, 205A-1, 205B, and 212 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bell Helicopter Textron, Inc. Model 204B, 205A, 205A-1, 205B, and 212 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "58245a9c9558b6547b61245d2625bedf0aad178bd1e4257976fc12b2e6d4c435",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2017-20-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2017-21285",
+  "effective_on": "2017-11-09",
+  "entry_sha256": "66f9c8241560e30a979452bd410b04e124500479b3e10006bc95396120eb043b",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165837Z-77911383",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165837Z-77911383.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2017-0034"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2017/10/05/2017-21285/airworthiness-directives-honeywell-international-inc-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2017-10-05",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "82 FR 46379",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2017-0034",
+      "Product Identifier 2016-NE-32-AD",
+      "Amendment 39-19063",
+      "AD 2017-20-06"
+    ],
+    "document_number": "2017-21285",
+    "effective_on": "2017-11-09",
+    "html_url": "https://www.federalregister.gov/documents/2017/10/05/2017-21285/airworthiness-directives-honeywell-international-inc-turbofan-engines",
+    "publication_date": "2017-10-05",
+    "title": "Airworthiness Directives; Honeywell International Inc. Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Honeywell International Inc. Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "66f9c8241560e30a979452bd410b04e124500479b3e10006bc95396120eb043b",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165837Z-77911383"
+    }
+  ]
+}

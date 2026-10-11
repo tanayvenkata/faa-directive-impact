@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-19-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-27513",
+  "effective_on": "2004-11-01",
+  "entry_sha256": "fbc25b4f825cd8cfec7b45ded0757012349a3bf15f97698196f1dca098a39c5c",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/12/16/04-27513/airworthiness-directives-cessna-aircraft-company-120-140-140a-150-f150-170-172-f172-fr172-p172d-175",
+  "kind": "correction",
+  "publication_date": "2004-12-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "69 FR 75236",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-CE-40-AD",
+      "Amendment 39-13795",
+      "AD 2004-19-01"
+    ],
+    "document_number": "04-27513",
+    "effective_on": "2004-11-01",
+    "html_url": "https://www.federalregister.gov/documents/2004/12/16/04-27513/airworthiness-directives-cessna-aircraft-company-120-140-140a-150-f150-170-172-f172-fr172-p172d-175",
+    "publication_date": "2004-12-16",
+    "title": "Airworthiness Directives; Cessna Aircraft Company 120, 140, 140A, 150, F150, 170, 172, F172, FR172, P172D, 175, 177, 180, 182, 185, A185E, 190, 195, 206, P206, U206, TP206, TU206, 207, T207, 210, T210, 336, 337, and T337 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Cessna Aircraft Company 120, 140, 140A, 150, F150, 170, 172, F172, FR172, P172D, 175, 177, 180, 182, 185, A185E, 190, 195, 206, P206, U206, TP206, TU206, 207, T207, 210, T210, 336, 337, and T337 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "fbc25b4f825cd8cfec7b45ded0757012349a3bf15f97698196f1dca098a39c5c",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

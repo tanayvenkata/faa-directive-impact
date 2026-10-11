@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-25-27"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-24049",
+  "effective_on": "2006-01-24",
+  "entry_sha256": "59255e35ac803e4d1aa8010e1b56cce7510a8fe524d315473d47fedb767adcb8",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-22527"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/12/20/05-24049/airworthiness-directives-airbus-model-a300-b2-series-airplanes-a300-b4-103-and-b4-203-airplanes-and",
+  "kind": "final_rule",
+  "publication_date": "2005-12-20",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 75388",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-22527",
+      "Directorate Identifier 2004-NM-04-AD",
+      "Amendment 39-14420",
+      "AD 2005-25-27"
+    ],
+    "document_number": "05-24049",
+    "effective_on": "2006-01-24",
+    "html_url": "https://www.federalregister.gov/documents/2005/12/20/05-24049/airworthiness-directives-airbus-model-a300-b2-series-airplanes-a300-b4-103-and-b4-203-airplanes-and",
+    "publication_date": "2005-12-20",
+    "title": "Airworthiness Directives; Airbus Model A300 B2 Series Airplanes; A300 B4-103 and B4-203 Airplanes; and A310-203 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A300 B2 Series Airplanes; A300 B4-103 and B4-203 Airplanes; and A310-203 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "59255e35ac803e4d1aa8010e1b56cce7510a8fe524d315473d47fedb767adcb8",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

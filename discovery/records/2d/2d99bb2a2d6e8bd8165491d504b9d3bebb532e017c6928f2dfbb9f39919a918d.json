@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-26-16"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-24527",
+  "effective_on": "2006-02-03",
+  "entry_sha256": "24f79b2deb16fcaef85fd91e6e9bf7915e6899116275439ea1c070831c5d557e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-22148"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/12/30/05-24527/airworthiness-directives-airbus-model-a300-b2-and-a300-b4-series-airplanes-a300-b4-600-b4-600r-and",
+  "kind": "final_rule",
+  "publication_date": "2005-12-30",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 77307",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-22148",
+      "Directorate Identifier 2005-NM-033-AD",
+      "Amendment 39-14437",
+      "AD 2005-26-16"
+    ],
+    "document_number": "05-24527",
+    "effective_on": "2006-02-03",
+    "html_url": "https://www.federalregister.gov/documents/2005/12/30/05-24527/airworthiness-directives-airbus-model-a300-b2-and-a300-b4-series-airplanes-a300-b4-600-b4-600r-and",
+    "publication_date": "2005-12-30",
+    "title": "Airworthiness Directives; Airbus Model A300 B2 and A300 B4 Series Airplanes; A300 B4-600, B4-600R, and F4-600R Series Airplanes, and C4-605R Variant F Airplanes (Collectively Called A300-600 Series Airplanes); and Airbus Model A310-200 and A310-300 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A300 B2 and A300 B4 Series Airplanes; A300 B4-600, B4-600R, and F4-600R Series Airplanes, and C4-605R Variant F Airplanes (Collectively Called A300-600 Series Airplanes); and Airbus Model A310-200 and A310-300 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "24f79b2deb16fcaef85fd91e6e9bf7915e6899116275439ea1c070831c5d557e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

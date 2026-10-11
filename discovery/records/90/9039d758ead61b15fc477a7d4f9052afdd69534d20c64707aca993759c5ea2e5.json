@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2011-12-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2011-26002",
+  "effective_on": "2011-10-11",
+  "entry_sha256": "0c5fb6a7817ab17f949f2f48f3d9972e3e61a8c64d5a44c6e399cdfbdbf90bdf",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-20b5ccf0",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-20b5ccf0.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2011-0543"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2011/10/11/2011-26002/airworthiness-directives-viking-air-limited-model-dhc-3-otter-airplanes-with-supplemental-type",
+  "kind": "correction",
+  "publication_date": "2011-10-11",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "76 FR 62605",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2011-0543",
+      "Directorate Identifier 2011-CE-018-AD",
+      "Amendment 39-16709",
+      "AD 2011-12-02"
+    ],
+    "document_number": "2011-26002",
+    "effective_on": "2011-10-11",
+    "html_url": "https://www.federalregister.gov/documents/2011/10/11/2011-26002/airworthiness-directives-viking-air-limited-model-dhc-3-otter-airplanes-with-supplemental-type",
+    "publication_date": "2011-10-11",
+    "title": "Airworthiness Directives; Viking Air Limited Model DHC-3 (Otter) Airplanes With Supplemental Type Certificate (STC) SA 09866SC",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Viking Air Limited Model DHC-3 (Otter) Airplanes With Supplemental Type Certificate (STC) SA 09866SC",
+  "versions": [
+    {
+      "entry_sha256": "0c5fb6a7817ab17f949f2f48f3d9972e3e61a8c64d5a44c6e399cdfbdbf90bdf",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-20b5ccf0"
+    }
+  ]
+}

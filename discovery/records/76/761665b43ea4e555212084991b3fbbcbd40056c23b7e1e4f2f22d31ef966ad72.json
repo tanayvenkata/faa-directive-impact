@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-24-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-29224",
+  "effective_on": "2004-01-05",
+  "entry_sha256": "d64269aa500e33b0527bf49fa96d63d6177506d0f000a639614f319497b64c2f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/12/01/03-29224/airworthiness-directives-eurocopter-france-model-as332c-l-l1-and-l2-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2003-12-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "68 FR 67018",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-SW-07-AD",
+      "Amendment 39-13371",
+      "AD 2003-24-02"
+    ],
+    "document_number": "03-29224",
+    "effective_on": "2004-01-05",
+    "html_url": "https://www.federalregister.gov/documents/2003/12/01/03-29224/airworthiness-directives-eurocopter-france-model-as332c-l-l1-and-l2-helicopters",
+    "publication_date": "2003-12-01",
+    "title": "Airworthiness Directives; Eurocopter France Model AS332C, L, L1, and L2 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eurocopter France Model AS332C, L, L1, and L2 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "d64269aa500e33b0527bf49fa96d63d6177506d0f000a639614f319497b64c2f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

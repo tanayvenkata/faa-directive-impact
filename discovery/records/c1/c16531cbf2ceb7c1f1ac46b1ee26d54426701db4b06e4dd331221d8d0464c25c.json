@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-11-21"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-14135",
+  "effective_on": "2003-06-26",
+  "entry_sha256": "e707dae46393cf635404406f9bb34a26d310e02a491c71038fcb1bf03b9ebe99",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/06/11/03-14135/airworthiness-directives-eurocopter-france-model-as332-c-l-and-l1-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2003-06-11",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "68 FR 34786",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-SW-13-AD",
+      "Amendment 39-13180",
+      "AD 2003-11-21"
+    ],
+    "document_number": "03-14135",
+    "effective_on": "2003-06-26",
+    "html_url": "https://www.federalregister.gov/documents/2003/06/11/03-14135/airworthiness-directives-eurocopter-france-model-as332-c-l-and-l1-helicopters",
+    "publication_date": "2003-06-11",
+    "title": "Airworthiness Directives; Eurocopter France Model AS332 C, L, and L1 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eurocopter France Model AS332 C, L, and L1 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "e707dae46393cf635404406f9bb34a26d310e02a491c71038fcb1bf03b9ebe99",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

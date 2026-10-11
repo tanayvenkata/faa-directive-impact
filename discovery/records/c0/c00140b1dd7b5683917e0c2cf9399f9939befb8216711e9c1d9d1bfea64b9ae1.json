@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-20-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-21911",
+  "effective_on": "2004-11-05",
+  "entry_sha256": "43ad0b7a3d2db6487fcac8326a7c77b4fad574b501dd1091f9faaccde6f2693a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/10/01/04-21911/airworthiness-directives-pratt-and-whitney-canada-models-pw123-pw123b-pw123c-pw123d-pw123e-pw123af",
+  "kind": "final_rule",
+  "publication_date": "2004-10-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 58826",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NE-35-AD",
+      "Amendment 39-13806",
+      "AD 2004-20-01"
+    ],
+    "document_number": "04-21911",
+    "effective_on": "2004-11-05",
+    "html_url": "https://www.federalregister.gov/documents/2004/10/01/04-21911/airworthiness-directives-pratt-and-whitney-canada-models-pw123-pw123b-pw123c-pw123d-pw123e-pw123af",
+    "publication_date": "2004-10-01",
+    "title": "Airworthiness Directives; Pratt & Whitney Canada Models PW123, PW123B, PW123C, PW123D, PW123E, PW123AF, PW124B, PW125B, PW126A, PW127, PW127E, PW127F, and PW127G Turboprop Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pratt & Whitney Canada Models PW123, PW123B, PW123C, PW123D, PW123E, PW123AF, PW124B, PW125B, PW126A, PW127, PW127E, PW127F, and PW127G Turboprop Engines",
+  "versions": [
+    {
+      "entry_sha256": "43ad0b7a3d2db6487fcac8326a7c77b4fad574b501dd1091f9faaccde6f2693a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

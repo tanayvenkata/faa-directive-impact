@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-20-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-28959",
+  "effective_on": null,
+  "entry_sha256": "17848cf84301501aa1bd9ddfa23004848c3c5f23f9d113511c9ce12ab7d8ffd8",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/11/27/00-28959/airworthiness-directives-turbomeca-arriel-1-series-turboshaft-engines-correction",
+  "kind": "correction",
+  "publication_date": "2000-11-27",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction",
+    "citation": "65 FR 70647",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NE-11-AD",
+      "Amendment 39-11912",
+      "AD 2000-20-01"
+    ],
+    "document_number": "00-28959",
+    "effective_on": null,
+    "html_url": "https://www.federalregister.gov/documents/2000/11/27/00-28959/airworthiness-directives-turbomeca-arriel-1-series-turboshaft-engines-correction",
+    "publication_date": "2000-11-27",
+    "title": "Airworthiness Directives; Turbomeca Arriel 1 Series Turboshaft Engines; Correction",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Turbomeca Arriel 1 Series Turboshaft Engines; Correction",
+  "versions": [
+    {
+      "entry_sha256": "17848cf84301501aa1bd9ddfa23004848c3c5f23f9d113511c9ce12ab7d8ffd8",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-04-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "06-1694",
+  "effective_on": "2006-04-03",
+  "entry_sha256": "82b67aa64bddecb2d9f15adf025cb8428942ecc5f9ccc5e9375668840fde6131",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-23282"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/02/27/06-1694/airworthiness-directives-boeing-model-757-200-and--300-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2006-02-27",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "71 FR 9691",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-23282",
+      "Directorate Identifier 2005-NM-210-AD",
+      "Amendment 39-14496",
+      "AD 2006-04-14"
+    ],
+    "document_number": "06-1694",
+    "effective_on": "2006-04-03",
+    "html_url": "https://www.federalregister.gov/documents/2006/02/27/06-1694/airworthiness-directives-boeing-model-757-200-and--300-series-airplanes",
+    "publication_date": "2006-02-27",
+    "title": "Airworthiness Directives; Boeing Model 757-200 and -300 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 757-200 and -300 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "82b67aa64bddecb2d9f15adf025cb8428942ecc5f9ccc5e9375668840fde6131",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

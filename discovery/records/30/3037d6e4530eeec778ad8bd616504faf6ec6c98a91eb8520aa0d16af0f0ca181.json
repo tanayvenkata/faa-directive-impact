@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-17-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-21010",
+  "effective_on": "2001-09-11",
+  "entry_sha256": "59708a42d83199edc5832f3528d296d2b3dd2c9f9bbadcf053e47e1c8bd184f7",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/08/22/01-21010/airworthiness-directives-janaero-devices-part-number-pn-14d11-a14d11-b14d11-c14d11-23d04-a23d04",
+  "kind": "final_rule",
+  "publication_date": "2001-08-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "66 FR 44027",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-CE-26-AD",
+      "Amendment 39-12404",
+      "AD 2001-17-13"
+    ],
+    "document_number": "01-21010",
+    "effective_on": "2001-09-11",
+    "html_url": "https://www.federalregister.gov/documents/2001/08/22/01-21010/airworthiness-directives-janaero-devices-part-number-pn-14d11-a14d11-b14d11-c14d11-23d04-a23d04",
+    "publication_date": "2001-08-22",
+    "title": "Airworthiness Directives; JanAero Devices Part Number (P/N) 14D11, A14D11, B14D11, C14D11, 23D04, A23D04, B23D04, and C23D04 Fuel Regulator Shutoff Valves",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; JanAero Devices Part Number (P/N) 14D11, A14D11, B14D11, C14D11, 23D04, A23D04, B23D04, and C23D04 Fuel Regulator Shutoff Valves",
+  "versions": [
+    {
+      "entry_sha256": "59708a42d83199edc5832f3528d296d2b3dd2c9f9bbadcf053e47e1c8bd184f7",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

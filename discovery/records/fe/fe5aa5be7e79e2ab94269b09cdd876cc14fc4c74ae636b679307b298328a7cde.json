@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-05-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-4219",
+  "effective_on": "2010-04-07",
+  "entry_sha256": "fd506510555f90e8c005ba01ebc3b7a779dad8eaf2404cd1d930d4e77db7d646",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2008-0545"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/03/03/2010-4219/airworthiness-directives-dowty-propellers-models-r3544-123-f13-r3544-123-f20-r3754-123-f21",
+  "kind": "final_rule",
+  "publication_date": "2010-03-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "75 FR 9515",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2008-0545",
+      "Directorate Identifier 2008-NE-16-AD",
+      "Amendment 39-16219",
+      "AD 2010-05-09"
+    ],
+    "document_number": "2010-4219",
+    "effective_on": "2010-04-07",
+    "html_url": "https://www.federalregister.gov/documents/2010/03/03/2010-4219/airworthiness-directives-dowty-propellers-models-r3544-123-f13-r3544-123-f20-r3754-123-f21",
+    "publication_date": "2010-03-03",
+    "title": "Airworthiness Directives; Dowty Propellers Models R354/4-123-F/13, R354/4-123-F/20, R375/4-123-F/21, R389/4-123-F/25, R389/4-123-F/26, and R390/4-123-F/27 Propellers",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Dowty Propellers Models R354/4-123-F/13, R354/4-123-F/20, R375/4-123-F/21, R389/4-123-F/25, R389/4-123-F/26, and R390/4-123-F/27 Propellers",
+  "versions": [
+    {
+      "entry_sha256": "fd506510555f90e8c005ba01ebc3b7a779dad8eaf2404cd1d930d4e77db7d646",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

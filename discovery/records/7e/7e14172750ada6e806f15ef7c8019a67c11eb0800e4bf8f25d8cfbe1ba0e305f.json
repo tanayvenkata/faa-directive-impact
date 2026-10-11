@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2021-21-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "R1-2021-25005",
+  "effective_on": "2021-12-02",
+  "entry_sha256": "4e03bc030bbb8ab775ab1679b231a2e235e5a23670ab9611136fc549760ded6e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165838Z-81ca8e84",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165838Z-81ca8e84.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2021-0879"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2021/12/09/R1-2021-25005/airworthiness-directives-rolls-royce-deutschland-ltd-and-co-kg-type-certificate-previously-held-by",
+  "kind": "correction",
+  "publication_date": "2021-12-09",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "86 FR 69987",
+    "correction_of": "https://www.federalregister.gov/api/v1/documents/2021-25005",
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2021-0879",
+      "Project Identifier MCAI-2020-01494-E",
+      "Amendment 39-21773",
+      "AD 2021-21-13"
+    ],
+    "document_number": "R1-2021-25005",
+    "effective_on": "2021-12-02",
+    "html_url": "https://www.federalregister.gov/documents/2021/12/09/R1-2021-25005/airworthiness-directives-rolls-royce-deutschland-ltd-and-co-kg-type-certificate-previously-held-by",
+    "publication_date": "2021-12-09",
+    "title": "Airworthiness Directives; Rolls-Royce Deutschland Ltd & Co KG (Type Certificate Previously Held by Rolls-Royce plc) Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Rolls-Royce Deutschland Ltd & Co KG (Type Certificate Previously Held by Rolls-Royce plc) Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "4e03bc030bbb8ab775ab1679b231a2e235e5a23670ab9611136fc549760ded6e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165838Z-81ca8e84"
+    }
+  ]
+}

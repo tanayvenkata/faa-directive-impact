@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2012-03-51"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2012-3618",
+  "effective_on": "2012-03-02",
+  "entry_sha256": "d4d6aafb9e9753c4be0ba2919d25acde9becd7d38c33f2971a384b6c2bf5e0f2",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-8477c4ef",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-8477c4ef.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2012-0107"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2012/02/16/2012-3618/airworthiness-directives-airplanes-originally-manufactured-by-lockheed-for-the-military-as-p2v",
+  "kind": "final_rule",
+  "publication_date": "2012-02-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "77 FR 9166",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2012-0107",
+      "Directorate Identifier 2012-NM-018-AD",
+      "Amendment 39-16955",
+      "AD 2012-03-51"
+    ],
+    "document_number": "2012-3618",
+    "effective_on": "2012-03-02",
+    "html_url": "https://www.federalregister.gov/documents/2012/02/16/2012-3618/airworthiness-directives-airplanes-originally-manufactured-by-lockheed-for-the-military-as-p2v",
+    "publication_date": "2012-02-16",
+    "title": "Airworthiness Directives; Airplanes Originally Manufactured by Lockheed for the Military as P2V Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airplanes Originally Manufactured by Lockheed for the Military as P2V Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "d4d6aafb9e9753c4be0ba2919d25acde9becd7d38c33f2971a384b6c2bf5e0f2",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-8477c4ef"
+    }
+  ]
+}

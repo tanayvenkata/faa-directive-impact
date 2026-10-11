@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-18-03"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-22610",
+  "effective_on": "2000-09-22",
+  "entry_sha256": "962d062eea2ae3cd3df00d6ff3f65cad672c6b715b3088a1116be1a9c8beef40",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/09/07/00-22610/airworthiness-directives-rolls-royce-plc-rb211-524d4-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2000-09-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "65 FR 54143",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NE-23-AD",
+      "Amendment 39-11888",
+      "AD 2000-18-03"
+    ],
+    "document_number": "00-22610",
+    "effective_on": "2000-09-22",
+    "html_url": "https://www.federalregister.gov/documents/2000/09/07/00-22610/airworthiness-directives-rolls-royce-plc-rb211-524d4-series-turbofan-engines",
+    "publication_date": "2000-09-07",
+    "title": "Airworthiness Directives; Rolls-Royce plc RB211-524D4 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Rolls-Royce plc RB211-524D4 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "962d062eea2ae3cd3df00d6ff3f65cad672c6b715b3088a1116be1a9c8beef40",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-07-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-7235",
+  "effective_on": "2004-05-06",
+  "entry_sha256": "91b7992ff7984a72d515cd5868ac3e9845a93021e9195753cf79a817c45b6413",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/04/01/04-7235/airworthiness-directives-general-electric-company-cf6-80c2-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "2004-04-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 17033",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NE-46-AD",
+      "Amendment 39-13557",
+      "AD 2004-07-13"
+    ],
+    "document_number": "04-7235",
+    "effective_on": "2004-05-06",
+    "html_url": "https://www.federalregister.gov/documents/2004/04/01/04-7235/airworthiness-directives-general-electric-company-cf6-80c2-series-turbofan-engines",
+    "publication_date": "2004-04-01",
+    "title": "Airworthiness Directives; General Electric Company CF6-80C2 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; General Electric Company CF6-80C2 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "91b7992ff7984a72d515cd5868ac3e9845a93021e9195753cf79a817c45b6413",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

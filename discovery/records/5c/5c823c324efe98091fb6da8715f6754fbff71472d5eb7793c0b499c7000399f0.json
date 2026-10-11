@@ -1,0 +1,52 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-5735",
+  "effective_on": "2001-04-19",
+  "entry_sha256": "36ab022241ddb00447c6332110a43cff9376405464c248dbe61d7e7af5e71272",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/03/15/01-5735/airworthiness-directives-dowty-aerospace-propellers-model-r3816-123-f5-propellers",
+  "kind": "final_rule",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "2001-03-15",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "66 FR 15022",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NE-43-AD",
+      "Amendment 39-12143",
+      "AD 99-18-18 R1"
+    ],
+    "document_number": "01-5735",
+    "effective_on": "2001-04-19",
+    "html_url": "https://www.federalregister.gov/documents/2001/03/15/01-5735/airworthiness-directives-dowty-aerospace-propellers-model-r3816-123-f5-propellers",
+    "publication_date": "2001-03-15",
+    "title": "Airworthiness Directives; Dowty Aerospace Propellers Model R381/6-123-F/5 Propellers",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Dowty Aerospace Propellers Model R381/6-123-F/5 Propellers",
+  "versions": [
+    {
+      "entry_sha256": "36ab022241ddb00447c6332110a43cff9376405464c248dbe61d7e7af5e71272",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

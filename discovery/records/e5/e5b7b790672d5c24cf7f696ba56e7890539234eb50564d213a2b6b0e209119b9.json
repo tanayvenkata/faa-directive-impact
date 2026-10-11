@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2007-09-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-7641",
+  "effective_on": "2007-05-31",
+  "entry_sha256": "cd4194f6a00442f0a9fadc985f10b103bf3bc40803f2f4bced497c247a91191c",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-687de582",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-687de582.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2007/04/26/E7-7641/airworthiness-directives-reims-aviation-sa-model-f406-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2007-04-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "72 FR 20718",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2006-26690 Directorate Identifier 2006-CE-088-AD",
+      "Amendment 39-15032",
+      "AD 2007-09-02"
+    ],
+    "document_number": "E7-7641",
+    "effective_on": "2007-05-31",
+    "html_url": "https://www.federalregister.gov/documents/2007/04/26/E7-7641/airworthiness-directives-reims-aviation-sa-model-f406-airplanes",
+    "publication_date": "2007-04-26",
+    "title": "Airworthiness Directives; REIMS AVIATION S.A. Model F406 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; REIMS AVIATION S.A. Model F406 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "cd4194f6a00442f0a9fadc985f10b103bf3bc40803f2f4bced497c247a91191c",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-687de582"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2011-06-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2011-7569",
+  "effective_on": "2011-05-06",
+  "entry_sha256": "9caa33ce5f11bc1e64da34f2f641e817a2348e8435040ccafa9d2a052ac07d37",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-20b5ccf0",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-20b5ccf0.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2010-1295"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2011/04/01/2011-7569/airworthiness-directives-piper-aircraft-inc-type-certificate-previously-held-by-the-new-piper",
+  "kind": "final_rule",
+  "publication_date": "2011-04-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "76 FR 18033",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-1295",
+      "Directorate Identifier 2010-CE-060-AD",
+      "Amendment 39-16635",
+      "AD 2011-06-10"
+    ],
+    "document_number": "2011-7569",
+    "effective_on": "2011-05-06",
+    "html_url": "https://www.federalregister.gov/documents/2011/04/01/2011-7569/airworthiness-directives-piper-aircraft-inc-type-certificate-previously-held-by-the-new-piper",
+    "publication_date": "2011-04-01",
+    "title": "Airworthiness Directives; Piper Aircraft, Inc. (Type Certificate Previously Held by The New Piper Aircraft, Inc.) Models PA-46-310P, PA-46-350P, and PA-46R-350T Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Piper Aircraft, Inc. (Type Certificate Previously Held by The New Piper Aircraft, Inc.) Models PA-46-310P, PA-46-350P, and PA-46R-350T Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "9caa33ce5f11bc1e64da34f2f641e817a2348e8435040ccafa9d2a052ac07d37",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-20b5ccf0"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-24-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-30023",
+  "effective_on": "2003-01-21",
+  "entry_sha256": "0f476b05166c790a86a2b0aa1f030ebd0b28d8ecf1cccbdf6f32cdf05b9707b2",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/11/29/02-30023/airworthiness-directives-britten-norman-bembridge-limited-bn2a-mk-iii-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2002-11-29",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 71101",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-CE-36-AD",
+      "Amendment 39-12966",
+      "AD 2002-24-01"
+    ],
+    "document_number": "02-30023",
+    "effective_on": "2003-01-21",
+    "html_url": "https://www.federalregister.gov/documents/2002/11/29/02-30023/airworthiness-directives-britten-norman-bembridge-limited-bn2a-mk-iii-series-airplanes",
+    "publication_date": "2002-11-29",
+    "title": "Airworthiness Directives; Britten Norman (Bembridge) Limited BN2A Mk. III Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Britten Norman (Bembridge) Limited BN2A Mk. III Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "0f476b05166c790a86a2b0aa1f030ebd0b28d8ecf1cccbdf6f32cdf05b9707b2",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

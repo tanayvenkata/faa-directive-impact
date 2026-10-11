@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-06-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-5290",
+  "effective_on": "2010-04-01",
+  "entry_sha256": "4263fc6aa4b30851c2e0756db5b36dbaf897beeb396cd9a3db90614a0711b528",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2010-0221"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/03/17/2010-5290/airworthiness-directives-the-boeing-company-model-777-200--200lr--300--300er-and-777f-series",
+  "kind": "final_rule",
+  "publication_date": "2010-03-17",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "75 FR 12657",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-0221",
+      "Directorate Identifier 2010-NM-043-AD",
+      "Amendment 39-16233",
+      "AD 2010-06-09"
+    ],
+    "document_number": "2010-5290",
+    "effective_on": "2010-04-01",
+    "html_url": "https://www.federalregister.gov/documents/2010/03/17/2010-5290/airworthiness-directives-the-boeing-company-model-777-200--200lr--300--300er-and-777f-series",
+    "publication_date": "2010-03-17",
+    "title": "Airworthiness Directives; The Boeing Company Model 777-200, -200LR, -300, -300ER, and 777F Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; The Boeing Company Model 777-200, -200LR, -300, -300ER, and 777F Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "4263fc6aa4b30851c2e0756db5b36dbaf897beeb396cd9a3db90614a0711b528",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2016-16-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2016-18488",
+  "effective_on": "2016-09-14",
+  "entry_sha256": "87453133e12ae0edaa267c648d0a47be7e9b931f42a285d852d19698d909ef31",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165837Z-50466c8d",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165837Z-50466c8d.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2016-5464"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2016/08/10/2016-18488/airworthiness-directives-dassault-aviation-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2016-08-10",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "81 FR 52752",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2016-5464",
+      "Directorate Identifier 2015-NM-097-AD",
+      "Amendment 39-18607",
+      "AD 2016-16-09"
+    ],
+    "document_number": "2016-18488",
+    "effective_on": "2016-09-14",
+    "html_url": "https://www.federalregister.gov/documents/2016/08/10/2016-18488/airworthiness-directives-dassault-aviation-airplanes",
+    "publication_date": "2016-08-10",
+    "title": "Airworthiness Directives; Dassault Aviation Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Dassault Aviation Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "87453133e12ae0edaa267c648d0a47be7e9b931f42a285d852d19698d909ef31",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165837Z-50466c8d"
+    }
+  ]
+}

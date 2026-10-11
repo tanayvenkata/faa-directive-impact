@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-26-54"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-2425",
+  "effective_on": "2002-02-19",
+  "entry_sha256": "707cbe4a9b6b335758579ffa895b5d7d39ff8c0f3ce38ac67a9662eedc543efb",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/02/01/02-2425/airworthiness-directives-eurocopter-france-model-ec-155b-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2002-02-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "67 FR 4896",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-SW-71-AD",
+      "Amendment 39-12627",
+      "AD 2001-26-54"
+    ],
+    "document_number": "02-2425",
+    "effective_on": "2002-02-19",
+    "html_url": "https://www.federalregister.gov/documents/2002/02/01/02-2425/airworthiness-directives-eurocopter-france-model-ec-155b-helicopters",
+    "publication_date": "2002-02-01",
+    "title": "Airworthiness Directives; Eurocopter France Model EC 155B Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eurocopter France Model EC 155B Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "707cbe4a9b6b335758579ffa895b5d7d39ff8c0f3ce38ac67a9662eedc543efb",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

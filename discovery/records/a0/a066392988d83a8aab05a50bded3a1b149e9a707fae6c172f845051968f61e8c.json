@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-16-12"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-19293",
+  "effective_on": "2010-08-30",
+  "entry_sha256": "98496f894cadcba6d05dcb163d2f758c6b61d336987453ce9bff2e29b970cac9",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2010-0704"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/08/13/2010-19293/airworthiness-directives-the-boeing-company-model-777-200lr-and--300er-series-airplanes-equipped",
+  "kind": "final_rule",
+  "publication_date": "2010-08-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "75 FR 49375",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-0704",
+      "Directorate Identifier 2010-NM-037-AD",
+      "Amendment 39-16389",
+      "AD 2010-16-12"
+    ],
+    "document_number": "2010-19293",
+    "effective_on": "2010-08-30",
+    "html_url": "https://www.federalregister.gov/documents/2010/08/13/2010-19293/airworthiness-directives-the-boeing-company-model-777-200lr-and--300er-series-airplanes-equipped",
+    "publication_date": "2010-08-13",
+    "title": "Airworthiness Directives; The Boeing Company Model 777-200LR and -300ER Series Airplanes Equipped with GE90-100 Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; The Boeing Company Model 777-200LR and -300ER Series Airplanes Equipped with GE90-100 Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "98496f894cadcba6d05dcb163d2f758c6b61d336987453ce9bff2e29b970cac9",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2012-08-18"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2012-9789",
+  "effective_on": "2012-05-30",
+  "entry_sha256": "18157bab0acc32a0e3236dcf807c9b3f4e684b57e347b9ba11f316d1eb709668",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-8477c4ef",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-8477c4ef.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2012-0010"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2012/04/25/2012-9789/airworthiness-directives-turbomeca-sa-turboshaft-engines",
+  "kind": "final_rule",
+  "publication_date": "2012-04-25",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "77 FR 24585",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2012-0010",
+      "Directorate Identifier 2012-NE-03-AD",
+      "Amendment 39-17035",
+      "AD 2012-08-18"
+    ],
+    "document_number": "2012-9789",
+    "effective_on": "2012-05-30",
+    "html_url": "https://www.federalregister.gov/documents/2012/04/25/2012-9789/airworthiness-directives-turbomeca-sa-turboshaft-engines",
+    "publication_date": "2012-04-25",
+    "title": "Airworthiness Directives; Turbomeca S.A. Turboshaft Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Turbomeca S.A. Turboshaft Engines",
+  "versions": [
+    {
+      "entry_sha256": "18157bab0acc32a0e3236dcf807c9b3f4e684b57e347b9ba11f316d1eb709668",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-8477c4ef"
+    }
+  ]
+}

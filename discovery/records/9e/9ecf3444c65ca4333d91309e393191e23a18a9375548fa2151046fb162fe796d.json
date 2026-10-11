@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-25-53"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-32763",
+  "effective_on": "2001-01-02",
+  "entry_sha256": "1c2bffe6b0a4e9cbc1b9a8b6fb177e8b332f3189c246862719a132bbde142bd5",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/12/28/00-32763/airworthiness-directives-airbus-model-a330-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-12-28",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "65 FR 82259",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-399-AD",
+      "Amendment 39-12051",
+      "AD 2000-25-53"
+    ],
+    "document_number": "00-32763",
+    "effective_on": "2001-01-02",
+    "html_url": "https://www.federalregister.gov/documents/2000/12/28/00-32763/airworthiness-directives-airbus-model-a330-series-airplanes",
+    "publication_date": "2000-12-28",
+    "title": "Airworthiness Directives; Airbus Model A330 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A330 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "1c2bffe6b0a4e9cbc1b9a8b6fb177e8b332f3189c246862719a132bbde142bd5",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-11-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-12441",
+  "effective_on": "2004-07-09",
+  "entry_sha256": "b1536e5723d747ad1d4df6d2879c47fa507005eeef8c78ec02b94fa07dff015f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/06/04/04-12441/airworthiness-directives-eurocopter-france-model-ec-130-b4-and-as-350-b3-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2004-06-04",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 31520",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-SW-29-AD",
+      "Amendment 39-13650",
+      "AD 2004-11-05"
+    ],
+    "document_number": "04-12441",
+    "effective_on": "2004-07-09",
+    "html_url": "https://www.federalregister.gov/documents/2004/06/04/04-12441/airworthiness-directives-eurocopter-france-model-ec-130-b4-and-as-350-b3-helicopters",
+    "publication_date": "2004-06-04",
+    "title": "Airworthiness Directives; Eurocopter France Model EC 130 B4 and AS 350 B3 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eurocopter France Model EC 130 B4 and AS 350 B3 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "b1536e5723d747ad1d4df6d2879c47fa507005eeef8c78ec02b94fa07dff015f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

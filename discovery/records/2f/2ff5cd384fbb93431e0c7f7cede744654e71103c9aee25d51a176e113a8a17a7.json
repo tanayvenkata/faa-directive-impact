@@ -1,0 +1,74 @@
+{
+  "ad_numbers": [
+    "2025-26-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2026-00330",
+  "effective_on": "2026-02-17",
+  "entry_sha256": "7bd0f288c4bf4df06590047246b60ca0ae6db4ecd877a4db0be29d16dba83103",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T170022Z-9af3c79e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T170022Z-9af3c79e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T170023Z-4279572e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T170023Z-4279572e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165839Z-21d7bc73",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165839Z-21d7bc73.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2025-0480"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2026/01/12/2026-00330/airworthiness-directives-international-aero-engines-llc-engines",
+  "incorporated_material": {
+    "items": [
+      "Pratt & Whitney (PW) Alert Service Bulletin (ASB) PW1000G-C-72-00-0214-00A-930A-D, Issue No. 006, dated August 19, 2025.",
+      "PW ASB PW1000G-C-73-00-0053-00A-930A-D, Issue No. 005, dated September 18, 2024."
+    ],
+    "paragraph": "m"
+  },
+  "kind": "final_rule",
+  "publication_date": "2026-01-12",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "outside_supported_scope",
+    "detail": "Paragraph (c) lists no V2500 model.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "91 FR 1078",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2025-0480",
+      "Project Identifier AD-2024-00546-E",
+      "Amendment 39-23226",
+      "AD 2025-26-04"
+    ],
+    "document_number": "2026-00330",
+    "effective_on": "2026-02-17",
+    "html_url": "https://www.federalregister.gov/documents/2026/01/12/2026-00330/airworthiness-directives-international-aero-engines-llc-engines",
+    "publication_date": "2026-01-12",
+    "title": "Airworthiness Directives; International Aero Engines LLC Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines LLC Engines",
+  "versions": [
+    {
+      "entry_sha256": "7bd0f288c4bf4df06590047246b60ca0ae6db4ecd877a4db0be29d16dba83103",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165839Z-21d7bc73"
+    }
+  ]
+}

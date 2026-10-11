@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2012-08-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2012-27457",
+  "effective_on": "2012-11-13",
+  "entry_sha256": "c6cfb3c90ef397e652389d87b7e0faa64fdd6d4e6ed9c6430c84d94770dcde4e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-8477c4ef",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-8477c4ef.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2011-0360"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2012/11/13/2012-27457/airworthiness-directives-univair-aircraft-corporation-airplanes",
+  "kind": "correction",
+  "publication_date": "2012-11-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "77 FR 67561",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2011-0360",
+      "Directorate Identifier 2010-CE-061-AD",
+      "Amendment 39-17023",
+      "AD 2012-08-06"
+    ],
+    "document_number": "2012-27457",
+    "effective_on": "2012-11-13",
+    "html_url": "https://www.federalregister.gov/documents/2012/11/13/2012-27457/airworthiness-directives-univair-aircraft-corporation-airplanes",
+    "publication_date": "2012-11-13",
+    "title": "Airworthiness Directives; Univair Aircraft Corporation Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Univair Aircraft Corporation Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "c6cfb3c90ef397e652389d87b7e0faa64fdd6d4e6ed9c6430c84d94770dcde4e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-8477c4ef"
+    }
+  ]
+}

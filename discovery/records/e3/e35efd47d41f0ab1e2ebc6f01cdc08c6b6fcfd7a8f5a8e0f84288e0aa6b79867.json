@@ -1,0 +1,85 @@
+{
+  "ad_numbers": [
+    "2024-11-03"
+  ],
+  "coverage_state": "not_yet_evaluated",
+  "document_number": "2024-12594",
+  "effective_on": "2024-06-26",
+  "entry_sha256": "29c7f4d3cd00925ad5dd0098026125fd961119d5807e6583d9ad507172f1fac8",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T170006Z-6076eeb5",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T170006Z-6076eeb5.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T170006Z-f76b92e0",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T170006Z-f76b92e0.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165839Z-f534379c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165839Z-f534379c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2024-0041"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2024/06/11/2024-12594/airworthiness-directives-international-aero-engines-ag-engines",
+  "incorporated_material": {
+    "items": [
+      "International Aero Engines AG (IAE AG) Non-Modification Service Bulletin V2500-ENG-72-0720, dated November 20, 2023.",
+      "Pratt & Whitney (PW) Special Instruction No. 189F-23, dated November 20, 2023."
+    ],
+    "paragraph": "l"
+  },
+  "kind": "final_rule",
+  "publication_date": "2024-06-11",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "not_yet_evaluated",
+    "detail": "Paragraph (c) lists only V2500-A5/D5/E5 models.",
+    "models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "89 FR 49094",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2024-0041",
+      "Project Identifier AD-2024-00032-E",
+      "Amendment 39-22764",
+      "AD 2024-11-03"
+    ],
+    "document_number": "2024-12594",
+    "effective_on": "2024-06-26",
+    "html_url": "https://www.federalregister.gov/documents/2024/06/11/2024-12594/airworthiness-directives-international-aero-engines-ag-engines",
+    "publication_date": "2024-06-11",
+    "title": "Airworthiness Directives; International Aero Engines, AG Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines, AG Engines",
+  "versions": [
+    {
+      "entry_sha256": "29c7f4d3cd00925ad5dd0098026125fd961119d5807e6583d9ad507172f1fac8",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165839Z-f534379c"
+    }
+  ]
+}

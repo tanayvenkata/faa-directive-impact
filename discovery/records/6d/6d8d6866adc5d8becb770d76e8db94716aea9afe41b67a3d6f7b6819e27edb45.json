@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2006-09-11"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "06-4134",
+  "effective_on": "2006-06-16",
+  "entry_sha256": "488f104a5f6bbcc970074317539196a16bfb721ef73a2ce9bb47c4471e37137f",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a0469ea2",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a0469ea2.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-22919"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2006/05/12/06-4134/airworthiness-directives-airbus-model-a319-100-a320-200-a321-100-and-a321-200-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2006-05-12",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "71 FR 27595",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-22919",
+      "Directorate Identifier 2005-NM-087-AD",
+      "Amendment 39-14582",
+      "AD 2006-09-11"
+    ],
+    "document_number": "06-4134",
+    "effective_on": "2006-06-16",
+    "html_url": "https://www.federalregister.gov/documents/2006/05/12/06-4134/airworthiness-directives-airbus-model-a319-100-a320-200-a321-100-and-a321-200-series-airplanes",
+    "publication_date": "2006-05-12",
+    "title": "Airworthiness Directives; Airbus Model A319-100, A320-200, A321-100, and A321-200 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A319-100, A320-200, A321-100, and A321-200 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "488f104a5f6bbcc970074317539196a16bfb721ef73a2ce9bb47c4471e37137f",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a0469ea2"
+    }
+  ]
+}

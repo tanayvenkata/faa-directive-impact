@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-08-12"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-9878",
+  "effective_on": "2001-05-11",
+  "entry_sha256": "9780a8146d1ec3b8e66df68b8a7bf546a1dd286fd38ff4ec725749b359e2c3b1",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/04/26/01-9878/airworthiness-directives-airbus-model-a340-series-airplanes-equipped-with-cfm-international-cfm56-5c",
+  "kind": "final_rule",
+  "publication_date": "2001-04-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "66 FR 20907",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-180-AD",
+      "Amendment 39-12189",
+      "AD 2001-08-12"
+    ],
+    "document_number": "01-9878",
+    "effective_on": "2001-05-11",
+    "html_url": "https://www.federalregister.gov/documents/2001/04/26/01-9878/airworthiness-directives-airbus-model-a340-series-airplanes-equipped-with-cfm-international-cfm56-5c",
+    "publication_date": "2001-04-26",
+    "title": "Airworthiness Directives; Airbus Model A340 Series Airplanes Equipped With CFM International CFM56-5C Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A340 Series Airplanes Equipped With CFM International CFM56-5C Engines",
+  "versions": [
+    {
+      "entry_sha256": "9780a8146d1ec3b8e66df68b8a7bf546a1dd286fd38ff4ec725749b359e2c3b1",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

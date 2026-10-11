@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-08-21"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-10285",
+  "effective_on": "2000-06-05",
+  "entry_sha256": "4949de88dc00704ef98e67e2c7e5c41a9fb708ba0ea0642b94666bc081e29e46",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/05/01/00-10285/airworthiness-directives-boeing-model-747-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2000-05-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "65 FR 25281",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NM-231-AD",
+      "Amendment 39-11707",
+      "AD 2000-08-21"
+    ],
+    "document_number": "00-10285",
+    "effective_on": "2000-06-05",
+    "html_url": "https://www.federalregister.gov/documents/2000/05/01/00-10285/airworthiness-directives-boeing-model-747-series-airplanes",
+    "publication_date": "2000-05-01",
+    "title": "Airworthiness Directives; Boeing Model 747 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Boeing Model 747 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "4949de88dc00704ef98e67e2c7e5c41a9fb708ba0ea0642b94666bc081e29e46",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

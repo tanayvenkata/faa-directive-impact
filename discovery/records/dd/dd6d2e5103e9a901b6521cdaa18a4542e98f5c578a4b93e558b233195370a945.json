@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-12-31"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-20839",
+  "effective_on": "1998-09-10",
+  "entry_sha256": "2b767ace451b47e75f1b8dd6fe4d2298c09e3d0040bb61fc8198b32c612874bc",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/08/05/98-20839/airworthiness-directives-british-aerospace-jetstream-model-3101-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-08-05",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Direct final rule; confirmation of effective date.",
+    "citation": "63 FR 41716",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-CE-54-AD",
+      "Amendment 39-10584",
+      "AD 98-12-31"
+    ],
+    "document_number": "98-20839",
+    "effective_on": "1998-09-10",
+    "html_url": "https://www.federalregister.gov/documents/1998/08/05/98-20839/airworthiness-directives-british-aerospace-jetstream-model-3101-airplanes",
+    "publication_date": "1998-08-05",
+    "title": "Airworthiness Directives; British Aerospace Jetstream Model 3101 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; British Aerospace Jetstream Model 3101 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "2b767ace451b47e75f1b8dd6fe4d2298c09e3d0040bb61fc8198b32c612874bc",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

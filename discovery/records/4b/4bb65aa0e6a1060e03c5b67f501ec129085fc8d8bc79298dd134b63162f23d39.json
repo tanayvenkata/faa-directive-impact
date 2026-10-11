@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-07-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-7454",
+  "effective_on": "2003-05-20",
+  "entry_sha256": "b6bd81097e71c143e77b6feeb39d867d859b8756f89ec31ea4c722795a7c7dad",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/04/01/03-7454/airworthiness-directives-quality-aerospace-inc-s2r-series-and-model-600-s2d-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2003-04-01",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "68 FR 15653",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-CE-37-AD",
+      "Amendment 39-13097",
+      "AD 2003-07-01"
+    ],
+    "document_number": "03-7454",
+    "effective_on": "2003-05-20",
+    "html_url": "https://www.federalregister.gov/documents/2003/04/01/03-7454/airworthiness-directives-quality-aerospace-inc-s2r-series-and-model-600-s2d-airplanes",
+    "publication_date": "2003-04-01",
+    "title": "Airworthiness Directives; Quality Aerospace, Inc. S2R Series and Model 600 S2D Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Quality Aerospace, Inc. S2R Series and Model 600 S2D Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "b6bd81097e71c143e77b6feeb39d867d859b8756f89ec31ea4c722795a7c7dad",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-06-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-6911",
+  "effective_on": "2002-05-06",
+  "entry_sha256": "e5b8d27438e134997b97ae883f96c495aaad484fa14fa62386ac288ec3d7749d",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/03/27/02-6911/airworthiness-directives-pilatus-aircraft-ltd-models-pc-12-and-pc-1245-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2002-03-27",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 14632",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-CE-07-AD",
+      "Amendment 39-12687",
+      "AD 2002-06-10"
+    ],
+    "document_number": "02-6911",
+    "effective_on": "2002-05-06",
+    "html_url": "https://www.federalregister.gov/documents/2002/03/27/02-6911/airworthiness-directives-pilatus-aircraft-ltd-models-pc-12-and-pc-1245-airplanes",
+    "publication_date": "2002-03-27",
+    "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Models PC-12 and PC-12/45 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Models PC-12 and PC-12/45 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "e5b8d27438e134997b97ae883f96c495aaad484fa14fa62386ac288ec3d7749d",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

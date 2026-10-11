@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-20-05"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-24778",
+  "effective_on": "2001-11-14",
+  "entry_sha256": "571f7cfd0aaff987d577194640bf4efeb06700a9f5274ce8bd08c2b6df9091bc",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/10/10/01-24778/airworthiness-directives-fokker-model-f28-mark-0100-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2001-10-10",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "66 FR 51555",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-21-AD",
+      "Amendment 39-12453",
+      "AD 2001-20-05"
+    ],
+    "document_number": "01-24778",
+    "effective_on": "2001-11-14",
+    "html_url": "https://www.federalregister.gov/documents/2001/10/10/01-24778/airworthiness-directives-fokker-model-f28-mark-0100-series-airplanes",
+    "publication_date": "2001-10-10",
+    "title": "Airworthiness Directives; Fokker Model F.28 Mark 0100 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Fokker Model F.28 Mark 0100 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "571f7cfd0aaff987d577194640bf4efeb06700a9f5274ce8bd08c2b6df9091bc",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

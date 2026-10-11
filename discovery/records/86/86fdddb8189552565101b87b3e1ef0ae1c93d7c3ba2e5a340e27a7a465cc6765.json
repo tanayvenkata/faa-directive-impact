@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-26-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-143",
+  "effective_on": "2002-02-08",
+  "entry_sha256": "ad7ec249a204253e39b12cac15a0198affd7db52679d1303f5bb6cd12b6d3ad9",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/01/04/02-143/airworthiness-directives-dornier-model-328-series-airplanes-equipped-with-honeywell-gp-300-guidance",
+  "kind": "final_rule",
+  "publication_date": "2002-01-04",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 502",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 97-NM-187-AD",
+      "Amendment 39-12580",
+      "AD 2001-26-14"
+    ],
+    "document_number": "02-143",
+    "effective_on": "2002-02-08",
+    "html_url": "https://www.federalregister.gov/documents/2002/01/04/02-143/airworthiness-directives-dornier-model-328-series-airplanes-equipped-with-honeywell-gp-300-guidance",
+    "publication_date": "2002-01-04",
+    "title": "Airworthiness Directives; Dornier Model 328 Series Airplanes Equipped With Honeywell GP-300 Guidance and Display Controller",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Dornier Model 328 Series Airplanes Equipped With Honeywell GP-300 Guidance and Display Controller",
+  "versions": [
+    {
+      "entry_sha256": "ad7ec249a204253e39b12cac15a0198affd7db52679d1303f5bb6cd12b6d3ad9",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2000-09-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "00-11176",
+  "effective_on": "2000-05-30",
+  "entry_sha256": "babfe55a74f498b74a34d3d09fc3cb2e4f5511fab098cccc82178ab12a9cc10a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-1031b04c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-1031b04c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2000/05/09/00-11176/airworthiness-directives-maule-aerospace-technology-inc-m-4-m-5-m-6-m-7-mx-7-and-mxt-7-series",
+  "kind": "final_rule",
+  "publication_date": "2000-05-09",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "65 FR 26735",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-CE-04-AD",
+      "Amendment 39-11715",
+      "AD 2000-09-06"
+    ],
+    "document_number": "00-11176",
+    "effective_on": "2000-05-30",
+    "html_url": "https://www.federalregister.gov/documents/2000/05/09/00-11176/airworthiness-directives-maule-aerospace-technology-inc-m-4-m-5-m-6-m-7-mx-7-and-mxt-7-series",
+    "publication_date": "2000-05-09",
+    "title": "Airworthiness Directives; Maule Aerospace Technology, Inc. M-4, M-5, M-6, M-7, MX-7, and MXT-7 Series Airplanes and Models MT-7-235 and M-8-235 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Maule Aerospace Technology, Inc. M-4, M-5, M-6, M-7, MX-7, and MXT-7 Series Airplanes and Models MT-7-235 and M-8-235 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "babfe55a74f498b74a34d3d09fc3cb2e4f5511fab098cccc82178ab12a9cc10a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-1031b04c"
+    }
+  ]
+}

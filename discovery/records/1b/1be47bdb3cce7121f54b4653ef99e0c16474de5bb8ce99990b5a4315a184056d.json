@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-19-21"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-23352",
+  "effective_on": "1999-10-20",
+  "entry_sha256": "addb16f67580b5e7c4ec7242182695d3c5f484fb0c1ebeb8e28cb3e3d18215dc",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/09/15/99-23352/airworthiness-directives-saab-model-saab-sf340a-and-saab-340b-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1999-09-15",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 49964",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-NM-220-AD",
+      "Amendment 39-11310",
+      "AD 99-19-21"
+    ],
+    "document_number": "99-23352",
+    "effective_on": "1999-10-20",
+    "html_url": "https://www.federalregister.gov/documents/1999/09/15/99-23352/airworthiness-directives-saab-model-saab-sf340a-and-saab-340b-series-airplanes",
+    "publication_date": "1999-09-15",
+    "title": "Airworthiness Directives; Saab Model SAAB SF340A and SAAB 340B Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Saab Model SAAB SF340A and SAAB 340B Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "addb16f67580b5e7c4ec7242182695d3c5f484fb0c1ebeb8e28cb3e3d18215dc",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

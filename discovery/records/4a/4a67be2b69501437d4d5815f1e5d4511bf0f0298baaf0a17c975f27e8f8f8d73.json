@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-16-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-19340",
+  "effective_on": "2010-09-17",
+  "entry_sha256": "2fcba6a93937047330efaf1c6a12c5dbdec663b71e1ee3a20366f946bb8eba3e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2010-0222"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/08/13/2010-19340/airworthiness-directives-bae-systems-operations-limited-model-avro-146-rj-and-bae-146-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2010-08-13",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "75 FR 49377",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-0222",
+      "Directorate Identifier 2008-NM-012-AD",
+      "Amendment 39-16387",
+      "AD 2010-16-10"
+    ],
+    "document_number": "2010-19340",
+    "effective_on": "2010-09-17",
+    "html_url": "https://www.federalregister.gov/documents/2010/08/13/2010-19340/airworthiness-directives-bae-systems-operations-limited-model-avro-146-rj-and-bae-146-airplanes",
+    "publication_date": "2010-08-13",
+    "title": "Airworthiness Directives; BAE Systems (Operations) Limited Model Avro 146-RJ and BAe 146 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; BAE Systems (Operations) Limited Model Avro 146-RJ and BAe 146 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "2fcba6a93937047330efaf1c6a12c5dbdec663b71e1ee3a20366f946bb8eba3e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

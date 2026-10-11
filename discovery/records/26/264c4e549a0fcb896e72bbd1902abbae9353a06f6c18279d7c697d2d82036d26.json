@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2011-13-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2011-15364",
+  "effective_on": "2011-08-01",
+  "entry_sha256": "2f56683385265ab80c217fbf410bcd0ecb35ce9a4e64050da0027d6c5a669809",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-20b5ccf0",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-20b5ccf0.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2011-0036"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2011/06/27/2011-15364/airworthiness-directives-bombardier-inc-model-dhc-8-400-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2011-06-27",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "76 FR 37258",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2011-0036",
+      "Directorate Identifier 2010-NM-230-AD",
+      "Amendment 39-16729",
+      "AD 2011-13-06"
+    ],
+    "document_number": "2011-15364",
+    "effective_on": "2011-08-01",
+    "html_url": "https://www.federalregister.gov/documents/2011/06/27/2011-15364/airworthiness-directives-bombardier-inc-model-dhc-8-400-series-airplanes",
+    "publication_date": "2011-06-27",
+    "title": "Airworthiness Directives; Bombardier, Inc. Model DHC-8-400 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier, Inc. Model DHC-8-400 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "2f56683385265ab80c217fbf410bcd0ecb35ce9a4e64050da0027d6c5a669809",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-20b5ccf0"
+    }
+  ]
+}

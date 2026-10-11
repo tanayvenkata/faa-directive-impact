@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-23-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-29133",
+  "effective_on": "2002-12-17",
+  "entry_sha256": "d49ea76d23619525ca0effc47e9911f06b82ad7349256ed50f1c8fbed36466af",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/11/20/02-29133/airworthiness-directives-piaggio-aero-industries-spa-model-p-180-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2002-11-20",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "67 FR 69994",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-CE-48-AD",
+      "Amendment 39-12954",
+      "AD 2002-23-10"
+    ],
+    "document_number": "02-29133",
+    "effective_on": "2002-12-17",
+    "html_url": "https://www.federalregister.gov/documents/2002/11/20/02-29133/airworthiness-directives-piaggio-aero-industries-spa-model-p-180-airplanes",
+    "publication_date": "2002-11-20",
+    "title": "Airworthiness Directives; Piaggio Aero Industries S.p.A. Model P-180 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Piaggio Aero Industries S.p.A. Model P-180 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "d49ea76d23619525ca0effc47e9911f06b82ad7349256ed50f1c8fbed36466af",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

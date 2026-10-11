@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-19-12"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-24645",
+  "effective_on": "1998-10-01",
+  "entry_sha256": "ebc7a47068ddd02bd0ca19fbefc918cd04cf1623f90de93fff7a1f8627bd2b53",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/09/16/98-24645/airworthiness-directives-rolls-royce-plc-rb211-trent-700-series-turbofan-engines",
+  "kind": "final_rule",
+  "publication_date": "1998-09-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "63 FR 49416",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-ANE-10-AD",
+      "Amendment 39-10754",
+      "AD 98-19-12"
+    ],
+    "document_number": "98-24645",
+    "effective_on": "1998-10-01",
+    "html_url": "https://www.federalregister.gov/documents/1998/09/16/98-24645/airworthiness-directives-rolls-royce-plc-rb211-trent-700-series-turbofan-engines",
+    "publication_date": "1998-09-16",
+    "title": "Airworthiness Directives; Rolls-Royce, plc RB211 Trent 700 Series Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Rolls-Royce, plc RB211 Trent 700 Series Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "ebc7a47068ddd02bd0ca19fbefc918cd04cf1623f90de93fff7a1f8627bd2b53",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

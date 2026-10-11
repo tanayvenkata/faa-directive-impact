@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-23-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-29671",
+  "effective_on": "2002-12-31",
+  "entry_sha256": "ad0d06fe017092124cb4512f3b116ab62b3ab3d0b9b4aa4d89e3f9ea57882ba7",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/11/26/02-29671/airworthiness-directives-pratt-and-whitney-canada-pt6a-series-turboprop-engines",
+  "kind": "final_rule",
+  "publication_date": "2002-11-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "67 FR 70688",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NE-44-AD",
+      "Amendment 39-12957",
+      "AD 2002-23-13"
+    ],
+    "document_number": "02-29671",
+    "effective_on": "2002-12-31",
+    "html_url": "https://www.federalregister.gov/documents/2002/11/26/02-29671/airworthiness-directives-pratt-and-whitney-canada-pt6a-series-turboprop-engines",
+    "publication_date": "2002-11-26",
+    "title": "Airworthiness Directives; Pratt & Whitney Canada PT6A Series Turboprop Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Pratt & Whitney Canada PT6A Series Turboprop Engines",
+  "versions": [
+    {
+      "entry_sha256": "ad0d06fe017092124cb4512f3b116ab62b3ab3d0b9b4aa4d89e3f9ea57882ba7",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

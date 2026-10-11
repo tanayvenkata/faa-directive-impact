@@ -1,0 +1,88 @@
+{
+  "ad_numbers": [
+    "2017-14-07"
+  ],
+  "coverage_state": "not_yet_evaluated",
+  "document_number": "2017-14706",
+  "effective_on": "2017-08-21",
+  "entry_sha256": "274939f4cf7cc3eb68d3c447691a78b98910db0a4ce49028366831677ea454a9",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T165846Z-9c8383ca",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165846Z-9c8383ca.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T165846Z-00e6b8c0",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165846Z-00e6b8c0.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165837Z-77911383",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165837Z-77911383.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2017-0021"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2017/07/17/2017-14706/airworthiness-directives-international-aero-engines-ag-turbofan-engines",
+  "incorporated_material": {
+    "items": [
+      "International Aero Engines (IAE) Non-Modification Service Bulletin (NMSB) V2500-ENG-72-0676, dated October 14, 2016.",
+      "IAE NMSB V2500-ENG-72-0677, Revision 1, dated January 11, 2017.",
+      "IAE NMSB V2500-ENG-72-0678, Revision 1, dated January 5, 2017.",
+      "IAE NMSB V2500-ENG-72-0681, Revision 2, dated January 9, 2017.",
+      "IAE NMSB V2500-ENG-72-0682, dated December 2, 2016."
+    ],
+    "paragraph": "j"
+  },
+  "kind": "final_rule",
+  "publication_date": "2017-07-17",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "not_yet_evaluated",
+    "detail": "Paragraph (c) lists only V2500-A5/D5/E5 models.",
+    "models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "82 FR 32626",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2017-0021",
+      "Directorate Identifier 2017-NE-01-AD",
+      "Amendment 39-18951",
+      "AD 2017-14-07"
+    ],
+    "document_number": "2017-14706",
+    "effective_on": "2017-08-21",
+    "html_url": "https://www.federalregister.gov/documents/2017/07/17/2017-14706/airworthiness-directives-international-aero-engines-ag-turbofan-engines",
+    "publication_date": "2017-07-17",
+    "title": "Airworthiness Directives; International Aero Engines AG Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "274939f4cf7cc3eb68d3c447691a78b98910db0a4ce49028366831677ea454a9",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165837Z-77911383"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-05-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-4412",
+  "effective_on": "2005-04-15",
+  "entry_sha256": "129c8a5e516defadabdfb985d4bd0ccbcafb4309076081966e050a4deef65c0a",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2004-19681"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/03/11/05-4412/airworthiness-directives-bae-systems-operations-limited-model-bae-146-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2005-03-11",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 12125",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2004-19681",
+      "Directorate Identifier 2003-NM-184-AD",
+      "Amendment 39-13999",
+      "AD 2005-05-10"
+    ],
+    "document_number": "05-4412",
+    "effective_on": "2005-04-15",
+    "html_url": "https://www.federalregister.gov/documents/2005/03/11/05-4412/airworthiness-directives-bae-systems-operations-limited-model-bae-146-series-airplanes",
+    "publication_date": "2005-03-11",
+    "title": "Airworthiness Directives; BAE Systems (Operations) Limited Model BAe 146 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; BAE Systems (Operations) Limited Model BAe 146 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "129c8a5e516defadabdfb985d4bd0ccbcafb4309076081966e050a4deef65c0a",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

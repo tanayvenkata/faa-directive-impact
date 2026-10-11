@@ -1,0 +1,71 @@
+{
+  "ad_numbers": [
+    "2019-11-08"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2019-12360",
+  "effective_on": "2019-06-28",
+  "entry_sha256": "cee1b275345d145892ab72ef66564ccb67703c290e65b713edba4888446aa828",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T165904Z-0bda0f9d",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165904Z-0bda0f9d.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T165904Z-42f036af",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165904Z-42f036af.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165837Z-82a53998",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165837Z-82a53998.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2019-0393"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2019/06/13/2019-12360/airworthiness-directives-international-aero-engines-turbofan-engines",
+  "incorporated_material": {
+    "items": [],
+    "paragraph": "l"
+  },
+  "kind": "final_rule",
+  "publication_date": "2019-06-13",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "outside_supported_scope",
+    "detail": "Paragraph (c) lists no V2500 model.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "84 FR 27511",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2019-0393",
+      "Product Identifier 2019-NE-14-AD",
+      "Amendment 39-19654",
+      "AD 2019-11-08"
+    ],
+    "document_number": "2019-12360",
+    "effective_on": "2019-06-28",
+    "html_url": "https://www.federalregister.gov/documents/2019/06/13/2019-12360/airworthiness-directives-international-aero-engines-turbofan-engines",
+    "publication_date": "2019-06-13",
+    "title": "Airworthiness Directives; International Aero Engines Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "cee1b275345d145892ab72ef66564ccb67703c290e65b713edba4888446aa828",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165837Z-82a53998"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2011-23-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2011-28672",
+  "effective_on": "2011-11-22",
+  "entry_sha256": "a9f9c5f6911b32e414f328102ef0d5e1367bde69b85f2a80ab1b307a73120851",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-20b5ccf0",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-20b5ccf0.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2010-0683"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2011/11/07/2011-28672/airworthiness-directives-thielert-aircraft-engines-gmbh-tae-reciprocating-engines",
+  "kind": "final_rule",
+  "publication_date": "2011-11-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "76 FR 68636",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-0683",
+      "Directorate Identifier 2010-NE-25-AD",
+      "Amendment 39-16852",
+      "AD 2011-23-01"
+    ],
+    "document_number": "2011-28672",
+    "effective_on": "2011-11-22",
+    "html_url": "https://www.federalregister.gov/documents/2011/11/07/2011-28672/airworthiness-directives-thielert-aircraft-engines-gmbh-tae-reciprocating-engines",
+    "publication_date": "2011-11-07",
+    "title": "Airworthiness Directives; Thielert Aircraft Engines GmbH (TAE) Reciprocating Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Thielert Aircraft Engines GmbH (TAE) Reciprocating Engines",
+  "versions": [
+    {
+      "entry_sha256": "a9f9c5f6911b32e414f328102ef0d5e1367bde69b85f2a80ab1b307a73120851",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-20b5ccf0"
+    }
+  ]
+}

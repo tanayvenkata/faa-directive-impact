@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2005-06-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-8883",
+  "effective_on": "2005-05-05",
+  "entry_sha256": "3154e98600a16e756f93f347615177e22851bf2b41e84b243a123565d2ae5cbc",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/05/05/05-8883/airworthiness-directives-general-electric-company-ge-cf6-80a1a3-and-cf6-80c2a-series-turbofan",
+  "kind": "correction",
+  "publication_date": "2005-05-05",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction",
+    "citation": "70 FR 23783",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NE-41-AD",
+      "Amendment 39-14015",
+      "AD 2005-06-07"
+    ],
+    "document_number": "05-8883",
+    "effective_on": "2005-05-05",
+    "html_url": "https://www.federalregister.gov/documents/2005/05/05/05-8883/airworthiness-directives-general-electric-company-ge-cf6-80a1a3-and-cf6-80c2a-series-turbofan",
+    "publication_date": "2005-05-05",
+    "title": "Airworthiness Directives; General Electric Company (GE) CF6-80A1/A3 and CF6-80C2A Series Turbofan Engines, Installed on Airbus Industrie A300-600 and A310 Series Airplanes; Correction",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; General Electric Company (GE) CF6-80A1/A3 and CF6-80C2A Series Turbofan Engines, Installed on Airbus Industrie A300-600 and A310 Series Airplanes; Correction",
+  "versions": [
+    {
+      "entry_sha256": "3154e98600a16e756f93f347615177e22851bf2b41e84b243a123565d2ae5cbc",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

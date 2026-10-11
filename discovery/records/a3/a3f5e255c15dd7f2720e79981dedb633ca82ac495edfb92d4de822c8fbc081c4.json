@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-01-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-31363",
+  "effective_on": "2010-02-24",
+  "entry_sha256": "676dfaae25d0cfc4f94c109e5efaca54204a3cf43765ad7ae5c6eb7703fd93bc",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-0865"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/01/20/E9-31363/airworthiness-directives-the-boeing-company-model-747-100-747-100b-747-100b-sud-747-200b-747-200c",
+  "kind": "final_rule",
+  "publication_date": "2010-01-20",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "75 FR 3150",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-0865",
+      "Directorate Identifier 2009-NM-023-AD",
+      "Amendment 39-16168",
+      "AD 2010-01-10"
+    ],
+    "document_number": "E9-31363",
+    "effective_on": "2010-02-24",
+    "html_url": "https://www.federalregister.gov/documents/2010/01/20/E9-31363/airworthiness-directives-the-boeing-company-model-747-100-747-100b-747-100b-sud-747-200b-747-200c",
+    "publication_date": "2010-01-20",
+    "title": "Airworthiness Directives; The Boeing Company Model 747-100, 747-100B, 747-100B SUD, 747-200B, 747-200C, 747-200F, 747-300, 747SR, and 747SP Series Airplanes Equipped With General Electric CF6-45 or -50 Series Engines, or Equipped With Pratt & Whitney JT9D-3 or -7 (Excluding -70) Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; The Boeing Company Model 747-100, 747-100B, 747-100B SUD, 747-200B, 747-200C, 747-200F, 747-300, 747SR, and 747SP Series Airplanes Equipped With General Electric CF6-45 or -50 Series Engines, or Equipped With Pratt & Whitney JT9D-3 or -7 (Excluding -70) Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "676dfaae25d0cfc4f94c109e5efaca54204a3cf43765ad7ae5c6eb7703fd93bc",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

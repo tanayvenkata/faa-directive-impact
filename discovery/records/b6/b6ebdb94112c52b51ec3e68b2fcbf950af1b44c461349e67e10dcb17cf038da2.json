@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-07-09"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-7233",
+  "effective_on": "2004-05-11",
+  "entry_sha256": "7b87e1223471990cc1f07c7c4ca48839b50546696a2ef609c171675020ed9d6b",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/04/06/04-7233/airworthiness-directives-general-electric-aircraft-engines-ct7-series-turboprop-engines",
+  "kind": "final_rule",
+  "publication_date": "2004-04-06",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 17921",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-NE-48-AD",
+      "Amendment 39-13553",
+      "AD 2004-07-09"
+    ],
+    "document_number": "04-7233",
+    "effective_on": "2004-05-11",
+    "html_url": "https://www.federalregister.gov/documents/2004/04/06/04-7233/airworthiness-directives-general-electric-aircraft-engines-ct7-series-turboprop-engines",
+    "publication_date": "2004-04-06",
+    "title": "Airworthiness Directives; General Electric Aircraft Engines CT7 Series Turboprop Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; General Electric Aircraft Engines CT7 Series Turboprop Engines",
+  "versions": [
+    {
+      "entry_sha256": "7b87e1223471990cc1f07c7c4ca48839b50546696a2ef609c171675020ed9d6b",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

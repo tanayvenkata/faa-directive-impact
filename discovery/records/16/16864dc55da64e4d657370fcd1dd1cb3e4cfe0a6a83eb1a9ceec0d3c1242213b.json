@@ -1,0 +1,85 @@
+{
+  "ad_numbers": [
+    "2021-11-15"
+  ],
+  "coverage_state": "not_yet_evaluated",
+  "document_number": "2021-11960",
+  "effective_on": "2021-07-13",
+  "entry_sha256": "613f581e4d1cef5fe8eafa1d149443da20c5c1ebb109947c7258973f68424bc4",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T165931Z-5b9c4edc",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165931Z-5b9c4edc.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T165931Z-190cba56",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165931Z-190cba56.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165838Z-81ca8e84",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165838Z-81ca8e84.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2021-0129"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2021/06/08/2021-11960/airworthiness-directives-international-aero-engines-ag-turbofan-engines",
+  "incorporated_material": {
+    "items": [
+      "International Aero Engines (IAE) Non-Modification Service Bulletin (NMSB) No. V2500-ENG-72-0713, Revision 1, dated January 26, 2021.",
+      "IAE NMSB No. V2500-E5-72-0015, dated December 15, 2020."
+    ],
+    "paragraph": "k"
+  },
+  "kind": "final_rule",
+  "publication_date": "2021-06-08",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "not_yet_evaluated",
+    "detail": "Paragraph (c) lists only V2500-A5/D5/E5 models.",
+    "models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "86 FR 30380",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2021-0129",
+      "Project Identifier AD-2020-01597-E",
+      "Amendment 39-21577",
+      "AD 2021-11-15"
+    ],
+    "document_number": "2021-11960",
+    "effective_on": "2021-07-13",
+    "html_url": "https://www.federalregister.gov/documents/2021/06/08/2021-11960/airworthiness-directives-international-aero-engines-ag-turbofan-engines",
+    "publication_date": "2021-06-08",
+    "title": "Airworthiness Directives; International Aero Engines AG Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "613f581e4d1cef5fe8eafa1d149443da20c5c1ebb109947c7258973f68424bc4",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165838Z-81ca8e84"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "ad_numbers": [
+    "2020-08-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2020-08002",
+  "effective_on": "2020-05-21",
+  "entry_sha256": "ddcaaf5b7d06841f8c221ec837670012a4332fe974b6705dcb107465197dfc73",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261011T165922Z-ec3b769f",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165922Z-ec3b769f.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261011T165922Z-9ae196a7",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165922Z-9ae196a7.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165838Z-9c1361aa",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165838Z-9c1361aa.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2019-0906"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2020/04/16/2020-08002/airworthiness-directives-international-aero-engines-llc-turbofan-engines",
+  "incorporated_material": {
+    "items": [],
+    "paragraph": "k"
+  },
+  "kind": "final_rule",
+  "publication_date": "2020-04-16",
+  "replaced_ads": [],
+  "scope": {
+    "basis": "applicability_paragraph",
+    "coverage_state": "outside_supported_scope",
+    "detail": "Paragraph (c) lists no V2500 model.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "85 FR 21073",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2019-0906",
+      "Project Identifier 2019-NE-31-AD",
+      "Amendment 39-21111",
+      "AD 2020-08-04"
+    ],
+    "document_number": "2020-08002",
+    "effective_on": "2020-05-21",
+    "html_url": "https://www.federalregister.gov/documents/2020/04/16/2020-08002/airworthiness-directives-international-aero-engines-llc-turbofan-engines",
+    "publication_date": "2020-04-16",
+    "title": "Airworthiness Directives; International Aero Engines LLC, Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines LLC, Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "ddcaaf5b7d06841f8c221ec837670012a4332fe974b6705dcb107465197dfc73",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165838Z-9c1361aa"
+    }
+  ]
+}

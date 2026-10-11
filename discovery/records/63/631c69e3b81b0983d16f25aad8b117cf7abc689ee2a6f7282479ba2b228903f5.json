@@ -1,0 +1,55 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2012-1130",
+  "effective_on": "2012-03-08",
+  "entry_sha256": "adc9193272893a522707ea200afa5aaa92b3aea7af92b004c42329a7a5efb398",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-8477c4ef",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-8477c4ef.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2011-0691"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2012/02/02/2012-1130/airworthiness-directives-lycoming-engines-reciprocating-engines",
+  "kind": "final_rule",
+  "note": "No AD number appears in the docket identifiers.",
+  "publication_date": "2012-02-02",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; rescission.",
+    "citation": "77 FR 5167",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2011-0691",
+      "Directorate Identifier 2011-NE-26-AD",
+      "Amendment 39-16909",
+      "AD 71-13-01R1"
+    ],
+    "document_number": "2012-1130",
+    "effective_on": "2012-03-08",
+    "html_url": "https://www.federalregister.gov/documents/2012/02/02/2012-1130/airworthiness-directives-lycoming-engines-reciprocating-engines",
+    "publication_date": "2012-02-02",
+    "title": "Airworthiness Directives; Lycoming Engines Reciprocating Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Lycoming Engines Reciprocating Engines",
+  "versions": [
+    {
+      "entry_sha256": "adc9193272893a522707ea200afa5aaa92b3aea7af92b004c42329a7a5efb398",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-8477c4ef"
+    }
+  ]
+}

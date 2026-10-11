@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-21-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-25016",
+  "effective_on": "2010-11-12",
+  "entry_sha256": "05564f37e2c8dd9667f22fa8ef7a671e6285a990be322aedbca6d9a25590f61e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2010-0643"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/10/07/2010-25016/airworthiness-directives-bombardier-inc-model-dhc-8-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2010-10-07",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "75 FR 61987",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-0643",
+      "Directorate Identifier 2010-NM-030-AD",
+      "Amendment 39-16462",
+      "AD 2010-21-02"
+    ],
+    "document_number": "2010-25016",
+    "effective_on": "2010-11-12",
+    "html_url": "https://www.federalregister.gov/documents/2010/10/07/2010-25016/airworthiness-directives-bombardier-inc-model-dhc-8-airplanes",
+    "publication_date": "2010-10-07",
+    "title": "Airworthiness Directives; Bombardier, Inc. Model DHC-8 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier, Inc. Model DHC-8 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "05564f37e2c8dd9667f22fa8ef7a671e6285a990be322aedbca6d9a25590f61e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

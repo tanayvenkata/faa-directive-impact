@@ -1,0 +1,54 @@
+{
+  "ad_numbers": [
+    "2003-13-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-15595",
+  "effective_on": "2003-07-08",
+  "entry_sha256": "7bdd5a1f3bf1f0a2625bd5b291e15e457bf4bfe46e7e8d2093cc88ebda4df3ca",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/06/23/03-15595/airworthiness-directives-airbus-model-a321-131-series-airplanes-equipped-with-international-aero",
+  "kind": "final_rule",
+  "publication_date": "2003-06-23",
+  "review_reason": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "68 FR 37071",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2003-NM-134-AD",
+      "Amendment 39-13202",
+      "AD 2003-13-02"
+    ],
+    "document_number": "03-15595",
+    "effective_on": "2003-07-08",
+    "html_url": "https://www.federalregister.gov/documents/2003/06/23/03-15595/airworthiness-directives-airbus-model-a321-131-series-airplanes-equipped-with-international-aero",
+    "publication_date": "2003-06-23",
+    "title": "Airworthiness Directives; Airbus Model A321-131 Series Airplanes; Equipped with International Aero Engines (IAE) V25()()-A5 Series Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A321-131 Series Airplanes; Equipped with International Aero Engines (IAE) V25()()-A5 Series Engines",
+  "versions": [
+    {
+      "entry_sha256": "7bdd5a1f3bf1f0a2625bd5b291e15e457bf4bfe46e7e8d2093cc88ebda4df3ca",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

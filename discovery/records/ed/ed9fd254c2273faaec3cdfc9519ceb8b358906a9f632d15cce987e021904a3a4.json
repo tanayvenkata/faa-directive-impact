@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-08-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-8541",
+  "effective_on": "2004-05-24",
+  "entry_sha256": "7fc2e825382018e7489f2a31b91f3f8dc44b4e999284d7cfe46b8b203b9e4320",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/04/19/04-8541/airworthiness-directives-bae-systems-operations-limited-model-bae-146-100a-and--200a-series",
+  "kind": "final_rule",
+  "publication_date": "2004-04-19",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 20817",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-272-AD",
+      "Amendment 39-13575",
+      "AD 2004-08-06"
+    ],
+    "document_number": "04-8541",
+    "effective_on": "2004-05-24",
+    "html_url": "https://www.federalregister.gov/documents/2004/04/19/04-8541/airworthiness-directives-bae-systems-operations-limited-model-bae-146-100a-and--200a-series",
+    "publication_date": "2004-04-19",
+    "title": "Airworthiness Directives; BAE Systems (Operations) Limited Model BAe 146-100A and -200A Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; BAE Systems (Operations) Limited Model BAe 146-100A and -200A Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "7fc2e825382018e7489f2a31b91f3f8dc44b4e999284d7cfe46b8b203b9e4320",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

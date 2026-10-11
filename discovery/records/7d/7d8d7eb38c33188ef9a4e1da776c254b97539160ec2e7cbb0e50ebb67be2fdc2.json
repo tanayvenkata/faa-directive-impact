@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2007-19-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-17829",
+  "effective_on": "2007-10-17",
+  "entry_sha256": "f1782dc992422bd4b9080a2b90f60c6a9b12778704d0a18708c0b196cf7ce328",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-687de582",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-687de582.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2007-28351"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2007/09/12/E7-17829/airworthiness-directives-mcdonnell-douglas-model-md-11-md-11f-dc-10-30-and-dc-10-30f-kc-10a-and",
+  "kind": "final_rule",
+  "publication_date": "2007-09-12",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "72 FR 51994",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-28351",
+      "Directorate Identifier 2007-NM-074-AD",
+      "Amendment 39-15192",
+      "AD 2007-19-02"
+    ],
+    "document_number": "E7-17829",
+    "effective_on": "2007-10-17",
+    "html_url": "https://www.federalregister.gov/documents/2007/09/12/E7-17829/airworthiness-directives-mcdonnell-douglas-model-md-11-md-11f-dc-10-30-and-dc-10-30f-kc-10a-and",
+    "publication_date": "2007-09-12",
+    "title": "Airworthiness Directives; McDonnell Douglas Model MD-11, MD-11F, DC-10-30 and DC-10-30F (KC-10A and KDC-10), DC-10-40, DC-10-40F, and MD-10-30F Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model MD-11, MD-11F, DC-10-30 and DC-10-30F (KC-10A and KDC-10), DC-10-40, DC-10-40F, and MD-10-30F Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "f1782dc992422bd4b9080a2b90f60c6a9b12778704d0a18708c0b196cf7ce328",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-687de582"
+    }
+  ]
+}

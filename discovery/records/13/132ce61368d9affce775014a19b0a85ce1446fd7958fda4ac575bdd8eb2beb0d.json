@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-25-12"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-31192",
+  "effective_on": "2004-01-27",
+  "entry_sha256": "1ea7b22f14462ab8284e217d6b32ac23f80619ef61b9e14f799ee315acdbc8df",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/12/23/03-31192/airworthiness-directives-dassault-model-falcon-900-ex-and-mystere-falcon-900-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2003-12-23",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "68 FR 74164",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-269-AD",
+      "Amendment 39-13395",
+      "AD 2003-25-12"
+    ],
+    "document_number": "03-31192",
+    "effective_on": "2004-01-27",
+    "html_url": "https://www.federalregister.gov/documents/2003/12/23/03-31192/airworthiness-directives-dassault-model-falcon-900-ex-and-mystere-falcon-900-series-airplanes",
+    "publication_date": "2003-12-23",
+    "title": "Airworthiness Directives; Dassault Model Falcon 900 EX and Mystere-Falcon 900 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Dassault Model Falcon 900 EX and Mystere-Falcon 900 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "1ea7b22f14462ab8284e217d6b32ac23f80619ef61b9e14f799ee315acdbc8df",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

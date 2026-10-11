@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-15-01"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-16383",
+  "effective_on": "2009-07-27",
+  "entry_sha256": "3a6433d0014c52d685864112f95831d0aa9fec0ed37348bde07968f73f9075b3",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-0633"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/07/15/E9-16383/airworthiness-directives-hawker-beechcraft-corporation-type-certificate-previously-held-by-raytheon",
+  "kind": "final_rule",
+  "publication_date": "2009-07-15",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "74 FR 34211",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-0633",
+      "Directorate Identifier 2009-CE-037-AD",
+      "Amendment 39-15964",
+      "AD 2009-15-01"
+    ],
+    "document_number": "E9-16383",
+    "effective_on": "2009-07-27",
+    "html_url": "https://www.federalregister.gov/documents/2009/07/15/E9-16383/airworthiness-directives-hawker-beechcraft-corporation-type-certificate-previously-held-by-raytheon",
+    "publication_date": "2009-07-15",
+    "title": "Airworthiness Directives; Hawker Beechcraft Corporation (Type Certificate Previously Held by Raytheon Aircraft Company) Model G36 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Hawker Beechcraft Corporation (Type Certificate Previously Held by Raytheon Aircraft Company) Model G36 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "3a6433d0014c52d685864112f95831d0aa9fec0ed37348bde07968f73f9075b3",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

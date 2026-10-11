@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-03-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-2572",
+  "effective_on": "2004-03-15",
+  "entry_sha256": "dde1eec8b5197f390866e69f0807034fcb45c2b8bbc40b746fbd7bb498c265e7",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/02/09/04-2572/airworthiness-directives-airbus-model-a300-b4-600-b4-600r-and-f4-600r-collectively-called-a300-600",
+  "kind": "final_rule",
+  "publication_date": "2004-02-09",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "69 FR 5926",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-303-AD",
+      "Amendment 39-13454",
+      "AD 2004-03-10"
+    ],
+    "document_number": "04-2572",
+    "effective_on": "2004-03-15",
+    "html_url": "https://www.federalregister.gov/documents/2004/02/09/04-2572/airworthiness-directives-airbus-model-a300-b4-600-b4-600r-and-f4-600r-collectively-called-a300-600",
+    "publication_date": "2004-02-09",
+    "title": "Airworthiness Directives; Airbus Model A300 B4-600, B4-600R, and F4-600R (Collectively Called A300-600) Series Airplanes; and Model A310 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A300 B4-600, B4-600R, and F4-600R (Collectively Called A300-600) Series Airplanes; and Model A310 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "dde1eec8b5197f390866e69f0807034fcb45c2b8bbc40b746fbd7bb498c265e7",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

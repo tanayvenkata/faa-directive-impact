@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2007-24-15"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E7-23227",
+  "effective_on": "2008-01-07",
+  "entry_sha256": "5cb64c1f6984df9883a6821383c9d344952b9f2913f51f64432f49e0c8183b9e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-687de582",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-687de582.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2007/12/03/E7-23227/airworthiness-directives-piaggio-aero-industries-spa-model-p-180-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2007-12-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final Rule.",
+    "citation": "72 FR 67843",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2007-27532 Directorate Identifier 2007-CE-021-AD",
+      "Amendment 39-15281",
+      "AD 2007-24-15"
+    ],
+    "document_number": "E7-23227",
+    "effective_on": "2008-01-07",
+    "html_url": "https://www.federalregister.gov/documents/2007/12/03/E7-23227/airworthiness-directives-piaggio-aero-industries-spa-model-p-180-airplanes",
+    "publication_date": "2007-12-03",
+    "title": "Airworthiness Directives; Piaggio Aero Industries S.p.A. Model P-180 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Piaggio Aero Industries S.p.A. Model P-180 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "5cb64c1f6984df9883a6821383c9d344952b9f2913f51f64432f49e0c8183b9e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-687de582"
+    }
+  ]
+}

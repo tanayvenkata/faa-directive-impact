@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-19-33"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-24089",
+  "effective_on": "1999-11-08",
+  "entry_sha256": "5010fccc2fc420a0d0d0187527c5a4b729c9b74df4cf7709f643f9e2fdf24a8e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/09/17/99-24089/airworthiness-directives-let-aeronautical-works-model-l-13-blanik-sailplanes",
+  "kind": "final_rule",
+  "publication_date": "1999-09-17",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 50440",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-CE-16-AD",
+      "Amendment 39-11320",
+      "AD 99-19-33"
+    ],
+    "document_number": "99-24089",
+    "effective_on": "1999-11-08",
+    "html_url": "https://www.federalregister.gov/documents/1999/09/17/99-24089/airworthiness-directives-let-aeronautical-works-model-l-13-blanik-sailplanes",
+    "publication_date": "1999-09-17",
+    "title": "Airworthiness Directives; LET Aeronautical Works Model L-13 ``Blanik'' Sailplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; LET Aeronautical Works Model L-13 ``Blanik'' Sailplanes",
+  "versions": [
+    {
+      "entry_sha256": "5010fccc2fc420a0d0d0187527c5a4b729c9b74df4cf7709f643f9e2fdf24a8e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}

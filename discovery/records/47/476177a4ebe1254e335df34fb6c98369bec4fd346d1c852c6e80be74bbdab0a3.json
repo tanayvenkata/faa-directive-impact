@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2011-09-16"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2011-10006",
+  "effective_on": "2011-05-02",
+  "entry_sha256": "8fe2b4d45ccd026bb516b9e6fc05eb5b3668aadfbdcc50f67839e0ce2065e682",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-20b5ccf0",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-20b5ccf0.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2011-0409"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2011/04/26/2011-10006/airworthiness-directives-dg-flugzeugbau-gmbh-glaser-dirks-model-dg-808c-gliders",
+  "kind": "final_rule",
+  "publication_date": "2011-04-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "76 FR 23169",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2011-0409",
+      "Directorate Identifier 2011-CE-011-AD",
+      "Amendment 39-16678",
+      "AD 2011-09-16"
+    ],
+    "document_number": "2011-10006",
+    "effective_on": "2011-05-02",
+    "html_url": "https://www.federalregister.gov/documents/2011/04/26/2011-10006/airworthiness-directives-dg-flugzeugbau-gmbh-glaser-dirks-model-dg-808c-gliders",
+    "publication_date": "2011-04-26",
+    "title": "Airworthiness Directives; DG Flugzeugbau GmbH Glaser-Dirks Model DG-808C Gliders",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; DG Flugzeugbau GmbH Glaser-Dirks Model DG-808C Gliders",
+  "versions": [
+    {
+      "entry_sha256": "8fe2b4d45ccd026bb516b9e6fc05eb5b3668aadfbdcc50f67839e0ce2065e682",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-20b5ccf0"
+    }
+  ]
+}

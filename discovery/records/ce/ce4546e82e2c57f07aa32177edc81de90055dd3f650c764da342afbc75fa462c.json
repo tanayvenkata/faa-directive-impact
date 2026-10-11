@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2003-14-16"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "03-17771",
+  "effective_on": "2003-08-25",
+  "entry_sha256": "bb668e8db3bab8cc9963965b7cae39eb06fc67b81ec138d278c0e81c6a7f8856",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-4378ae4c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-4378ae4c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2003/07/21/03-17771/airworthiness-directives-lockheed-model-382g-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2003-07-21",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "68 FR 42950",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2000-NM-326-AD",
+      "Amendment 39-13235",
+      "AD 2003-14-16"
+    ],
+    "document_number": "03-17771",
+    "effective_on": "2003-08-25",
+    "html_url": "https://www.federalregister.gov/documents/2003/07/21/03-17771/airworthiness-directives-lockheed-model-382g-series-airplanes",
+    "publication_date": "2003-07-21",
+    "title": "Airworthiness Directives; Lockheed Model 382G Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Lockheed Model 382G Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "bb668e8db3bab8cc9963965b7cae39eb06fc67b81ec138d278c0e81c6a7f8856",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-4378ae4c"
+    }
+  ]
+}

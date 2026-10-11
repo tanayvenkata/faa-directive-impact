@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-23-16"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-29804",
+  "effective_on": "2002-12-11",
+  "entry_sha256": "7ab387865b926a643c16e44ff60e96080d86391dfa549f6e61102e646563c705",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/11/26/02-29804/airworthiness-directives-mcdonnell-douglas-model-md-90-30-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2002-11-26",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "67 FR 70682",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-375-AD",
+      "Amendment 39-12960",
+      "AD 2002-23-16"
+    ],
+    "document_number": "02-29804",
+    "effective_on": "2002-12-11",
+    "html_url": "https://www.federalregister.gov/documents/2002/11/26/02-29804/airworthiness-directives-mcdonnell-douglas-model-md-90-30-airplanes",
+    "publication_date": "2002-11-26",
+    "title": "Airworthiness Directives; McDonnell Douglas Model MD-90-30 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; McDonnell Douglas Model MD-90-30 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "7ab387865b926a643c16e44ff60e96080d86391dfa549f6e61102e646563c705",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

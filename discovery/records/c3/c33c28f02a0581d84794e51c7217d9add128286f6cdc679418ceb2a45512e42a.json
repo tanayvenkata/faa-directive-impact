@@ -1,0 +1,54 @@
+{
+  "ad_numbers": [],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "E9-25644",
+  "effective_on": "2009-11-30",
+  "entry_sha256": "a1418a2074bc21e0b5e8a5f296b6737358fa6042e7022a5a4c0cff003c343ac3",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-8bb1ce86",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-8bb1ce86.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-0294"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2009/10/26/E9-25644/airworthiness-directives-international-aero-engines-ag-iae-v2500-a1-v2527e-a5-v2530-a5-and-v2528-d5",
+  "kind": "final_rule",
+  "publication_date": "2009-10-26",
+  "review_reason": "No AD number appears in the docket identifiers.",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "An IAE directive with an older document number, from before the full-text representations this sync reads; read it by hand.",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "74 FR 54895",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-0294",
+      "Directorate Identifier 2009-NE-08-AD",
+      "Amendment"
+    ],
+    "document_number": "E9-25644",
+    "effective_on": "2009-11-30",
+    "html_url": "https://www.federalregister.gov/documents/2009/10/26/E9-25644/airworthiness-directives-international-aero-engines-ag-iae-v2500-a1-v2527e-a5-v2530-a5-and-v2528-d5",
+    "publication_date": "2009-10-26",
+    "title": "Airworthiness Directives; International Aero Engines AG (IAE) V2500-A1, V2527E-A5, V2530-A5, and V2528-D5 Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG (IAE) V2500-A1, V2527E-A5, V2530-A5, and V2528-D5 Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "a1418a2074bc21e0b5e8a5f296b6737358fa6042e7022a5a4c0cff003c343ac3",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-8bb1ce86"
+    }
+  ]
+}

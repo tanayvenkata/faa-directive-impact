@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-02-07"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-1157",
+  "effective_on": "2010-02-12",
+  "entry_sha256": "e900617a9962d9ef5587648a37085ce6ba163603df45a25b30c3acb0f34858df",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2010-0047"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/01/28/2010-1157/airworthiness-directives-eurocopter-france-model-se3160-sa315b-sa316b-sa316c-and-sa319b-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2010-01-28",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "75 FR 4482",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-0047",
+      "Directorate Identifier 2009-SW-28-AD",
+      "Amendment 39-16177",
+      "AD 2010-02-07"
+    ],
+    "document_number": "2010-1157",
+    "effective_on": "2010-02-12",
+    "html_url": "https://www.federalregister.gov/documents/2010/01/28/2010-1157/airworthiness-directives-eurocopter-france-model-se3160-sa315b-sa316b-sa316c-and-sa319b-helicopters",
+    "publication_date": "2010-01-28",
+    "title": "Airworthiness Directives; Eurocopter France Model SE3160, SA315B, SA316B, SA316C, and SA319B Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Eurocopter France Model SE3160, SA315B, SA316B, SA316C, and SA319B Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "e900617a9962d9ef5587648a37085ce6ba163603df45a25b30c3acb0f34858df",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

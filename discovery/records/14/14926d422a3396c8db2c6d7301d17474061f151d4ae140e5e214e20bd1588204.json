@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2023-25-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "R1-2023-28849",
+  "effective_on": "2024-02-07",
+  "entry_sha256": "17c55e3c4586c82e1b695a27745a907ada342d4639b26bedbc726f30e2dab513",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165839Z-f534379c",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165839Z-f534379c.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2023-1715"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2024/01/18/R1-2023-28849/airworthiness-directives-bombardier-inc-airplanes",
+  "kind": "correction",
+  "publication_date": "2024-01-18",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "89 FR 3339",
+    "correction_of": "https://www.federalregister.gov/api/v1/documents/2023-28849",
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2023-1715",
+      "Project Identifier MCAI-2023-00548-T",
+      "Amendment 39-22640",
+      "AD 2023-25-13"
+    ],
+    "document_number": "R1-2023-28849",
+    "effective_on": "2024-02-07",
+    "html_url": "https://www.federalregister.gov/documents/2024/01/18/R1-2023-28849/airworthiness-directives-bombardier-inc-airplanes",
+    "publication_date": "2024-01-18",
+    "title": "Airworthiness Directives; Bombardier, Inc., Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bombardier, Inc., Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "17c55e3c4586c82e1b695a27745a907ada342d4639b26bedbc726f30e2dab513",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165839Z-f534379c"
+    }
+  ]
+}

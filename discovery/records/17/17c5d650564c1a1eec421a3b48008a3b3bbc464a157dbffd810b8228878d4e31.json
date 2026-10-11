@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "98-11-28"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "98-14219",
+  "effective_on": "1998-07-08",
+  "entry_sha256": "ee31c551184c95bd94362fb0e51a84f8823552d2d1ae483ad374453f36c2c5c5",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-34bcd87b",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-34bcd87b.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1998/06/03/98-14219/airworthiness-directives-british-aerospace-model-bae-avro-146-rj-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "1998-06-03",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "63 FR 30119",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 98-NM-43-AD",
+      "Amendment 39-10553",
+      "AD 98-11-28"
+    ],
+    "document_number": "98-14219",
+    "effective_on": "1998-07-08",
+    "html_url": "https://www.federalregister.gov/documents/1998/06/03/98-14219/airworthiness-directives-british-aerospace-model-bae-avro-146-rj-series-airplanes",
+    "publication_date": "1998-06-03",
+    "title": "Airworthiness Directives; British Aerospace Model BAe Avro 146-RJ Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; British Aerospace Model BAe Avro 146-RJ Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "ee31c551184c95bd94362fb0e51a84f8823552d2d1ae483ad374453f36c2c5c5",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-34bcd87b"
+    }
+  ]
+}

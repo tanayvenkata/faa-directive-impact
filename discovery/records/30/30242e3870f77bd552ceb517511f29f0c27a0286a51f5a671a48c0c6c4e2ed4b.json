@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-14-17"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-17165",
+  "effective_on": "2001-07-26",
+  "entry_sha256": "fd99115705c7f28881fb5ec94a55c6249e276effeac219132b64c11864eb9e68",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/07/11/01-17165/airworthiness-directives-airbus-model-a300-b2-and-b4-series-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2001-07-11",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "66 FR 36154",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2001-NM-214-AD",
+      "Amendment 39-12328",
+      "AD 2001-14-17"
+    ],
+    "document_number": "01-17165",
+    "effective_on": "2001-07-26",
+    "html_url": "https://www.federalregister.gov/documents/2001/07/11/01-17165/airworthiness-directives-airbus-model-a300-b2-and-b4-series-airplanes",
+    "publication_date": "2001-07-11",
+    "title": "Airworthiness Directives; Airbus Model A300 B2 and B4 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A300 B2 and B4 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "fd99115705c7f28881fb5ec94a55c6249e276effeac219132b64c11864eb9e68",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2005-23-02"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "05-22219",
+  "effective_on": "2005-12-19",
+  "entry_sha256": "b39533f3348e0b165a48cb604d5de91a2552c6b05212412a27b41fc8f315858e",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-a17f3406",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-a17f3406.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2005-22120"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2005/11/14/05-22219/airworthiness-directives-airbus-model-a319-100-series-airplanes-model-a320-111-airplanes-model",
+  "kind": "final_rule",
+  "publication_date": "2005-11-14",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "70 FR 69067",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2005-22120",
+      "Directorate Identifier 2004-NM-92-AD",
+      "Amendment 39-14360",
+      "AD 2005-23-02"
+    ],
+    "document_number": "05-22219",
+    "effective_on": "2005-12-19",
+    "html_url": "https://www.federalregister.gov/documents/2005/11/14/05-22219/airworthiness-directives-airbus-model-a319-100-series-airplanes-model-a320-111-airplanes-model",
+    "publication_date": "2005-11-14",
+    "title": "Airworthiness Directives; Airbus Model A319-100 Series Airplanes, Model A320-111 Airplanes, Model A320-200 Series Airplanes, and Model A321-100 Series Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Airbus Model A319-100 Series Airplanes, Model A320-111 Airplanes, Model A320-200 Series Airplanes, and Model A321-100 Series Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "b39533f3348e0b165a48cb604d5de91a2552c6b05212412a27b41fc8f315858e",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-a17f3406"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2002-23-06"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "02-29003",
+  "effective_on": "2002-11-19",
+  "entry_sha256": "983575a4c091ddb58889ef8b1fba8386d4b61f442514c5bb3f48174fe9725747",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-9d752aba",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-9d752aba.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2002/11/14/02-29003/airworthiness-directives-textron-lycoming-aeio-540-io-540-ltio-540-o-540-and-tio-540-series",
+  "kind": "final_rule",
+  "publication_date": "2002-11-14",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule, request for comments.",
+    "citation": "67 FR 68932",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 2002-NE-31-AD",
+      "Amendment 39-12950",
+      "AD 2002-23-06"
+    ],
+    "document_number": "02-29003",
+    "effective_on": "2002-11-19",
+    "html_url": "https://www.federalregister.gov/documents/2002/11/14/02-29003/airworthiness-directives-textron-lycoming-aeio-540-io-540-ltio-540-o-540-and-tio-540-series",
+    "publication_date": "2002-11-14",
+    "title": "Airworthiness Directives; Textron Lycoming AEIO-540, IO-540, LTIO-540, O-540, and TIO-540 Series Reciprocating Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Textron Lycoming AEIO-540, IO-540, LTIO-540, O-540, and TIO-540 Series Reciprocating Engines",
+  "versions": [
+    {
+      "entry_sha256": "983575a4c091ddb58889ef8b1fba8386d4b61f442514c5bb3f48174fe9725747",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-9d752aba"
+    }
+  ]
+}

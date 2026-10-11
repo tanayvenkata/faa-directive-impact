@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2004-10-14"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "04-14477",
+  "effective_on": "2004-06-28",
+  "entry_sha256": "5aab7aa6c007c86d9937c129df610e309bf25ab860c7b3f8c81d815155a91fa8",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165834Z-7aff66ad",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165834Z-7aff66ad.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2004/06/28/04-14477/airworthiness-directives-lycoming-engines-formerly-textron-lycoming-direct-drive-reciprocating",
+  "kind": "correction",
+  "publication_date": "2004-06-28",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; correction.",
+    "citation": "69 FR 36007",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 89-ANE-10-AD",
+      "Amendment 39-13644",
+      "AD 2004-10-14"
+    ],
+    "document_number": "04-14477",
+    "effective_on": "2004-06-28",
+    "html_url": "https://www.federalregister.gov/documents/2004/06/28/04-14477/airworthiness-directives-lycoming-engines-formerly-textron-lycoming-direct-drive-reciprocating",
+    "publication_date": "2004-06-28",
+    "title": "Airworthiness Directives; Lycoming Engines (Formerly Textron Lycoming), Direct-Drive Reciprocating Engines; Correction",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Lycoming Engines (Formerly Textron Lycoming), Direct-Drive Reciprocating Engines; Correction",
+  "versions": [
+    {
+      "entry_sha256": "5aab7aa6c007c86d9937c129df610e309bf25ab860c7b3f8c81d815155a91fa8",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165834Z-7aff66ad"
+    }
+  ]
+}

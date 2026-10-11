@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2009-19-51"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-1159",
+  "effective_on": "2010-02-08",
+  "entry_sha256": "f1c18756d9cb12171092df7a7eede082b76fb551b8acb2b81e9c72bd726f11db",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-1125"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/01/22/2010-1159/airworthiness-directives-agusta-spa-agusta-model-ab139-and-aw139-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2010-01-22",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "75 FR 3615",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-1125",
+      "Directorate Identifier 2009-SW-50-AD",
+      "Amendment 39-16129",
+      "AD 2009-19-51"
+    ],
+    "document_number": "2010-1159",
+    "effective_on": "2010-02-08",
+    "html_url": "https://www.federalregister.gov/documents/2010/01/22/2010-1159/airworthiness-directives-agusta-spa-agusta-model-ab139-and-aw139-helicopters",
+    "publication_date": "2010-01-22",
+    "title": "Airworthiness Directives; Agusta S.p.A. (Agusta) Model AB139 and AW139 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Agusta S.p.A. (Agusta) Model AB139 and AW139 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "f1c18756d9cb12171092df7a7eede082b76fb551b8acb2b81e9c72bd726f11db",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

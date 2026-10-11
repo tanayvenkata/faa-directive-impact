@@ -1,0 +1,56 @@
+{
+  "ad_numbers": [
+    "2010-18-52"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2010-28456",
+  "effective_on": "2010-12-01",
+  "entry_sha256": "e9193c4e01cec382a412913a220066829052d51950dc0a89ccc5157254b27d10",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165835Z-9b0b97cb",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165835Z-9b0b97cb.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2010-1126"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2010/11/16/2010-28456/airworthiness-directives-md-helicopters-inc-model-md900-helicopters",
+  "kind": "final_rule",
+  "publication_date": "2010-11-16",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule; request for comments.",
+    "citation": "75 FR 69862",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2010-1126",
+      "Directorate Identifier 2010-SW-078-AD",
+      "Amendment 39-16515",
+      "AD 2010-18-52"
+    ],
+    "document_number": "2010-28456",
+    "effective_on": "2010-12-01",
+    "html_url": "https://www.federalregister.gov/documents/2010/11/16/2010-28456/airworthiness-directives-md-helicopters-inc-model-md900-helicopters",
+    "publication_date": "2010-11-16",
+    "title": "Airworthiness Directives; MD Helicopters, Inc. Model MD900 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; MD Helicopters, Inc. Model MD900 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "e9193c4e01cec382a412913a220066829052d51950dc0a89ccc5157254b27d10",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165835Z-9b0b97cb"
+    }
+  ]
+}

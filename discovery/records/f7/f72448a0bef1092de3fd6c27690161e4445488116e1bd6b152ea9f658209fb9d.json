@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "2001-02-10"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "01-2300",
+  "effective_on": "2001-03-19",
+  "entry_sha256": "7469602209ffac614056bdf51d76436a0cb4c570d1942e6326e431a6127005b3",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165833Z-c2d0a56e",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165833Z-c2d0a56e.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2001/02/02/01-2300/airworthiness-directives-raytheon-aircraft-company-beech-models-60-a60-and-b60-airplanes",
+  "kind": "final_rule",
+  "publication_date": "2001-02-02",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "66 FR 8750",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-CE-74-AD",
+      "Amendment 39-12094",
+      "AD 2001-02-10"
+    ],
+    "document_number": "01-2300",
+    "effective_on": "2001-03-19",
+    "html_url": "https://www.federalregister.gov/documents/2001/02/02/01-2300/airworthiness-directives-raytheon-aircraft-company-beech-models-60-a60-and-b60-airplanes",
+    "publication_date": "2001-02-02",
+    "title": "Airworthiness Directives; Raytheon Aircraft Company Beech Models 60, A60, and B60 Airplanes",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Raytheon Aircraft Company Beech Models 60, A60, and B60 Airplanes",
+  "versions": [
+    {
+      "entry_sha256": "7469602209ffac614056bdf51d76436a0cb4c570d1942e6326e431a6127005b3",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165833Z-c2d0a56e"
+    }
+  ]
+}

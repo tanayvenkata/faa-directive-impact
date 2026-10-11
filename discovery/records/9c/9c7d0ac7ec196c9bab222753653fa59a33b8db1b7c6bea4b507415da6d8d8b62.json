@@ -1,0 +1,53 @@
+{
+  "ad_numbers": [
+    "99-22-13"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "99-27790",
+  "effective_on": "1999-12-02",
+  "entry_sha256": "cbcf9f8b252e22b008f002d17de92a971ed8f3ef6c78db592e1f3987d0651fe8",
+  "evidence": {
+    "search": {
+      "receipt_id": "receipt-20261011T165832Z-97b76c12",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165832Z-97b76c12.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/1999/10/28/99-27790/airworthiness-directives-bell-helicopter-textron-canada-bhtc-model-407-helicopters",
+  "kind": "final_rule",
+  "publication_date": "1999-10-28",
+  "scope": {
+    "basis": "title",
+    "coverage_state": "outside_supported_scope",
+    "detail": "The title does not name International Aero Engines; only the API metadata is kept.",
+    "models": [],
+    "needs_review": false
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "64 FR 57971",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. 99-SW-07-AD",
+      "Amendment 39-11391",
+      "AD 99-22-13"
+    ],
+    "document_number": "99-27790",
+    "effective_on": "1999-12-02",
+    "html_url": "https://www.federalregister.gov/documents/1999/10/28/99-27790/airworthiness-directives-bell-helicopter-textron-canada-bhtc-model-407-helicopters",
+    "publication_date": "1999-10-28",
+    "title": "Airworthiness Directives; Bell Helicopter Textron Canada (BHTC) Model 407 Helicopters",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; Bell Helicopter Textron Canada (BHTC) Model 407 Helicopters",
+  "versions": [
+    {
+      "entry_sha256": "cbcf9f8b252e22b008f002d17de92a971ed8f3ef6c78db592e1f3987d0651fe8",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165832Z-97b76c12"
+    }
+  ]
+}
