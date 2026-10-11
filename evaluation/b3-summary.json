@@ -1,0 +1,152 @@
+[
+  {
+    "cost_usd": 0.1758,
+    "directives": {
+      "2025-18469": {
+        "absolute_protected_failures": 10,
+        "ambiguities_flagged": [
+          1,
+          1
+        ],
+        "data_fields": [
+          17,
+          17
+        ],
+        "false_clears": 0,
+        "field_errors": [
+          "required_actions[(g)].combination"
+        ],
+        "protected_substantive": 0,
+        "units": 18,
+        "units_safe_escalation": 10,
+        "units_substantive": 0,
+        "vocabulary_fields": [
+          2,
+          3
+        ]
+      },
+      "2026-16954": {
+        "absolute_protected_failures": 0,
+        "ambiguities_flagged": [
+          1,
+          1
+        ],
+        "data_fields": [
+          18,
+          18
+        ],
+        "false_clears": 0,
+        "field_errors": [],
+        "protected_substantive": 0,
+        "units": 5,
+        "units_safe_escalation": 0,
+        "units_substantive": 0,
+        "vocabulary_fields": [
+          3,
+          3
+        ]
+      }
+    },
+    "run": "b3-opus-5-5-high-r1-20261011T155547Z-9f32a55"
+  },
+  {
+    "cost_usd": 0.0874,
+    "directives": {
+      "2025-18469": {
+        "absolute_protected_failures": 10,
+        "ambiguities_flagged": [
+          1,
+          1
+        ],
+        "data_fields": [
+          17,
+          17
+        ],
+        "false_clears": 0,
+        "field_errors": [
+          "required_actions[(g)].combination"
+        ],
+        "protected_substantive": 0,
+        "units": 18,
+        "units_safe_escalation": 10,
+        "units_substantive": 0,
+        "vocabulary_fields": [
+          2,
+          3
+        ]
+      },
+      "2026-16954": {
+        "absolute_protected_failures": 0,
+        "ambiguities_flagged": [
+          1,
+          1
+        ],
+        "data_fields": [
+          18,
+          18
+        ],
+        "false_clears": 0,
+        "field_errors": [],
+        "protected_substantive": 0,
+        "units": 5,
+        "units_safe_escalation": 0,
+        "units_substantive": 0,
+        "vocabulary_fields": [
+          3,
+          3
+        ]
+      }
+    },
+    "run": "b3-opus-5-5-high-r2-20261011T155751Z-9f32a55"
+  },
+  {
+    "cost_usd": 0.089,
+    "directives": {
+      "2025-18469": {
+        "absolute_protected_failures": 10,
+        "ambiguities_flagged": [
+          1,
+          1
+        ],
+        "data_fields": [
+          17,
+          17
+        ],
+        "false_clears": 0,
+        "field_errors": [
+          "required_actions[(g)].combination"
+        ],
+        "protected_substantive": 0,
+        "units": 18,
+        "units_safe_escalation": 10,
+        "units_substantive": 0,
+        "vocabulary_fields": [
+          2,
+          3
+        ]
+      },
+      "2026-16954": {
+        "absolute_protected_failures": 0,
+        "ambiguities_flagged": [
+          1,
+          1
+        ],
+        "data_fields": [
+          18,
+          18
+        ],
+        "false_clears": 0,
+        "field_errors": [],
+        "protected_substantive": 0,
+        "units": 5,
+        "units_safe_escalation": 0,
+        "units_substantive": 0,
+        "vocabulary_fields": [
+          3,
+          3
+        ]
+      }
+    },
+    "run": "b3-opus-5-5-high-r3-20261011T155954Z-f92eb7e"
+  }
+]

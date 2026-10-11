@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "run_id": "b3-opus-5-5-high-r3-20261011T155954Z-f92eb7e",
+    "system": "B3 model-drafted rules, interpreted",
+    "model": "claude-opus-5-5",
+    "effort": "high",
+    "max_tokens": 32000,
+    "repeat": 3,
+    "mode": "batch",
+    "prompt_version": "93fa052fe394",
+    "interpreter_version": 1,
+    "gate_version": 1,
+    "started_at": "2026-10-11T15:59:54.998549+00:00",
+    "git_commit": "f92eb7e8c0ac164b598fbc976a43a0943b3d6585",
+    "worktree_dirty": true,
+    "generation_id": "gen-20260926T215105Z-7fe9da08"
+  },
+  "usage": {
+    "input_tokens": 74,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 34177,
+    "output_tokens": 8545,
+    "calls": 2,
+    "cost_usd": 0.089,
+    "cost_usd_per_unit": 0.0445,
+    "mean_latency_seconds": 121.86
+  },
+  "summary": {
+    "2025-18469": {
+      "field_accuracy": 0.95,
+      "fields_correct": 19,
+      "fields": 20,
+      "ambiguities_flagged": 1,
+      "ambiguities_expected": 1,
+      "units": 18,
+      "units_with_extraction_errors": 10,
+      "protected_extraction_errors": 9,
+      "reference_protected_failures": 1
+    },
+    "2026-16954": {
+      "field_accuracy": 1.0,
+      "fields_correct": 21,
+      "fields": 21,
+      "ambiguities_flagged": 1,
+      "ambiguities_expected": 1,
+      "units": 5,
+      "units_with_extraction_errors": 0,
+      "protected_extraction_errors": 0,
+      "reference_protected_failures": 0
+    }
+  },
+  "disclosures": [
+    "The evaluated claim stays AD 2025-19-13. AD 2026-17-03 results are reported separately; its labels and reference record are Claude drafts awaiting owner confirmation, and they do not widen the claim.",
+    "The reference records were written by the same author as the seed labels (Claude), so field accuracy measures agreement with one reading, as S1 does. The interpreter applies no adjudication: where the readings of AD 2025-19-13 (g) diverge (seed-005), it routes to review even with the reference record, so that unit fails gates 8 and 12 for every system here and is not counted against a draft."
+  ]
+}
