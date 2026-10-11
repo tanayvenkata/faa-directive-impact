@@ -5,6 +5,7 @@ import json
 import httpx
 import pytest
 from discovery_fakes import IAE, Harness, seed_corpus
+from source_fakes import edit_api_record
 
 from faa_directive_impact.acquisition.retrieval import build_client
 from faa_directive_impact.discovery import sync as sync_module
@@ -154,6 +155,23 @@ def test_partial_acquisition_failure_rejects(harness):
     assert any("2026-16954" in failure for failure in attempt["failures"])
     assert read_active(harness.root) is None
     assert read_decisions(harness.root)[-1]["receipt_type"] == "rejection"
+
+
+def test_retry_after_rejection_tolerates_drift_from_the_unpromoted_attempt(harness):
+    corpus = seed_corpus()
+    pdf = next(url for url in corpus.pages if url.endswith("2026-16954.pdf"))
+    served_pdf = corpus.pages[pdf]
+    corpus.pages[pdf] = None
+    assert harness.sync(corpus)["outcome"] == "rejected"
+    corpus.pages[pdf] = served_pdf
+    edit_api_record(corpus.pages, "2026-16954", dockets=[{"comment_count": 3}])
+
+    retry = harness.sync(corpus)
+
+    assert retry["outcome"] == "promoted", retry["failures"]
+    record = harness.records(harness.generation(retry))["2026-16954"]
+    [earlier] = record["changed_since_unpromoted_attempt"]
+    assert earlier["representation_role"] == "api_json"
 
 
 def test_failed_search_rejects_and_keeps_active(harness):

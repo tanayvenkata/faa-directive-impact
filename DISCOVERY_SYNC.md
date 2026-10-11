@@ -131,7 +131,9 @@ person investigates. Two kinds of change pass without that:
 
 - the Federal Register adding to an original's `corrections` list, which is
   accepted automatically;
-- a change a person has investigated and accepts by rerunning with
+- a change a person has investigated and accepts by rerunning with the
+  document number: in GitHub, **Actions → Discovery sync → Run workflow**
+  with the number in `accept_changed`; locally,
   `uv run faa-directive-impact discovery-sync --accept-changed <document>`.
 
 The accepted version is added to the record's history. The earlier
@@ -178,6 +180,10 @@ A local `make discovery-sync` keeps raw bytes under `data/discovery/raw/`.
     workflow** or `gh workflow enable discovery-sync.yml`.
 - A scheduled run can be delayed when GitHub Actions is under high load
   (same events page).
+- The API lists documents a day or two before their publication date
+  (public inspection), so the checkpoint can be ahead of today. Their search
+  entries were already complete in the live run. If one changes after
+  publication, the sync rejects it for review and does not overwrite it.
 - Airplane ADs that mention V2500 engines without naming International Aero
   Engines in the title are not read in full, so their applicability is not
   checked.
