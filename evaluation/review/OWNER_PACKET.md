@@ -10,7 +10,7 @@ is a sign-off that Claude cannot give on its own work. About 2 hours in all.
 | 3 | Confirm or dispute the AD 2026-17-03 labels and reference record | [`b3-opus-r1/proofread.yaml`](b3-opus-r1/proofread.yaml) part 3; `seed/cases/seed-011…014, 023` | 15 min | They are Claude drafts (`labeled_by: claude-draft`); B3's AD 2026-17-03 results stay provisional until then |
 | 4 | Confirm S1's hand review (gates 5 and 11) | `runs/s1-20261006T223638Z-6a301b1/hand-review.yaml`, set `reviewer_confirmed: true`, then `make s1-conclude RUN=evaluation/runs/s1-20261006T223638Z-6a301b1` | 15 min | S1's go decision is provisional until you do |
 | 5 | Confirm B2's first-pass hand review | [`b2-sonnet-r1/`](b2-sonnet-r1/) | 20 min | Same reason, for the B2 comparison |
-| 6 | Decide whether to turn on the daily sync on GitHub (Pages and the scheduled workflow) | `DISCOVERY_SYNC.md` once the step-6 branch lands | 5 min | It publishes a public page and runs on a schedule from your account |
+| 6 | ~~Turn on the daily sync~~ Done 2026-10-11 under your delegation: Pages enabled, first run promoted | <https://tanayvenkata.github.io/faa-directive-impact/> | — | — |
 | 6a | E3 is decided (double read, under your delegation). Do the person's read of the four image tables when the transcription tool exists | [`../E3_IMAGE_FIGURES.md`](../E3_IMAGE_FIGURES.md) | 15 min, later | A model reading twice is not a double read |
 | 7 | Attempt one practitioner review | issue #9; message and brief in [`PRACTITIONER_BRIEF.md`](PRACTITIONER_BRIEF.md) | 10 min to send | An exit criterion for the episode. Do not re-ask the AD 2025-19-13 engineer; batch questions to anyone new |
 

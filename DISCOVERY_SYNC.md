@@ -96,7 +96,10 @@ The sync refuses any root inside or containing `seed-frozen`,
 
 ## Turning It On (Owner Steps)
 
-Nothing is enabled yet. To run it on GitHub:
+Done 2026-10-11: Pages was set to build from GitHub Actions and the
+workflow was run by hand. The first run failed before syncing (the
+state-branch setup; fixed in #23), and the second promoted the full 1994
+backfill. The steps, for a fresh fork or a re-enable:
 
 1. Merge the branch to `main`. GitHub only runs scheduled workflows on the
    default branch ("Scheduled workflows will only run on the default
