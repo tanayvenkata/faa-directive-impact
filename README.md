@@ -4,8 +4,12 @@ This project is building a continuously refreshable, evidence-backed FAA
 directive-impact system. The first supported evaluation boundary is the
 International Aero Engines V2500-A5/D5/E5 family.
 
-**Status: Reproducible** — see [`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md)
-and the write-up [*Reproducible: Getting the Same FAA Directive Twice*](writeups/01-reproducible.md).
+**Status: Reproducible; *Evaluated* published as provisional** — see
+[`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md), the write-up
+[*Reproducible: Getting the Same FAA Directive Twice*](writeups/01-reproducible.md),
+and the provisional write-up
+[*Evaluated: Rules, a Model, and a Model Writing Rules*](writeups/02-evaluated.md)
+(owner: read it only after item 1 of the owner packet).
 Milestone 1 (immutable official-source acquisition) is complete, and the
 evaluation seed and frozen gates are written. S1, the rules baseline for AD
 2025-19-13, is in [`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md);
@@ -114,7 +118,8 @@ Each directive gets a coverage state: `evaluated` (AD 2025-19-13 only),
 freshness page shows the last attempt and success, the checkpoint, the active
 generation, new directives, failures, and unavailable dependencies, and turns
 STALE in the browser 48 hours after the last success. The scheduled GitHub
-workflow is committed but not enabled; see
+workflow runs daily and publishes the page to
+<https://tanayvenkata.github.io/faa-directive-impact/>; see
 [`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md).
 
 ## Accepted Raw Generations
