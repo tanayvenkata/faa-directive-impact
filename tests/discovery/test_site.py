@@ -39,6 +39,21 @@ def test_page_embeds_last_success_and_a_browser_staleness_check(tmp_path):
     assert "<img" not in page and "logo" not in page.lower()
 
 
+def test_status_shows_finish_time_checkpoint_meaning_and_no_failures(tmp_path):
+    harness = Harness(tmp_path / "discovery")
+    attempt = harness.sync(seed_corpus())
+
+    page = build_site(harness.root, tmp_path / "site").read_text()
+
+    # The header's finish time also appears in the status rows.
+    assert f"finished {attempt['finished_at_utc']} (promoted)" in page
+    assert f"started {attempt['started_at_utc']}" in page
+    assert "the latest publication date read" in page
+    assert "can be later than today" in page
+    assert "No failures in the last attempt." in page
+    assert "Failures in the last attempt" not in page
+
+
 def test_page_renders_a_failed_first_sync(tmp_path):
     harness = Harness(tmp_path / "discovery")
     failed_first_sync(harness)
