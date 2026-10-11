@@ -68,16 +68,17 @@ def test_rerun_with_the_same_responses_changes_nothing(harness):
     second = harness.sync(corpus)
 
     assert second["outcome"] == "no_change"
+    # The search re-reads the week before the checkpoint (2026-09-12).
     assert {k: v for k, v in second["counts"].items() if v} == {
-        "searched": 1,
-        "unchanged": 1,
+        "searched": 3,
+        "unchanged": 3,
     }
     assert read_active(harness.root)["generation_id"] == first["generation_id"]
     assert sorted((harness.root / "generations").iterdir()) == generations
     assert len(read_attempts(harness.root)) == 2
 
 
-def test_checkpoint_day_is_searched_again_and_deduplicated(harness):
+def test_checkpoint_window_is_searched_again_and_deduplicated(harness):
     corpus = seed_corpus()
     first = harness.sync(corpus)
     corpus.add("2026-18700", "2026-09-12", ad_number="2026-18-30")
@@ -86,8 +87,8 @@ def test_checkpoint_day_is_searched_again_and_deduplicated(harness):
     second = harness.sync(corpus)
 
     assert second["outcome"] == "promoted", second["failures"]
-    assert second["since"] == "2026-09-12"
-    assert second["counts"]["unchanged"] == 1
+    assert second["since"] == "2026-09-05"  # checkpoint less the lookback
+    assert second["counts"]["unchanged"] == 3
     assert second["new_documents"] == ["2026-18700", "2026-18800"]
     generation = harness.generation(second)
     numbers = [r["document_number"] for r in generation["records"]]
@@ -118,12 +119,27 @@ def test_unexpected_metadata_change_rejects_and_keeps_active(harness):
 
     assert accepted["outcome"] == "promoted", accepted["failures"]
     record = harness.records(harness.generation(accepted))["2026-18600"]
-    assert [v.get("accepted_change", False) for v in record["versions"]] == [
-        False,
-        True,
+    assert [v.get("change") for v in record["versions"]] == [
+        None,
+        "accepted_by_operator",
     ]
     original = harness.records(harness.generation(first))["2026-18600"]
     assert original["title"] == "Airworthiness Directives; Airbus SAS Airplanes"
+
+
+def test_a_new_correction_on_an_original_is_an_expected_change(harness):
+    corpus = seed_corpus()
+    harness.sync(corpus)
+    original = next(e for e in corpus.entries if e["document_number"] == "2026-18600")
+    original["corrections"] = [
+        "https://www.federalregister.gov/api/v1/documents/C1-2026-18600"
+    ]
+
+    attempt = harness.sync(corpus)
+
+    assert attempt["outcome"] == "promoted", attempt["failures"]
+    record = harness.records(harness.generation(attempt))["2026-18600"]
+    assert record["versions"][-1]["change"] == "corrections_added"
 
 
 def test_partial_acquisition_failure_rejects(harness):
@@ -233,3 +249,27 @@ def test_a_directory_holding_frozen_corpora_is_refused(tmp_path):
     with pytest.raises(StorageRootRefused):
         require_discovery_root(tmp_path / "data")
     assert require_discovery_root(tmp_path / "data" / "discovery")
+
+
+def test_federal_register_corrections_link_by_correction_of(harness):
+    corpus = seed_corpus()
+    republished = corpus.add("R1-2026-18600", "2026-09-12", ad_number="2026-18-20")
+    republished["correction_of"] = (
+        "https://www.federalregister.gov/api/v1/documents/2026-18600"
+    )
+    corpus.add("C1-2026-16954", "2026-09-12", IAE, "2026-17-03")
+
+    attempt = harness.sync(corpus)
+
+    assert attempt["outcome"] == "promoted", attempt["failures"]
+    generation = harness.generation(attempt)
+    assert harness.records(generation)["R1-2026-18600"]["kind"] == "correction"
+    assert {
+        (r["from_identity"]["value"], r["to_identity"]["value"], r["confidence_class"])
+        for r in generation["relationships"]
+    } == {
+        ("2026-18423", "2026-16954", "identifier_join"),
+        ("R1-2026-18600", "2026-18600", "source_asserted"),
+    }
+    [held] = generation["review"]
+    assert held["document_number"] == "C1-2026-16954"

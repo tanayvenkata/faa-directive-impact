@@ -24,7 +24,7 @@ import json
 import traceback
 from collections import defaultdict
 from dataclasses import dataclass, field
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -67,7 +67,11 @@ from faa_directive_impact.discovery.scope import (
     needs_review,
     outside_by_title,
 )
-from faa_directive_impact.discovery.search import SearchOutcome, search_directives
+from faa_directive_impact.discovery.search import (
+    DISCOVERED_DOCUMENT_NUMBER,
+    SearchOutcome,
+    search_directives,
+)
 from faa_directive_impact.discovery.state import (
     attempt_path,
     decision_path,
@@ -81,6 +85,10 @@ from faa_directive_impact.discovery.state import (
 GENERATION_SCHEMA_VERSION = "1.0.0"
 CORPUS_TRACK = "refreshable_discovery"
 DEFAULT_START_DATE = date(2025, 1, 1)
+# Each search re-reads this many days before the checkpoint, so a document
+# that becomes visible after a later-dated one is still found. Re-read
+# documents are deduplicated against the corpus.
+LOOKBACK_DAYS = 7
 AD_TITLE_PREFIX = "Airworthiness Directives"
 FINAL_RULE_TYPE = "Rule"
 
@@ -116,6 +124,7 @@ class Candidate:
     generation_id: str
     run_id: str
     since: date
+    checkpoint_floor: date
     records: dict[str, dict[str, Any]]
     review: dict[str, dict[str, Any]]
     counts: dict[str, int] = field(default_factory=lambda: dict.fromkeys(COUNT_KEYS, 0))
@@ -190,12 +199,14 @@ def _sync(
 ) -> dict[str, Any]:
     active = read_active(root)
     previous = read_generation(root, active["generation_id"]) if active else None
-    since = date.fromisoformat(active["checkpoint"]) if active else start_date
+    floor = date.fromisoformat(active["checkpoint"]) if active else start_date
+    since = floor - timedelta(days=LOOKBACK_DAYS) if active else start_date
     run_id = new_id("run", clock())
     candidate = Candidate(
         generation_id=f"gen-{run_id.removeprefix('run-')}",
         run_id=run_id,
         since=since,
+        checkpoint_floor=floor,
         records={r["document_number"]: r for r in (previous or {}).get("records", [])},
         review={r["document_number"]: r for r in (previous or {}).get("review", [])},
     )
@@ -299,7 +310,10 @@ def _consider(
             candidate.counts["unchanged"] += 1
             return
         candidate.counts["changed"] += 1
-        if number not in accept_changed:
+        reason = _expected_change(prior["source_entry"], entry)
+        if reason is None and number in accept_changed:
+            reason = "accepted_by_operator"
+        if reason is None:
             candidate.unaccepted_changes.append(number)
             candidate.failures.append(
                 f"{number}: search metadata changed since generation "
@@ -314,7 +328,7 @@ def _consider(
             "entry_sha256": digest,
             "evidence": {**prior["evidence"], "search": evidence},
             "versions": prior["versions"]
-            + [_version(candidate, digest, search_receipt_id, accepted=True)],
+            + [_version(candidate, digest, search_receipt_id, reason)],
         }
         (candidate.records if number in candidate.records else candidate.review)[
             number
@@ -332,7 +346,13 @@ def _consider(
         return
 
     record = _base_record(candidate, entry, digest, evidence, search_receipt_id)
-    if names_international_aero_engines(entry["title"]):
+    iae = names_international_aero_engines(entry["title"])
+    if iae and not DOCUMENT_NUMBER_PATTERN.fullmatch(number):
+        decision = needs_review(
+            "A Federal Register correction or republication of an IAE "
+            "directive; read it and the document it corrects by hand."
+        )
+    elif iae:
         candidate.counts["read_in_full"] += 1
         document = acquire_document(context, number, versions)
         candidate.documents.append(document)
@@ -416,7 +436,7 @@ def describe_failure(document: DocumentAcquisition) -> str:
 def identifier_problems(entry: dict[str, Any]) -> list[str]:
     """Identifiers and dates that must parse before a record is accepted."""
     problems = []
-    if not DOCUMENT_NUMBER_PATTERN.fullmatch(str(entry.get("document_number"))):
+    if not DISCOVERED_DOCUMENT_NUMBER.fullmatch(str(entry.get("document_number"))):
         problems.append("document number does not parse")
     if not _is_iso_date(entry.get("publication_date")):
         problems.append(f"publication date {entry.get('publication_date')!r}")
@@ -435,6 +455,19 @@ def is_airworthiness_directive(entry: dict[str, Any]) -> bool:
     return str(entry.get("title", "")).startswith(AD_TITLE_PREFIX) or bool(
         airworthiness_directive_numbers(entry)
     )
+
+
+def _corrects_another(entry: dict[str, Any]) -> bool:
+    return is_correction(entry) or bool(entry.get("correction_of"))
+
+
+def corrected_document(entry: dict[str, Any]) -> str | None:
+    """The document ``correction_of`` names, given as a number or an API URL."""
+    value = entry.get("correction_of")
+    if not isinstance(value, str):
+        return None
+    number = value.rstrip("/").rsplit("/", 1)[-1].removesuffix(".json")
+    return number if DISCOVERED_DOCUMENT_NUMBER.fullmatch(number) else None
 
 
 def _is_iso_date(value: Any) -> bool:
@@ -457,16 +490,33 @@ def _evidence(run_id: str, receipt_id: str | None) -> dict[str, str]:
     }
 
 
+def _expected_change(old: dict[str, Any], new: dict[str, Any]) -> str | None:
+    """Name a change that needs no investigation, or return ``None``.
+
+    The only expected change is the Federal Register adding a correction to an
+    original document's ``corrections`` list; every other field must match.
+    """
+    differing = {key for key in old.keys() | new.keys() if old.get(key) != new.get(key)}
+    old_list, new_list = old.get("corrections") or [], new.get("corrections") or []
+    if (
+        differing == {"corrections"}
+        and isinstance(new_list, list)
+        and set(old_list) < set(new_list)
+    ):
+        return "corrections_added"
+    return None
+
+
 def _version(
-    candidate: Candidate, digest: str, receipt_id: str, accepted: bool = False
+    candidate: Candidate, digest: str, receipt_id: str, change: str | None = None
 ) -> dict[str, Any]:
     version: dict[str, Any] = {
         "generation_id": candidate.generation_id,
         "entry_sha256": digest,
         "search_receipt_id": receipt_id,
     }
-    if accepted:
-        version["accepted_change"] = True
+    if change is not None:
+        version["change"] = change
     return version
 
 
@@ -481,7 +531,7 @@ def _base_record(
         "document_number": entry["document_number"],
         "ad_numbers": sorted(airworthiness_directive_numbers(entry)),
         "faa_dockets": sorted(faa_docket_numbers(entry)),
-        "kind": "correction" if is_correction(entry) else "final_rule",
+        "kind": "correction" if _corrects_another(entry) else "final_rule",
         "title": entry["title"],
         "publication_date": entry["publication_date"],
         "effective_on": entry.get("effective_on"),
@@ -499,10 +549,11 @@ def derive_relationships(
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     """Corrections and supersessions among the records, and links left open.
 
-    The joins are the frozen-manifest ones from ``acquisition.manifest``: a
-    correction links to the original final rule sharing its AD number
-    (``source_asserted`` when the API's ``correction_of`` names it), and an AD
-    supersedes the AD its "Affected ADs" paragraph says it replaces.
+    A document whose ``correction_of`` names another links to it as a
+    source assertion. Otherwise the joins are the frozen-manifest ones from
+    ``acquisition.manifest``: a correction links to the original final rule
+    sharing its AD number, and an AD supersedes the AD its "Affected ADs"
+    paragraph says it replaces.
     """
     by_ad: dict[str, list[str]] = defaultdict(list)
     for number, record in sorted(records.items()):
@@ -512,11 +563,29 @@ def derive_relationships(
     relationships: list[dict[str, Any]] = []
     unresolved: list[dict[str, Any]] = []
     for number, record in sorted(records.items()):
-        if record["kind"] == "correction":
-            related = sorted(
-                {other for ad in record["ad_numbers"] for other in by_ad[ad]}
+        asserted = corrected_document(record["source_entry"])
+        if asserted is not None:
+            if asserted in records:
+                relationships.append(_asserted_correction(record, records[asserted]))
+            else:
+                unresolved.append(
+                    {
+                        "relationship_type": "corrects",
+                        "from_document": number,
+                        "reason": f"The corrected document {asserted} is not in "
+                        "the discovery corpus.",
+                    }
+                )
+        elif record["kind"] == "correction":
+            targets = sorted(
+                other
+                for ad in record["ad_numbers"]
+                for other in by_ad[ad]
+                if records[other]["kind"] == "final_rule"
             )
-            found = correction_relationships([adapters[n] for n in related])
+            found = correction_relationships(
+                [adapters[number]] + [adapters[n] for n in targets]
+            )
             found = [r for r in found if r["from_identity"]["value"] == number]
             relationships.extend(found)
             if not found:
@@ -546,6 +615,28 @@ def derive_relationships(
                     }
                 )
     return relationships, unresolved
+
+
+def _asserted_correction(
+    correction: dict[str, Any], target: dict[str, Any]
+) -> dict[str, Any]:
+    receipts = [
+        correction["evidence"]["search"]["receipt_id"],
+        target["evidence"]["search"]["receipt_id"],
+    ]
+    return {
+        "relationship_type": "corrects",
+        "from_identity": {
+            "namespace": DOCUMENT_NAMESPACE,
+            "value": correction["document_number"],
+        },
+        "to_identity": {
+            "namespace": DOCUMENT_NAMESPACE,
+            "value": target["document_number"],
+        },
+        "evidence_receipt_ids": list(dict.fromkeys(receipts)),
+        "confidence_class": "source_asserted",
+    }
 
 
 def _adapter(record: dict[str, Any]) -> DocumentAcquisition:
@@ -733,7 +824,7 @@ def _generation(
         if isinstance(e.get("publication_date"), str)
         and _is_iso_date(e["publication_date"])
     ]
-    checkpoint = max([candidate.since.isoformat(), *published])
+    checkpoint = max([candidate.checkpoint_floor.isoformat(), *published])
     by_state: dict[str, int] = defaultdict(int)
     for record in records:
         by_state[record["coverage_state"]] += 1

@@ -25,6 +25,7 @@ Each page's exact bytes are kept with a receipt like any other acquisition.
 
 import json
 import math
+import re
 from dataclasses import dataclass, field
 from datetime import date
 from typing import Any
@@ -32,7 +33,6 @@ from urllib.parse import urlencode
 
 from faa_directive_impact.acquisition.federal_register import (
     API_BASE_URL,
-    DOCUMENT_NUMBER_PATTERN,
     TEXT_REDISTRIBUTION,
 )
 from faa_directive_impact.acquisition.retrieval import (
@@ -43,6 +43,10 @@ from faa_directive_impact.acquisition.retrieval import (
 )
 
 SEARCH_NAMESPACE = "federal_register_search_query"
+# Besides numbers like 2025-18469, the search returns documents the Federal
+# Register itself corrected or republished, numbered like C1-2025-03880 and
+# R1-2025-04334; their ``correction_of`` names the original document.
+DISCOVERED_DOCUMENT_NUMBER = re.compile(r"^(?:[A-Z]\d+-)?\d{4}-\d{5}$")
 PER_PAGE = 1000
 RESULT_WINDOW = 10_000
 # The attributes each search result carries. Every name was checked against a
@@ -161,7 +165,7 @@ def search_directives(
             break
         for entry in body.get("results") or []:
             number = entry.get("document_number") if isinstance(entry, dict) else None
-            if not isinstance(number, str) or not DOCUMENT_NUMBER_PATTERN.fullmatch(
+            if not isinstance(number, str) or not DISCOVERED_DOCUMENT_NUMBER.fullmatch(
                 number
             ):
                 outcome.problems.append(

@@ -25,6 +25,8 @@ def test_page_embeds_last_success_and_a_browser_staleness_check(tmp_path):
     assert f'<time id="last-success" datetime="{stamp}">' in page
     assert re.search(r'<div id="stale-banner"[^>]*hidden', page)
     assert "hours > 48" in page and "STALE" in page
+    # The script runs after the elements it reads have been parsed.
+    assert page.index("<script>") > page.index('id="last-success"')
     assert "As of <time" in page
     assert attempt["generation_id"] in page
     assert "Screening tool, not a compliance determination" in page
