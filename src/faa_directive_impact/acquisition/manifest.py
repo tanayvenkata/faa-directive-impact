@@ -101,7 +101,7 @@ def proposal_final_relationships(
     for (proposal, proposal_record), (final, final_record) in product(usable, usable):
         if (
             proposal_record.get("type") != PROPOSED_RULE
-            or not _is_original_final_rule(final_record)
+            or not is_original_final_rule(final_record)
             or not faa_docket_numbers(proposal_record)
             & faa_docket_numbers(final_record)
             or str(proposal_record.get("publication_date"))
@@ -136,8 +136,8 @@ def correction_relationships(
         usable, usable
     ):
         if (
-            not _is_correction(correction_record)
-            or not _is_original_final_rule(final_record)
+            not is_correction(correction_record)
+            or not is_original_final_rule(final_record)
             or not airworthiness_directive_numbers(correction_record)
             & airworthiness_directive_numbers(final_record)
         ):
@@ -168,7 +168,7 @@ def supersession_relationships(
     for (newer, _), (older, older_record) in product(usable, usable):
         if (
             newer.full_text_xml_receipt_id is None
-            or not _is_original_final_rule(older_record)
+            or not is_original_final_rule(older_record)
             or not set(newer.replaced_ads)
             & airworthiness_directive_numbers(older_record)
         ):
@@ -195,7 +195,8 @@ def _with_records(
     ]
 
 
-def _is_correction(record: dict[str, Any]) -> bool:
+def is_correction(record: dict[str, Any]) -> bool:
+    """A correction is typed "Rule" by the API; recognize it by action or title."""
     action = str(record.get("action") or "").lower()
     title = str(record.get("title") or "")
     return (
@@ -205,8 +206,9 @@ def _is_correction(record: dict[str, Any]) -> bool:
     )
 
 
-def _is_original_final_rule(record: dict[str, Any]) -> bool:
-    return record.get("type") == FINAL_RULE and not _is_correction(record)
+def is_original_final_rule(record: dict[str, Any]) -> bool:
+    """A final rule that is not a correction."""
+    return record.get("type") == FINAL_RULE and not is_correction(record)
 
 
 def _relationship(

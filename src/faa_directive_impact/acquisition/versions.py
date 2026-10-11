@@ -90,8 +90,17 @@ class VersionIndex:
 
     @classmethod
     def from_receipts(
-        cls, storage_root: Path, exclude_run_id: str | None = None
+        cls,
+        storage_root: Path,
+        exclude_run_id: str | None = None,
+        require_artifacts: bool = False,
     ) -> "VersionIndex":
+        """Rebuild the index from every retained receipt.
+
+        With ``require_artifacts``, a receipt whose bytes are not on disk is
+        skipped. The discovery sync uses this where only receipts persist
+        between runs (CI), so a missing file is not mistaken for a change.
+        """
         index = cls(storage_root)
         rejected = _receipts_failing_validation(storage_root)
         receipts_root = storage_root / "receipts"
@@ -102,6 +111,10 @@ class VersionIndex:
             if (
                 receipt.get("acquisition_status") == "succeeded"
                 and receipt["receipt_id"] not in rejected
+                and (
+                    not require_artifacts
+                    or (storage_root / receipt["artifact"]["relative_path"]).is_file()
+                )
             ):
                 index._add(receipt)
         return index
