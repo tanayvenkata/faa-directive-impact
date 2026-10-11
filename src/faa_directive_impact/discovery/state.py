@@ -8,20 +8,28 @@ Layout under the discovery storage root (default ``data/discovery/``)::
     receipts/<run-id>/<receipt-id>.json                    one per attempt
     validation/<generation-id>.json                        IAE artifact checks
     generations/<generation-id>.json                       candidate manifests
+    records/<sha[:2]>/<sha256>.json                        directive records
     decisions/<receipt-id>.json                            promote/reject/rollback
     attempts/<attempt-id>.json                             the sync log
     active.json                                            the active pointer
 
 Everything except ``active.json`` is written once and never replaced.
+A generation lists its directive records by the SHA-256 of their canonical
+JSON, and each record is stored once under ``records/``. Most records are
+unchanged from one generation to the next, so the state kept in Git grows by
+the new records and a list of references, not by a copy of the corpus.
 ``active.json`` is replaced atomically (temporary file, then rename), so a
 reader sees either the old pointer or the new one, never a partial write.
 """
 
+import hashlib
 import json
 import os
 import tempfile
 from pathlib import Path
 from typing import Any
+
+from faa_directive_impact.acquisition.storage import RawStorage
 
 ACTIVE_POINTER = "active.json"
 # Roots the discovery sync must never write into: the frozen evaluation
@@ -68,8 +76,54 @@ def generation_path(generation_id: str) -> str:
     return f"generations/{generation_id}.json"
 
 
+RECORD_LISTS = ("records", "review")
+
+
+class RecordStoreError(ValueError):
+    """A referenced record is missing or does not match its hash."""
+
+
+def record_digest(record: dict[str, Any]) -> str:
+    canonical = json.dumps(record, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(canonical.encode()).hexdigest()
+
+
+def record_path(digest: str) -> str:
+    return f"records/{digest[:2]}/{digest}.json"
+
+
+def write_generation(storage: RawStorage, generation: dict[str, Any]) -> None:
+    """Store each record once by its hash, then the generation's references."""
+    stored = dict(generation)
+    for key in RECORD_LISTS:
+        references = []
+        for record in generation[key]:
+            digest = record_digest(record)
+            if not (storage.root / record_path(digest)).is_file():
+                storage.write_json(record_path(digest), record)
+            references.append(
+                {"document_number": record["document_number"], "record_sha256": digest}
+            )
+        stored[key] = references
+    storage.write_json(generation_path(generation["generation_id"]), stored)
+
+
 def read_generation(root: Path, generation_id: str) -> dict[str, Any]:
-    return read_json(root / generation_path(generation_id))
+    """Return a generation with its record references resolved and verified."""
+    generation = read_json(root / generation_path(generation_id))
+    for key in RECORD_LISTS:
+        records = []
+        for reference in generation[key]:
+            digest = reference["record_sha256"]
+            path = root / record_path(digest)
+            if not path.is_file():
+                raise RecordStoreError(f"{generation_id}: record {digest} is missing")
+            record = read_json(path)
+            if record_digest(record) != digest:
+                raise RecordStoreError(f"{generation_id}: record {digest} was altered")
+            records.append(record)
+        generation[key] = records
+    return generation
 
 
 def decision_path(receipt_id: str) -> str:

@@ -130,7 +130,6 @@ def build_site(root: Path, output: Path, s1_queues: Path | None = None) -> Path:
         linked = S1_QUEUES_FILE
     page = output / "index.html"
     page.write_text(render_page(load_state(root), linked), encoding="utf-8")
-    (output / ".nojekyll").write_text("", encoding="utf-8")
     return page
 
 

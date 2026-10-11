@@ -75,11 +75,11 @@ from faa_directive_impact.discovery.search import (
 from faa_directive_impact.discovery.state import (
     attempt_path,
     decision_path,
-    generation_path,
     read_active,
     read_generation,
     require_discovery_root,
     write_active,
+    write_generation,
 )
 
 GENERATION_SCHEMA_VERSION = "1.0.0"
@@ -257,7 +257,7 @@ def _sync(
     generation = _generation(
         candidate, search, previous, relationships, unresolved, checks, decided_at
     )
-    storage.write_json(generation_path(candidate.generation_id), generation)
+    write_generation(storage, generation)
     receipt_id = new_id("decision", decided_at)
     decision = {
         "receipt_id": receipt_id,
