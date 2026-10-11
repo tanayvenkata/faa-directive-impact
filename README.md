@@ -88,6 +88,28 @@ receipts and is not stored.
 Exit status: `0` eligible, `1` incomplete or failed validation, `2` content
 changed since an earlier run and needs review. `data/` is ignored by Git.
 
+## Discovery Sync
+
+The discovery corpus is every FAA airworthiness directive in the Federal
+Register. It is synced from a checkpoint into `data/discovery/`, a separate
+storage root and corpus track (`refreshable_discovery`); the sync never
+writes to the frozen evaluation corpora:
+
+```bash
+make discovery-sync       # live: search, read IAE directives in full, validate, promote or reject
+make discovery-rollback   # offline: return to the previous promoted generation
+make discovery-site       # offline: write the freshness page to site/index.html
+```
+
+Each directive gets a coverage state: `evaluated` (AD 2025-19-13 only),
+`not_yet_evaluated` (paragraph (c) lists only V2500-A5/D5/E5 models), or
+`outside_supported_scope`. Anything unclassifiable is held for review. The
+freshness page shows the last attempt and success, the checkpoint, the active
+generation, new directives, failures, and unavailable dependencies, and turns
+STALE in the browser 48 hours after the last success. The scheduled GitHub
+workflow is committed but not enabled; see
+[`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md).
+
 ## Accepted Raw Generations
 
 - [`gen-20260926T213233Z-000f808f`](generations/gen-20260926T213233Z-000f808f/DECISION.md)

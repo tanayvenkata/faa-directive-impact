@@ -66,6 +66,8 @@ A newly published in-scope directive becomes visible the day it syncs, as
    validate, then promote or reject while keeping the previous generation. The
    page shows the last successful sync, the active generation, new
    directives, and failures. Publish it as a static site (GitHub Pages).
+   *Built and run locally against the live API; the scheduled workflow is
+   committed but not yet enabled ([`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md)).*
 7. **Normalize and retrieve** — normalize the evaluated threads, establish a
    lexical baseline, add only justified retrieval techniques, and distinguish
    relevance from evidence sufficiency.

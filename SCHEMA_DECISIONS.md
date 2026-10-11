@@ -165,3 +165,10 @@ The raw-generation manifest moved to `1.1.0` to add an optional
 identifiable even when no receipt exists. `1.0.0` manifests existed only as
 local development output before the first frozen generation, so no `1.0.0`
 manifest validator is retained.
+
+The artifact receipt accepts `1.1.0` alongside `1.0.0`. Version `1.1.0` adds
+Federal Register search-result pages for the discovery sync: representation
+role `search_results`, identity namespace `federal_register_search_query`, and
+authority role `discovery_metadata`. Only `1.1.0` receipts may use them, and
+search receipts always declare `1.1.0`. Document receipts still declare
+`1.0.0`, so every existing receipt validates unchanged.
