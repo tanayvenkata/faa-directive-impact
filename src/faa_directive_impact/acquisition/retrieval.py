@@ -16,6 +16,10 @@ from faa_directive_impact.acquisition.storage import RawStorage, StoragePathErro
 from faa_directive_impact.schema_validation import validate_artifact_receipt
 
 RECEIPT_SCHEMA_VERSION = "1.0.0"
+# Search-result pages were added in receipt schema 1.1.0; document receipts
+# keep declaring 1.0.0, the version their contract was frozen under.
+SEARCH_RESULTS_ROLE = "search_results"
+SEARCH_RECEIPT_SCHEMA_VERSION = "1.1.0"
 USER_AGENT = (
     "faa-directive-impact/0.1 (+https://github.com/tanayvenkata/faa-directive-impact)"
 )
@@ -130,7 +134,11 @@ def retrieve(context: AcquisitionContext, spec: RepresentationRequest) -> dict:
     started_at = context.clock()
     retrieval_id = context.new_id("retrieval", started_at)
     receipt: dict[str, Any] = {
-        "schema_version": RECEIPT_SCHEMA_VERSION,
+        "schema_version": (
+            SEARCH_RECEIPT_SCHEMA_VERSION
+            if spec.representation_role == SEARCH_RESULTS_ROLE
+            else RECEIPT_SCHEMA_VERSION
+        ),
         "receipt_id": f"receipt-{retrieval_id.removeprefix('retrieval-')}",
         "acquisition_run_id": context.run_id,
         "retrieval_id": retrieval_id,

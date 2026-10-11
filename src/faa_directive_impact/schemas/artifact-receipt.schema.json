@@ -21,7 +21,11 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0.0"
+      "enum": [
+        "1.0.0",
+        "1.1.0"
+      ],
+      "description": "1.1.0 adds Federal Register search-result pages (role search_results, namespace federal_register_search_query). A 1.0.0 receipt may not use them."
     },
     "receipt_id": {
       "$ref": "#/$defs/non_empty_id"
@@ -62,7 +66,8 @@
         "official_pdf",
         "mods_xml",
         "original_graphic",
-        "drs_metadata"
+        "drs_metadata",
+        "search_results"
       ]
     },
     "request": {
@@ -326,7 +331,8 @@
               "full_text_xml",
               "full_text_html",
               "plain_text",
-              "original_graphic"
+              "original_graphic",
+              "search_results"
             ]
           }
         }
@@ -508,6 +514,64 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "representation_role": {
+            "const": "search_results"
+          }
+        },
+        "required": [
+          "representation_role"
+        ]
+      },
+      "then": {
+        "properties": {
+          "schema_version": {
+            "const": "1.1.0"
+          },
+          "source_system": {
+            "const": "federal_register"
+          },
+          "authority_role": {
+            "const": "discovery_metadata"
+          },
+          "source_document_identity": {
+            "properties": {
+              "namespace": {
+                "const": "federal_register_search_query"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "source_document_identity": {
+            "properties": {
+              "namespace": {
+                "const": "federal_register_search_query"
+              }
+            },
+            "required": [
+              "namespace"
+            ]
+          }
+        },
+        "required": [
+          "source_document_identity"
+        ]
+      },
+      "then": {
+        "properties": {
+          "representation_role": {
+            "const": "search_results"
+          }
+        }
+      }
     }
   ],
   "$defs": {
@@ -529,7 +593,8 @@
           "enum": [
             "federal_register_document_number",
             "govinfo_package_granule",
-            "faa_drs_document"
+            "faa_drs_document",
+            "federal_register_search_query"
           ]
         },
         "value": {

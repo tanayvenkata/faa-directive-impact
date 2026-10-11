@@ -58,6 +58,46 @@ def test_successful_receipt_requires_artifact(successful_receipt: dict) -> None:
         validate_artifact_receipt(invalid)
 
 
+def search_page_receipt(receipt: dict) -> dict:
+    page = deepcopy(receipt)
+    page.update(
+        schema_version="1.1.0",
+        source_document_identity={
+            "namespace": "federal_register_search_query",
+            "value": "faa-14cfr39-rules-since-2026-09-01-page-1",
+        },
+        representation_role="search_results",
+        authority_role="discovery_metadata",
+    )
+    return page
+
+
+def test_search_page_receipts_need_schema_1_1_0(successful_receipt: dict) -> None:
+    page = search_page_receipt(successful_receipt)
+    validate_artifact_receipt(page)
+
+    with pytest.raises(ValidationError):
+        validate_artifact_receipt({**page, "schema_version": "1.0.0"})
+
+
+def test_search_query_identity_is_only_for_search_pages(
+    successful_receipt: dict,
+) -> None:
+    page = search_page_receipt(successful_receipt)
+
+    with pytest.raises(ValidationError):
+        validate_artifact_receipt({**page, "representation_role": "api_json"})
+    with pytest.raises(ValidationError):
+        validate_artifact_receipt(
+            {
+                **page,
+                "source_document_identity": successful_receipt[
+                    "source_document_identity"
+                ],
+            }
+        )
+
+
 def test_failed_receipt_requires_failure_and_forbids_artifact(
     successful_receipt: dict,
 ) -> None:
