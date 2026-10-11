@@ -165,3 +165,17 @@ def test_invalid_artifact_does_not_become_a_version(tmp_path: Path) -> None:
 
     assert result.failed
     assert "full_text_xml" not in statuses(result)
+
+
+def test_version_index_can_skip_receipts_whose_bytes_are_gone(tmp_path):
+    first = run(tmp_path, site())
+    api_path = tmp_path / first.receipts[0]["artifact"]["relative_path"]
+    api_path.unlink()  # as in CI, where only receipts persist between runs
+
+    second = run(tmp_path, site())
+    assert statuses(second)["api_json"] == "changed"
+
+    index = VersionIndex.from_receipts(
+        tmp_path, exclude_run_id=second.run_id, require_artifacts=True
+    )
+    assert index.observe(second.receipts[0]).status == "new"
