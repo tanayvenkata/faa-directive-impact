@@ -11,10 +11,12 @@ second-model check of the labels used the same model family, so it is not
 independent in the way a person would be. No practitioner has reviewed any of
 it. The fleet is synthetic. Its counts are what the rules output on that
 fleet, and they say nothing about any real operator's engines. This post
-makes one claim: for the 16 V2500-A5/D5/E5 directives that retrieval finds
-for the demo fleet, the project now has hand-written rules, cases written
-before any model draft, and a paired, disclosed score under the gates frozen
-on 2026-10-06. Whether any of those directives becomes `evaluated` depends on
+makes one claim. Retrieval finds 16 V2500-A5/D5/E5 directives for the demo
+fleet. Each now has a hand-written reference rule record. Fourteen of them
+also have cases written before any model draft, and a paired, disclosed
+score on 77 units under the gates frozen on 2026-10-06. AD 2025-19-13 keeps
+its S1 evaluation, and AD 2012-09-09, which is superseded, has no scored
+unit. Whether any of those directives becomes `evaluated` depends on
 results that are still pending.*
 
 ## Why coverage
@@ -186,8 +188,8 @@ are the rules baseline. They play the part S1 and the B3 references played.
 
 ### A second-model blind check of the labels
 
-The labels were checked by a second model, blind, with disagreements settled
-by Claude acting for the owner
+The labels went through a second-model blind check, with disagreements
+settled by Claude acting for the owner
 ([`critique/2026-10-15-label-check.md`](../evaluation/coverage/critique/2026-10-15-label-check.md)).
 
 - **The packet.** A separate Claude Opus subagent got each case's facts and
@@ -262,8 +264,10 @@ directives under 2.1. Here is what remains, from the v2.1 report:
   relationship between the two directives. Citing it would be a
   fabrication under gate 6. Reported, not patched.
 
-Every remaining failure is safe in direction: a wrong number, or a review
-sent where a decision was possible. None is a false clear. Gates 5 and 11
+None is a false clear: gate 1 passes on all 14 directives. Not every
+remaining failure is harmless. Two units settled `action_required` with a
+wrong or missing cycle count. cov-059 expected 17,000 engine cycles and got
+19,400; cov-050 computed none (`report.json`, gate 8 detail). Gates 5 and 11
 are judged by hand and are still pending in both runs.
 
 ### Model drafting
@@ -335,10 +339,12 @@ the project cannot obtain.
 Each count is per document, not combined. The mechanism is simple. These
 directives name a hub or disk part number in their own text but print the
 affected serial numbers only in the manufacturer's bulletin. The fleet
-generator puts the directive-named part numbers on most engines (195
-engines match AD 2016-18-10 by part number). So every one of those engines
-has the part, and the screen cannot tell whether its serial is on the list.
-It sends the engine to review and names the document.
+generator gives the generated engines the directive-named hub part numbers
+2A5001 and 2A4802 ([`demo/README.md`](../demo/README.md), "Part
+Numbers"). So those engines carry the part, and the screen cannot tell
+whether its serial is on the list. It sends the engine to review and names
+the document. AD 2022-02-09, AD 2024-11-03, and AD 2021-14-19 each send all
+200 engines to review (`fleet-screen.json`, `directives[].outcomes`).
 
 **These counts come from the rules running on a synthetic fleet. They are
 not findings about any real fleet.** They are mostly a product of the

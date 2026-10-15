@@ -29,13 +29,13 @@ say the file name rather than round a number.*
 > FAA airworthiness directives are legally binding orders to inspect or
 > replace engine parts. The FAA publishes 300 to 400 final ones a year. The
 > hard part isn't noticing them. It's checking each one against every
-> engine's part and serial numbers, cycles, and shop visits. I built a
-> system for one engine family, the IAE V2500, that does that check with
+> engine's part and serial numbers, cycles, and shop visits. I designed
+> and directed, with Claude writing the code, a system for one engine family, the IAE V2500, that does that check with
 > deterministic rules. Every answer cites the paragraph it rests on, and
 > anything it can't decide goes to review with the missing fact named. I
 > scored it against an LLM reading the directive directly, on cases and
-> gates I froze before any run. Plain rules passed every gate; no model
-> setting matched them.
+> gates I froze before any run. On that one directive, plain rules
+> passed every gate; no model setting matched them.
 
 Sources: `APPROACH.md` ("The Problem", 2022 to 2025 counts);
 `writeups/02-evaluated.md` ("Results").
@@ -53,8 +53,9 @@ Sources: `APPROACH.md` ("The Problem", 2022 to 2025 counts);
    every fetch, publishes immutable generations, and promotes a generation
    only when it is complete and validated. The first accepted set: 12 of 12
    artifacts, 54 of 54 checks (`writeups/01-reproducible.md`).
-3. **Evaluated against a frozen bar.** I wrote 29 edge-case cases (33
-   scoring units, 18 for AD 2025-19-13) and froze 14 gates before any run.
+3. **Evaluated against a frozen bar.** Claude, under my direction, wrote 29
+   edge-case cases (33 scoring units, 18 for AD 2025-19-13), and 14 gates
+   were frozen before any run.
    Nine gates are protected, where one failure fails the system: no false
    clear, no made-up citation, exact cycle arithmetic
    (`evaluation/GATES.md`).
@@ -69,8 +70,9 @@ Sources: `APPROACH.md` ("The Problem", 2022 to 2025 counts);
    publishes a freshness page that turns STALE after 48 hours
    (`DISCOVERY_SYNC.md`).
 6. **Widened.** Retrieval now finds every directive an engine might fall
-   under. I wrote rules and cases for all 16 V2500 directives it finds, plus
-   a 200-engine demo fleet shaped like the real U.S. registry
+   under. It finds 16 V2500 directives. Each now has a reference rule
+   record, and 14 are scored on new cases (77 units). There is also a
+   200-engine demo fleet shaped like the real U.S. registry
    (`evaluation/RETRIEVAL.md`, `writeups/03-full-coverage.md`).
 7. **Conclusion.** Use the model to draft rules, once per directive, where a
    person proofreads them once. Then let the rules decide for every engine.
@@ -213,7 +215,7 @@ Code is under `src/faa_directive_impact/`, organized by domain: `acquisition/`,
 |---|---|---|---|---|
 | S1 rules | 0 | 0 | ~$0 | Rules reproduce one reading of the directive, with citations |
 | B2, Sonnet 5.5 high (best setting) | 2.0 | 0 | $0.565 per 33-unit run | Asking a model each time is not as good as the rules, and costs per engine |
-| B2, other six settings | 1.0 to 9.7 | up to 1.0 per run | $0.024 to $0.443 per run | Lower effort misread paragraph (g) as "no shop visit, no deadline" |
+| B2, other six settings | 1.0 to 9.7, on the units each setting answered | up to 1.0 per run, counted over all 33 units (seed-013, AD 2026-17-03, outside the 18) | $0.024 to $0.443 per run | Lower effort misread paragraph (g) as "no shop visit, no deadline" |
 | B3, Opus 5.5 high drafts rules | 10 (all gate 8) | 0 | $0.35 for three runs | 17/17 fields right, but one clause left "unclear": a safe failure |
 
 Source: `writeups/02-evaluated.md`, "Results". More points to know:
@@ -294,13 +296,19 @@ Source: `writeups/02-evaluated.md`, "Results". More points to know:
    Yes, on purpose. The evaluated claim is V2500-A5/D5/E5. Discovery covers
    every FAA AD since 1994, but it makes no correctness claim. Widening
    discovery is cheap. Widening an evaluated claim needs its own fields,
-   cases, and gates (`ROADMAP.md`, "Corpus Layers"). Within V2500 I went
-   from one directive to all 16 that retrieval finds.
+   cases, and gates (`ROADMAP.md`, "Corpus Layers"). Within V2500 the work
+   went from one directive to reference rules for all 16 that retrieval
+   finds, 14 of them scored on new cases. How many become evaluated is
+   PENDING.
 
 4. **How would you scale to all engine families?**
-   - The pipeline stays as it is. Acquisition, sync, retrieval, and the
-     interpreter are already family-agnostic, and the sync already reads
-     every AD.
+   - Some of the pipeline carries over unchanged: acquisition, receipts,
+     generations, retrieval's identifier index, and the interpreter. The
+     sync already searches every AD.
+   - Some is V2500-specific today. The sync reads only IAE directives in
+     full, and the scope reader that sets coverage state looks for V2500
+     models (`DISCOVERY_SYNC.md`, steps 3 and 4). Both would need to change
+     for each family.
    - What scales per directive is a rule record: a model drafts it once, the
      serial guard and schema check it, and a person proofreads it.
    - What scales per family is cases and gates. That is human work, and it
