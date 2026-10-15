@@ -96,6 +96,9 @@ A newly published in-scope directive becomes visible the day it syncs, as
    a screening tool, not a compliance determination, and uses no FAA branding.
 10. **Evaluate a bounded agent** — only if fixed-workflow traces demonstrate a
    feedback-dependent limitation that an agent can improve safely.
+   *Decided: not justified ([`evaluation/AGENT_DECISION.md`](evaluation/AGENT_DECISION.md)).
+   None of the four limitations the vault names appears in the traces; the
+   residual failures need an authority's answer, not iteration.*
 
 ## User Evidence
 
