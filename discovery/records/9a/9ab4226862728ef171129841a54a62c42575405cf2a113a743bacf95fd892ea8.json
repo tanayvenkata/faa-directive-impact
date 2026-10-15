@@ -1,0 +1,83 @@
+{
+  "ad_numbers": [
+    "2015-10-04"
+  ],
+  "coverage_state": "outside_supported_scope",
+  "document_number": "2015-12068",
+  "effective_on": "2015-07-01",
+  "entry_sha256": "bec98430102ac6efd9d5051d2a3aa1a959b7e964638b2212db4b192a261edc96",
+  "evidence": {
+    "api_json": {
+      "receipt_id": "receipt-20261015T183320Z-a2ab4ad7",
+      "receipt_path": "receipts/run-20261015T183318Z-1e214e93/receipt-20261015T183320Z-a2ab4ad7.json",
+      "run_id": "run-20261015T183318Z-1e214e93"
+    },
+    "full_text_xml": {
+      "receipt_id": "receipt-20261015T183320Z-45514781",
+      "receipt_path": "receipts/run-20261015T183318Z-1e214e93/receipt-20261015T183320Z-45514781.json",
+      "run_id": "run-20261015T183318Z-1e214e93"
+    },
+    "search": {
+      "receipt_id": "receipt-20261011T165836Z-55fa20f1",
+      "receipt_path": "receipts/run-20261011T165831Z-6cea777a/receipt-20261011T165836Z-55fa20f1.json",
+      "run_id": "run-20261011T165831Z-6cea777a"
+    }
+  },
+  "faa_dockets": [
+    "FAA-2009-1100"
+  ],
+  "first_seen_generation_id": "gen-20261011T165831Z-6cea777a",
+  "html_url": "https://www.federalregister.gov/documents/2015/05/27/2015-12068/airworthiness-directives-international-aero-engines-ag-turbofan-engines",
+  "incorporated_material": {
+    "items": [
+      "International Aero Engines Alert Non-Modification Service Bulletin No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014.",
+      "Reserved."
+    ],
+    "paragraph": "o"
+  },
+  "kind": "final_rule",
+  "publication_date": "2015-05-27",
+  "replaced_ads": [
+    "2012-09-09"
+  ],
+  "review_reason": "Paragraph (c) names V2500 designations outside A5/D5/E5: V2500-A1",
+  "scope": {
+    "basis": "review",
+    "coverage_state": "outside_supported_scope",
+    "detail": "Paragraph (c) names V2500 designations outside A5/D5/E5: V2500-A1",
+    "models": [],
+    "needs_review": true
+  },
+  "source_entry": {
+    "action": "Final rule.",
+    "citation": "80 FR 30138",
+    "correction_of": null,
+    "corrections": [],
+    "docket_ids": [
+      "Docket No. FAA-2009-1100",
+      "Directorate Identifier 2009-NE-37-AD",
+      "Amendment 39-18159",
+      "AD 2015-10-04"
+    ],
+    "document_number": "2015-12068",
+    "effective_on": "2015-07-01",
+    "html_url": "https://www.federalregister.gov/documents/2015/05/27/2015-12068/airworthiness-directives-international-aero-engines-ag-turbofan-engines",
+    "publication_date": "2015-05-27",
+    "title": "Airworthiness Directives; International Aero Engines AG Turbofan Engines",
+    "type": "Rule"
+  },
+  "title": "Airworthiness Directives; International Aero Engines AG Turbofan Engines",
+  "versions": [
+    {
+      "entry_sha256": "bec98430102ac6efd9d5051d2a3aa1a959b7e964638b2212db4b192a261edc96",
+      "generation_id": "gen-20261011T165831Z-6cea777a",
+      "search_receipt_id": "receipt-20261011T165836Z-55fa20f1"
+    },
+    {
+      "change": "reread_scope",
+      "entry_sha256": "bec98430102ac6efd9d5051d2a3aa1a959b7e964638b2212db4b192a261edc96",
+      "generation_id": "gen-20261015T183318Z-1e214e93",
+      "search_receipt_id": "receipt-20261011T165836Z-55fa20f1"
+    }
+  ]
+}
