@@ -249,16 +249,19 @@ blind.** Both runs are reported:
 |---|---|---|---|---|
 | reference v2.0 | v2 | 2 of 14 | 2 (cov-067, cov-076) | [`report.md`](../evaluation/runs/coverage-reference-v2.0-20261015T192640Z/report.md) |
 | reference v2.1 | 3 | 7 of 14 | 0 | [`report.md`](../evaluation/runs/coverage-reference-v2.1-20261015T194038Z/report.md) |
+| reference v2.1, re-scored (deviation 8) | 3 | 8 of 14 | 0 | [`report.md`](../evaluation/runs/coverage-reference-v2.1-index-fix-20261015T225944Z/report.md) |
 
-Even the hand-written references fail mechanical gates on 7 of 14
-directives under 2.1. Here is what remains, from the v2.1 report:
+The re-scored row uses the fixed section index described below, and the
+corrected cov-017 label, committed four minutes after the first v2.1 run.
+Under it cov-017 passes. Even so, the hand-written references fail
+mechanical gates on 6 of 14 directives. Here is what remains:
 
 - **Gate 8, exact arithmetic.** AD 2019-16-01, 2019-18-01, 2024-11-03.
 - **Gate 12, needless escalation, over budget.** AD 2019-16-01, 2024-11-03,
   and the ALS directive AD 2025-17-16, which does not read a program
   revision stated only in words.
-- **Gate 4, every missing fact named.** cov-017 and cov-026, failing before
-  and after their format correction.
+- **Gate 4, every missing fact named.** cov-026, failing before and after
+  its format correction.
 - **Gate 10, required evidence cited.** cov-006 on AD 2022-02-09. It needs
   a citation to AD 2024-11-03 (i), but the frozen manifest records no
   relationship between the two directives. Citing it would be a
@@ -282,9 +285,46 @@ a cost of $0.1323
 Then Claude Opus 5.5 at high effort drafts all 16 directives in one recorded
 run, and Claude proofreads each draft as the owner's stand-in.
 
-<!-- RESULTS PENDING: drafting run. From evaluation/runs/coverage-<label>-<stamp>/summary.json of the one recorded drafting run (label not fixed in code; see coverage_drafts.run): total cost_usd; how many of 16 drafts are valid (schema plus serial guard); any stop_reason other than end_turn; any serial-guard problems by directive. -->
+The drafting run cost $2.31 for 16 drafts. All 16 validated against the
+schema and passed the serial guard, and every one ended normally
+([`summary.json`](../evaluation/runs/coverage-drafts-opus-5-5-high-20261015T195012Z/summary.json)).
+The run nearly went unrecorded. The process that submitted the batch
+stopped before results came back, and it had kept the batch id only in
+memory. The batch was found in the account's batch list and collected
+unchanged when it ended. Every result's request hash matched the rebuilt
+request, so the 16 requests are the ones submitted. The runner now saves
+the batch id at submission (deviation 7).
 
-<!-- RESULTS PENDING: raw drafts scored. From evaluation/runs/coverage-<raw-draft label>-<stamp>/report.md: directives passing every mechanical gate (of 14), and gate 1 failures, in the same table form as the two reference runs above. -->
+Scored raw, before any proofread:
+
+| Run | Records | Directives passing every mechanical gate | Gate 1 (false clear) failures | Source |
+|---|---|---|---|---|
+| raw drafts | model, unreviewed | 4 of 14 | 0 | [`report.md`](../evaluation/runs/coverage-drafts-raw-20261015T225328Z/report.md) |
+| raw drafts, re-scored (deviation 8) | model, unreviewed | 4 of 14 | 0 | [`report.md`](../evaluation/runs/coverage-drafts-raw-index-fix-20261015T225944Z/report.md) |
+
+The raw drafts cleared no engine that needed action. They failed more
+often than the hand-written references, almost always on the safe side:
+21 needless escalations against the references' 10 (gate 12), six missing
+facts left unnamed (gate 4), seven arithmetic misses (gate 8), and six
+units with required evidence uncited (gate 10).
+
+The first scoring also showed six fabricated citations (gate 6), all on AD
+2015-10-04, all to paragraphs (e)(2) to (e)(5). The draft was right and the
+scorer was wrong. That directive sets each numbered subparagraph of (e) as
+its own heading, and the section index read numbered items only from body
+text, so it never indexed them. The hand-written reference had cited only
+paragraphs the index knew, because a test requires exactly that, so the
+bug never showed. The index now reads those headings, with a regression
+test. No seed-generation document changes, so S1, B2, and B3 stand. Both
+runs were re-scored, and the gate 6 failures are gone (deviation 8).
+
+The raw drafts were scored before the proofread, so the session running
+the evaluation knew which units they failed. The proofread was therefore
+handed to a separate agent under a brief frozen first
+([`PROOFREAD_BRIEF.md`](../evaluation/coverage/reviewed/PROOFREAD_BRIEF.md)).
+That agent saw each draft and its directive text, but not the cases, the
+scores, or the reference records. Its blindness rests on instruction, not
+on file access, and it is the same model family as the drafter.
 
 <!-- RESULTS PENDING: stand-in proofread. Count of changed fields per directive and in total, with each reason, from the stand-in proofread change log. The pre-registration does not fix where this log is written; cite its path once it exists. This count replaces proofreading time, which cannot be measured honestly here. -->
 

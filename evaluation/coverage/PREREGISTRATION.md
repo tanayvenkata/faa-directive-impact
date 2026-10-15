@@ -199,3 +199,20 @@ Recorded 2026-10-15, in order.
    `evaluation/coverage/reviewed/CHANGES.md`. The reviewed records are scored
    once; a directive that then fails a gate stays `not_yet_evaluated` and is
    not proofread again.
+8. **Scorer fix: numbered subparagraphs set as headings.** All six gate 6
+   failures in the raw-draft run were citations to AD 2015-10-04 paragraphs
+   (e)(2) to (e)(5). Those paragraphs exist: the directive sets each
+   numbered subparagraph of (e) as its own heading, and the section index
+   (`index_paragraphs`) read numbered items only from body text, so it never
+   indexed them. The index now opens a numbered subparagraph from a heading
+   too, with a regression test. The fix changes the index of no document in
+   the seed generation (`gen-20260926T215105Z-7fe9da08`), so S1, B2, and B3
+   results are unchanged; in the coverage generation it adds (e)(1) to
+   (e)(5) to AD 2015-10-04 only. It was found after the raw drafts were
+   scored and before any reviewed record exists. Both earlier runs were
+   re-scored with it, paired with the originals:
+   `coverage-reference-v2.1-index-fix-20261015T225944Z` and
+   `coverage-drafts-raw-index-fix-20261015T225944Z`. The reference re-score
+   also picks up the cov-017 label correction (`0266f4d`), committed four
+   minutes after the original v2.1 run, under which cov-017 passes gate 4.
+   The reviewed records are scored with the fixed index.

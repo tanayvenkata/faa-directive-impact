@@ -36,6 +36,22 @@ def test_note_headings_do_not_end_the_paragraph_index() -> None:
     assert ids == ["(g)", "(g)(1)", "(g)(2)"]
 
 
+def test_numbered_subparagraphs_set_as_headings_are_indexed() -> None:
+    xml = b"""<RULE><SUPLINF>
+<HD SOURCE="HD1">(e) Compliance</HD>
+<P>Comply with this AD.</P>
+<HD SOURCE="HD1">(1) Initial USI of the Drum, Group A</HD>
+<P>For engines in Group A, inspect within 200 cycles.</P>
+<HD SOURCE="HD1">(2) Initial USI of the Drum, Group C</HD>
+<P>For engines in Group C, inspect within 200 cycles.</P>
+<HD SOURCE="HD1">(f) Repetitive USIs</HD>
+<SIG><NAME>Signer</NAME></SIG></SUPLINF></RULE>"""
+
+    paragraphs = index_paragraphs(ElementTree.fromstring(xml))
+
+    assert [p["id"] for p in paragraphs] == ["(e)", "(e)(1)", "(e)(2)", "(f)"]
+
+
 def document(number: str, published: date) -> SourceDocument:
     return SourceDocument(number, "Rule", published, None, number, b"<RULE/>")
 
