@@ -12,9 +12,10 @@
 - **Model:** Claude Opus 5.5 at high effort, 3 repeats (Batches API)
 - **Pre-registered:** [`b3/PREREGISTRATION.md`](b3/PREREGISTRATION.md),
   committed before any run was read
-- **Status:** mechanical results final. Proofreading time, the ambiguity
-  meaning check, and the AD 2026-17-03 labels and reference record await the
-  owner ([`review/b3-opus-r1/`](review/b3-opus-r1/))
+- **Status:** mechanical results final. On 2026-10-15 the owner waived the
+  proofread, the ambiguity meaning check, and confirming the AD 2026-17-03
+  labels and reference record ([`review/b3-opus-r1/`](review/b3-opus-r1/)).
+  Proofreading time is not measured; the other two are Claude's judgment only
 
 ## The Short Version
 
@@ -187,21 +188,19 @@ That is the cost B3 is meant to remove.
   the interpreter lacks; until then, its actions go to review.
 - **The references and labels share an author with the interpreter (Claude).**
   Agreement shows consistency with one reading, as S1's does. AD 2026-17-03's
-  labels and reference are drafts awaiting the owner, and its results do not
+  labels and reference are Claude drafts no person confirmed, and its results do not
   widen the evaluated claim beyond AD 2025-19-13.
-- **Proofreading time is not measured yet.** It is the third B3 measure in
-  `APPROACH.md` and needs a person with a timer. It will not be fully blind:
-  the owner saw the headline results (every data field right; (g) coded
-  unclear) in Claude's progress messages before proofreading, which can make
-  the proofread faster and better aimed. The sheet records whether the
-  proofreader saw results first.
+- **Proofreading time is not measured.** It is the third B3 measure in
+  `APPROACH.md` and needs a person with a timer; the owner waived it on
+  2026-10-15. Any later proofread would not be blind: the owner has seen the
+  headline results.
 - **Not every paragraph label is scored.** Listed-part and eligible-part rows
   are compared on their identifiers and limits, not their paragraph labels.
 
 ## Next
 
-- Owner: proofread repeat 1 with a timer, then check the ambiguity readings
-  ([`review/b3-opus-r1/`](review/b3-opus-r1/)).
+- If time allows later: a person proofreads repeat 1 with a timer and
+  checks the ambiguity readings ([`review/b3-opus-r1/`](review/b3-opus-r1/)).
 - One proofreading correction closes the gap. Changing only the (g)
   combination from `"unclear"` to "whichever occurs later" in each repeat's
   draft reproduces the reference's applicability, status, and computed

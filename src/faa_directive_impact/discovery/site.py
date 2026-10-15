@@ -234,7 +234,12 @@ def _status(
     def when(attempt: dict[str, Any] | None) -> str:
         if attempt is None:
             return "never"
-        return f"{attempt['started_at_utc']} ({attempt.get('outcome', 'unknown')})"
+        # The page header uses the finish time; show both so they agree.
+        finished = attempt.get("finished_at_utc")
+        span = f"started {attempt['started_at_utc']}" + (
+            f", finished {finished}" if finished else ""
+        )
+        return f"{span} ({attempt.get('outcome', 'unknown')})"
 
     outcome_class = (
         "ok" if last and last.get("outcome") in SUCCESSFUL_OUTCOMES else "bad"
@@ -245,7 +250,15 @@ def _status(
             f'<span class="{outcome_class}">{escape(when(last))}</span>',
         ),
         ("Last successful sync", escape(when(last_success))),
-        ("Checkpoint", escape(active["checkpoint"]) if active else "none yet"),
+        (
+            "Checkpoint",
+            f"{escape(active['checkpoint'])}: the latest publication date read. "
+            "The Federal Register lists documents a few days before they "
+            "publish, so this can be later than today. The next sync starts "
+            "here."
+            if active
+            else "none yet",
+        ),
         (
             "Coverage",
             "FAA airworthiness directives published on or after "
@@ -296,8 +309,10 @@ def _status(
 
 
 def _failures(last: dict[str, Any] | None) -> str:
-    if last is None or not last.get("failures"):
+    if last is None:
         return ""
+    if not last.get("failures"):
+        return '<p class="ok">No failures in the last attempt.</p>'
     items = "".join(f"<li>{escape(f)}</li>" for f in last["failures"][:MAX_LISTED])
     return f'<h2 class="bad">Failures in the last attempt</h2><ul>{items}</ul>'
 

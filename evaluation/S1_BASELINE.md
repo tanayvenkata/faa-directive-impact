@@ -4,8 +4,8 @@
 - **Run:** [`runs/s1-20261006T223638Z-6a301b1/`](runs/s1-20261006T223638Z-6a301b1/)
   at commit `6a301b1`, gate version 1, source generation
   `gen-20260926T215105Z-7fe9da08`
-- **Decision:** **go**, provisional until the project owner confirms the
-  hand review (gates 5 and 11)
+- **Decision:** **go**; the hand-checked gates 5 and 11 were judged by Claude
+  only (the owner waived confirmation on 2026-10-15)
 
 ## What Was Built
 
@@ -94,12 +94,13 @@ Under the GATES.md Verdicts section:
 - **not constrain:** no aggregate gate failed on any slice.
 - **not switch:** no protected gate failed.
 
-The decision is provisional only because gates 5 and 11 were first-pass
-reviewed by Claude, which also wrote the output being reviewed. It becomes
-final when the project owner checks `hand-review.yaml`, sets
-`reviewer_confirmed: true`, and reruns `make s1-conclude`. If the owner
-records a failure, the unit is `unresolved` until its label is checked
-(GATES.md, "Disputed Labels"), and this decision is revisited.
+Gates 5 and 11 were reviewed by Claude, which also wrote the output being
+reviewed. On 2026-10-15 the project owner waived confirming that review, so
+`hand-review.yaml` keeps `reviewer_confirmed: false` and the run's verdict
+files are unchanged. If a person later checks the sheet, sets
+`reviewer_confirmed: true`, and reruns `make s1-conclude`, a recorded failure
+makes the unit `unresolved` until its label is checked (GATES.md, "Disputed
+Labels"), and this decision is revisited.
 
 **What go means:** plain rules express everything AD 2025-19-13 needs on this
 suite. They remain the baseline that later approaches are scored against on

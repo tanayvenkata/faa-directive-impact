@@ -5,9 +5,9 @@
   with no hand-written rules, how close does it get to the rules (S1)?
 - **Scored under:** frozen gates v1, the same 33 units as S1, prompt version
   `e0a54c1578a5`
-- **Status:** mechanical results final. Gates 5 and 11 have a first-pass
-  hand review by Claude on Sonnet repeat 1 at medium and high effort,
-  awaiting the owner (`evaluation/review/b2-sonnet-r1/`)
+- **Status:** mechanical results final. Gates 5 and 11 have a hand review
+  by Claude only, on Sonnet repeat 1 at medium and high effort; the owner
+  waived confirming it on 2026-10-15 (`evaluation/review/b2-sonnet-r1/`)
 
 ## The Short Version
 
@@ -161,7 +161,7 @@ Each was recorded in the run directories and commits when it happened.
   seen them in training. This does not affect the models run here.
 - **Hand-checked gates are a first pass.** Gates 5 (forbidden claims) and 11
   (timing wording) were checked by Claude on Sonnet repeat 1 at medium and
-  at high effort, and the owner has not confirmed either. At medium the
+  at high effort; the owner waived confirming either (2026-10-15). At medium the
   shop-visit misreading contradicts the expected timing on 10 of the 18 S1
   units; at high, on 2 (seed-005 and seed-018). The other settings and
   repeats have no hand review.
