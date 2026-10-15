@@ -1,0 +1,57 @@
+schema_version: "1.1.0"
+case_id: cov-058
+title: D5 engine past the initial TEC inspection limit with no AD record
+slice: operator_assertion
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The pre-registered Operator Records rule: with no record, for an action
+    whose deadline has passed against facts that make the directive apply, the
+    outcome is needs_review naming ad_records[AD 2019-16-01]. The engine has
+    flown 11,000 FC since the effective date, well past the 4,000-FC limit of
+    paragraph (g)(1), and no inspection is recorded.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c058
+    engine_serial_number: SYN-V2500-c058
+    engine_model: V2525-D5
+    snapshot_at: "2026-10-15"
+    engine_cycle_readings:
+      - {at: "2019-09-19", engine_flight_cycles: 30000}
+      - {at: "2026-10-15", engine_flight_cycles: 41000}
+  installed_components: []
+  events: []
+directive_candidates: ["2019-17403"]
+expected:
+  - directive: "2019-17403"
+    controlling_ad: AD 2019-16-01
+    authority_state: in_force
+    applicability: applies
+    action_status: needs_review
+    reason: >-
+      V2525-D5 is listed in paragraph (c). The paragraph (g)(1) limit was 4,000
+      FC after 2019-09-19, engine counter 30,000 + 4,000 = 34,000; the counter
+      now reads 41,000. No inspection and no AD record for AD 2019-16-01 is
+      supplied, so whether the initial inspection and the paragraph (g)(2)
+      repeats were done cannot be determined from these facts.
+    required_evidence:
+      - {document: "2019-17403", paragraph: "(c)"}
+      - {document: "2019-17403", paragraph: "(g)(1)"}
+      - {document: "2019-17403", paragraph: "(g)(2)"}
+    required_missing_facts:
+      - ad_records[AD 2019-16-01]
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2019-16-01.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - The inspection is overdue.
+  - The inspection was done, presented as settled.
+  - AD 2019-16-01 does not apply to this engine.

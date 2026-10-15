@@ -1,0 +1,68 @@
+schema_version: "1.1.0"
+case_id: cov-075
+title: E5 air-carrier engine with a complied ALS record and a revised program
+slice: operator_assertion
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The pre-registered Operator Records rule: a complied record for an action
+    whose deadline (2026-01-08) has passed gives no_action_triggered with the
+    standard note. The stated program revision agrees with the record. The
+    E5 engine takes the V2500-E5 TLM of paragraph (g)(1)(iii).
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c075
+    engine_serial_number: SYN-V2500-c075
+    engine_model: V2531-E5
+    snapshot_at: "2026-10-15"
+  installed_components: []
+  events: []
+  operator:
+    air_carrier_operation: "yes"
+    maintenance_program_revision: >-
+      Revision 51 (2025-12-15): paragraph B.1 of the ALS in the V2500-E5 TLM
+      (P/N 2A4384, TASK 05-10-00-990-000-A00) and the approved maintenance
+      program both incorporate table 1 to paragraph (g) of AD 2025-17-16.
+  ad_records:
+    - ad: AD 2025-17-16
+      recorded_status: complied
+      detail: ALS and approved program revised 2025-12-15 (Revision 51).
+directive_candidates: ["2025-17066"]
+expected:
+  - directive: "2025-17066"
+    controlling_ad: AD 2025-17-16
+    authority_state: in_force
+    applicability: applies
+    action_status: no_action_triggered
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Once the paragraph (g) revisions are made, no alternative actions are allowed without an approved AMOC.
+    reason: >-
+      V2531-E5 is listed in paragraph (c). Paragraphs (g)(1)(iii) and (g)(2)
+      required the ALS and program revisions by 2026-01-08. The operator's AD
+      record shows this action accomplished; this screen does not verify it.
+      The stated program revision (Revision 51, 2025-12-15) is consistent with
+      the record.
+    required_evidence:
+      - {document: "2025-17066", paragraph: "(c)"}
+      - {document: "2025-17066", paragraph: "(g)(1)(iii)", locator: "V2500-E5 TLM P/N 2A4384, TASK 05-10-00-990-000-A00"}
+      - {document: "2025-17066", paragraph: "(g)(2)"}
+      - {document: "2025-17066", paragraph: "(h)"}
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2025-17-16.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - The operator's AD record is verified.
+  - AD 2025-17-16 no longer applies to this engine.
+  - The table 1 hub inspections are no longer required.
+notes: >-
+  The table 1 inspections now live in the ALS and are scheduled at piece-part
+  exposure by the program; the AD itself requires only the revisions.

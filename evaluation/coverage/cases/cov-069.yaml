@@ -1,0 +1,74 @@
+schema_version: "1.1.0"
+case_id: cov-069
+title: In-range D5 engine with a No. 4 bearing internal scavenge tube past 10,000 cycles
+slice: shop_visit_trigger
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) needs all three: a V2525-D5 or V2528-D5 engine with S/N
+    V20001 through V20285, internal scavenge tube P/N 2A2074-01 installed, and
+    external scavenge tube P/N 6A5254 installed. All hold. The internal tube
+    has 12,400 cycles since new, past the 10,000-cycle threshold, so paragraph
+    (f) requires its replacement at each combustor module-level exposure. The
+    AD sets no cycle or calendar deadline, only the exposure event.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c069
+    engine_serial_number: V20150
+    engine_model: V2528-D5
+    snapshot_at: "2026-10-15"
+  installed_components:
+    - component_name: No. 4 bearing internal scavenge tube
+      part_number: 2A2074-01
+      serial_number: SYN-ISCT-c069
+      cycles_since_new: 12400
+    - component_name: No. 4 bearing external scavenge tube
+      part_number: 6A5254
+      serial_number: SYN-ESCT-c069
+  events: []
+directive_candidates: ["2013-08448"]
+expected:
+  - directive: "2013-08448"
+    controlling_ad: AD 2013-07-10
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required_on_event
+    continuing_obligations:
+      - paragraph: "(g)"
+        description: At each installation of the No. 4 bearing external scavenge tube P/N 6A5254, check its alignment per IAE NMSB V2500-ENG-72-0630 Revision 1, paragraph 3.A. PART 2, and replace a misaligned tube with a new tube.
+    reason: >-
+      V2528-D5 S/N V20150 is within V20001 through V20285, and both the
+      internal tube P/N 2A2074-01 and the external tube P/N 6A5254 are
+      installed, so paragraph (c) is met. The internal tube has 12,400 cycles
+      since new, which is past 10,000, so paragraph (f) requires replacing it
+      at each combustor module-level exposure (separation of the combustor
+      case and compressor case flanges, paragraph (h)).
+    required_evidence:
+      - {document: "2013-08448", paragraph: "(c)"}
+      - {document: "2013-08448", paragraph: "(f)"}
+      - {document: "2013-08448", paragraph: "(g)"}
+      - {document: "2013-08448", paragraph: "(h)", locator: combustor module-level exposure definition}
+    action_timing:
+      description: >-
+        Conditional. Replace the internal scavenge tube at the next combustor
+        module-level exposure, and at each later one while the installed
+        internal tube has 10,000 or more cycles since new. No cycle or calendar
+        limit applies.
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2013-07-10.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - The internal scavenge tube must be replaced by a cycle or calendar deadline.
+  - The tube's threshold is counted in engine cycles since new.
+  - Replacing the internal tube once ends the AD's requirements for this engine.
+notes: >-
+  The NTSB asked for a hard cycle limit on the internal tube and the FAA
+  declined (preamble), so the event-only timing is intended.

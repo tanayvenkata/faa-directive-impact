@@ -1,0 +1,56 @@
+schema_version: "1.1.0"
+case_id: cov-072
+title: D5 engine with both listed tubes but an unknown engine serial number
+slice: missing_state
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) turns on the engine serial number (V20001 through V20285) as
+    well as the model and the two tube P/Ns. The model and tubes match, but the
+    serial number is unknown, so applicability cannot be decided.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c072
+    engine_serial_number: unknown
+    engine_model: V2528-D5
+    snapshot_at: "2026-10-15"
+  installed_components:
+    - component_name: No. 4 bearing internal scavenge tube
+      part_number: 2A2074-01
+      serial_number: SYN-ISCT-c072
+      cycles_since_new: 10900
+    - component_name: No. 4 bearing external scavenge tube
+      part_number: 6A5254
+      serial_number: SYN-ESCT-c072
+  events: []
+directive_candidates: ["2013-08448"]
+expected:
+  - directive: "2013-08448"
+    controlling_ad: AD 2013-07-10
+    authority_state: in_force
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      V2528-D5 is a listed model and both P/N 2A2074-01 and P/N 6A5254 are
+      installed, but paragraph (c) also requires an engine S/N from V20001
+      through V20285, and the S/N is unknown. If it is in range, the 10,900-cycle
+      internal tube would be replaced at each combustor module-level exposure.
+    required_evidence:
+      - {document: "2013-08448", paragraph: "(c)", locator: serial numbers V20001 through V20285}
+      - {document: "2013-08448", paragraph: "(f)"}
+    required_missing_facts:
+      - engine.engine_serial_number
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2013-07-10.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - AD 2013-07-10 does not apply to this engine.
+  - AD 2013-07-10 applies to this engine, presented as settled.

@@ -1,0 +1,69 @@
+schema_version: "1.1.0"
+case_id: cov-061
+title: Crack confirmed by local FPI on a TEC mount stiffener rail, case still installed
+slice: exact_match
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (g)(3): if a crack was confirmed by the FPI of paragraph
+    (g)(1)(ii) or (iv), remove the part from service before further flight. The
+    snapshot records a confirmed crack and the TEC still installed. Whether a
+    special flight permit is possible depends on the crack's extent under
+    paragraph (k), which the snapshot does not state; the before-further-flight
+    action does not depend on it.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c061
+    engine_serial_number: SYN-V2500-c061
+    engine_model: V2528-D5
+    snapshot_at: "2026-10-15"
+  installed_components: []
+  events:
+    - event_type: inspection
+      at: "2026-10-14"
+      detail: >-
+        Repeat ECI of the TEC rear mount stiffener rail found a rejectable
+        indication; the local high sensitivity FPI confirmed a crack. The TEC
+        remains installed on the engine, which is on wing.
+      source_note: Asserted by the synthetic operator record.
+directive_candidates: ["2019-17403"]
+expected:
+  - directive: "2019-17403"
+    controlling_ad: AD 2019-16-01
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      V2528-D5 is listed in paragraph (c). A crack was confirmed by the local
+      high sensitivity FPI of paragraph (g)(1)(ii), so paragraph (g)(3)
+      requires removing the TEC from service before further flight and
+      replacing it with a part eligible for installation.
+    required_evidence:
+      - {document: "2019-17403", paragraph: "(c)"}
+      - {document: "2019-17403", paragraph: "(g)(1)(ii)"}
+      - {document: "2019-17403", paragraph: "(g)(3)"}
+      - {document: "2019-17403", paragraph: "(k)", locator: special flight permit limits}
+    action_timing:
+      description: >-
+        Before further flight, remove the cracked TEC from service and replace
+        it with a part eligible for installation. Paragraph (k) bars a special
+        flight permit if the crack extends past the mount stiffener rail or
+        there is an FPI indication on the case outer diameter.
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2019-16-01.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - The TEC may stay in service until the next engine shop visit.
+  - The crack may be blended and the ECI repeated instead of removal.
+  - A special flight permit is available, presented as settled.
+notes: >-
+  The blend-and-repeat path of paragraph (g)(1)(iii) applies only when the FPI
+  does not confirm a crack.

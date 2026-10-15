@@ -1,0 +1,84 @@
+schema_version: "1.1.0"
+case_id: cov-050
+title: Listed engine with a listed LPT stage-6 disk, no piece-part exposure since the AD took effect
+slice: exact_match
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) lists V2527-A5 engine S/N V12329, and the installed LPT
+    stage-6 disk P/N 3A2996 S/N MAP04430 is listed in paragraph (g). The 2022
+    LPT module removal did not completely disassemble the disk, so it was not a
+    piece-part exposure under paragraph (h). The disk has been in this engine
+    since before the readings, so its own cycles and the engine counter advance
+    together.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c050
+    engine_serial_number: V12329
+    engine_model: V2527-A5
+    snapshot_at: "2026-10-15"
+    engine_cycle_readings:
+      - {at: "2019-10-15", engine_flight_cycles: 55500}
+      - {at: "2026-10-15", engine_flight_cycles: 58900}
+  installed_components:
+    - component_name: LPT stage 6 disk
+      part_number: 3A2996
+      serial_number: MAP04430
+      installed_at: "2017-03-02"
+      cycles_since_new: 4200
+      cycles_since_new_readings:
+        - {at: "2019-10-15", cycles_since_new: 800}
+  events:
+    - event_type: component_exposure
+      at: "2022-05-18"
+      detail: >-
+        LPT module removed from the engine for a vane repair. The stage 6 disk
+        stayed assembled in the module and was not disassembled.
+      source_note: Asserted by the synthetic operator record.
+directive_candidates: ["2019-19412"]
+expected:
+  - directive: "2019-19412"
+    controlling_ad: AD 2019-18-01
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      Paragraph (c) lists V2527-A5 engine S/N V12329. The installed LPT stage 6
+      disk P/N 3A2996 S/N MAP04430 is one of the serial numbers paragraph (g)
+      requires removed from service. No piece-part exposure as paragraph (h)
+      defines it (disk removed from the engine and completely disassembled)
+      has occurred since 2019-10-15. The disk has 4,200 cycles since new, so
+      5,000 - 4,200 = 800 cycles remain before the "not to exceed 5,000 cycles
+      from new" limit; 58,900 + 800 = engine counter 59,700.
+    required_evidence:
+      - {document: "2019-19412", paragraph: "(c)", locator: engine serial number V12329}
+      - {document: "2019-19412", paragraph: "(g)", locator: disk S/N MAP04430}
+      - {document: "2019-19412", paragraph: "(h)", locator: piece-part exposure definition}
+    action_timing:
+      description: >-
+        Remove the disk from service and replace it with a part eligible for
+        installation at the next piece-part exposure, and in any case before
+        it exceeds 5,000 cycles since new: at most 800 more cycles, engine
+        counter 59,700. The 2022 module removal was not a piece-part exposure.
+    computed:
+      latest_engine_flight_cycles: 59700
+      component_cycles_remaining: 800
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2019-18-01.
+  - The engine or the disk is safe or airworthy.
+  - The engine is approved for return to service.
+  - The disk was due for removal at the 2022 LPT module removal.
+  - The disk may stay in service past 5,000 cycles since new.
+  - The 5,000-cycle limit is counted in engine cycles since new.
+notes: >-
+  AD 2019-18-01 has no installation prohibition paragraph; none is implied
+  here. "Not to exceed 5,000" is read as inclusive: the disk may reach but not
+  pass 5,000 cycles since new.

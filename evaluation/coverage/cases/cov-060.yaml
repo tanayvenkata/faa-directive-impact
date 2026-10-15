@@ -1,0 +1,74 @@
+schema_version: "1.1.0"
+case_id: cov-060
+title: Recurring TEC inspection record with the next repeat computable
+slice: operator_assertion
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The pre-registered Operator Records rule turns a complied or recurring
+    record into no_action_triggered only for an action whose deadline has
+    passed. That covers the paragraph (g)(1) initial inspection here. The
+    next paragraph (g)(2) repeat is a future deadline computable from the
+    recorded last inspection, so it is reported as a required action with its
+    limit, not cleared by the record.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c060
+    engine_serial_number: SYN-V2500-c060
+    engine_model: V2525-D5
+    snapshot_at: "2026-10-15"
+    engine_cycle_readings:
+      - {at: "2025-11-03", engine_flight_cycles: 52100}
+      - {at: "2026-10-15", engine_flight_cycles: 53000}
+  installed_components: []
+  events:
+    - event_type: inspection
+      at: "2025-11-03"
+      engine_flight_cycles_at_event: 52100
+      detail: >-
+        Repeat ECI and high sensitivity FPI of the TEC front and rear mount
+        stiffener rails under paragraph (g)(2). No crack found.
+      source_note: Taken from the operator's AD record entry for AD 2019-16-01.
+  ad_records:
+    - ad: AD 2019-16-01
+      recorded_status: recurring
+      detail: Initial inspection 2020-08; repeats per (g)(2); last 2025-11-03 at 52,100 FC, no crack.
+directive_candidates: ["2019-17403"]
+expected:
+  - directive: "2019-17403"
+    controlling_ad: AD 2019-16-01
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      V2525-D5 is listed in paragraph (c). The operator's AD record shows the
+      initial inspection and repeats accomplished; this screen does not verify
+      it. The last recorded inspection, at 52,100 FC with no crack, sets the
+      paragraph (g)(2) repeat: 52,100 + 2,000 = engine counter 54,100.
+    required_evidence:
+      - {document: "2019-17403", paragraph: "(c)"}
+      - {document: "2019-17403", paragraph: "(g)(2)"}
+    action_timing:
+      description: >-
+        Repeat the paragraph (g)(1)(i) to (iv) inspections by engine counter
+        54,100 (1,100 FC after the snapshot), then within every 2,000 FC since
+        the last inspection.
+    computed:
+      latest_engine_flight_cycles: 54100
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2019-16-01.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - No further inspection is required because the AD record shows it accomplished.
+  - The operator's AD record is verified.
+notes: >-
+  The recorded last inspection is an operator claim; a person checks it
+  against the record of accomplishment before relying on the 54,100 limit.

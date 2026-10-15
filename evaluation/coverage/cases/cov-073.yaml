@@ -1,0 +1,73 @@
+schema_version: "1.1.0"
+case_id: cov-073
+title: In-range engine whose internal scavenge tube is below 10,000 cycles
+slice: cycle_limit
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The AD applies (paragraph (c) is met). Paragraph (f) requires replacement
+    only at a combustor module-level exposure "after" the tube has accumulated
+    10,000 cycles since new. At 6,000 cycles, an exposure today would require
+    nothing, so the label is no_action_triggered, with paragraphs (f) and (g)
+    as continuing obligations, rather than action_required_on_event. The
+    labeling rule used: an action whose trigger also needs a count not yet
+    reached is not on_event until the count is reached. This choice is
+    Claude's stand-in judgment and is reported as an ambiguity.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c073
+    engine_serial_number: V20200
+    engine_model: V2528-D5
+    snapshot_at: "2026-10-15"
+  installed_components:
+    - component_name: No. 4 bearing internal scavenge tube
+      part_number: 2A2074-01
+      serial_number: SYN-ISCT-c073
+      installed_at: "2021-03-09"
+      cycles_since_new: 6000
+    - component_name: No. 4 bearing external scavenge tube
+      part_number: 6A5254
+      serial_number: SYN-ESCT-c073
+  events: []
+directive_candidates: ["2013-08448"]
+expected:
+  - directive: "2013-08448"
+    controlling_ad: AD 2013-07-10
+    authority_state: in_force
+    applicability: applies
+    action_status: no_action_triggered
+    continuing_obligations:
+      - paragraph: "(f)"
+        description: Once the internal scavenge tube P/N 2A2074-01 has 10,000 cycles since new, replace it at each combustor module-level exposure.
+      - paragraph: "(g)"
+        description: At each installation of the No. 4 bearing external scavenge tube P/N 6A5254, check its alignment per IAE NMSB V2500-ENG-72-0630 Revision 1, paragraph 3.A. PART 2, and replace a misaligned tube with a new tube.
+    reason: >-
+      V2528-D5 S/N V20200 is within V20001 through V20285, and both P/N
+      2A2074-01 and P/N 6A5254 are installed, so paragraph (c) is met. The
+      internal tube has 6,000 cycles since new, below the 10,000-cycle
+      threshold of paragraph (f): 10,000 - 6,000 = 4,000 tube cycles remain
+      before a combustor module-level exposure would require replacement.
+    required_evidence:
+      - {document: "2013-08448", paragraph: "(c)"}
+      - {document: "2013-08448", paragraph: "(f)"}
+      - {document: "2013-08448", paragraph: "(g)"}
+    computed:
+      component_cycles_remaining: 4000
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2013-07-10.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - The internal tube must be replaced at the next combustor module-level exposure regardless of its cycles.
+  - The internal tube must be removed when it reaches 10,000 cycles.
+  - AD 2013-07-10 does not apply to this engine.
+notes: >-
+  The tube's own cycles since new are used, not engine cycles. The 10,000-cycle
+  figure is a threshold for the exposure trigger, not a removal limit.
