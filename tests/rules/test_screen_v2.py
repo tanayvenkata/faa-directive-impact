@@ -731,3 +731,71 @@ def test_no_output_uses_a_forbidden_word() -> None:
         text = json.dumps(output).lower()
         for word in FORBIDDEN_WORDS:
             assert word not in text, (word, output["summary"])
+
+
+# Citations, emergency clocks, and how missing material is named ---------
+
+PARAGRAPH_INDEX = json.loads(
+    (REPO / "tests/fixtures/rules/coverage-paragraph-index.json").read_text()
+)["documents"]
+LABEL_KEYS = ("paragraph", "models_paragraph", "parts_paragraph", "amoc_paragraph")
+LABEL_LISTS = ("definition_paragraphs", "terminates", "actions")
+
+
+def paragraph_labels(node):
+    if isinstance(node, dict):
+        for key, value in node.items():
+            if key in LABEL_KEYS and isinstance(value, str) and value:
+                yield value
+            elif key in LABEL_LISTS and isinstance(value, list):
+                yield from value
+            elif key != "relationships":
+                yield from paragraph_labels(value)
+    elif isinstance(node, list):
+        for item in node:
+            yield from paragraph_labels(item)
+
+
+@pytest.mark.parametrize("document", sorted(RECORDS))
+def test_every_cited_paragraph_exists_in_the_section_index(document) -> None:
+    """Gate 6 resolves citations against this index (the frozen generation)."""
+    record = RECORDS[document]
+    known = set(PARAGRAPH_INDEX[record["governing_document"]["document"]])
+    assert sorted(set(paragraph_labels(record)) - known) == []
+    for relation in record["relationships"]:
+        assert relation["paragraph"] in PARAGRAPH_INDEX[relation["stated_in"]]
+
+
+def test_blocked_action_under_an_emergency_ad_still_names_the_notice_date() -> None:
+    asset = disk_engine(
+        sn1="PKLBSH1829", readings=[("2021-07-19", 33000), ("2021-07-20", 33004)]
+    )
+    result = run("2021-14268", asset, "2021-07-20")
+    assert "operator date of actual notice of Emergency AD 2021-11-51" in (
+        result.missing_facts
+    )
+    assert ("2021-14268", "(a)") in cited(result)
+    image = next(f for f in result.missing_facts if "ER02JY21.000" in f)
+    assert "not transcribed" in image and "incorporated" not in image
+
+
+def test_notice_date_is_not_asked_once_the_published_clock_has_run_out() -> None:
+    asset = disk_engine(
+        sn1="PKLBSH1829", readings=[("2021-07-19", 33000), ("2026-10-01", 40000)]
+    )
+    result = run("2021-14268", asset, "2026-10-01")
+    assert not any("actual notice" in fact for fact in result.missing_facts)
+
+
+def test_procedure_material_is_noted_and_cited_but_never_blocks() -> None:
+    result = run("2013-08448", tube_engine(), "2014-01-01")
+    assert result.action_status == "action_required_on_event"
+    assert any("V2500-ENG-72-0630" in note for note in result.notes)
+    assert ("2013-08448", "(g)") in cited(result)
+
+
+def test_two_different_readings_on_one_date_are_malformed() -> None:
+    asset = tec_engine(readings=[("2019-09-19", 10000), ("2019-09-19", 10500)])
+    result = run("2019-17403", asset, "2026-10-01")
+    assert outcome(result) == ("unknown", "needs_review")
+    assert result.missing_facts == ["engine.engine_cycle_readings"]

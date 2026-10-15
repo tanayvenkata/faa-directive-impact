@@ -241,6 +241,18 @@ class _Run:
 
         statuses = self._actions(model)
         self._operator_claims()
+        if any(s and s != "no_action_triggered" for s in statuses) or (
+            result.missing_facts
+        ):
+            for dependency in self.rules["dependencies"]:
+                if dependency["holds"] == "procedure":
+                    # The screen says what is required, not how; the procedure
+                    # being unavailable does not change the outcome.
+                    self.cite(dependency["paragraph"], "where the procedure is")
+                    self.note(
+                        "The procedure for the required work is in "
+                        f"{dependency['title']}, which this screen does not have."
+                    )
 
         if result.missing_facts and "action_required" not in statuses:
             statuses.append("needs_review")
@@ -399,8 +411,7 @@ class _Run:
                     self.cite(
                         paragraph,
                         f"engine S/N {serial} is within a listed range",
-                        f"S/N {serial}",
-                    )
+                    )  # no locator: the serial itself is not printed
                     continue
             result.applicability, result.action_status = "does_not_apply", None
             self.cite(paragraph, f"engine S/N {serial} is not among the listed serials")
@@ -573,7 +584,7 @@ class _Run:
                 )
             if group["serials"] == "listed_in_dependency":
                 title = self.dependencies[group["dependency"]]["title"]
-                self.missing(f"{title} (unavailable incorporated material)")
+                self.missing(self._dependency_fact(group["dependency"]))
                 self.cite(
                     paragraph,
                     f"{name} P/N {part_number} is affected only if its S/N is listed "
@@ -744,9 +755,7 @@ class _Run:
         if action["dependencies"]:
             for dependency_id in action["dependencies"]:
                 dependency = self.dependencies[dependency_id]
-                self.missing(
-                    f"{dependency['title']} (unavailable incorporated material)"
-                )
+                self.missing(self._dependency_fact(dependency_id))
                 self.cite(dependency["paragraph"], "material this screen does not have")
             self.cite(
                 paragraph, "a required action that depends on unavailable material"
@@ -755,6 +764,7 @@ class _Run:
                 f"Paragraph {paragraph}: {action['description']} Whether and when it "
                 "applies is set by material this screen does not have."
             )
+            self._emergency_clock(action)
             return None, False
         if action["unrecorded_conditions"]:
             for condition in action["unrecorded_conditions"]:
@@ -764,6 +774,7 @@ class _Run:
                 f"Paragraph {paragraph}: {action['description']} Whether it applies "
                 "depends on a condition no engine record field holds."
             )
+            self._emergency_clock(action)
             return None, False
         if action["combination"] == "unclear":
             return self._unsupported(action, "how its limits combine"), False
@@ -775,8 +786,7 @@ class _Run:
             ), False
         for limit in action["limits"]:
             if limit["dependency"]:
-                title = self.dependencies[limit["dependency"]]["title"]
-                self.missing(f"{title} (unavailable incorporated material)")
+                self.missing(self._dependency_fact(limit["dependency"]))
                 self.cite(
                     limit["paragraph"], "a limit printed only in unavailable material"
                 )
@@ -822,6 +832,59 @@ class _Run:
             statuses.append(status)
             passed_all = passed_all and passed
         return min(statuses, key=STATUS_ORDER.index), passed_all
+
+    def _dependency_fact(self, dependency_id: str) -> str:
+        """How a missing dependency is named: unavailable material, or an image."""
+        dependency = self.dependencies[dependency_id]
+        if dependency["kind"] == "image_only_figure":
+            return (
+                f"{dependency['title']} (printed only as an image in the directive; "
+                "not transcribed)"
+            )
+        return f"{dependency['title']} (unavailable incorporated material)"
+
+    def _emergency_clock(self, action: dict[str, Any]) -> None:
+        """Name the actual-notice date when a blocked action's clock may still run.
+
+        An action stopped by a missing fact still has a compliance time counted
+        from the effective date. Under an emergency AD that date is each
+        operator's date of actual notice, so it is named unless the deadline
+        counted from the published effective date has certainly passed.
+        """
+        emergency = self.rules["effective_date"]["emergency_ad"]
+        if not emergency:
+            return
+        anchored = [
+            limit
+            for limit in action["limits"]
+            if limit["kind"]
+            in (
+                "flight_cycles_after_effective_date",
+                "days_after_effective_date",
+                "part_cycles_after_effective_date",
+            )
+        ]
+        for limit in anchored:
+            if (
+                limit["kind"] == "days_after_effective_date"
+                and limit["value"] is not None
+            ):
+                if self.as_of > self.effective + timedelta(days=limit["value"]):
+                    continue
+            elif (
+                limit["kind"] == "flight_cycles_after_effective_date"
+                and limit["value"] is not None
+            ):
+                anchor = self.effective + timedelta(days=limit["anchor_offset_days"])
+                start, now = self._counter_at(anchor), self._counter_at(self.as_of)
+                if (
+                    start is not None
+                    and now is not None
+                    and now > start + limit["value"]
+                ):
+                    continue
+            self._notice_date_missing(emergency)
+            return
 
     def _in_band(self, action: dict[str, Any], part: HubFinding) -> bool:
         """Whether a part's cycles since new on the effective date are in the band."""

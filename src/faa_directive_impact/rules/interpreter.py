@@ -79,6 +79,29 @@ def _v2_record_problems(asset: dict[str, Any]) -> list[tuple[str, str]]:
     serial = asset["engine"].get("engine_serial_number")
     if serial is not None and not isinstance(serial, str):
         problems.append(("engine.engine_serial_number", "is not a string"))
+    # Two readings on one date with different counts: a date lookup would
+    # silently take one of them.
+    for path, readings, key in [
+        (
+            "engine.engine_cycle_readings",
+            asset["engine"].get("engine_cycle_readings"),
+            "engine_flight_cycles",
+        )
+    ] + [
+        (
+            f"installed_components[{c['component_name']}].cycles_since_new_readings",
+            c.get("cycles_since_new_readings"),
+            "cycles_since_new",
+        )
+        for c in asset["installed_components"]
+    ]:
+        seen: dict[str, Any] = {}
+        for reading in readings or []:
+            if seen.setdefault(reading["at"], reading[key]) != reading[key]:
+                problems.append(
+                    (path, f"has two different readings on {reading['at']}")
+                )
+                break
     operator = asset.get("operator")
     if operator is not None and not isinstance(operator, dict):
         problems.append(("operator", "is not an object"))
