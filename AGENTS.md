@@ -75,6 +75,9 @@ management, and a root `Makefile` as the documented command entry point.
   discovery generation back at an earlier promoted one, with a receipt.
 - `make discovery-site` — offline; write the static freshness page to
   `site/index.html`. Operations: `DISCOVERY_SYNC.md`.
+- `make fleet-build` — offline; regenerate the seeded demo fleet and its
+  recorded screens (`demo/`). `make fleet-site` — offline; write the fleet
+  view to `site/fleet/index.html` from `demo/fleet-screen.json`.
 
 Run all commands from the repository root. Update this section and the README
 when commands or tooling change.

@@ -77,6 +77,10 @@ A newly published in-scope directive becomes visible the day it syncs, as
    engines with the evaluation cases embedded, plausible part numbers and
    cycle counts, and engines affected by several directives at once. The
    evaluation cases are edge cases and are not the demo fleet.
+   *Demo fleet and fleet view built ([`demo/README.md`](demo/README.md)):
+   200 engines screened against AD 2025-19-13 (evaluated) and AD 2026-17-03
+   (not yet evaluated), replayed release by release. Queues for further
+   directives are not built.*
 9. **Harden operations** — observability, recovery and rollback drills,
    hostile-input checks, runbooks, security controls, and cost and latency
    measurements. Keep operating cost and attention low enough to run for a

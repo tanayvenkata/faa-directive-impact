@@ -1,5 +1,5 @@
 .PHONY: sync test lint format check acquire s1 s1-conclude llm-check b2 b3-plumbing b3 \
-	b3-replay b3-summary discovery-sync discovery-rollback discovery-site
+	b3-replay b3-summary discovery-sync discovery-rollback discovery-site fleet-build fleet-site
 
 # Local settings and secrets (ANTHROPIC_API_KEY); optional and never committed.
 -include .env
@@ -81,3 +81,11 @@ discovery-rollback:
 # Offline. Writes site/index.html from the discovery state.
 discovery-site:
 	uv run faa-directive-impact discovery-site --storage-root $(DISCOVERY_ROOT) --output site
+
+# Offline. Regenerates demo/fleet.json and demo/fleet-screen.json.
+fleet-build:
+	uv run faa-directive-impact fleet-build
+
+# Offline. Writes site/fleet/index.html from demo/fleet-screen.json.
+fleet-site:
+	uv run faa-directive-impact fleet-site --output site
