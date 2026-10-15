@@ -1,0 +1,50 @@
+schema_version: "1.1.0"
+case_id: cov-051
+title: A5 engine whose serial number is not listed in AD 2019-18-01
+slice: unaffected_part
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) applies only to eight listed engine serial numbers. V15500 is
+    not one of them, and its LPT stage-6 disk S/N is not listed in paragraph
+    (g) either, so nothing in the text reaches this engine.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c051
+    engine_serial_number: V15500
+    engine_model: V2533-A5
+    snapshot_at: "2026-10-15"
+  installed_components:
+    - component_name: LPT stage 6 disk
+      part_number: 3A2996
+      serial_number: SYN-LPT6-c051
+      cycles_since_new: 14200
+  events: []
+directive_candidates: ["2019-19412"]
+expected:
+  - directive: "2019-19412"
+    controlling_ad: AD 2019-18-01
+    authority_state: in_force
+    applicability: does_not_apply
+    reason: >-
+      Paragraph (c) covers the listed A5 models only with engine serial numbers
+      V10631, V12329, V12494, V13107, V18679, V18681, V18684, and V18690.
+      V15500 is not listed. The installed disk shares P/N 3A2996 but its S/N is
+      not among the paragraph (g) serial numbers.
+    required_evidence:
+      - {document: "2019-19412", paragraph: "(c)", locator: engine serial number list}
+      - {document: "2019-19412", paragraph: "(g)", locator: disk serial number list}
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2019-18-01.
+  - The engine or the disk is safe or airworthy.
+  - The engine is approved for return to service.
+  - AD 2019-18-01 applies because the LPT stage 6 disk is P/N 3A2996.
+  - The disk must be removed at the next piece-part exposure.

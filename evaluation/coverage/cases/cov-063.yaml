@@ -1,0 +1,59 @@
+schema_version: "1.1.0"
+case_id: cov-063
+title: Engine covered by replaced AD 2012-09-09 but outside the AD 2015-10-04 range
+slice: superseded_or_corrected
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    AD 2012-09-09 (2012-12329) covered A5 S/Ns "from V15000 up to and
+    including V15245". AD 2015-10-04 replaced it on 2015-07-01 (paragraph (b)
+    and the amendatory instruction removing AD 2012-09-09 from 39.13). The
+    replacing AD's A5 range starts at V15001, so V15000 was in the old
+    population and is not in the new one. On 2026-10-15 only AD 2015-10-04
+    controls.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c063
+    engine_serial_number: V15000
+    engine_model: V2533-A5
+    snapshot_at: "2026-10-15"
+  installed_components: []
+  events: []
+directive_candidates: ["2015-12068", "2012-12329"]
+expected:
+  - directive: "2015-12068"
+    controlling_ad: AD 2015-10-04
+    authority_state: in_force
+    applicability: does_not_apply
+    reason: >-
+      AD 2015-10-04 replaced AD 2012-09-09 effective 2015-07-01, and the
+      preamble states the replaced AD's compliance times are inapplicable
+      after that date. Under AD 2015-10-04 paragraph (c)(3), A5 engines are
+      covered from V15001 through V16728 or V10001 through V13190; V15000 is in
+      neither range. AD 2012-09-09's range
+      ("from V15000 up to and including V15245") no longer controls.
+    required_evidence:
+      - {document: "2015-12068", paragraph: "(b)"}
+      - {document: "2015-12068", paragraph: "(c)(3)"}
+      - {document: "2015-12068", paragraph: preamble, locator: response that AD 2012-09-09 compliance times are inapplicable after the effective date}
+      - {document: "2012-12329", paragraph: "(c)(3)"}
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2015-10-04 or AD 2012-09-09.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - AD 2012-09-09 applies to this engine on 2026-10-15.
+  - AD 2012-09-09 inspection intervals still apply to this engine.
+  - AD 2015-10-04 applies because the engine was covered by AD 2012-09-09.
+notes: >-
+  No outcome is expected for 2012-12329 itself, which is no longer in force
+  (as seed-011 lists the correction 2026-18423 as a candidate without its own
+  outcome). The schema has no "replaced" authority state; the controlling AD
+  carries the answer.

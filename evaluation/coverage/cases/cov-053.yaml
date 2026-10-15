@@ -1,0 +1,71 @@
+schema_version: "1.1.0"
+case_id: cov-053
+title: Listed engine whose listed LPT disk was replaced, with a complied AD record
+slice: operator_assertion
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The AD applies to engine S/N V10631 by paragraph (c). The installed LPT
+    stage-6 disk S/N is not one of the paragraph (g) serial numbers, so no
+    removal is triggered by the installed parts. The operator's complied
+    record agrees with the parts but is not what clears the engine. AD
+    2019-18-01 has no installation prohibition, so no continuing obligation is
+    listed.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c053
+    engine_serial_number: V10631
+    engine_model: V2527E-A5
+    snapshot_at: "2026-10-15"
+  installed_components:
+    - component_name: LPT stage 6 disk
+      part_number: 3A2996
+      serial_number: SYN-LPT6-c053
+      installed_at: "2021-05-11"
+      cycles_since_new: 6400
+  events:
+    - event_type: component_removal
+      at: "2021-05-04"
+      detail: LPT stage 6 disk P/N 3A2996 S/N MAP04258 removed at piece-part exposure.
+      source_note: Asserted by the synthetic operator record.
+    - event_type: component_installation
+      at: "2021-05-11"
+      detail: LPT stage 6 disk P/N 3A2996 S/N SYN-LPT6-c053 installed.
+      source_note: Asserted by the synthetic operator record.
+  ad_records:
+    - ad: AD 2019-18-01
+      recorded_status: complied
+      detail: Disk S/N MAP04258 removed from service 2021-05-04 and replaced.
+directive_candidates: ["2019-19412"]
+expected:
+  - directive: "2019-19412"
+    controlling_ad: AD 2019-18-01
+    authority_state: in_force
+    applicability: applies
+    action_status: no_action_triggered
+    reason: >-
+      Paragraph (c) lists V2527E-A5 engine S/N V10631, so the AD applies. The
+      installed LPT stage 6 disk S/N SYN-LPT6-c053 is not one of the paragraph
+      (g) serial numbers, so no removal is triggered by the installed parts.
+      The operator's AD record shows the listed disk MAP04258 removed in 2021;
+      this screen does not verify that record.
+    required_evidence:
+      - {document: "2019-19412", paragraph: "(c)", locator: engine serial number V10631}
+      - {document: "2019-19412", paragraph: "(g)", locator: disk serial number list}
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2019-18-01.
+  - The engine or the disk is safe or airworthy.
+  - The engine is approved for return to service.
+  - AD 2019-18-01 does not apply to this engine.
+  - The operator's AD record is verified.
+notes: >-
+  AD 2019-18-01 has no installation prohibition, so no continuing obligation
+  is listed for the removed disk.

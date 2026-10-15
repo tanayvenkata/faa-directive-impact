@@ -1,0 +1,57 @@
+schema_version: "1.1.0"
+case_id: cov-077
+title: ALS AD asked after publication but before its effective date
+slice: effective_date
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    AD 2025-17-16 was published 2025-09-05 (FR Doc. 2025-17066, filed
+    2025-09-04) and is effective 2025-10-10 (paragraph (a)). On 2025-09-20 it
+    is published but not yet effective, so it requires nothing yet, and its
+    90-day clock has not started.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2025-09-20"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c077
+    engine_serial_number: SYN-V2500-c077
+    engine_model: V2527-A5
+    snapshot_at: "2025-09-20"
+  installed_components: []
+  events: []
+  operator:
+    air_carrier_operation: "yes"
+    maintenance_program_revision: Revision 47 (2025-06-01); does not incorporate table 1 to paragraph (g) of AD 2025-17-16.
+directive_candidates: ["2025-17066"]
+expected:
+  - directive: "2025-17066"
+    controlling_ad: AD 2025-17-16
+    authority_state: published_not_yet_effective
+    applicability: applies
+    action_status: no_action_triggered
+    reason: >-
+      V2527-A5 is listed in paragraph (c), but on 2025-09-20 the AD is not yet
+      effective (effective 2025-10-10, paragraph (a)). Once effective, the
+      paragraph (g)(1)(i) and (g)(2) revisions will be due within 90 days,
+      by 2026-01-08.
+    required_evidence:
+      - {document: "2025-17066", paragraph: "(a)"}
+      - {document: "2025-17066", paragraph: "(c)"}
+      - {document: "2025-17066", paragraph: "(g)(1)(i)"}
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2025-17-16.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - AD 2025-17-16 requires the ALS revision on 2025-09-20.
+  - The 90-day period runs from the publication date.
+  - The ALS revision is due by 2025-12-19.
+notes: >-
+  2025-12-19 would be 90 days after this as-of date, and 2025-12-04 would be 90
+  days after publication; both are wrong anchors. 2025-10-10 + 90 days =
+  2026-01-08.

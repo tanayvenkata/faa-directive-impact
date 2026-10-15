@@ -1,0 +1,69 @@
+schema_version: "1.1.0"
+case_id: cov-076
+title: Complied ALS record contradicted by the stated maintenance program revision
+slice: operator_assertion
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The pre-registered Operator Records rule: a record never overrides facts
+    that contradict it. Here the contradicting fact is the program state, not
+    an installed part: the stated current program and ALS do not incorporate
+    table 1, so the paragraph (g) revisions are open whatever the record says.
+    This extends seed-028's principle from installed parts to program state.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c076
+    engine_serial_number: SYN-V2500-c076
+    engine_model: V2533-A5
+    snapshot_at: "2026-10-15"
+  installed_components: []
+  events: []
+  operator:
+    air_carrier_operation: "yes"
+    maintenance_program_revision: >-
+      Revision 49 (2026-02-01), the current revision: neither the approved
+      maintenance program nor paragraph B.1 of the ALS in the V2500-A5 TLM
+      (P/N 2A4408) incorporates table 1 to paragraph (g) of AD 2025-17-16.
+  ad_records:
+    - ad: AD 2025-17-16
+      recorded_status: complied
+      detail: Marked complied 2025-12-20 by engineering; no revision number cited.
+directive_candidates: ["2025-17066"]
+expected:
+  - directive: "2025-17066"
+    controlling_ad: AD 2025-17-16
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      V2533-A5 is listed in paragraph (c). Paragraph (g)(1)(i) requires the
+      table 1 inspections in paragraph B.1 of the ALS of the V2500-A5 TLM (P/N
+      2A4408), and paragraph (g)(2) requires them in this air carrier's
+      approved program, by 2026-01-08. The current program revision states
+      neither incorporates table 1. The operator's complied record contradicts
+      that and does not override it; flag the record for review.
+    required_evidence:
+      - {document: "2025-17066", paragraph: "(c)"}
+      - {document: "2025-17066", paragraph: "(g)(1)(i)", locator: "V2500-A5 TLM P/N 2A4408, TASK 05-10-00-990-000-B00"}
+      - {document: "2025-17066", paragraph: "(g)(2)"}
+    action_timing:
+      description: >-
+        The 90-day period ended 2026-01-08 and both revisions remain open on
+        these facts: revise ALS paragraph B.1 of the V2500-A5 TLM (P/N 2A4408)
+        and the approved maintenance or inspection program to incorporate table
+        1. Route for records review now.
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2025-17-16.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - No action is required under AD 2025-17-16.
+  - The operator's AD record is correct.
+  - AD 2025-17-16 requires inspecting the HPT hubs now.

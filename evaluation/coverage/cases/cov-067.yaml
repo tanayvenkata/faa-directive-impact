@@ -1,0 +1,82 @@
+schema_version: "1.1.0"
+case_id: cov-067
+title: Complied record for the drum terminating action, but silver-plated nuts are installed
+slice: operator_assertion
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The pre-registered Operator Records rule: a record never overrides
+    installed-part facts that contradict it. The paragraph (j) terminating
+    action requires silver-free nuts; the snapshot shows silver-plated nuts
+    P/N AS64367 attaching the drum, so the terminating action is not done on
+    these facts and the action is open whatever the record says. While the
+    drum stays, which initial and repetitive USI intervals apply depends on the
+    compliance group, defined only in an incorporated bulletin.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c067
+    engine_serial_number: V12000
+    engine_model: V2530-A5
+    snapshot_at: "2026-10-15"
+  installed_components:
+    - component_name: HPC stage 3 to 8 drum attachment nuts
+      part_number: AS64367
+      serial_number: not serialized
+  events: []
+  ad_records:
+    - ad: AD 2015-10-04
+      recorded_status: complied
+      detail: Marked complied at the 2024 records audit, citing a module exchange.
+directive_candidates: ["2015-12068"]
+expected:
+  - directive: "2015-12068"
+    controlling_ad: AD 2015-10-04
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    continuing_obligations:
+      - paragraph: "(i)"
+        description: Do not install silver-plated nuts, P/N AS44862 or AS64367, into any engine.
+    reason: >-
+      Paragraph (c)(3) covers V2530-A5 S/N V12000 (V10001 through V13190).
+      Silver-plated nuts P/N AS64367 attach the HPC stage 3 to 8 drum, so the
+      paragraph (j) terminating action (a drum never operated with silver-plated
+      nuts, installed with silver-free nuts) is not done on these facts. The
+      operator's complied record contradicts the installed part and does not
+      override it; flag the record for review. Which paragraph (e) and (f) USI
+      intervals bind meanwhile depends on the engine's compliance group in IAE
+      Alert NMSB V2500-ENG-72-A0615 Revision 6, which is not available.
+    required_evidence:
+      - {document: "2015-12068", paragraph: "(c)(3)"}
+      - {document: "2015-12068", paragraph: "(j)"}
+      - {document: "2015-12068", paragraph: "(h)(1)", locator: silver-plated nuts P/N AS44862 or AS64367}
+      - {document: "2015-12068", paragraph: "(f)(1)"}
+    required_missing_facts:
+      - IAE Alert NMSB V2500-ENG-72-A0615 Revision 6 paragraph 1.E compliance groups (unavailable incorporated material)
+    action_timing:
+      description: >-
+        The paragraph (j) terminating action was required within 9,450 cycles
+        after 2015-07-01 and not later than 2025-12-31; that date has passed
+        and the action remains open on these facts. Route for records review
+        now. Repetitive USIs under paragraph (f) continue until it is done, at
+        an interval set by the unavailable compliance group (750 or 500
+        cycles).
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2015-10-04.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - No action is required under AD 2015-10-04.
+  - The operator's AD record is correct.
+  - The engine is in a specific compliance group, presented as settled without the bulletin.
+notes: >-
+  The nut P/N is from paragraphs (h)(1) and (i). A module exchange can bring a
+  drum with old nuts into an engine; that is the scenario the record
+  contradiction models.
