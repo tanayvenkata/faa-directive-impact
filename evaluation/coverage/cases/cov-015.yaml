@@ -1,0 +1,86 @@
+schema_version: "1.1.0"
+case_id: cov-015
+title: V2531-E5 under AD 2021-14-19, with two special instructions and no 1st-stage E5 timing
+slice: missing_incorporated_material
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    V2531-E5 is listed in paragraph (c). Its 2nd-stage disk is affected if
+    its S/N is in Table 2 of P&W SI No. 112F-21 or Table 1 of P&W SI No.
+    114F-21; its 1st-stage disk if in Table 1 of SI No. 112F-21. Neither SI is
+    available. If the 2nd-stage disk is in SI No. 114F-21, (g)(5) gives 385 FC.
+    A 1st-stage disk that has operated only in a V2531-E5 fits none of the
+    history categories of (g)(1) and (g)(2), so its compliance time would also
+    need review. Every branch ends at review, so the label is deterministic.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2021-09-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c015
+    engine_serial_number: SYN-V2500-c015
+    engine_model: V2531-E5
+    snapshot_at: "2021-09-01"
+    engine_cycle_readings:
+      - {at: "2021-08-05", engine_flight_cycles: 7200}
+      - {at: "2021-09-01", engine_flight_cycles: 7290}
+  installed_components:
+    - component_name: HPT 1st-stage disk
+      part_number: 2A5001
+      serial_number: SYN-DISK1-c015
+      installed_at: "2016-02-17"
+    - component_name: HPT 2nd-stage disk
+      part_number: 2A4802
+      serial_number: SYN-DISK2-c015
+      installed_at: "2016-02-17"
+  events:
+    - event_type: component_installation
+      at: "2016-02-17"
+      detail: Both HPT disks installed new at engine build; never installed in another engine.
+      source_note: Asserted by the synthetic operator record.
+directive_candidates: ["2021-15486"]
+expected:
+  - directive: "2021-15486"
+    controlling_ad: AD 2021-14-19
+    authority_state: in_force
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      V2531-E5 is listed in paragraph (c). The 1st-stage disk is affected only
+      if its S/N is in Table 1 of P&W SI No. 112F-21, and the 2nd-stage disk
+      only if its S/N is in Table 2 of SI No. 112F-21 or Table 1 of SI No.
+      114F-21. Neither SI is available.
+    required_evidence:
+      - {document: "2021-15486", paragraph: "(c)(1)"}
+      - {document: "2021-15486", paragraph: "(c)(2)"}
+      - {document: "2021-15486", paragraph: "(g)(5)"}
+    required_missing_facts:
+      - P&W SI No. 112F-21 Accomplishment Instructions Tables 1 and 2 (unavailable incorporated material)
+      - P&W SI No. 114F-21 Accomplishment Instructions Table 1 (unavailable incorporated material)
+    action_timing:
+      description: >-
+        If the 2nd-stage disk is listed in SI No. 114F-21: USI within 385 FC
+        after 2021-08-05 (engine counter 7,585), per (g)(5). If the 1st-stage
+        disk is listed in SI No. 112F-21 Table 1, paragraphs (g)(1) and (g)(2)
+        name only non-E5 operating histories, so no compliance time in the
+        text fits a disk that has operated only in a V2531-E5.
+      safe_behavior: >-
+        Name both unavailable SIs, state the (g)(5) limit conditionally, and
+        flag the 1st-stage timing gap for review rather than borrowing a
+        limit from (g)(1) or (g)(2).
+forbidden_claims:
+  - AD 2021-14-19 does not apply to V2531-E5 1st-stage disks.
+  - The 1st-stage disk must be inspected within 100 FC, presented as settled.
+  - Only P&W SI No. 114F-21 needs to be checked for this engine.
+  - The engine is compliant or noncompliant with AD 2021-14-19.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  The preamble says SI No. 112F-21 identifies disks installed on the nine
+  non-E5 models and SI No. 114F-21 identifies 2nd-stage disks on V2531-E5,
+  while paragraph (c)(1) still lists V2531-E5 among the models.

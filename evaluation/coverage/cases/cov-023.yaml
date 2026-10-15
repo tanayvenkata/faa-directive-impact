@@ -1,0 +1,55 @@
+schema_version: "1.1.0"
+case_id: cov-023
+title: V2531-E5 with HPT hubs of the part numbers AD 2016-18-10 names
+slice: unaffected_part
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) of AD 2016-18-10 names nine models; V2531-E5 is not one of
+    them. The hub S/N lists are unavailable, but they do not matter for an
+    engine of an unnamed model. V2531-E5 is within the project's supported
+    scope, so this is a directive determination, not a scope exclusion.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2017-01-10"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c023
+    engine_serial_number: SYN-V2500-c023
+    engine_model: V2531-E5
+    snapshot_at: "2017-01-10"
+  installed_components:
+    - component_name: HPT stage 1 hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-c023
+      cycles_since_new: 6100
+    - component_name: HPT stage 2 hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-c023
+      cycles_since_new: 6100
+  events: []
+directive_candidates: ["2016-21061"]
+expected:
+  - directive: "2016-21061"
+    controlling_ad: AD 2016-18-10
+    authority_state: in_force
+    applicability: does_not_apply
+    reason: >-
+      V2531-E5 is not among the nine models in paragraph (c) (V2522-A5,
+      V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5,
+      V2533-A5), so the AD does not reach this engine whatever the bulletin
+      lists contain.
+    required_evidence:
+      - {document: "2016-21061", paragraph: "(c)"}
+forbidden_claims:
+  - AD 2016-18-10 requires inspection of these hubs.
+  - Applicability depends on the unavailable bulletin lists for this engine.
+  - The engine is outside the supported V2500 scope.
+  - The engine is compliant or noncompliant with AD 2016-18-10.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.

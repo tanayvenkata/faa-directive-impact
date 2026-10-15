@@ -1,0 +1,81 @@
+schema_version: "1.1.0"
+case_id: cov-022
+title: AD 2016-18-10 hubs in a CSN band, but the affected serial lists are in an unavailable bulletin
+slice: missing_incorporated_material
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    AD 2016-18-10 applies only to hubs whose S/Ns are in Appendix A Tables 1
+    and 2 of IAE NMSB V2500-ENG-72-0661 Revision 2, which is unavailable. Both
+    hubs had 9,200 CSN on 2016-10-07, band (e)(1)(ii). If listed, inspection
+    is due at the next shop visit, or within 6,000 cycles from 2016-10-07, or
+    before accumulating 15,000 CSN, whichever comes first. 15,000 - 9,200 =
+    5,800, which is less than 6,000, so the CSN limit governs: the
+    inspection must precede the 15,000th cycle (that is, by 14,999 CSN).
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2017-03-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c022
+    engine_serial_number: SYN-V2500-c022
+    engine_model: V2527-A5
+    snapshot_at: "2017-03-01"
+  installed_components:
+    - component_name: HPT stage 1 hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-c022
+      cycles_since_new: 9950
+      cycles_since_new_readings:
+        - {at: "2016-10-07", cycles_since_new: 9200}
+    - component_name: HPT stage 2 hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-c022
+      cycles_since_new: 9950
+      cycles_since_new_readings:
+        - {at: "2016-10-07", cycles_since_new: 9200}
+  events: []
+directive_candidates: ["2016-21061"]
+expected:
+  - directive: "2016-21061"
+    controlling_ad: AD 2016-18-10
+    authority_state: in_force
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      Paragraph (c) covers HPT stage 1 hubs P/N 2A5001 and stage 2 hubs P/N
+      2A4802 only when their S/N is listed in Appendix A Tables 1 and 2 of IAE
+      NMSB V2500-ENG-72-0661 Revision 2, which is unavailable.
+    required_evidence:
+      - {document: "2016-21061", paragraph: "(c)(1)"}
+      - {document: "2016-21061", paragraph: "(c)(2)"}
+      - {document: "2016-21061", paragraph: "(e)(1)(ii)"}
+      - {document: "2016-21061", paragraph: "(f)", locator: shop visit definition}
+    required_missing_facts:
+      - IAE NMSB V2500-ENG-72-0661 Revision 2 Appendix A Tables 1 and 2 (unavailable incorporated material)
+    action_timing:
+      description: >-
+        If a hub is listed: inspect at the next shop visit or before the hub
+        accumulates 15,000 CSN, whichever comes first (band (e)(1)(ii), 9,200
+        CSN on 2016-10-07; the 6,000-cycle window would end at 15,200 and is
+        later). Each hub has 9,950 CSN now, 5,050 cycles short of
+        15,000 CSN.
+      safe_behavior: >-
+        Name the unavailable bulletin and give the band (ii) timing
+        conditionally.
+forbidden_claims:
+  - The hubs are not affected because their S/Ns are not in the AD text.
+  - The inspection may wait until 15,200 CSN.
+  - The hubs must be inspected, presented as settled without the bulletin lists.
+  - The engine is compliant or noncompliant with AD 2016-18-10.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  Paragraph (e)(1)(ii) says "within 6,000 cycles from the effective date"
+  without saying whether hub or engine cycles; here the hubs have stayed in
+  this engine, so the two counts agree.

@@ -1,0 +1,76 @@
+schema_version: "1.1.0"
+case_id: cov-011
+title: Listed AD 2021-11-51 disk still installed years later, with a complied USI record
+slice: operator_assertion
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Pre-registered Operator Records rule. Paragraph (c)(2) names S/N
+    PKLBSC8066, so the AD applies. Its action is a USI within 10 FC after the
+    effective date (actual notice of the emergency AD, or 2021-07-19); that
+    deadline passed long before 2026-10-15 under either clock. The operator
+    records the USI accomplished and passed. This AD inspects and keeps: a
+    disk that passed the USI is a part eligible for installation under (h)(1)
+    (if listed in the bulletin appendix) or (h)(2) (if not), so a listed disk
+    still installed does not contradict the complied record. The
+    pre-registration's "a listed part still installed means the action is
+    open" is read as applying to removal actions, not to an inspection whose
+    passing part stays in service. The record is reported with the
+    pre-registered note, not verified.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c011
+    engine_serial_number: SYN-V2500-c011
+    engine_model: V2533-A5
+    snapshot_at: "2026-10-15"
+  installed_components:
+    - component_name: HPT 1st-stage disk
+      part_number: 2A5001
+      serial_number: SYN-DISK1-c011
+    - component_name: HPT 2nd-stage disk
+      part_number: 2A4802
+      serial_number: PKLBSC8066
+      installed_at: "2019-02-11"
+  events: []
+  ad_records:
+    - ad: AD 2021-11-51
+      recorded_status: complied
+      detail: >-
+        USI of HPT 2nd-stage disk S/N PKLBSC8066 per NMSB V2500-ENG-72-0713
+        Revision 1 paragraph 7 accomplished 2021-05-27; passed paragraph 8
+        criteria; disk retained.
+directive_candidates: ["2021-14268"]
+expected:
+  - directive: "2021-14268"
+    controlling_ad: AD 2021-11-51
+    authority_state: in_force
+    applicability: applies
+    action_status: no_action_triggered
+    reason: >-
+      V2533-A5 is listed and HPT 2nd-stage disk P/N 2A4802 S/N PKLBSC8066 is
+      named in paragraph (c)(2). The (g)(2) USI was due within 10 FC after the
+      effective date, which has long passed; the operator's AD record shows
+      this action accomplished; this screen does not verify it. A disk that
+      passed the USI may stay installed under paragraph (h), so the installed
+      disk does not contradict the record.
+    required_evidence:
+      - {document: "2021-14268", paragraph: "(c)(2)"}
+      - {document: "2021-14268", paragraph: "(g)(2)", locator: table 2 to paragraph (g)(2) (image ER02JY21.001)}
+      - {document: "2021-14268", paragraph: "(h)(1)"}
+forbidden_claims:
+  - AD 2021-11-51 does not apply to this engine.
+  - The disk must be removed because its S/N is listed in the AD.
+  - The USI is verified as accomplished.
+  - The engine is compliant or noncompliant with AD 2021-11-51.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  PKLBSC8066 is a real S/N published in the AD, placed on a synthetic engine.

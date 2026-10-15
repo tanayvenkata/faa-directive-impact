@@ -1,0 +1,63 @@
+schema_version: "1.1.0"
+case_id: cov-025
+title: Asked after AD 2016-18-10 was published but before it took effect
+slice: effective_date
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    AD 2016-18-10 was published 2016-09-02 and is effective 2016-10-07. On
+    2016-09-20 it requires nothing yet, and its CSN bands are measured on the
+    effective date, so they cannot be applied either. Applicability also
+    depends on the unavailable hub S/N lists, so it stays unknown and the
+    outcome stays in review rather than settled either way.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2016-09-20"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c025
+    engine_serial_number: SYN-V2500-c025
+    engine_model: V2522-A5
+    snapshot_at: "2016-09-20"
+  installed_components:
+    - component_name: HPT stage 1 hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-c025
+      cycles_since_new: 15600
+    - component_name: HPT stage 2 hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-c025
+      cycles_since_new: 15600
+  events: []
+directive_candidates: ["2016-21061"]
+expected:
+  - directive: "2016-21061"
+    controlling_ad: AD 2016-18-10
+    authority_state: published_not_yet_effective
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      On 2016-09-20 AD 2016-18-10 is published but not effective until
+      2016-10-07 (paragraph (a)). Whether it will reach these hubs depends on
+      the S/N lists in IAE NMSB V2500-ENG-72-0661 Revision 2, which are
+      unavailable.
+    required_evidence:
+      - {document: "2016-21061", paragraph: "(a)"}
+      - {document: "2016-21061", paragraph: "(c)(1)"}
+      - {document: "2016-21061", paragraph: "(c)(2)"}
+    required_missing_facts:
+      - IAE NMSB V2500-ENG-72-0661 Revision 2 Appendix A Tables 1 and 2 (unavailable incorporated material)
+forbidden_claims:
+  - AD 2016-18-10 requires inspection of these hubs on 2016-09-20.
+  - The 1,500-cycle window of band (e)(1)(iv) has started.
+  - The engine is compliant or noncompliant with AD 2016-18-10.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  The hubs are near 15,500 CSN, so the band they fall into is set by their CSN
+  on 2016-10-07, not on the question date.

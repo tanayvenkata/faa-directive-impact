@@ -1,0 +1,79 @@
+schema_version: "1.1.0"
+case_id: cov-031
+title: AD 2021-11-51 2nd-stage disk serial printed without a separating comma
+slice: part_identity
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c)(2) prints "PKLBR88708 PKLBR89452" with no comma between the
+    two S/Ns. Read as words, both are listed, so the installed 2nd-stage disk
+    P/N 2A4802 S/N PKLBR89452 makes the AD apply to this V2527M-A5. The (g)(2)
+    USI is due within 10 FC after the effective date, which is the operator's
+    actual notice of Emergency AD 2021-11-51 or 2021-07-19 without it, and it
+    acts on disks listed in table 2 to paragraph (g)(2), an untranscribed
+    image. As in seed-022, the deadline and the table are open facts.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2021-07-21"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c031
+    engine_serial_number: SYN-V2500-c031
+    engine_model: V2527M-A5
+    snapshot_at: "2021-07-21"
+    engine_cycle_readings:
+      - {at: "2021-07-19", engine_flight_cycles: 40000}
+      - {at: "2021-07-21", engine_flight_cycles: 40006}
+  installed_components:
+    - component_name: HPT 1st-stage disk
+      part_number: 2A5001
+      serial_number: SYN-DISK1-c031
+    - component_name: HPT 2nd-stage disk
+      part_number: 2A4802
+      serial_number: PKLBR89452
+  events: []
+directive_candidates: ["2021-14268"]
+expected:
+  - directive: "2021-14268"
+    controlling_ad: AD 2021-11-51
+    authority_state: in_force
+    applicability: applies
+    action_status: needs_review
+    reason: >-
+      V2527M-A5 is listed in paragraph (c) and HPT 2nd-stage disk P/N 2A4802
+      S/N PKLBR89452 is named in (c)(2). The (g)(2) USI is required within 10
+      FC after the effective date that applies to this operator: actual notice
+      of the emergency AD, or 2021-07-19 (engine counter 40,000 + 10 =
+      40,010). The notice date and table 2 (an image) are not available.
+    required_evidence:
+      - {document: "2021-14268", paragraph: "(a)", locator: effective with actual notice for Emergency AD 2021-11-51}
+      - {document: "2021-14268", paragraph: "(c)(2)"}
+      - {document: "2021-14268", paragraph: "(g)(2)", locator: table 2 to paragraph (g)(2) (image ER02JY21.001)}
+    required_missing_facts:
+      - operator date of actual notice of Emergency AD 2021-11-51
+      - table 2 to paragraph (g)(2) content (image-only; transcription decided in E3)
+    action_timing:
+      description: >-
+        USI of the HPT 2nd-stage disk within 10 FC after the effective date
+        that applies: the date of actual notice of the emergency AD, or
+        2021-07-19 (engine counter 40,010) without actual notice. 6 FC have
+        passed since 2021-07-19.
+      safe_behavior: >-
+        Report the USI requirement and both clocks now, with 4 FC left on the
+        2021-07-19 clock, and name the notice date and table 2 image.
+forbidden_claims:
+  - AD 2021-11-51 does not apply to this engine.
+  - Disk S/N PKLBR89452 is not listed in AD 2021-11-51.
+  - The 10 FC deadline runs from 2021-07-19, presented as settled.
+  - The engine is compliant or noncompliant with AD 2021-11-51.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  PKLBR89452 is a real S/N published in the AD, placed on a synthetic engine.
+  The missing comma is in the published paragraph (c)(2) text; a parser that
+  splits only on commas reads "PKLBR88708 PKLBR89452" as one token.

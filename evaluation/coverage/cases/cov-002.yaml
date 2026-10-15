@@ -1,0 +1,80 @@
+schema_version: "1.1.0"
+case_id: cov-002
+title: V2531-E5 under AD 2024-11-03, where a second list sits in a restricted special instruction
+slice: missing_incorporated_material
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    V2531-E5 is listed in paragraph (c). For this model the tables name a
+    second source of affected S/Ns, PW SI No. 189F-23, which the preamble says
+    IAE provides only to owners and operators of the product. Both it and NMSB
+    V2500-ENG-72-0720 are unavailable, so neither list can be checked. The
+    engine is a high-thrust model under (h)(3), so the shorter limits would
+    govern any listed hub.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2024-07-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c002
+    engine_serial_number: SYN-V2500-c002
+    engine_model: V2531-E5
+    snapshot_at: "2024-07-15"
+    engine_cycle_readings:
+      - {at: "2024-06-26", engine_flight_cycles: 9000}
+      - {at: "2024-07-15", engine_flight_cycles: 9040}
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-c002
+      cycles_since_new: 9040
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-c002
+      cycles_since_new: 9040
+  events: []
+directive_candidates: ["2024-12594"]
+expected:
+  - directive: "2024-12594"
+    controlling_ad: AD 2024-11-03
+    authority_state: in_force
+    applicability: applies
+    action_status: needs_review
+    reason: >-
+      V2531-E5 is listed in paragraph (c). The affected hub S/Ns for this
+      model may be listed in IAE AG NMSB V2500-ENG-72-0720 or in PW SI No.
+      189F-23 (Tables 1 to 4 to paragraphs (g)(1), (g)(4) and (g)(5)); neither
+      is available, so no hub can be matched or cleared.
+    required_evidence:
+      - {document: "2024-12594", paragraph: "(c)"}
+      - {document: "2024-12594", paragraph: "(g)(1)", locator: Table 1 to paragraph (g)(1) rows naming PW SI No. 189F-23}
+      - {document: "2024-12594", paragraph: "(h)(3)", locator: high-thrust model definition}
+      - {document: "2024-12594", paragraph: "(l)(2)(ii)", locator: PW SI No. 189F-23}
+    required_missing_facts:
+      - IAE AG NMSB V2500-ENG-72-0720 Tables 1 to 4 (unavailable incorporated material)
+      - PW SI No. 189F-23 Tables 1 and 2 (unavailable incorporated material)
+    action_timing:
+      description: >-
+        If a hub is listed in Table 1 or 2 of either document: AUSI at the next
+        engine shop visit after 2024-06-26, before exceeding 100 FC (1st-stage)
+        or 800 FC (2nd-stage) from 2024-06-26, because V2531-E5 is a high-thrust
+        model under (h)(3). 40 FC have passed (9,040 - 9,000).
+      safe_behavior: >-
+        Name both unavailable documents and give the high-thrust compliance
+        times conditionally.
+forbidden_claims:
+  - AD 2024-11-03 does not apply to V2531-E5 engines.
+  - Only IAE AG NMSB V2500-ENG-72-0720 needs to be checked for this engine.
+  - The 700 FC or 1,100 FC low-thrust limits apply to these hubs.
+  - The engine is compliant or noncompliant with AD 2024-11-03.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  The preamble response to JetBlue records that PW SI No. 189F-23 relates to a
+  military program and is provided only to those owning or operating the
+  product.
