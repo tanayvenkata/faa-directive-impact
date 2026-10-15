@@ -26,8 +26,17 @@ from faa_directive_impact.fleet.screen import (
     NO_ACTION,
     NOT_YET_EVALUATED,
     QUEUE_ORDER,
+    RULE_RECORD_PATHS,
+    S1_DOCUMENT,
     _blockers,
     _dependency,
+    review_provenance,
+    rule_record_path,
+)
+from faa_directive_impact.fleet.slim import (
+    dump_slim,
+    expand_fleet_screen,
+    slim_fleet_screen,
 )
 
 REPO = Path(__file__).resolve().parents[2]
@@ -63,7 +72,9 @@ def _build(cases, random_seed):
 def test_committed_fleet_matches_a_fresh_regeneration():
     fleet, screened = _computed()
     assert (REPO / FLEET_FILE).read_text(encoding="utf-8") == dump(fleet)
-    assert (REPO / FLEET_SCREEN_FILE).read_text(encoding="utf-8") == dump(screened)
+    assert (REPO / FLEET_SCREEN_FILE).read_text(encoding="utf-8") == dump_slim(
+        slim_fleet_screen(screened)
+    )
 
 
 def test_fleet_generation_is_deterministic():
@@ -432,3 +443,67 @@ def test_page_embeds_the_recorded_screen_safely():
     for engine in data["engines"]:
         for entry in engine["screens"].values():
             assert all(0 <= i < len(data["cites"]) for i in entry["citations"])
+
+
+def test_slim_screen_expands_to_the_full_per_engine_screens():
+    _, screened = _computed()
+    slim = slim_fleet_screen(screened)
+    assert expand_fleet_screen(slim) == screened
+    # The committed file is the slim form and expands to the same screens.
+    committed = json.loads((REPO / FLEET_SCREEN_FILE).read_text(encoding="utf-8"))
+    assert expand_fleet_screen(committed) == screened
+    assert len(dump_slim(slim)) < len(dump(screened)) / 2
+
+
+def test_slim_screen_stores_each_distinct_value_once():
+    _, screened = _computed()
+    slim = slim_fleet_screen(screened)
+    assert len(slim["citation_table"]) == len(
+        {
+            json.dumps(c, sort_keys=True)
+            for e in screened["engines"]
+            for s in e["screens"].values()
+            for c in s["citations"]
+        }
+    )
+    for engine in slim["engines"]:
+        for entry in engine["screens"].values():
+            assert all(k in slim["citation_table"] for k in entry["citations"])
+            assert all(k in slim["strings"] for k in entry["notes"])
+
+
+def test_rule_record_source_defaults_to_the_reference_record():
+    assert RULE_RECORD_PATHS == {}
+    assert (
+        rule_record_path("2025-18469")
+        == "evaluation/coverage/reference/2025-18469.json"
+    )
+    _, screened = _computed()
+    for row in screened["directives"]:
+        if row["document"] == S1_DOCUMENT:
+            assert row["rule_record_source"].startswith("evaluation/runs/")
+        elif row["screener"] != "none: listed for a person to read":
+            assert row["rule_record_source"] == rule_record_path(row["document"])
+        else:
+            assert row["rule_record_source"] is None
+
+
+def test_review_provenance_labels_evaluated_directives_only():
+    evaluated = frozenset({S1_DOCUMENT, "2019-16-01"})
+    assert review_provenance("2019-16-01", evaluated) == {
+        "label_review": "claude_stand_in",
+        "independent_check": "claude_subagent",
+    }
+    assert review_provenance(S1_DOCUMENT, evaluated)["hand_gates"] == (
+        "judged by Claude only"
+    )
+    assert review_provenance("2013-08448", evaluated) is None
+
+
+def test_page_shows_review_provenance_under_the_badge_and_in_the_drawer():
+    _, screened = _computed()
+    page = render_fleet_page(screened)
+    data = json.loads(page.split('type="application/json">')[1].split("</script>")[0])
+    first = next(d for d in data["directives"] if d["document"] == S1_DOCUMENT)
+    assert first["review_provenance"]["rules"] == "hand-written (S1)"
+    assert page.count("${provenance(d)}") == 2

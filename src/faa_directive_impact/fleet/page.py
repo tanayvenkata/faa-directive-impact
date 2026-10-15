@@ -16,6 +16,8 @@ from html import escape
 from pathlib import Path
 from typing import Any
 
+from faa_directive_impact.fleet.slim import expand_fleet_screen
+
 FLEET_PAGE_DIRECTORY = "fleet"
 REPOSITORY_URL = "https://github.com/tanayvenkata/faa-directive-impact"
 WRITEUP_URL = f"{REPOSITORY_URL}/blob/main/writeups/02-evaluated.md"
@@ -37,6 +39,7 @@ def build_fleet_page(fleet_screen: dict[str, Any], site_root: Path) -> Path:
 
 
 def render_fleet_page(fleet_screen: dict[str, Any]) -> str:
+    fleet_screen = expand_fleet_screen(fleet_screen)  # the file is slim
     data = json.dumps(_page_data(fleet_screen), sort_keys=True, separators=(",", ":"))
     # Keep the embedded JSON from closing the script element early.
     data = data.replace("</", "<\\/")
@@ -300,6 +303,7 @@ h2.section { font-size:18px; margin:8px 0 4px; }
 .dtable th { color:var(--muted); font-weight:500; white-space:nowrap; }
 .dtable td.num { font-variant-numeric:tabular-nums; white-space:nowrap; }
 .nw { white-space:nowrap; }
+.prov { font-size:11px; line-height:1.35; margin-top:4px; overflow-wrap:anywhere; }
 .dtable tr:last-child td { border-bottom:0; }
 .nye-list { margin:6px 0; padding-left:18px; font-size:13px; }
 .nye-list li { margin:4px 0; }
@@ -450,6 +454,13 @@ SCRIPT = r"""
       + DATA.fact_kinds.map(k => `${k.kind} ${k.engines}`).join('; ') + '.';
   }
 
+  // How the directive's review was done, as recorded in the screen.
+  function provenance(d) {
+    const p = d.review_provenance;
+    return p ? `<div class="prov muted">${Object.entries(p)
+      .map(([k, v]) => `${esc(k)}: ${esc(v)}`).join('<br>')}</div>` : '';
+  }
+
   function renderDirectives() {
     const head = `<thead><tr><th>Directive</th><th>Coverage</th><th>Screened by</th>
       <th>Engines retrieved</th><th>By part number</th><th>Potentially affected</th>
@@ -463,7 +474,7 @@ SCRIPT = r"""
     const rows = DATA.directives.map(d => `<tr>
       <td class="nw"><a href="${frLink(d.document)}">${esc(name(d))}</a><br>
         <span class="muted">Effective ${fmtDate(d.effective_date)}</span></td>
-      <td><span class="badge ${d.coverage_state}">${d.coverage_state.replace(/_/g, ' ')}</span></td>
+      <td><span class="badge ${d.coverage_state}">${d.coverage_state.replace(/_/g, ' ')}</span>${provenance(d)}</td>
       <td>${esc(SCREENER[d.screener] || d.screener)}</td>
       <td class="num">${d.engines}</td><td class="num">${d.by_part_number}</td>
       <td class="num">${d.queues.potentially_affected}</td>
@@ -507,6 +518,7 @@ SCRIPT = r"""
     return `<section class="sc"><header><b>${esc(name(d))}</b>
       <span class="badge ${d.coverage_state}">${d.coverage_state.replace(/_/g, ' ')}</span>
       <span class="q ${s.queue}">${LABEL[s.queue]}</span></header>
+      ${provenance(d)}
       <p>${esc(s.summary)}</p>${s.timing ? `<p>${esc(s.timing)}</p>` : ''}
       ${missing}${notes}${cites ? `<p class="muted">Cited:</p><ul>${cites}</ul>` : ''}</section>`;
   }

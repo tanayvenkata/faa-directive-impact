@@ -14,7 +14,12 @@ from typing import Any
 import yaml
 
 from faa_directive_impact.fleet.generate import build_fleet
-from faa_directive_impact.fleet.screen import S1_DOCUMENT, screen_fleet
+from faa_directive_impact.fleet.screen import (
+    S1_DOCUMENT,
+    rule_record_path,
+    screen_fleet,
+)
+from faa_directive_impact.fleet.slim import dump_slim, slim_fleet_screen
 
 SEED_CASES = Path("evaluation/seed/cases")
 REGISTRY_FILE = Path("demo/registry-v2500.json")
@@ -42,6 +47,13 @@ def load_inputs(repo: Path) -> dict[str, Any]:
             path.stem: _read(path)
             for path in sorted((repo / RULE_RECORDS).glob("*.json"))
         },
+        # The record each directive is screened by (``rule_record_path``).
+        "rule_records": {
+            document: _read(repo / rule_record_path(document))
+            for document in sorted(
+                path.stem for path in (repo / RULE_RECORDS).glob("*.json")
+            )
+        },
         "hpt_hub_record": _read(repo / HPT_HUB_RECORD),
     }
 
@@ -64,10 +76,14 @@ def compute_fleet(repo: Path) -> tuple[dict[str, Any], dict[str, Any]]:
         inputs["hpt_hub_record"],
         {
             document: record
-            for document, record in inputs["references"].items()
+            for document, record in inputs["rule_records"].items()
             if document != S1_DOCUMENT
         },
         inputs["corpus"],
+        rule_sources={
+            **{d: rule_record_path(d) for d in inputs["rule_records"]},
+            S1_DOCUMENT: str(HPT_HUB_RECORD),
+        },
     )
     return fleet, screened
 
@@ -83,9 +99,12 @@ def dump(value: Any) -> str:
 def write_fleet(repo: Path) -> list[Path]:
     fleet, screened = compute_fleet(repo)
     written = []
-    for path, value in ((FLEET_FILE, fleet), (FLEET_SCREEN_FILE, screened)):
+    for path, text in (
+        (FLEET_FILE, dump(fleet)),
+        (FLEET_SCREEN_FILE, dump_slim(slim_fleet_screen(screened))),
+    ):
         target = repo / path
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(dump(value), encoding="utf-8")
+        target.write_text(text, encoding="utf-8")
         written.append(target)
     return written

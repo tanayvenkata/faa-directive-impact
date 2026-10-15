@@ -143,8 +143,9 @@ Reported after generation; the rules above were not changed after seeing it.
   (AD 2025-17-16) goes to review for 160 engines because interpreter 3 does
   not read the free-text program revision as proof; that is the
   interpreter's stated rule, not a data gap.
-- **Size.** `fleet-screen.json` is about 17 MB, most of it repeated
-  citations; the page stores each citation once (about 3 MB of HTML).
+- **Size.** `fleet-screen.json` is about 5.9 MB: each distinct summary,
+  timing, note, missing fact, and citation is stored once in a table keyed by
+  a content hash, and screens refer to keys (see Files).
 
 ## Files
 
@@ -154,7 +155,15 @@ Reported after generation; the rules above were not changed after seeing it.
   over the frozen retrieval corpus as of the engine's snapshot date, and a
   screen of each candidate final rule; per directive and fleet-wide, the
   missing facts that leave engines in review and the unavailable documents
-  that block them.
+  that block them. The file is slim: top-level `strings` and `citation_table`
+  map a 10-character SHA-256 prefix to the value, and each screen's
+  `summary`, `timing`, `notes`, `missing_facts`, and `citations` hold keys.
+  `fleet/slim.py` expands it back to the full per-engine screens exactly (a
+  test checks this). Each directive row also records `rule_record_source`
+  (the rule record path it was screened by; set in `fleet/screen.py`
+  `RULE_RECORD_PATHS`, default the reference record) and `review_provenance`
+  (`REVIEW_PROVENANCE`; an evaluated directive without an entry reads
+  `label_review: claude_stand_in`, `independent_check: claude_subagent`).
 
 Both files are generated offline by `make fleet-build` from committed inputs
 only, and a test checks that regenerating gives identical bytes. CI renders
