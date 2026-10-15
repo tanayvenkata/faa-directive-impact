@@ -19,7 +19,10 @@
       "title": "IAE NMSB V2500-ENG-72-0630, Revision 1 (September 20, 2012), paragraph 3.A PART 2",
       "kind": "incorporated_by_reference",
       "holds": "procedure",
-      "paragraph": "(g)"
+      "paragraph": "(g)",
+      "incorporated_in": [
+        "(k)(2)(i)"
+      ]
     }
   ],
   "parts": [
@@ -102,7 +105,18 @@
           "(h)"
         ]
       },
-      "limits": [],
+      "limits": [
+        {
+          "unknown_means_met": true,
+          "kind": "part_cycles_since_new",
+          "value": 10000,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "threshold",
+          "dependency": "",
+          "paragraph": "(f)"
+        }
+      ],
       "combination": "single",
       "terminates": []
     },

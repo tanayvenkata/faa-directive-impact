@@ -153,3 +153,19 @@ Recorded 2026-10-15, in order.
    the directive names for removal, installed in an engine outside its serial
    list, is cleared (cov-055). Any change made for these is a further
    deviation, reported paired with this run.
+5. **Rules 2.1, after the first scored run.** Interpreter 3 (schema v2 with
+   optional 2.1 fields; v1 records unchanged byte for byte) fixes the three
+   gaps generally: the screen cites every record element it considers
+   (actions, definitions, eligible parts, credit, obligations, incorporation
+   paragraphs, the replaced AD in the thread, preamble statements the record
+   names); a stated fact contradicting an operator record keeps the action
+   open (an installed part a removal or terminating action cannot leave in
+   place, a part installed against a prohibition), and a program revision
+   stated only in words goes to a person instead of being cleared; a part
+   listed for removal in an engine outside the serial list is an
+   interpretation question. It also adds recurring thresholds and settles
+   an action whose scope is in unavailable material when both readings
+   agree. The records gained the matching paragraph mappings. Run:
+   `evaluation/runs/coverage-reference-v2.1-20261015T194038Z`, paired with
+   the v2.0 run above. These changes were made after reading the cases and
+   the v2.0 run, so the 2.1 results are not blind.

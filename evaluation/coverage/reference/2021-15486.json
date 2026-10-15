@@ -19,28 +19,41 @@
       "title": "P&W SI No. 112F-21 (May 24, 2021), Accomplishment Instructions, Table 1",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(c)(1)"
+      "paragraph": "(c)(1)",
+      "incorporated_in": [
+        "(k)(3)(i)"
+      ]
     },
     {
       "id": "si112_t2",
       "title": "P&W SI No. 112F-21 (May 24, 2021), Accomplishment Instructions, Table 2",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(g)(3)"
+      "paragraph": "(g)(3)",
+      "incorporated_in": [
+        "(k)(3)(i)"
+      ]
     },
     {
       "id": "si114_t1",
       "title": "P&W SI No. 114F-21 (May 24, 2021), Accomplishment Instructions, Table 1",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(g)(5)"
+      "paragraph": "(g)(5)",
+      "incorporated_in": [
+        "(k)(3)(ii)"
+      ]
     },
     {
       "id": "disk2_lists",
       "title": "P&W SI No. 112F-21 (May 24, 2021), Accomplishment Instructions, Table 2, or P&W SI No. 114F-21 (May 24, 2021), Accomplishment Instructions, Table 1",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(c)(2)"
+      "paragraph": "(c)(2)",
+      "incorporated_in": [
+        "(k)(3)(i)",
+        "(k)(3)(ii)"
+      ]
     }
   ],
   "parts": [
@@ -341,8 +354,12 @@
   "credit_for_previous_actions": [],
   "definitions": [
     {
-      "term": "part eligible for installation",
-      "paragraph": "(h)"
+      "term": "part eligible for installation: a listed disk that passed the USI",
+      "paragraph": "(h)(1)"
+    },
+    {
+      "term": "part eligible for installation: a disk not listed",
+      "paragraph": "(h)(2)"
     }
   ],
   "amoc_paragraph": "(i)",

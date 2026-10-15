@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://schemas.faa-directive-impact.dev/rule-record-v2.schema.json",
   "title": "Directive rule record, version 2",
-  "description": "One airworthiness directive's screening predicates, read from its regulatory text only. Every value names the paragraph it rests on. A value the text does not state is never filled in: it is left empty, marked unclear, or pointed at an unavailable dependency, and the interpreter sends the engine to review. Version 1 (b3-rule-record.schema.json) stays frozen for the B3 v1 prompt and runs.",
+  "description": "One airworthiness directive's screening predicates, read from its regulatory text only. Every value names the paragraph it rests on. A value the text does not state is never filled in: it is left empty, marked unclear, or pointed at an unavailable dependency, and the interpreter sends the engine to review. Version 1 (b3-rule-record.schema.json) stays frozen for the B3 v1 prompt and runs. Revision 2.1 adds optional fields (model_paragraphs, incorporated_in, related_paragraphs, open_while_installed, part_group on obligations, other_paragraphs on relationships, preamble_basis, the threshold limit role, unknown_means_met); a 2.0 record is still valid.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -177,6 +177,13 @@
           },
           "description": {
             "type": "string"
+          },
+          "other_paragraphs": {
+            "description": "Optional. Paragraphs of the other document this relationship bears on (e.g. the replaced AD's applicability), cited only for a relationship whose other document precedes this one (supersedes).",
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/paragraph"
+            }
           }
         }
       }
@@ -220,6 +227,13 @@
           },
           "paragraph": {
             "$ref": "#/$defs/paragraph"
+          },
+          "incorporated_in": {
+            "description": "Optional. Paragraphs that incorporate the material by reference (e.g. (l)(2)(i)), cited whenever the dependency is named.",
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/paragraph"
+            }
           }
         }
       }
@@ -429,6 +443,29 @@
         },
         "parts_paragraph": {
           "$ref": "#/$defs/optional_paragraph"
+        },
+        "model_paragraphs": {
+          "description": "Optional. The sub-paragraph naming each model (e.g. (c)(2) for all D5 engines), cited with the models paragraph.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "models",
+              "paragraph"
+            ],
+            "properties": {
+              "models": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "paragraph": {
+                "$ref": "#/$defs/paragraph"
+              }
+            }
+          }
         }
       }
     },
@@ -487,6 +524,10 @@
           "description": {
             "type": "string",
             "minLength": 1
+          },
+          "part_group": {
+            "description": "Optional. For an installation prohibition, the part group it prohibits; a part of the group recorded as installed after the effective date keeps the screen open.",
+            "type": "string"
           }
         }
       }
@@ -570,6 +611,35 @@
       "type": "array",
       "items": {
         "type": "string"
+      }
+    },
+    "preamble_basis": {
+      "description": "Optional. Preamble statements the record relies on, cited as that document's preamble. when: always (relied on for every screen of a listed model), terminating_action_passed (when a terminating action's compliance time has passed), event_before_effective_date (when a triggering event before the effective date is set aside).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "document",
+          "when",
+          "statement"
+        ],
+        "properties": {
+          "document": {
+            "$ref": "#/$defs/document"
+          },
+          "when": {
+            "enum": [
+              "always",
+              "terminating_action_passed",
+              "event_before_effective_date"
+            ]
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       }
     }
   },
@@ -758,7 +828,7 @@
           }
         },
         "limits": {
-          "description": "Compliance-time limits. role caps_event: bounds the event (\"at the next shop visit, but not later than ...\"). alternative: a leg combined with the (capped) event by combination. overall_cap: bounds the combined result (\"..., whichever occurs later, not to exceed ...\").",
+          "description": "Compliance-time limits. role caps_event: bounds the event (\"at the next shop visit, but not later than ...\"). alternative: a leg combined with the (capped) event by combination. overall_cap: bounds the combined result (\"..., whichever occurs later, not to exceed ...\"). threshold (2.1): for a recurring (each) trigger, the event counts only once the target part reaches value; below it the action is a continuing obligation.",
           "type": "array",
           "items": {
             "type": "object",
@@ -815,7 +885,8 @@
                 "enum": [
                   "caps_event",
                   "alternative",
-                  "overall_cap"
+                  "overall_cap",
+                  "threshold"
                 ]
               },
               "dependency": {
@@ -824,6 +895,10 @@
               },
               "paragraph": {
                 "$ref": "#/$defs/paragraph"
+              },
+              "unknown_means_met": {
+                "description": "Optional, threshold limits only: true when the directive itself says an unconfirmable count is treated as reached.",
+                "type": "boolean"
               }
             }
           }
@@ -842,6 +917,20 @@
           "type": "array",
           "items": {
             "$ref": "#/$defs/paragraph"
+          }
+        },
+        "related_paragraphs": {
+          "description": "Optional. Other paragraphs the action rests on: its parent paragraph, its sub-steps, a limit such as a special flight permit restriction.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/paragraph"
+          }
+        },
+        "open_while_installed": {
+          "description": "Optional. Part groups whose installation shows the action is not accomplished (e.g. silver-plated nuts against a terminating action requiring silver-free nuts). A remove action's own target counts without listing it.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
           }
         }
       }

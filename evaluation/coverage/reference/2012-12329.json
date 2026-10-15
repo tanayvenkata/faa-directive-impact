@@ -38,14 +38,20 @@
       "title": "IAE NMSB V2500-ENG-72-0615, Revision 3 (September 20, 2011), paragraph 1.A, Group A engine S/Ns",
       "kind": "incorporated_by_reference",
       "holds": "engine_serial_numbers",
-      "paragraph": "(f)"
+      "paragraph": "(f)",
+      "incorporated_in": [
+        "(o)(2)(ii)"
+      ]
     },
     {
       "id": "group_b",
       "title": "IAE NMSB V2500-ENG-72-0615, Revision 3 (September 20, 2011), paragraph 1.A, Group B engine S/Ns",
       "kind": "incorporated_by_reference",
       "holds": "engine_serial_numbers",
-      "paragraph": "(g)"
+      "paragraph": "(g)",
+      "incorporated_in": [
+        "(o)(2)(ii)"
+      ]
     }
   ],
   "parts": [
@@ -64,6 +70,33 @@
     }
   ],
   "applicability": {
+    "model_paragraphs": [
+      {
+        "models": [
+          "V2500-A1"
+        ],
+        "paragraph": "(c)(1)"
+      },
+      {
+        "models": [
+          "V2525-D5",
+          "V2528-D5"
+        ],
+        "paragraph": "(c)(2)"
+      },
+      {
+        "models": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2530-A5",
+          "V2533-A5"
+        ],
+        "paragraph": "(c)(3)"
+      }
+    ],
     "engine_models": [
       "V2500-A1",
       "V2525-D5",

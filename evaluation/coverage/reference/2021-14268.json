@@ -36,7 +36,10 @@
       "title": "IAE NMSB V2500-ENG-72-0713, Revision 1, Accomplishment Instructions, paragraphs 6 to 8",
       "kind": "incorporated_by_reference",
       "holds": "procedure",
-      "paragraph": "(k)"
+      "paragraph": "(k)",
+      "incorporated_in": [
+        "(k)(3)(i)"
+      ]
     }
   ],
   "parts": [
@@ -167,7 +170,32 @@
     "parts_combine": "any",
     "parts_paragraph": "(c)"
   },
-  "eligible_parts": [],
+  "eligible_parts": [
+    {
+      "part_group": "disk1",
+      "part_numbers": [],
+      "description": "A listed disk that has passed the USI.",
+      "paragraph": "(h)(1)"
+    },
+    {
+      "part_group": "disk1",
+      "part_numbers": [],
+      "description": "A disk not listed in the bulletin appendices.",
+      "paragraph": "(h)(2)"
+    },
+    {
+      "part_group": "disk2",
+      "part_numbers": [],
+      "description": "A listed disk that has passed the USI.",
+      "paragraph": "(h)(1)"
+    },
+    {
+      "part_group": "disk2",
+      "part_numbers": [],
+      "description": "A disk not listed in the bulletin appendices.",
+      "paragraph": "(h)(2)"
+    }
+  ],
   "required_actions": [
     {
       "paragraph": "(g)(1)",
@@ -258,8 +286,12 @@
   "credit_for_previous_actions": [],
   "definitions": [
     {
-      "term": "part eligible for installation",
-      "paragraph": "(h)"
+      "term": "part eligible for installation: a listed disk that passed the USI",
+      "paragraph": "(h)(1)"
+    },
+    {
+      "term": "part eligible for installation: a disk not listed",
+      "paragraph": "(h)(2)"
     }
   ],
   "amoc_paragraph": "(i)",

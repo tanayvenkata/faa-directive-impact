@@ -19,49 +19,72 @@
       "title": "IAE NMSB V2500-ENG-72-0676 (October 14, 2016), Table 1 (S/Ns and part cycles-since-new limits)",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(c)(1)(i)"
+      "paragraph": "(c)(1)(i)",
+      "incorporated_in": [
+        "(j)(2)(i)"
+      ]
     },
     {
       "id": "n0677",
       "title": "IAE NMSB V2500-ENG-72-0677, Revision 1 (January 11, 2017), Table 1 (S/Ns and part cycles-since-new limits)",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(g)(1)(ii)"
+      "paragraph": "(g)(1)(ii)",
+      "incorporated_in": [
+        "(j)(2)(ii)"
+      ]
     },
     {
       "id": "n0678",
       "title": "IAE NMSB V2500-ENG-72-0678, Revision 1 (January 5, 2017), Accomplishment Instructions, Table 1",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(g)(2)(i)"
+      "paragraph": "(g)(2)(i)",
+      "incorporated_in": [
+        "(j)(2)(iii)"
+      ]
     },
     {
       "id": "n0682",
       "title": "IAE NMSB V2500-ENG-72-0682 (December 2, 2016), Table 1 (S/Ns and part cycles-since-new limits)",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(g)(1)(iii)"
+      "paragraph": "(g)(1)(iii)",
+      "incorporated_in": [
+        "(j)(2)(v)"
+      ]
     },
     {
       "id": "n0681",
       "title": "IAE NMSB V2500-ENG-72-0681, Revision 2 (January 9, 2017), Accomplishment Instructions, Table 1",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(g)(2)(ii)"
+      "paragraph": "(g)(2)(ii)",
+      "incorporated_in": [
+        "(j)(2)(iv)"
+      ]
     },
     {
       "id": "seal1_lists",
       "title": "IAE NMSB V2500-ENG-72-0677, Revision 1, Table 1, or IAE NMSB V2500-ENG-72-0678, Revision 1, Table 1",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(c)(1)(ii)"
+      "paragraph": "(c)(1)(ii)",
+      "incorporated_in": [
+        "(j)(2)(ii)",
+        "(j)(2)(iii)"
+      ]
     },
     {
       "id": "ring_lists",
       "title": "IAE NMSB V2500-ENG-72-0682, Table 1, or IAE NMSB V2500-ENG-72-0681, Revision 2, Table 1",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(c)(1)(iii)"
+      "paragraph": "(c)(1)(iii)",
+      "incorporated_in": [
+        "(j)(2)(iv)",
+        "(j)(2)(v)"
+      ]
     }
   ],
   "parts": [
@@ -193,6 +216,9 @@
   "eligible_parts": [],
   "required_actions": [
     {
+      "related_paragraphs": [
+        "(g)(1)"
+      ],
       "paragraph": "(g)(1)(i)",
       "description": "Remove the HPT stage 2 air seal from service and replace it with a part eligible for installation.",
       "kind": "remove",
@@ -234,6 +260,9 @@
       "terminates": []
     },
     {
+      "related_paragraphs": [
+        "(g)(1)"
+      ],
       "paragraph": "(g)(1)(ii)",
       "description": "Remove the HPT 1st stage air seal from service and replace it with a part eligible for installation.",
       "kind": "remove",
@@ -275,6 +304,9 @@
       "terminates": []
     },
     {
+      "related_paragraphs": [
+        "(g)(1)"
+      ],
       "paragraph": "(g)(1)(iii)",
       "description": "Remove the HPT stage 2 ring plate from service and replace it with a part eligible for installation.",
       "kind": "remove",
@@ -316,6 +348,9 @@
       "terminates": []
     },
     {
+      "related_paragraphs": [
+        "(g)(2)"
+      ],
       "paragraph": "(g)(2)(i)",
       "description": "Remove the HPT 1st stage air seal from service when the HPT module is disassembled and access to the part is available, and replace it with a part eligible for installation.",
       "kind": "remove",
@@ -336,6 +371,9 @@
       "terminates": []
     },
     {
+      "related_paragraphs": [
+        "(g)(2)"
+      ],
       "paragraph": "(g)(2)(ii)",
       "description": "Remove the HPT stage 2 ring plate from service when the HPT module is disassembled and access to the part is available, and replace it with a part eligible for installation.",
       "kind": "remove",

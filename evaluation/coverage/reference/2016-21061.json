@@ -19,14 +19,20 @@
       "title": "IAE NMSB V2500-ENG-72-0661, Revision 2 (May 27, 2016), Appendix A, Table 1",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(c)(1)"
+      "paragraph": "(c)(1)",
+      "incorporated_in": [
+        "(j)(2)(i)"
+      ]
     },
     {
       "id": "hub2_list",
       "title": "IAE NMSB V2500-ENG-72-0661, Revision 2 (May 27, 2016), Appendix A, Table 2",
       "kind": "incorporated_by_reference",
       "holds": "serial_numbers",
-      "paragraph": "(c)(2)"
+      "paragraph": "(c)(2)",
+      "incorporated_in": [
+        "(j)(2)(i)"
+      ]
     }
   ],
   "parts": [
@@ -85,6 +91,10 @@
   "eligible_parts": [],
   "required_actions": [
     {
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(2)"
+      ],
       "paragraph": "(e)(1)(i)",
       "description": "Inspect the HPT stage 1 hub at the next shop visit or within the band's limits, whichever comes first.",
       "kind": "inspect",
@@ -120,6 +130,10 @@
       "terminates": []
     },
     {
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(2)"
+      ],
       "paragraph": "(e)(1)(ii)",
       "description": "Inspect the HPT stage 1 hub at the next shop visit or within the band's limits, whichever comes first.",
       "kind": "inspect",
@@ -164,6 +178,10 @@
       "terminates": []
     },
     {
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(2)"
+      ],
       "paragraph": "(e)(1)(iii)",
       "description": "Inspect the HPT stage 1 hub at the next shop visit or within the band's limits, whichever comes first.",
       "kind": "inspect",
@@ -208,6 +226,10 @@
       "terminates": []
     },
     {
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(2)"
+      ],
       "paragraph": "(e)(1)(iv)",
       "description": "Inspect the HPT stage 1 hub at the next shop visit or within the band's limits, whichever comes first.",
       "kind": "inspect",
@@ -243,6 +265,10 @@
       "terminates": []
     },
     {
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(3)"
+      ],
       "paragraph": "(e)(1)(i)",
       "description": "Inspect the HPT stage 2 hub at the next shop visit or within the band's limits, whichever comes first.",
       "kind": "inspect",
@@ -278,6 +304,10 @@
       "terminates": []
     },
     {
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(3)"
+      ],
       "paragraph": "(e)(1)(ii)",
       "description": "Inspect the HPT stage 2 hub at the next shop visit or within the band's limits, whichever comes first.",
       "kind": "inspect",
@@ -322,6 +352,10 @@
       "terminates": []
     },
     {
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(3)"
+      ],
       "paragraph": "(e)(1)(iii)",
       "description": "Inspect the HPT stage 2 hub at the next shop visit or within the band's limits, whichever comes first.",
       "kind": "inspect",
@@ -366,6 +400,10 @@
       "terminates": []
     },
     {
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(3)"
+      ],
       "paragraph": "(e)(1)(iv)",
       "description": "Inspect the HPT stage 2 hub at the next shop visit or within the band's limits, whichever comes first.",
       "kind": "inspect",

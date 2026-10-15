@@ -19,7 +19,10 @@
       "title": "IAE NMSB V2500-ENG-72-0694, Revision No. 2 (July 2, 2018), Accomplishment Instructions",
       "kind": "incorporated_by_reference",
       "holds": "procedure",
-      "paragraph": "(n)(2)"
+      "paragraph": "(n)(2)",
+      "incorporated_in": [
+        "(n)(2)(i)"
+      ]
     }
   ],
   "parts": [],
@@ -37,6 +40,12 @@
   "eligible_parts": [],
   "required_actions": [
     {
+      "related_paragraphs": [
+        "(g)(1)(i)",
+        "(g)(1)(ii)",
+        "(g)(1)(iii)",
+        "(g)(1)(iv)"
+      ],
       "paragraph": "(g)(1)",
       "description": "Perform an eddy current inspection and high sensitivity fluorescent penetrant inspection of the turbine exhaust case (TEC) front and rear mount stiffener rails for cracking.",
       "kind": "inspect",
@@ -99,8 +108,11 @@
       "terminates": []
     },
     {
+      "related_paragraphs": [
+        "(k)"
+      ],
       "paragraph": "(g)(3)",
-      "description": "If a crack is confirmed, before further flight remove the part from service and replace it with a part eligible for installation.",
+      "description": "If a crack is confirmed, before further flight remove the part from service and replace it with a part eligible for installation; paragraph (k) limits a special flight permit.",
       "kind": "replace_if_finding",
       "models": [],
       "target": "",

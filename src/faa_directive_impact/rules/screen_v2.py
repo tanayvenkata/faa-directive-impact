@@ -204,6 +204,7 @@ class _Run:
         model = self.asset["engine"]["engine_model"]
         if not self._model_applies(model):
             return result
+        self._cite_basis(model)
         if not self._engine_serial_applies(model):
             return result
         if not self._parts_apply():
@@ -223,6 +224,7 @@ class _Run:
             self._not_yet_effective()
             return result
 
+        prohibited: list[str | None] = []
         for obligation in self.rules["continuing_obligations"]:
             result.continuing_obligations.append(
                 {
@@ -231,6 +233,7 @@ class _Run:
                 }
             )
             self.cite(obligation["paragraph"], "continuing obligation")
+            prohibited.append(self._prohibited_installed(obligation))
         for relation in self.rules["relationships"]:
             if relation["type"] == "terminated_by_compliance":
                 self.note(
@@ -239,7 +242,7 @@ class _Run:
                     "directive's work."
                 )
 
-        statuses = self._actions(model)
+        statuses = self._actions(model) + prohibited
         self._operator_claims()
         if any(s and s != "no_action_triggered" for s in statuses) or (
             result.missing_facts
@@ -345,6 +348,7 @@ class _Run:
         if model not in SUPPORTED_ENGINE_MODELS:
             result.applicability, result.action_status = "outside_supported_scope", None
             self.cite(paragraph, "the applicable engine models")
+            self._cite_model_paragraphs(model)
             result.summary = (
                 f"{model} is not one of the supported V2500-A5/D5/E5 variants. "
                 "This screen makes no applicability determination for it."
@@ -357,6 +361,73 @@ class _Run:
             return False
         self.cite(paragraph, f"{model} is a listed model")
         return True
+
+    def _cite_model_paragraphs(self, model: str) -> None:
+        for entry in self.rules["applicability"].get("model_paragraphs", []):
+            if model in entry["models"]:
+                self.cite(entry["paragraph"], f"{model} is named here")
+
+    def cite_in(self, document: str, paragraph: str, supports: str) -> None:
+        """Cite a paragraph (or the preamble) of another document in the thread."""
+        citation = Citation(document, paragraph, None, supports)
+        if citation not in self.result.citations:
+            self.result.citations.append(citation)
+
+    def _cite_preamble(self, when: str) -> None:
+        for entry in self.rules.get("preamble_basis", []):
+            if entry["when"] == when:
+                self.cite_in(entry["document"], "preamble", entry["statement"])
+
+    def _cite_dependency(self, dependency_id: str) -> None:
+        dependency = self.dependencies[dependency_id]
+        self.cite(dependency["paragraph"], "material this screen does not have")
+        for paragraph in dependency.get("incorporated_in", []):
+            self.cite(paragraph, f"incorporates {dependency['title']}")
+
+    def _cite_basis(self, model: str) -> None:
+        """Cite every record element the screen considers for a listed model.
+
+        Gate 10 asks for the whole basis, and a clear must cite what clears
+        it. Extra citations are allowed; every one comes from the record,
+        whose paragraphs a test checks against the section index. Another
+        document is cited only where it is in the directive's own thread: the
+        AD this one replaced (published earlier) and preamble statements the
+        record names.
+        """
+        rules = self.rules
+        self._cite_model_paragraphs(model)
+        for action in rules["required_actions"]:
+            if action["models"] and model not in action["models"]:
+                continue
+            self.cite(action["paragraph"], "a required action of this directive")
+            for paragraph in action.get("related_paragraphs", []):
+                self.cite(paragraph, f"part of paragraph {action['paragraph']}")
+            for paragraph in action["trigger"]["definition_paragraphs"]:
+                self.cite(paragraph, "how the triggering event is defined")
+            for limit in action["limits"]:
+                self.cite(limit["paragraph"], "a compliance-time limit")
+            for dependency_id in action["dependencies"]:
+                self._cite_dependency(dependency_id)
+            for group_id in [action["target"], *action.get("open_while_installed", [])]:
+                if group_id:
+                    self.cite(self.groups[group_id]["paragraph"], "the parts it names")
+        for definition in rules["definitions"]:
+            self.cite(definition["paragraph"], f"definition: {definition['term']}")
+        for part in rules["eligible_parts"]:
+            self.cite(part["paragraph"], "parts eligible for installation")
+        for credit in rules["credit_for_previous_actions"]:
+            self.cite(credit["paragraph"], "credit for previous actions")
+        for relation in rules["relationships"]:
+            if relation["stated_in"] in (self.document, rules["final_rule_document"]):
+                self.cite(relation["paragraph"], relation["description"])
+            if relation["type"] == "supersedes" and relation["document"]:
+                for paragraph in relation.get("other_paragraphs", []):
+                    self.cite_in(
+                        relation["document"],
+                        paragraph,
+                        f"{relation['ad_number']}, replaced by this AD",
+                    )
+        self._cite_preamble("always")
 
     def _engine_serial_applies(self, model: str) -> bool:
         conditions = [
@@ -390,6 +461,8 @@ class _Run:
                     "spacing is ignored",
                 )
             if serial in condition["excluded"]:
+                if self._listed_part_outside(paragraph):
+                    return False
                 result.applicability, result.action_status = "does_not_apply", None
                 self.cite(
                     paragraph, f"engine S/N {serial} is excluded", f"S/N {serial}"
@@ -413,6 +486,8 @@ class _Run:
                         f"engine S/N {serial} is within a listed range",
                     )  # no locator: the serial itself is not printed
                     continue
+            if self._listed_part_outside(paragraph):
+                return False
             result.applicability, result.action_status = "does_not_apply", None
             self.cite(paragraph, f"engine S/N {serial} is not among the listed serials")
             result.summary = (
@@ -421,6 +496,60 @@ class _Run:
             )
             return False
         return True
+
+    def _listed_part_outside(self, paragraph: str) -> bool:
+        """A part the directive lists by P/N and S/N, in an engine its serials exclude.
+
+        Read literally the directive does not reach the engine, but the unsafe
+        condition is in the part, which is installed. That is an
+        interpretation question for a person, never a clear.
+        """
+        listed = {
+            (row["part_number"], row["serial_number"]): (
+                action,
+                self.groups[action["target"]],
+            )
+            for action in self.rules["required_actions"]
+            if action["kind"] == "remove"
+            and action["target"]
+            and self.groups[action["target"]]["serials"] == "listed"
+            for row in self.groups[action["target"]]["listed"]
+        }
+        for component in self.asset["installed_components"]:
+            key = (component["part_number"], component["serial_number"])
+            if key not in listed:
+                continue
+            action, group = listed[key]
+            result = self.result
+            result.applicability, result.action_status = "unknown", "needs_review"
+            self.cite(paragraph, "the engine serial is not among the listed serials")
+            self.cite(
+                group["paragraph"], "the installed part is listed", f"S/N {key[1]}"
+            )
+            result.hubs.append(
+                HubFinding(
+                    component["component_name"],
+                    key[0],
+                    key[1],
+                    "matched",
+                    f"The {component['component_name']} P/N {key[0]} S/N {key[1]} is "
+                    f"listed in paragraph {group['paragraph']}.",
+                    table_row={"part_number": key[0], "serial_number": key[1]},
+                )
+            )
+            self.missing(
+                f"Interpretation: whether {self.ad} paragraph {action['paragraph']} "
+                f"reaches a listed part installed in an engine outside paragraph "
+                f"{paragraph}"
+            )
+            result.summary = (
+                f"The engine's serial number is outside paragraph {paragraph}, but "
+                f"its {component['component_name']} P/N {key[0]} S/N {key[1]} is a "
+                f"part paragraph {action['paragraph']} requires removed. Whether the "
+                "directive reaches it is for a person to decide."
+            )
+            return True
+        return False
 
     def _serial_unknown(self, paragraph: str, reason: str) -> bool:
         result = self.result
@@ -549,7 +678,7 @@ class _Run:
             self.cite(paragraph, f"the {name} is the part named", None)
             return HubFinding(
                 name,
-                part_number if part_number != UNKNOWN else None,
+                part_number,
                 serial,
                 "matched",
                 f"The {name} is the part paragraph {paragraph} names.",
@@ -696,6 +825,7 @@ class _Run:
                 statuses.append(status)
                 if passed:
                     ended.update(action["terminates"])
+                    self._cite_preamble("terminating_action_passed")
                     self.note(
                         f"Paragraph {action['paragraph']} is a terminating action "
                         "whose compliance time has passed, so paragraphs "
@@ -753,10 +883,15 @@ class _Run:
                     return None, False
 
         if action["dependencies"]:
+            settled = self._scope_both_ways(action, parts)
+            if settled is not None:
+                return settled, True
             for dependency_id in action["dependencies"]:
-                dependency = self.dependencies[dependency_id]
                 self.missing(self._dependency_fact(dependency_id))
-                self.cite(dependency["paragraph"], "material this screen does not have")
+            for part in parts:
+                # The material lists part numbers too; an unknown one is named.
+                if part.part_number == UNKNOWN:
+                    self.missing(f"installed_components[{part.position}].part_number")
             self.cite(
                 paragraph, "a required action that depends on unavailable material"
             )
@@ -817,12 +952,9 @@ class _Run:
             )
             return None, False
         if trigger["recurrence"] == "each" or trigger["event"] == "part_installation":
-            self.timing_parts.append(
-                f"Paragraph {paragraph}: {action['description']} Due at each "
-                f"{trigger['condition'] or trigger['event'].replace('_', ' ')}; "
-                "this recurs and has no cycle or calendar deadline."
-            )
-            return "action_required_on_event", False
+            return self._recurring(action, parts), False
+        if any(limit["role"] == "threshold" for limit in action["limits"]):
+            return self._unsupported(action, "a threshold on a one-time trigger"), False
 
         targets: list[HubFinding | None] = list(parts) if parts else [None]
         statuses = []
@@ -833,9 +965,183 @@ class _Run:
             passed_all = passed_all and passed
         return min(statuses, key=STATUS_ORDER.index), passed_all
 
+    def _prohibited_installed(self, obligation: dict[str, Any]) -> str | None:
+        """An installed part the obligation prohibits, installed after the effective date."""
+        group_id = obligation.get("part_group")
+        if not group_id:
+            return None
+        group = self.groups[group_id]
+        for component in self.asset["installed_components"]:
+            if component["part_number"] not in group["part_numbers"]:
+                continue
+            installed = component.get("installed_at")
+            if installed and date.fromisoformat(installed) > self.effective:
+                self.cite(group["paragraph"], "the prohibited part")
+                self.note(
+                    f"Paragraph {obligation['paragraph']}: {component['component_name']} "
+                    f"P/N {component['part_number']} was installed on {installed}, after "
+                    f"the effective date, although the paragraph prohibits it; it must "
+                    "come out, whatever the operator's record shows."
+                )
+                return "action_required"
+            if not installed:
+                self.note(
+                    f"Paragraph {obligation['paragraph']}: {component['component_name']} "
+                    f"P/N {component['part_number']} is installed; the record does not "
+                    "show when, so whether it was installed against the prohibition is "
+                    "for a person to check."
+                )
+        return None
+
+    def _recurring(self, action: dict[str, Any], parts: list[HubFinding]) -> str | None:
+        """An action due at each occurrence of an event.
+
+        Each installation of a part: an obligation that binds whenever the part
+        is installed, reported like an installation prohibition. Each other
+        event: due on the event (action_required_on_event), unless a threshold
+        on the target part is not yet reached, when it is an obligation with
+        the part's remaining cycles stated.
+        """
+        paragraph = action["paragraph"]
+        trigger = action["trigger"]
+        what = trigger["condition"] or trigger["event"].replace("_", " ")
+        thresholds = [lim for lim in action["limits"] if lim["role"] == "threshold"]
+        if trigger["event"] == "part_installation" and not thresholds:
+            self._obligation(paragraph, action["description"] + f" (at each {what})")
+            return None
+        reached, below = False, []
+        for limit in thresholds:
+            for part in parts or []:
+                component = self._component(part)
+                csn = component.get("cycles_since_new")
+                if isinstance(csn, int):
+                    if csn >= limit["value"]:
+                        reached = True
+                    else:
+                        below.append(limit["value"] - csn)
+                elif limit.get("unknown_means_met"):
+                    reached = True  # the directive settles an unconfirmable count
+                else:
+                    self.missing(
+                        f"installed_components[{part.position}].cycles_since_new"
+                    )
+                    return None
+        if thresholds and not reached and below:
+            self.remaining.append(min(below))
+            self._obligation(paragraph, action["description"])
+            self.timing_parts.append(
+                f"Paragraph {paragraph}: not yet due; {min(below):,} part cycles remain "
+                f"before each {what} requires it."
+            )
+            return "no_action_triggered"
+        self.timing_parts.append(
+            f"Paragraph {paragraph}: {action['description']} Due at each {what}; "
+            "this recurs and has no cycle or calendar deadline."
+        )
+        return "action_required_on_event"
+
+    def _obligation(self, paragraph: str, text: str) -> None:
+        entry = {"paragraph": paragraph, "text": text}
+        if entry not in self.result.continuing_obligations:
+            self.result.continuing_obligations.append(entry)
+        self.cite(paragraph, "continuing obligation")
+
+    def _component(self, part: HubFinding) -> dict[str, Any]:
+        return next(
+            c
+            for c in self.asset["installed_components"]
+            if c["component_name"] == part.position
+        )
+
+    def _accomplished_record(self) -> bool:
+        return any(
+            r["ad"] == self.ad and r["recorded_status"] in ("complied", "recurring")
+            for r in self.asset.get("ad_records") or []
+        )
+
+    def _scope_both_ways(
+        self, action: dict[str, Any], parts: list[HubFinding]
+    ) -> str | None:
+        """Settle an action whose scope is in unavailable material, if both ways agree.
+
+        The material decides only whether the action reaches this engine. If
+        it does not, nothing is required. If it does, and the compliance time
+        has passed with the operator's record showing the action accomplished
+        and no installed fact contradicting it, nothing is required either:
+        the two readings agree. Any other result leaves the material named.
+        """
+        holds = {self.dependencies[d]["holds"] for d in action["dependencies"]}
+        if (
+            not holds <= {"serial_numbers", "engine_serial_numbers"}
+            or action["kind"] == "remove"
+            or action["trigger"]["event"] != "none"
+            or action["unrecorded_conditions"]
+            or any(
+                lim["dependency"]
+                or lim["kind"] in ("other", "flight_cycles_after_prior_action")
+                or lim["role"] == "threshold"
+                or (lim["kind"] == "calendar_date" and lim["date"] is None)
+                or (
+                    lim["kind"]
+                    in (
+                        "days_after_effective_date",
+                        "flight_cycles_after_effective_date",
+                    )
+                    and lim["value"] is None
+                )
+                for lim in action["limits"]
+            )
+            or not any(lim["role"] == "alternative" for lim in action["limits"])
+        ):
+            return None
+        timing = self._deadline(action, parts[0] if parts else None, _Event(False))
+        if timing.status != "passed":
+            if timing.status in ("unknown", "undetermined"):
+                for fact in timing.missing:
+                    self.missing(fact)
+                if not self._accomplished_record():
+                    self.missing(f"ad_records[{self.ad}]")
+            return None
+        if not self._accomplished_record() or self._contradiction(action, parts):
+            self.missing(f"ad_records[{self.ad}]")
+            return None
+        self.records_used = True
+        self.note(f"Paragraph {action['paragraph']}: {RECORD_ACCOMPLISHED}")
+        self.note(
+            f"Whether paragraph {action['paragraph']} reaches this engine is set by "
+            "material this screen does not have; either way nothing more is "
+            "required, because its compliance time has passed and the operator's "
+            "record shows it accomplished."
+        )
+        return "no_action_triggered"
+
+    def _contradiction(
+        self, action: dict[str, Any], parts: list[HubFinding]
+    ) -> str | None:
+        """An installed fact showing the action is not accomplished, or None."""
+        paragraph = action["paragraph"]
+        if action["kind"] == "remove" and parts:
+            return (
+                f"the {parts[0].position} that paragraph {paragraph} requires removed "
+                "is still installed"
+            )
+        for group_id in action.get("open_while_installed", []):
+            group = self.groups[group_id]
+            for component in self.asset["installed_components"]:
+                if component["part_number"] in group["part_numbers"]:
+                    self.cite(
+                        group["paragraph"], "an installed part the action excludes"
+                    )
+                    return (
+                        f"{component['component_name']} P/N {component['part_number']} "
+                        f"is installed, which paragraph {paragraph} cannot leave in place"
+                    )
+        return None
+
     def _dependency_fact(self, dependency_id: str) -> str:
         """How a missing dependency is named: unavailable material, or an image."""
         dependency = self.dependencies[dependency_id]
+        self._cite_dependency(dependency_id)
         if dependency["kind"] == "image_only_figure":
             return (
                 f"{dependency['title']} (printed only as an image in the directive; "
@@ -979,6 +1285,21 @@ class _Run:
         if verdict == "needs_review":
             for fact in first.missing:
                 self.missing(fact)
+            if not remove and not self._accomplished_record():
+                # If the deadline has passed, the outcome turns on the record.
+                self.missing(f"ad_records[{self.ad}]")
+        if verdict in ("needs_review", "needs_review_notice") and (
+            self._accomplished_record()
+        ):
+            # A record never overrides a fact that contradicts it: the action
+            # stays open, though its deadline is still unsettled.
+            contradiction = self._contradiction(action, [part] if part else [])
+            if contradiction:
+                if verdict == "needs_review_notice" and emergency:
+                    self._notice_date_missing(emergency)
+                self._contradicts_record(action, contradiction)
+                self.timing_parts.append(first.text)
+                return "action_required", False
 
         if same_numbers and first.counter is not None:
             self.latest.append(first.counter)
@@ -998,8 +1319,20 @@ class _Run:
             )
             return "needs_review", False
         if verdict == "passed":
-            return self._operator_record(action, where), True
+            return self._operator_record(action, where, part), True
+        if verdict == "action_required" and self._accomplished_record():
+            contradiction = self._contradiction(action, [part] if part else [])
+            if contradiction:
+                self._contradicts_record(action, contradiction)
         return verdict, first.status == "passed"
+
+    def _contradicts_record(self, action: dict[str, Any], contradiction: str) -> None:
+        self.records_used = True
+        self.note(
+            f"Paragraph {action['paragraph']}: the operator's AD record shows this "
+            f"action accomplished, but {contradiction}. The record does not override "
+            "that fact; the action stays open and the record should be reviewed."
+        )
 
     def _verdict(self, timing: _Timing, remove: bool, emergency: bool) -> str:
         """The status a timing gives, before operator records are read."""
@@ -1019,14 +1352,42 @@ class _Run:
             return "needs_review_notice" if emergency else "action_required"
         return "passed"
 
-    def _operator_record(self, action: dict[str, Any], where: str) -> str:
-        """The pre-registered Operator Records rule, for a passed deadline."""
+    def _operator_record(
+        self, action: dict[str, Any], where: str, part: HubFinding | None = None
+    ) -> str:
+        """The pre-registered Operator Records rule, for a passed deadline.
+
+        A record never overrides a stated fact that contradicts it: an
+        installed part the action cannot leave in place keeps it open, and a
+        program revision the operator states in words is for a person to read
+        against what the directive requires before the record is relied on.
+        """
         paragraph = action["paragraph"]
         records = [r for r in self.asset.get("ad_records") or [] if r["ad"] == self.ad]
         self.records_used = True
         accomplished = [
             r for r in records if r["recorded_status"] in ("complied", "recurring")
         ]
+        contradiction = self._contradiction(action, [part] if part else [])
+        if contradiction:
+            if accomplished:
+                self._contradicts_record(action, contradiction)
+            else:
+                self.note(
+                    f"Paragraph {paragraph}: {contradiction}; the action is open."
+                )
+            return "action_required"
+        stated = (self.asset.get("operator") or {}).get("maintenance_program_revision")
+        if accomplished and action["kind"] == "revise_maintenance_program" and stated:
+            self.missing("operator.maintenance_program_revision")
+            self.note(
+                f"Paragraph {paragraph}: the operator's AD record shows the revision "
+                "made, and the operator states its current program revision in "
+                f'words ("{stated}"). Whether that revision includes what paragraph '
+                f"{paragraph} requires is for a person to read; this screen does not "
+                "interpret free text, so it does not rely on the record here."
+            )
+            return "needs_review"
         if accomplished:
             self.note(f"Paragraph {paragraph}: {RECORD_ACCOMPLISHED}")
             for credit in self.rules["credit_for_previous_actions"]:
@@ -1075,7 +1436,15 @@ class _Run:
         candidates = []
         for event in sorted(self.asset.get("events") or [], key=lambda e: e["at"]):
             at = date.fromisoformat(event["at"])
-            if at <= self.effective or at > self.as_of:
+            if at > self.as_of:
+                continue
+            if at <= self.effective:
+                if event["event_type"] == "shop_visit_induction" or (
+                    trigger["event"] == "maintenance_event"
+                    and event["event_type"] in MAINTENANCE_EVENT_TYPES
+                ):
+                    # Set aside: only an event after the effective date counts.
+                    self._cite_preamble("event_before_effective_date")
                 continue
             counter = event.get("engine_flight_cycles_at_event")
             if trigger["event"] == "engine_shop_visit":

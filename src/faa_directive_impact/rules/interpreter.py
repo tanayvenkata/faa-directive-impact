@@ -41,7 +41,9 @@ from faa_directive_impact.impact.hpt_hub_rules import (
 )
 from faa_directive_impact.rules.screen_v2 import screen_rules_v2
 
-INTERPRETER_VERSION = 2
+INTERPRETER_VERSION = (
+    3  # 3: rules v2.1 semantics for version 2 records; v1 path unchanged
+)
 LATER = "whichever_occurs_later"
 FIRST = "whichever_occurs_first"
 TABLE_LIMIT = "listed_part_cycles_since_new"

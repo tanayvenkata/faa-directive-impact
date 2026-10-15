@@ -134,5 +134,17 @@
   ],
   "notes": [
     "Re-expressed in schema v2 from evaluation/b3/reference/2026-16954.json; same predicates."
+  ],
+  "preamble_basis": [
+    {
+      "document": "2026-18423",
+      "when": "always",
+      "statement": "Need for the Correction: paragraph (g) applies where the 3rd stage HPC rotor blade is exposed."
+    },
+    {
+      "document": "2026-16954",
+      "when": "event_before_effective_date",
+      "statement": "Response to United Airlines: engines inducted into a shop visit before the effective date are not required to comply at that visit."
+    }
   ]
 }

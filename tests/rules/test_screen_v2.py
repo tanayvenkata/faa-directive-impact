@@ -12,7 +12,6 @@ from pathlib import Path
 import pytest
 
 from faa_directive_impact.evaluation.seed import load_seed_cases
-from faa_directive_impact.fleet.build import compute_fleet
 from faa_directive_impact.rules.interpreter import screen_rules
 from faa_directive_impact.rules.screen_v2 import (
     RECORD_ACCOMPLISHED,
@@ -141,17 +140,15 @@ def test_v2_records_of_the_two_v1_directives_reproduce_v1_on_seed_and_fleet() ->
       seed-020 expects); v1 left it in_force.
     """
     cases = [c.record for c in load_seed_cases(REPO / "evaluation/seed/cases")]
-    fleet, _ = compute_fleet(REPO)
+    frozen = json.loads(
+        (REPO / "tests/fixtures/rules/fleet-v1-screens.json").read_text()
+    )
     assets = [
         (c["case_id"], c["asset_snapshot"], c["source_snapshot"]["as_of"])
         for c in cases
     ] + [
-        (
-            a["engine"]["asset_id"],
-            a,
-            a.get("evaluation_case", {}).get("as_of") or a["engine"]["snapshot_at"],
-        )
-        for a in fleet["engines"]
+        (e["asset"]["engine"]["asset_id"], e["asset"], e["as_of"])
+        for e in frozen["engines"]
     ]
     for document in ("2025-18469", "2026-16954"):
         v1 = json.loads((REPO / f"evaluation/b3/reference/{document}.json").read_text())
@@ -241,8 +238,17 @@ def test_listed_disk_on_a_listed_engine_is_due_by_its_cycle_cap() -> None:
 
 
 def test_unlisted_engine_serial_does_not_apply() -> None:
-    result = run("2019-19412", lpt_engine(serial="V10632"), "2020-06-01")
+    result = run("2019-19412", lpt_engine(sn="MAP09999", serial="V10632"), "2020-06-01")
     assert outcome(result) == ("does_not_apply", None)
+    assert ("2019-19412", "(g)") in cited(result)  # the clear's basis
+
+
+def test_listed_part_in_an_unlisted_engine_is_an_interpretation_question() -> None:
+    """Rules 2.1: never a clear when a part listed for removal is installed."""
+    result = run("2019-19412", lpt_engine(serial="V10632"), "2020-06-01")
+    assert outcome(result) == ("unknown", "needs_review")
+    assert any(f.startswith("Interpretation: whether") for f in result.missing_facts)
+    assert {("2019-19412", "(c)"), ("2019-19412", "(g)")} <= cited(result)
 
 
 def test_unlisted_disk_on_a_listed_engine_needs_no_action() -> None:
@@ -342,7 +348,11 @@ def test_missing_effective_date_reading_is_named_not_guessed() -> None:
         "2019-17403", tec_engine(readings=[("2026-10-01", 20000)]), "2026-10-01"
     )
     assert result.action_status == "needs_review"
-    assert result.missing_facts == ["engine.engine_cycle_readings[2019-09-19]"]
+    # 2.1: with no record, the record is named too (the deadline may have passed).
+    assert result.missing_facts == [
+        "engine.engine_cycle_readings[2019-09-19]",
+        "ad_records[AD 2019-16-01]",
+    ]
 
 
 # Calendar limits, terminating actions, maintenance events ---------------
@@ -739,7 +749,13 @@ PARAGRAPH_INDEX = json.loads(
     (REPO / "tests/fixtures/rules/coverage-paragraph-index.json").read_text()
 )["documents"]
 LABEL_KEYS = ("paragraph", "models_paragraph", "parts_paragraph", "amoc_paragraph")
-LABEL_LISTS = ("definition_paragraphs", "terminates", "actions")
+LABEL_LISTS = (
+    "definition_paragraphs",
+    "terminates",
+    "actions",
+    "related_paragraphs",
+    "incorporated_in",
+)
 
 
 def paragraph_labels(node):
@@ -764,6 +780,8 @@ def test_every_cited_paragraph_exists_in_the_section_index(document) -> None:
     assert sorted(set(paragraph_labels(record)) - known) == []
     for relation in record["relationships"]:
         assert relation["paragraph"] in PARAGRAPH_INDEX[relation["stated_in"]]
+        for paragraph in relation.get("other_paragraphs", []):
+            assert paragraph in PARAGRAPH_INDEX[relation["document"]]
 
 
 def test_blocked_action_under_an_emergency_ad_still_names_the_notice_date() -> None:
@@ -799,3 +817,135 @@ def test_two_different_readings_on_one_date_are_malformed() -> None:
     result = run("2019-17403", asset, "2026-10-01")
     assert outcome(result) == ("unknown", "needs_review")
     assert result.missing_facts == ["engine.engine_cycle_readings"]
+
+
+# Rules 2.1 ----------------------------------------------------------------
+
+NUTS = "HPC stage 3 to 8 drum attachment nuts"
+
+
+def nut_engine(pn="AS64367", installed_at=None, records=()):
+    asset = engine(
+        "V2530-A5", "V12000", [part(NUTS, pn, "not serialized")], records=records
+    )
+    if installed_at:
+        asset["installed_components"][0]["installed_at"] = installed_at
+    return asset
+
+
+def test_installed_part_contradicting_a_complied_terminating_action_keeps_it_open():
+    result = run(
+        "2015-12068", nut_engine(records=[(AD_DRUM, "complied")]), "2026-10-01"
+    )
+    assert result.action_status == "action_required"
+    assert any("does not override" in note for note in result.notes)
+    assert ("2015-12068", "(h)(1)") in cited(result)
+
+
+def test_part_installed_against_a_prohibition_after_the_effective_date():
+    asset = nut_engine(installed_at="2016-03-01", records=[(AD_DRUM, "complied")])
+    asset["installed_components"][0]["part_number"] = "AS44862"
+    result = run("2015-12068", asset, "2026-10-01")
+    assert result.action_status == "action_required"
+    assert any("prohibits" in note for note in result.notes)
+
+
+def test_other_nuts_leave_the_complied_record_standing():
+    result = run(
+        "2015-12068",
+        nut_engine(pn="AS99999", records=[(AD_DRUM, "complied")]),
+        "2026-10-01",
+    )
+    assert result.action_status == "no_action_triggered"
+    assert ("2015-12068", "preamble") in cited(result)  # terminating action passed
+
+
+def test_removal_with_unplaceable_deadline_but_contradicted_record_is_open():
+    asset = emergency_disk("PKLBR38661", [])
+    asset["ad_records"] = [{"ad": "AD 2020-07-51", "recorded_status": "complied"}]
+    result = run("2020-07627", asset, "2026-10-01")
+    assert result.action_status == "action_required"
+    assert "engine.engine_cycle_readings[2020-05-01]" in result.missing_facts
+
+
+@pytest.mark.parametrize(
+    ("csn", "status", "remaining"),
+    [
+        (12400, "action_required_on_event", None),
+        (None, "action_required_on_event", None),
+        (6000, "no_action_triggered", 4000),
+    ],
+)
+def test_recurring_action_with_a_part_threshold(csn, status, remaining) -> None:
+    result = run("2013-08448", tube_engine(csn=csn, serial="V20200"), "2026-10-01")
+    assert result.action_status == status
+    assert result.computed.get("component_cycles_remaining") == remaining
+    assert "(g)" in {o["paragraph"] for o in result.continuing_obligations}
+
+
+def test_stated_program_revision_with_a_complied_record_is_read_by_a_person():
+    asset = engine(
+        "V2533-A5",
+        operator={
+            "air_carrier_operation": "yes",
+            "maintenance_program_revision": "Revision 49",
+        },
+        records=[("AD 2025-17-16", "complied")],
+    )
+    result = run("2025-17066", asset, "2026-10-01")
+    assert result.action_status == "needs_review"
+    assert "operator.maintenance_program_revision" in result.missing_facts
+
+
+def test_scope_in_an_image_but_both_readings_agree_on_no_action() -> None:
+    asset = disk_engine(
+        sn2="PKLBSC8066",
+        readings=[("2021-07-19", 30000), ("2026-10-01", 40000)],
+        records=[("AD 2021-11-51", "complied")],
+    )
+    result = run("2021-14268", asset, "2026-10-01")
+    assert result.action_status == "no_action_triggered"
+    assert ("2021-14268", "(h)(1)") in cited(result)
+
+
+def test_scope_in_an_image_without_a_record_names_the_record() -> None:
+    result = run("2021-14268", disk_engine(sn1="PKLBSG0105"), "2026-10-01")
+    assert result.action_status == "needs_review"
+    assert "ad_records[AD 2021-11-51]" in result.missing_facts
+
+
+def test_unknown_applicability_still_cites_the_actions_considered() -> None:
+    result = run("2016-21061", hub_engine(5000), "2016-11-01")
+    assert outcome(result) == ("unknown", "needs_review")
+    assert {
+        ("2016-21061", "(e)(1)"),
+        ("2016-21061", "(e)(1)(ii)"),
+        ("2016-21061", "(f)"),
+        ("2016-21061", "(j)(2)(i)"),
+    } <= cited(result)
+
+
+def test_outside_scope_cites_the_subparagraph_naming_the_model() -> None:
+    result = run("2015-12068", engine("V2500-A1", "V00100"), "2026-10-01")
+    assert result.applicability == "outside_supported_scope"
+    assert ("2015-12068", "(c)(1)") in cited(result)
+
+
+def test_supersession_cites_the_replaced_ad_and_the_preamble() -> None:
+    result = run("2015-12068", engine("V2527-A5", "V15000"), "2026-10-01")
+    assert result.applicability == "does_not_apply"
+    assert {
+        ("2015-12068", "(b)"),
+        ("2012-12329", "(c)(3)"),
+        ("2015-12068", "preamble"),
+    } <= cited(result)
+
+
+def test_visit_before_the_effective_date_cites_the_preamble_that_sets_it_aside():
+    asset = engine(
+        "V2527-A5", components=[part("3rd stage HPC rotor blade set", "6A8688", "set")]
+    )
+    asset["events"] = [visit("2026-09-14", "AD 2026-17-03")]
+    result = run("2026-16954", asset, "2026-09-30")
+    assert result.action_status == "action_required_on_event"
+    assert ("2026-16954", "preamble") in cited(result)
