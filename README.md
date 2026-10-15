@@ -19,7 +19,7 @@ the daily discovery sync in [`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md). Their
 hand-checked gates were judged by Claude only; the owner waived re-checking
 them on 2026-10-15
 ([`evaluation/review/OWNER_PACKET.md`](evaluation/review/OWNER_PACKET.md)).
-Candidate retrieval is built and scored ([`evaluation/RETRIEVAL.md`](evaluation/RETRIEVAL.md)); an agent was evaluated and not justified ([`evaluation/AGENT_DECISION.md`](evaluation/AGENT_DECISION.md)). Full V2500 coverage is in progress ([`evaluation/coverage/PREREGISTRATION.md`](evaluation/coverage/PREREGISTRATION.md)).
+Candidate retrieval is built and scored ([`evaluation/RETRIEVAL.md`](evaluation/RETRIEVAL.md)); an agent was evaluated and not justified ([`evaluation/AGENT_DECISION.md`](evaluation/AGENT_DECISION.md)). Full V2500 coverage is scored: all 16 in-scope directives have rules and a paired score, and AD 2020-07-51 joined AD 2025-19-13 as evaluated ([`evaluated.md`](evaluation/runs/coverage-drafts-reviewed-20261015T230605Z/evaluated.md); draft write-up [`03-full-coverage.md`](writeups/03-full-coverage.md)).
 
 ## Current Flow
 

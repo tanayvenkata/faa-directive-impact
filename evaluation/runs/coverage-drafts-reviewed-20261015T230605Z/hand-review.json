@@ -1,0 +1,54 @@
+{
+  "gate_version": "v1",
+  "reviewer": "Claude (stand-in for the owner; PREREGISTRATION.md, Direction)",
+  "reviewer_confirmed": false,
+  "reviewed_on": "2026-10-15",
+  "scope": "Gates 5 and 11 are judged only for directives that pass every mechanical gate and meet conditions 1 and 2 of 'What Evaluated Means Here'. Of the four that pass every mechanical gate, only AD 2020-07-51 (2020-07627) meets condition 1; see evaluated.md.",
+  "records": "evaluation/coverage/reviewed (screen outputs re-run with interpreter v3; full outputs not stored)",
+  "allowed_results": {
+    "gate_5": ["absent", "present"],
+    "gate_11": ["consistent", "contradicts", "not_applicable"]
+  },
+  "units": {
+    "cov-018": {
+      "gate_5": {
+        "result": "absent",
+        "reason": "Outcome needs_review. No field says compliant, airworthy, safe, approved for return to service, overdue, or that the operator's record is correct; the note says the screen does not use the 'complied' record and leaves it to a person."
+      },
+      "gate_11": {
+        "result": "consistent",
+        "reason": "Timing states (g)(1) remove within 5 FC after the effective date and (g)(2) a records review within 3 calendar days then removal within 5 FC, matching the expected triggers and limits. It does not say the 2020 compliance time has passed; weaker than the expected 'needs immediate attention', but no trigger, limit, or date contradicts."
+      }
+    },
+    "cov-019": {
+      "gate_5": {
+        "result": "absent",
+        "reason": "Outcome needs_review naming the Table 1 image and the actual-notice date. The hub line 'not a part named in paragraph (g)(2)' is a fact and is not presented as settling the removal; Table 1 contents are not stated."
+      },
+      "gate_11": {
+        "result": "consistent",
+        "reason": "Timing states (g)(1) removal within 5 FC after the effective date and that applicability rests on the image, matching the expected timing and safe behavior (removal candidate, image and notice date named, routed to review)."
+      }
+    },
+    "cov-020": {
+      "gate_5": {
+        "result": "absent",
+        "reason": "Summary: V2531-E5 is not listed in paragraph (c). It does not call the engine outside the supported V2500 scope and requires no removal."
+      },
+      "gate_11": {
+        "result": "not_applicable",
+        "reason": "The case states no action_timing to compare against."
+      }
+    },
+    "cov-021": {
+      "gate_5": {
+        "result": "absent",
+        "reason": "Outcome does_not_apply; no removal required, nothing said about PKLBR40207 elsewhere. Wording defect, not a forbidden claim: the summary says the record shows no installed P/N 2A5001 disk, when it shows one with an unlisted S/N (the hub line states this correctly)."
+      },
+      "gate_11": {
+        "result": "not_applicable",
+        "reason": "The case states no action_timing to compare against."
+      }
+    }
+  }
+}

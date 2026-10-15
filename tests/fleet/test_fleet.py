@@ -335,7 +335,10 @@ def test_every_in_scope_directive_is_screened_by_its_rule_record():
     for document in _inputs()["references"]:
         assert document in states
         if document != "2025-18469":
-            assert states[document]["coverage_state"] == NOT_YET_EVALUATED
+            expected = (
+                EVALUATED if document in EVALUATED_DIRECTIVES else NOT_YET_EVALUATED
+            )
+            assert states[document]["coverage_state"] == expected
             assert states[document]["screener"].startswith("rule interpreter")
     for engine in screened["engines"]:
         retrieved = {c["document"] for c in engine["candidates"]}
@@ -473,7 +476,12 @@ def test_slim_screen_stores_each_distinct_value_once():
 
 
 def test_rule_record_source_defaults_to_the_reference_record():
-    assert RULE_RECORD_PATHS == {}
+    # Only an evaluated directive reads its reviewed draft; every other
+    # directive keeps its reference record.
+    assert set(RULE_RECORD_PATHS) <= EVALUATED_DIRECTIVES
+    for document, path in RULE_RECORD_PATHS.items():
+        assert path == f"evaluation/coverage/reviewed/{document}.json"
+        assert (REPO / path).exists()
     assert (
         rule_record_path("2025-18469")
         == "evaluation/coverage/reference/2025-18469.json"
