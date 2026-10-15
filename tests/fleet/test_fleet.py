@@ -101,6 +101,26 @@ def test_generated_aircraft_follow_the_registry_mix():
     assert models == {m: n for m, n in expected_models.items() if n}
 
 
+def test_build_years_come_from_the_registry_rows():
+    fleet, _ = _computed()
+    registry = {
+        (row["airframe"], row["year"]): row["aircraft"]
+        for row in _inputs()["registry"]["by_airframe_year"]
+    }
+    drawn = fleet["composition"]["generated_build_years"]
+    assert sum(row["aircraft"] for row in drawn) == len(_generated(fleet)) // 2
+    for row in drawn:
+        assert row["year"] != "unknown"
+        assert registry.get((row["airframe"], row["year"]), 0) > 0
+    per_airframe: dict[str, int] = {}
+    for row in drawn:
+        per_airframe[row["airframe"]] = (
+            per_airframe.get(row["airframe"], 0) + row["aircraft"]
+        )
+    quotas = fleet["composition"]["generated_aircraft"]
+    assert per_airframe == {k: v for k, v in quotas.items() if v}
+
+
 def test_engine_serials_are_real_format_and_never_printed_in_a_directive():
     fleet, _ = _computed()
     forbidden = corpus_identifiers(_inputs()["corpus"])

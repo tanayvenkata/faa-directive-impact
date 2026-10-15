@@ -128,6 +128,7 @@ class _Engine:
     position: int
     built: date
     rate: float  # cycles a day
+    year: int  # the aircraft's registry build year
     serial: str = ""
     shop_visits: list[tuple[date, int]] = field(default_factory=list)
     parts: list[_Part] = field(default_factory=list)
@@ -197,11 +198,25 @@ def build_fleet(
             "registry_snapshot": registry["snapshot"],
             "registry_aircraft": registry["by_airframe"],
             "generated_aircraft": dict(sorted(quotas.items())),
+            "generated_build_years": _build_years(engines),
             "embedded_seed_engines": len(embedded),
             "planted_listed_parts": planted,
         },
         "engines": assets + embedded,
     }
+
+
+def _build_years(engines: list[_Engine]) -> list[dict[str, Any]]:
+    """Generated aircraft per registry airframe and build year."""
+    counts: dict[tuple[str, int], int] = {}
+    for engine in engines:
+        if engine.position == 1:
+            key = (engine.airframe, engine.year)
+            counts[key] = counts.get(key, 0) + 1
+    return [
+        {"airframe": airframe, "year": str(year), "aircraft": n}
+        for (airframe, year), n in sorted(counts.items())
+    ]
 
 
 def allocate(counts: dict[str, int], total: int) -> dict[str, int]:
@@ -253,6 +268,7 @@ def _airframes(
                         position,
                         built,
                         rate,
+                        year,
                     )
                 )
     return engines
