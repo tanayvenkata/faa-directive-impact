@@ -82,7 +82,7 @@ discovery-rollback:
 # Fetches discovery-state (read only), then offline: rollback drill on a copy
 # under data/drill/; never pushes. STATE=<commit> drills an older state.
 discovery-drill:
-	operations/drills/rollback_drill.sh $(STATE) data/drill
+	operations/drills/rollback_drill.sh "$(STATE)" data/drill
 
 # Offline. Writes site/index.html from the discovery state.
 discovery-site:

@@ -131,9 +131,13 @@ A rollback writes a `rollback` receipt naming both generations and repoints
 searches again from there. To roll back the published state:
 
 1. Check out `discovery-state`.
-2. Copy `discovery/` to `data/discovery/`.
-3. Run the rollback.
+2. Copy `discovery/` to a scratch root such as `data/rollback-work/`. Do not
+   use `data/discovery/`, which may hold a local sync's raw bytes.
+3. Run the rollback with `DISCOVERY_ROOT` set to that root.
 4. Copy the result back and commit.
+
+The exact commands are in "Incidents" below. Rehearse first with
+`make discovery-drill`.
 
 Generations are never deleted, so any promoted generation can be restored.
 
@@ -223,16 +227,18 @@ it first on a copy (`make discovery-drill`; receipt in
 ```bash
 git fetch origin discovery-state
 git worktree add --detach ../discovery-state-work FETCH_HEAD
-rm -rf data/discovery && mkdir -p data/discovery
-cp -R ../discovery-state-work/discovery/. data/discovery/
-make discovery-rollback                 # or TO=gen-... for a specific promoted generation
-make discovery-site                     # check site/index.html: the "Activated by" row says rollback
+# A separate root, so a local data/discovery/ (and its raw bytes) is untouched.
+mkdir -p data/rollback-work
+cp -R ../discovery-state-work/discovery/. data/rollback-work/
+make discovery-rollback DISCOVERY_ROOT=data/rollback-work   # or add TO=gen-...
+make discovery-site DISCOVERY_ROOT=data/rollback-work       # "Activated by" says rollback
 rsync -a --exclude 'raw/' --exclude '.staging/' --exclude '.active-*' \
-  data/discovery/ ../discovery-state-work/discovery/
+  data/rollback-work/ ../discovery-state-work/discovery/
 git -C ../discovery-state-work add -A discovery
 git -C ../discovery-state-work commit -m "discovery: roll back to <generation>"
 git push origin "$(git -C ../discovery-state-work rev-parse HEAD):refs/heads/discovery-state"
 git worktree remove ../discovery-state-work
+rm -rf data/rollback-work
 ```
 
 Do not push while a workflow run is in progress (check the Actions tab), or

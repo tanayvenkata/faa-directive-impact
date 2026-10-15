@@ -316,11 +316,16 @@ The sample is tiny, so with n = 5 the "p90" is effectively the maximum.
   started at 21:18, 19:20, 17:18, and 17:07 UTC, which is 4.8 to 9.0 hours
   late. This is the largest latency in the system. Even so, it leaves the
   page under 33 hours old, inside the 48-hour STALE limit.
-- **Actions minutes.** GitHub rounds each job up to a whole minute. A run
-  now has three jobs (`sync`, `deploy`, `alert`), so it counts about 3
-  minutes. One run a day comes to about 91 minutes a month, or 1,100 a
-  year. Standard runners are free in public repositories, as quoted in
-  DISCOVERY_SYNC.md, "Cost".
+- **Actions minutes.** The measured job time is about 35 seconds a run, or
+  about 18 minutes a month. If each of the three jobs (`sync`, `deploy`,
+  `alert`) were counted as a whole minute, a run would count 3 minutes:
+  about 91 minutes a month, or 1,100 a year.
+
+  That per-job rounding is an assumption, used here as the upper bound.
+  GitHub's Actions billing page, fetched 2026-10-15, does not state it.
+  The same page does state: "GitHub Actions usage is free for self-hosted
+  runners and for public repositories that use standard GitHub-hosted
+  runners."
 - **Model spend to date** was $7.24 over 868 recorded calls. It is the sum
   of `response.cost_usd` over every `evaluation/runs/*/calls/*.json`:
 
@@ -345,7 +350,7 @@ The sample is tiny, so with n = 5 the "p90" is effectively the maximum.
 
 - **Expected cash cost: $0.** This holds while the repository is public and
   no new evaluation runs are made:
-  - Actions: about 1,100 runner-minutes, free on public repositories.
+  - Actions: at most about 1,100 runner-minutes, free on public repositories.
   - Pages hosting is free.
   - Model calls: none.
 - **Storage.** The `discovery-state` branch grows about 20 MB a year

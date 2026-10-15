@@ -87,17 +87,13 @@ A newly published in-scope directive becomes visible the day it syncs, as
    year while later episodes are built. Upstream failures must surface loudly
    rather than leave the page silently stale. The interface states that it is
    a screening tool, not a compliance determination, and uses no FAA branding.
-   *Hardening built ([`operations/HARDENING.md`](operations/HARDENING.md)).
-   It includes:*
-   - *failure and inactivity alerts as GitHub issues;*
-   - *a rollback drill on a copy of the live state;*
-   - *hostile-input tests, which found and fixed seven bugs;*
-   - *least-privilege jobs and Content-Security-Policy on both pages;*
-   - *a measured operating cost of $0 a year;*
-   - *a runbook ([`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md), "Incidents").*
-
-   *All checks are Claude's alone. The alert job has not yet run on a real
-   failure.*
+   *Hardening built ([`operations/HARDENING.md`](operations/HARDENING.md)):
+   failure and inactivity alerts as GitHub issues, a rollback drill on a
+   copy of the live state, hostile-input tests that found and fixed seven
+   bugs, least-privilege jobs and a Content-Security-Policy on both pages,
+   an expected operating cost of $0 a year, and a runbook
+   ([`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md), "Incidents"). Claude alone
+   made every check, and the alert job has not yet run on a real failure.*
 10. **Evaluate a bounded agent** — only if fixed-workflow traces demonstrate a
    feedback-dependent limitation that an agent can improve safely.
 
