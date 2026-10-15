@@ -2,19 +2,19 @@
   "engines": [
     {
       "engine": {
-        "aircraft_tail_id": "SYN-A319-001",
+        "aircraft_tail_id": "SYN-A321-001",
         "asset_id": "SYN-FLT-0001",
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 22656
+            "engine_flight_cycles": 33682
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 24257
+            "engine_flight_cycles": 34935
           }
         ],
-        "engine_model": "V2524-A5",
+        "engine_model": "V2533-A5",
         "engine_serial_number": "SYN-V25-0001",
         "installation_position": 1,
         "snapshot_at": "2026-10-12"
@@ -23,11 +23,11 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 18108,
+          "cycles_since_new": 27182,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 16507
+              "cycles_since_new": 25929
             }
           ],
           "part_number": "2A5001",
@@ -35,11 +35,11 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 3704,
+          "cycles_since_new": 34067,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 2103
+              "cycles_since_new": 32814
             }
           ],
           "part_number": "2A4802",
@@ -47,7 +47,7 @@
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
-          "part_number": "6C8368",
+          "part_number": "6C8403",
           "serial_number": "not tracked at set level"
         }
       ],
@@ -55,44 +55,32 @@
     },
     {
       "engine": {
-        "aircraft_tail_id": "SYN-A319-001",
+        "aircraft_tail_id": "SYN-A321-001",
         "asset_id": "SYN-FLT-0002",
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 25171
+            "engine_flight_cycles": 11770
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 26772
+            "engine_flight_cycles": 13023
           }
         ],
-        "engine_model": "V2524-A5",
+        "engine_model": "V2533-A5",
         "engine_serial_number": "SYN-V25-0002",
         "installation_position": 2,
         "snapshot_at": "2026-10-12"
       },
-      "events": [
-        {
-          "at": "2026-10-11",
-          "detail": "Inducted for hot-section and HPC maintenance.",
-          "engine_flight_cycles_at_event": 26767,
-          "event_type": "shop_visit_induction",
-          "qualifies_as_engine_shop_visit": {
-            "AD 2025-19-13": "unknown",
-            "AD 2026-17-03": "unknown"
-          },
-          "source_note": "Asserted by the synthetic operator record."
-        }
-      ],
+      "events": [],
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 3990,
+          "cycles_since_new": 12239,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 2389
+              "cycles_since_new": 10986
             }
           ],
           "part_number": "2A5001",
@@ -100,11 +88,11 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 9596,
+          "cycles_since_new": 7208,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 7995
+              "cycles_since_new": 5955
             }
           ],
           "part_number": "2A4802",
@@ -112,7 +100,7 @@
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
-          "part_number": "6A8353",
+          "part_number": "6A8688",
           "serial_number": "not tracked at set level"
         }
       ],
@@ -125,51 +113,39 @@
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 8375
+            "engine_flight_cycles": 7640
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 9837
+            "engine_flight_cycles": 9102
           }
         ],
-        "engine_model": "V2527-A5",
+        "engine_model": "V2527M-A5",
         "engine_serial_number": "SYN-V25-0003",
         "installation_position": 1,
         "snapshot_at": "2026-10-12"
       },
-      "events": [
-        {
-          "at": "2026-10-05",
-          "detail": "Inducted for hot-section and HPC maintenance.",
-          "engine_flight_cycles_at_event": 9808,
-          "event_type": "shop_visit_induction",
-          "qualifies_as_engine_shop_visit": {
-            "AD 2025-19-13": "unknown",
-            "AD 2026-17-03": "unknown"
-          },
-          "source_note": "Asserted by the synthetic operator record."
-        }
-      ],
+      "events": [],
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 6953,
+          "cycles_since_new": 4949,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 5491
+              "cycles_since_new": 3487
             }
           ],
           "part_number": "2A5001",
-          "serial_number": "SYN-HUB1-0003"
+          "serial_number": "PKLBST7489"
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 5313,
+          "cycles_since_new": 5263,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 3851
+              "cycles_since_new": 3801
             }
           ],
           "part_number": "2A4802",
@@ -177,7 +153,7 @@
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
-          "part_number": "unknown",
+          "part_number": "6A8688-001",
           "serial_number": "not tracked at set level"
         }
       ],
@@ -190,14 +166,14 @@
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 9974
+            "engine_flight_cycles": 15031
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 11436
+            "engine_flight_cycles": 16493
           }
         ],
-        "engine_model": "V2527-A5",
+        "engine_model": "V2527M-A5",
         "engine_serial_number": "SYN-V25-0004",
         "installation_position": 2,
         "snapshot_at": "2026-10-12"
@@ -206,23 +182,17 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 8886,
-          "cycles_since_new_readings": [
-            {
-              "at": "2025-10-29",
-              "cycles_since_new": 7424
-            }
-          ],
+          "cycles_since_new": "unknown",
           "part_number": "2A5001",
           "serial_number": "SYN-HUB1-0004"
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 5002,
+          "cycles_since_new": 4783,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 3540
+              "cycles_since_new": 3321
             }
           ],
           "part_number": "2A4802",
@@ -238,44 +208,32 @@
     },
     {
       "engine": {
-        "aircraft_tail_id": "SYN-A321-003",
+        "aircraft_tail_id": "SYN-A320-003",
         "asset_id": "SYN-FLT-0005",
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 32635
+            "engine_flight_cycles": 19639
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 33888
+            "engine_flight_cycles": 21101
           }
         ],
-        "engine_model": "V2530-A5",
+        "engine_model": "V2527M-A5",
         "engine_serial_number": "SYN-V25-0005",
         "installation_position": 1,
         "snapshot_at": "2026-10-12"
       },
-      "events": [
-        {
-          "at": "2026-09-29",
-          "detail": "Inducted for hot-section and HPC maintenance.",
-          "engine_flight_cycles_at_event": 33841,
-          "event_type": "shop_visit_induction",
-          "qualifies_as_engine_shop_visit": {
-            "AD 2025-19-13": "unknown",
-            "AD 2026-17-03": "unknown"
-          },
-          "source_note": "Asserted by the synthetic operator record."
-        }
-      ],
+      "events": [],
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 5831,
+          "cycles_since_new": 20739,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 4578
+              "cycles_since_new": 19277
             }
           ],
           "part_number": "2A5001",
@@ -283,11 +241,11 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 24909,
+          "cycles_since_new": 9779,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 23656
+              "cycles_since_new": 8317
             }
           ],
           "part_number": "2A4802",
@@ -295,7 +253,7 @@
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
-          "part_number": "unknown",
+          "part_number": "6C8403",
           "serial_number": "not tracked at set level"
         }
       ],
@@ -303,19 +261,19 @@
     },
     {
       "engine": {
-        "aircraft_tail_id": "SYN-A321-003",
+        "aircraft_tail_id": "SYN-A320-003",
         "asset_id": "SYN-FLT-0006",
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 30840
+            "engine_flight_cycles": 9652
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 32093
+            "engine_flight_cycles": 11114
           }
         ],
-        "engine_model": "V2530-A5",
+        "engine_model": "V2527M-A5",
         "engine_serial_number": "SYN-V25-0006",
         "installation_position": 2,
         "snapshot_at": "2026-10-12"
@@ -324,11 +282,11 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 29368,
+          "cycles_since_new": 2200,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 28115
+              "cycles_since_new": 738
             }
           ],
           "part_number": "2A5001",
@@ -336,11 +294,11 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 21521,
+          "cycles_since_new": 7435,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 20268
+              "cycles_since_new": 5973
             }
           ],
           "part_number": "2A4802",
@@ -348,7 +306,7 @@
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
-          "part_number": "6C8368",
+          "part_number": "6A8688",
           "serial_number": "not tracked at set level"
         }
       ],
@@ -361,14 +319,14 @@
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 27305
+            "engine_flight_cycles": 10106
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 28767
+            "engine_flight_cycles": 11568
           }
         ],
-        "engine_model": "V2527M-A5",
+        "engine_model": "V2527-A5",
         "engine_serial_number": "SYN-V25-0007",
         "installation_position": 1,
         "snapshot_at": "2026-10-12"
@@ -377,11 +335,11 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 6076,
+          "cycles_since_new": 11200,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 4614
+              "cycles_since_new": 9738
             }
           ],
           "part_number": "2A5001",
@@ -389,11 +347,11 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 22215,
+          "cycles_since_new": 5662,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 20753
+              "cycles_since_new": 4200
             }
           ],
           "part_number": "2A4802",
@@ -421,7 +379,7 @@
             "engine_flight_cycles": 25036
           }
         ],
-        "engine_model": "V2527M-A5",
+        "engine_model": "V2527-A5",
         "engine_serial_number": "SYN-V25-0008",
         "installation_position": 2,
         "snapshot_at": "2026-10-12"
@@ -430,27 +388,27 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 4658,
+          "cycles_since_new": 20526,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 3196
+              "cycles_since_new": 19064
             }
           ],
           "part_number": "2A5001",
-          "serial_number": "PKLBSS9200"
+          "serial_number": "SYN-HUB1-0008"
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 7768,
+          "cycles_since_new": 4993,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 6306
+              "cycles_since_new": 3531
             }
           ],
           "part_number": "2A4802",
-          "serial_number": "SYN-HUB2-0008"
+          "serial_number": "PKLBSR2100"
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
@@ -601,15 +559,15 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 3835,
+          "cycles_since_new": 4683,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 2582
+              "cycles_since_new": 3430
             }
           ],
           "part_number": "2A4802",
-          "serial_number": "PKLBSR2100"
+          "serial_number": "PKLBSS0301"
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
@@ -2682,11 +2640,11 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 3821,
+          "cycles_since_new": 2690,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 2220
+              "cycles_since_new": 1089
             }
           ],
           "part_number": "2A4802",
@@ -5787,19 +5745,19 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 4426,
+          "cycles_since_new": 9160,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 3173
+              "cycles_since_new": 7907
             }
           ],
           "part_number": "2A4802",
-          "serial_number": "PKLBSS0301"
+          "serial_number": "SYN-HUB2-0109"
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
-          "part_number": "unknown",
+          "part_number": "6A8353",
           "serial_number": "not tracked at set level"
         }
       ],
@@ -5812,11 +5770,11 @@
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 18016
+            "engine_flight_cycles": 18645
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 19269
+            "engine_flight_cycles": 19898
           }
         ],
         "engine_model": "V2530-A5",
@@ -5828,21 +5786,27 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": "unknown",
+          "cycles_since_new": 2689,
+          "cycles_since_new_readings": [
+            {
+              "at": "2025-10-29",
+              "cycles_since_new": 1436
+            }
+          ],
           "part_number": "2A5001",
           "serial_number": "SYN-HUB1-0110"
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 6902,
+          "cycles_since_new": 10417,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 5649
+              "cycles_since_new": 9164
             }
           ],
           "part_number": "2A4802",
-          "serial_number": "unknown"
+          "serial_number": "SYN-HUB2-0110"
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
@@ -5859,14 +5823,14 @@
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 24579
+            "engine_flight_cycles": 37280
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 26041
+            "engine_flight_cycles": 38742
           }
         ],
-        "engine_model": "V2527M-A5",
+        "engine_model": "V2527E-A5",
         "engine_serial_number": "SYN-V25-0111",
         "installation_position": 1,
         "snapshot_at": "2026-10-12"
@@ -5875,11 +5839,11 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 18292,
+          "cycles_since_new": 33650,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 16830
+              "cycles_since_new": 32188
             }
           ],
           "part_number": "2A5001",
@@ -5887,11 +5851,11 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 6391,
+          "cycles_since_new": 22189,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 4929
+              "cycles_since_new": 20727
             }
           ],
           "part_number": "2A4802",
@@ -5899,7 +5863,7 @@
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
-          "part_number": "6A8688-001",
+          "part_number": "6A8353",
           "serial_number": "not tracked at set level"
         }
       ],
@@ -5912,27 +5876,39 @@
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 38990
+            "engine_flight_cycles": 18789
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 40452
+            "engine_flight_cycles": 20251
           }
         ],
-        "engine_model": "V2527M-A5",
+        "engine_model": "V2527E-A5",
         "engine_serial_number": "SYN-V25-0112",
         "installation_position": 2,
         "snapshot_at": "2026-10-12"
       },
-      "events": [],
+      "events": [
+        {
+          "at": "2026-10-10",
+          "detail": "Inducted for hot-section and HPC maintenance.",
+          "engine_flight_cycles_at_event": 20243,
+          "event_type": "shop_visit_induction",
+          "qualifies_as_engine_shop_visit": {
+            "AD 2025-19-13": "yes",
+            "AD 2026-17-03": "yes"
+          },
+          "source_note": "Asserted by the synthetic operator record."
+        }
+      ],
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 28065,
+          "cycles_since_new": 18138,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 26603
+              "cycles_since_new": 16676
             }
           ],
           "part_number": "2A5001",
@@ -5940,11 +5916,11 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 11855,
+          "cycles_since_new": 19139,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 10393
+              "cycles_since_new": 17677
             }
           ],
           "part_number": "2A4802",
@@ -5952,7 +5928,7 @@
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
-          "part_number": "6A8688",
+          "part_number": "6A8353",
           "serial_number": "not tracked at set level"
         }
       ],
@@ -5965,14 +5941,14 @@
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 10959
+            "engine_flight_cycles": 25054
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 12212
+            "engine_flight_cycles": 26307
           }
         ],
-        "engine_model": "V2530-A5",
+        "engine_model": "V2533-A5",
         "engine_serial_number": "SYN-V25-0113",
         "installation_position": 1,
         "snapshot_at": "2026-10-12"
@@ -5981,11 +5957,11 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 3508,
+          "cycles_since_new": 16958,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 2255
+              "cycles_since_new": 15705
             }
           ],
           "part_number": "2A5001",
@@ -5993,11 +5969,11 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 2443,
+          "cycles_since_new": 13407,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 1190
+              "cycles_since_new": 12154
             }
           ],
           "part_number": "2A4802",
@@ -6005,7 +5981,7 @@
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
-          "part_number": "6A8353-001",
+          "part_number": "6A8688-001",
           "serial_number": "not tracked at set level"
         }
       ],
@@ -6018,14 +5994,14 @@
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 31656
+            "engine_flight_cycles": 32883
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 32909
+            "engine_flight_cycles": 34136
           }
         ],
-        "engine_model": "V2530-A5",
+        "engine_model": "V2533-A5",
         "engine_serial_number": "SYN-V25-0114",
         "installation_position": 2,
         "snapshot_at": "2026-10-12"
@@ -6034,11 +6010,11 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 9510,
+          "cycles_since_new": 25220,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 8257
+              "cycles_since_new": 23967
             }
           ],
           "part_number": "2A5001",
@@ -6046,140 +6022,15 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 16353,
+          "cycles_since_new": 30803,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 15100
+              "cycles_since_new": 29550
             }
           ],
           "part_number": "2A4802",
           "serial_number": "SYN-HUB2-0114"
-        },
-        {
-          "component_name": "3rd stage HPC rotor blade set",
-          "part_number": "6A8688-001",
-          "serial_number": "not tracked at set level"
-        }
-      ],
-      "synthetic": true
-    },
-    {
-      "engine": {
-        "aircraft_tail_id": "SYN-A320-058",
-        "asset_id": "SYN-FLT-0115",
-        "engine_cycle_readings": [
-          {
-            "at": "2025-10-29",
-            "engine_flight_cycles": 14004
-          },
-          {
-            "at": "2026-10-12",
-            "engine_flight_cycles": 15466
-          }
-        ],
-        "engine_model": "V2527E-A5",
-        "engine_serial_number": "SYN-V25-0115",
-        "installation_position": 1,
-        "snapshot_at": "2026-10-12"
-      },
-      "events": [
-        {
-          "at": "2026-09-30",
-          "detail": "Inducted for hot-section and HPC maintenance.",
-          "engine_flight_cycles_at_event": 15416,
-          "event_type": "shop_visit_induction",
-          "qualifies_as_engine_shop_visit": {
-            "AD 2025-19-13": "unknown",
-            "AD 2026-17-03": "unknown"
-          },
-          "source_note": "Asserted by the synthetic operator record."
-        }
-      ],
-      "installed_components": [
-        {
-          "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 7900,
-          "cycles_since_new_readings": [
-            {
-              "at": "2025-10-29",
-              "cycles_since_new": 6438
-            }
-          ],
-          "part_number": "2A5001",
-          "serial_number": "SYN-HUB1-0115"
-        },
-        {
-          "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 12284,
-          "cycles_since_new_readings": [
-            {
-              "at": "2025-10-29",
-              "cycles_since_new": 10822
-            }
-          ],
-          "part_number": "2A4802",
-          "serial_number": "SYN-HUB2-0115"
-        }
-      ],
-      "synthetic": true
-    },
-    {
-      "engine": {
-        "aircraft_tail_id": "SYN-A320-058",
-        "asset_id": "SYN-FLT-0116",
-        "engine_cycle_readings": [
-          {
-            "at": "2025-10-29",
-            "engine_flight_cycles": 12599
-          },
-          {
-            "at": "2026-10-12",
-            "engine_flight_cycles": 14061
-          }
-        ],
-        "engine_model": "V2527E-A5",
-        "engine_serial_number": "SYN-V25-0116",
-        "installation_position": 2,
-        "snapshot_at": "2026-10-12"
-      },
-      "events": [
-        {
-          "at": "2026-09-30",
-          "detail": "Inducted for hot-section and HPC maintenance.",
-          "engine_flight_cycles_at_event": 14011,
-          "event_type": "shop_visit_induction",
-          "qualifies_as_engine_shop_visit": {
-            "AD 2025-19-13": "yes",
-            "AD 2026-17-03": "yes"
-          },
-          "source_note": "Asserted by the synthetic operator record."
-        }
-      ],
-      "installed_components": [
-        {
-          "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 5753,
-          "cycles_since_new_readings": [
-            {
-              "at": "2025-10-29",
-              "cycles_since_new": 4291
-            }
-          ],
-          "part_number": "2A5001",
-          "serial_number": "SYN-HUB1-0116"
-        },
-        {
-          "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 3672,
-          "cycles_since_new_readings": [
-            {
-              "at": "2025-10-29",
-              "cycles_since_new": 2210
-            }
-          ],
-          "part_number": "2A4802",
-          "serial_number": "SYN-HUB2-0116"
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
@@ -6191,19 +6042,137 @@
     },
     {
       "engine": {
-        "aircraft_tail_id": "SYN-C-390-059",
+        "aircraft_tail_id": "SYN-A321-058",
+        "asset_id": "SYN-FLT-0115",
+        "engine_cycle_readings": [
+          {
+            "at": "2025-10-29",
+            "engine_flight_cycles": 11482
+          },
+          {
+            "at": "2026-10-12",
+            "engine_flight_cycles": 12735
+          }
+        ],
+        "engine_model": "V2530-A5",
+        "engine_serial_number": "SYN-V25-0115",
+        "installation_position": 1,
+        "snapshot_at": "2026-10-12"
+      },
+      "events": [],
+      "installed_components": [
+        {
+          "component_name": "HPT 1st-stage hub",
+          "cycles_since_new": 2209,
+          "cycles_since_new_readings": [
+            {
+              "at": "2025-10-29",
+              "cycles_since_new": 956
+            }
+          ],
+          "part_number": "2A5001",
+          "serial_number": "SYN-HUB1-0115"
+        },
+        {
+          "component_name": "HPT 2nd-stage hub",
+          "cycles_since_new": 7344,
+          "cycles_since_new_readings": [
+            {
+              "at": "2025-10-29",
+              "cycles_since_new": 6091
+            }
+          ],
+          "part_number": "2A4802",
+          "serial_number": "SYN-HUB2-0115"
+        },
+        {
+          "component_name": "3rd stage HPC rotor blade set",
+          "part_number": "unknown",
+          "serial_number": "not tracked at set level"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "engine": {
+        "aircraft_tail_id": "SYN-A321-058",
+        "asset_id": "SYN-FLT-0116",
+        "engine_cycle_readings": [
+          {
+            "at": "2025-10-29",
+            "engine_flight_cycles": 15789
+          },
+          {
+            "at": "2026-10-12",
+            "engine_flight_cycles": 17042
+          }
+        ],
+        "engine_model": "V2530-A5",
+        "engine_serial_number": "SYN-V25-0116",
+        "installation_position": 2,
+        "snapshot_at": "2026-10-12"
+      },
+      "events": [
+        {
+          "at": "2026-09-25",
+          "detail": "Inducted for hot-section and HPC maintenance.",
+          "engine_flight_cycles_at_event": 16981,
+          "event_type": "shop_visit_induction",
+          "qualifies_as_engine_shop_visit": {
+            "AD 2025-19-13": "yes",
+            "AD 2026-17-03": "yes"
+          },
+          "source_note": "Asserted by the synthetic operator record."
+        }
+      ],
+      "installed_components": [
+        {
+          "component_name": "HPT 1st-stage hub",
+          "cycles_since_new": 11319,
+          "cycles_since_new_readings": [
+            {
+              "at": "2025-10-29",
+              "cycles_since_new": 10066
+            }
+          ],
+          "part_number": "2A5001",
+          "serial_number": "SYN-HUB1-0116"
+        },
+        {
+          "component_name": "HPT 2nd-stage hub",
+          "cycles_since_new": 10669,
+          "cycles_since_new_readings": [
+            {
+              "at": "2025-10-29",
+              "cycles_since_new": 9416
+            }
+          ],
+          "part_number": "2A4802",
+          "serial_number": "unknown"
+        },
+        {
+          "component_name": "3rd stage HPC rotor blade set",
+          "part_number": "6A8353-001",
+          "serial_number": "not tracked at set level"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "engine": {
+        "aircraft_tail_id": "SYN-A321-059",
         "asset_id": "SYN-FLT-0117",
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 40091
+            "engine_flight_cycles": 22818
           },
           {
             "at": "2026-10-12",
-            "engine_flight_cycles": 40578
+            "engine_flight_cycles": 24071
           }
         ],
-        "engine_model": "V2531-E5",
+        "engine_model": "V2533-A5",
         "engine_serial_number": "SYN-V25-0117",
         "installation_position": 1,
         "snapshot_at": "2026-10-12"
@@ -6212,11 +6181,11 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 15758,
+          "cycles_since_new": 22297,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 15271
+              "cycles_since_new": 21044
             }
           ],
           "part_number": "2A5001",
@@ -6224,11 +6193,11 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 27417,
+          "cycles_since_new": 14818,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 26930
+              "cycles_since_new": 13565
             }
           ],
           "part_number": "2A4802",
@@ -6244,19 +6213,19 @@
     },
     {
       "engine": {
-        "aircraft_tail_id": "SYN-C-390-059",
+        "aircraft_tail_id": "SYN-A321-059",
         "asset_id": "SYN-FLT-0118",
         "engine_cycle_readings": [
           {
             "at": "2025-10-29",
-            "engine_flight_cycles": 29353
+            "engine_flight_cycles": 28587
           },
           {
             "at": "2026-10-12",
             "engine_flight_cycles": 29840
           }
         ],
-        "engine_model": "V2531-E5",
+        "engine_model": "V2533-A5",
         "engine_serial_number": "SYN-V25-0118",
         "installation_position": 2,
         "snapshot_at": "2026-10-12"
@@ -6265,7 +6234,7 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 10828,
+          "cycles_since_new": 11594,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
@@ -6277,7 +6246,7 @@
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 7985,
+          "cycles_since_new": 8751,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
@@ -7157,23 +7126,23 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 1303,
+          "cycles_since_new": 26129,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 50
+              "cycles_since_new": 24876
             }
           ],
           "part_number": "2A5001",
-          "serial_number": "PKLBSK9287"
+          "serial_number": "SYN-HUB1-0135"
         },
         {
           "component_name": "HPT 2nd-stage hub",
-          "cycles_since_new": 21314,
+          "cycles_since_new": 6183,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 20061
+              "cycles_since_new": 4930
             }
           ],
           "part_number": "2A4802",
@@ -7181,7 +7150,7 @@
         },
         {
           "component_name": "3rd stage HPC rotor blade set",
-          "part_number": "6C8403",
+          "part_number": "6A8353",
           "serial_number": "not tracked at set level"
         }
       ],
@@ -8325,15 +8294,15 @@
       "installed_components": [
         {
           "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 5508,
+          "cycles_since_new": 3746,
           "cycles_since_new_readings": [
             {
               "at": "2025-10-29",
-              "cycles_since_new": 4046
+              "cycles_since_new": 2284
             }
           ],
           "part_number": "2A5001",
-          "serial_number": "PKLBST7489"
+          "serial_number": "PKLBSS9200"
         },
         {
           "component_name": "HPT 2nd-stage hub",
@@ -9458,6 +9427,106 @@
     },
     {
       "engine": {
+        "aircraft_tail_id": "SYN-A321-090",
+        "asset_id": "SYN-FLT-0179",
+        "engine_cycle_readings": [
+          {
+            "at": "2025-10-29",
+            "engine_flight_cycles": 40225
+          },
+          {
+            "at": "2026-10-12",
+            "engine_flight_cycles": 41478
+          }
+        ],
+        "engine_model": "V2530-A5",
+        "engine_serial_number": "SYN-V25-0179",
+        "installation_position": 1,
+        "snapshot_at": "2026-10-12"
+      },
+      "events": [],
+      "installed_components": [
+        {
+          "component_name": "HPT 1st-stage hub",
+          "cycles_since_new": 31093,
+          "cycles_since_new_readings": [
+            {
+              "at": "2025-10-29",
+              "cycles_since_new": 29840
+            }
+          ],
+          "part_number": "2A5001",
+          "serial_number": "SYN-HUB1-0179"
+        },
+        {
+          "component_name": "HPT 2nd-stage hub",
+          "cycles_since_new": 32018,
+          "cycles_since_new_readings": [
+            {
+              "at": "2025-10-29",
+              "cycles_since_new": 30765
+            }
+          ],
+          "part_number": "2A4802",
+          "serial_number": "SYN-HUB2-0179"
+        },
+        {
+          "component_name": "3rd stage HPC rotor blade set",
+          "part_number": "6C8368",
+          "serial_number": "not tracked at set level"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "engine": {
+        "aircraft_tail_id": "SYN-A321-090",
+        "asset_id": "SYN-FLT-0180",
+        "engine_cycle_readings": [
+          {
+            "at": "2025-10-29",
+            "engine_flight_cycles": 42329
+          },
+          {
+            "at": "2026-10-12",
+            "engine_flight_cycles": 43582
+          }
+        ],
+        "engine_model": "V2530-A5",
+        "engine_serial_number": "SYN-V25-0180",
+        "installation_position": 2,
+        "snapshot_at": "2026-10-12"
+      },
+      "events": [],
+      "installed_components": [
+        {
+          "component_name": "HPT 1st-stage hub",
+          "cycles_since_new": 11146,
+          "cycles_since_new_readings": [
+            {
+              "at": "2025-10-29",
+              "cycles_since_new": 9893
+            }
+          ],
+          "part_number": "2A5001",
+          "serial_number": "SYN-HUB1-0180"
+        },
+        {
+          "component_name": "HPT 2nd-stage hub",
+          "cycles_since_new": "unknown",
+          "part_number": "2A4802",
+          "serial_number": "SYN-HUB2-0180"
+        },
+        {
+          "component_name": "3rd stage HPC rotor blade set",
+          "part_number": "6A8688",
+          "serial_number": "not tracked at set level"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "engine": {
         "asset_id": "SYN-ENG-001",
         "engine_cycle_readings": [
           {
@@ -9558,22 +9627,6 @@
           "serial_number": "SYN-HUB2-0003"
         }
       ],
-      "synthetic": true
-    },
-    {
-      "engine": {
-        "asset_id": "SYN-ENG-004",
-        "engine_model": "PW1133G-JM",
-        "engine_serial_number": "SYN-PW1100-0004",
-        "snapshot_at": "2026-09-26"
-      },
-      "evaluation_case": {
-        "as_of": "2026-09-26",
-        "case_id": "seed-004",
-        "title": "Geared-turbofan engine outside the supported V2500 family"
-      },
-      "events": [],
-      "installed_components": [],
       "synthetic": true
     },
     {
@@ -9792,29 +9845,6 @@
       },
       "events": [],
       "installed_components": [],
-      "synthetic": true
-    },
-    {
-      "engine": {
-        "asset_id": "SYN-ENG-010",
-        "engine_model": "V2500-A1",
-        "engine_serial_number": "SYN-V2500-0010",
-        "snapshot_at": "2026-09-26"
-      },
-      "evaluation_case": {
-        "as_of": "2026-09-26",
-        "case_id": "seed-010",
-        "title": "V2500-A1, a V2500 engine outside the supported variants"
-      },
-      "events": [],
-      "installed_components": [
-        {
-          "component_name": "HPT 1st-stage hub",
-          "cycles_since_new": 2000,
-          "part_number": "2A5001",
-          "serial_number": "PKLBST5011"
-        }
-      ],
       "synthetic": true
     },
     {

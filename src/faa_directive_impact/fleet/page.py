@@ -124,7 +124,8 @@ TEMPLATE = """<!doctype html>
     <p>__DISCLAIMER__</p>
     <p>Each tile is a recorded screen, not a browser calculation: AD 2025-19-13
     by the evaluated rules baseline, AD 2026-17-03 by the rule interpreter on a
-    reference rule record that no person has confirmed. Fleet
+    reference rule record that no person has confirmed. Evaluation-case
+    engines are edge cases from the test suite, embedded as they are. Fleet
     <code>__FLEET_SHA__</code>.
     <a href="../">Directive freshness</a> &middot;
     <a href="__WRITEUP__">How it was evaluated</a> &middot;
@@ -414,10 +415,19 @@ SCRIPT = r"""
       + ` in this synthetic fleet: potentially affected or needing review.`];
     if (moved != null && added.length)
       parts.push(`Adding it moved <b>${moved}</b> engines to a new queue.`);
-    if (last.coverage_state !== 'evaluated')
+    if (last.coverage_state !== 'evaluated') {
+      parts.push('Its action waits on the next shop visit that exposes a blade.');
       parts.push('This directive is <b>not yet evaluated</b>: its tiles are striped.');
-    else
-      parts.push('Its rules passed every frozen gate on the evaluation cases.');
+    } else {
+      const nearest = ENGINES.filter(e => !e.case)
+        .map(e => [e, e.screens[last.document].computed.component_cycles_remaining])
+        .filter(([, n]) => typeof n === 'number')
+        .sort((a, b) => a[1] - b[1])[0];
+      if (nearest) parts.push(`The nearest listed hub, on ${esc(nearest[0].id)}, is`
+        + ` <b>${nearest[1].toLocaleString('en-US')} cycles</b> from its table 1 removal limit.`);
+      parts.push('Its rules passed every frozen gate on 18 evaluation units;'
+        + ' the two hand-checked gates were judged by Claude only.');
+    }
     $('lede').innerHTML = parts.join(' ');
   }
 

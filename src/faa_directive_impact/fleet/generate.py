@@ -1,10 +1,11 @@
-"""Generate the seeded demo fleet: about 200 synthetic V2500 engines.
+"""Generate the seeded demo fleet: 200 synthetic V2500-A5/D5/E5 engines.
 
 The fleet is presentation data for the fleet view, not evaluation data. Its
 engines use the same asset shape as the seed cases (``asset_snapshot`` in
 ``schemas/seed-case.schema.json``), so the same screeners read both. Seed-case
-assets for the two directives the fleet view shows are embedded unchanged and
-tagged with their case id; they are still scored only by the evaluation runs.
+assets for the two directives the fleet view shows, on supported engine models,
+are embedded unchanged and tagged with their case id; they are still scored
+only by the evaluation runs.
 
 Generation is deterministic: the same seed and seed cases give the same fleet,
 byte for byte. Every identifier is ``SYN-`` prefixed except the hub serial
@@ -17,6 +18,8 @@ in a real operator export.
 import random
 from datetime import date, timedelta
 from typing import Any
+
+from faa_directive_impact.impact.hpt_hub_rules import SUPPORTED_ENGINE_MODELS
 
 FLEET_VERSION = 1
 DEFAULT_RANDOM_SEED = 20261015
@@ -39,8 +42,10 @@ AIRFRAMES = (
 CYCLES_PER_DAY = {"A319": 4.6, "A320": 4.2, "A321": 3.6, "MD-90": 3.0, "C-390": 1.4}
 
 # Table 1 to paragraph (g) of AD 2025-19-13: listed hub P/N, S/N, removal limit.
+# The 100-cycle hub (PKLBSK9287) is left out: a year after the effective date
+# it would long since have been removed, and showing it installed would read
+# as an operator flying an overdue part.
 LISTED_HUBS = (
-    ("HPT 1st-stage hub", "2A5001", "PKLBSK9287", 100),
     ("HPT 1st-stage hub", "2A5001", "PKLBSS9200", 4800),
     ("HPT 1st-stage hub", "2A5001", "PKLBST7489", 6200),
     ("HPT 2nd-stage hub", "2A4802", "PKLBST5005", 4000),
@@ -55,7 +60,7 @@ ELIGIBLE_BLADES = ("6C8368", "6C8403", "6A8353-001", "6A8688-001")  # (h)(1)
 
 def build_fleet(
     seed_cases: list[dict[str, Any]],
-    aircraft: int = 89,
+    aircraft: int = 90,
     random_seed: int = DEFAULT_RANDOM_SEED,
 ) -> dict[str, Any]:
     """Return the fleet: generated engines (two per aircraft) plus seed assets."""
@@ -78,6 +83,7 @@ def build_fleet(
         _seed_engine(case)
         for case in sorted(seed_cases, key=lambda case: case["case_id"])
         if FLEET_DIRECTIVES & set(case["directive_candidates"])
+        and case["asset_snapshot"]["engine"]["engine_model"] in SUPPORTED_ENGINE_MODELS
     ]
     return {
         "fleet_version": FLEET_VERSION,
@@ -146,8 +152,8 @@ def _hub(
     stage = "1" if name.startswith("HPT 1st") else "2"
     if listed_hub is not None and listed_hub[0] == name:
         _, part_number, serial_number, limit = listed_hub
-        # Spread listed hubs around their limits: some past, some close, some far.
-        cycles = max(since_effective + 50, limit + rng.randint(-2_500, 300))
+        # Listed hubs sit below their limits: some close, some far.
+        cycles = limit - rng.randint(150, 2_000)
     else:
         part_number = HUB_PART_NUMBERS[name]
         serial_number = f"SYN-HUB{stage}-{number}"

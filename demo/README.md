@@ -4,14 +4,17 @@ A seeded, synthetic fleet of 200 IAE V2500-A5/D5/E5 engines for the fleet
 view (`site/fleet/`, published with the freshness page). It is presentation
 data, not evaluation data.
 
-- **`fleet.json`**: 178 generated engines (89 aircraft, two engines each) plus
-  the 22 seed-case assets for AD 2025-19-13 and AD 2026-17-03, embedded
-  unchanged and tagged with their case id. The seed cases are still scored
+- **`fleet.json`**: 180 generated engines (90 aircraft, two engines each) plus
+  the 20 seed-case assets for AD 2025-19-13 and AD 2026-17-03 on supported
+  engine models, embedded unchanged and tagged with their case id. The seed cases are still scored
   only by the evaluation runs. Identifiers are `SYN-` prefixed, except six hub
   serial numbers taken from table 1 of AD 2025-19-13, which must match the
-  directive to be found. Of the 178 generated engines, 32 have an unknown hub
-  serial or cycle count, 29 have no usable blade-set part number, and 14 have
-  a recent shop visit, so `needs_review` comes from missing data.
+  directive to be found. Generated listed hubs sit 150 to 2,000 cycles below
+  their removal limits; the 100-cycle hub is left out, since a year after the
+  effective date it would have been removed. Of the 180 generated engines,
+  34 have an unknown hub serial or cycle count, 26 have no usable blade-set
+  part number, and 11 have a recent shop visit, so `needs_review` comes from
+  missing data.
 - **`fleet-screen.json`**: each engine screened against both directives, and
   two releases of the rule set: AD 2025-19-13 alone, then with AD 2026-17-03
   added. An engine's queue in a release is the most urgent across its
