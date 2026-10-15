@@ -9,7 +9,7 @@ Scope rules for this phase:
 - **Model calls run only inside evaluation runs.** Use the Anthropic Python SDK through `src/faa_directive_impact/llm/`. Every request and response is saved in the run directory with its model, settings, tokens, and cost, so a run can be re-scored without calling the model. Tests replay saved responses and never call a model. The API key comes from the environment (`.env`, git-ignored), never from code or commits.
 - **Never tune a prompt against the scored cases.** A plumbing check may confirm the output parses; then the prompt is frozen and versioned before any scored run. Never put labels, rationales, or adjudication answers into a prompt.
 - **Static hosting only.** The site is static files on GitHub Pages. No server, database, or agent. The step 7 retrieval index is built offline from committed records (`evaluation/retrieval/corpus.json`) and is never the source of truth.
-- **The evaluated claim stays AD 2025-19-13.** A model scoring on other directives does not widen it.
+- **The evaluated claim covers only directives that pass `evaluation/coverage/PREREGISTRATION.md`.** On 2026-10-15 the owner directed full V2500 coverage with Claude standing in for human review; every such result is labeled `label_review: claude_stand_in`. A model scoring on other directives does not widen the claim by itself.
 - Never edit `evaluation/GATES.md` or a seed case to make a run pass; follow its "Disputed Labels" section.
 
 The first vertical slice is acquisition and manifesting, not the polished fleet-impact application:
