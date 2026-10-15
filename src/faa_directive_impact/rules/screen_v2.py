@@ -306,9 +306,13 @@ class _Run:
             f"does not take effect until {self.effective.isoformat()}. Nothing is "
             "required yet."
         )
+        model = self.asset["engine"]["engine_model"]
         actions = "; ".join(
-            f"paragraph {a['paragraph']}: {a['description']}"
-            for a in self.rules["required_actions"]
+            dict.fromkeys(
+                f"paragraph {a['paragraph']}: {a['description'].rstrip('.')}"
+                for a in self.rules["required_actions"]
+                if not a["models"] or model in a["models"]
+            )
         )
         result.timing = f"From {self.effective.isoformat()}, {actions}"
 

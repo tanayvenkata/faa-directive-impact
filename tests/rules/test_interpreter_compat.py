@@ -2,24 +2,25 @@
 
 Preregistration (evaluation/coverage/PREREGISTRATION.md, "Rules"): S1's
 outputs, the B3 v1 replays, and the current AD 2026-17-03 fleet screens must
-not change. S1 does not import the interpreter; its byte-identity is checked
-by running ``make s1`` and diffing outputs.json (recorded in the branch's
-report), and its own tests are unchanged.
+not change. S1 does not import the interpreter, but a fresh S1 run is still
+compared byte for byte with the committed run's outputs.json.
 """
 
 import hashlib
 import json
-from datetime import date
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 import pytest
 
+from faa_directive_impact.evaluation.s1_run import run_s1
 from faa_directive_impact.evaluation.seed import load_seed_cases
 from faa_directive_impact.fleet.build import compute_fleet, dump
 from faa_directive_impact.rules.interpreter import INTERPRETER_VERSION, screen_rules
 
 REPO = Path(__file__).resolve().parents[2]
 GOLDEN = REPO / "tests/fixtures/rules/interpreter-v1-outputs.json"
+S1_RUN = REPO / "evaluation/runs/s1-20261006T223638Z-6a301b1"
 B3_RUNS = sorted((REPO / "evaluation/runs").glob("b3-opus-5-5-high-r*"))
 # sha256 of demo/fleet-screen.json as committed before interpreter v2, with
 # its "interpreter_version" field removed (that field is the only change).
@@ -83,3 +84,11 @@ def test_fleet_screens_are_unchanged_apart_from_the_version_field() -> None:
     assert screened.pop("interpreter_version") == INTERPRETER_VERSION
     digest = hashlib.sha256(dump(screened).encode("utf-8")).hexdigest()
     assert digest == FLEET_SCREEN_V1_SHA256
+
+
+def test_s1_outputs_are_byte_identical_to_the_committed_run(tmp_path: Path) -> None:
+    started = datetime(2026, 10, 15, 12, 0, tzinfo=UTC)
+    directory = run_s1(REPO, tmp_path, started, "0" * 40, dirty=False)
+    assert (directory / "outputs.json").read_bytes() == (
+        S1_RUN / "outputs.json"
+    ).read_bytes()
