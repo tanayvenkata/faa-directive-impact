@@ -344,3 +344,50 @@ def test_non_iae_directive_without_an_ad_number_is_noted_not_quarantined(harness
     records = harness.records(harness.generation(attempt))
     assert records["2026-18900"]["coverage_state"] == "outside_supported_scope"
     assert "No AD number" in records["2026-18900"]["note"]
+
+
+def test_reread_reclassifies_a_directive_already_in_the_corpus(harness):
+    corpus = seed_corpus()
+    first = harness.sync(corpus)
+    assert first["outcome"] == "promoted"
+    # The source page now states applicability as a lead-in and a list that
+    # mixes V2500-A1 with A5 models, as AD 2012-09-09 does.
+    from source_fakes import document_pages
+
+    entry = next(e for e in corpus.entries if e["document_number"] == "2026-16954")
+    corpus.pages.update(
+        document_pages(
+            "2026-16954",
+            publication_date=entry["publication_date"],
+            docket_ids=tuple(entry["docket_ids"]),
+            action="Final rule.",
+            title=IAE,
+            applicability="This AD applies to:</P><P>(1) IAE Model V2500-A1 "
+            "engines; and</P><P>(2) IAE Model V2527-A5 engines.",
+        )
+    )
+
+    unchanged = harness.sync(corpus)
+    assert unchanged["outcome"] == "no_change"
+
+    reread = harness.sync(corpus, reread=frozenset({"2026-16954"}))
+
+    assert reread["outcome"] == "promoted", reread["failures"]
+    assert reread["counts"]["reread"] == 1
+    generation = harness.generation(reread)
+    review = {r["document_number"]: r for r in generation["review"]}
+    assert "2026-16954" in review
+    assert review["2026-16954"]["scope"]["needs_review"]
+    assert review["2026-16954"]["versions"][-1]["change"] == "reread_scope"
+
+
+def test_reread_refuses_a_document_that_is_not_read_in_full(harness):
+    corpus = seed_corpus()
+    first = harness.sync(corpus)
+
+    attempt = harness.sync(corpus, reread=frozenset({"2026-18600", "1999-0001"}))
+
+    assert attempt["outcome"] == "rejected"
+    assert any("2026-18600" in f for f in attempt["failures"])
+    assert any("1999-0001" in f for f in attempt["failures"])
+    assert read_active(harness.root)["generation_id"] == first["generation_id"]

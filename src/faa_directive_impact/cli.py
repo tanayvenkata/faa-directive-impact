@@ -427,6 +427,13 @@ def _add_discovery_commands(commands: argparse._SubParsersAction) -> None:
         metavar="DOCUMENT",
         help="documents whose changed metadata was investigated and accepted",
     )
+    sync.add_argument(
+        "--reread",
+        nargs="*",
+        default=[],
+        metavar="DOCUMENT",
+        help="IAE directives already in the corpus to acquire and classify again",
+    )
     sync.add_argument("--timeout", type=float, default=DEFAULT_TIMEOUT_SECONDS)
     rollback = commands.add_parser(
         "discovery-rollback",
@@ -476,6 +483,7 @@ def _run_discovery_command(args: argparse.Namespace) -> int:
                 client,
                 start_date=args.start_date or DEFAULT_START_DATE,
                 accept_changed=frozenset(args.accept_changed),
+                reread=frozenset(args.reread),
             )
     except StorageRootRefused as error:
         print(error)

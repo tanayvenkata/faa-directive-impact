@@ -20,6 +20,12 @@ on:
           investigated and accept (see DISCOVERY_SYNC.md). Leave empty normally.
         required: false
         default: ""
+      reread:
+        description: >-
+          Space-separated IAE document numbers already in the corpus to acquire
+          and classify again after a scope-reader fix. Leave empty normally.
+        required: false
+        default: ""
 
 # No job inherits a permission; each job asks for only what it needs.
 permissions: {}
@@ -85,12 +91,17 @@ jobs:
         continue-on-error: true
         env:
           ACCEPT_CHANGED: ${{ inputs.accept_changed }}
+          REREAD: ${{ inputs.reread }}
         run: |
           set -euo pipefail
           args=(--storage-root "$DISCOVERY_ROOT")
           if [ -n "${ACCEPT_CHANGED:-}" ]; then
             read -r -a accepted <<< "$ACCEPT_CHANGED"
             args+=(--accept-changed "${accepted[@]}")
+          fi
+          if [ -n "${REREAD:-}" ]; then
+            read -r -a reread <<< "$REREAD"
+            args+=(--reread "${reread[@]}")
           fi
           uv run faa-directive-impact discovery-sync "${args[@]}" | tee sync-attempt.json
 
