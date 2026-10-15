@@ -43,3 +43,15 @@ disagreements in 4 outcomes. Every label is kept.
 The reviewer judged seed-020 to seed-022 against the 2026-10-15 generation's
 text, because the seed generation's raw files are not under the retrieval
 storage root. The documents are the same Federal Register publications.
+
+## Disputed Labels After the Reference Runs (GATES.md "Disputed Labels")
+
+Raised by the reference-record author after `coverage-reference-v2.1`.
+Adjudicated by Claude as the owner's stand-in. No gate text changed.
+
+| Case | Dispute | Verdict |
+|---|---|---|
+| cov-004 | Should be needs_review: if the replacement hubs are listed, removal is open | **Label kept.** Under the pre-registered Operator Records rule, an unknown listing is not a contradicting fact; the complied record for a passed deadline gives no_action_triggered with the note. Case writer and blind reviewer agree. The screen's review is a safe gate-12 escalation |
+| seed-023/2025-17066 | Relies on a free-text program-revision event, not an `ad_records` entry | **Label kept.** The revision is a stated fact of the asset (an event), already scored this way by S1, B2, and B3. The screen not reading free text is a safe gate-12 escalation |
+| cov-017, cov-026 | Missing facts written in record-path syntax with extra words, so the scorer could never match them | **Corrected, format only, in their own commit.** cov-026 now uses the project's path convention (`...cycles_since_new_readings[2016-10-07]`); cov-017's installation history has no record path, so it is now a described fact judged on meaning. The reference screens name neither fact, so gate 4 fails for both before and after the correction; no earlier result changes |
+| cov-006/2022-02574 | Requires citing 2024-12594 (i), which is outside the thread the frozen manifest records | **Label kept; failure reported.** AD 2024-11-03 (i) does say its (g)(1) satisfies AD 2022-02-09, but the generation records no relationship between them ((b) calls it "related"), so the screen cannot cite it without fabricating under gate 6. A relationship-derivation gap, reported, not patched after the results |

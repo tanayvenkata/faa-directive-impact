@@ -56,7 +56,7 @@ expected:
       - {document: "2016-21061", paragraph: "(e)(1)(i)"}
     required_missing_facts:
       - IAE NMSB V2500-ENG-72-0661 Revision 2 Appendix A Tables 1 and 2 (unavailable incorporated material)
-      - installed_components[HPT stage 1 hub].cycles_since_new on 2016-10-07
+      - installed_components[HPT stage 1 hub].cycles_since_new_readings[2016-10-07]
     action_timing:
       description: >-
         Stage 2 hub, if listed: inspect at the next shop visit or before it

@@ -61,7 +61,7 @@ expected:
       - {document: "2021-15486", paragraph: "(g)(2)"}
     required_missing_facts:
       - P&W SI No. 112F-21 Accomplishment Instructions Table 1 (unavailable incorporated material)
-      - installed_components[HPT 1st-stage disk] installation history before 2019-03-10 (any operation in V2527E-A5, V2527M-A5, V2528-D5, V2530-A5 or V2533-A5)
+      - HPT 1st-stage disk installation history before 2019-03-10 (any operation in V2527E-A5, V2527M-A5, V2528-D5, V2530-A5 or V2533-A5)
     action_timing:
       description: >-
         If the disk is listed: USI within 100 FC after 2021-08-05 (engine
