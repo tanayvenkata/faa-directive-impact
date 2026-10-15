@@ -10,6 +10,8 @@ page says plainly what date it is current as of.
 The page is a screening aid. It carries no FAA logo or branding.
 """
 
+import base64
+import hashlib
 import shutil
 from html import escape
 from pathlib import Path
@@ -107,6 +109,26 @@ STALENESS_SCRIPT = """
 """.replace("STALE_HOURS", str(STALE_AFTER_HOURS))
 
 
+def _csp_hash(text: str) -> str:
+    digest = hashlib.sha256(text.encode("utf-8")).digest()
+    return f"'sha256-{base64.b64encode(digest).decode()}'"
+
+
+# The page needs only its own inline style and staleness script, allowed by
+# hash; everything else (other scripts, frames, plugins, fetches, form posts,
+# a <base> override) is refused. A meta-tag policy cannot set frame-ancestors.
+CONTENT_SECURITY_POLICY = (
+    "default-src 'none'; "
+    f"style-src {_csp_hash(STYLE)}; "
+    f"script-src {_csp_hash(STALENESS_SCRIPT)}; "
+    "base-uri 'none'; form-action 'none'"
+)
+# Directive links are rendered only to the Federal Register; any other value
+# in a search entry's html_url (a javascript: URL, another host) is shown as
+# text, because escaping alone does not stop a javascript: link.
+SAFE_LINK_PREFIX = "https://www.federalregister.gov/"
+
+
 def load_state(root: Path) -> dict[str, Any]:
     """Collect what the page shows from a discovery storage root."""
     attempts = read_attempts(root) if (root / "attempts").is_dir() else []
@@ -188,6 +210,7 @@ def render_page(state: dict[str, Any], s1_queues_href: str | None = None) -> str
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="{CONTENT_SECURITY_POLICY}">
 <title>Directive Sync Freshness</title>
 <style>{STYLE}</style>
 </head>
@@ -204,7 +227,7 @@ directives retrieved and screened; only AD 2025-19-13 is evaluated.</p>
 {failure_banner}
 {as_of}
 <h2>Sync status</h2>
-{_status(last, last_success, active, generation)}
+{_status(last, last_success, active, generation, state["decisions"])}
 {s1_link}
 {_failures(last)}
 {_in_boundary(generation)}
@@ -232,6 +255,7 @@ def _status(
     last_success: dict[str, Any] | None,
     active: dict[str, Any] | None,
     generation: dict[str, Any] | None,
+    decisions: list[dict[str, Any]] | None = None,
 ) -> str:
     def when(attempt: dict[str, Any] | None) -> str:
         if attempt is None:
@@ -274,6 +298,24 @@ def _status(
             f"<code>{escape(active['generation_id'])}</code>" if active else "none",
         ),
     ]
+    activated_by = next(
+        (
+            d
+            for d in decisions or []
+            if active and d.get("receipt_id") == active.get("decision_receipt_id")
+        ),
+        None,
+    )
+    if activated_by is not None:
+        # A rollback is shown as plainly as a promotion.
+        kind = str(activated_by.get("receipt_type", "unknown"))
+        rows.append(
+            (
+                "Activated by",
+                f"{escape(kind)} at {escape(str(activated_by['decided_at_utc']))} "
+                f"(<code>{escape(str(activated_by['receipt_id']))}</code>)",
+            )
+        )
     if active and active.get("previous_generation_id"):
         rows.append(
             (
@@ -324,8 +366,9 @@ def _table(records: list[dict[str, Any]]) -> str:
     for record in records[:MAX_LISTED]:
         state = record["coverage_state"]
         title = escape(record["title"])
-        if record.get("html_url"):
-            title = f'<a href="{escape(record["html_url"])}">{title}</a>'
+        url = record.get("html_url")
+        if isinstance(url, str) and url.startswith(SAFE_LINK_PREFIX):
+            title = f'<a href="{escape(url)}">{title}</a>'
         ads = ", ".join(record["ad_numbers"]) or "none"
         rows.append(
             f'<tr class="{escape(state)}"><td>{escape(ads)}</td>'

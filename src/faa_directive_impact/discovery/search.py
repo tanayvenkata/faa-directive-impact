@@ -61,6 +61,10 @@ DISCOVERED_DOCUMENT_NUMBER = re.compile(
 )
 PER_PAGE = 1000
 RESULT_WINDOW = 10_000
+# The largest search page the live sync has received was 382,095 bytes (1,000
+# results; the discovery-state receipts, 2026-10-15). A page more than about
+# 40 times that is refused while it downloads, and the sync is rejected.
+MAX_PAGE_BYTES = 16 * 1024 * 1024
 # The attributes each search result carries. Every name was checked against a
 # live response; an unknown name makes the API answer HTTP 400.
 SEARCH_FIELDS = (
@@ -139,6 +143,7 @@ def search_request(
         relative_path=f"{folder}/page-{page:04d}.json",
         redistribution_status=TEXT_REDISTRIBUTION[0],
         redistribution_basis=TEXT_REDISTRIBUTION[1],
+        max_bytes=MAX_PAGE_BYTES,
     )
 
 
@@ -201,6 +206,13 @@ def search_directives(
                 outcome.problems.append(
                     f"search page {page} has a result without a valid document "
                     f"number: {str(entry)[:200]}"
+                )
+                continue
+            wrong = entry_type_problems(entry)
+            if wrong:
+                outcome.problems.append(
+                    f"search page {page} result {number} has wrong-typed fields: "
+                    + "; ".join(wrong)
                 )
                 continue
             if number in seen:
@@ -274,13 +286,56 @@ def _read_page(
     except (OSError, ValueError) as error:
         outcome.problems.append(f"search page {page} is not readable JSON: {error}")
         return None
+    count = body.get("count") if isinstance(body, dict) else None
     if (
         not isinstance(body, dict)
-        or not isinstance(body.get("count"), int)
+        # bool is a subclass of int; ``"count": true`` is not a count.
+        or not isinstance(count, int)
+        or isinstance(count, bool)
+        or count < 0
         or not isinstance(body.get("results", []), list)
     ):
         outcome.problems.append(
-            f"search page {page} lacks an integer count or a results list"
+            f"search page {page} lacks a non-negative integer count or a results list"
         )
         return None
     return body
+
+
+# The type each requested field must have. ``None`` is allowed where the API
+# returns null for an absent value (seen live: effective_on, correction_of).
+_STRING = (str,)
+_OPTIONAL_STRING = (str, type(None))
+ENTRY_FIELD_TYPES: dict[str, tuple[type, ...]] = {
+    "document_number": _STRING,
+    "title": _STRING,
+    "type": _STRING,
+    "action": _OPTIONAL_STRING,
+    "publication_date": _STRING,
+    "effective_on": _OPTIONAL_STRING,
+    "docket_ids": (list, type(None)),
+    "correction_of": _OPTIONAL_STRING,
+    "corrections": (list, type(None)),
+    "citation": _OPTIONAL_STRING,
+    "html_url": _OPTIONAL_STRING,
+}
+LIST_FIELDS = ("docket_ids", "corrections")
+
+
+def entry_type_problems(entry: dict[str, Any]) -> list[str]:
+    """Fields of a search result whose JSON type is not the expected one.
+
+    A wrong-typed field would otherwise crash a later step (an unhashable
+    correction, a numeric docket identifier) and turn a rejection into an
+    error; the search reports it as a problem instead, so the candidate is
+    rejected with a receipt.
+    """
+    problems = []
+    for name, types in ENTRY_FIELD_TYPES.items():
+        if name in entry and not isinstance(entry[name], types):
+            problems.append(f"{name} is {type(entry[name]).__name__}")
+    for name in LIST_FIELDS:
+        value = entry.get(name)
+        if isinstance(value, list) and not all(isinstance(v, str) for v in value):
+            problems.append(f"{name} holds a non-string item")
+    return problems

@@ -1,0 +1,27 @@
+2026-10-15T18:04:29Z drill start; state commit 90ecb75925e89700b5e0bf37e7a0b9b796882406; work dir data/drill
+2026-10-15T18:04:31Z before: active gen-20261014T171827Z-398619f9; predecessor gen-20261011T165831Z-6cea777a; 2 promotion receipt(s)
+2026-10-15T18:04:32Z page site-before/index.html shows active generation gen-20261014T171827Z-398619f9
+2026-10-15T18:04:32Z $ faa-directive-impact discovery-rollback --storage-root data/drill/discovery
+{
+  "checkpoint": "2026-10-13",
+  "decision_receipt_id": "decision-20261015T180434Z-14899a4c",
+  "generation_id": "gen-20261011T165831Z-6cea777a",
+  "previous_generation_id": null,
+  "updated_at_utc": "2026-10-15T18:04:34Z"
+}
+2026-10-15T18:04:34Z after rollback: active gen-20261011T165831Z-6cea777a
+2026-10-15T18:04:35Z page site-rolled-back/index.html shows active generation gen-20261011T165831Z-6cea777a
+2026-10-15T18:04:35Z $ faa-directive-impact discovery-rollback --storage-root data/drill/discovery --to gen-20261014T171827Z-398619f9
+{
+  "checkpoint": "2026-10-14",
+  "decision_receipt_id": "decision-20261015T180437Z-41707195",
+  "generation_id": "gen-20261014T171827Z-398619f9",
+  "previous_generation_id": "gen-20261011T165831Z-6cea777a",
+  "updated_at_utc": "2026-10-15T18:04:37Z"
+}
+2026-10-15T18:04:37Z after restore: active gen-20261014T171827Z-398619f9
+2026-10-15T18:04:38Z page site-restored/index.html shows active generation gen-20261014T171827Z-398619f9
+2026-10-15T18:04:38Z rollback receipts written by the drill:
+   decision-20261015T180434Z-14899a4c 2026-10-15T18:04:34Z gen-20261014T171827Z-398619f9 -> gen-20261011T165831Z-6cea777a
+   decision-20261015T180437Z-41707195 2026-10-15T18:04:37Z gen-20261011T165831Z-6cea777a -> gen-20261014T171827Z-398619f9
+2026-10-15T18:04:38Z drill passed

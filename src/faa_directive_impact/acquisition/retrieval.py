@@ -67,6 +67,9 @@ class RepresentationRequest:
     redistribution_basis: str
     parent_identity: tuple[str, str] | None = None
     source_graphic_identifier: str | None = None
+    # A response larger than this is refused as ``invalid_content`` while it
+    # streams, so a hostile or broken source cannot fill the disk.
+    max_bytes: int | None = None
 
     @property
     def expected(self) -> ExpectedArtifact:
@@ -205,9 +208,18 @@ def _download(
                 )
             with context.storage.stage() as writer:
                 first_chunk = b""
+                received = 0
                 for chunk in response.iter_bytes():
                     if not first_chunk:
                         first_chunk = chunk
+                    received += len(chunk)
+                    if spec.max_bytes is not None and received > spec.max_bytes:
+                        raise _AcquisitionFailure(
+                            "invalid_content",
+                            f"response exceeded {spec.max_bytes} bytes from "
+                            f"{resolved_url}",
+                            response_record,
+                        )
                     writer.write(chunk)
                 published = context.storage.publish(writer, spec.relative_path)
     except _AcquisitionFailure:

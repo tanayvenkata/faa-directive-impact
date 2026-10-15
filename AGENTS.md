@@ -73,6 +73,10 @@ management, and a root `Makefile` as the documented command entry point.
   `START_DATE` applies only before the first promotion.
 - `make discovery-rollback [TO=gen-...]` — offline; point the active
   discovery generation back at an earlier promoted one, with a receipt.
+- `make discovery-drill [STATE=<commit>]` — reads `origin/discovery-state`,
+  then offline; rollback-and-restore drill on a copy under `data/drill/`,
+  checking the freshness page each time. Never pushes. Receipts:
+  `operations/drills/`; hardening record: `operations/HARDENING.md`.
 - `make discovery-site` — offline; write the static freshness page to
   `site/index.html`. Operations: `DISCOVERY_SYNC.md`.
 - `make retrieval-corpus` — offline, needs `data/retrieval-frozen/`;

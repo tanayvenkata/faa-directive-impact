@@ -86,6 +86,7 @@ TEMPLATE = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
 <title>Fleet Directive Screen</title>
 <meta name="description" content="A synthetic V2500 fleet: each engine's airworthiness directives retrieved and screened.">
 <style>__STYLE__</style>
