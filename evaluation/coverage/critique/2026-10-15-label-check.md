@@ -27,3 +27,19 @@ Observation without a disagreement: cov-063 (ESN V15000) falls inside AD
 2012-09-09's range but outside the range of AD 2015-10-04, which replaced it.
 Both reviewers give the same outcomes; the narrowing of the range between the
 two directives is noted for anyone reading the thread, not acted on.
+
+## Group A (AD 2024-11-03, 2022-02-09, 2021-11-51, 2021-14-19, 2020-07-51, 2016-18-10, 2017-14-07)
+
+34 cases (cov-001 to cov-031 and seed-020 to seed-022), 37 outcomes. 7 field
+disagreements in 4 outcomes. Every label is kept.
+
+| Case | Field | Label | Reviewer | Verdict |
+|---|---|---|---|---|
+| cov-005 | action status, missing facts | no_action_triggered (published, not yet effective) | needs_review, hub lists named | **Label kept.** An AD not in force requires no action (same rule as cov-077); the hub lists matter once it takes effect |
+| cov-018 | missing facts | none; reason states the record is contradicted | names `ad_records[AD 2020-07-51]` as contradicted | **Label kept.** Both give action_required: the listed disk is installed, so the record cannot clear it. The contradiction is already in the reason |
+| cov-024 | applicability, action status, missing facts | unknown / needs_review, bulletin 72-0661 Rev 2 named | applies / no_action_triggered on the operator's inspection record | **Label kept.** The reviewer's argument (listed or not, the record leaves nothing open) is sound only if the recorded inspection used the listed-hub procedure and found no defect; neither can be checked without the bulletin, and a failed inspection triggers removal under (e)(4). Naming the bulletin keeps a person in the loop |
+| seed-020 | missing facts | none | names the 72-0713 tables and Figure 1 | **Label kept.** Same outcome; the case's reason already explains why those items do not change it on its as-of date |
+
+The reviewer judged seed-020 to seed-022 against the 2026-10-15 generation's
+text, because the seed generation's raw files are not under the retrieval
+storage root. The documents are the same Federal Register publications.
