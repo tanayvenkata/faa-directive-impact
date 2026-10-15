@@ -216,6 +216,41 @@ def test_batch_runs_at_half_price_and_keys_results_by_request() -> None:
     )
 
 
+def test_batch_reports_its_id_before_waiting_for_results() -> None:
+    batches = FakeBatches('{"applies": true}')
+    client = type("Client", (), {"messages": type("M", (), {"batches": batches})()})()
+    seen = []
+
+    def sleep(_):
+        seen.append("waited")
+
+    call_batch(client, [request("one?")], sleep=sleep, on_submit=seen.append)
+
+    assert seen[0] == "batch_1"
+    assert "waited" in seen[1:]
+
+
+def test_batch_collects_a_submitted_batch_without_creating_one() -> None:
+    batches = FakeBatches('{"applies": true}')
+    requests = [request("one?")]
+    batches.created = [{"custom_id": r.key(), "params": r.params()} for r in requests]
+    client = type("Client", (), {"messages": type("M", (), {"batches": batches})()})()
+    batches.create = None  # creating a batch here would fail the test
+
+    responses = call_batch(client, requests, sleep=lambda _: None, batch_id="batch_9")
+
+    assert responses[requests[0].key()].extra["batch_id"] == "batch_9"
+
+
+def test_batch_rejects_results_for_requests_it_did_not_send() -> None:
+    batches = FakeBatches('{"applies": true}')
+    batches.created = [{"custom_id": request("other?").key(), "params": {}}]
+    client = type("Client", (), {"messages": type("M", (), {"batches": batches})()})()
+
+    with pytest.raises(RuntimeError, match="not in this run"):
+        call_batch(client, [request("one?")], sleep=lambda _: None, batch_id="b")
+
+
 def test_haiku_prompts_over_100k_tokens_cost_five_times_more() -> None:
     short = {"input_tokens": 90_000, "output_tokens": 1_000}
     long = {"input_tokens": 1_000, "cache_read_input_tokens": 100_000,

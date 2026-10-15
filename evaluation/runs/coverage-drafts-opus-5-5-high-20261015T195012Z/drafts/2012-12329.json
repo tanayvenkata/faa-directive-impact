@@ -1,0 +1,698 @@
+{
+  "ad_number": "AD 2012-09-09",
+  "ambiguities": [
+    {
+      "description": "Paragraphs (f), (g), and (h)(1) say 'before accumulating ... cycles-since-new (CSN)' without saying whether the count is the drum's or the engine's. The same question applies to the 13,700 CSN cap. AD 2015-10-04's preamble records that commenters asked for this to be clarified as drum cycles.",
+      "paragraph": "(f)",
+      "readings": [
+        "CSN is the HPC stage 3 to 8 drum's cycles since new (as recorded in this rule record)",
+        "CSN is the engine's cycles since new"
+      ]
+    },
+    {
+      "description": "Paragraphs (f) and (g) set initial USI requirements only for V2500-A1 and -A5 engines whose S/Ns are in Group A or Group B of NMSB V2500-ENG-72-0615 Revision 3. An engine within paragraph (c) that is in neither group has no stated initial USI. Paragraph (j) counts repeats from a last USI, FPI, or ECI.",
+      "paragraph": "(f)",
+      "readings": [
+        "Engines in neither group have no initial USI requirement; only (i) and, after any USI/FPI/ECI, (j) apply",
+        "Group A and Group B together cover every V2500-A1 and -A5 engine within paragraph (c)"
+      ]
+    },
+    {
+      "description": "The nuts to remove are 'part number AS44862 or equivalent'. No equivalent part numbers are printed.",
+      "paragraph": "(i)(1)(i)",
+      "readings": [
+        "Only P/N AS44862 nuts",
+        "Any fully silver plated attachment nut equivalent to AS44862, whatever its recorded P/N"
+      ]
+    },
+    {
+      "description": "Paragraph (i)(2) ('Perform an inspection using one of the following methods') is a sibling of (i)(1), not a sub-step of it. It states no compliance time of its own.",
+      "paragraph": "(i)(2)",
+      "readings": [
+        "The FPI/ECI is due at the same piece-part exposure as (i)(1), before return to service, within 8 years of the effective date",
+        "The FPI/ECI has no stated compliance time apart from its use under (i)(4) and (j)"
+      ]
+    },
+    {
+      "description": "'If cracks or crack indications are identified, remove the drum from service before further flight' sits under paragraph (i). The USI paragraphs (f), (g), (h), and (j) state no removal action of their own.",
+      "paragraph": "(i)(3)",
+      "readings": [
+        "Applies only to findings of the (i)(2) FPI/ECI",
+        "Applies to cracks or crack indications found by any inspection of this AD, including the USIs"
+      ]
+    },
+    {
+      "description": "'Before the inspection criteria requirements of paragraphs (f), (g) or (h)' does not say what point in time is meant.",
+      "paragraph": "(i)(4)",
+      "readings": [
+        "Before the initial USI compliance time of (f), (g), or (h) is reached",
+        "Before the initial USI is actually performed"
+      ]
+    },
+    {
+      "description": "The three intervals are joined by 'or ... whichever occurs latest'. They are measured from different events (last USI, last FPI, last ECI). The final rule's preamble says the FPI/ECI legs govern only when the USI starts after such an inspection, with repeats then every 750 cycles since the last USI. The regulatory text does not say this.",
+      "paragraph": "(j)",
+      "readings": [
+        "The next USI is due at the latest of 750 cycles since the last USI, 2,500 cycles since the last FPI, and 13,000 cycles since the last ECI",
+        "Per the preamble: after an FPI the next USI is due within 2,500 cycles (13,000 after an ECI), and thereafter every 750 cycles since the last USI"
+      ]
+    },
+    {
+      "description": "Paragraph (j) does not say whether its cycle counts are engine flight cycles or drum cycles. It also does not say whether repeats begin only after the initial USI of (f), (g), or (h)(1).",
+      "paragraph": "(j)",
+      "readings": [
+        "Engine flight cycles, counted from the last inspection of the drum installed",
+        "Drum cycles since the drum's last inspection"
+      ]
+    },
+    {
+      "description": "Paragraph (l)(1) says a USI done before the effective date using the listed NMSBs 'met the requirements of this AD'. It does not limit the credit to the initial USI.",
+      "paragraph": "(l)(1)",
+      "readings": [
+        "Credits only the initial USI of (f), (g), or (h)(1); repeats under (j) and the actions of (i) still apply",
+        "Credits all requirements of this AD"
+      ]
+    }
+  ],
+  "amoc_paragraph": "(m)",
+  "applicability": {
+    "engine_models": [
+      "V2500-A1",
+      "V2525-D5",
+      "V2528-D5",
+      "V2522-A5",
+      "V2524-A5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2530-A5",
+      "V2533-A5"
+    ],
+    "engine_serials": [
+      {
+        "excluded": [],
+        "models": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2530-A5",
+          "V2533-A5"
+        ],
+        "paragraph": "(c)(3)",
+        "ranges": [
+          {
+            "first": null,
+            "last": "V13181"
+          },
+          {
+            "first": "V15000",
+            "last": "V15245"
+          }
+        ],
+        "serial_numbers": []
+      }
+    ],
+    "model_paragraphs": [
+      {
+        "models": [
+          "V2500-A1"
+        ],
+        "paragraph": "(c)(1)"
+      },
+      {
+        "models": [
+          "V2525-D5",
+          "V2528-D5"
+        ],
+        "paragraph": "(c)(2)"
+      },
+      {
+        "models": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2530-A5",
+          "V2533-A5"
+        ],
+        "paragraph": "(c)(3)"
+      }
+    ],
+    "models_paragraph": "(c)",
+    "parts": [],
+    "parts_combine": "any",
+    "parts_paragraph": ""
+  },
+  "continuing_obligations": [],
+  "corrections": [],
+  "credit_for_previous_actions": [
+    {
+      "actions": [
+        "(f)",
+        "(g)",
+        "(h)(1)"
+      ],
+      "description": "A USI performed before the effective date using any of these IAE NMSBs met the requirements of this AD: V2500-ENG-72-0594 Revisions 3, 4, 5, or 6 ((l)(1)(i)); V2500-ENG-72-0603 Initial Issue, Revision 1, or Revision 2 ((l)(1)(ii)); V2500-ENG-72-0608 Initial Issue, Revision 1, or Revision 2 ((l)(1)(iii)); V2500-ENG-72-0615 Initial Issue, Revision 1, or Revision 2 ((l)(1)(iv)).",
+      "paragraph": "(l)(1)"
+    },
+    {
+      "actions": [
+        "(f)",
+        "(g)",
+        "(h)(1)"
+      ],
+      "description": "Accomplishing paragraphs (i)(1) and (i)(2) before the inspection criteria requirements of paragraphs (f), (g) or (h) may be substituted for the initial USI requirement of those paragraphs.",
+      "paragraph": "(i)(4)"
+    }
+  ],
+  "definitions": [
+    {
+      "paragraph": "(k)",
+      "term": "piece-part exposure"
+    }
+  ],
+  "dependencies": [
+    {
+      "holds": "engine_serial_numbers",
+      "id": "dep_0615_r3_group_a",
+      "incorporated_in": [
+        "(o)(2)(ii)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(f)",
+      "title": "IAE Non-Modification Service Bulletin (NMSB) No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, paragraph 1.A., engine S/Ns in \"Group A\""
+    },
+    {
+      "holds": "engine_serial_numbers",
+      "id": "dep_0615_r3_group_b",
+      "incorporated_in": [
+        "(o)(2)(ii)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(g)",
+      "title": "IAE Non-Modification Service Bulletin (NMSB) No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, paragraph 1.A., engine S/Ns in \"Group B\""
+    }
+  ],
+  "effective_date": {
+    "date": "2012-06-27",
+    "emergency_ad": null,
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [],
+  "final_rule_document": "2012-12329",
+  "governing_document": {
+    "document": "2012-12329",
+    "reason": "No correction to AD 2012-09-09 appears in the thread, so the final rule's regulatory text controls. Document 2015-12068 is a later AD (AD 2015-10-04) that replaces this one. It is not a correction."
+  },
+  "notes": [
+    "AD 2015-10-04 (FR Doc. 2015-12068) supersedes this AD effective July 1, 2015, per its paragraph (b). Screening against AD 2012-09-09 is relevant only for the period June 27, 2012 through June 30, 2015.",
+    "The 8-year limit in (i)(1) is recorded as 2,922 days after the June 27, 2012 effective date, which is June 27, 2020. This is an arithmetic conversion; the text says '8 years from the effective date of this AD'.",
+    "This AD has no terminating action. The final rule's preamble states the optional terminating action proposed in the NPRM was deleted, so the repetitive USIs of (j) have no stated end.",
+    "IAE NMSB No. V2500-ENG-72-0608 Revision 3, V2500-ENG-72-0615 Revision 3, and V2500-ENG-72-0625 are incorporated by reference ((o)(2)). They supply inspection procedures only, so they are not recorded as dependencies. The exception is the Group A and Group B engine S/N lists in paragraph 1.A. of V2500-ENG-72-0615 Revision 3, which decide whether (f) or (g) applies.",
+    "Drum part numbers 6A8316 and 6B1404 appear only in the preamble, not in the regulatory text. The drum part group therefore carries no part numbers.",
+    "Applicability is stated by engine model and engine S/N only (paragraph (c)). The preamble's statement that the AD applies to engines with drums that operated with fully silver plated nuts is not part of the regulatory applicability."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "high-pressure compressor (HPC) stage 3 to 8 drum",
+        "high-pressure compressor stage 3 to 8 drum",
+        "drum"
+      ],
+      "component": "HPC stage 3 to 8 drum",
+      "dependency": "",
+      "id": "hpc_stage_3_8_drum",
+      "listed": [],
+      "paragraph": "(f)",
+      "part_numbers": [],
+      "serials": "any"
+    },
+    {
+      "aliases": [
+        "drum attachment nuts",
+        "HPC stage 3 to 8 drum to stage 9 to 12 drum attachment nuts"
+      ],
+      "component": "fully silver plated nuts that attach the HPC stage 3 to 8 drum to the HPC stage 9 to 12 drum",
+      "dependency": "",
+      "id": "fully_silver_plated_nuts",
+      "listed": [],
+      "paragraph": "(i)(1)(i)",
+      "part_numbers": [
+        "AS44862"
+      ],
+      "serials": "any"
+    }
+  ],
+  "relationships": [
+    {
+      "ad_number": "AD 2010-20-07",
+      "description": "This AD supersedes AD 2010-20-07, Amendment 39-16441 (75 FR 59067, September 27, 2010). The Federal Register document number of AD 2010-20-07 is not printed.",
+      "document": "",
+      "effective_date": null,
+      "paragraph": "(b)",
+      "stated_in": "2012-12329",
+      "type": "supersedes"
+    },
+    {
+      "ad_number": "AD 2015-10-04",
+      "description": "AD 2015-10-04, Amendment 39-18159, replaces AD 2012-09-09, effective July 1, 2015.",
+      "document": "2015-12068",
+      "effective_date": "2015-07-01",
+      "paragraph": "(b)",
+      "stated_in": "2015-12068",
+      "type": "superseded_by"
+    }
+  ],
+  "required_actions": [
+    {
+      "combination": "whichever_occurs_later",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_0615_r3_group_a"
+      ],
+      "description": "Group A engines: perform an initial USI of the HPC stage 3 to 8 drum before accumulating 5,000 CSN or within 500 cycles from the effective date, whichever occurs later. Use the IAE NMSB No. V2500-ENG-72-0615, Revision 3 sections given in (f)(1) for V2500-A1 engines and in (f)(2) for the -A5 models. Liner loss that lifts the USI probe must be repaired, and liner loss under the probe path must be smaller than the probe head ((f)(1)(v), (f)(2)(v)).",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(f)",
+          "role": "alternative",
+          "value": 5000
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(f)",
+          "role": "alternative",
+          "value": 500
+        }
+      ],
+      "models": [
+        "V2500-A1",
+        "V2522-A5",
+        "V2524-A5",
+        "V2527-A5",
+        "V2527E-A5",
+        "V2527M-A5",
+        "V2530-A5",
+        "V2533-A5"
+      ],
+      "operator_condition": "",
+      "paragraph": "(f)",
+      "related_paragraphs": [
+        "(f)(1)",
+        "(f)(1)(v)",
+        "(f)(2)",
+        "(f)(2)(v)",
+        "(i)(4)",
+        "(l)(1)",
+        "(o)(2)(ii)"
+      ],
+      "target": "hpc_stage_3_8_drum",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether a USI was performed before the effective date using an IAE NMSB listed in paragraph (l)(1), which is credited as meeting the requirements of this AD.",
+          "paragraph": "(l)(1)"
+        },
+        {
+          "description": "Whether paragraphs (i)(1) and (i)(2) (nut removal, silver residue removal, and FPI or ECI) were accomplished before the initial USI was due. Paragraph (i)(4) allows this in place of the initial USI.",
+          "paragraph": "(i)(4)"
+        }
+      ]
+    },
+    {
+      "combination": "whichever_occurs_later",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_0615_r3_group_b"
+      ],
+      "description": "Group B engines: perform an initial USI of the HPC stage 3 to 8 drum before accumulating 12,500 CSN or within 500 cycles from the effective date, whichever occurs later, not to exceed 13,700 CSN. Use the IAE NMSB No. V2500-ENG-72-0615, Revision 3 sections given in (g)(1) for V2500-A1 engines and in (g)(2) for the -A5 models. The liner loss requirements are in (g)(1)(v) and (g)(2)(v).",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(g)",
+          "role": "alternative",
+          "value": 12500
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(g)",
+          "role": "alternative",
+          "value": 500
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(g)",
+          "role": "overall_cap",
+          "value": 13700
+        }
+      ],
+      "models": [
+        "V2500-A1",
+        "V2522-A5",
+        "V2524-A5",
+        "V2527-A5",
+        "V2527E-A5",
+        "V2527M-A5",
+        "V2530-A5",
+        "V2533-A5"
+      ],
+      "operator_condition": "",
+      "paragraph": "(g)",
+      "related_paragraphs": [
+        "(g)(1)",
+        "(g)(1)(v)",
+        "(g)(2)",
+        "(g)(2)(v)",
+        "(i)(4)",
+        "(l)(1)",
+        "(o)(2)(ii)"
+      ],
+      "target": "hpc_stage_3_8_drum",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether a USI was performed before the effective date using an IAE NMSB listed in paragraph (l)(1), which is credited as meeting the requirements of this AD.",
+          "paragraph": "(l)(1)"
+        },
+        {
+          "description": "Whether paragraphs (i)(1) and (i)(2) were accomplished before the initial USI was due. Paragraph (i)(4) allows this in place of the initial USI.",
+          "paragraph": "(i)(4)"
+        }
+      ]
+    },
+    {
+      "combination": "whichever_occurs_later",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "All V2525-D5 and V2528-D5 engines: perform an initial USI of the HPC stage 3 to 8 drum before accumulating 12,500 CSN or within 500 cycles from the effective date, whichever occurs later, not to exceed 13,700 CSN. Use the IAE NMSB No. V2500-ENG-72-0608, Revision 3 sections given in (h)(1)(i) through (h)(1)(iv). The liner loss requirements are in (h)(1)(v).",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(h)(1)",
+          "role": "alternative",
+          "value": 12500
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(h)(1)",
+          "role": "alternative",
+          "value": 500
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(h)(1)",
+          "role": "overall_cap",
+          "value": 13700
+        }
+      ],
+      "models": [
+        "V2525-D5",
+        "V2528-D5"
+      ],
+      "operator_condition": "",
+      "paragraph": "(h)(1)",
+      "related_paragraphs": [
+        "(h)",
+        "(h)(1)(i)",
+        "(h)(1)(ii)",
+        "(h)(1)(iii)",
+        "(h)(1)(iv)",
+        "(h)(1)(v)",
+        "(i)(4)",
+        "(l)(1)",
+        "(o)(2)(i)"
+      ],
+      "target": "hpc_stage_3_8_drum",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether a USI was performed before the effective date using an IAE NMSB listed in paragraph (l)(1), which is credited as meeting the requirements of this AD.",
+          "paragraph": "(l)(1)"
+        },
+        {
+          "description": "Whether paragraphs (i)(1) and (i)(2) were accomplished before the initial USI was due. Paragraph (i)(4) allows this in place of the initial USI.",
+          "paragraph": "(i)(4)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "At the next piece-part exposure of the HPC stage 3 to 8 drum after the effective date, but no later than 8 years from the effective date, and before returning any HPC stage 3 to 8 drum to service: remove from service all fully silver plated nuts, part number AS44862 or equivalent, that attach the HPC stage 3 to 8 drum to the HPC stage 9 to 12 drum.",
+      "kind": "remove",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "days_after_effective_date",
+          "paragraph": "(i)(1)",
+          "role": "caps_event",
+          "value": 2922
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(i)(1)(i)",
+      "related_paragraphs": [
+        "(i)(1)",
+        "(k)"
+      ],
+      "target": "fully_silver_plated_nuts",
+      "terminates": [],
+      "trigger": {
+        "condition": "next piece part exposure of the HPC stage 3 to 8 drum after the effective date of this AD",
+        "definition_paragraphs": [
+          "(k)"
+        ],
+        "event": "maintenance_event",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether installed attachment nuts recorded under a part number other than AS44862 are fully silver plated nuts 'equivalent' to AS44862. The text prints no equivalent part numbers.",
+          "paragraph": "(i)(1)(i)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "At the same piece-part exposure, and no later than 8 years from the effective date, before returning the drum to service: remove the silver residue from the HPC stage 3 to 8 drum. Guidance is in IAE NMSB No. V2500-ENG-72-0601, Revision 2, or IAE engine manual task 72-41-11-110-001.",
+      "kind": "other",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "days_after_effective_date",
+          "paragraph": "(i)(1)",
+          "role": "caps_event",
+          "value": 2922
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(i)(1)(ii)",
+      "related_paragraphs": [
+        "(i)(1)",
+        "(k)",
+        "(n)(2)"
+      ],
+      "target": "hpc_stage_3_8_drum",
+      "terminates": [],
+      "trigger": {
+        "condition": "next piece part exposure of the HPC stage 3 to 8 drum after the effective date of this AD",
+        "definition_paragraphs": [
+          "(k)"
+        ],
+        "event": "maintenance_event",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "Inspect the HPC stage 3 to 8 drum for cracks by one of two methods, and remove from service any drum found cracked: FPI, with guidance in IAE engine manual task 72-41-11-200-001 ((i)(2)(i)); or ECI using IAE NMSB No. V2500-ENG-72-0625, dated September 20, 2011 ((i)(2)(ii)). The paragraph states no compliance time of its own. This record applies the (i)(1) timing; see ambiguities.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "days_after_effective_date",
+          "paragraph": "(i)(1)",
+          "role": "caps_event",
+          "value": 2922
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(i)(2)",
+      "related_paragraphs": [
+        "(i)(1)",
+        "(i)(2)(i)",
+        "(i)(2)(ii)",
+        "(o)(2)(iii)"
+      ],
+      "target": "hpc_stage_3_8_drum",
+      "terminates": [],
+      "trigger": {
+        "condition": "next piece part exposure of the HPC stage 3 to 8 drum after the effective date of this AD (timing of paragraph (i)(1); not restated in (i)(2))",
+        "definition_paragraphs": [
+          "(k)"
+        ],
+        "event": "maintenance_event",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "If cracks or crack indications are identified, remove the drum from service before further flight. Paragraphs (i)(2)(i) and (i)(2)(ii) likewise require removal of any drum found cracked.",
+      "kind": "replace_if_finding",
+      "limits": [],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(i)(3)",
+      "related_paragraphs": [
+        "(i)(2)(i)",
+        "(i)(2)(ii)"
+      ],
+      "target": "hpc_stage_3_8_drum",
+      "terminates": [],
+      "trigger": {
+        "condition": "cracks or crack indications are identified",
+        "definition_paragraphs": [
+          "(i)(2)"
+        ],
+        "event": "prior_action",
+        "recurrence": "each"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "whichever_occurs_later",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "Perform repetitive USIs of the HPC stage 3 to 8 drum for cracks using the procedures of (f)(1), (f)(2), (g)(1), (g)(2), or (h)(1) as applicable. The interval is within every 750 cycles since the last USI, or within 2,500 cycles since the last FPI, or within 13,000 cycles since the last ECI, whichever occurs latest.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_prior_action",
+          "paragraph": "(j)(1)",
+          "role": "alternative",
+          "value": 750
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "other",
+          "paragraph": "(j)(2)",
+          "role": "alternative",
+          "value": 2500
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "other",
+          "paragraph": "(j)(3)",
+          "role": "alternative",
+          "value": 13000
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(j)",
+      "related_paragraphs": [
+        "(j)(1)",
+        "(j)(2)",
+        "(j)(3)",
+        "(f)(1)",
+        "(f)(2)",
+        "(g)(1)",
+        "(g)(2)",
+        "(h)(1)"
+      ],
+      "target": "hpc_stage_3_8_drum",
+      "terminates": [],
+      "trigger": {
+        "condition": "last USI (750 cycles), last FPI (2,500 cycles), or last ECI (13,000 cycles) of the HPC stage 3 to 8 drum, whichever occurs latest",
+        "definition_paragraphs": [
+          "(f)",
+          "(g)",
+          "(h)(1)",
+          "(i)(2)"
+        ],
+        "event": "prior_action",
+        "recurrence": "each"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Cycles since the drum's last USI, last FPI, and last ECI. These set the next repetitive USI due point.",
+          "paragraph": "(j)"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2"
+}

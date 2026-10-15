@@ -1,0 +1,173 @@
+{
+  "ad_number": "AD 2026-17-03",
+  "ambiguities": [
+    {
+      "description": "Paragraph (g), as corrected, says \"where the 3rd stage HPC rotor blade is exposed\". It does not use the defined term \"3rd stage HPC rotor blade exposure\" from (h)(2). The text does not state that the (h)(2) definition governs the word \"exposed\" in (g).",
+      "paragraph": "(g)",
+      "readings": [
+        "The (h)(2) definition applies: the shop visit triggers (g) only when any 3rd stage HPC rotor blade is removed from the HPC stage 3 to 8 drum.",
+        "\"Exposed\" has its ordinary meaning: the blade becomes accessible during the shop visit, which may include visits that do not remove a blade from the drum."
+      ]
+    },
+    {
+      "description": "A part eligible for installation includes a blade having a \"later approved P/N\". The text prints no such P/Ns. A recorded P/N other than those printed cannot be confirmed eligible from the text.",
+      "paragraph": "(h)(1)(i)",
+      "readings": [
+        "Only the printed P/Ns 6C8368 and 6C8403 (and 6A8353-001 and 6A8688-001 under (h)(1)(ii)) can be cleared by the screen.",
+        "Any other P/N the operator claims is a later approved P/N needs a person to verify it against FAA approval data."
+      ]
+    },
+    {
+      "description": "Applicability names P/N 6A8353 and P/N 6A8688. Paragraph (h)(1)(ii) names the modified blades P/N 6A8353-001 and P/N 6A8688-001 as eligible. A program matching part numbers by prefix would wrongly treat the modified -001 blades as affected.",
+      "paragraph": "(c)",
+      "readings": [
+        "Exact match: only P/N 6A8353 and P/N 6A8688 as printed are affected. P/N 6A8353-001 and P/N 6A8688-001 are eligible parts and not affected.",
+        "A recorded P/N in a different format, such as with or without a dash suffix, must go to a person to resolve whether it is the base or the modified blade."
+      ]
+    }
+  ],
+  "amoc_paragraph": "(i)",
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "engine_serials": [],
+    "models_paragraph": "(c)",
+    "parts": [
+      "hpc3_rotor_blades"
+    ],
+    "parts_combine": "any",
+    "parts_paragraph": "(c)"
+  },
+  "continuing_obligations": [],
+  "corrections": [
+    {
+      "corrected_text": "At the next engine shop visit after the effective date of this AD where the 3rd stage HPC rotor blade is exposed, replace the full set of 3rd stage HPC rotor blades with parts eligible for installation.",
+      "document": "2026-18423",
+      "original_text": "At the next engine shop visit after the effective date of this AD where the 3rd stage HPC rotor is exposed, replace the full set of 3rd stage HPC rotor blades with parts eligible for installation.",
+      "paragraph": "(g)"
+    }
+  ],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "paragraph": "(h)(1)",
+      "term": "part eligible for installation"
+    },
+    {
+      "paragraph": "(h)(2)",
+      "term": "3rd stage HPC rotor blade exposure"
+    },
+    {
+      "paragraph": "(h)(3)",
+      "term": "engine shop visit"
+    }
+  ],
+  "dependencies": [],
+  "effective_date": {
+    "date": "2026-09-24",
+    "emergency_ad": null,
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [
+    {
+      "description": "A 3rd stage HPC rotor blade having P/N 6C8368, 6C8403, or later approved P/N. The text prints no later approved P/Ns, so none are listed here.",
+      "paragraph": "(h)(1)(i)",
+      "part_group": "hpc3_rotor_blades",
+      "part_numbers": [
+        "6C8368",
+        "6C8403"
+      ]
+    },
+    {
+      "description": "A 3rd stage HPC rotor blade modified to P/N 6A8353-001 or P/N 6A8688-001.",
+      "paragraph": "(h)(1)(ii)",
+      "part_group": "hpc3_rotor_blades",
+      "part_numbers": [
+        "6A8353-001",
+        "6A8688-001"
+      ]
+    }
+  ],
+  "final_rule_document": "2026-16954",
+  "governing_document": {
+    "document": "2026-18423",
+    "reason": "Correction 2026-18423 republishes the entire regulatory text of AD 2026-17-03 and corrects paragraph (g) by adding the omitted word \"blade\". Its regulatory text controls where it differs from 2026-16954, which is paragraph (g) only. All other paragraphs are identical in both documents."
+  },
+  "notes": [
+    "No compliance-time limit caps the trigger in (g). The replacement is required only at the next engine shop visit after the effective date where the 3rd stage HPC rotor blade is exposed. There is no calendar or cycle backstop.",
+    "Paragraph (h)(3) defines an engine shop visit as the induction of an engine into the shop for maintenance. Under (g), only a shop visit after the effective date counts. The final rule preamble states it is not the FAA's intent to require engines inducted into a shop visit before the effective date to comply. That statement is consistent with the regulatory text and is not relied on to decide the trigger.",
+    "Paragraph (g) requires replacing the full set of 3rd stage HPC rotor blades, not only the affected blades. An engine with any blade of P/N 6A8353 or 6A8688 installed is within applicability under (c).",
+    "The AD contains no installation prohibition paragraph and no credit-for-previous-actions paragraph. Paragraph (f) states \"unless already done.\"",
+    "Paragraph (k) states no material is incorporated by reference. The final rule preamble says replacement per IAE AG SB V2500-ENG-72-0716, dated October 4, 2024, demonstrates compliance because it changes the part numbers to those in (h)(1). That service bulletin is not required by the regulatory text and is not a dependency.",
+    "Paragraph (b) lists no affected ADs, so the record has no relationships.",
+    "The applicability in (c) has no engine serial-number restriction."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "3rd stage high-pressure compressor (HPC) rotor blade",
+        "3rd stage HPC rotor blades"
+      ],
+      "component": "3rd stage HPC rotor blade",
+      "dependency": "",
+      "id": "hpc3_rotor_blades",
+      "listed": [],
+      "paragraph": "(c)",
+      "part_numbers": [
+        "6A8353",
+        "6A8688"
+      ],
+      "serials": "any"
+    }
+  ],
+  "relationships": [],
+  "required_actions": [
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "At the next engine shop visit after the effective date of this AD where the 3rd stage HPC rotor blade is exposed, replace the full set of 3rd stage HPC rotor blades with parts eligible for installation.",
+      "kind": "remove",
+      "limits": [],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)",
+      "related_paragraphs": [
+        "(f)",
+        "(h)(1)",
+        "(h)(1)(i)",
+        "(h)(1)(ii)",
+        "(h)(2)",
+        "(h)(3)"
+      ],
+      "target": "hpc3_rotor_blades",
+      "terminates": [],
+      "trigger": {
+        "condition": "where the 3rd stage HPC rotor blade is exposed",
+        "definition_paragraphs": [
+          "(h)(3)",
+          "(h)(2)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the engine shop visit is one where the 3rd stage HPC rotor blade is exposed. If the (h)(2) definition applies, this means any 3rd stage HPC rotor blade is removed from the HPC stage 3 to 8 drum. Engine records do not show whether a shop visit exposed the blade.",
+          "paragraph": "(g)"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2"
+}

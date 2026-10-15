@@ -158,7 +158,38 @@ def main(argv: list[str] | None = None) -> int:
     coverage_run.add_argument(
         "--storage-root", type=Path, default=Path("data/retrieval-frozen")
     )
+    coverage_drafts = commands.add_parser(
+        "coverage-drafts",
+        help="Live: draft every coverage directive with prompt v2 (one batch), "
+        "or collect a batch already submitted.",
+    )
+    coverage_drafts.add_argument("label")
+    coverage_drafts.add_argument("--repo", type=Path, default=Path("."))
+    coverage_drafts.add_argument(
+        "--runs-root", type=Path, default=Path("evaluation/runs")
+    )
+    coverage_drafts.add_argument(
+        "--storage-root", type=Path, default=Path("data/retrieval-frozen")
+    )
+    coverage_drafts.add_argument("--batch-id", help="collect this submitted batch")
+    coverage_drafts.add_argument("--stamp", help="the run's original UTC stamp")
     args = parser.parse_args(argv)
+
+    if args.command == "coverage-drafts":
+        from faa_directive_impact.evaluation.coverage_drafts import directives, run
+
+        print(
+            run(
+                args.repo,
+                args.runs_root,
+                args.storage_root,
+                args.label,
+                directives(args.repo),
+                batch_id=args.batch_id,
+                stamp=args.stamp,
+            )
+        )
+        return EXIT_OK
 
     if args.command == "coverage-run":
         from faa_directive_impact.evaluation.coverage_run import write_run

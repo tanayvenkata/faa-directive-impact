@@ -1,8 +1,6 @@
 # From Two Directives to the Whole V2500 Family
 
-*Draft, 2026-10-15. Not published. The model-drafting results are not in
-yet. Each place they belong is marked `RESULTS PENDING` and names the number
-and the file it will come from.*
+*Draft, 2026-10-15. Not published. Every result is in.*
 
 *Read this first. On 2026-10-15 the project owner directed that Claude stand
 in for every human review this rung would otherwise need. Every label,
@@ -16,8 +14,8 @@ fleet. Each now has a hand-written reference rule record. Fourteen of them
 also have cases written before any model draft, and a paired, disclosed
 score on 77 units under the gates frozen on 2026-10-06. AD 2025-19-13 keeps
 its S1 evaluation, and AD 2012-09-09, which is superseded, has no scored
-unit. Whether any of those directives becomes `evaluated` depends on
-results that are still pending.*
+unit. One more directive, AD 2020-07-51, became `evaluated`, so the
+evaluated set is two of sixteen.*
 
 ## Why coverage
 
@@ -249,16 +247,19 @@ blind.** Both runs are reported:
 |---|---|---|---|---|
 | reference v2.0 | v2 | 2 of 14 | 2 (cov-067, cov-076) | [`report.md`](../evaluation/runs/coverage-reference-v2.0-20261015T192640Z/report.md) |
 | reference v2.1 | 3 | 7 of 14 | 0 | [`report.md`](../evaluation/runs/coverage-reference-v2.1-20261015T194038Z/report.md) |
+| reference v2.1, re-scored (deviation 8) | 3 | 8 of 14 | 0 | [`report.md`](../evaluation/runs/coverage-reference-v2.1-index-fix-20261015T225944Z/report.md) |
 
-Even the hand-written references fail mechanical gates on 7 of 14
-directives under 2.1. Here is what remains, from the v2.1 report:
+The re-scored row uses the fixed section index described below, and the
+corrected cov-017 label, committed four minutes after the first v2.1 run.
+Under it cov-017 passes. Even so, the hand-written references fail
+mechanical gates on 6 of 14 directives. Here is what remains:
 
 - **Gate 8, exact arithmetic.** AD 2019-16-01, 2019-18-01, 2024-11-03.
 - **Gate 12, needless escalation, over budget.** AD 2019-16-01, 2024-11-03,
   and the ALS directive AD 2025-17-16, which does not read a program
   revision stated only in words.
-- **Gate 4, every missing fact named.** cov-017 and cov-026, failing before
-  and after their format correction.
+- **Gate 4, every missing fact named.** cov-026, failing before and after
+  its format correction.
 - **Gate 10, required evidence cited.** cov-006 on AD 2022-02-09. It needs
   a citation to AD 2024-11-03 (i), but the frozen manifest records no
   relationship between the two directives. Citing it would be a
@@ -268,7 +269,8 @@ None is a false clear: gate 1 passes on all 14 directives. Not every
 remaining failure is harmless. Two units settled `action_required` with a
 wrong or missing cycle count. cov-059 expected 17,000 engine cycles and got
 19,400; cov-050 computed none (`report.json`, gate 8 detail). Gates 5 and 11
-are judged by hand and are still pending in both runs.
+are judged by hand, and they were not judged for the reference runs. They
+were judged only where a directive could otherwise become evaluated (below).
 
 ### Model drafting
 
@@ -282,15 +284,115 @@ a cost of $0.1323
 Then Claude Opus 5.5 at high effort drafts all 16 directives in one recorded
 run, and Claude proofreads each draft as the owner's stand-in.
 
-<!-- RESULTS PENDING: drafting run. From evaluation/runs/coverage-<label>-<stamp>/summary.json of the one recorded drafting run (label not fixed in code; see coverage_drafts.run): total cost_usd; how many of 16 drafts are valid (schema plus serial guard); any stop_reason other than end_turn; any serial-guard problems by directive. -->
+The drafting run cost $2.31 for 16 drafts. All 16 validated against the
+schema and passed the serial guard, and every one ended normally
+([`summary.json`](../evaluation/runs/coverage-drafts-opus-5-5-high-20261015T195012Z/summary.json)).
+The run nearly went unrecorded. The process that submitted the batch
+stopped before results came back, and it had kept the batch id only in
+memory. The batch was found in the account's batch list and collected
+unchanged when it ended. Every result's request hash matched the rebuilt
+request, so the 16 requests are the ones submitted. The runner now saves
+the batch id at submission (deviation 7).
 
-<!-- RESULTS PENDING: raw drafts scored. From evaluation/runs/coverage-<raw-draft label>-<stamp>/report.md: directives passing every mechanical gate (of 14), and gate 1 failures, in the same table form as the two reference runs above. -->
+Scored raw, before any proofread:
 
-<!-- RESULTS PENDING: stand-in proofread. Count of changed fields per directive and in total, with each reason, from the stand-in proofread change log. The pre-registration does not fix where this log is written; cite its path once it exists. This count replaces proofreading time, which cannot be measured honestly here. -->
+| Run | Records | Directives passing every mechanical gate | Gate 1 (false clear) failures | Source |
+|---|---|---|---|---|
+| raw drafts | model, unreviewed | 4 of 14 | 0 | [`report.md`](../evaluation/runs/coverage-drafts-raw-20261015T225328Z/report.md) |
+| raw drafts, re-scored (deviation 8) | model, unreviewed | 4 of 14 | 0 | [`report.md`](../evaluation/runs/coverage-drafts-raw-index-fix-20261015T225944Z/report.md) |
 
-<!-- RESULTS PENDING: reviewed drafts scored. From evaluation/runs/coverage-<reviewed label>-<stamp>/report.md: directives passing every mechanical gate (of 14), and gate 1 failures, plus the hand-judged gates 5 and 11 for coverage units (no file yet). -->
+The raw drafts cleared no engine that needed action. They failed more
+often than the hand-written references, almost always on the safe side:
+21 needless escalations against the references' 10 (gate 12), six missing
+facts left unnamed (gate 4), seven arithmetic misses (gate 8), and six
+units with required evidence uncited (gate 10).
 
-<!-- RESULTS PENDING: how many of the 16 directives became `evaluated` under the pre-registered definition, and which stay `not_yet_evaluated` with their failing gate. Source: the reviewed-draft report above plus the label-check file. -->
+The first scoring also showed six fabricated citations (gate 6), all on AD
+2015-10-04, all to paragraphs (e)(2) to (e)(5). The draft was right and the
+scorer was wrong. That directive sets each numbered subparagraph of (e) as
+its own heading, and the section index read numbered items only from body
+text, so it never indexed them. The hand-written reference had cited only
+paragraphs the index knew, because a test requires exactly that, so the
+bug never showed. The index now reads those headings, with a regression
+test. No seed-generation document changes, so S1, B2, and B3 stand. Both
+runs were re-scored, and the gate 6 failures are gone (deviation 8).
+
+The raw drafts were scored before the proofread, so the session running
+the evaluation knew which units they failed. The proofread was therefore
+handed to a separate agent under a brief frozen first
+([`PROOFREAD_BRIEF.md`](../evaluation/coverage/reviewed/PROOFREAD_BRIEF.md)).
+That agent saw each draft and its directive text, but not the cases, the
+scores, or the reference records. Its blindness rests on instruction, not
+on file access, and it is the same model family as the drafter.
+
+### The proofread
+
+The proofread changed 23 fields across 8 of the 16 drafts. Eight
+directives came back unchanged
+([`CHANGES.md`](../evaluation/coverage/reviewed/CHANGES.md)). That count
+stands in for proofreading time, which nobody measured. A leaf-by-leaf
+diff of each reviewed record against its draft matches the log. The
+changes that matter for screening:
+
+- **AD 2016-18-10, 8 fields.** Its inspections apply only to hubs whose
+  serials are listed in a service bulletin the text does not print. The
+  draft left those actions with no dependency. Each now points at the
+  bulletin table, so an engine goes to a person instead of being judged
+  without the list.
+- **AD 2021-11-51, 6 fields.** Two eligible-part entries had empty
+  part-number lists, which the schema reads as "any part number". They were
+  removed, along with four ambiguities the text settles.
+- **AD 2025-19-13, 4 fields.** The draft listed paragraph (g)'s timing as
+  ambiguous but still encoded the lenient reading. Its combination is now
+  `unclear`. This is the clause that went to the FAA. The fleet still
+  screens this directive with S1.
+- **The rest, 5 fields.** Three removed ambiguities the text settles
+  (AD 2020-07-51, 2022-02-09, 2026-17-03), one added a "before further
+  flight" limit (AD 2021-14-19), and one corrected a note's source
+  (AD 2015-10-04).
+
+None changed an identifier, and none moved an engine toward a clear.
+
+### The reviewed records, scored once
+
+| Run | Records | Directives passing every mechanical gate | Gate 1 (false clear) failures | Source |
+|---|---|---|---|---|
+| reviewed drafts | model, stand-in proofread | 4 of 14 | 0 | [`report.md`](../evaluation/runs/coverage-drafts-reviewed-20261015T230605Z/report.md) |
+
+The proofread did not change the mechanical result. The same four
+directives pass, with the same failure counts on every gate as the
+re-scored raw drafts. Its changes made records stricter in places no case
+exercises. The reviewed records were scored once and not proofread again,
+as pre-registered.
+
+### Which directives became evaluated
+
+One. AD 2020-07-51 meets all three pre-registered conditions
+([`evaluated.md`](../evaluation/runs/coverage-drafts-reviewed-20261015T230605Z/evaluated.md)):
+
+- four cases covering action due, a missing fact, and nothing triggered;
+- a complete label check;
+- every mechanical gate passing, and gates 5 and 11 judged on all four
+  units ([`hand-review.json`](../evaluation/runs/coverage-drafts-reviewed-20261015T230605Z/hand-review.json)).
+
+Three more directives pass every mechanical gate but miss the first
+condition:
+
+- **AD 2017-14-07 and AD 2021-14-19.** Neither has a case where action is
+  due. Their serial lists sit in service documents the screen does not
+  have, so it may never be able to say "action due". The pre-registration
+  allows that exception only if it was stated per directive in advance. It
+  was not, and stating it now, after the scores, would be post hoc.
+- **AD 2021-11-15.** It has no coverage case of its own, only two seed
+  units. It is superseded by AD 2022-02-09.
+
+The other ten stay `not_yet_evaluated` on a failing gate, mostly
+needless escalation (12), arithmetic (8), unnamed missing facts (4), or
+uncited evidence (10). None of them is a false clear.
+
+So the evaluated set is two directives: AD 2025-19-13 on S1, and AD
+2020-07-51 on a model draft that a stand-in proofread left almost
+unchanged. Both carry `label_review: claude_stand_in`.
 
 ## The fleet: real registry shape, synthetic state
 
@@ -312,13 +414,19 @@ output.
   them (issue #20). Five listed AD 2025-19-13 hubs were planted on purpose.
 
 Every engine is screened against every candidate retrieval finds for it.
-Only AD 2025-19-13 sets the queues today: 15 potentially affected, 19 needs
-review, and 166 no action
+The queues come from the two evaluated directives, AD 2025-19-13 and AD
+2020-07-51: 15 potentially affected, 19 needs review, and 166 no action
 ([`demo/fleet-screen.json`](../demo/fleet-screen.json),
-`evaluated_counts`). The other directives are shown beside the queues as
-not yet evaluated.
+`evaluated_counts` and `evaluated_directives`). The other fourteen are
+shown beside the queues as not yet evaluated.
 
-<!-- RESULTS PENDING: widened queues. After the reviewed drafts are scored, the fleet queues widen to every directive that became evaluated (PREREGISTRATION.md, "Scoring"). Replace the AD 2025-19-13-only counts with demo/fleet-screen.json `evaluated_counts` and `evaluated_directives` from the rebuilt fleet. -->
+Widening the queues did not move a single engine. AD 2020-07-51 does not
+apply to 186 engines. It sends 14 to review, and all 14 were already
+there for AD 2025-19-13, for the same reason: the engine record lacks the
+HPT hub or disk serial number both directives turn on. Those engines now
+carry two reasons for review instead of one. No synthetic engine holds a
+listed AD 2020-07-51 disk, because the fleet generator skips every serial
+number a directive prints.
 
 ## Documents block more decisions than reading does
 
@@ -365,8 +473,14 @@ It can show:
   candidate on 29 author-written cases, and that measuring false inclusion
   found a real bug in the live sync;
 - that hand-written rules for 16 directives, under the same gates frozen on
-  2026-10-06, pass every mechanical gate on 7 of 14 scored directives after
-  a disclosed, non-blind interpreter change, with no false clear;
+  2026-10-06, pass every mechanical gate on 8 of 14 scored directives
+  (re-scored, deviation 8) after a disclosed, non-blind interpreter change,
+  with no false clear;
+- that model drafts of the same 16, from one recorded run costing $2.31,
+  pass every mechanical gate on 4 of 14, before and after a stand-in
+  proofread, with no false clear;
+- that one model-drafted directive, AD 2020-07-51, met every
+  pre-registered condition to become `evaluated`;
 - where decisions get blocked on this synthetic fleet, and why.
 
 It cannot show:
@@ -379,12 +493,16 @@ It cannot show:
   Counts are exact; no failure rate is claimed.
 - **Blind results for 2.1.** Interpreter 3 was written after the v2.0 run
   and the cases were read. Only v2.0 is a blind score of the interpreter.
-- **The hand-judged gates.** Gates 5 (forbidden claims) and 11 (timing) are
-  pending for every coverage run.
+- **The hand-judged gates beyond one directive.** Gates 5 (forbidden
+  claims) and 11 (timing) were judged, by Claude, only for AD 2020-07-51,
+  the one directive that met every other condition. They are not judged
+  for the reference runs or for directives that already failed.
+- **A blind proofread by a person.** The proofreaders were agents of the
+  drafter's model family, kept from the cases and scores by instruction,
+  not by file access.
 - **Anything about real fleets.** The fleet's shape is from the registry;
   its state is invented. Its queue and blocking counts describe the rules
   on that fleet only.
-- **The model drafts.** Their scores are pending (above).
 - **Use.** Nobody outside the project has used the pages. This is a
   screening tool, not a compliance determination.
 

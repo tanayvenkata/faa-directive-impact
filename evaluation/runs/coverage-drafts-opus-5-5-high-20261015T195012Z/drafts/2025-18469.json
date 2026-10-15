@@ -1,0 +1,251 @@
+{
+  "ad_number": "AD 2025-19-13",
+  "ambiguities": [
+    {
+      "description": "The compliance time reads \"at the next engine shop visit after the effective date of this AD before exceeding the applicable removal cycle limit listed in table 1 to paragraph (g) of this AD or within 100 flight cycles from the effective date of this AD, whichever occurs later.\" The text does not settle how the shop visit, the table 1 cycles-since-new limit, and the 100-flight-cycle allowance group together. The record encodes the literal grammatical grouping (reading 1). The readings differ when a shop visit occurs within 100 flight cycles after the effective date while the hub is below its table 1 limit.",
+      "paragraph": "(g)",
+      "readings": [
+        "Reading 1 (encoded): the later of (a) the next engine shop visit, capped by the table 1 cycles-since-new limit, and (b) 100 flight cycles after the effective date.",
+        "Reading 2: remove at the next engine shop visit, but no later than the later of the table 1 cycles-since-new limit and 100 flight cycles after the effective date. Under this reading, a shop visit within the first 100 flight cycles still requires removal at that visit.",
+        "Reading 3: the shop-visit leg applies only if the shop visit occurs before the hub exceeds its table 1 limit. Otherwise the compliance time is the later of the table 1 limit and 100 flight cycles after the effective date."
+      ]
+    }
+  ],
+  "amoc_paragraph": "(j)",
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "engine_serials": [],
+    "models_paragraph": "(c)",
+    "parts": [],
+    "parts_combine": "any",
+    "parts_paragraph": ""
+  },
+  "continuing_obligations": [
+    {
+      "description": "After the effective date of this AD, do not install an HPT 1st-stage hub that has a P/N and S/N listed in table 1 to paragraph (g) of this AD in any engine.",
+      "paragraph": "(h)",
+      "part_group": "hpt_1st_stage_hub"
+    },
+    {
+      "description": "After the effective date of this AD, do not install an HPT 2nd-stage hub that has a P/N and S/N listed in table 1 to paragraph (g) of this AD in any engine.",
+      "paragraph": "(h)",
+      "part_group": "hpt_2nd_stage_hub"
+    }
+  ],
+  "corrections": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "paragraph": "(i)(1)",
+      "term": "part eligible for installation"
+    },
+    {
+      "paragraph": "(i)(2)",
+      "term": "engine shop visit"
+    }
+  ],
+  "dependencies": [],
+  "effective_date": {
+    "date": "2025-10-29",
+    "emergency_ad": null,
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [],
+  "final_rule_document": "2025-18469",
+  "governing_document": {
+    "document": "2025-18469",
+    "reason": "Final rule (Amendment 39-23153). No correction was published in the thread, so the final rule's regulatory text controls."
+  },
+  "notes": [
+    "Applicability (c) covers every engine of the listed models, with no engine serial restriction and no required installed part. The table 1 hubs decide only whether the paragraph (g) removal applies.",
+    "Paragraph (h) prohibits installing the listed hubs \"in any engine\". This wording is not limited to the models in paragraph (c).",
+    "Eligible parts are defined in (i)(1) by serial number, not part number: an HPT 1st-stage or 2nd-stage hub whose P/N and S/N pair is not listed in table 1. No eligible_parts entry is recorded, because listing P/N 2A5001 or 2A4802 there would clear the table 1 serial numbers. A hub clears its group only when its recorded S/N is not in that group's listed rows.",
+    "Table 1 row PKLBSK9287 (P/N 2A5001) has a removal cycle limit of 100 cycles since new.",
+    "The engine shop visit definition in (i)(2) is copied as printed (\"major mating engine flanges, H-P\"). The exclusions are in (i)(2)(i) and (i)(2)(ii).",
+    "Paragraph (b) lists no affected ADs, and paragraph (l) incorporates no material by reference.",
+    "The final rule preamble (2025-18469) states that complying with paragraph (g) is the terminating action for that portion of the AD. It also states that, because of the paragraph (h) installation prohibition, the AD stays applicable after all affected hubs are removed. The record does not rely on these statements; they agree with the regulatory text."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "high-pressure turbine (HPT) 1st-stage hub",
+        "HPT 1st stage hub"
+      ],
+      "component": "HPT 1st-stage hub",
+      "dependency": "",
+      "id": "hpt_1st_stage_hub",
+      "listed": [
+        {
+          "cycles_since_new_limit": 100,
+          "part_number": "2A5001",
+          "serial_number": "PKLBSK9287"
+        },
+        {
+          "cycles_since_new_limit": 4800,
+          "part_number": "2A5001",
+          "serial_number": "PKLBSS9200"
+        },
+        {
+          "cycles_since_new_limit": 5500,
+          "part_number": "2A5001",
+          "serial_number": "PKLBST5011"
+        },
+        {
+          "cycles_since_new_limit": 6200,
+          "part_number": "2A5001",
+          "serial_number": "PKLBST7489"
+        }
+      ],
+      "paragraph": "(g)",
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed"
+    },
+    {
+      "aliases": [
+        "high-pressure turbine (HPT) 2nd-stage hub",
+        "HPT 2nd stage hub"
+      ],
+      "component": "HPT 2nd-stage hub",
+      "dependency": "",
+      "id": "hpt_2nd_stage_hub",
+      "listed": [
+        {
+          "cycles_since_new_limit": 4000,
+          "part_number": "2A4802",
+          "serial_number": "PKLBST5005"
+        },
+        {
+          "cycles_since_new_limit": 3900,
+          "part_number": "2A4802",
+          "serial_number": "PKLBSS9840"
+        },
+        {
+          "cycles_since_new_limit": 5000,
+          "part_number": "2A4802",
+          "serial_number": "PKLBSS0301"
+        },
+        {
+          "cycles_since_new_limit": 6000,
+          "part_number": "2A4802",
+          "serial_number": "PKLBSR2100"
+        }
+      ],
+      "paragraph": "(g)",
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed"
+    }
+  ],
+  "relationships": [],
+  "required_actions": [
+    {
+      "combination": "whichever_occurs_later",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "For engines with an installed HPT 1st-stage hub whose P/N and S/N are identified in table 1 to paragraph (g): at the next engine shop visit after the effective date, before exceeding the applicable removal cycle limit (cycles since new) in table 1, or within 100 flight cycles from the effective date, whichever occurs later, remove the affected part from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(g)",
+          "role": "caps_event",
+          "value": null
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(g)",
+          "role": "alternative",
+          "value": 100
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)",
+      "related_paragraphs": [
+        "(i)(1)",
+        "(i)(2)",
+        "(i)(2)(i)",
+        "(i)(2)(ii)"
+      ],
+      "target": "hpt_1st_stage_hub",
+      "terminates": [],
+      "trigger": {
+        "condition": "after the effective date of this AD before exceeding the applicable removal cycle limit listed in table 1 to paragraph (g) of this AD",
+        "definition_paragraphs": [
+          "(i)(2)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "whichever_occurs_later",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "For engines with an installed HPT 2nd-stage hub whose P/N and S/N are identified in table 1 to paragraph (g): at the next engine shop visit after the effective date, before exceeding the applicable removal cycle limit (cycles since new) in table 1, or within 100 flight cycles from the effective date, whichever occurs later, remove the affected part from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(g)",
+          "role": "caps_event",
+          "value": null
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(g)",
+          "role": "alternative",
+          "value": 100
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)",
+      "related_paragraphs": [
+        "(i)(1)",
+        "(i)(2)",
+        "(i)(2)(i)",
+        "(i)(2)(ii)"
+      ],
+      "target": "hpt_2nd_stage_hub",
+      "terminates": [],
+      "trigger": {
+        "condition": "after the effective date of this AD before exceeding the applicable removal cycle limit listed in table 1 to paragraph (g) of this AD",
+        "definition_paragraphs": [
+          "(i)(2)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    }
+  ],
+  "schema_version": "2"
+}

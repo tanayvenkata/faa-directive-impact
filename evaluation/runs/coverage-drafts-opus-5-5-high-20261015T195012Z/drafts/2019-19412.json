@@ -1,0 +1,204 @@
+{
+  "ad_number": "AD 2019-18-01",
+  "ambiguities": [
+    {
+      "description": "The text requires replacement with 'a part eligible for installation' but does not define that term. It also contains no installation prohibition, so the regulatory text does not identify which replacement disks qualify.",
+      "paragraph": "(g)",
+      "readings": [
+        "Any LPT stage 6 disk other than the listed P/N 3A2996 serial numbers is eligible.",
+        "Eligibility is determined by other airworthiness criteria not stated in this AD; a person must confirm the replacement part."
+      ]
+    },
+    {
+      "description": "'5,000 cycles from new' does not say whose cycles are counted. The removal action is on the disk, so the disk's cycles since new is the natural reading, but the text does not say so expressly.",
+      "paragraph": "(g)",
+      "readings": [
+        "The listed disk's cycles since new must not exceed 5,000.",
+        "The engine's cycles since new must not exceed 5,000."
+      ]
+    },
+    {
+      "description": "There is no grace period for a listed disk that has already passed 5,000 cycles from new on the effective date.",
+      "paragraph": "(g)",
+      "readings": [
+        "Such a disk is due for removal immediately on the effective date.",
+        "Some other compliance allowance applies; none is stated, so a person must decide."
+      ]
+    },
+    {
+      "description": "Paragraph (c) limits applicability to eight engine serial numbers, and paragraph (g) names eight disk serial numbers. The text does not say what happens if a listed disk is installed on an engine not listed in (c), or if a listed engine now carries a different disk.",
+      "paragraph": "(c)",
+      "readings": [
+        "The AD reaches a listed disk only while it is on a listed engine.",
+        "A listed disk is affected wherever it is installed. This is not supported by (c) as written."
+      ]
+    }
+  ],
+  "amoc_paragraph": "(i)",
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2530-A5",
+      "V2533-A5"
+    ],
+    "engine_serials": [
+      {
+        "excluded": [],
+        "models": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2530-A5",
+          "V2533-A5"
+        ],
+        "paragraph": "(c)",
+        "ranges": [],
+        "serial_numbers": [
+          "V10631",
+          "V12329",
+          "V12494",
+          "V13107",
+          "V18679",
+          "V18681",
+          "V18684",
+          "V18690"
+        ]
+      }
+    ],
+    "models_paragraph": "(c)",
+    "parts": [],
+    "parts_combine": "any",
+    "parts_paragraph": ""
+  },
+  "continuing_obligations": [],
+  "corrections": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "paragraph": "(h)",
+      "term": "piece-part exposure"
+    }
+  ],
+  "dependencies": [],
+  "effective_date": {
+    "date": "2019-10-15",
+    "emergency_ad": null,
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [],
+  "final_rule_document": "2019-19412",
+  "governing_document": {
+    "document": "2019-19412",
+    "reason": "Final rule for AD 2019-18-01. The thread contains no correction that republishes its regulatory text."
+  },
+  "notes": [
+    "Paragraph (b) states no affected ADs.",
+    "Paragraph (k) states no material incorporated by reference. IAE ASB V2500-ENG-72-A0697, Revision No. 1, is mentioned only in the preamble as related service information and is not a dependency.",
+    "The disk serial numbers in (g) are printed with mixed semicolon and comma separators; all eight are copied as printed.",
+    "Piece-part exposure (defined in (h) as the LPT stage 6 disk being removed from the engine and completely disassembled) is not an event the engine record identifies."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "low-pressure turbine (LPT) stage 6 disk",
+        "low-pressure turbine stage 6 disk"
+      ],
+      "component": "LPT stage 6 disk",
+      "dependency": "",
+      "id": "lpt_stage_6_disk",
+      "listed": [
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "3A2996",
+          "serial_number": "MAP04258"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "3A2996",
+          "serial_number": "MAP04259"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "3A2996",
+          "serial_number": "MAP04260"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "3A2996",
+          "serial_number": "MAP04430"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "3A2996",
+          "serial_number": "MAP04431"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "3A2996",
+          "serial_number": "MAP08718"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "3A2996",
+          "serial_number": "MAP08719"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "3A2996",
+          "serial_number": "MAP08721"
+        }
+      ],
+      "paragraph": "(g)",
+      "part_numbers": [
+        "3A2996"
+      ],
+      "serials": "listed"
+    }
+  ],
+  "relationships": [],
+  "required_actions": [
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "At the next piece-part exposure after the effective date, but not to exceed 5,000 cycles from new, remove from service LPT stage 6 disks P/N 3A2996 with the listed serial numbers. Replace each affected disk with a part eligible for installation.",
+      "kind": "remove",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(g)",
+          "role": "caps_event",
+          "value": 5000
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)",
+      "related_paragraphs": [
+        "(f)",
+        "(h)"
+      ],
+      "target": "lpt_stage_6_disk",
+      "terminates": [],
+      "trigger": {
+        "condition": "At the next piece part exposure after the effective date of this AD",
+        "definition_paragraphs": [
+          "(h)"
+        ],
+        "event": "maintenance_event",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    }
+  ],
+  "schema_version": "2"
+}

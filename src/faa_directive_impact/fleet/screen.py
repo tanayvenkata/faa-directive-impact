@@ -49,13 +49,19 @@ S1_DOCUMENT = "2025-18469"
 # The single place that says which directives are evaluated (ROADMAP,
 # "Directive Coverage State"; evaluation/coverage/PREREGISTRATION.md, "What
 # Evaluated Means Here"). Only these set the fleet's queues.
-EVALUATED_DIRECTIVES = frozenset({S1_DOCUMENT})
+#
+# AD 2020-07-51 became evaluated on its reviewed draft
+# (evaluation/runs/coverage-drafts-reviewed-20261015T230605Z/evaluated.md).
+AD_2020_07_51 = "2020-07627"
+EVALUATED_DIRECTIVES = frozenset({S1_DOCUMENT, AD_2020_07_51})
 
 # Where each directive's rule record is read from. A directive absent here
 # uses its reference record; an evaluated directive can point at its reviewed
 # draft instead (for example ``evaluation/coverage/reviewed/<doc>.json``).
 REFERENCE_RECORD_DIRECTORY = "evaluation/coverage/reference"
-RULE_RECORD_PATHS: dict[str, str] = {}
+RULE_RECORD_PATHS: dict[str, str] = {
+    AD_2020_07_51: "evaluation/coverage/reviewed/2020-07627.json",
+}
 
 
 def rule_record_path(document: str) -> str:

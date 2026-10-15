@@ -1,0 +1,238 @@
+{
+  "ad_number": "AD 2019-16-01",
+  "ambiguities": [
+    {
+      "description": "Where the repeat ECI again finds a rejectable indication but the repeat local FPI does not confirm a crack, the directive says to follow NMSB Part I paragraph 20.A.(5)(a) or Part II paragraph 19.A.(5)(a). It does not print what those instructions require, so the disposition of the part in that case is not stated in the text.",
+      "paragraph": "(g)(1)(iv)",
+      "readings": [
+        "The NMSB instruction returns the part to service, and repetitive inspection under (g)(2) follows.",
+        "The NMSB instruction requires some other disposition (for example, further evaluation or removal), which the text does not state."
+      ]
+    },
+    {
+      "description": "'within 2,000 FCs since the last inspection, and thereafter' does not state the interval for later repeats. Also unclear: whether 'no cracks were found' covers the case where a rejectable indication remains but no crack was confirmed by FPI.",
+      "paragraph": "(g)(2)",
+      "readings": [
+        "Repeat every 2,000 FCs since the last inspection, indefinitely.",
+        "The interval after the first repeat is not stated."
+      ]
+    },
+    {
+      "description": "(g)(3) refers to 'the FPI and visual inspection required by paragraphs (g)(1)(ii) or (iv)', but (g)(1)(ii) and (iv) require only a local high sensitivity FPI; no visual inspection is required there. It also cites only (g)(1)(ii) and (iv), not cracks confirmed during repeat inspections under (g)(2).",
+      "paragraph": "(g)(3)",
+      "readings": [
+        "Removal applies to any crack confirmed by the local FPI, including during repeat inspections under (g)(2), since (g)(2) repeats (g)(1)(i) through (iv).",
+        "Removal applies only to cracks confirmed during the initial (g)(1) inspection."
+      ]
+    },
+    {
+      "description": "'a part eligible for installation' is not defined in the directive, and no replacement part numbers are printed.",
+      "paragraph": "(g)(3)",
+      "readings": [
+        "Any serviceable TEC.",
+        "A TEC that has passed the inspections of this AD."
+      ]
+    },
+    {
+      "description": "The 4,000 FC limit counts flight cycles after the effective date. The text does not say whether these are the engine's cycles or the TEC's cycles where a TEC is moved between engines.",
+      "paragraph": "(g)(1)",
+      "readings": [
+        "Engine flight cycles after the effective date.",
+        "TEC flight cycles after the effective date."
+      ]
+    }
+  ],
+  "amoc_paragraph": "(l)",
+  "applicability": {
+    "engine_models": [
+      "V2525-D5",
+      "V2528-D5"
+    ],
+    "engine_serials": [],
+    "models_paragraph": "(c)",
+    "parts": [],
+    "parts_combine": "any",
+    "parts_paragraph": ""
+  },
+  "continuing_obligations": [],
+  "corrections": [],
+  "credit_for_previous_actions": [
+    {
+      "actions": [
+        "(g)(1)"
+      ],
+      "description": "Credit for the inspections required by (g)(1) if they were performed before the effective date using IAE NMSB V2500-ENG-72-0694, Revision No. 1, dated February 7, 2018, or IAE NMSB V2500-ENG-72-0694, Original Issue, dated January 5, 2018.",
+      "paragraph": "(h)"
+    }
+  ],
+  "definitions": [
+    {
+      "paragraph": "(j)",
+      "term": "engine shop visit"
+    }
+  ],
+  "dependencies": [],
+  "effective_date": {
+    "date": "2019-09-19",
+    "emergency_ad": null,
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [],
+  "final_rule_document": "2019-17403",
+  "governing_document": {
+    "document": "2019-17403",
+    "reason": "Final rule for AD 2019-16-01 (Amendment 39-19704). No correction to its regulatory text is in the thread, so its regulatory text controls."
+  },
+  "notes": [
+    "IAE NMSB V2500-ENG-72-0694, Revision No. 2, dated July 2, 2018, is incorporated by reference in (n)(2)(i). It supplies only inspection, cleaning and blending procedures and does not decide whether or when an action applies, so it is not recorded as a dependency. The (g)(1)(iv) disposition instruction is listed under ambiguities instead.",
+    "The directive prints no TEC part numbers or serial numbers. The TEC group covers any TEC installed on an applicable engine.",
+    "Paragraph (i): no reporting requirement in the NMSB is required by this AD.",
+    "Paragraph (k) restricts special flight permits when a crack indication extends past the mount stiffener rail or there is an FPI indication on the outer diameter of the case. It is cited as related to (g)(3).",
+    "Paragraph (b) states no affected ADs.",
+    "The (g)(3) limit of 'before further flight' has no record field and is recorded as kind other."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "TEC"
+      ],
+      "component": "turbine exhaust case",
+      "dependency": "",
+      "id": "tec",
+      "listed": [],
+      "paragraph": "(g)(1)",
+      "part_numbers": [],
+      "serials": "any"
+    }
+  ],
+  "relationships": [],
+  "required_actions": [
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "At the next engine shop visit, but not later than 4,000 flight cycles (FCs) after the effective date, perform an eddy current inspection (ECI) and high sensitivity fluorescent penetrant inspection (FPI) of the TEC front and rear mount stiffener rails for cracking indications, as set out in (g)(1)(i) through (iv). (i) ECI per IAE NMSB V2500-ENG-72-0694, Revision No. 2. (ii) If the ECI finds a rejectable indication, local high sensitivity FPI to confirm a crack. (iii) If no crack is confirmed, clean, blend and repeat the ECI in the local area. (iv) If the repeat ECI again finds a rejectable indication, repeat the local FPI. If that FPI does not confirm a crack, follow NMSB Part I paragraph 20.A.(5)(a) or Part II paragraph 19.A.(5)(a).",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(g)(1)",
+          "role": "caps_event",
+          "value": 4000
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(1)",
+      "related_paragraphs": [
+        "(g)(1)(i)",
+        "(g)(1)(ii)",
+        "(g)(1)(iii)",
+        "(g)(1)(iv)",
+        "(f)",
+        "(n)(2)(i)"
+      ],
+      "target": "tec",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [
+          "(j)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "If no cracks were found, repeat the inspections of paragraphs (g)(1)(i) through (iv) within 2,000 FCs since the last inspection, and thereafter.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_prior_action",
+          "paragraph": "(g)(2)",
+          "role": "alternative",
+          "value": 2000
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(2)",
+      "related_paragraphs": [
+        "(g)(1)(i)",
+        "(g)(1)(ii)",
+        "(g)(1)(iii)",
+        "(g)(1)(iv)"
+      ],
+      "target": "tec",
+      "terminates": [],
+      "trigger": {
+        "condition": "If no cracks were found, within 2,000 FCs since the last inspection, and thereafter, repeat the inspections of paragraphs (g)(1)(i) through (iv)",
+        "definition_paragraphs": [
+          "(g)(1)"
+        ],
+        "event": "prior_action",
+        "recurrence": "each"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the last inspection under (g)(1) or (g)(2) found no cracks, and the flight cycles at which that last inspection was done.",
+          "paragraph": "(g)(2)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "If a crack was confirmed during the FPI and visual inspection required by paragraphs (g)(1)(ii) or (iv), before further flight, remove the part from service and replace it with a part eligible for installation. A special flight permit is not permitted if the crack indication extends past the mount stiffener rail or if there is evidence of an FPI indication on the outer diameter of the case ((k)).",
+      "kind": "replace_if_finding",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "other",
+          "paragraph": "(g)(3)",
+          "role": "alternative",
+          "value": null
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(3)",
+      "related_paragraphs": [
+        "(g)(1)(ii)",
+        "(g)(1)(iv)",
+        "(k)"
+      ],
+      "target": "tec",
+      "terminates": [],
+      "trigger": {
+        "condition": "If a crack was confirmed during the FPI and visual inspection required by paragraphs (g)(1)(ii) or (iv)",
+        "definition_paragraphs": [
+          "(g)(1)(ii)",
+          "(g)(1)(iv)"
+        ],
+        "event": "prior_action",
+        "recurrence": "each"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether a crack was confirmed during the FPI required by (g)(1)(ii) or (g)(1)(iv).",
+          "paragraph": "(g)(3)"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2"
+}

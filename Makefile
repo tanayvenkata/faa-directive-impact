@@ -1,4 +1,4 @@
-.PHONY: sync test lint format check acquire s1 s1-conclude llm-check b2 b3-plumbing b3 \
+.PHONY: sync test lint format check acquire s1 s1-conclude llm-check b2 b3-plumbing b3 coverage-drafts \
 	b3-replay b3-summary discovery-sync discovery-rollback discovery-drill discovery-site \
 	fleet-build fleet-site retrieval-corpus retrieval-run
 
@@ -63,6 +63,12 @@ b3-replay:
 # Offline. Writes evaluation/b3-summary.md and .json.
 b3-summary:
 	uv run faa-directive-impact b3-summary
+
+# Live model calls (batch): the one coverage drafting run (prompt v2).
+# Collect an interrupted run instead of redrafting it:
+# make coverage-drafts BATCH=msgbatch_... STAMP=20261015T195012Z
+coverage-drafts:
+	uv run faa-directive-impact coverage-drafts drafts-opus-5-5-high $(if $(BATCH),--batch-id $(BATCH)) $(if $(STAMP),--stamp $(STAMP))
 
 # Discovery corpus (ROADMAP step 6). Never writes to data/seed-frozen,
 # data/frozen-evaluation, or generations/.

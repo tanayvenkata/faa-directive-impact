@@ -1,0 +1,184 @@
+{
+  "ad_number": "AD 2025-17-16",
+  "ambiguities": [
+    {
+      "description": "Paragraph (g)(1) requires revising the 'applicable existing' TLM and lists three TLMs by family designation (V2500-A5, V2500-D5, V2500-E5). It does not state which paragraph (c) models each TLM covers.",
+      "paragraph": "(g)(1)",
+      "readings": [
+        "Each model uses the TLM whose family designation matches its suffix: -A5 models use (g)(1)(i), -D5 models use (g)(1)(ii), and V2531-E5 uses (g)(1)(iii).",
+        "The applicable TLM is whatever TLM the operator's ICA identifies for the engine, which the text does not state."
+      ]
+    },
+    {
+      "description": "Table 1 lists inspections for both the HPT Stage 1 Hub and the HPT Stage 2 Hub. Paragraph (g)(1) requires 'the information specified in table 1' without 'as applicable', while (g)(2) adds 'as applicable'.",
+      "paragraph": "(g)(1)",
+      "readings": [
+        "Both table 1 rows are incorporated into each applicable TLM.",
+        "Only the rows applicable to the parts or model covered by the TLM or program are incorporated."
+      ]
+    }
+  ],
+  "amoc_paragraph": "(i)",
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "engine_serials": [],
+    "models_paragraph": "(c)",
+    "parts": [],
+    "parts_combine": "any",
+    "parts_paragraph": ""
+  },
+  "continuing_obligations": [
+    {
+      "description": "After the actions required by paragraph (g)(1) and (2) have been done, no alternative actions are allowed unless approved as specified in paragraph (i).",
+      "paragraph": "(h)"
+    }
+  ],
+  "corrections": [],
+  "credit_for_previous_actions": [],
+  "definitions": [],
+  "dependencies": [],
+  "effective_date": {
+    "date": "2025-10-10",
+    "emergency_ad": null,
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [],
+  "final_rule_document": "2025-17066",
+  "governing_document": {
+    "document": "2025-17066",
+    "reason": "Final rule for AD 2025-17-16 (Amendment 39-23126). No correction was published in the thread, so the final rule's regulatory text controls. The proposed rule 2024-26092 was superseded by the final rule; its table 1 task reference and paragraph (g) wording were changed on adoption."
+  },
+  "notes": [
+    "The P/Ns 2A4408, 2A4417, and 2A4384 in (g)(1)(i) through (iii) identify Time Limits Manuals, not engine parts. They are not recorded as part groups.",
+    "The only required actions are document and program revisions. The regulatory text does not itself require performing TASK 72-45-11-200-006 or TASK 72-45-31-200-009. The preamble of 2025-17066 states these tasks are in paragraph B.1 of the Maintenance Scheduling section and are done at piece-part exposure, and that their performance is required by other FAA regulations once the AD is complied with.",
+    "Applicability is by engine model only. No serial or part-number restriction is stated. The hub part groups are recorded for reference from table 1 and are not applicability conditions or action targets.",
+    "Paragraph (b) states no affected ADs. The preamble of 2025-17066 states the FAA declined to make this AD a supersedure of AD 2004-12-08; it is a stand-alone AD.",
+    "Paragraph (k) states no material is incorporated by reference. The TLM tasks are named but not incorporated, so no dependencies are recorded.",
+    "The proposed rule 2024-26092 listed the HPT Stage 2 Hub task as TASK 72-45-11-200-009. The final rule's table 1 prints TASK 72-45-31-200-009, and the final rule controls."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "HPT 1st-stage hub",
+        "high-pressure turbine (HPT) 1st-stage hub"
+      ],
+      "component": "HPT Stage 1 Hub",
+      "dependency": "",
+      "id": "hpt_stage_1_hub",
+      "listed": [],
+      "paragraph": "(g)",
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "any"
+    },
+    {
+      "aliases": [
+        "HPT 2nd-stage hub"
+      ],
+      "component": "HPT Stage 2 Hub",
+      "dependency": "",
+      "id": "hpt_stage_2_hub",
+      "listed": [],
+      "paragraph": "(g)",
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "any"
+    }
+  ],
+  "relationships": [],
+  "required_actions": [
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "Within 90 days after the effective date, revise paragraph B.1 of the Maintenance Scheduling section in the ALS of the ICA located in the applicable existing Time Limits Manual (TLM) by incorporating the information in table 1 to paragraph (g). Table 1 lists HPT Stage 1 Hub P/N 2A5001, TASK 72-45-11-200-006, and HPT Stage 2 Hub P/N 2A4802, TASK 72-45-31-200-009. The TLMs are listed in (g)(1)(i) through (iii): P/N 2A4408, TASK 05-10-00-990-000-B00 (V2500-A5); P/N 2A4417, TASK 05-10-00-990-000 (V2500-D5); P/N 2A4384, TASK 05-10-00-990-000-A00 (V2500-E5).",
+      "kind": "revise_maintenance_program",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "days_after_effective_date",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": 90
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(1)",
+      "related_paragraphs": [
+        "(g)",
+        "(g)(1)(i)",
+        "(g)(1)(ii)",
+        "(g)(1)(iii)"
+      ],
+      "target": "",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Which existing TLM listed in (g)(1)(i) through (iii) is the applicable one for the engine. The text names TLMs by family designation (V2500-A5, V2500-D5, V2500-E5), not by the model designations in paragraph (c).",
+          "paragraph": "(g)(1)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "For air carrier operations, within 90 days after the effective date, revise the existing approved maintenance or inspection program, as applicable, by incorporating the information in table 1 to paragraph (g), as applicable. Table 1 lists HPT Stage 1 Hub P/N 2A5001, TASK 72-45-11-200-006, and HPT Stage 2 Hub P/N 2A4802, TASK 72-45-31-200-009.",
+      "kind": "revise_maintenance_program",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "days_after_effective_date",
+          "paragraph": "(g)(2)",
+          "role": "alternative",
+          "value": 90
+        }
+      ],
+      "models": [],
+      "operator_condition": "air_carrier_operation",
+      "paragraph": "(g)(2)",
+      "related_paragraphs": [
+        "(g)"
+      ],
+      "target": "",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the operator has an existing approved maintenance or inspection program to which the revision applies (\"as applicable\").",
+          "paragraph": "(g)(2)"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2"
+}

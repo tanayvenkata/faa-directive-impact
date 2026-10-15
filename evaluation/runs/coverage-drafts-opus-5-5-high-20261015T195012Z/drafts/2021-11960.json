@@ -1,0 +1,474 @@
+{
+  "ad_number": "AD 2021-11-15",
+  "ambiguities": [
+    {
+      "description": "Paragraph (c) makes every listed model applicable if its installed disk's S/N appears in either NMSB's Appendix A table. Paragraph (g), however, ties each NMSB to particular models. Paragraphs (g)(1) through (g)(4) cover only disks listed in V2500-ENG-72-0713, Revision 1, on non-V2531-E5 models. Paragraphs (g)(5) and (g)(6) cover only disks listed in V2500-E5-72-0015 on V2531-E5 engines. Two kinds of engine are therefore applicable under (c) but have no inspection in (g): a V2531-E5 engine with a disk listed only in V2500-ENG-72-0713, Revision 1, and a non-V2531-E5 engine with a disk listed only in V2500-E5-72-0015.",
+      "paragraph": "(c)",
+      "readings": [
+        "Such an engine is within applicability but no paragraph (g) action is required.",
+        "The intended inspection is the one for the installed model (for example, (g)(5)/(g)(6) for a V2531-E5 engine), even though that paragraph names the other NMSB's table; resolve by review."
+      ]
+    }
+  ],
+  "amoc_paragraph": "(i)",
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "engine_serials": [],
+    "models_paragraph": "(c)",
+    "parts": [
+      "hpt1_disk_eng0713",
+      "hpt1_disk_e5_0015",
+      "hpt2_disk_eng0713",
+      "hpt2_disk_e5_0015"
+    ],
+    "parts_combine": "any",
+    "parts_paragraph": "(c)"
+  },
+  "continuing_obligations": [],
+  "corrections": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "paragraph": "(h)(1)",
+      "term": "engine shop visit"
+    },
+    {
+      "paragraph": "(h)(2)",
+      "term": "part eligible for installation"
+    }
+  ],
+  "dependencies": [
+    {
+      "holds": "serial_numbers",
+      "id": "dep_eng0713_table1",
+      "incorporated_in": [
+        "(k)(2)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(1)",
+      "title": "IAE Non-Modification Service Bulletin (NMSB) No. V2500-ENG-72-0713, Revision 1, dated January 26, 2021, Appendix A, Table 1 (HPT 1st-stage disk P/N 2A5001 serial numbers)"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "dep_eng0713_table2",
+      "incorporated_in": [
+        "(k)(2)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(2)",
+      "title": "IAE Non-Modification Service Bulletin (NMSB) No. V2500-ENG-72-0713, Revision 1, dated January 26, 2021, Appendix A, Table 2 (HPT 2nd-stage disk P/N 2A4802 serial numbers)"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "dep_e5_0015_table1",
+      "incorporated_in": [
+        "(k)(2)(ii)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(1)",
+      "title": "IAE NMSB No. V2500-E5-72-0015, dated December 15, 2020, Appendix A, Table 1 (HPT 1st-stage disk P/N 2A5001 serial numbers)"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "dep_e5_0015_table2",
+      "incorporated_in": [
+        "(k)(2)(ii)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(2)",
+      "title": "IAE NMSB No. V2500-E5-72-0015, dated December 15, 2020, Appendix A, Table 2 (HPT 2nd-stage disk P/N 2A4802 serial numbers)"
+    }
+  ],
+  "effective_date": {
+    "date": "2021-07-13",
+    "emergency_ad": null,
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [],
+  "final_rule_document": "2021-11960",
+  "governing_document": {
+    "document": "2021-11960",
+    "reason": "This is the final rule for AD 2021-11-15. No correction republishing its regulatory text is in the thread. Document 2022-02574 is a later AD (AD 2022-02-09) that supersedes this one; it is not a correction."
+  },
+  "notes": [
+    "AD 2021-11-15 was superseded by AD 2022-02-09 (FR Doc. 2022-02574), effective March 15, 2022. From that date the replacing AD's requirements apply instead of this record.",
+    "Paragraph (h)(2) defines a part eligible for installation by reference to the NMSB Appendix A tables and to passing the USI. It prints no distinct part numbers, so no eligible_parts entries are recorded. A listed disk is eligible only if it passed the USI of (g)(1) through (6); a disk not listed in those tables is eligible.",
+    "The regulatory text contains no separate installation prohibition.",
+    "Paragraphs (g)(5) and (g)(6) say 'at the next engine shop visit' without the words 'after the effective date of this AD' that appear in (g)(1) and (g)(2). They are recorded as the next shop visit after the effective date, consistent with paragraph (f).",
+    "The 'HPT module removal' trigger in (g)(3) and (g)(4) is not defined in paragraph (h). Engine records cannot identify it.",
+    "In this AD, the compliance time depends on the model the disk is currently installed in. The text does not distinguish disks that previously operated in a different (higher-thrust) model. The superseding AD 2022-02-09 later added that distinction.",
+    "Note 1 to paragraph (g)(1) is informational about piece-part opportunity inspections under the ALS. It imposes no requirement in this AD.",
+    "The preamble mentions Emergency AD 2020-07-51 and AD 2021-01-03. Paragraph (b) states 'Affected ADs: None', so no relationship to those ADs is recorded."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "High-pressure turbine (HPT) 1st-stage disk",
+        "high-pressure turbine 1st-stage disk"
+      ],
+      "component": "HPT 1st-stage disk",
+      "dependency": "dep_eng0713_table1",
+      "id": "hpt1_disk_eng0713",
+      "listed": [],
+      "paragraph": "(c)(1)",
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "High-pressure turbine (HPT) 1st-stage disk",
+        "high-pressure turbine 1st-stage disk"
+      ],
+      "component": "HPT 1st-stage disk",
+      "dependency": "dep_e5_0015_table1",
+      "id": "hpt1_disk_e5_0015",
+      "listed": [],
+      "paragraph": "(c)(1)",
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "high-pressure turbine 2nd-stage disk"
+      ],
+      "component": "HPT 2nd-stage disk",
+      "dependency": "dep_eng0713_table2",
+      "id": "hpt2_disk_eng0713",
+      "listed": [],
+      "paragraph": "(c)(2)",
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "high-pressure turbine 2nd-stage disk"
+      ],
+      "component": "HPT 2nd-stage disk",
+      "dependency": "dep_e5_0015_table2",
+      "id": "hpt2_disk_e5_0015",
+      "listed": [],
+      "paragraph": "(c)(2)",
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency"
+    }
+  ],
+  "relationships": [
+    {
+      "ad_number": "AD 2022-02-09",
+      "description": "Paragraph (b) of AD 2022-02-09 states that it replaces AD 2021-11-15. The amendment to \u00a7 39.13 removes AD 2021-11-15, effective March 15, 2022.",
+      "document": "2022-02574",
+      "effective_date": "2022-03-15",
+      "paragraph": "(b)",
+      "stated_in": "2022-02574",
+      "type": "superseded_by"
+    }
+  ],
+  "required_actions": [
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_eng0713_table1"
+      ],
+      "description": "Perform an ultrasonic inspection (USI) of the HPT 1st-stage disk, P/N 2A5001, with an S/N listed in Appendix A, Table 1, of IAE NMSB V2500-ENG-72-0713, Revision 1. Use the Accomplishment Instructions, paragraph 6, of that NMSB. Due at the next engine shop visit after the effective date, or before the disk has accumulated 3,200 FCs since the effective date, whichever occurs first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": 3200
+        }
+      ],
+      "models": [
+        "V2527E-A5",
+        "V2527M-A5",
+        "V2528-D5",
+        "V2530-A5",
+        "V2533-A5"
+      ],
+      "operator_condition": "",
+      "paragraph": "(g)(1)",
+      "related_paragraphs": [
+        "(g)",
+        "(g)(7)"
+      ],
+      "target": "hpt1_disk_eng0713",
+      "terminates": [],
+      "trigger": {
+        "condition": "next engine shop visit after the effective date of this AD",
+        "definition_paragraphs": [
+          "(h)(1)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_eng0713_table2"
+      ],
+      "description": "Perform a USI of the HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in Appendix A, Table 2, of IAE NMSB V2500-ENG-72-0713, Revision 1. Use the Accomplishment Instructions, paragraph 7, of that NMSB. Due at the next engine shop visit after the effective date, or before the disk has accumulated 3,200 FCs since the effective date, whichever occurs first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(g)(2)",
+          "role": "alternative",
+          "value": 3200
+        }
+      ],
+      "models": [
+        "V2527E-A5",
+        "V2527M-A5",
+        "V2528-D5",
+        "V2530-A5",
+        "V2533-A5"
+      ],
+      "operator_condition": "",
+      "paragraph": "(g)(2)",
+      "related_paragraphs": [
+        "(g)",
+        "(g)(7)"
+      ],
+      "target": "hpt2_disk_eng0713",
+      "terminates": [],
+      "trigger": {
+        "condition": "next engine shop visit after the effective date of this AD",
+        "definition_paragraphs": [
+          "(h)(1)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_eng0713_table1"
+      ],
+      "description": "Perform a USI of the HPT 1st-stage disk, P/N 2A5001, with an S/N listed in Appendix A, Table 1, of IAE NMSB V2500-ENG-72-0713, Revision 1. Use the Accomplishment Instructions, paragraph 6, of that NMSB. Due at the next HPT rotor and stator assembly (HPT module) removal, or before the disk has accumulated 6,700 FCs since the effective date, whichever occurs first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(g)(3)",
+          "role": "alternative",
+          "value": 6700
+        }
+      ],
+      "models": [
+        "V2522-A5",
+        "V2524-A5",
+        "V2525-D5",
+        "V2527-A5"
+      ],
+      "operator_condition": "",
+      "paragraph": "(g)(3)",
+      "related_paragraphs": [
+        "(g)",
+        "(g)(7)"
+      ],
+      "target": "hpt1_disk_eng0713",
+      "terminates": [],
+      "trigger": {
+        "condition": "at the next HPT rotor and stator assembly (HPT module) removal",
+        "definition_paragraphs": [],
+        "event": "maintenance_event",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_eng0713_table2"
+      ],
+      "description": "Perform a USI of the HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in Appendix A, Table 2, of IAE NMSB V2500-ENG-72-0713, Revision 1. Use the Accomplishment Instructions, paragraph 7, of that NMSB. Due at the next HPT module removal, or before the disk has accumulated 6,700 FCs since the effective date, whichever occurs first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(g)(4)",
+          "role": "alternative",
+          "value": 6700
+        }
+      ],
+      "models": [
+        "V2522-A5",
+        "V2524-A5",
+        "V2525-D5",
+        "V2527-A5"
+      ],
+      "operator_condition": "",
+      "paragraph": "(g)(4)",
+      "related_paragraphs": [
+        "(g)",
+        "(g)(7)"
+      ],
+      "target": "hpt2_disk_eng0713",
+      "terminates": [],
+      "trigger": {
+        "condition": "at the next HPT module removal",
+        "definition_paragraphs": [],
+        "event": "maintenance_event",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_e5_0015_table1"
+      ],
+      "description": "Perform a USI of the HPT 1st-stage disk, P/N 2A5001, with an S/N listed in Appendix A, Table 1, of IAE NMSB V2500-E5-72-0015. Use the Accomplishment Instructions, paragraph 6, of that NMSB. Due at the next engine shop visit, or before the disk has accumulated 3,200 FCs since the effective date, whichever occurs first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(g)(5)",
+          "role": "alternative",
+          "value": 3200
+        }
+      ],
+      "models": [
+        "V2531-E5"
+      ],
+      "operator_condition": "",
+      "paragraph": "(g)(5)",
+      "related_paragraphs": [
+        "(g)",
+        "(g)(7)"
+      ],
+      "target": "hpt1_disk_e5_0015",
+      "terminates": [],
+      "trigger": {
+        "condition": "at the next engine shop visit",
+        "definition_paragraphs": [
+          "(h)(1)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_e5_0015_table2"
+      ],
+      "description": "Perform a USI of the HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in Appendix A, Table 2, of IAE NMSB V2500-E5-72-0015. Use the Accomplishment Instructions, paragraph 7, of that NMSB. Due at the next engine shop visit, or before the disk has accumulated 3,200 FCs since the effective date, whichever occurs first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(g)(6)",
+          "role": "alternative",
+          "value": 3200
+        }
+      ],
+      "models": [
+        "V2531-E5"
+      ],
+      "operator_condition": "",
+      "paragraph": "(g)(6)",
+      "related_paragraphs": [
+        "(g)",
+        "(g)(7)"
+      ],
+      "target": "hpt2_disk_e5_0015",
+      "terminates": [],
+      "trigger": {
+        "condition": "at the next engine shop visit",
+        "definition_paragraphs": [
+          "(h)(1)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "If, during the USI required by paragraphs (g)(1) through (6), an HPT 1st-stage disk or HPT 2nd-stage disk does not pass the inspection, remove that disk from service before further flight and replace it with a part eligible for installation. The pass criteria are in the Accomplishment Instructions, paragraph 8, of IAE NMSB V2500-ENG-72-0713, Revision 1, or IAE NMSB V2500-E5-72-0015, as applicable.",
+      "kind": "replace_if_finding",
+      "limits": [],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(7)",
+      "related_paragraphs": [
+        "(g)(1)",
+        "(g)(2)",
+        "(g)(3)",
+        "(g)(4)",
+        "(g)(5)",
+        "(g)(6)",
+        "(h)(2)"
+      ],
+      "target": "",
+      "terminates": [],
+      "trigger": {
+        "condition": "during the USI required by paragraphs (g)(1) through (6) of this AD, a HPT 1st-stage disk or HPT 2nd-stage disk does not pass the inspection; before further flight",
+        "definition_paragraphs": [
+          "(h)(2)"
+        ],
+        "event": "prior_action",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the HPT 1st-stage or 2nd-stage disk failed the USI required by paragraphs (g)(1) through (6), as specified in the Accomplishment Instructions, paragraph 8, of the applicable NMSB.",
+          "paragraph": "(g)(7)"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2"
+}

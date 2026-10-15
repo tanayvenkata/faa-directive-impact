@@ -1,0 +1,445 @@
+{
+  "ad_number": "AD 2017-14-07",
+  "ambiguities": [
+    {
+      "description": "The 50-cycle leg says \"within 50 cycles in service after the effective date of this AD\". It does not say whether these are cycles of the affected part or of the engine on which it is installed. The two counts differ if the part was moved between engines after the effective date.",
+      "paragraph": "(g)(1)",
+      "readings": [
+        "Cycles in service accumulated by the affected part after the effective date (recorded here as part_cycles_after_effective_date).",
+        "Flight cycles of the engine after the effective date."
+      ]
+    },
+    {
+      "description": "The part cycles-since-new limits are \"listed in the service instructions\" of each NMSB and are not printed in the AD. It is not stated whether there is one limit per NMSB or one per serial number in Table 1.",
+      "paragraph": "(g)(1)",
+      "readings": [
+        "A single cycles-since-new limit applies to all serial numbers in the NMSB.",
+        "A per-serial-number limit is given in the NMSB's Table 1 or elsewhere in its service instructions."
+      ]
+    },
+    {
+      "description": "The trigger \"when the HPT module is disassembled and access to the part is available\" is not defined in the regulatory text, and commenters called it unclear. The preamble (FAA response to MTU and UAL) declined to change it. It said removal of the HPT module from the engine alone is earlier than required, and that \"next piece part exposure\" would be later than required. No compliance-time cap applies, so an affected part may remain installed until that event occurs.",
+      "paragraph": "(g)(2)",
+      "readings": [
+        "Any disassembly of the HPT module that makes the part physically accessible triggers removal.",
+        "Only disassembly that reaches the part itself triggers removal; separation of the HPT module from the engine alone does not."
+      ]
+    },
+    {
+      "description": "\"Part eligible for installation\" is used in paragraphs (g)(1) and (g)(2) but is not defined in the regulatory text. The preamble says any part eligible for installation, new or previously installed, may be installed, and that no specific hardware is mandated. Because of this, no eligible_parts entry is recorded.",
+      "paragraph": "(g)(1)",
+      "readings": [
+        "Any approved part that is not identified in the referenced NMSB Table 1 lists.",
+        "A part as specified in the NMSB service instructions."
+      ]
+    },
+    {
+      "description": "P/N 2A3423 parts appear in two NMSBs: 0677 under (g)(1)(ii) and 0678 under (g)(2)(i). P/N 2A3437 parts also appear in two NMSBs: 0682 under (g)(1)(iii) and 0681 under (g)(2)(ii). The text does not say whether a serial number can appear in both NMSB tables for the same P/N. If it does, both removal requirements would apply to that part.",
+      "paragraph": "(c)(1)",
+      "readings": [
+        "The serial lists are disjoint, and each part is subject to one action only.",
+        "A serial number listed in both tables is subject to both (g)(1) and (g)(2); the earlier-occurring requirement governs."
+      ]
+    }
+  ],
+  "amoc_paragraph": "(h)",
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2530-A5",
+      "V2533-A5",
+      "V2525-D5",
+      "V2528-D5",
+      "V2531-E5"
+    ],
+    "engine_serials": [],
+    "models_paragraph": "(c)(1)",
+    "parts": [
+      "hpt_stage2_air_seal_0676",
+      "hpt_1st_stage_air_seal_0677",
+      "hpt_1st_stage_air_seal_0678",
+      "hpt_stage2_ring_plate_0682",
+      "hpt_stage2_ring_plate_0681"
+    ],
+    "parts_combine": "any",
+    "parts_paragraph": "(c)(1)"
+  },
+  "continuing_obligations": [],
+  "corrections": [],
+  "credit_for_previous_actions": [],
+  "definitions": [],
+  "dependencies": [
+    {
+      "holds": "serial_numbers",
+      "id": "nmsb_0676_table1",
+      "incorporated_in": [
+        "(j)(2)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(1)(i)",
+      "title": "IAE Non-Modification Service Bulletin (NMSB) V2500-ENG-72-0676, dated October 14, 2016, Table 1 (serial numbers of affected HPT stage 2 air seals, P/N 2A4157)"
+    },
+    {
+      "holds": "compliance_times",
+      "id": "nmsb_0676_csn_limits",
+      "incorporated_in": [
+        "(j)(2)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(g)(1)",
+      "title": "IAE NMSB V2500-ENG-72-0676, dated October 14, 2016, service instructions: part cycles-since-new removal limits for HPT stage 2 air seals, P/N 2A4157"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "nmsb_0677_table1",
+      "incorporated_in": [
+        "(j)(2)(ii)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(1)(ii)",
+      "title": "IAE NMSB V2500-ENG-72-0677, Revision 1, dated January 11, 2017, Table 1 (serial numbers of affected HPT 1st stage air seals, P/N 2A3423)"
+    },
+    {
+      "holds": "compliance_times",
+      "id": "nmsb_0677_csn_limits",
+      "incorporated_in": [
+        "(j)(2)(ii)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(g)(1)",
+      "title": "IAE NMSB V2500-ENG-72-0677, Revision 1, dated January 11, 2017, service instructions: part cycles-since-new removal limits for HPT 1st stage air seals, P/N 2A3423"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "nmsb_0678_table1",
+      "incorporated_in": [
+        "(j)(2)(iii)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(1)(ii)",
+      "title": "IAE NMSB V2500-ENG-72-0678, Revision 1, dated January 5, 2017, Accomplishment Instructions, Table 1 (serial numbers of affected HPT 1st stage air seals, P/N 2A3423)"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "nmsb_0681_table1",
+      "incorporated_in": [
+        "(j)(2)(iv)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(1)(iii)",
+      "title": "IAE NMSB V2500-ENG-72-0681, Revision 2, dated January 9, 2017, Accomplishment Instructions, Table 1 (serial numbers of affected HPT stage 2 ring plates, P/N 2A3437)"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "nmsb_0682_table1",
+      "incorporated_in": [
+        "(j)(2)(v)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(1)(iii)",
+      "title": "IAE NMSB V2500-ENG-72-0682, dated December 2, 2016, Table 1 (serial numbers of affected HPT stage 2 ring plates, P/N 2A3437)"
+    },
+    {
+      "holds": "compliance_times",
+      "id": "nmsb_0682_csn_limits",
+      "incorporated_in": [
+        "(j)(2)(v)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(g)(1)",
+      "title": "IAE NMSB V2500-ENG-72-0682, dated December 2, 2016, service instructions: part cycles-since-new removal limits for HPT stage 2 ring plates, P/N 2A3437"
+    }
+  ],
+  "effective_date": {
+    "date": "2017-08-21",
+    "emergency_ad": null,
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [],
+  "final_rule_document": "2017-14706",
+  "governing_document": {
+    "document": "2017-14706",
+    "reason": "Final rule for AD 2017-14-07 (Amendment 39-18951). No correction or superseding document is in the thread, so its regulatory text controls."
+  },
+  "notes": [
+    "Applicability requires an affected serial-numbered part to be installed. Serial lists exist only in the incorporated NMSB Table 1s, so a P/N match alone (2A4157, 2A3423, 2A3437) cannot establish or rule out applicability without the dependency.",
+    "Paragraph (b) states no affected ADs.",
+    "The preamble states that disposition and reporting of removed hardware in the NMSBs are not mandated by this AD.",
+    "The preamble states that V2531-E5 is included because an affected part might be installed, although the NMSBs do not list that model.",
+    "There is no installation prohibition paragraph and no credit-for-previous-actions paragraph. Paragraph (f) says \"unless already done\"."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "HPT stage 2 air seal"
+      ],
+      "component": "High-pressure turbine (HPT) stage 2 air seal",
+      "dependency": "nmsb_0676_table1",
+      "id": "hpt_stage2_air_seal_0676",
+      "listed": [],
+      "paragraph": "(c)(1)(i)",
+      "part_numbers": [
+        "2A4157"
+      ],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "High-pressure turbine 1st stage air seal"
+      ],
+      "component": "HPT 1st stage air seal",
+      "dependency": "nmsb_0677_table1",
+      "id": "hpt_1st_stage_air_seal_0677",
+      "listed": [],
+      "paragraph": "(c)(1)(ii)",
+      "part_numbers": [
+        "2A3423"
+      ],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "High-pressure turbine 1st stage air seal"
+      ],
+      "component": "HPT 1st stage air seal",
+      "dependency": "nmsb_0678_table1",
+      "id": "hpt_1st_stage_air_seal_0678",
+      "listed": [],
+      "paragraph": "(c)(1)(ii)",
+      "part_numbers": [
+        "2A3423"
+      ],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "High-pressure turbine stage 2 ring plate"
+      ],
+      "component": "HPT stage 2 ring plate",
+      "dependency": "nmsb_0682_table1",
+      "id": "hpt_stage2_ring_plate_0682",
+      "listed": [],
+      "paragraph": "(c)(1)(iii)",
+      "part_numbers": [
+        "2A3437"
+      ],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "High-pressure turbine stage 2 ring plate"
+      ],
+      "component": "HPT stage 2 ring plate",
+      "dependency": "nmsb_0681_table1",
+      "id": "hpt_stage2_ring_plate_0681",
+      "listed": [],
+      "paragraph": "(c)(1)(iii)",
+      "part_numbers": [
+        "2A3437"
+      ],
+      "serials": "listed_in_dependency"
+    }
+  ],
+  "relationships": [],
+  "required_actions": [
+    {
+      "combination": "whichever_occurs_later",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "nmsb_0676_table1",
+        "nmsb_0676_csn_limits"
+      ],
+      "description": "Remove from service the HPT stage 2 air seal, P/N 2A4157, identified in Table 1 of IAE NMSB V2500-ENG-72-0676, before it reaches the part cycles since new listed in the service instructions, or within 50 cycles in service after the effective date, whichever occurs later. Replace it with a part eligible for installation.",
+      "kind": "remove",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "nmsb_0676_csn_limits",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": null
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": 50
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(1)(i)",
+      "related_paragraphs": [
+        "(g)(1)",
+        "(f)"
+      ],
+      "target": "hpt_stage2_air_seal_0676",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "whichever_occurs_later",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "nmsb_0677_table1",
+        "nmsb_0677_csn_limits"
+      ],
+      "description": "Remove from service the HPT 1st stage air seal, P/N 2A3423, identified in Table 1 of IAE NMSB V2500-ENG-72-0677, Revision 1, before it reaches the part cycles since new listed in the service instructions, or within 50 cycles in service after the effective date, whichever occurs later. Replace it with a part eligible for installation.",
+      "kind": "remove",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "nmsb_0677_csn_limits",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": null
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": 50
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(1)(ii)",
+      "related_paragraphs": [
+        "(g)(1)",
+        "(f)"
+      ],
+      "target": "hpt_1st_stage_air_seal_0677",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "whichever_occurs_later",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "nmsb_0682_table1",
+        "nmsb_0682_csn_limits"
+      ],
+      "description": "Remove from service the HPT stage 2 ring plate, P/N 2A3437, identified in Table 1 of IAE NMSB V2500-ENG-72-0682, before it reaches the part cycles since new listed in the service instructions, or within 50 cycles in service after the effective date, whichever occurs later. Replace it with a part eligible for installation.",
+      "kind": "remove",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "nmsb_0682_csn_limits",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": null
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": 50
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(1)(iii)",
+      "related_paragraphs": [
+        "(g)(1)",
+        "(f)"
+      ],
+      "target": "hpt_stage2_ring_plate_0682",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "nmsb_0678_table1"
+      ],
+      "description": "After the effective date, remove from service the HPT 1st stage air seal, P/N 2A3423, identified in Accomplishment Instructions, Table 1, of IAE NMSB V2500-ENG-72-0678, Revision 1, when the HPT module is disassembled and access to the part is available. Replace it with a part eligible for installation.",
+      "kind": "remove",
+      "limits": [],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(2)(i)",
+      "related_paragraphs": [
+        "(g)(2)",
+        "(f)"
+      ],
+      "target": "hpt_1st_stage_air_seal_0678",
+      "terminates": [],
+      "trigger": {
+        "condition": "when the HPT module is disassembled and access to the part is available",
+        "definition_paragraphs": [
+          "(g)(2)"
+        ],
+        "event": "maintenance_event",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "nmsb_0681_table1"
+      ],
+      "description": "After the effective date, remove from service the HPT stage 2 ring plate, P/N 2A3437, identified in Accomplishment Instructions, Table 1, of IAE NMSB V2500-ENG-72-0681, Revision 2, when the HPT module is disassembled and access to the part is available. Replace it with a part eligible for installation.",
+      "kind": "remove",
+      "limits": [],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(2)(ii)",
+      "related_paragraphs": [
+        "(g)(2)",
+        "(f)"
+      ],
+      "target": "hpt_stage2_ring_plate_0681",
+      "terminates": [],
+      "trigger": {
+        "condition": "when the HPT module is disassembled and access to the part is available",
+        "definition_paragraphs": [
+          "(g)(2)"
+        ],
+        "event": "maintenance_event",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    }
+  ],
+  "schema_version": "2"
+}

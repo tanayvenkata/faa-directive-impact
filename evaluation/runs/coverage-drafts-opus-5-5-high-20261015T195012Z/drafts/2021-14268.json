@@ -1,0 +1,468 @@
+{
+  "ad_number": "AD 2021-11-51",
+  "ambiguities": [
+    {
+      "description": "The S/N list prints 'PKLBR88708 PKLBR89452' with no comma between the two numbers.",
+      "paragraph": "(c)(2)",
+      "readings": [
+        "Two separate serial numbers, PKLBR88708 and PKLBR89452 (recorded this way).",
+        "A typographical error that hides some other intended listing."
+      ]
+    },
+    {
+      "description": "The action applies to HPT 1st-stage disks listed in Table 1 to paragraph (g)(1). That table is printed only as an image, so it cannot be confirmed that it matches the S/Ns printed in paragraph (c)(1) or that it holds only P/N 2A5001.",
+      "paragraph": "(g)(1)",
+      "readings": [
+        "Table 1 lists the same seven P/N 2A5001 disks as paragraph (c)(1).",
+        "Table 1 lists a different or partial set, and only the table decides which disks need the USI."
+      ]
+    },
+    {
+      "description": "The action applies to HPT 2nd-stage disks listed in Table 2 to paragraph (g)(2). That table is printed only as an image, so it cannot be confirmed that it matches the S/Ns printed in paragraph (c)(2) or that it holds only P/N 2A4802.",
+      "paragraph": "(g)(2)",
+      "readings": [
+        "Table 2 lists the same eight P/N 2A4802 disks as paragraph (c)(2).",
+        "Table 2 lists a different or partial set, and only the table decides which disks need the USI."
+      ]
+    },
+    {
+      "description": "The compliance time 'before further flight' after a failed USI is not a recordable count.",
+      "paragraph": "(g)(3)",
+      "readings": [
+        "Removal is required before the next flight after the failed USI."
+      ]
+    },
+    {
+      "description": "Eligibility of a replacement disk depends on the Appendix A serial tables of two service bulletins, which are not printed. It also depends on USI pass results, which no record holds. The phrase 'Appendix A, Tables 1 and 2' could be read as a disk listed in either table.",
+      "paragraph": "(h)(1)",
+      "readings": [
+        "A disk listed in either Appendix A table of either NMSB is eligible only if it passed the USI per paragraph 8 of the respective NMSB.",
+        "A disk not listed in any of those tables is eligible under (h)(2)."
+      ]
+    },
+    {
+      "description": "The requirements were effective on actual notice under Emergency AD 2021-11-51 (issued May 21, 2021) for operators who received it. For those operators, the 10-flight-cycle compliance time runs from the date of actual notice, which no engine record holds. For others it runs from July 19, 2021.",
+      "paragraph": "(a)",
+      "readings": [
+        "Effective date is the operator's date of actual notice of the emergency AD.",
+        "Effective date is July 19, 2021 for operators without actual notice."
+      ]
+    }
+  ],
+  "amoc_paragraph": "(i)",
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2530-A5",
+      "V2533-A5"
+    ],
+    "engine_serials": [],
+    "models_paragraph": "(c)",
+    "parts": [
+      "hpt1_disk",
+      "hpt2_disk"
+    ],
+    "parts_combine": "any",
+    "parts_paragraph": "(c)"
+  },
+  "continuing_obligations": [],
+  "corrections": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "paragraph": "(h)",
+      "term": "part eligible for installation"
+    }
+  ],
+  "dependencies": [
+    {
+      "holds": "serial_numbers",
+      "id": "table1_g1",
+      "kind": "image_only_figure",
+      "paragraph": "(g)(1)",
+      "title": "Table 1 to paragraph (g)(1) of AD 2021-11-51 (HPT 1st-stage disks requiring USI), printed only as image ER02JY21.000"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "table2_g2",
+      "kind": "image_only_figure",
+      "paragraph": "(g)(2)",
+      "title": "Table 2 to paragraph (g)(2) of AD 2021-11-51 (HPT 2nd-stage disks requiring USI), printed only as image ER02JY21.001"
+    },
+    {
+      "holds": "other",
+      "id": "nmsb_0713_para8",
+      "incorporated_in": [
+        "(k)(3)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(g)(3)",
+      "title": "IAE Non-Modification Service Bulletin (NMSB) V2500-ENG-72-0713, Revision 1, dated January 26, 2021, Accomplishment Instructions, paragraph 8 (USI pass criteria)"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "nmsb_0713_appx_a",
+      "incorporated_in": [
+        "(k)(3)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(h)(1)",
+      "title": "IAE NMSB V2500-ENG-72-0713, Revision 1, dated January 26, 2021, Appendix A, Tables 1 and 2"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "nmsb_e5_0015_appx_a",
+      "incorporated_in": [
+        "(k)(3)(ii)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(h)(1)",
+      "title": "IAE NMSB V2500-E5-72-0015, dated December 15, 2020, Appendix A, Tables 1 and 2 (and Accomplishment Instructions, paragraph 8, USI pass criteria)"
+    }
+  ],
+  "effective_date": {
+    "date": "2021-07-19",
+    "emergency_ad": {
+      "ad_number": "AD 2021-11-51",
+      "issued": "2021-05-21"
+    },
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [
+    {
+      "description": "A replacement HPT 1st-stage disk is a 'part eligible for installation' if either: (h)(1) it is listed in Appendix A, Tables 1 and 2, of IAE NMSB V2500-ENG-72-0713 or of IAE NMSB V2500-E5-72-0015 and has passed the USI per paragraph 8 of either NMSB; or (h)(2) it is not listed in those Appendix A tables. The directive prints no part numbers, so eligibility cannot be screened from records.",
+      "paragraph": "(h)",
+      "part_group": "hpt1_disk_table1",
+      "part_numbers": []
+    },
+    {
+      "description": "A replacement HPT 2nd-stage disk is a 'part eligible for installation' if either: (h)(1) it is listed in Appendix A, Tables 1 and 2, of IAE NMSB V2500-ENG-72-0713 or of IAE NMSB V2500-E5-72-0015 and has passed the USI per paragraph 8 of either NMSB; or (h)(2) it is not listed in those Appendix A tables. The directive prints no part numbers, so eligibility cannot be screened from records.",
+      "paragraph": "(h)",
+      "part_group": "hpt2_disk_table2",
+      "part_numbers": []
+    }
+  ],
+  "final_rule_document": "2021-14268",
+  "governing_document": {
+    "document": "2021-14268",
+    "reason": "Final rule (Amendment 39-21626). The thread has no proposed rule or correction, so its regulatory text controls."
+  },
+  "notes": [
+    "Paragraph (b) states no affected ADs. The preamble mentions Emergency AD 2020-07-51 (85 FR 20402) only as background. The regulatory text states no relationship with it.",
+    "The preamble describes this AD as interim action; the root cause is still under investigation.",
+    "The preamble estimates 2 engines of U.S. registry affected.",
+    "The procedures for the USI are NMSB V2500-ENG-72-0713, Revision 1, Accomplishment Instructions paragraphs 6 (1st-stage disk) and 7 (2nd-stage disk). These are procedure-only and are not recorded as dependencies.",
+    "The service information was approved for incorporation by reference as of July 13, 2021 (paragraph (k)(3))."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "high-pressure turbine (HPT) 1st-stage disk"
+      ],
+      "component": "HPT 1st-stage disk",
+      "dependency": "",
+      "id": "hpt1_disk",
+      "listed": [
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A5001",
+          "serial_number": "PKLBR34908"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A5001",
+          "serial_number": "PKLBR59989"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A5001",
+          "serial_number": "PKLBR83471"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A5001",
+          "serial_number": "PKLBSC9996"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A5001",
+          "serial_number": "PKLBSG0105"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A5001",
+          "serial_number": "PKLBSG9043"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A5001",
+          "serial_number": "PKLBSH1829"
+        }
+      ],
+      "paragraph": "(c)(1)",
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed"
+    },
+    {
+      "aliases": [
+        "high-pressure turbine (HPT) 2nd-stage disk"
+      ],
+      "component": "HPT 2nd-stage disk",
+      "dependency": "",
+      "id": "hpt2_disk",
+      "listed": [
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A4802",
+          "serial_number": "PKLBR87800"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A4802",
+          "serial_number": "PKLBR88708"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A4802",
+          "serial_number": "PKLBR89452"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A4802",
+          "serial_number": "PKLBSA9907"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A4802",
+          "serial_number": "PKLBSH9246"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A4802",
+          "serial_number": "PKLBSC8066"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A4802",
+          "serial_number": "PKLBSC8077"
+        },
+        {
+          "cycles_since_new_limit": null,
+          "part_number": "2A4802",
+          "serial_number": "PKLBSG2213"
+        }
+      ],
+      "paragraph": "(c)(2)",
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed"
+    },
+    {
+      "aliases": [
+        "high-pressure turbine (HPT) 1st-stage disk"
+      ],
+      "component": "HPT 1st-stage disk",
+      "dependency": "table1_g1",
+      "id": "hpt1_disk_table1",
+      "listed": [],
+      "paragraph": "(g)(1)",
+      "part_numbers": [],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "high-pressure turbine (HPT) 2nd-stage disk"
+      ],
+      "component": "HPT 2nd-stage disk",
+      "dependency": "table2_g2",
+      "id": "hpt2_disk_table2",
+      "listed": [],
+      "paragraph": "(g)(2)",
+      "part_numbers": [],
+      "serials": "listed_in_dependency"
+    }
+  ],
+  "relationships": [],
+  "required_actions": [
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "table1_g1"
+      ],
+      "description": "For affected engines with an installed HPT 1st-stage disk listed in Table 1 to paragraph (g)(1), within 10 flight cycles after the effective date, perform a USI of the HPT 1st-stage disk using the Accomplishment Instructions, paragraph 6, of IAE NMSB V2500-ENG-72-0713, Revision 1.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": 10
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(1)",
+      "related_paragraphs": [
+        "(f)",
+        "(g)(3)"
+      ],
+      "target": "hpt1_disk_table1",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the USI of the HPT 1st-stage disk has already been done (paragraph (f): 'unless already done').",
+          "paragraph": "(f)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "table2_g2"
+      ],
+      "description": "For affected engines with an installed HPT 2nd-stage disk listed in Table 2 to paragraph (g)(2), within 10 flight cycles after the effective date, perform a USI of the HPT 2nd-stage disk using the Accomplishment Instructions, paragraph 7, of IAE NMSB V2500-ENG-72-0713.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(g)(2)",
+          "role": "alternative",
+          "value": 10
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(2)",
+      "related_paragraphs": [
+        "(f)",
+        "(g)(3)"
+      ],
+      "target": "hpt2_disk_table2",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the USI of the HPT 2nd-stage disk has already been done (paragraph (f): 'unless already done').",
+          "paragraph": "(f)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "nmsb_0713_para8"
+      ],
+      "description": "If, during the USI required by paragraph (g)(1), an HPT 1st-stage disk does not pass the USI as specified in the Accomplishment Instructions, paragraph 8, of IAE NMSB V2500-ENG-72-0713, Revision 1, then before further flight remove the disk from service and replace it with a part eligible for installation.",
+      "kind": "replace_if_finding",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "other",
+          "paragraph": "(g)(3)",
+          "role": "alternative",
+          "value": null
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(3)",
+      "related_paragraphs": [
+        "(g)(1)",
+        "(h)(1)",
+        "(h)(2)"
+      ],
+      "target": "hpt1_disk_table1",
+      "terminates": [],
+      "trigger": {
+        "condition": "HPT 1st-stage disk does not pass the USI required by paragraph (g)(1) as specified in the Accomplishment Instructions, paragraph 8, of IAE NMSB V2500-ENG-72-0713, Revision 1",
+        "definition_paragraphs": [
+          "(g)(1)",
+          "(h)"
+        ],
+        "event": "prior_action",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the HPT 1st-stage disk failed the USI required by paragraph (g)(1) (pass criteria in NMSB V2500-ENG-72-0713, paragraph 8).",
+          "paragraph": "(g)(3)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "nmsb_0713_para8"
+      ],
+      "description": "If, during the USI required by paragraph (g)(2), an HPT 2nd-stage disk does not pass the USI as specified in the Accomplishment Instructions, paragraph 8, of IAE NMSB V2500-ENG-72-0713, Revision 1, then before further flight remove the disk from service and replace it with a part eligible for installation.",
+      "kind": "replace_if_finding",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "other",
+          "paragraph": "(g)(3)",
+          "role": "alternative",
+          "value": null
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(3)",
+      "related_paragraphs": [
+        "(g)(2)",
+        "(h)(1)",
+        "(h)(2)"
+      ],
+      "target": "hpt2_disk_table2",
+      "terminates": [],
+      "trigger": {
+        "condition": "HPT 2nd-stage disk does not pass the USI required by paragraph (g)(2) as specified in the Accomplishment Instructions, paragraph 8, of IAE NMSB V2500-ENG-72-0713, Revision 1",
+        "definition_paragraphs": [
+          "(g)(2)",
+          "(h)"
+        ],
+        "event": "prior_action",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the HPT 2nd-stage disk failed the USI required by paragraph (g)(2) (pass criteria in NMSB V2500-ENG-72-0713, paragraph 8).",
+          "paragraph": "(g)(3)"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2"
+}

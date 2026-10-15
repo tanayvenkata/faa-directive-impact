@@ -176,3 +176,43 @@ Recorded 2026-10-15, in order.
    `coverage-plumbing-20261015T194653Z`): the answer parsed, validated, and
    passed the serial guard. Prompt v2 is frozen at `226de36424d1`; the
    drafting run uses it unchanged for all 16 directives.
+7. **Drafting run collected later; raw drafts scored before the proofread.**
+   The drafting batch (`msgbatch_01NQUZ5FgysWuhY95CpjyeGC`) was submitted at
+   19:50 UTC, but the submitting process stopped before results arrived and
+   had kept the batch id only in memory. The batch was found in the account's
+   batch list and collected unchanged once it ended: every result's request
+   key matched the rebuilt request, so the 16 requests are byte-identical to
+   those submitted (`coverage-drafts-opus-5-5-high-20261015T195012Z`,
+   `batch.json` records `collected_later`). The runner now saves the batch id
+   at submission. The raw drafts were then scored
+   (`coverage-drafts-raw-20261015T225328Z`) before any proofread, so the
+   session running the evaluation has seen which units the drafts fail. The
+   stand-in proofread is therefore delegated to a separate Claude Opus 5.5
+   agent working from a brief frozen before it starts
+   (`evaluation/coverage/reviewed/PROOFREAD_BRIEF.md`). It receives only each
+   draft, its recorded request (the frozen prompt and the directive text),
+   and the rule schema; it is told not to read the cases, any run report, the
+   reference records (which gained mappings after the cases were read), or
+   the critique files. That blindness is enforced by instruction, not by
+   file access. The drafter and the proofreader are the same model family.
+   Each changed field and its reason go to
+   `evaluation/coverage/reviewed/CHANGES.md`. The reviewed records are scored
+   once; a directive that then fails a gate stays `not_yet_evaluated` and is
+   not proofread again.
+8. **Scorer fix: numbered subparagraphs set as headings.** All six gate 6
+   failures in the raw-draft run were citations to AD 2015-10-04 paragraphs
+   (e)(2) to (e)(5). Those paragraphs exist: the directive sets each
+   numbered subparagraph of (e) as its own heading, and the section index
+   (`index_paragraphs`) read numbered items only from body text, so it never
+   indexed them. The index now opens a numbered subparagraph from a heading
+   too, with a regression test. The fix changes the index of no document in
+   the seed generation (`gen-20260926T215105Z-7fe9da08`), so S1, B2, and B3
+   results are unchanged; in the coverage generation it adds (e)(1) to
+   (e)(5) to AD 2015-10-04 only. It was found after the raw drafts were
+   scored and before any reviewed record exists. Both earlier runs were
+   re-scored with it, paired with the originals:
+   `coverage-reference-v2.1-index-fix-20261015T225944Z` and
+   `coverage-drafts-raw-index-fix-20261015T225944Z`. The reference re-score
+   also picks up the cov-017 label correction (`0266f4d`), committed four
+   minutes after the original v2.1 run, under which cov-017 passes gate 4.
+   The reviewed records are scored with the fixed index.

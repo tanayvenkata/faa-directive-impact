@@ -188,6 +188,8 @@ def call_batch(
     requests: list[ModelRequest],
     poll_seconds: float = 30.0,
     sleep: Any = time.sleep,
+    batch_id: str | None = None,
+    on_submit: Any = None,
 ) -> dict[str, ModelResponse]:
     """Run requests through the Message Batches API at half price.
 
@@ -195,21 +197,33 @@ def call_batch(
     is also each request's ``custom_id``. A request that errors or expires
     comes back as a response with ``error`` set and no answer. Batched
     requests run in parallel, so prompt-cache hits are best effort.
+
+    ``on_submit`` receives the batch id as soon as the batch exists, so it
+    can be saved before the wait. Passing ``batch_id`` collects a batch that
+    was already submitted instead of creating one; its results must match
+    ``requests`` key for key, which proves the same requests were sent.
     """
     by_key = {request.key(): request for request in requests}
     started = time.monotonic()
-    batch = client.messages.batches.create(
-        requests=[
-            {"custom_id": key, "params": request.params()}
-            for key, request in by_key.items()
-        ]
-    )
-    while client.messages.batches.retrieve(batch.id).processing_status != "ended":
+    if batch_id is None:
+        batch_id = client.messages.batches.create(
+            requests=[
+                {"custom_id": key, "params": request.params()}
+                for key, request in by_key.items()
+            ]
+        ).id
+        if on_submit is not None:
+            on_submit(batch_id)
+    while client.messages.batches.retrieve(batch_id).processing_status != "ended":
         sleep(poll_seconds)
     elapsed = time.monotonic() - started
 
     responses = {}
-    for item in client.messages.batches.results(batch.id):
+    for item in client.messages.batches.results(batch_id):
+        if item.custom_id not in by_key:
+            raise RuntimeError(
+                f"batch {batch_id} holds a request not in this run: {item.custom_id}"
+            )
         request = by_key[item.custom_id]
         if item.result.type == "succeeded":
             response = response_from_message(
@@ -228,11 +242,11 @@ def call_batch(
                 batch=True,
                 error=f"batch result {item.result.type}",
             )
-        response.extra["batch_id"] = batch.id
+        response.extra["batch_id"] = batch_id
         responses[item.custom_id] = response
     missing = set(by_key) - set(responses)
     if missing:
-        raise RuntimeError(f"batch {batch.id} returned no result for {len(missing)}")
+        raise RuntimeError(f"batch {batch_id} returned no result for {len(missing)}")
     return responses
 
 

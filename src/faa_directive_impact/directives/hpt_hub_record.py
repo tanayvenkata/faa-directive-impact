@@ -127,6 +127,12 @@ def index_paragraphs(root: Element) -> list[dict[str, str]]:
                 paragraphs.append(
                     {"id": letter, "heading": heading.group(2), "text": ""}
                 )
+            # Some directives set a numbered subparagraph as its own heading,
+            # such as "(2) Initial USI of the HPC Stage 3 to 8 Drum"; it opens
+            # that subparagraph just as a "(2)" text item would.
+            elif letter is not None and (numbered := NUMBERED_ITEM.match(text)):
+                number = f"{letter}({numbered.group(1)})"
+                paragraphs.append({"id": number, "heading": text, "text": ""})
             # Other headings inside the regulatory text, such as "Note 1 to
             # paragraph (g)(1):", do not start a paragraph; their text joins
             # the current lettered paragraph.
