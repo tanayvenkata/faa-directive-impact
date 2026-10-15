@@ -1,0 +1,3335 @@
+{
+ "seed-001/2025-18469": {
+  "action_status": "action_required",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBST5011",
+    "paragraph": "(g)",
+    "supports": "HPT 1st-stage hub matches a listed part"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "effective date 2025-10-29 anchors the timing"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(i)(2)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and its compliance time"
+   }
+  ],
+  "computed": {
+   "component_cycles_remaining": 2400,
+   "latest_engine_flight_cycles": 45050
+  },
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": 2400,
+    "latest_engine_flight_cycles": 45050,
+    "outcome": "matched",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "PKLBST5011",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N PKLBST5011 matches a part listed in paragraph (g) (removal limit 5,500 cycles since new).",
+    "table_row": {
+     "component": "HPT 1st-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A5001",
+     "removal_limit_cycles_since_new": 5500,
+     "serial_number": "PKLBST5011"
+    },
+    "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 45,050. (2,400 part cycles remain to the listed limit.)"
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB2-0001",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N SYN-HUB2-0001 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "potentially_affected",
+  "summary": "V2527-A5 is within the directive's applicability. A listed part is installed and a required action is due.",
+  "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 45,050. (2,400 part cycles remain to the listed limit.)"
+ },
+ "seed-001/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-002/2025-18469": {
+  "action_status": "no_action_triggered",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2533-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no installed part is listed"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "PKLBST5012",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N PKLBST5012 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB2-0002",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N SYN-HUB2-0002 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "V2533-A5 is within the directive's applicability. No required action is triggered by the supplied records. The installation prohibition continues to bind this engine.",
+  "timing": null
+ },
+ "seed-002/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2533-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-003/2025-18469": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2524-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "P/N 2A5001",
+    "paragraph": "(g)",
+    "supports": "HPT 1st-stage hub has a listed P/N"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "The HPT 1st-stage hub has listed P/N 2A5001, but its S/N is unknown, so it may be a listed part.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB2-0003",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N SYN-HUB2-0003 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "installed_components[HPT 1st-stage hub].serial_number"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "V2524-A5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "Whether the HPT 1st-stage hub is affected is unknown until its missing or unconfirmed record is resolved."
+ },
+ "seed-003/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2524-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-004/2025-18469": {
+  "action_status": null,
+  "ad_number": "AD 2025-19-13",
+  "applicability": "outside_supported_scope",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "the applicable engine models"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2025-18469",
+  "hubs": [],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "PW1133G-JM is not one of the supported V2500-A5/D5/E5 variants. This screen makes no applicability determination for it.",
+  "timing": null
+ },
+ "seed-004/2026-16954": {
+  "action_status": null,
+  "ad_number": "AD 2026-17-03",
+  "applicability": "outside_supported_scope",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "the applicable engine models"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "PW1133G-JM is not one of the supported V2500-A5/D5/E5 variants. This screen makes no applicability determination for it.",
+  "timing": null
+ },
+ "seed-005/2025-18469": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527E-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBSS9840",
+    "paragraph": "(g)",
+    "supports": "HPT 2nd-stage hub matches a listed part"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "effective date 2025-10-29 anchors the timing"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(i)(2)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and its compliance time"
+   }
+  ],
+  "computed": {
+   "component_cycles_remaining": 2860,
+   "readings": {
+    "A": 18100,
+    "B": 18040
+   }
+  },
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB1-0005",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N SYN-HUB1-0005 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": 2860,
+    "latest_engine_flight_cycles": null,
+    "outcome": "matched",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {
+     "A": 18100,
+     "B": 18040
+    },
+    "serial_number": "PKLBSS9840",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N PKLBSS9840 matches a part listed in paragraph (g) (removal limit 3,900 cycles since new).",
+    "table_row": {
+     "component": "HPT 2nd-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A4802",
+     "removal_limit_cycles_since_new": 3900,
+     "serial_number": "PKLBSS9840"
+    },
+    "timing": "The qualifying shop visit at engine counter 18,040 falls inside the 100-flight-cycle window after the effective date, and paragraph (g) reads two ways: counter 18,100 or 18,040."
+   }
+  ],
+  "missing_facts": [],
+  "notes": [
+   "Paragraph (g) reads two ways for the HPT 2nd-stage hub: counter 18,100 (A, the visit before the limit or the window, whichever is later) or 18,040 (B, the visit, but no earlier than the later of the limit and the window). A person must decide."
+  ],
+  "queue": "needs_review",
+  "summary": "V2527E-A5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "The qualifying shop visit at engine counter 18,040 falls inside the 100-flight-cycle window after the effective date, and paragraph (g) reads two ways: counter 18,100 or 18,040."
+ },
+ "seed-005/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527E-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-006/2025-18469": {
+  "action_status": "action_required",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2530-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBSK9287",
+    "paragraph": "(g)",
+    "supports": "HPT 1st-stage hub matches a listed part"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "effective date 2025-10-29 anchors the timing"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(i)(2)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and its compliance time"
+   }
+  ],
+  "computed": {
+   "component_cycles_remaining": 10,
+   "latest_engine_flight_cycles": 25600
+  },
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": 10,
+    "latest_engine_flight_cycles": 25600,
+    "outcome": "matched",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "PKLBSK9287",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N PKLBSK9287 matches a part listed in paragraph (g) (removal limit 100 cycles since new).",
+    "table_row": {
+     "component": "HPT 1st-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A5001",
+     "removal_limit_cycles_since_new": 100,
+     "serial_number": "PKLBSK9287"
+    },
+    "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 25,600. (10 part cycles remain to the listed limit.)"
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB2-0006",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N SYN-HUB2-0006 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "potentially_affected",
+  "summary": "V2530-A5 is within the directive's applicability. A listed part is installed and a required action is due.",
+  "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 25,600. (10 part cycles remain to the listed limit.)"
+ },
+ "seed-006/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2530-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-007/2025-18469": {
+  "action_status": "action_required",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2531-E5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBSS9200",
+    "paragraph": "(g)",
+    "supports": "HPT 1st-stage hub matches a listed part"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBST5005",
+    "paragraph": "(g)",
+    "supports": "HPT 2nd-stage hub matches a listed part"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "effective date 2025-10-29 anchors the timing"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(i)(2)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and its compliance time"
+   }
+  ],
+  "computed": {
+   "component_cycles_remaining": 500,
+   "latest_engine_flight_cycles": 30800
+  },
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": 500,
+    "latest_engine_flight_cycles": 30800,
+    "outcome": "matched",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "PKLBSS9200",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N PKLBSS9200 matches a part listed in paragraph (g) (removal limit 4,800 cycles since new).",
+    "table_row": {
+     "component": "HPT 1st-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A5001",
+     "removal_limit_cycles_since_new": 4800,
+     "serial_number": "PKLBSS9200"
+    },
+    "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 30,800. (500 part cycles remain to the listed limit.)"
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": 1700,
+    "latest_engine_flight_cycles": 32000,
+    "outcome": "matched",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "PKLBST5005",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N PKLBST5005 matches a part listed in paragraph (g) (removal limit 4,000 cycles since new).",
+    "table_row": {
+     "component": "HPT 2nd-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A4802",
+     "removal_limit_cycles_since_new": 4000,
+     "serial_number": "PKLBST5005"
+    },
+    "timing": "Paragraph (g): act on the HPT 2nd-stage hub at the next qualifying engine shop visit, no later than engine counter 32,000. (1,700 part cycles remain to the listed limit.)"
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "potentially_affected",
+  "summary": "V2531-E5 is within the directive's applicability. A listed part is installed and a required action is due.",
+  "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 30,800. (500 part cycles remain to the listed limit.) Paragraph (g): act on the HPT 2nd-stage hub at the next qualifying engine shop visit, no later than engine counter 32,000. (1,700 part cycles remain to the listed limit.) Each listed part must be acted on; the earliest deadline is the HPT 1st-stage hub's, engine counter 30,800."
+ },
+ "seed-007/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2531-E5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-008/2025-18469": {
+  "action_status": "action_required",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2528-D5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBST7489",
+    "paragraph": "(g)",
+    "supports": "HPT 1st-stage hub matches a listed part"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "P/N 2A4802",
+    "paragraph": "(g)",
+    "supports": "HPT 2nd-stage hub has a listed P/N"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "effective date 2025-10-29 anchors the timing"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(i)(2)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and its compliance time"
+   }
+  ],
+  "computed": {
+   "component_cycles_remaining": 3700,
+   "latest_engine_flight_cycles": 54200
+  },
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": 3700,
+    "latest_engine_flight_cycles": 54200,
+    "outcome": "matched",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "PKLBST7489",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N PKLBST7489 matches a part listed in paragraph (g) (removal limit 6,200 cycles since new).",
+    "table_row": {
+     "component": "HPT 1st-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A5001",
+     "removal_limit_cycles_since_new": 6200,
+     "serial_number": "PKLBST7489"
+    },
+    "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 54,200. (3,700 part cycles remain to the listed limit.)"
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "The HPT 2nd-stage hub has listed P/N 2A4802, but its S/N is unknown, so it may be a listed part.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "installed_components[HPT 2nd-stage hub].serial_number"
+  ],
+  "notes": [],
+  "queue": "potentially_affected",
+  "summary": "V2528-D5 is within the directive's applicability. A listed part is installed and a required action is due.",
+  "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 54,200. (3,700 part cycles remain to the listed limit.) Whether the HPT 2nd-stage hub is affected is unknown until its missing or unconfirmed record is resolved."
+ },
+ "seed-008/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2528-D5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-009/2025-18469": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2522-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 1st-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 2nd-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 1st-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 2nd-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "installed_components[HPT 1st-stage hub]",
+   "installed_components[HPT 2nd-stage hub]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "V2522-A5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "Whether the HPT 1st-stage hub is affected is unknown until its missing or unconfirmed record is resolved. Whether the HPT 2nd-stage hub is affected is unknown until its missing or unconfirmed record is resolved."
+ },
+ "seed-009/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2522-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-010/2025-18469": {
+  "action_status": null,
+  "ad_number": "AD 2025-19-13",
+  "applicability": "outside_supported_scope",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "the applicable engine models"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2025-18469",
+  "hubs": [],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "V2500-A1 is not one of the supported V2500-A5/D5/E5 variants. This screen makes no applicability determination for it.",
+  "timing": null
+ },
+ "seed-010/2026-16954": {
+  "action_status": null,
+  "ad_number": "AD 2026-17-03",
+  "applicability": "outside_supported_scope",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "the applicable engine models"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "V2500-A1 is not one of the supported V2500-A5/D5/E5 variants. This screen makes no applicability determination for it.",
+  "timing": null
+ },
+ "seed-011/2025-18469": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 1st-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 2nd-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 1st-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 2nd-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "installed_components[HPT 1st-stage hub]",
+   "installed_components[HPT 2nd-stage hub]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "V2527-A5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "Whether the HPT 1st-stage hub is affected is unknown until its missing or unconfirmed record is resolved. Whether the HPT 2nd-stage hub is affected is unknown until its missing or unconfirmed record is resolved."
+ },
+ "seed-011/2026-16954": {
+  "action_status": "action_required_on_event",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": "P/N 6A8353",
+    "paragraph": "(c)",
+    "supports": "3rd stage HPC rotor blade set P/N 6A8353 is a listed part"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and when it is due"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(h)(3)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(h)(2)",
+    "supports": "what the condition means"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "matched",
+    "part_number": "6A8353",
+    "position": "3rd stage HPC rotor blade set",
+    "readings": {},
+    "serial_number": "not tracked at set level",
+    "statement": "The 3rd stage HPC rotor blade set P/N 6A8353 is named in paragraph (c).",
+    "table_row": {
+     "part_number": "6A8353",
+     "serial_number": null
+    },
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "potentially_affected",
+  "summary": "V2527-A5 is within the directive's applicability. A listed part is installed; the required action is due only when its triggering event occurs.",
+  "timing": "Paragraph (g): Replace the full set of 3rd stage HPC rotor blades with parts eligible for installation. Due at the next engine shop visit inducted after 2026-09-24 where a 3rd stage HPC rotor blade is exposed (removed from the HPC stage 3 to 8 drum); no cycle or calendar limit applies."
+ },
+ "seed-012/2025-18469": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2533-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 1st-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 2nd-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 1st-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 2nd-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "installed_components[HPT 1st-stage hub]",
+   "installed_components[HPT 2nd-stage hub]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "V2533-A5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "Whether the HPT 1st-stage hub is affected is unknown until its missing or unconfirmed record is resolved. Whether the HPT 2nd-stage hub is affected is unknown until its missing or unconfirmed record is resolved."
+ },
+ "seed-012/2026-16954": {
+  "action_status": null,
+  "ad_number": "AD 2026-17-03",
+  "applicability": "does_not_apply",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2533-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "the AD applies only with P/N 6A8353, 6A8688"
+   },
+   {
+    "document": "2026-18423",
+    "locator": "P/N 6C8368",
+    "paragraph": "(h)(1)(i)",
+    "supports": "P/N 6C8368 is eligible for installation"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "The installed 3rd stage HPC rotor blade set is P/N 6C8368, a part eligible for installation, and paragraph (c) requires P/N 6A8353 or 6A8688.",
+  "timing": null
+ },
+ "seed-013/2025-18469": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2530-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 1st-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 2nd-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 1st-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 2nd-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "installed_components[HPT 1st-stage hub]",
+   "installed_components[HPT 2nd-stage hub]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "V2530-A5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "Whether the HPT 1st-stage hub is affected is unknown until its missing or unconfirmed record is resolved. Whether the HPT 2nd-stage hub is affected is unknown until its missing or unconfirmed record is resolved."
+ },
+ "seed-013/2026-16954": {
+  "action_status": "action_required_on_event",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2530-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": "P/N 6A8688",
+    "paragraph": "(c)",
+    "supports": "3rd stage HPC rotor blade set P/N 6A8688 is a listed part"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and when it is due"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(h)(3)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(h)(2)",
+    "supports": "what the condition means"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "matched",
+    "part_number": "6A8688",
+    "position": "3rd stage HPC rotor blade set",
+    "readings": {},
+    "serial_number": "not tracked at set level",
+    "statement": "The 3rd stage HPC rotor blade set P/N 6A8688 is named in paragraph (c).",
+    "table_row": {
+     "part_number": "6A8688",
+     "serial_number": null
+    },
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "potentially_affected",
+  "summary": "V2530-A5 is within the directive's applicability. A listed part is installed; the required action is due only when its triggering event occurs.",
+  "timing": "Paragraph (g): Replace the full set of 3rd stage HPC rotor blades with parts eligible for installation. Due at the next engine shop visit inducted after 2026-09-24 where a 3rd stage HPC rotor blade is exposed (removed from the HPC stage 3 to 8 drum); no cycle or calendar limit applies."
+ },
+ "seed-014/2025-18469": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2524-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 1st-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 2nd-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 1st-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 2nd-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "installed_components[HPT 1st-stage hub]",
+   "installed_components[HPT 2nd-stage hub]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "V2524-A5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "Whether the HPT 1st-stage hub is affected is unknown until its missing or unconfirmed record is resolved. Whether the HPT 2nd-stage hub is affected is unknown until its missing or unconfirmed record is resolved."
+ },
+ "seed-014/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2524-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": "P/N 6A8353",
+    "paragraph": "(c)",
+    "supports": "3rd stage HPC rotor blade set P/N 6A8353 is a listed part"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and when it is due"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(h)(3)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(h)(2)",
+    "supports": "what the condition means"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "matched",
+    "part_number": "6A8353",
+    "position": "3rd stage HPC rotor blade set",
+    "readings": {},
+    "serial_number": "not tracked at set level",
+    "statement": "The 3rd stage HPC rotor blade set P/N 6A8353 is named in paragraph (c).",
+    "table_row": {
+     "part_number": "6A8353",
+     "serial_number": null
+    },
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [
+   "A qualifying shop visit was inducted on 2026-10-01. Whether a 3rd stage HPC rotor blade is exposed (removed from the HPC stage 3 to 8 drum) occurred at it, as the directive defines it, is not a structured record field, so a person must decide whether the action is due."
+  ],
+  "queue": "needs_review",
+  "summary": "V2524-A5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "Paragraph (g): Replace the full set of 3rd stage HPC rotor blades with parts eligible for installation. Due at the next engine shop visit inducted after 2026-09-24 where a 3rd stage HPC rotor blade is exposed (removed from the HPC stage 3 to 8 drum); no cycle or calendar limit applies."
+ },
+ "seed-015/2025-18469": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527E-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 1st-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 2nd-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 1st-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 2nd-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "installed_components[HPT 1st-stage hub]",
+   "installed_components[HPT 2nd-stage hub]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "V2527E-A5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "Whether the HPT 1st-stage hub is affected is unknown until its missing or unconfirmed record is resolved. Whether the HPT 2nd-stage hub is affected is unknown until its missing or unconfirmed record is resolved."
+ },
+ "seed-015/2026-16954": {
+  "action_status": "no_action_triggered",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "applies",
+  "authority_state": "published_not_yet_effective",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527E-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": "P/N 6A8353",
+    "paragraph": "(c)",
+    "supports": "3rd stage HPC rotor blade set P/N 6A8353 is a listed part"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "the AD takes effect on 2026-09-24"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "matched",
+    "part_number": "6A8353",
+    "position": "3rd stage HPC rotor blade set",
+    "readings": {},
+    "serial_number": "not tracked at set level",
+    "statement": "The 3rd stage HPC rotor blade set P/N 6A8353 is named in paragraph (c).",
+    "table_row": {
+     "part_number": "6A8353",
+     "serial_number": null
+    },
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "The engine is within the directive's applicability, but AD 2026-17-03 does not take effect until 2026-09-24. Nothing is required yet.",
+  "timing": "From 2026-09-24, paragraph (g): Replace the full set of 3rd stage HPC rotor blades with parts eligible for installation."
+ },
+ "seed-016/2025-18469": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 1st-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 2nd-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 1st-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 2nd-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "installed_components[HPT 1st-stage hub]",
+   "installed_components[HPT 2nd-stage hub]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "V2527-A5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "Whether the HPT 1st-stage hub is affected is unknown until its missing or unconfirmed record is resolved. Whether the HPT 2nd-stage hub is affected is unknown until its missing or unconfirmed record is resolved."
+ },
+ "seed-016/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-017/2025-18469": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2522-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 1st-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 2nd-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 1st-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 2nd-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "installed_components[HPT 1st-stage hub]",
+   "installed_components[HPT 2nd-stage hub]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "V2522-A5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "Whether the HPT 1st-stage hub is affected is unknown until its missing or unconfirmed record is resolved. Whether the HPT 2nd-stage hub is affected is unknown until its missing or unconfirmed record is resolved."
+ },
+ "seed-017/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2522-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-018/2025-18469": {
+  "action_status": "no_action_triggered",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "published_not_yet_effective",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2525-D5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "the AD takes effect on 2025-10-29"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBSR2100",
+    "paragraph": "(g)",
+    "supports": "HPT 2nd-stage hub matches a listed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB1-0018",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N SYN-HUB1-0018 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "matched",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "PKLBSR2100",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N PKLBSR2100 matches a part listed in paragraph (g) (removal limit 6,000 cycles since new).",
+    "table_row": {
+     "component": "HPT 2nd-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A4802",
+     "removal_limit_cycles_since_new": 6000,
+     "serial_number": "PKLBSR2100"
+    },
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "The engine is within the directive's applicability, but AD 2025-19-13 does not take effect until 2025-10-29. Nothing is required yet.",
+  "timing": "From 2025-10-29, paragraph (g): Remove the listed hub from service and replace it with a part eligible for installation. Listed parts installed: HPT 2nd-stage hub S/N PKLBSR2100."
+ },
+ "seed-018/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2525-D5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-019/2025-18469": {
+  "action_status": "action_required",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2531-E5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBSS9200",
+    "paragraph": "(g)",
+    "supports": "HPT 1st-stage hub matches a listed part"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "effective date 2025-10-29 anchors the timing"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(i)(2)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and its compliance time"
+   }
+  ],
+  "computed": {
+   "component_cycles_remaining": -190,
+   "latest_engine_flight_cycles": 60100
+  },
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": -190,
+    "latest_engine_flight_cycles": 60100,
+    "outcome": "matched",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "PKLBSS9200",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N PKLBSS9200 matches a part listed in paragraph (g) (removal limit 4,800 cycles since new).",
+    "table_row": {
+     "component": "HPT 1st-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A5001",
+     "removal_limit_cycles_since_new": 4800,
+     "serial_number": "PKLBSS9200"
+    },
+    "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 60,100. The part is already 190 cycles past its listed limit."
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB2-0019",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N SYN-HUB2-0019 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "potentially_affected",
+  "summary": "V2531-E5 is within the directive's applicability. A listed part is installed and a required action is due.",
+  "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 60,100. The part is already 190 cycles past its listed limit."
+ },
+ "seed-019/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2531-E5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-020/2025-18469": {
+  "action_status": "no_action_triggered",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "published_not_yet_effective",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2533-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "the AD takes effect on 2025-10-29"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 1st-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 2nd-stage hub record to compare"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 1st-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 2nd-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "The engine is within the directive's applicability, but AD 2025-19-13 does not take effect until 2025-10-29. Nothing is required yet.",
+  "timing": "From 2025-10-29, paragraph (g): Remove the listed hub from service and replace it with a part eligible for installation."
+ },
+ "seed-020/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2533-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-021/2025-18469": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2530-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 1st-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 2nd-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 1st-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 2nd-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "installed_components[HPT 1st-stage hub]",
+   "installed_components[HPT 2nd-stage hub]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "V2530-A5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "Whether the HPT 1st-stage hub is affected is unknown until its missing or unconfirmed record is resolved. Whether the HPT 2nd-stage hub is affected is unknown until its missing or unconfirmed record is resolved."
+ },
+ "seed-021/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2530-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-022/2025-18469": {
+  "action_status": "no_action_triggered",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "published_not_yet_effective",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2533-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "the AD takes effect on 2025-10-29"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 1st-stage hub record to compare"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no HPT 2nd-stage hub record to compare"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 1st-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "missing",
+    "part_number": null,
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": null,
+    "statement": "No HPT 2nd-stage hub record was supplied, so a listed part can be neither found nor excluded.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "The engine is within the directive's applicability, but AD 2025-19-13 does not take effect until 2025-10-29. Nothing is required yet.",
+  "timing": "From 2025-10-29, paragraph (g): Remove the listed hub from service and replace it with a part eligible for installation."
+ },
+ "seed-022/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2533-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-023/2025-18469": {
+  "action_status": "action_required",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527M-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBSR2100",
+    "paragraph": "(g)",
+    "supports": "HPT 2nd-stage hub matches a listed part"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "effective date 2025-10-29 anchors the timing"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(i)(2)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and its compliance time"
+   }
+  ],
+  "computed": {
+   "component_cycles_remaining": 2500,
+   "latest_engine_flight_cycles": 25000
+  },
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB1-0023",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N SYN-HUB1-0023 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": 2500,
+    "latest_engine_flight_cycles": 25000,
+    "outcome": "matched",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "PKLBSR2100",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N PKLBSR2100 matches a part listed in paragraph (g) (removal limit 6,000 cycles since new).",
+    "table_row": {
+     "component": "HPT 2nd-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A4802",
+     "removal_limit_cycles_since_new": 6000,
+     "serial_number": "PKLBSR2100"
+    },
+    "timing": "Paragraph (g): act on the HPT 2nd-stage hub at the next qualifying engine shop visit, no later than engine counter 25,000. (2,500 part cycles remain to the listed limit.)"
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "potentially_affected",
+  "summary": "V2527M-A5 is within the directive's applicability. A listed part is installed and a required action is due.",
+  "timing": "Paragraph (g): act on the HPT 2nd-stage hub at the next qualifying engine shop visit, no later than engine counter 25,000. (2,500 part cycles remain to the listed limit.)"
+ },
+ "seed-023/2026-16954": {
+  "action_status": "action_required_on_event",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527M-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": "P/N 6A8688",
+    "paragraph": "(c)",
+    "supports": "3rd stage HPC rotor blade set P/N 6A8688 is a listed part"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and when it is due"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(h)(3)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(h)(2)",
+    "supports": "what the condition means"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "matched",
+    "part_number": "6A8688",
+    "position": "3rd stage HPC rotor blade set",
+    "readings": {},
+    "serial_number": "not tracked at set level",
+    "statement": "The 3rd stage HPC rotor blade set P/N 6A8688 is named in paragraph (c).",
+    "table_row": {
+     "part_number": "6A8688",
+     "serial_number": null
+    },
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "potentially_affected",
+  "summary": "V2527M-A5 is within the directive's applicability. A listed part is installed; the required action is due only when its triggering event occurs.",
+  "timing": "Paragraph (g): Replace the full set of 3rd stage HPC rotor blades with parts eligible for installation. Due at the next engine shop visit inducted after 2026-09-24 where a 3rd stage HPC rotor blade is exposed (removed from the HPC stage 3 to 8 drum); no cycle or calendar limit applies."
+ },
+ "seed-024/2025-18469": {
+  "action_status": "no_action_triggered",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2528-D5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "no installed part is listed"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB1-0024",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N SYN-HUB1-0024 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "PKLBST5011",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N PKLBST5011 is not a listed part. S/N PKLBST5011 is listed only with P/N 2A5001.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "V2528-D5 is within the directive's applicability. No required action is triggered by the supplied records. The installation prohibition continues to bind this engine.",
+  "timing": null
+ },
+ "seed-024/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2528-D5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-025/2025-18469": {
+  "action_status": null,
+  "ad_number": "AD 2025-19-13",
+  "applicability": "outside_supported_scope",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "the applicable engine models"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2025-18469",
+  "hubs": [],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "CFM56-5B4/3 is not one of the supported V2500-A5/D5/E5 variants. This screen makes no applicability determination for it.",
+  "timing": null
+ },
+ "seed-025/2026-16954": {
+  "action_status": null,
+  "ad_number": "AD 2026-17-03",
+  "applicability": "outside_supported_scope",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "the applicable engine models"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "no_action_or_not_applicable",
+  "summary": "CFM56-5B4/3 is not one of the supported V2500-A5/D5/E5 variants. This screen makes no applicability determination for it.",
+  "timing": null
+ },
+ "seed-026/2025-18469": {
+  "action_status": "action_required",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2530-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBST7489",
+    "paragraph": "(g)",
+    "supports": "HPT 1st-stage hub matches a listed part"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "effective date 2025-10-29 anchors the timing"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(i)(2)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and its compliance time"
+   }
+  ],
+  "computed": {
+   "component_cycles_remaining": 2600,
+   "latest_engine_flight_cycles": 23200
+  },
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": 2600,
+    "latest_engine_flight_cycles": 23200,
+    "outcome": "matched",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "PKLBST7489",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N PKLBST7489 matches a part listed in paragraph (g) (removal limit 6,200 cycles since new).",
+    "table_row": {
+     "component": "HPT 1st-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A5001",
+     "removal_limit_cycles_since_new": 6200,
+     "serial_number": "PKLBST7489"
+    },
+    "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 23,200. (2,600 part cycles remain to the listed limit.)"
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB2-0026",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N SYN-HUB2-0026 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [],
+  "notes": [],
+  "queue": "potentially_affected",
+  "summary": "V2530-A5 is within the directive's applicability. A listed part is installed and a required action is due.",
+  "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 23,200. (2,600 part cycles remain to the listed limit.)"
+ },
+ "seed-026/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2530-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-027/2025-18469": {
+  "action_status": "action_required",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBSS9200",
+    "paragraph": "(g)",
+    "supports": "HPT 1st-stage hub matches a listed part"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "effective date 2025-10-29 anchors the timing"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(i)(2)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and its compliance time"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(j)",
+    "supports": "AMOCs must be approved by the FAA before use"
+   }
+  ],
+  "computed": {
+   "component_cycles_remaining": 50,
+   "latest_engine_flight_cycles": 15300
+  },
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": 50,
+    "latest_engine_flight_cycles": 15300,
+    "outcome": "matched",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "PKLBSS9200",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N PKLBSS9200 matches a part listed in paragraph (g) (removal limit 4,800 cycles since new).",
+    "table_row": {
+     "component": "HPT 1st-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A5001",
+     "removal_limit_cycles_since_new": 4800,
+     "serial_number": "PKLBSS9200"
+    },
+    "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 15,300. (50 part cycles remain to the listed limit.)"
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB2-0027",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N SYN-HUB2-0027 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "amoc_claims[AD 2025-19-13]"
+  ],
+  "notes": [
+   "An AMOC is claimed, but no FAA approval is on file. The required action stands unless a person verifies an approved AMOC and its scope."
+  ],
+  "queue": "potentially_affected",
+  "summary": "V2527-A5 is within the directive's applicability. A listed part is installed and a required action is due.",
+  "timing": "Paragraph (g): act on the HPT 1st-stage hub at the next qualifying engine shop visit, no later than engine counter 15,300. (50 part cycles remain to the listed limit.)"
+ },
+ "seed-027/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2527-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-028/2025-18469": {
+  "action_status": "action_required",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2524-A5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBST5005",
+    "paragraph": "(g)",
+    "supports": "HPT 2nd-stage hub matches a listed part"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(a)",
+    "supports": "effective date 2025-10-29 anchors the timing"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(i)(2)",
+    "supports": "engine shop visit"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the required action and its compliance time"
+   }
+  ],
+  "computed": {
+   "component_cycles_remaining": 2600,
+   "latest_engine_flight_cycles": 11000
+  },
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A5001",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB1-0028",
+    "statement": "The HPT 1st-stage hub P/N 2A5001 S/N SYN-HUB1-0028 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": 2600,
+    "latest_engine_flight_cycles": 11000,
+    "outcome": "matched",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "PKLBST5005",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N PKLBST5005 matches a part listed in paragraph (g) (removal limit 4,000 cycles since new).",
+    "table_row": {
+     "component": "HPT 2nd-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A4802",
+     "removal_limit_cycles_since_new": 4000,
+     "serial_number": "PKLBST5005"
+    },
+    "timing": "Paragraph (g): act on the HPT 2nd-stage hub at the next qualifying engine shop visit, no later than engine counter 11,000. (2,600 part cycles remain to the listed limit.)"
+   }
+  ],
+  "missing_facts": [],
+  "notes": [
+   "The operator's AD record shows 'not_applicable'. This screen does not use that record; a person should review it against the findings above."
+  ],
+  "queue": "potentially_affected",
+  "summary": "V2524-A5 is within the directive's applicability. A listed part is installed and a required action is due.",
+  "timing": "Paragraph (g): act on the HPT 2nd-stage hub at the next qualifying engine shop visit, no later than engine counter 11,000. (2,600 part cycles remain to the listed limit.)"
+ },
+ "seed-028/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2524-A5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ },
+ "seed-029/2025-18469": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2025-19-13",
+  "applicability": "applies",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2525-D5 is a listed model"
+   },
+   {
+    "document": "2025-18469",
+    "locator": "S/N PKLBSK9287",
+    "paragraph": "(g)",
+    "supports": "a listed S/N recorded under a different identity"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(i)(1)",
+    "supports": "which parts are eligible for installation"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(g)",
+    "supports": "the installed part is not listed"
+   },
+   {
+    "document": "2025-18469",
+    "locator": null,
+    "paragraph": "(h)",
+    "supports": "installation prohibition"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [
+   {
+    "paragraph": "(h)",
+    "text": "After the effective date, do not install an HPT 1st-stage or 2nd-stage hub whose P/N and S/N are listed in table 1 in any engine."
+   }
+  ],
+  "directive": "2025-18469",
+  "hubs": [
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "identity_unconfirmed",
+    "part_number": "2A5001-01",
+    "position": "HPT 1st-stage hub",
+    "readings": {},
+    "serial_number": "PKLBSK9287",
+    "statement": "The HPT 1st-stage hub is recorded as P/N 2A5001-01 S/N PKLBSK9287; paragraph (g) lists P/N 2A5001 S/N PKLBSK9287. A person must confirm whether this is the listed part.",
+    "table_row": {
+     "component": "HPT 1st-stage hub",
+     "paragraph": "(g)",
+     "part_number": "2A5001",
+     "removal_limit_cycles_since_new": 100,
+     "serial_number": "PKLBSK9287"
+    },
+    "timing": null
+   },
+   {
+    "adjudication": null,
+    "component_cycles_remaining": null,
+    "latest_engine_flight_cycles": null,
+    "outcome": "not_listed",
+    "part_number": "2A4802",
+    "position": "HPT 2nd-stage hub",
+    "readings": {},
+    "serial_number": "SYN-HUB2-0029",
+    "statement": "The HPT 2nd-stage hub P/N 2A4802 S/N SYN-HUB2-0029 is not a listed part.",
+    "table_row": null,
+    "timing": null
+   }
+  ],
+  "missing_facts": [
+   "installed_components[HPT 1st-stage hub].part_number"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "V2525-D5 is within the directive's applicability. A required fact or reading is missing or unsettled, so the outcome is left to a person.",
+  "timing": "Whether the HPT 1st-stage hub is affected is unknown until its missing or unconfirmed record is resolved."
+ },
+ "seed-029/2026-16954": {
+  "action_status": "needs_review",
+  "ad_number": "AD 2026-17-03",
+  "applicability": "unknown",
+  "authority_state": "in_force",
+  "citations": [
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "V2525-D5 is a listed model"
+   },
+   {
+    "document": "2026-18423",
+    "locator": null,
+    "paragraph": "(c)",
+    "supports": "applicability depends on the installed part"
+   }
+  ],
+  "computed": {},
+  "continuing_obligations": [],
+  "directive": "2026-16954",
+  "hubs": [],
+  "missing_facts": [
+   "installed_components[3rd stage HPC rotor blade]"
+  ],
+  "notes": [],
+  "queue": "needs_review",
+  "summary": "Paragraph (c) covers only engines with a 3rd stage HPC rotor blade of P/N 6A8353 or 6A8688, and the record does not show which part is installed.",
+  "timing": null
+ }
+}

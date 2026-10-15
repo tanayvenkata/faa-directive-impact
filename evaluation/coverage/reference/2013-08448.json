@@ -1,0 +1,152 @@
+{
+  "schema_version": "2",
+  "ad_number": "AD 2013-07-10",
+  "final_rule_document": "2013-08448",
+  "governing_document": {
+    "document": "2013-08448",
+    "reason": "The final rule; no correction was published."
+  },
+  "corrections": [],
+  "effective_date": {
+    "date": "2013-05-20",
+    "paragraph": "(a)",
+    "emergency_ad": null
+  },
+  "relationships": [],
+  "dependencies": [
+    {
+      "id": "n0630",
+      "title": "IAE NMSB V2500-ENG-72-0630, Revision 1 (September 20, 2012), paragraph 3.A PART 2",
+      "kind": "incorporated_by_reference",
+      "holds": "procedure",
+      "paragraph": "(g)"
+    }
+  ],
+  "parts": [
+    {
+      "id": "tube_internal",
+      "component": "No. 4 bearing internal scavenge tube",
+      "aliases": [
+        "No 4 bearing internal scavenge tube"
+      ],
+      "part_numbers": [
+        "2A2074-01"
+      ],
+      "serials": "any",
+      "listed": [],
+      "dependency": "",
+      "paragraph": "(c)"
+    },
+    {
+      "id": "tube_external",
+      "component": "No. 4 bearing external scavenge tube",
+      "aliases": [
+        "No 4 bearing external scavenge tube"
+      ],
+      "part_numbers": [
+        "6A5254"
+      ],
+      "serials": "any",
+      "listed": [],
+      "dependency": "",
+      "paragraph": "(c)"
+    }
+  ],
+  "applicability": {
+    "engine_models": [
+      "V2525-D5",
+      "V2528-D5"
+    ],
+    "models_paragraph": "(c)",
+    "engine_serials": [
+      {
+        "models": [
+          "V2525-D5",
+          "V2528-D5"
+        ],
+        "ranges": [
+          {
+            "first": "V20001",
+            "last": "V20285"
+          }
+        ],
+        "serial_numbers": [],
+        "excluded": [],
+        "paragraph": "(c)"
+      }
+    ],
+    "parts": [
+      "tube_internal",
+      "tube_external"
+    ],
+    "parts_combine": "all",
+    "parts_paragraph": "(c)"
+  },
+  "eligible_parts": [],
+  "required_actions": [
+    {
+      "paragraph": "(f)",
+      "description": "Replace the No. 4 bearing internal scavenge tube, P/N 2A2074-01, at each combustor module-level exposure after it has accumulated 10,000 FCs since new; if its FCs cannot be confirmed, at each combustor module-level exposure.",
+      "kind": "remove",
+      "models": [],
+      "target": "tube_internal",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "each",
+        "condition": "combustor module-level exposure (separation of the combustor case and compressor case flanges) once the tube has 10,000 FCs since new, or at every exposure if its FCs cannot be confirmed",
+        "definition_paragraphs": [
+          "(h)"
+        ]
+      },
+      "limits": [],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)",
+      "description": "Check the alignment of the No. 4 bearing external scavenge tube, P/N 6A5254; if misaligned, replace it with a new tube.",
+      "kind": "check",
+      "models": [],
+      "target": "tube_external",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "part_installation",
+        "recurrence": "each",
+        "condition": "installation of the No. 4 bearing external scavenge tube",
+        "definition_paragraphs": []
+      },
+      "limits": [],
+      "combination": "single",
+      "terminates": []
+    }
+  ],
+  "continuing_obligations": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "term": "combustor module-level exposure",
+      "paragraph": "(h)"
+    }
+  ],
+  "amoc_paragraph": "(i)",
+  "ambiguities": [
+    {
+      "paragraph": "(c)",
+      "description": "Applicability needs both tubes installed (\"internal ... P/N 2A2074-01, and ... external ... P/N 6A5254, installed\"); an engine with only one is not covered.",
+      "readings": [
+        "Both required (used here).",
+        "Either one is enough."
+      ]
+    }
+  ],
+  "notes": [
+    "Paragraph (f) settles an unknown tube age itself: replace at each exposure. So an unknown tube cycle count never sends the engine to review; both actions recur at each event."
+  ]
+}
