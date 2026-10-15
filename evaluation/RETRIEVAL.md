@@ -71,6 +71,13 @@ classification until they are re-read; that follow-up is tracked in
 `ROADMAP.md` step 7. Retrieval reads the full paragraph (c) and was never
 affected.
 
+## How It Was Designed
+
+The design followed the Stemma retrieval notes: baseline first, relevance
+separate from sufficiency, no copied thresholds, frozen evaluation, and
+false-inclusion measured with real distractors. Which note drove which
+choice is recorded in [`STEMMA_USES.md`](STEMMA_USES.md).
+
 ## What This Can and Cannot Show
 
 - **Small, author-built cases.** 29 seed cases written by the same reader
