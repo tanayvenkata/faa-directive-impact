@@ -268,6 +268,21 @@ When a sync is rejected with `<document>: search metadata changed`:
    accept it. Leave the rejection in place, and record the investigation in
    the alert issue.
 
+### Re-reading After a Scope Fix
+
+The sync reads each IAE directive once, when it is new. When the scope reader
+changes, records already in the corpus keep their old classification until
+they are re-read. Run the workflow by hand with `reread` set to the document
+numbers (or locally, `uv run faa-directive-impact discovery-sync --reread
+2012-12329 2015-12068`). Each is acquired again, classified with the current
+reader, and given a new version marked `reread_scope`; the candidate is
+validated and promoted like any other. Only IAE directives with a full-text
+representation can be re-read; anything else rejects the attempt.
+
+First use, 2026-10-15: AD 2012-09-09 (`2012-12329`) and AD 2015-10-04
+(`2015-12068`), filed out of scope by the reader that stopped at a lead-in
+(`evaluation/RETRIEVAL.md`, "The Sync Bug It Found").
+
 ### Re-running
 
 **Actions → Discovery sync → Run workflow** (or

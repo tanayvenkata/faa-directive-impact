@@ -110,6 +110,7 @@ COUNT_KEYS = (
     "quarantined",
     "not_directive",
     "read_in_full",
+    "reread",
 )
 
 GENERATION_NOTES = (
@@ -155,6 +156,7 @@ def run_sync(
     *,
     start_date: date = DEFAULT_START_DATE,
     accept_changed: frozenset[str] = frozenset(),
+    reread: frozenset[str] = frozenset(),
     clock: Clock = utc_now,
     new_id: IdFactory = random_id,
 ) -> dict[str, Any]:
@@ -163,7 +165,9 @@ def run_sync(
     ``start_date`` applies only before the first promotion; afterwards the
     active generation's checkpoint decides where the search starts.
     ``accept_changed`` names documents whose changed search metadata a person
-    has investigated and accepted as a new version.
+    has investigated and accepted as a new version. ``reread`` names IAE
+    directives already in the corpus to acquire and classify again, after the
+    scope reader changed; each gets a new version marked ``reread_scope``.
     """
     root = require_discovery_root(storage_root)
     storage = RawStorage(root)
@@ -175,7 +179,16 @@ def run_sync(
     }
     try:
         attempt.update(
-            _sync(root, storage, client, clock, new_id, start_date, accept_changed)
+            _sync(
+                root,
+                storage,
+                client,
+                clock,
+                new_id,
+                start_date,
+                accept_changed,
+                reread,
+            )
         )
     except Exception as error:  # the log must record even an unexpected crash
         attempt.update(
@@ -200,6 +213,7 @@ def _sync(
     new_id: IdFactory,
     start_date: date,
     accept_changed: frozenset[str],
+    reread: frozenset[str] = frozenset(),
 ) -> dict[str, Any]:
     active = read_active(root)
     previous = read_generation(root, active["generation_id"]) if active else None
@@ -231,6 +245,8 @@ def _sync(
         )
         for entry in search.entries:
             _consider(candidate, context, versions, search, entry, accept_changed)
+        for number in sorted(reread):
+            _reread(candidate, context, versions, number)
 
     relationships, unresolved = derive_relationships(candidate.records)
     checks = validate_candidate(root, candidate, search, relationships)
@@ -239,6 +255,7 @@ def _sync(
         candidate.new_documents
         or candidate.counts["changed"]
         or candidate.counts["quarantined"]
+        or candidate.counts["reread"]
     )
     decided_at = clock()
     if candidate.documents:
@@ -411,6 +428,58 @@ def _consider(
         candidate.review[number] = record
     else:
         candidate.records[number] = record
+
+
+def _reread(
+    candidate: Candidate,
+    context: AcquisitionContext,
+    versions: VersionIndex,
+    number: str,
+) -> None:
+    """Acquire an IAE directive already in the corpus and classify it again."""
+    prior = candidate.review.get(number) or candidate.records.get(number)
+    if prior is None:
+        candidate.failures.append(
+            f"{number}: asked to re-read a document that is not in the corpus"
+        )
+        return
+    if not names_international_aero_engines(
+        prior["title"]
+    ) or not DOCUMENT_NUMBER_PATTERN.fullmatch(number):
+        candidate.failures.append(
+            f"{number}: only IAE directives with a full-text representation "
+            "can be re-read"
+        )
+        return
+    candidate.counts["read_in_full"] += 1
+    document = acquire_document(context, number, versions)
+    candidate.documents.append(document)
+    if document.failed:
+        candidate.failures.append(f"{number}: {describe_failure(document)}")
+        return
+    record = {k: v for k, v in prior.items() if k != "review_reason"}
+    record["evidence"] = dict(prior["evidence"])
+    decision = _classify_document(context, document, record)
+    record["scope"] = decision.as_record()
+    record["coverage_state"] = decision.coverage_state
+    record["versions"] = prior["versions"] + [
+        _version(
+            candidate,
+            prior["entry_sha256"],
+            prior["versions"][-1]["search_receipt_id"],
+            "reread_scope",
+        )
+    ]
+    if decision.needs_review:
+        record["review_reason"] = decision.detail
+    elif not record["ad_numbers"]:
+        record["review_reason"] = "No AD number appears in the docket identifiers."
+    candidate.records.pop(number, None)
+    candidate.review.pop(number, None)
+    (candidate.review if "review_reason" in record else candidate.records)[number] = (
+        record
+    )
+    candidate.counts["reread"] += 1
 
 
 def _classify_document(
