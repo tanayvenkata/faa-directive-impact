@@ -1,0 +1,480 @@
+{
+  "cov-050": [
+    {
+      "directive": "2019-19412",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "At the next piece-part exposure (para (h): disk removed from engine and completely disassembled), but not to exceed 5,000 cycles since new on the disk. Disk CSN 4,200 on 2026-10-15; 5,000 - 4,200 = 800 disk cycles remain (the disk may reach but not exceed 5,000). Disk CSN check: 800 at 2019-10-15 + (58,900 - 55,500 = 3,400 engine cycles) = 4,200, consistent.",
+      "reason": "ESN V12329 and model V2527-A5 are listed in para (c); installed disk P/N 3A2996 S/N MAP04430 is listed in para (g). The 2022-05-18 LPT module removal left the disk assembled, so it was not a piece-part exposure under para (h) and did not trigger or satisfy (g)."
+    }
+  ],
+  "cov-051": [
+    {
+      "directive": "2019-19412",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "None.",
+      "reason": "Para (c) limits the AD to engines with ESNs V10631, V12329, V12494, V13107, V18679, V18681, V18684, V18690; ESN V15500 is not listed. The installed disk S/N SYN-LPT6-c051 is also not among the para (g) serials."
+    }
+  ],
+  "cov-052": [
+    {
+      "directive": "2019-19412",
+      "applicability": "applies",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "installed_components[LPT stage 6 disk].serial_number",
+        "installed_components[LPT stage 6 disk].cycles_since_new"
+      ],
+      "timing": "Undetermined. If the disk is a listed S/N: at the next piece-part exposure, not to exceed 5,000 disk cycles since new.",
+      "reason": "ESN V18684 (V2530-A5) is listed in para (c), so the AD applies. Para (g) removes only P/N 3A2996 disks with eight listed S/Ns; the installed disk's S/N and its cycles since new are unknown, so whether removal is required and how much margin remains to 5,000 CSN cannot be settled."
+    }
+  ],
+  "cov-053": [
+    {
+      "directive": "2019-19412",
+      "applicability": "applies",
+      "action_status": "no_action_triggered",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "None for the installed disk.",
+      "reason": "ESN V10631 (V2527E-A5) is listed in para (c), so the AD applies, but the installed disk S/N SYN-LPT6-c053 is not one of the para (g) serials. The listed disk MAP04258 was removed 2021-05-04 per the operator's records (unverified). The AD record entry agrees with the installed-part facts; it is not verified."
+    }
+  ],
+  "cov-054": [
+    {
+      "directive": "2019-19412",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "At the next piece-part exposure, but not to exceed 5,000 cycles since new on the disk. Disk CSN 3,950 on 2026-10-15; 5,000 - 3,950 = 1,050 disk cycles remain. Check: 900 at 2019-10-15 + (50,300 - 47,250 = 3,050) = 3,950.",
+      "reason": "ESN V13107 (V2527M-A5) is listed in para (c) and the installed disk P/N 3A2996 S/N MAP08718 is listed in para (g). The operator's 'complied / disk replaced' record contradicts the installed-part fact that MAP08718 is still installed (since 2016-08-30), so the record cannot clear the engine; the contradiction should be investigated."
+    }
+  ],
+  "cov-055": [
+    {
+      "directive": "2019-19412",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "Interpretation: whether AD 2019-18-01 para (g) reaches listed disk S/N MAP04259 installed in ESN V16010, which is not in para (c)"
+      ],
+      "timing": "If the AD is read to reach this disk: at the next piece-part exposure, not to exceed 5,000 disk cycles since new (disk CSN 3,300; 1,700 remain).",
+      "reason": "Literal reading: para (c) lists only eight ESNs and V16010 is not one, so the AD would not apply. Competing reading: the installed disk P/N 3A2996 S/N MAP04259 is one of the para (g) affected disks, and the unsafe condition (para (e)) is the disk itself. Because a reading exists that requires removal, this is not cleared; the reach of the AD to a listed disk in an unlisted engine needs FAA/engineering interpretation, and the disk and engine history should be verified."
+    }
+  ],
+  "cov-056": [
+    {
+      "directive": "2019-17403",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "At the next engine shop visit (para (j)), but not later than 4,000 FC after 2019-09-19: 20,000 + 4,000 = 24,000 engine FC (inclusive), whichever comes first. Engine at 21,200 FC on 2020-03-01; 24,000 - 21,200 = 2,800 FC remain.",
+      "reason": "V2528-D5 is in para (c). The 2020-01-10 induction separated no major mating case flanges, so it was not an engine shop visit under para (j) and did not trigger para (g)(1); the 4,000 FC limit still runs."
+    }
+  ],
+  "cov-057": [
+    {
+      "directive": "2019-17403",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "None.",
+      "reason": "Para (c) applies only to V2525-D5 and V2528-D5 engines; V2531-E5 is not included."
+    }
+  ],
+  "cov-058": [
+    {
+      "directive": "2019-17403",
+      "applicability": "applies",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "ad_records[AD 2019-16-01]"
+      ],
+      "timing": "The para (g)(1) limit (not later than 30,000 + 4,000 = 34,000 FC) has passed as of 2026-10-15 (engine at 41,000 FC); repeats are due within 2,000 FC of each inspection (para (g)(2)).",
+      "reason": "V2525-D5 is in para (c). The para (g)(1) compliance limit has passed and no operator AD record is supplied, so whether the initial and repeat inspections were accomplished cannot be determined."
+    }
+  ],
+  "cov-059": [
+    {
+      "directive": "2019-17403",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Repeat inspection under para (g)(2) within 2,000 FC since the last inspection: 15,000 + 2,000 = 17,000 engine FC (inclusive). Engine at 15,900 FC on 2019-12-01; 17,000 - 15,900 = 1,100 FC remain.",
+      "reason": "V2528-D5 is in para (c). The 2019-06-10 ECI and FPI per NMSB V2500-ENG-72-0694 Rev 1 qualifies for credit under para (h) for para (g)(1) (operator-asserted, not verified); with no crack found, para (g)(2) requires the repeat. If the credit were not accepted, (g)(1) would be due at the next shop visit or by 15,400 + 4,000 = 19,400 FC, which is later than 17,000."
+    }
+  ],
+  "cov-060": [
+    {
+      "directive": "2019-17403",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Next repeat inspection under para (g)(2) within 2,000 FC since the last inspection: 52,100 + 2,000 = 54,100 engine FC (inclusive). Engine at 53,000 FC on 2026-10-15; 54,100 - 53,000 = 1,100 FC remain.",
+      "reason": "V2525-D5 is in para (c). The initial (g)(1) inspection rests on the operator's recurring record (not verified); the recurring para (g)(2) inspection is still due on a cycle limit not yet reached."
+    }
+  ],
+  "cov-061": [
+    {
+      "directive": "2019-17403",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Before further flight (para (g)(3)).",
+      "reason": "V2528-D5 is in para (c). A crack was confirmed by the local high-sensitivity FPI on 2026-10-14 and the TEC is still installed, so para (g)(3) requires removing the TEC from service and replacing it before further flight; para (k) bars a special flight permit if the crack extends past the mount stiffener rail or there is an outer-diameter FPI indication."
+    }
+  ],
+  "cov-062": [
+    {
+      "directive": "2015-12068",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "None.",
+      "reason": "Para (c)(3) covers V2527-A5 engines with S/Ns V10001-V13190 and V15001-V16728 'excluding V16707'; ESN V16707 is expressly excluded."
+    }
+  ],
+  "cov-063": [
+    {
+      "directive": "2015-12068",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "None.",
+      "reason": "Para (c)(3) covers V2533-A5 S/Ns V10001-V13190 and V15001-V16728; ESN V15000 is outside both ranges. Note the predecessor AD 2012-09-09 range began at V15000, so the boundary change between the two ADs is worth an owner check, but the 2015 text is unambiguous."
+    },
+    {
+      "directive": "2012-12329",
+      "applicability": "applies",
+      "action_status": "no_action_triggered",
+      "authority_state": "replaced",
+      "required_missing_facts": [],
+      "timing": "None; AD 2012-09-09 was removed from 14 CFR 39.13 and replaced by AD 2015-10-04 effective 2015-07-01.",
+      "reason": "AD 2012-09-09 para (c)(3) covered S/Ns from V15000 up to and including V15245, so V15000 was within it, but AD 2015-10-04 para (b) and amendatory instruction 2 supersede it; its requirements no longer bind after 2015-07-01."
+    }
+  ],
+  "cov-064": [
+    {
+      "directive": "2015-12068",
+      "applicability": "outside_supported_scope",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "None (no determination).",
+      "reason": "The engine is a V2500-A1, outside the supported V2500-A5/D5/E5 boundary, so no applicability determination is made even though para (c)(1) names V2500-A1 engines."
+    }
+  ],
+  "cov-065": [
+    {
+      "directive": "2015-12068",
+      "applicability": "applies",
+      "action_status": "no_action_triggered",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "The para (j) limit (within 9,450 cycles after 2015-07-01, not later than 2025-12-31) has passed as of 2026-10-15; the record shows the terminating action on 2019-04-22, inside it.",
+      "reason": "V2528-D5 is in para (c)(2). The operator record (not verified) states the para (j) terminating action was done (drum never operated with silver-plated nuts, silver-free nuts); the preamble states terminating action ends further inspections. No installed-part fact contradicts it. Para (i) still prohibits installing P/N AS44862 or AS64367 nuts."
+    }
+  ],
+  "cov-066": [
+    {
+      "directive": "2015-12068",
+      "applicability": "applies",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "ad_records[AD 2015-10-04]"
+      ],
+      "timing": "The para (j) terminating-action limit (within 9,450 cycles after 2015-07-01, but not later than 2025-12-31) has passed as of 2026-10-15.",
+      "reason": "ESN V16728 is the inclusive upper end of the para (c)(3) range V15001-V16728 (V2527-A5), so the AD applies. The para (j) limit has passed and no AD record or drum/nut configuration is supplied."
+    }
+  ],
+  "cov-067": [
+    {
+      "directive": "2015-12068",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Para (j) compliance limit (within 9,450 cycles after 2015-07-01, but not later than 2025-12-31) has passed as of 2026-10-15; the terminating action is required now. Para (h) removal of the nuts at piece-part exposure and para (i) installation prohibition also apply.",
+      "reason": "ESN V12000 (V2530-A5) is within para (c)(3) V10001-V13190. Installed attachment nuts P/N AS64367 are silver-plated nuts named in para (h)(1), which contradicts the 'complied' record: para (j)(2) requires silver-free nuts. The record does not override the installed-part fact; the discrepancy needs investigation."
+    }
+  ],
+  "cov-068": [
+    {
+      "directive": "2015-12068",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "IAE Alert NMSB V2500-ENG-72-A0615 Revision 6 paragraph 1.E group lists (Groups C/D ESNs, Groups E/F drum P/Ns)",
+        "installed_components[HPC stage 3 to 8 drum].part_number"
+      ],
+      "timing": "Para (j): within 9,450 cycles after 2015-07-01: engine 18,300 + 9,450 = 27,750 cycles (inclusive), but not later than 2025-12-31, whichever first; engine at 18,340 on 2015-07-20, so 9,410 remain. Para (h): at the next piece-part exposure of the drum, remove AS44862 nuts, clean, FPI or ECI. Para (e) initial USI depends on the group: most conservative (Group D) is within 200 cycles of the drum reaching 3,750, i.e. by drum 3,950 cycles, which is later than 200 cycles after the effective date (engine 18,500, drum about 2,160), so by drum 3,950 (1,950 drum cycles from 2,000) if Group D; Group C would be drum 6,450; Groups E/F 12,700 / 9,200.",
+      "reason": "ESN V11500 (V2524-A5) is within para (c)(3), effective 2015-07-01 (in force on 2015-07-20). The installed nuts P/N AS44862 are silver-plated per para (h)(1), and para (j) binds every engine. The para (e) initial-USI group cannot be determined: the Group C/D ESN lists and Group E/F drum P/N lists are in para 1.E of IAE Alert NMSB V2500-ENG-72-A0615 Rev 6, which is not available, and the drum P/N is unknown."
+    }
+  ],
+  "cov-069": [
+    {
+      "directive": "2013-08448",
+      "applicability": "applies",
+      "action_status": "action_required_on_event",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "At each combustor module-level exposure (para (h): separation of combustor case and compressor case flanges); the internal tube is at 12,400 FC, past the 10,000 FC threshold. Para (g): alignment check of the external tube at each installation.",
+      "reason": "ESN V20150 (V2528-D5) is within V20001-V20285 with internal tube P/N 2A2074-01 and external tube P/N 6A5254 installed (para (c)). Para (f) requires replacement at each combustor module-level exposure once the tube has 10,000 FC; no deadline otherwise."
+    }
+  ],
+  "cov-070": [
+    {
+      "directive": "2013-08448",
+      "applicability": "applies",
+      "action_status": "action_required_on_event",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "At each combustor module-level exposure (para (h)). Para (g): alignment check of the external tube at each installation.",
+      "reason": "ESN V20020 (V2525-D5) with both listed tubes is in para (c). The internal tube's cycles are unknown, and para (f) settles this itself: 'If the FCs on the tube cannot be confirmed, replace the tube at each combustor module-level exposure.'"
+    }
+  ],
+  "cov-071": [
+    {
+      "directive": "2013-08448",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "None.",
+      "reason": "Para (c) covers S/Ns V20001 through V20285; ESN V20286 is one above the range."
+    }
+  ],
+  "cov-072": [
+    {
+      "directive": "2013-08448",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "engine.engine_serial_number"
+      ],
+      "timing": "If applicable: replace the internal tube (10,900 FC, past 10,000) at each combustor module-level exposure; external tube alignment check at each installation.",
+      "reason": "Para (c) applies only to V2525-D5/V2528-D5 engines with S/Ns V20001 through V20285 and both listed tubes installed; the model and tubes match but the engine serial number is unknown."
+    }
+  ],
+  "cov-073": [
+    {
+      "directive": "2013-08448",
+      "applicability": "applies",
+      "action_status": "action_required_on_event",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Para (f): at each combustor module-level exposure after the internal tube reaches 10,000 FC; tube at 6,000 FC, so 10,000 - 6,000 = 4,000 tube FC before (f) can trigger. Para (g): alignment check at each installation of the external tube.",
+      "reason": "ESN V20200 (V2528-D5) with both listed tubes is in para (c). Nothing is due now; the actions arise only on future events (exposure after the tube reaches 10,000 FC, or external tube installation). Reading that para (g) applies to any future installation chosen as the safer reading over no_action_triggered."
+    }
+  ],
+  "cov-074": [
+    {
+      "directive": "2025-17066",
+      "applicability": "applies",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "ad_records[AD 2025-17-16]"
+      ],
+      "timing": "Within 90 days after 2025-10-10 = 2026-01-08 (21 days to Oct 31, +30 Nov = 51, +31 Dec = 82, +8 Jan = 90). That limit has passed as of 2026-10-15.",
+      "reason": "V2528-D5 is in para (c); air carrier operation, so both (g)(1) (D5 TLM P/N 2A4417 ALS) and (g)(2) (approved program) apply. The compliance limit has passed and no AD record or program revision status is supplied."
+    }
+  ],
+  "cov-075": [
+    {
+      "directive": "2025-17066",
+      "applicability": "applies",
+      "action_status": "no_action_triggered",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Within 90 days after 2025-10-10 = 2026-01-08 (21 days to Oct 31, +30 Nov = 51, +31 Dec = 82, +8 Jan = 90). Revision 51 (2025-12-15) falls inside it.",
+      "reason": "V2531-E5 is in para (c). The stated Revision 51 incorporates table 1 into para B.1 of the E5 TLM ALS (P/N 2A4384, para (g)(1)(iii)) and the approved program (para (g)(2)); the complied record agrees. Both are operator assertions, not verified."
+    }
+  ],
+  "cov-076": [
+    {
+      "directive": "2025-17066",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Within 90 days after 2025-10-10 = 2026-01-08 (21 days to Oct 31, +30 Nov = 51, +31 Dec = 82, +8 Jan = 90). That compliance limit has passed as of 2026-10-15; the revisions are required now.",
+      "reason": "V2533-A5 is in para (c); air carrier operation. The stated current Revision 49 incorporates table 1 into neither the A5 TLM ALS (P/N 2A4408, para (g)(1)(i)) nor the approved program (para (g)(2)), which contradicts the 'complied' record; the record cannot override the stated program facts."
+    }
+  ],
+  "cov-077": [
+    {
+      "directive": "2025-17066",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "published_not_yet_effective",
+      "required_missing_facts": [],
+      "timing": "Not yet binding on 2025-09-20; once effective 2025-10-10, Within 90 days after 2025-10-10 = 2026-01-08 (21 days to Oct 31, +30 Nov = 51, +31 Dec = 82, +8 Jan = 90).",
+      "reason": "V2527-A5 is in para (c); published 2025-09-05 and effective 2025-10-10, so not in force on 2025-09-20. Revision 47 does not incorporate table 1, so (g)(1) and (g)(2) will require revision by 2026-01-08. Competing reading: no_action_triggered until the effective date; action_required with the future deadline chosen as the safer reading."
+    }
+  ],
+  "seed-016": [
+    {
+      "directive": "2025-17066",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Within 90 days after 2025-10-10 = 2026-01-08 (21 days to Oct 31, +30 Nov = 51, +31 Dec = 82, +8 Jan = 90). From 2025-11-15: 15 days to Nov 30 + 31 Dec + 8 Jan = 54 days remain.",
+      "reason": "V2527-A5 is in para (c); air carrier operation. Revision 47 incorporates table 1 into neither the approved program (para (g)(2)) nor para B.1 of the A5 TLM ALS (para (g)(1)(i))."
+    }
+  ],
+  "seed-017": [
+    {
+      "directive": "2025-17066",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "operator.air_carrier_operation"
+      ],
+      "timing": "Para (g)(1): Within 90 days after 2025-10-10 = 2026-01-08 (21 days to Oct 31, +30 Nov = 51, +31 Dec = 82, +8 Jan = 90). From 2025-11-15, 54 days remain. Para (g)(2) by the same date if the engine is in air carrier operation.",
+      "reason": "V2522-A5 is in para (c). Para (g)(1) (revise para B.1 of the A5 TLM ALS, P/N 2A4408) applies regardless of operation type; para (g)(2) applies only to air carrier operations, which is unknown."
+    }
+  ],
+  "seed-025": [
+    {
+      "directive": "2025-17066",
+      "applicability": "outside_supported_scope",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "None (no determination).",
+      "reason": "The engine is a CFM56-5B4/3, outside the supported IAE V2500-A5/D5/E5 boundary; no determination is made (it is also not a model listed in para (c))."
+    }
+  ],
+  "cov-078": [
+    {
+      "directive": "2026-16954",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "installed_components[3rd stage HPC rotor blade set].part_number"
+      ],
+      "timing": "If applicable: on event. Corrected para (g) (2026-18423): at the next engine shop visit after 2026-09-24 'where the 3rd stage HPC rotor blade is exposed', i.e. any 3rd-stage blade removed from the stage 3-8 drum (para (h)(2)).",
+      "reason": "Para (c) applies only to engines with a 3rd stage HPC rotor blade P/N 6A8353 or 6A8688 installed; the installed blade P/N is unknown."
+    }
+  ],
+  "cov-079": [
+    {
+      "directive": "2026-16954",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Now, during the open shop visit inducted 2026-10-05: replace the full set of 3rd-stage blades before the engine leaves this visit. Corrected para (g) (2026-18423): at the next engine shop visit after 2026-09-24 'where the 3rd stage HPC rotor blade is exposed', i.e. any 3rd-stage blade removed from the stage 3-8 drum (para (h)(2)).",
+      "reason": "V2524-A5 with blade P/N 6A8353 is in para (c). The visit inducted 2026-10-05 is an engine shop visit after the effective date (para (h)(3)), and two blades removed from the drum on 2026-10-09 is a blade exposure (para (h)(2)), so para (g) requires replacing the full set, not only the two removed blades, with eligible parts (para (h)(1))."
+    }
+  ],
+  "cov-080": [
+    {
+      "directive": "2026-16954",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "None.",
+      "reason": "Installed blade P/N 6A8688-001 is not P/N 6A8353 or 6A8688 named in para (c); it is a modified part listed as eligible for installation in para (h)(1)(ii)."
+    }
+  ],
+  "seed-011": [
+    {
+      "directive": "2026-16954",
+      "applicability": "applies",
+      "action_status": "action_required_on_event",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "On event; no deadline otherwise. Corrected para (g) (2026-18423): at the next engine shop visit after 2026-09-24 'where the 3rd stage HPC rotor blade is exposed', i.e. any 3rd-stage blade removed from the stage 3-8 drum (para (h)(2)).",
+      "reason": "V2527-A5 with blade P/N 6A8353 installed is in para (c); no shop visit has occurred since the 2026-09-24 effective date."
+    }
+  ],
+  "seed-012": [
+    {
+      "directive": "2026-16954",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "None.",
+      "reason": "Installed blade P/N 6C8368 is not P/N 6A8353 or 6A8688 named in para (c); it is a part eligible for installation under para (h)(1)(i)."
+    }
+  ],
+  "seed-013": [
+    {
+      "directive": "2026-16954",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Now, during the visit in progress: replace the full set of 3rd-stage blades before return to service. Corrected para (g) (2026-18423): at the next engine shop visit after 2026-09-24 'where the 3rd stage HPC rotor blade is exposed', i.e. any 3rd-stage blade removed from the stage 3-8 drum (para (h)(2)).",
+      "reason": "V2530-A5 with P/N 6A8688 is in para (c). The visit was inducted 2026-09-14, before the 2026-09-24 effective date, but the blade exposure (para (h)(2)) occurred 2026-09-30 while the AD was in force. A literal reading ('next engine shop visit after the effective date', induction per para (h)(3)) would defer to the next visit (on event); the safer reading, requiring replacement at this exposure, is chosen."
+    }
+  ],
+  "seed-014": [
+    {
+      "directive": "2026-16954",
+      "applicability": "applies",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "Interpretation: whether para (g) 'rotor blade is exposed' is limited to para (h)(2) blade exposure (removal from the drum) or includes rotor exposure without blade removal"
+      ],
+      "timing": "Either on event at the next qualifying visit (reading A) or the 2026-10-01 to 2026-10-04 visit already triggered para (g) and the full set is still installed (reading B). Corrected para (g) (2026-18423): at the next engine shop visit after 2026-09-24 'where the 3rd stage HPC rotor blade is exposed', i.e. any 3rd-stage blade removed from the stage 3-8 drum (para (h)(2)).",
+      "reason": "V2524-A5 with P/N 6A8353 is in para (c). The visit inducted 2026-10-01 exposed the HPC rotor but removed no 3rd-stage blade. Reading A: the corrected para (g) 'rotor blade is exposed' means blade exposure as defined in para (h)(2) (removal from the drum), so this visit did not trigger. Reading B: blades were 'exposed' (visible) when the rotor was opened, and the original uncorrected text ('rotor is exposed') would also have triggered, so replacement was required at this visit. Expert interpretation is needed."
+    }
+  ],
+  "seed-023": [
+    {
+      "directive": "2025-18469",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "At the next engine shop visit after 2025-10-29, before the hub exceeds its 6,000-cycle removal limit or within 100 FC of the effective date, whichever later. 100 FC after the effective date: engine 20,000 + 100 = 20,100 (hub about 1,100 CSN), so the later limit is the hub's 6,000 CSN. Hub CSN 3,500 on 2026-10-06 (1,000 + 2,500 engine FC since 2025-10-29); 6,000 - 3,500 = 2,500 hub cycles remain (the hub may not exceed 6,000).",
+      "reason": "V2527M-A5 is in para (c). HPT 2nd-stage hub P/N 2A4802 S/N PKLBSR2100 matches a table 1 row (removal limit 6,000 CSN) exactly. The HPT 1st-stage hub P/N 2A5001 S/N SYN-HUB1-0023 is not in table 1."
+    },
+    {
+      "directive": "2026-16954",
+      "applicability": "applies",
+      "action_status": "action_required_on_event",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "On event; no deadline otherwise. Corrected para (g) (2026-18423): at the next engine shop visit after 2026-09-24 'where the 3rd stage HPC rotor blade is exposed', i.e. any 3rd-stage blade removed from the stage 3-8 drum (para (h)(2)).",
+      "reason": "V2527M-A5 with blade P/N 6A8688 installed is in para (c); no shop visit with blade exposure since the 2026-09-24 effective date is recorded."
+    },
+    {
+      "directive": "2025-17066",
+      "applicability": "applies",
+      "action_status": "no_action_triggered",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Within 90 days after 2025-10-10 = 2026-01-08 (21 days to Oct 31, +30 Nov = 51, +31 Dec = 82, +8 Jan = 90). The stated revision on 2025-12-01 falls inside it.",
+      "reason": "V2527M-A5 is in para (c); air carrier operation. The operator's stated Revision 48 (2025-12-01) incorporates table 1 into the approved program and the V2500-A5 TLM ALS, meeting paras (g)(1)(i) and (g)(2); this is an operator assertion, not verified."
+    }
+  ]
+}

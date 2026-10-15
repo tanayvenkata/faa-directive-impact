@@ -4,7 +4,7 @@ title: A listed LPT stage-6 disk installed in an engine whose serial number is n
 slice: part_identity
 severity: high
 label:
-  provenance: deterministic
+  provenance: expert_required
   status: draft
   labeled_by: claude-draft
   labeled_on: "2026-10-15"
@@ -14,8 +14,11 @@ label:
     there is no installation prohibition and no "any engine with a listed disk
     installed" clause. Engine S/N V16010 is not listed, so by the text the AD
     does not apply, even though the installed disk S/N MAP04259 is one paragraph
-    (g) names. The label follows the text; the safety gap is recorded in the
-    notes rather than turned into an invented applicability.
+    (g) names. Adjudicated 2026-10-15 after the independent label check
+    (critique/2026-10-15-label-check.md): a screen must not clear an engine
+    carrying a disk the directive names for removal, so the outcome is
+    needs_review with the interpretation question named, pending an
+    authority's reading.
 source_snapshot:
   generation_id: gen-20261015T175844Z-57440372
   as_of: "2026-10-15"
@@ -38,22 +41,26 @@ expected:
   - directive: "2019-19412"
     controlling_ad: AD 2019-18-01
     authority_state: in_force
-    applicability: does_not_apply
+    applicability: unknown
+    action_status: needs_review
     reason: >-
       Paragraph (c) applies only to engines with serial numbers V10631, V12329,
       V12494, V13107, V18679, V18681, V18684, and V18690. V16010 is not listed.
       The installed disk P/N 3A2996 S/N MAP04259 matches a paragraph (g)
-      serial number, but paragraph (g) states the action for engines within
-      paragraph (c); it does not widen applicability. The disk match should be
-      surfaced for a person to look at.
+      serial number. Read literally, paragraph (g) acts only on engines within
+      paragraph (c), so the AD would not apply; but the unsafe condition is in
+      the disk, which is installed. A person must decide.
     required_evidence:
       - {document: "2019-19412", paragraph: "(c)", locator: engine serial number list}
       - {document: "2019-19412", paragraph: "(g)", locator: disk S/N MAP04259}
+    required_missing_facts:
+      - "Interpretation: whether AD 2019-18-01 (g) reaches a listed disk installed in an engine outside paragraph (c)"
 forbidden_claims:
   - The engine is compliant or noncompliant with AD 2019-18-01.
   - The engine or the disk is safe or airworthy.
   - The engine is approved for return to service.
   - AD 2019-18-01 applies to engine S/N V16010, presented as settled.
+  - AD 2019-18-01 does not apply to engine S/N V16010, presented as settled.
   - The installed disk is not one of the disks named in AD 2019-18-01.
 notes: >-
   Known safety gap, reported rather than resolved: the unsafe condition is in
