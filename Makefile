@@ -1,5 +1,6 @@
 .PHONY: sync test lint format check acquire s1 s1-conclude llm-check b2 b3-plumbing b3 \
-	b3-replay b3-summary discovery-sync discovery-rollback discovery-site fleet-build fleet-site
+	b3-replay b3-summary discovery-sync discovery-rollback discovery-drill discovery-site \
+	fleet-build fleet-site
 
 # Local settings and secrets (ANTHROPIC_API_KEY); optional and never committed.
 -include .env
@@ -77,6 +78,11 @@ discovery-sync:
 # Offline. Example: make discovery-rollback  (or TO=gen-... for a specific one)
 discovery-rollback:
 	uv run faa-directive-impact discovery-rollback --storage-root $(DISCOVERY_ROOT) $(if $(TO),--to $(TO),)
+
+# Fetches discovery-state (read only), then offline: rollback drill on a copy
+# under data/drill/; never pushes. STATE=<commit> drills an older state.
+discovery-drill:
+	operations/drills/rollback_drill.sh $(STATE) data/drill
 
 # Offline. Writes site/index.html from the discovery state.
 discovery-site:

@@ -109,6 +109,7 @@ writes to the frozen evaluation corpora:
 ```bash
 make discovery-sync       # live: search, read IAE directives in full, validate, promote or reject
 make discovery-rollback   # offline: return to the previous promoted generation
+make discovery-drill      # rollback drill on a local copy of discovery-state; never pushes
 make discovery-site       # offline: write the freshness page to site/index.html
 make fleet-build          # offline: regenerate demo/fleet.json and demo/fleet-screen.json
 make fleet-site           # offline: write the fleet view to site/fleet/index.html
@@ -122,7 +123,9 @@ generation, new directives, failures, and unavailable dependencies, and turns
 STALE in the browser 48 hours after the last success. The scheduled GitHub
 workflow runs daily and publishes the page to
 <https://tanayvenkata.github.io/faa-directive-impact/>; see
-[`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md).
+[`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md). A failed run opens a GitHub issue;
+the runbook is DISCOVERY_SYNC.md, "Incidents", and the hardening record is
+[`operations/HARDENING.md`](operations/HARDENING.md).
 
 ## Accepted Raw Generations
 
