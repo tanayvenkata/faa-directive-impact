@@ -123,4 +123,33 @@ rule, fixed before any case is written:
 
 ## Deviations
 
-None yet.
+Recorded 2026-10-15, in order.
+
+1. **Triage corrections, before scoring.** Reading the full texts while
+   writing reference records showed three rows were wrong: AD 2024-11-03's
+   hub serial lists are only in NMSB V2500-ENG-72-0720 (needs review by
+   design, not expressible); AD 2020-07-51's (g)(1) engine-and-disk table is
+   an image (partly expressible); AD 2021-11-51 is partly expressible (its
+   (c) lists are text, its (g) tables are images).
+2. **Hand-written reference records, before scoring.** All 16 directives got
+   a hand-written rule record (`evaluation/coverage/reference/`), written by a
+   separate Claude agent from the directive text without seeing the cases.
+   They are the rules baseline, as S1 and the B3 references were, and the
+   comparison point for the drafts. A directive still becomes evaluated on
+   its reviewed draft, as pre-registered.
+3. **Superseded outcomes, before scoring.** Interpreter v2 reports a
+   superseded directive as `superseded`, a value the case schema lacks. No
+   coverage case labels a superseded directive after its replacement took
+   effect (cov-063 expects only AD 2015-10-04), and only labeled units are
+   scored, so the value never meets a label. No schema change.
+4. **Freeze and first scored run.** Schema v2, interpreter v2, and the
+   references were frozen at the merge of `rules-v2` (`3c9a1ff`); the first
+   scored run is `evaluation/runs/coverage-reference-v2.0-20261015T192640Z`.
+   It shows three general gaps in the interpreter, not in the cases:
+   citations cover only part of the record's basis (gate 10); facts that
+   contradict an operator record but are not a part number to remove (an
+   installed part the directive prohibits, a stated program revision) are
+   not read, giving two false clears (cov-067, cov-076, gate 1); and a part
+   the directive names for removal, installed in an engine outside its serial
+   list, is cleared (cov-055). Any change made for these is a further
+   deviation, reported paired with this run.

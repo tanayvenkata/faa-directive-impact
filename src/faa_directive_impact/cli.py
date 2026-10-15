@@ -147,7 +147,32 @@ def main(argv: list[str] | None = None) -> int:
     retrieval_run.add_argument(
         "--runs-root", type=Path, default=Path("evaluation/runs")
     )
+    coverage_run = commands.add_parser(
+        "coverage-run",
+        help="Offline: score a set of rule records on the coverage units.",
+    )
+    coverage_run.add_argument("label")
+    coverage_run.add_argument("records_dir", type=Path)
+    coverage_run.add_argument("--repo", type=Path, default=Path("."))
+    coverage_run.add_argument("--runs-root", type=Path, default=Path("evaluation/runs"))
+    coverage_run.add_argument(
+        "--storage-root", type=Path, default=Path("data/retrieval-frozen")
+    )
     args = parser.parse_args(argv)
+
+    if args.command == "coverage-run":
+        from faa_directive_impact.evaluation.coverage_run import write_run
+
+        print(
+            write_run(
+                args.repo,
+                args.runs_root,
+                args.storage_root,
+                args.label,
+                args.records_dir,
+            )
+        )
+        return EXIT_OK
 
     if args.command == "retrieval-corpus":
         from faa_directive_impact.retrieval.corpus import normalize_generation
