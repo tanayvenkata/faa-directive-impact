@@ -198,8 +198,8 @@ def render_page(state: dict[str, Any], s1_queues_href: str | None = None) -> str
 Federal Register. Correctness claims cover only the IAE V2500-A5/D5/E5
 boundary, and only AD 2025-19-13 is evaluated.</p>
 <div class="banner">{escape(DISCLAIMER)}</div>
-<p><a href="fleet/">Fleet view</a>: a synthetic 200-engine fleet screened
-against AD 2025-19-13 (evaluated) and AD 2026-17-03 (not yet evaluated).</p>
+<p><a href="fleet/">Fleet view</a>: a synthetic 200-engine fleet, each engine's
+directives retrieved and screened; only AD 2025-19-13 is evaluated.</p>
 {freshness}
 {failure_banner}
 {as_of}

@@ -18,7 +18,7 @@ from defusedxml import ElementTree
 
 from faa_directive_impact.directives.source_text import load_generation
 
-RECORD_VERSION = 1
+RECORD_VERSION = 2
 PARAGRAPH_HEADING = re.compile(r"^\(([a-z])\)\s")
 APPLICABILITY_HEADING = re.compile(r"^\(c\)\s*Applicability$")
 # An identifier: letters, digits, and inner hyphens or slashes, containing a
@@ -26,6 +26,9 @@ APPLICABILITY_HEADING = re.compile(r"^\(c\)\s*Applicability$")
 # model designations (V2527-A5, CFM56-5B4/3) both qualify.
 IDENTIFIER = re.compile(r"(?<![\w/-])[A-Z0-9][A-Z0-9/-]*[A-Z0-9](?![\w/-])")
 HYPHEN_SPACE = re.compile(r"-\s+")
+# The amendment line of a final rule: "2025-19-13 International Aero Engines
+# AG: Amendment 39-23153; ..."
+AMENDMENT_LINE = re.compile(r"^(\d{4}-\d{2}-\d{2})\b[^.]*Amendment 39-\d+")
 KINDS = {"Proposed Rule": "proposal", "Rule": "final_rule"}
 
 
@@ -61,6 +64,7 @@ def normalize_generation(
                 if corrects
                 else KINDS.get(document.document_type, document.document_type),
                 "title": document.title,
+                "ad_number": ad_number(root),
                 "publication_date": document.publication_date.isoformat(),
                 "effective_date": document.effective_date.isoformat()
                 if document.effective_date
@@ -74,6 +78,16 @@ def normalize_generation(
             }
         )
     return records
+
+
+def ad_number(root: Element) -> str | None:
+    """The AD number from a final rule's amendment line, if it has one."""
+    for element in root.iter():
+        if element.tag in ("P", "FP"):
+            match = AMENDMENT_LINE.match(_text(element))
+            if match:
+                return f"AD {match.group(1)}"
+    return None
 
 
 def applicability_statement(root: Element) -> str | None:

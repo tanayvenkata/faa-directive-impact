@@ -8,6 +8,10 @@ rule brings the corrections published by then.
 
 Retrieval decides relevance only. It never clears an engine: what it returns
 goes to a screener, and a candidate with no rule record goes to review.
+
+Design choices (baseline first, no score cutoff, relevance kept apart from
+evidence sufficiency) follow the Stemma retrieval notes; see
+``evaluation/STEMMA_USES.md``.
 """
 
 from datetime import date

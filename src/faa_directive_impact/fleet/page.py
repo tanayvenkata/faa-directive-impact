@@ -1,10 +1,11 @@
 """Render the fleet view: one static HTML page over the fleet screen.
 
-Every engine is a tile in one of three queues. The page replays the two
-releases recorded by ``fleet.screen``: first AD 2025-19-13 alone, then with AD
-2026-17-03 added, and the tiles move to their new queues. Nothing on the page is
-computed in the browser beyond counting and layout; each queue, summary,
-timing, missing fact, and citation comes from the recorded screen.
+Every engine is a tile in one of three queues, set by evaluated directives
+only. Directives retrieved for an engine but not yet evaluated are shown
+beside the queues and in each engine's detail, never inside a queue (ROADMAP,
+"Directive Coverage State"). Nothing on the page is computed in the browser
+beyond counting and layout; each queue, candidate, summary, timing, missing
+fact, and citation comes from the recorded screen.
 
 The page is a screening aid on a synthetic fleet. It carries no FAA logo or
 branding.
@@ -67,11 +68,15 @@ def _page_data(fleet_screen: dict[str, Any]) -> dict[str, Any]:
                 "components": asset["installed_components"],
                 "events": asset.get("events", []),
                 "screens": engine["screens"],
+                "queue": engine["evaluated_queue"],
+                "nye": engine["not_yet_evaluated"],
             }
         )
     return {
         "directives": fleet_screen["directives"],
-        "releases": fleet_screen["releases"],
+        "evaluated": fleet_screen["evaluated_directive"],
+        "counts": fleet_screen["evaluated_counts"],
+        "corpus": fleet_screen["corpus_generation"],
         "engines": engines,
     }
 
@@ -82,7 +87,7 @@ TEMPLATE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fleet Directive Screen</title>
-<meta name="description" content="A synthetic V2500 fleet screened against two airworthiness directives, replayed release by release.">
+<meta name="description" content="A synthetic V2500 fleet: each engine's airworthiness directives retrieved and screened.">
 <style>__STYLE__</style>
 </head>
 <body>
@@ -90,21 +95,6 @@ TEMPLATE = """<!doctype html>
   <p class="eyebrow">Synthetic V2500 fleet &middot; screening tool</p>
   <h1 id="headline">Which engines does a new directive touch?</h1>
   <p class="lede" id="lede"></p>
-
-  <section class="controls" aria-label="Release">
-    <div class="steps" role="tablist">
-      <button type="button" role="tab" data-release="r1" id="tab-r1">
-        <span class="step-n">Release 1</span>
-        <span class="step-l">AD 2025-19-13</span>
-      </button>
-      <span class="arrow" aria-hidden="true">&rarr;</span>
-      <button type="button" role="tab" data-release="r2" id="tab-r2">
-        <span class="step-n">Release 2</span>
-        <span class="step-l">+ AD 2026-17-03</span>
-      </button>
-    </div>
-    <button type="button" class="replay" id="replay">&#9654; Replay</button>
-  </section>
 
   <section class="stats" id="stats" aria-live="polite"></section>
 
@@ -114,19 +104,26 @@ TEMPLATE = """<!doctype html>
     <span><i class="sw q-potentially_affected"></i>Potentially affected</span>
     <span><i class="sw q-needs_review"></i>Needs review</span>
     <span><i class="sw q-no_action_or_not_applicable"></i>No action or not applicable</span>
-    <span><i class="sw q-potentially_affected nye"></i>Placed by a directive not yet evaluated</span>
+    <span><i class="sw q-no_action_or_not_applicable nye"></i>A rule record not yet evaluated also flags it</span>
     <span><i class="sw q-no_action_or_not_applicable case"></i>Evaluation case</span>
   </section>
 
-  <section class="directives" id="directives"></section>
+  <section aria-labelledby="dir-title">
+    <h2 class="section" id="dir-title">Directives retrieved for this fleet</h2>
+    <p class="muted small">Retrieval finds each engine's candidates by its model
+    and installed part numbers. Only the evaluated directive sets the queues
+    above; the rest are shown here for a person to act on.</p>
+    <div class="table-wrap"><table class="dtable" id="directives"></table></div>
+  </section>
 
   <footer>
     <p>__DISCLAIMER__</p>
-    <p>Each tile is a recorded screen, not a browser calculation: AD 2025-19-13
-    by the evaluated rules baseline, AD 2026-17-03 by the rule interpreter on a
-    reference rule record that no person has confirmed. Evaluation-case
-    engines are edge cases from the test suite, embedded as they are. Fleet
-    <code>__FLEET_SHA__</code>.
+    <p>Each tile is a recorded screen, not a browser calculation. Candidates come
+    from the step 7 retriever over a frozen corpus (<code id="corpus"></code>);
+    AD 2025-19-13 is screened by the evaluated rules baseline, AD 2026-17-03 by
+    the rule interpreter on a reference rule record no person has confirmed.
+    Evaluation-case engines are edge cases from the test suite, embedded as
+    they are. Fleet <code>__FLEET_SHA__</code>.
     <a href="../">Directive freshness</a> &middot;
     <a href="__WRITEUP__">How it was evaluated</a> &middot;
     <a href="__REPO__">Source</a></p>
@@ -237,12 +234,24 @@ h1 { font-size:clamp(26px, 4.2vw, 42px); line-height:1.1; margin:8px 0 10px;
   padding:14px 16px; }
 .dcard h3 { margin:0 0 4px; font-size:16px; }
 .dcard p { margin:4px 0; font-size:14px; color:var(--muted); }
-.badge { display:inline-block; font-size:11px; font-weight:600; letter-spacing:.04em;
+.badge { display:inline-block; white-space:nowrap; font-size:11px; font-weight:600; letter-spacing:.04em;
   text-transform:uppercase; padding:2px 8px; border-radius:999px;
   border:1px solid currentColor; }
 .badge.evaluated { color:var(--ok); }
 .badge.not_yet_evaluated { color:var(--review); }
 
+h2.section { font-size:18px; margin:8px 0 4px; }
+.small { font-size:13px; }
+.table-wrap { overflow-x:auto; background:var(--panel); border:1px solid var(--line);
+  border-radius:14px; }
+.dtable { width:100%; border-collapse:collapse; font-size:13px; }
+.dtable th, .dtable td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line);
+  vertical-align:top; }
+.dtable th { color:var(--muted); font-weight:500; white-space:nowrap; }
+.dtable td.num { font-variant-numeric:tabular-nums; white-space:nowrap; }
+.dtable tr:last-child td { border-bottom:0; }
+.nye-list { margin:6px 0; padding-left:18px; font-size:13px; }
+.nye-list li { margin:4px 0; }
 footer { margin-top:36px; color:var(--muted); font-size:13px; max-width:80ch; }
 
 .tip { position:fixed; z-index:20; pointer-events:none; background:var(--fg);
@@ -294,169 +303,110 @@ SCRIPT = r"""
   const DATA = JSON.parse(document.getElementById('fleet-data').textContent);
   const QUEUES = [
     ['potentially_affected', 'Potentially affected',
-     'A directive applies and an action is due or waits on an event.'],
+     'An evaluated directive applies and an action is due or waits on an event.'],
     ['needs_review', 'Needs review',
-     'A fact the directive turns on is missing or unclear. A person decides.'],
+     'A fact the evaluated directive turns on is missing or unclear. A person decides.'],
     ['no_action_or_not_applicable', 'No action or not applicable',
-     'Checked: no listed part, or outside the directive.'],
+     'Checked: no listed part, or the evaluated directive does not apply.'],
   ];
   const LABEL = Object.fromEntries(QUEUES.map(([k, l]) => [k, l]));
-  const ORDER = QUEUES.map(([k]) => k);
   const DIRECTIVES = Object.fromEntries(DATA.directives.map(d => [d.document, d]));
-  const RELEASES = Object.fromEntries(DATA.releases.map(r => [r.release_id, r]));
   const ENGINES = DATA.engines;
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const EVALUATED = DIRECTIVES[DATA.evaluated];
   const $ = id => document.getElementById(id);
   const esc = s => String(s ?? '').replace(/[&<>"']/g,
     c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const fmtDate = iso => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB',
-    {day:'numeric', month:'short', year:'numeric', timeZone:'UTC'});
+  const fmtDate = iso => iso ? new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB',
+    {day:'numeric', month:'short', year:'numeric', timeZone:'UTC'}) : '';
+  const name = d => d.ad_number || ('FR ' + d.document);
+  const frLink = doc => `https://www.federalregister.gov/d/${encodeURIComponent(doc)}`;
 
-  let current = null;
+  // A rule record that is not yet evaluated also flags the engine.
+  const ruleFlag = e => e.nye.some(doc => e.screens[doc].screener === 'rules');
 
-  // Lanes and tiles are built once; switching releases moves the same nodes.
-  const lanes = {};
-  for (const [key, label, blurb] of QUEUES) {
-    const lane = document.createElement('div');
-    lane.className = 'lane';
-    lane.innerHTML = `<h2><span>${label}</span><span class="n"></span></h2>
-      <p>${blurb}</p><div class="tiles"></div>`;
-    $('lanes').append(lane);
-    lanes[key] = {count: lane.querySelector('.n'), tiles: lane.querySelector('.tiles')};
-  }
-  const tiles = {};
-  for (const engine of ENGINES) {
-    const t = document.createElement('button');
-    t.type = 'button';
-    t.className = 'tile';
-    t.dataset.id = engine.id;
-    t.setAttribute('aria-label', `${engine.id}, ${engine.model}`);
-    t.addEventListener('click', () => openDetail(engine));
-    t.addEventListener('mouseenter', e => showTip(e, engine));
-    t.addEventListener('mousemove', moveTip);
-    t.addEventListener('mouseleave', hideTip);
-    tiles[engine.id] = t;
-  }
-
-  // Which directive put the engine in its queue under a release.
-  function driver(engine, release) {
-    const q = release.queues[engine.id];
-    return release.directives.find(d => engine.screens[d].queue === q);
-  }
-
-  function sortKey(engine) {
-    return (engine.case ? '1' : '0') + (engine.tail || '') + (engine.position || '')
-      + engine.id;
-  }
-
-  function render(releaseId, animate) {
-    const release = RELEASES[releaseId];
-    const previous = current && RELEASES[current];
-    const first = {};
-    if (animate) for (const [id, t] of Object.entries(tiles))
-      first[id] = t.getBoundingClientRect();
-
-    const ordered = [...ENGINES].sort((a, b) => sortKey(a) < sortKey(b) ? -1 : 1);
-    for (const key of ORDER) lanes[key].tiles.replaceChildren();
-    for (const engine of ordered) {
-      const q = release.queues[engine.id];
-      const t = tiles[engine.id];
-      const by = DIRECTIVES[driver(engine, release)];
-      t.className = 'tile q-' + q
-        + (by && by.coverage_state !== 'evaluated' && q !== 'no_action_or_not_applicable'
-           ? ' nye' : '')
-        + (engine.case ? ' case' : '');
-      lanes[q].tiles.append(t);
-    }
-    for (const key of ORDER) lanes[key].count.textContent = release.counts[key];
-
-    if (animate && !reduce) {
-      let i = 0;
-      for (const engine of ordered) {
-        const t = tiles[engine.id], a = first[engine.id], b = t.getBoundingClientRect();
-        const dx = a.left - b.left, dy = a.top - b.top;
-        const moved = previous && previous.queues[engine.id] !== release.queues[engine.id];
-        if (!dx && !dy) continue;
-        t.animate([{transform: `translate(${dx}px, ${dy}px)`}, {transform: 'none'}],
-          {duration: moved ? 1100 : 600, delay: moved ? 120 + (i++ % 60) * 14 : 0,
-           easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards'});
-        if (moved) { t.classList.remove('moved'); void t.offsetWidth; t.classList.add('moved'); }
+  function renderLanes() {
+    const sorted = [...ENGINES].sort((a, b) => {
+      const ka = (a.case ? '1' : '0') + (a.tail || '') + (a.position || '') + a.id;
+      const kb = (b.case ? '1' : '0') + (b.tail || '') + (b.position || '') + b.id;
+      return ka < kb ? -1 : 1;
+    });
+    for (const [key, label, blurb] of QUEUES) {
+      const lane = document.createElement('div');
+      lane.className = 'lane';
+      lane.innerHTML = `<h2><span>${label}</span><span class="n">${DATA.counts[key]}</span></h2>
+        <p>${blurb}</p><div class="tiles"></div>`;
+      const box = lane.querySelector('.tiles');
+      for (const engine of sorted.filter(e => e.queue === key)) {
+        const t = document.createElement('button');
+        t.type = 'button';
+        t.className = 'tile q-' + key + (ruleFlag(engine) ? ' nye' : '')
+          + (engine.case ? ' case' : '');
+        t.setAttribute('aria-label', `${engine.id}, ${engine.model}, ${label}`);
+        t.addEventListener('click', () => openDetail(engine, t));
+        t.addEventListener('mouseenter', e => showTip(e, engine));
+        t.addEventListener('mousemove', moveTip);
+        t.addEventListener('mouseleave', hideTip);
+        box.append(t);
       }
+      $('lanes').append(lane);
     }
-    current = releaseId;
-    for (const id of ['r1', 'r2'])
-      $('tab-' + id).setAttribute('aria-selected', String(id === releaseId));
-    renderStats(release, previous);
-    renderStory(release, previous);
   }
 
-  function renderStats(release, previous) {
-    const total = ENGINES.length;
-    const cell = (cls, n, label, prev) => {
-      const d = prev == null ? 0 : n - prev;
-      const delta = d ? `<span class="delta">${d > 0 ? '+' : ''}${d}</span>` : '';
-      return `<div class="stat ${cls}"><b>${n}${delta}</b><span>${label}</span></div>`;
-    };
-    const p = previous ? previous.counts : {};
-    $('stats').innerHTML = cell('', total, 'Engines in fleet')
-      + ORDER.map(k => cell(k, release.counts[k], LABEL[k], previous ? p[k] : null)).join('');
+  function renderStats() {
+    const cell = (cls, n, label) =>
+      `<div class="stat ${cls}"><b>${n}</b><span>${label}</span></div>`;
+    $('stats').innerHTML = cell('', ENGINES.length, 'Engines in fleet')
+      + QUEUES.map(([k, l]) => cell(k, DATA.counts[k], l)).join('');
   }
 
-  function renderStory(release, previous) {
-    const added = release.directives.filter(d => !(previous || {directives: []})
-      .directives.includes(d));
-    const last = DIRECTIVES[release.directives[release.directives.length - 1]];
-    const touched = ENGINES.filter(e => e.screens[last.document].queue
-      !== 'no_action_or_not_applicable').length;
-    const moved = previous ? ENGINES.filter(e =>
-      previous.queues[e.id] !== release.queues[e.id]).length : null;
-    $('headline').textContent = `${last.ad_number} took effect on ${fmtDate(last.effective_date)}.`;
-    const parts = [`It touches <b>${touched}</b> of ${ENGINES.length} engines`
-      + ` in this synthetic fleet: potentially affected or needing review.`];
-    if (moved != null && added.length)
-      parts.push(`Adding it moved <b>${moved}</b> engines to a new queue.`);
-    if (last.coverage_state !== 'evaluated') {
-      parts.push('Its action waits on the next shop visit that exposes a blade.');
-      parts.push('This directive is <b>not yet evaluated</b>: its tiles are striped.');
-    } else {
-      const nearest = ENGINES.filter(e => !e.case)
-        .map(e => [e, e.screens[last.document].computed.component_cycles_remaining])
-        .filter(([, n]) => typeof n === 'number')
-        .sort((a, b) => a[1] - b[1])[0];
-      if (nearest) parts.push(`The nearest listed hub, on ${esc(nearest[0].id)}, is`
-        + ` <b>${nearest[1].toLocaleString('en-US')} cycles</b> from its table 1 removal limit.`);
-      parts.push('Its rules passed every frozen gate on 18 evaluation units;'
-        + ' the two hand-checked gates were judged by Claude only.');
-    }
+  function renderStory() {
+    const touched = DATA.counts.potentially_affected + DATA.counts.needs_review;
+    const nearest = ENGINES.filter(e => !e.case && e.screens[DATA.evaluated])
+      .map(e => [e, e.screens[DATA.evaluated].computed.component_cycles_remaining])
+      .filter(([, n]) => typeof n === 'number')
+      .sort((a, b) => a[1] - b[1])[0];
+    const others = DATA.directives.filter(d => d.coverage_state !== 'evaluated'
+      && d.queues.needs_review + d.queues.potentially_affected > 0).length;
+    $('headline').textContent = `${name(EVALUATED)} touches ${touched} of ${ENGINES.length} engines.`;
+    const parts = [`It took effect on ${fmtDate(EVALUATED.effective_date)}:`
+      + ` <b>${DATA.counts.potentially_affected}</b> engines are potentially affected and`
+      + ` <b>${DATA.counts.needs_review}</b> need review.`];
+    if (nearest) parts.push(`The nearest listed hub, on ${esc(nearest[0].id)}, is`
+      + ` <b>${nearest[1].toLocaleString('en-US')} cycles</b> from its table 1 removal limit.`);
+    parts.push(`Retrieval also found <b>${others}</b> other directives for this fleet`
+      + ' that are not yet evaluated; they are listed below, outside the queues.');
     $('lede').innerHTML = parts.join(' ');
+    $('corpus').textContent = DATA.corpus;
   }
 
   function renderDirectives() {
-    $('directives').innerHTML = DATA.directives.map(d => `
-      <article class="dcard">
-        <span class="badge ${d.coverage_state}">${d.coverage_state.replace(/_/g, ' ')}</span>
-        <h3>${esc(d.ad_number)}</h3>
-        <p>Effective ${fmtDate(d.effective_date)} &middot; Federal Register
-          <a href="https://www.federalregister.gov/d/${esc(d.document)}">${esc(d.document)}</a></p>
-        <p>Screened by ${esc(d.screener)}.</p>
-      </article>`).join('');
+    const head = `<thead><tr><th>Directive</th><th>Coverage</th><th>Screened by</th>
+      <th>Engines retrieved</th><th>By part number</th><th>Potentially affected</th>
+      <th>Needs review</th><th>Superseded</th></tr></thead>`;
+    const rows = DATA.directives.map(d => `<tr>
+      <td><a href="${frLink(d.document)}">${esc(name(d))}</a><br>
+        <span class="muted">Effective ${fmtDate(d.effective_date)}</span></td>
+      <td><span class="badge ${d.coverage_state}">${d.coverage_state.replace(/_/g, ' ')}</span></td>
+      <td>${esc(d.screener)}</td>
+      <td class="num">${d.engines}</td><td class="num">${d.by_part_number}</td>
+      <td class="num">${d.queues.potentially_affected}</td>
+      <td class="num">${d.queues.needs_review}</td><td class="num">${d.superseded}</td></tr>`).join('');
+    $('directives').innerHTML = head + '<tbody>' + rows + '</tbody>';
   }
 
   // Tooltip -------------------------------------------------------------
   function showTip(e, engine) {
     const tip = $('tip');
-    const q = RELEASES[current].queues[engine.id];
     tip.innerHTML = `<b>${esc(engine.id)}</b> &middot; ${esc(engine.model)}<br>`
       + (engine.tail ? `${esc(engine.tail)}, position ${engine.position}<br>` : '')
       + (engine.case ? `Evaluation case ${esc(engine.case.case_id)}<br>` : '')
-      + LABEL[q];
+      + `${LABEL[engine.queue]}; ${engine.nye.length} not yet evaluated`;
     tip.hidden = false;
     moveTip(e);
   }
   function moveTip(e) {
     const tip = $('tip');
-    const x = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8);
-    tip.style.left = x + 'px';
+    tip.style.left = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8) + 'px';
     tip.style.top = (e.clientY + 16) + 'px';
   }
   function hideTip() { $('tip').hidden = true; }
@@ -467,28 +417,41 @@ SCRIPT = r"""
     if (v === 'unknown') return '<span class="unknown">unknown</span>';
     return esc(typeof v === 'number' ? v.toLocaleString('en-US') : v);
   }
-  function openDetail(engine) {
+  function screenCard(doc, s) {
+    const d = DIRECTIVES[doc];
+    const cites = s.citations.map(c => `<li><a href="${frLink(c.document)}">${esc(c.document)}</a>
+      paragraph ${esc(c.paragraph)}${c.locator ? ', ' + esc(c.locator) : ''}
+      <span class="muted">(${esc(c.supports)})</span></li>`).join('');
+    const missing = s.missing_facts.length ? `<p class="muted">Missing:</p><ul>${
+      s.missing_facts.map(f => `<li><code>${esc(f)}</code></li>`).join('')}</ul>` : '';
+    const notes = s.notes.length ? `<ul>${s.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>` : '';
+    return `<section class="sc"><header><b>${esc(name(d))}</b>
+      <span class="badge ${d.coverage_state}">${d.coverage_state.replace(/_/g, ' ')}</span>
+      <span class="q ${s.queue}">${LABEL[s.queue]}</span></header>
+      <p>${esc(s.summary)}</p>${s.timing ? `<p>${esc(s.timing)}</p>` : ''}
+      ${missing}${notes}${cites ? `<p class="muted">Cited:</p><ul>${cites}</ul>` : ''}</section>`;
+  }
+  let lastTile = null;
+  function openDetail(engine, tile) {
     hideTip();
-    const release = RELEASES[current];
+    lastTile = tile;
     const comps = engine.components.map(c => `<tr><td>${esc(c.component_name)}</td>
       <td>${value(c.part_number)}</td><td>${value(c.serial_number)}</td>
       <td>${value(c.cycles_since_new)}</td></tr>`).join('');
     const events = engine.events.map(ev => `<li>${esc(ev.event_type.replace(/_/g, ' '))}
       on ${esc(ev.at)}${ev.detail ? ': ' + esc(ev.detail) : ''}</li>`).join('');
-    const screens = release.directives.map(doc => {
-      const s = engine.screens[doc], d = DIRECTIVES[doc];
-      const cites = s.citations.map(c => `<li><a href="https://www.federalregister.gov/d/${esc(c.document)}">${esc(c.document)}</a>
-        paragraph ${esc(c.paragraph)}${c.locator ? ', ' + esc(c.locator) : ''}
-        <span class="muted">(${esc(c.supports)})</span></li>`).join('');
-      const missing = s.missing_facts.length ? `<p class="muted">Missing:</p><ul>${
-        s.missing_facts.map(f => `<li><code>${esc(f)}</code></li>`).join('')}</ul>` : '';
-      const notes = s.notes.length ? `<ul>${s.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>` : '';
-      return `<section class="sc"><header><b>${esc(d.ad_number)}</b>
-        <span class="badge ${d.coverage_state}">${d.coverage_state.replace(/_/g, ' ')}</span>
-        <span class="q ${s.queue}">${LABEL[s.queue]}</span></header>
-        <p>${esc(s.summary)}</p>${s.timing ? `<p>${esc(s.timing)}</p>` : ''}
-        ${missing}${notes}<p class="muted">Cited:</p><ul>${cites}</ul></section>`;
-    }).join('');
+    const evaluated = engine.screens[DATA.evaluated]
+      ? screenCard(DATA.evaluated, engine.screens[DATA.evaluated])
+      : `<p class="muted">${esc(name(EVALUATED))} was not retrieved for this engine.</p>`;
+    const rules = engine.nye.filter(doc => engine.screens[doc].screener === 'rules');
+    const unread = engine.nye.filter(doc => engine.screens[doc].screener !== 'rules');
+    const superseded = Object.entries(engine.screens)
+      .filter(([, s]) => s.applicability === 'superseded');
+    const unreadList = unread.length ? `<p class="muted">No rule record yet; a person reads each:</p>
+      <ul class="nye-list">${unread.map(doc => `<li><a href="${frLink(doc)}">${
+        esc(name(DIRECTIVES[doc]))}</a>: ${esc(engine.screens[doc].summary)}</li>`).join('')}</ul>` : '';
+    const supList = superseded.length ? `<p class="muted">Superseded: ${superseded.map(([doc, s]) =>
+      `${esc(name(DIRECTIVES[doc]))} (${esc(s.summary)})`).join('; ')}</p>` : '';
     $('detail').innerHTML = `
       <p class="eyebrow">${engine.case ? 'Evaluation case ' + esc(engine.case.case_id) : 'Synthetic engine'}</p>
       <h2 id="d-title">${esc(engine.id)}</h2>
@@ -501,14 +464,15 @@ SCRIPT = r"""
       <table class="comp"><thead><tr><th>Component</th><th>P/N</th><th>S/N</th>
         <th>Cycles since new</th></tr></thead><tbody>${comps}</tbody></table>
       ${events ? `<h3>Recent events</h3><ul>${events}</ul>` : ''}
-      <h3>Screens in ${esc(release.label)}</h3>${screens}`;
+      <h3>Evaluated</h3>${evaluated}
+      <h3>Not yet evaluated (${engine.nye.length})</h3>
+      ${rules.map(doc => screenCard(doc, engine.screens[doc])).join('')}
+      ${unreadList}${supList}`;
     $('drawer').classList.add('open');
     $('drawer').setAttribute('aria-hidden', 'false');
     $('scrim').hidden = false;
     $('close').focus();
-    lastTile = tiles[engine.id];
   }
-  let lastTile = null;
   function closeDetail() {
     $('drawer').classList.remove('open');
     $('drawer').setAttribute('aria-hidden', 'true');
@@ -519,29 +483,9 @@ SCRIPT = r"""
   $('scrim').addEventListener('click', closeDetail);
   addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
 
-  // Controls ------------------------------------------------------------
-  for (const id of ['r1', 'r2'])
-    $('tab-' + id).addEventListener('click', () => {
-      if (current !== id) render(id, true);
-      history.replaceState(null, '', '#' + id);
-    });
-  let timer = null;
-  function replay() {
-    clearTimeout(timer);
-    render('r1', current !== 'r1');
-    timer = setTimeout(() => render('r2', true), 1800);
-  }
-  $('replay').addEventListener('click', replay);
-
+  renderStory();
+  renderStats();
+  renderLanes();
   renderDirectives();
-  // Play the release change once on arrival, unless a release is linked
-  // directly or motion is reduced. ?autoplay holds release 1 longer (video).
-  const hold = new URLSearchParams(location.search).has('autoplay') ? 2500 : 1200;
-  if (location.hash === '#r1' || location.hash === '#r2' || reduce) {
-    render(location.hash === '#r1' ? 'r1' : 'r2', false);
-  } else {
-    render('r1', false);
-    timer = setTimeout(() => render('r2', true), hold);
-  }
 })();
 """

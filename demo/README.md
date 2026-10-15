@@ -15,15 +15,18 @@ data, not evaluation data.
   34 have an unknown hub serial or cycle count, 26 have no usable blade-set
   part number, and 11 have a recent shop visit, so `needs_review` comes from
   missing data.
-- **`fleet-screen.json`**: each engine screened against both directives, and
-  two releases of the rule set: AD 2025-19-13 alone, then with AD 2026-17-03
-  added. An engine's queue in a release is the most urgent across its
-  directives.
+- **`fleet-screen.json`**: for each engine, the candidate directives found by
+  the step 7 retriever ([`../evaluation/RETRIEVAL.md`](../evaluation/RETRIEVAL.md))
+  over the frozen retrieval corpus as of the engine's snapshot date, and a
+  screen of each candidate final rule. The engine's queue comes from the
+  evaluated directive only; every other result is kept beside it as
+  `not_yet_evaluated` (ROADMAP, "Directive Coverage State").
 
 | Directive | Coverage | Screener |
 |---|---|---|
 | AD 2025-19-13 | `evaluated` | S1 rules on the normalized record kept with the S1 run |
 | AD 2026-17-03 | `not_yet_evaluated` | Rule interpreter on the hand-written reference rule record (`evaluation/b3/reference/2026-16954.json`); its labels are Claude drafts no person has confirmed |
+| Every other retrieved final rule | `not_yet_evaluated` | None: no rule record exists, so it is listed for a person to read, with the identifier that retrieved it. A superseded directive is shown as superseded |
 
 Both files are generated offline by `make fleet-build` from committed inputs
 only, and a test checks that regenerating gives identical bytes. CI renders

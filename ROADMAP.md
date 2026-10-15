@@ -82,10 +82,12 @@ A newly published in-scope directive becomes visible the day it syncs, as
    engines with the evaluation cases embedded, plausible part numbers and
    cycle counts, and engines affected by several directives at once. The
    evaluation cases are edge cases and are not the demo fleet.
-   *Demo fleet and fleet view built ([`demo/README.md`](demo/README.md)):
-   200 engines screened against AD 2025-19-13 (evaluated) and AD 2026-17-03
-   (not yet evaluated), replayed release by release. Queues for further
-   directives are not built.*
+   *Built ([`demo/README.md`](demo/README.md)): 200 engines, each screened
+   against the directives step 7 retrieval finds for it (16 across the
+   fleet). Queues come from AD 2025-19-13, the only evaluated directive; the
+   other 15 are shown beside them as not yet evaluated. Widening the
+   queues needs another directive to become evaluated, which needs a person
+   to confirm its cases.*
 9. **Harden operations** — observability, recovery and rollback drills,
    hostile-input checks, runbooks, security controls, and cost and latency
    measurements. Keep operating cost and attention low enough to run for a
