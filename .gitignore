@@ -17,3 +17,8 @@ site/
 # Local Claude Code state (other sessions' worktrees, personal settings).
 .claude/worktrees/
 .claude/settings.local.json
+
+# Impeccable design tooling: the engine binary re-downloads on first run.
+.claude/skills/impeccable/scripts/bin/
+.impeccable/config.local.json
+.impeccable/cache/
