@@ -120,6 +120,32 @@ once per aircraft and both engines share it, together with
 statement that it is not yet incorporated for `open`, and no field when
 there is no record.
 
+## What Version 2 Produced
+
+Reported after generation; the rules above were not changed after seeing it.
+
+- **Composition.** 90 generated aircraft: A319-131 7, A319-132 8, A320-232
+  36, A320-233 3, A321-231 35, A321-232 0, MD-90-30 1 (registry 55, 60, 286,
+  22, 275, 2, 5 of 705). Plus 20 seed engines (including V2527M-A5,
+  V2531-E5, and D5 cases).
+- **State.** 231 shop-visit events (14 engines in the shop now); 78 of 540
+  air seals and ring plates still carry an AD 2017-14-07 P/N; 6 unknown
+  engine serials, 30 unknown part serials, 31 unknown part cycles; 2,362
+  operator records (1,451 complied, 563 not applicable, 192 recurring, 156
+  open).
+- **Screens.** Every in-scope directive's reference record runs on every
+  engine; only AD 2025-19-13 sets the queues (15 potentially affected, 19
+  needs review, 166 no action). Per-directive outcome counts are in
+  `fleet-screen.json` under `directives[].outcomes`.
+- **What blocks decisions.** The unavailable service documents dominate:
+  IAE NMSB V2500-ENG-72-0713 and -0720 and P&W SI 112F-21 and 114F-21 each
+  leave 195 engines in review, NMSB -0661 193. The ALS directive
+  (AD 2025-17-16) goes to review for 160 engines because interpreter 3 does
+  not read the free-text program revision as proof; that is the
+  interpreter's stated rule, not a data gap.
+- **Size.** `fleet-screen.json` is about 17 MB, most of it repeated
+  citations; the page stores each citation once (about 3 MB of HTML).
+
 ## Files
 
 - **`fleet.json`**: the generated engines plus the embedded seed engines.
