@@ -21,6 +21,7 @@ and G the effective-date counter plus the (g) window:
 - SV >= G: A and B agree.
 """
 
+import unicodedata
 from dataclasses import asdict, dataclass, field
 from datetime import date
 from typing import Any
@@ -110,8 +111,184 @@ class Screen:
         return result
 
 
+def engine_record_problems(asset: Any) -> list[tuple[str, str]]:
+    """Fields of an engine snapshot that the screens cannot read safely.
+
+    Each problem is a field path and what is wrong with it. The checks cover
+    every field either screen reads: the types and ranges the seed-case schema
+    sets for them, identifiers outside printable ASCII (a look-alike character
+    would otherwise fail to match a listed S/N and clear), two records for one
+    position (one would silently replace the other), and an engine model that
+    names a supported variant only once its characters are normalized. Extra
+    fields are allowed; fleet records carry some.
+    """
+    problems: list[tuple[str, str]] = []
+
+    def check_list(value: Any, path: str) -> list[tuple[str, dict[str, Any]]]:
+        if value is None:
+            return []
+        if not isinstance(value, list):
+            problems.append((path, f"is {type(value).__name__}, not a list"))
+            return []
+        items = []
+        for index, item in enumerate(value):
+            if isinstance(item, dict):
+                items.append((f"{path}[{index}]", item))
+            else:
+                problems.append((f"{path}[{index}]", "is not an object"))
+        return items
+
+    def check_text(item: dict[str, Any], key: str, path: str, required=True):
+        value = item.get(key)
+        if value is None and not required:
+            return
+        if not isinstance(value, str) or not value.strip():
+            problems.append((f"{path}.{key}", "is missing, empty, or not a string"))
+
+    def check_date(item: dict[str, Any], key: str, path: str, required=True):
+        value = item.get(key)
+        if value is None and not required:
+            return
+        if not _is_iso_date(value):
+            problems.append((f"{path}.{key}", f"is not a YYYY-MM-DD date: {value!r}"))
+
+    def check_count(item: dict[str, Any], key: str, path: str, required=True):
+        value = item.get(key)
+        if value is None and not required:
+            return
+        if not _is_count(value):
+            problems.append(
+                (f"{path}.{key}", f"is not a non-negative integer: {value!r}")
+            )
+
+    if not isinstance(asset, dict):
+        return [("asset", "is not an object")]
+    engine = asset.get("engine")
+    if not isinstance(engine, dict):
+        problems.append(("engine", "is missing or not an object"))
+    else:
+        check_text(engine, "engine_model", "engine")
+        model = engine.get("engine_model")
+        if isinstance(model, str) and model not in SUPPORTED_ENGINE_MODELS:
+            normalized = _normalized_identifier(model)
+            if normalized in SUPPORTED_ENGINE_MODELS:
+                problems.append(
+                    (
+                        "engine.engine_model",
+                        f"{model!r} reads as {normalized} only after its "
+                        "characters are normalized",
+                    )
+                )
+        for path, reading in check_list(
+            engine.get("engine_cycle_readings"), "engine.engine_cycle_readings"
+        ):
+            check_date(reading, "at", path)
+            check_count(reading, "engine_flight_cycles", path)
+
+    components = asset.get("installed_components")
+    if components is None:
+        problems.append(("installed_components", "is missing"))
+    positions: dict[str, str] = {}
+    for path, component in check_list(components, "installed_components"):
+        check_text(component, "component_name", path)
+        name = component.get("component_name")
+        if isinstance(name, str) and name.strip():
+            key = " ".join(name.lower().replace("-", " ").split())
+            if key in positions:
+                problems.append(
+                    (
+                        f"{path}.component_name",
+                        f"repeats the position of {positions[key]}; one record "
+                        "would hide the other",
+                    )
+                )
+            positions.setdefault(key, path)
+        for key in ("part_number", "serial_number"):
+            check_text(component, key, path)
+            value = component.get(key)
+            if isinstance(value, str) and not (value.isascii() and value.isprintable()):
+                problems.append(
+                    (
+                        f"{path}.{key}",
+                        f"has characters outside printable ASCII: {value!r}",
+                    )
+                )
+        if component.get("cycles_since_new") not in (None, UNKNOWN):
+            check_count(component, "cycles_since_new", path)
+        check_date(component, "installed_at", path, required=False)
+        for reading_path, reading in check_list(
+            component.get("cycles_since_new_readings"),
+            f"{path}.cycles_since_new_readings",
+        ):
+            check_date(reading, "at", reading_path)
+            check_count(reading, "cycles_since_new", reading_path)
+
+    for path, event in check_list(asset.get("events"), "events"):
+        check_text(event, "event_type", path)
+        check_date(event, "at", path)
+        check_count(event, "engine_flight_cycles_at_event", path, required=False)
+        qualifies = event.get("qualifies_as_engine_shop_visit")
+        if qualifies is not None and not (
+            isinstance(qualifies, dict)
+            and all(isinstance(v, str) for v in qualifies.values())
+        ):
+            problems.append(
+                (f"{path}.qualifies_as_engine_shop_visit", "is not a map of answers")
+            )
+    for path, claim in check_list(asset.get("amoc_claims"), "amoc_claims"):
+        check_text(claim, "ad", path)
+    for path, ad_record in check_list(asset.get("ad_records"), "ad_records"):
+        check_text(ad_record, "ad", path)
+        check_text(ad_record, "recorded_status", path)
+    return problems
+
+
+def malformed_screen(
+    document: str, ad_number: str, problems: list[tuple[str, str]]
+) -> Screen:
+    """A needs-review answer for an engine record the screens cannot read."""
+    result = Screen(document, ad_number, UNKNOWN, "needs_review")
+    result.missing_facts = list(dict.fromkeys(path for path, _ in problems))
+    result.notes = [f"{path} {detail}." for path, detail in problems]
+    result.summary = (
+        "The engine record is malformed, so it was not screened against the "
+        "directive and the outcome is left to a person: "
+        + "; ".join(f"{path} {detail}" for path, detail in problems[:5])
+        + ("; and more." if len(problems) > 5 else ".")
+    )
+    return result
+
+
+def _is_iso_date(value: Any) -> bool:
+    if not isinstance(value, str) or len(value) != 10:
+        return False
+    try:
+        date.fromisoformat(value)
+    except ValueError:
+        return False
+    return True
+
+
+def _is_count(value: Any) -> bool:
+    return isinstance(value, int) and not isinstance(value, bool) and value >= 0
+
+
+def _normalized_identifier(value: str) -> str:
+    """NFKC form, with Unicode dashes as hyphens and spaces removed, upper case."""
+    text = unicodedata.normalize("NFKC", value)
+    text = "".join("-" if unicodedata.category(c) == "Pd" else c for c in text)
+    return "".join(text.split()).upper()
+
+
 def screen(record: dict[str, Any], asset: dict[str, Any], as_of: date) -> Screen:
-    """Screen one engine snapshot against the directive as of a date."""
+    """Screen one engine snapshot against the directive as of a date.
+
+    A malformed snapshot is never screened: it goes to needs_review with the
+    fields that failed (``engine_record_problems``).
+    """
+    problems = engine_record_problems(asset)
+    if problems:
+        return malformed_screen(record["document"], record["ad_number"], problems)
     result = Screen(
         record["document"], record["ad_number"], "applies", "no_action_triggered"
     )
@@ -503,7 +680,10 @@ def _operator_claims(result: Screen, asset: dict[str, Any], matched: bool) -> No
                 "This screen does not use that record; a person should review it "
                 "against the findings above."
             )
-    if any(e["event_type"] in ("repair", "inspection") for e in asset["events"]):
+    # ``events`` is optional in the snapshot schema.
+    if any(
+        e["event_type"] in ("repair", "inspection") for e in asset.get("events", [])
+    ):
         result.notes.append(
             "Recorded repairs and inspections do not change applicability or "
             "the table 1 limits (14 CFR 39.15), and are not treated as shop "

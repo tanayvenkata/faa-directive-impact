@@ -31,6 +31,8 @@ from faa_directive_impact.impact.hpt_hub_rules import (
     Citation,
     HubFinding,
     Screen,
+    engine_record_problems,
+    malformed_screen,
 )
 
 INTERPRETER_VERSION = 1
@@ -47,7 +49,16 @@ STATUS_ORDER = (
 
 
 def screen_rules(rules: dict[str, Any], asset: dict[str, Any], as_of: date) -> Screen:
-    """Screen one engine snapshot against a rule record as of a date."""
+    """Screen one engine snapshot against a rule record as of a date.
+
+    A malformed snapshot is never screened: it goes to needs_review with the
+    fields that failed (``engine_record_problems``), as in S1.
+    """
+    problems = engine_record_problems(asset)
+    if problems:
+        return malformed_screen(
+            rules["final_rule_document"], rules["ad_number"], problems
+        )
     run = _Run(rules, asset, as_of)
     return run.screen()
 
