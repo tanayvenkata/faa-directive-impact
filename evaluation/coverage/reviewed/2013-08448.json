@@ -1,0 +1,213 @@
+{
+  "ad_number": "AD 2013-07-10",
+  "ambiguities": [
+    {
+      "description": "\"At each installation\" does not say what is being installed. The paragraph heading suggests installation of the No. 4 bearing external scavenge tube. The text could also be read as installation of the engine.",
+      "paragraph": "(g)",
+      "readings": [
+        "The check is required at each installation of the No. 4 bearing external scavenge tube, P/N 6A5254 (the record's reading).",
+        "The check is required at each installation of the engine (or of the module carrying the tube)."
+      ]
+    },
+    {
+      "description": "Paragraph (f) requires replacing the internal scavenge tube but names no replacement part number and defines no eligible part. A tube replaced with another P/N 2A2074-01 remains a target, and the threshold count would restart on the new tube. A record showing P/N 2A2074-01 installed therefore cannot show that the replacement was done.",
+      "paragraph": "(f)",
+      "readings": [
+        "The replacement may be another P/N 2A2074-01 tube. The (f) obligation continues on the new tube and recurs once it reaches 10,000 FCs since new.",
+        "The replacement is intended to be a different part, which the directive does not identify."
+      ]
+    },
+    {
+      "description": "Applicability requires P/N 2A2074-01 \"and\" P/N 6A5254 to be installed. It is unclear whether an engine with only one of these tubes installed is outside the AD. The actions in (f) and (g) each concern only one tube. The (g) check also occurs at the moment the external tube is installed.",
+      "paragraph": "(c)",
+      "readings": [
+        "The AD applies only when both tubes are installed, read literally (the record uses parts_combine all).",
+        "Each action applies to an engine in the serial range whenever its own target tube is installed or being installed."
+      ]
+    }
+  ],
+  "amoc_paragraph": "(i)",
+  "applicability": {
+    "engine_models": [
+      "V2525-D5",
+      "V2528-D5"
+    ],
+    "engine_serials": [
+      {
+        "excluded": [],
+        "models": [
+          "V2525-D5",
+          "V2528-D5"
+        ],
+        "paragraph": "(c)",
+        "ranges": [
+          {
+            "first": "V20001",
+            "last": "V20285"
+          }
+        ],
+        "serial_numbers": []
+      }
+    ],
+    "models_paragraph": "(c)",
+    "parts": [
+      "no4_internal_scavenge_tube",
+      "no4_external_scavenge_tube"
+    ],
+    "parts_combine": "all",
+    "parts_paragraph": "(c)"
+  },
+  "continuing_obligations": [],
+  "corrections": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "paragraph": "(h)",
+      "term": "Combustor module-level exposure"
+    }
+  ],
+  "dependencies": [],
+  "effective_date": {
+    "date": "2013-05-20",
+    "emergency_ad": null,
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [],
+  "final_rule_document": "2013-08448",
+  "governing_document": {
+    "document": "2013-08448",
+    "reason": "Only the final rule is in the thread. No correction republishes its regulatory text, so the final rule's regulatory text controls."
+  },
+  "notes": [
+    "IAE NMSB No. V2500-ENG-72-0630, Revision 1, dated September 20, 2012 (incorporated in (k)(2)(i)) supplies only the alignment-check procedure for (g). It does not decide whether or when any action applies, so it is not listed as a dependency.",
+    "Paragraph (f) sets no calendar or cycle cap. The replacement is due only at a combustor module-level exposure (defined in (h) as separation of the combustor case and compressor case flanges), once the tube has reached 10,000 FCs since new or when its FCs cannot be confirmed. The preamble records that the FAA declined an NTSB request to add a maximum cycle limit. This record does not rely on that statement.",
+    "Paragraph (e) says to comply within the compliance times specified, unless already done. No separate credit paragraph exists.",
+    "Paragraph (b), Affected ADs, says None."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "internal scavenge tube"
+      ],
+      "component": "No. 4 bearing internal scavenge tube",
+      "dependency": "",
+      "id": "no4_internal_scavenge_tube",
+      "listed": [],
+      "paragraph": "(c)",
+      "part_numbers": [
+        "2A2074-01"
+      ],
+      "serials": "any"
+    },
+    {
+      "aliases": [
+        "external scavenge tube"
+      ],
+      "component": "No. 4 bearing external scavenge tube",
+      "dependency": "",
+      "id": "no4_external_scavenge_tube",
+      "listed": [],
+      "paragraph": "(c)",
+      "part_numbers": [
+        "6A5254"
+      ],
+      "serials": "any"
+    }
+  ],
+  "preamble_basis": [],
+  "relationships": [],
+  "required_actions": [
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "Replace the No. 4 bearing internal scavenge tube, P/N 2A2074-01, at each combustor module-level exposure after the tube has accumulated 10,000 flight cycles (FCs) since new. If the FCs on the tube cannot be confirmed, replace the tube at each combustor module-level exposure.",
+      "kind": "remove",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(f)",
+          "role": "threshold",
+          "unknown_means_met": true,
+          "value": 10000
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(f)",
+      "related_paragraphs": [
+        "(e)",
+        "(h)"
+      ],
+      "target": "no4_internal_scavenge_tube",
+      "terminates": [],
+      "trigger": {
+        "condition": "each combustor module-level exposure after the No. 4 bearing internal scavenge tube has accumulated 10,000 flight cycles (FCs) since new",
+        "definition_paragraphs": [
+          "(h)"
+        ],
+        "event": "maintenance_event",
+        "recurrence": "each"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the FCs since new on the No. 4 bearing internal scavenge tube can be confirmed. If they cannot, the tube must be replaced at each combustor module-level exposure, whatever count is recorded.",
+          "paragraph": "(f)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "At each installation, check the alignment of the No. 4 bearing external scavenge tube, P/N 6A5254, in accordance with paragraph 3.A. PART 2, of IAE NMSB No. V2500-ENG-72-0630, Revision 1, dated September 20, 2012.",
+      "kind": "check",
+      "limits": [],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)",
+      "related_paragraphs": [
+        "(e)",
+        "(k)(2)(i)"
+      ],
+      "target": "no4_external_scavenge_tube",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "part_installation",
+        "recurrence": "each"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "If the No. 4 bearing external scavenge tube is misaligned in the (g) alignment check, replace it with a new tube.",
+      "kind": "replace_if_finding",
+      "limits": [],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)",
+      "target": "no4_external_scavenge_tube",
+      "terminates": [],
+      "trigger": {
+        "condition": "If the tube is misaligned",
+        "definition_paragraphs": [],
+        "event": "prior_action",
+        "recurrence": "each"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the alignment check found the external scavenge tube misaligned.",
+          "paragraph": "(g)"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2"
+}
