@@ -30,7 +30,7 @@
       "const": "2"
     },
     "ad_number": {
-      "description": "The AD number as printed, e.g. \"AD 2019-18-01\".",
+      "description": "The AD number as printed, in the form \"AD yyyy-nn-nn\".",
       "type": "string",
       "pattern": "^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$"
     },
@@ -206,7 +206,7 @@
             "$ref": "#/$defs/id"
           },
           "title": {
-            "description": "What a person must obtain, e.g. \"IAE NMSB V2500-ENG-72-0661, Revision 2, Appendix A, Table 1\".",
+            "description": "What a person must obtain: the document, its revision, and the table or figure, as the directive names them.",
             "type": "string",
             "minLength": 1
           },
@@ -229,7 +229,7 @@
             "$ref": "#/$defs/paragraph"
           },
           "incorporated_in": {
-            "description": "Optional. Paragraphs that incorporate the material by reference (e.g. (l)(2)(i)), cited whenever the dependency is named.",
+            "description": "Optional. Paragraphs that incorporate the material by reference , cited whenever the dependency is named.",
             "type": "array",
             "items": {
               "$ref": "#/$defs/paragraph"
@@ -263,7 +263,7 @@
             "minLength": 1
           },
           "aliases": {
-            "description": "Other names for the same position (e.g. hub and disk), used to find the position's record.",
+            "description": "Other names the directive or records use for the same position, used to find the position's record.",
             "type": "array",
             "items": {
               "type": "string",
@@ -445,7 +445,7 @@
           "$ref": "#/$defs/optional_paragraph"
         },
         "model_paragraphs": {
-          "description": "Optional. The sub-paragraph naming each model (e.g. (c)(2) for all D5 engines), cited with the models paragraph.",
+          "description": "Optional. The sub-paragraph that names each model, where the applicability paragraph is split into sub-paragraphs; cited with the models paragraph.",
           "type": "array",
           "items": {
             "type": "object",
@@ -815,11 +815,11 @@
               ]
             },
             "condition": {
-              "description": "A qualifier on the event (\"where a blade is exposed\"), or the event's own wording for maintenance_event and prior_action; \"\" if none.",
+              "description": "A qualifier on the event as the directive words it, or the event's own wording for maintenance_event and prior_action; \"\" if none.",
               "type": "string"
             },
             "definition_paragraphs": {
-              "description": "Paragraphs defining the event and its qualifier (e.g. engine shop visit, blade exposure).",
+              "description": "Paragraphs defining the event and its qualifier.",
               "type": "array",
               "items": {
                 "$ref": "#/$defs/paragraph"
@@ -927,7 +927,7 @@
           }
         },
         "open_while_installed": {
-          "description": "Optional. Part groups whose installation shows the action is not accomplished (e.g. silver-plated nuts against a terminating action requiring silver-free nuts). A remove action's own target counts without listing it.",
+          "description": "Optional. Part groups whose installation shows the action is not accomplished. A remove action's own target counts without listing it.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/id"
