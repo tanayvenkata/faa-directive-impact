@@ -66,7 +66,9 @@ def summarize_registry(extracted: Path) -> dict[str, Any]:
     }
 
 
-def _table(path: Path, key: int, columns: tuple[int, ...]) -> dict[str, tuple[str, ...]]:
+def _table(
+    path: Path, key: int, columns: tuple[int, ...]
+) -> dict[str, tuple[str, ...]]:
     with path.open(encoding="utf-8-sig", newline="") as handle:
         return {
             row[key].strip(): tuple(row[c].strip() for c in columns)
