@@ -85,4 +85,23 @@ missed candidate without a protected failure; they are reported separately.
 
 ## Deviations
 
-None yet.
+Recorded 2026-10-15, in order.
+
+1. **Before the first scored run: paragraph (c) read in full.** Building the
+   corpus showed four records with no models: their paragraph (c) is a
+   lead-in ("This AD applies to:") with the models listed in the paragraphs
+   after it. "Models listed in paragraph (c)" means the whole section, so the
+   normalizer reads every paragraph up to the next heading. No retrieval had
+   been run; nothing was tuned against cases.
+2. **After R0: two distractors were mislabeled, by a bug in the daily sync.**
+   AD 2012-09-09 (`2012-12329`) and AD 2015-10-04 (`2015-12068`) list
+   V2500-A1 and the V2500-A5/D5 models. The sync read only the lead-in of
+   their paragraph (c), found no V2500 model, and filed them
+   `outside_supported_scope` without review, so the selection rule put them
+   in the "IAE out of scope" distractor group. They do apply to in-family
+   engines, so R0 retrieving them is correct. All 48 M1 inclusions in
+   [`evaluation/runs/retrieval-r0-20261015T180258Z`](../../evaluation/runs/retrieval-r0-20261015T180258Z/report.md) are these two documents; every other
+   distractor surfaced 0 times. The retriever is unchanged, so there is no
+   R1. The sync's scope reader is fixed (a lead-in now reads the list after
+   it, and a mixed A1/A5 list goes to review, as its rules intended), with a
+   regression test.

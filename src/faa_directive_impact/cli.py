@@ -131,7 +131,47 @@ def main(argv: list[str] | None = None) -> int:
     )
     fleet_site.add_argument("--repo", type=Path, default=Path("."))
     fleet_site.add_argument("--output", type=Path, default=Path("site"))
+    retrieval_corpus = commands.add_parser(
+        "retrieval-corpus",
+        help="Offline: normalize a frozen generation into retrieval records.",
+    )
+    retrieval_corpus.add_argument("generation_dir", type=Path)
+    retrieval_corpus.add_argument("--storage-root", type=Path, required=True)
+    retrieval_corpus.add_argument(
+        "--output", type=Path, default=Path("evaluation/retrieval/corpus.json")
+    )
+    retrieval_run = commands.add_parser(
+        "retrieval-run", help="Offline: score the retriever on the seed cases."
+    )
+    retrieval_run.add_argument("--repo", type=Path, default=Path("."))
+    retrieval_run.add_argument(
+        "--runs-root", type=Path, default=Path("evaluation/runs")
+    )
     args = parser.parse_args(argv)
+
+    if args.command == "retrieval-corpus":
+        from faa_directive_impact.retrieval.corpus import normalize_generation
+
+        records = normalize_generation(args.generation_dir, args.storage_root)
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(
+            json.dumps(
+                {"generation_id": args.generation_dir.name, "records": records},
+                indent=2,
+                sort_keys=True,
+                ensure_ascii=False,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        print(f"{len(records)} records -> {args.output}")
+        return EXIT_OK
+
+    if args.command == "retrieval-run":
+        from faa_directive_impact.evaluation.retrieval_run import write_retrieval_run
+
+        print(write_retrieval_run(args.repo, args.runs_root))
+        return EXIT_OK
 
     if args.command == "fleet-build":
         from faa_directive_impact.fleet.build import write_fleet

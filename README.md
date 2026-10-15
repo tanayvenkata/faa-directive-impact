@@ -110,6 +110,8 @@ writes to the frozen evaluation corpora:
 make discovery-sync       # live: search, read IAE directives in full, validate, promote or reject
 make discovery-rollback   # offline: return to the previous promoted generation
 make discovery-site       # offline: write the freshness page to site/index.html
+make retrieval-corpus     # offline: normalize the frozen retrieval corpus (needs data/retrieval-frozen)
+make retrieval-run        # offline: score candidate retrieval on the seed cases
 make fleet-build          # offline: regenerate demo/fleet.json and demo/fleet-screen.json
 make fleet-site           # offline: write the fleet view to site/fleet/index.html
 ```
