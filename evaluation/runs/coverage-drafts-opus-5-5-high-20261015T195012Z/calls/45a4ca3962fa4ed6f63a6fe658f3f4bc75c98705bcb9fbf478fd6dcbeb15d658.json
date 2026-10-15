@@ -1,0 +1,864 @@
+{
+  "request": {
+    "max_tokens": 64000,
+    "messages": [
+      {
+        "content": "Draft the rule record for the airworthiness directive published as Federal Register document 2015-12068.",
+        "role": "user"
+      }
+    ],
+    "model": "claude-opus-5-5",
+    "output_config": {
+      "effort": "high"
+    },
+    "system": [
+      {
+        "text": "You draft the rule record for one FAA airworthiness directive (AD) from its\nFederal Register text. You are given every document in the directive's\nthread: the proposed rule, the final rule, any correction, and any earlier\nAD it replaces. A program will screen engine records against your rule\nrecord without reading the text, and a person will proofread it against the\ntext before anyone relies on it.\n\nExtract only what the text states. Do not add requirements, fill gaps with\nassumptions, or settle unclear wording silently: report it under\nambiguities. A program that cannot tell sends the engine to a person, which\nis safe; a record that guesses can clear an engine that needs action, which\nis not.\n\n## Which text controls\n\nThe final rule's regulatory text controls, not the proposal or the\ndiscussion. If a correction republishes the regulatory text, the\ncorrection's text controls wherever it differs; governing_document is the\ndocument whose regulatory text controls, with the reason. List each\ncorrected paragraph under corrections. Use the preamble only where the\nregulatory text relies on it, and say so under preamble_basis.\n\n## Documents, paragraphs, and identifiers\n\n- A document field holds the Federal Register document number only.\n- A paragraph field holds the paragraph label exactly as written in the\n  governing document, such as \"(c)\", \"(g)(2)\", or \"(h)(1)(i)\". Where a\n  paragraph field does not apply, give an empty string.\n- Copy every engine model, part number, and serial number exactly as the\n  text prints it. Never write an identifier the text does not print: a\n  program rejects any record that contains one.\n\n## Material you do not have\n\nWhen the text decides something by reference to material it does not\nprint (a serial-number list or compliance-time table in a service bulletin\nor other incorporated document, or a table printed only as an image), do\nnot guess its contents. Record the material under dependencies, and point\nthe part groups, actions, and limits that need it at that dependency. A\nprocedure the text only tells the operator to follow is not a dependency\nunless it decides whether or when an action applies.\n\n## Facts no engine record holds\n\nWhen an action turns on a fact that engine records do not hold (a part's\noperating history, a condition only the operator knows), name it under the\naction's unrecorded_conditions instead of assuming it either way.\n\n## Answer format\n\nReply with one JSON object that validates against the JSON Schema below,\nand nothing else. Follow each field's description in the schema; it says\nwhat the field means and how the program reads it. Fill every required\nfield; use empty lists and empty strings where the directive has nothing for\na field.\n\n## JSON Schema\n{\n \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n \"$id\": \"https://schemas.faa-directive-impact.dev/rule-record-v2.schema.json\",\n \"title\": \"Directive rule record, version 2\",\n \"description\": \"One airworthiness directive's screening predicates, read from its regulatory text only. Every value names the paragraph it rests on. A value the text does not state is never filled in: it is left empty, marked unclear, or pointed at an unavailable dependency, and the interpreter sends the engine to review. Version 1 (b3-rule-record.schema.json) stays frozen for the B3 v1 prompt and runs. Revision 2.1 adds optional fields (model_paragraphs, incorporated_in, related_paragraphs, open_while_installed, part_group on obligations, other_paragraphs on relationships, preamble_basis, the threshold limit role, unknown_means_met); a 2.0 record is still valid.\",\n \"type\": \"object\",\n \"additionalProperties\": false,\n \"required\": [\n  \"schema_version\",\n  \"ad_number\",\n  \"final_rule_document\",\n  \"governing_document\",\n  \"corrections\",\n  \"effective_date\",\n  \"relationships\",\n  \"dependencies\",\n  \"parts\",\n  \"applicability\",\n  \"eligible_parts\",\n  \"required_actions\",\n  \"continuing_obligations\",\n  \"credit_for_previous_actions\",\n  \"definitions\",\n  \"amoc_paragraph\",\n  \"ambiguities\",\n  \"notes\"\n ],\n \"properties\": {\n  \"schema_version\": {\n   \"const\": \"2\"\n  },\n  \"ad_number\": {\n   \"description\": \"The AD number as printed, in the form \\\"AD yyyy-nn-nn\\\".\",\n   \"type\": \"string\",\n   \"pattern\": \"^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$\"\n  },\n  \"final_rule_document\": {\n   \"description\": \"Federal Register document number of the final rule.\",\n   \"$ref\": \"#/$defs/document\"\n  },\n  \"governing_document\": {\n   \"description\": \"The document whose regulatory text is cited: the final rule, or a correction that republishes it.\",\n   \"type\": \"object\",\n   \"additionalProperties\": false,\n   \"required\": [\n    \"document\",\n    \"reason\"\n   ],\n   \"properties\": {\n    \"document\": {\n     \"$ref\": \"#/$defs/document\"\n    },\n    \"reason\": {\n     \"type\": \"string\"\n    }\n   }\n  },\n  \"corrections\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"document\",\n     \"paragraph\",\n     \"original_text\",\n     \"corrected_text\"\n    ],\n    \"properties\": {\n     \"document\": {\n      \"$ref\": \"#/$defs/document\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"original_text\": {\n      \"type\": \"string\"\n     },\n     \"corrected_text\": {\n      \"type\": \"string\"\n     }\n    }\n   }\n  },\n  \"effective_date\": {\n   \"type\": \"object\",\n   \"additionalProperties\": false,\n   \"required\": [\n    \"date\",\n    \"paragraph\",\n    \"emergency_ad\"\n   ],\n   \"properties\": {\n    \"date\": {\n     \"$ref\": \"#/$defs/date\"\n    },\n    \"paragraph\": {\n     \"$ref\": \"#/$defs/paragraph\"\n    },\n    \"emergency_ad\": {\n     \"description\": \"Set when paragraph (a) says an earlier emergency AD made the requirements effective on actual notice. Each operator's effective date is then its date of actual notice, which no engine record holds; null otherwise.\",\n     \"anyOf\": [\n      {\n       \"type\": \"null\"\n      },\n      {\n       \"type\": \"object\",\n       \"additionalProperties\": false,\n       \"required\": [\n        \"ad_number\",\n        \"issued\"\n       ],\n       \"properties\": {\n        \"ad_number\": {\n         \"type\": \"string\",\n         \"pattern\": \"^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$\"\n        },\n        \"issued\": {\n         \"$ref\": \"#/$defs/date\"\n        }\n       }\n      }\n     ]\n    }\n   }\n  },\n  \"relationships\": {\n   \"description\": \"Links to other ADs. superseded_by: a later AD replaces this one from its effective date (state where the replacing AD says so). supersedes: this AD replaces an earlier one. terminates_by_compliance: complying with a paragraph of this AD satisfies another AD. terminated_by_compliance: complying with a paragraph of another AD satisfies this one. related: anything else, informational.\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"type\",\n     \"ad_number\",\n     \"document\",\n     \"effective_date\",\n     \"stated_in\",\n     \"paragraph\",\n     \"description\"\n    ],\n    \"properties\": {\n     \"type\": {\n      \"enum\": [\n       \"superseded_by\",\n       \"supersedes\",\n       \"terminates_by_compliance\",\n       \"terminated_by_compliance\",\n       \"related\"\n      ]\n     },\n     \"ad_number\": {\n      \"type\": \"string\",\n      \"pattern\": \"^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$\"\n     },\n     \"document\": {\n      \"description\": \"The other AD's final rule document number, or \\\"\\\" when not known from the text.\",\n      \"type\": \"string\"\n     },\n     \"effective_date\": {\n      \"description\": \"The other AD's effective date when the relationship depends on it (superseded_by); null otherwise.\",\n      \"anyOf\": [\n       {\n        \"type\": \"null\"\n       },\n       {\n        \"$ref\": \"#/$defs/date\"\n       }\n      ]\n     },\n     \"stated_in\": {\n      \"description\": \"Document whose paragraph states the relationship.\",\n      \"$ref\": \"#/$defs/document\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"description\": {\n      \"type\": \"string\"\n     },\n     \"other_paragraphs\": {\n      \"description\": \"Optional. Paragraphs of the other document this relationship bears on (e.g. the replaced AD's applicability), cited only for a relationship whose other document precedes this one (supersedes).\",\n      \"type\": \"array\",\n      \"items\": {\n       \"$ref\": \"#/$defs/paragraph\"\n      }\n     }\n    }\n   }\n  },\n  \"dependencies\": {\n   \"description\": \"Material the screen needs but does not have: service information incorporated by reference, or a table printed only as an image. Parts, actions, and limits point at these by id; an engine that reaches one goes to review naming its title.\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"id\",\n     \"title\",\n     \"kind\",\n     \"holds\",\n     \"paragraph\"\n    ],\n    \"properties\": {\n     \"id\": {\n      \"$ref\": \"#/$defs/id\"\n     },\n     \"title\": {\n      \"description\": \"What a person must obtain: the document, its revision, and the table or figure, as the directive names them.\",\n      \"type\": \"string\",\n      \"minLength\": 1\n     },\n     \"kind\": {\n      \"enum\": [\n       \"incorporated_by_reference\",\n       \"image_only_figure\"\n      ]\n     },\n     \"holds\": {\n      \"enum\": [\n       \"serial_numbers\",\n       \"engine_serial_numbers\",\n       \"compliance_times\",\n       \"procedure\",\n       \"other\"\n      ]\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"incorporated_in\": {\n      \"description\": \"Optional. Paragraphs that incorporate the material by reference , cited whenever the dependency is named.\",\n      \"type\": \"array\",\n      \"items\": {\n       \"$ref\": \"#/$defs/paragraph\"\n      }\n     }\n    }\n   }\n  },\n  \"parts\": {\n   \"description\": \"Part groups the directive names. A group is found on an engine by part number, or by component name (component or an alias) for its position. serials: any (every serial of these P/Ns), listed (only the rows in listed, each P/N and S/N pair printed in the directive), or listed_in_dependency (the serial list is in unavailable material named by dependency).\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"id\",\n     \"component\",\n     \"aliases\",\n     \"part_numbers\",\n     \"serials\",\n     \"listed\",\n     \"dependency\",\n     \"paragraph\"\n    ],\n    \"properties\": {\n     \"id\": {\n      \"$ref\": \"#/$defs/id\"\n     },\n     \"component\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n     },\n     \"aliases\": {\n      \"description\": \"Other names the directive or records use for the same position, used to find the position's record.\",\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"string\",\n       \"minLength\": 1\n      }\n     },\n     \"part_numbers\": {\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"string\",\n       \"minLength\": 1\n      },\n      \"description\": \"Part numbers of the group. Empty means any part number at the named position (the directive names the part but prints no P/N).\"\n     },\n     \"serials\": {\n      \"enum\": [\n       \"any\",\n       \"listed\",\n       \"listed_in_dependency\"\n      ]\n     },\n     \"listed\": {\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"object\",\n       \"additionalProperties\": false,\n       \"required\": [\n        \"part_number\",\n        \"serial_number\",\n        \"cycles_since_new_limit\"\n       ],\n       \"properties\": {\n        \"part_number\": {\n         \"type\": \"string\",\n         \"minLength\": 1\n        },\n        \"serial_number\": {\n         \"type\": \"string\",\n         \"minLength\": 1\n        },\n        \"cycles_since_new_limit\": {\n         \"description\": \"A per-row part cycles-since-new limit printed in the directive, or null.\",\n         \"anyOf\": [\n          {\n           \"type\": \"null\"\n          },\n          {\n           \"type\": \"integer\",\n           \"minimum\": 0\n          }\n         ]\n        }\n       }\n      }\n     },\n     \"dependency\": {\n      \"description\": \"Dependency id when serials is listed_in_dependency, else \\\"\\\".\",\n      \"type\": \"string\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    }\n   }\n  },\n  \"applicability\": {\n   \"type\": \"object\",\n   \"additionalProperties\": false,\n   \"required\": [\n    \"engine_models\",\n    \"models_paragraph\",\n    \"engine_serials\",\n    \"parts\",\n    \"parts_combine\",\n    \"parts_paragraph\"\n   ],\n   \"properties\": {\n    \"engine_models\": {\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n     }\n    },\n    \"models_paragraph\": {\n     \"$ref\": \"#/$defs/paragraph\"\n    },\n    \"engine_serials\": {\n     \"description\": \"Engine serial conditions. Each restricts the models it names to engines whose serial is in a range (inclusive; a null bound is open) or in serial_numbers, and not in excluded. Models no entry names are not restricted. Ranges compare a shared letter prefix and the number after it.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"required\": [\n       \"models\",\n       \"ranges\",\n       \"serial_numbers\",\n       \"excluded\",\n       \"paragraph\"\n      ],\n      \"properties\": {\n       \"models\": {\n        \"type\": \"array\",\n        \"minItems\": 1,\n        \"items\": {\n         \"type\": \"string\"\n        }\n       },\n       \"ranges\": {\n        \"type\": \"array\",\n        \"items\": {\n         \"type\": \"object\",\n         \"additionalProperties\": false,\n         \"required\": [\n          \"first\",\n          \"last\"\n         ],\n         \"properties\": {\n          \"first\": {\n           \"anyOf\": [\n            {\n             \"type\": \"null\"\n            },\n            {\n             \"type\": \"string\",\n             \"minLength\": 1\n            }\n           ]\n          },\n          \"last\": {\n           \"anyOf\": [\n            {\n             \"type\": \"null\"\n            },\n            {\n             \"type\": \"string\",\n             \"minLength\": 1\n            }\n           ]\n          }\n         }\n        }\n       },\n       \"serial_numbers\": {\n        \"type\": \"array\",\n        \"items\": {\n         \"type\": \"string\",\n         \"minLength\": 1\n        }\n       },\n       \"excluded\": {\n        \"type\": \"array\",\n        \"items\": {\n         \"type\": \"string\",\n         \"minLength\": 1\n        }\n       },\n       \"paragraph\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       }\n      }\n     }\n    },\n    \"parts\": {\n     \"description\": \"Part group ids that applicability requires installed; empty when the directive applies to the models alone.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/id\"\n     }\n    },\n    \"parts_combine\": {\n     \"description\": \"any: one group installed is enough (\\\"or\\\", \\\"either\\\"). all: every group must be installed (\\\"and\\\").\",\n     \"enum\": [\n      \"any\",\n      \"all\"\n     ]\n    },\n    \"parts_paragraph\": {\n     \"$ref\": \"#/$defs/optional_paragraph\"\n    },\n    \"model_paragraphs\": {\n     \"description\": \"Optional. The sub-paragraph that names each model, where the applicability paragraph is split into sub-paragraphs; cited with the models paragraph.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"required\": [\n       \"models\",\n       \"paragraph\"\n      ],\n      \"properties\": {\n       \"models\": {\n        \"type\": \"array\",\n        \"items\": {\n         \"type\": \"string\"\n        }\n       },\n       \"paragraph\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       }\n      }\n     }\n    }\n   }\n  },\n  \"eligible_parts\": {\n   \"description\": \"Parts the directive defines as eligible for installation, by group. A recorded P/N listed here clears its group, with this paragraph cited.\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"part_group\",\n     \"part_numbers\",\n     \"description\",\n     \"paragraph\"\n    ],\n    \"properties\": {\n     \"part_group\": {\n      \"$ref\": \"#/$defs/id\"\n     },\n     \"part_numbers\": {\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"string\",\n       \"minLength\": 1\n      }\n     },\n     \"description\": {\n      \"type\": \"string\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    }\n   }\n  },\n  \"required_actions\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"$ref\": \"#/$defs/action\"\n   }\n  },\n  \"continuing_obligations\": {\n   \"description\": \"Obligations that bind while the directive applies, even with no action triggered: installation prohibitions, no alternative actions once done.\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"paragraph\",\n     \"description\"\n    ],\n    \"properties\": {\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"description\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n     },\n     \"part_group\": {\n      \"description\": \"Optional. For an installation prohibition, the part group it prohibits; a part of the group recorded as installed after the effective date keeps the screen open.\",\n      \"type\": \"string\"\n     }\n    }\n   }\n  },\n  \"credit_for_previous_actions\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"paragraph\",\n     \"actions\",\n     \"description\"\n    ],\n    \"properties\": {\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"actions\": {\n      \"description\": \"Paragraphs of the actions that may be credited.\",\n      \"type\": \"array\",\n      \"items\": {\n       \"$ref\": \"#/$defs/paragraph\"\n      }\n     },\n     \"description\": {\n      \"type\": \"string\"\n     }\n    }\n   }\n  },\n  \"definitions\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"term\",\n     \"paragraph\"\n    ],\n    \"properties\": {\n     \"term\": {\n      \"type\": \"string\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    }\n   }\n  },\n  \"amoc_paragraph\": {\n   \"$ref\": \"#/$defs/optional_paragraph\"\n  },\n  \"ambiguities\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"paragraph\",\n     \"description\",\n     \"readings\"\n    ],\n    \"properties\": {\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"description\": {\n      \"type\": \"string\"\n     },\n     \"readings\": {\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"string\"\n      }\n     }\n    }\n   }\n  },\n  \"notes\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"string\"\n   }\n  },\n  \"preamble_basis\": {\n   \"description\": \"Optional. Preamble statements the record relies on, cited as that document's preamble. when: always (relied on for every screen of a listed model), terminating_action_passed (when a terminating action's compliance time has passed), event_before_effective_date (when a triggering event before the effective date is set aside).\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"document\",\n     \"when\",\n     \"statement\"\n    ],\n    \"properties\": {\n     \"document\": {\n      \"$ref\": \"#/$defs/document\"\n     },\n     \"when\": {\n      \"enum\": [\n       \"always\",\n       \"terminating_action_passed\",\n       \"event_before_effective_date\"\n      ]\n     },\n     \"statement\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n     }\n    }\n   }\n  }\n },\n \"$defs\": {\n  \"document\": {\n   \"type\": \"string\",\n   \"pattern\": \"^[0-9]{4}-[0-9]{5}$\"\n  },\n  \"date\": {\n   \"type\": \"string\",\n   \"pattern\": \"^[0-9]{4}-[0-9]{2}-[0-9]{2}$\"\n  },\n  \"id\": {\n   \"type\": \"string\",\n   \"pattern\": \"^[a-z0-9_]+$\"\n  },\n  \"paragraph\": {\n   \"type\": \"string\",\n   \"pattern\": \"^\\\\([a-z]+\\\\)(\\\\([0-9]+\\\\))?(\\\\([ivx]+\\\\))?$\"\n  },\n  \"optional_paragraph\": {\n   \"type\": \"string\",\n   \"pattern\": \"^(\\\\([a-z]+\\\\)(\\\\([0-9]+\\\\))?(\\\\([ivx]+\\\\))?)?$\"\n  },\n  \"action\": {\n   \"type\": \"object\",\n   \"additionalProperties\": false,\n   \"required\": [\n    \"paragraph\",\n    \"description\",\n    \"kind\",\n    \"models\",\n    \"target\",\n    \"operator_condition\",\n    \"unrecorded_conditions\",\n    \"dependencies\",\n    \"csn_band_at_effective_date\",\n    \"trigger\",\n    \"limits\",\n    \"combination\",\n    \"terminates\"\n   ],\n   \"properties\": {\n    \"paragraph\": {\n     \"$ref\": \"#/$defs/paragraph\"\n    },\n    \"description\": {\n     \"type\": \"string\"\n    },\n    \"kind\": {\n     \"description\": \"remove: take the target part out of service (an installed target part means the action is open). inspect, check, revise_maintenance_program, install: work the engine record cannot show as done. replace_if_finding: contingent on a finding of another action; reported, never queued on its own. other: anything else (sent to review).\",\n     \"enum\": [\n      \"remove\",\n      \"inspect\",\n      \"check\",\n      \"revise_maintenance_program\",\n      \"install\",\n      \"replace_if_finding\",\n      \"other\"\n     ]\n    },\n    \"models\": {\n     \"description\": \"Engine models this action is limited to; empty for every applicable model.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"string\"\n     }\n    },\n    \"target\": {\n     \"description\": \"Part group id the action acts on, or \\\"\\\" for the engine or operator as a whole.\",\n     \"type\": \"string\"\n    },\n    \"operator_condition\": {\n     \"description\": \"air_carrier_operation when the action binds only air carriers (read from operator.air_carrier_operation); \\\"\\\" otherwise.\",\n     \"enum\": [\n      \"\",\n      \"air_carrier_operation\"\n     ]\n    },\n    \"unrecorded_conditions\": {\n     \"description\": \"Conditions the action states that no engine record field holds (a part's operating history, whether an earlier inspection was done). An engine the action would otherwise reach goes to review naming them.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"required\": [\n       \"description\",\n       \"paragraph\"\n      ],\n      \"properties\": {\n       \"description\": {\n        \"type\": \"string\",\n        \"minLength\": 1\n       },\n       \"paragraph\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       }\n      }\n     }\n    },\n    \"dependencies\": {\n     \"description\": \"Dependency ids that decide whether or when this action applies (a serial or engine group list, a compliance-time table). Not for procedure-only material.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/id\"\n     }\n    },\n    \"csn_band_at_effective_date\": {\n     \"description\": \"Limits the action to target parts whose cycles since new on the effective date fall in this inclusive band (a null bound is open); null when the action has no band.\",\n     \"anyOf\": [\n      {\n       \"type\": \"null\"\n      },\n      {\n       \"type\": \"object\",\n       \"additionalProperties\": false,\n       \"required\": [\n        \"min\",\n        \"max\"\n       ],\n       \"properties\": {\n        \"min\": {\n         \"anyOf\": [\n          {\n           \"type\": \"null\"\n          },\n          {\n           \"type\": \"integer\",\n           \"minimum\": 0\n          }\n         ]\n        },\n        \"max\": {\n         \"anyOf\": [\n          {\n           \"type\": \"null\"\n          },\n          {\n           \"type\": \"integer\",\n           \"minimum\": 0\n          }\n         ]\n        }\n       }\n      }\n     ]\n    },\n    \"trigger\": {\n     \"type\": \"object\",\n     \"additionalProperties\": false,\n     \"required\": [\n      \"event\",\n      \"recurrence\",\n      \"condition\",\n      \"definition_paragraphs\"\n     ],\n     \"properties\": {\n      \"event\": {\n       \"description\": \"none: compliance time only. engine_shop_visit: a shop visit as the directive defines it (records assert it per AD). maintenance_event: another defined event the record cannot identify (piece-part exposure, module removal or exposure). part_installation: installing the target part. prior_action: counted from accomplishing another action of this AD (repeat inspections, follow-on removals).\",\n       \"enum\": [\n        \"none\",\n        \"engine_shop_visit\",\n        \"maintenance_event\",\n        \"part_installation\",\n        \"prior_action\"\n       ]\n      },\n      \"recurrence\": {\n       \"description\": \"next: the first such event after the effective date. each: every such event, indefinitely.\",\n       \"enum\": [\n        \"next\",\n        \"each\"\n       ]\n      },\n      \"condition\": {\n       \"description\": \"A qualifier on the event as the directive words it, or the event's own wording for maintenance_event and prior_action; \\\"\\\" if none.\",\n       \"type\": \"string\"\n      },\n      \"definition_paragraphs\": {\n       \"description\": \"Paragraphs defining the event and its qualifier.\",\n       \"type\": \"array\",\n       \"items\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       }\n      }\n     }\n    },\n    \"limits\": {\n     \"description\": \"Compliance-time limits. role caps_event: bounds the event (\\\"at the next shop visit, but not later than ...\\\"). alternative: a leg combined with the (capped) event by combination. overall_cap: bounds the combined result (\\\"..., whichever occurs later, not to exceed ...\\\"). threshold (2.1): for a recurring (each) trigger, the event counts only once the target part reaches value; below it the action is a continuing obligation.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"required\": [\n       \"kind\",\n       \"value\",\n       \"date\",\n       \"anchor_offset_days\",\n       \"role\",\n       \"dependency\",\n       \"paragraph\"\n      ],\n      \"properties\": {\n       \"kind\": {\n        \"description\": \"part_cycles_since_new: the target part reaches value cycles since new (null value: the part's listed row limit). part_cycles_after_effective_date: the target part accumulates value cycles counted from the effective date. flight_cycles_after_effective_date: engine flight cycles counted from the effective date plus anchor_offset_days. days_after_effective_date: calendar days. calendar_date: a fixed date (in date). flight_cycles_after_prior_action: cycles since the action named in the trigger (repeat intervals; prior_action triggers only). other: anything else (sent to review).\",\n        \"enum\": [\n         \"part_cycles_since_new\",\n         \"part_cycles_after_effective_date\",\n         \"flight_cycles_after_effective_date\",\n         \"days_after_effective_date\",\n         \"calendar_date\",\n         \"flight_cycles_after_prior_action\",\n         \"other\"\n        ]\n       },\n       \"value\": {\n        \"anyOf\": [\n         {\n          \"type\": \"null\"\n         },\n         {\n          \"type\": \"integer\",\n          \"minimum\": 0\n         }\n        ]\n       },\n       \"date\": {\n        \"anyOf\": [\n         {\n          \"type\": \"null\"\n         },\n         {\n          \"$ref\": \"#/$defs/date\"\n         }\n        ]\n       },\n       \"anchor_offset_days\": {\n        \"description\": \"Days after the effective date from which flight cycles count (e.g. a records review due within 3 days); 0 otherwise.\",\n        \"type\": \"integer\",\n        \"minimum\": 0\n       },\n       \"role\": {\n        \"enum\": [\n         \"caps_event\",\n         \"alternative\",\n         \"overall_cap\",\n         \"threshold\"\n        ]\n       },\n       \"dependency\": {\n        \"description\": \"Dependency id holding the value when the directive prints it only there; else \\\"\\\".\",\n        \"type\": \"string\"\n       },\n       \"paragraph\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       },\n       \"unknown_means_met\": {\n        \"description\": \"Optional, threshold limits only: true when the directive itself says an unconfirmable count is treated as reached.\",\n        \"type\": \"boolean\"\n       }\n      }\n     }\n    },\n    \"combination\": {\n     \"description\": \"How the event leg and alternative limits combine: single (one leg), whichever_occurs_first, whichever_occurs_later, or unclear (sent to review).\",\n     \"enum\": [\n      \"single\",\n      \"whichever_occurs_first\",\n      \"whichever_occurs_later\",\n      \"unclear\"\n     ]\n    },\n    \"terminates\": {\n     \"description\": \"Paragraphs of this AD's other actions that this action ends once its compliance time has passed (a mandatory terminating action).\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    },\n    \"related_paragraphs\": {\n     \"description\": \"Optional. Other paragraphs the action rests on: its parent paragraph, its sub-steps, a limit such as a special flight permit restriction.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    },\n    \"open_while_installed\": {\n     \"description\": \"Optional. Part groups whose installation shows the action is not accomplished. A remove action's own target counts without listing it.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/id\"\n     }\n    }\n   }\n  }\n }\n}\n",
+        "type": "text"
+      },
+      {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "text": "===== Federal Register document 2012-12329 =====\nType: Rule\nPublished: 2012-05-23\nEffective date (from the Federal Register record): 2012-06-27\n\nDEPARTMENT OF TRANSPORTATION\n\nFederal Aviation Administration\n\n14 CFR Part 39\n\n[Docket No. FAA-2009-1100; Directorate Identifier 2009-NE-37-AD; Amendment 39-17044; AD 2012-09-09]\n\nRIN 2120-AA64\n\nAirworthiness Directives; International Aero Engines AG Turbofan Engines\n\nAGENCY:\n\nFederal Aviation Administration (FAA), DOT.\n\nACTION: Final rule.\n\nSUMMARY:\n\nWe are superseding an existing airworthiness directive (AD) for all International Aero Engines AG (IAE) V2500-A1, V2525-D5 and V2528-D5 turbofan engines, and certain serial numbers (S/Ns) of IAE V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, V2530-A5, and V2533-A5 turbofan engines. That AD currently requires initial and repetitive ultrasonic inspections (USIs) of certain high-pressure compressor (HPC) stage 3 to 8 drums, and replacement of drum attachment nuts. This new AD expands the affected population for initial and repetitive inspections of the HPC stage 3 to 8 drum, introduces an eddy current inspection (ECI) procedure, and requires additional cleaning and repetitive USI of some HPC stage 3 to 8 drums. We are issuing this AD to prevent uncontained failure of the HPC stage 3 to 8 drum, which could result in damage to the airplane.\n\nDATES:\n\nThis AD is effective June 27, 2012.\n\nThe Director of the Federal Register approved the incorporation by reference (IBR) of certain publications listed in the AD as of June 27, 2012.\n\nADDRESSES:\n\nFor service information identified in this AD, contact International Aero Engines AG, 628 Hebron Avenue, Suite 400, Glastonbury, CT 06033; phone: 860-368-3700; fax: 860-368-4600; email: iaeinfo@iaev2500.com; Web site: https://www.iaeworld.com. You may review copies of the referenced service information at the FAA, Engine & Propeller Directorate, 12 New England Executive Park, Burlington, MA 01803. For information on the availability of this material at the FAA, call 781-238-7125.\n\nExamining the AD Docket\n\nYou may examine the AD docket on the Internet at http://www.regulations.gov; or in person at the Docket Management Facility between 9 a.m. and 5 p.m., Monday through Friday, except Federal holidays. The AD docket contains this AD, the regulatory evaluation, any comments received, and other information. The address for the Docket Office (phone: 800-647-5527) is Document Management Facility, U.S. Department of Transportation, Docket Operations, M-30, West Building Ground Floor, Room W12-140, 1200 New Jersey Avenue SE., Washington, DC 20590.\n\nFOR FURTHER INFORMATION CONTACT:\n\nCarlos Fernandes, Aerospace Engineer, Engine Certification Office, FAA, Engine & Propeller Directorate, 12 New England Executive Park, Burlington, MA 01803; phone: 781-238-7189; fax: 781-238-7199; email: carlos.fernandes@faa.gov .\n\nSUPPLEMENTARY INFORMATION:\n\nDiscussion\n\nWe issued a notice of proposed rulemaking (NPRM) to amend 14 CFR part 39 to supersede AD 2010-20-07, Amendment 39-16441 (75 FR 59067, September 27, 2010). That AD applies to the specified products. The NPRM published in the Federal Register on December 30, 2011 (76 FR 82202). That NPRM proposed to continue to require initial and repetitive USIs of certain HPC stage 3 to 8 drums, and replacement of drum attachment nuts. That NPRM also proposed to expand the affected population for initial and repetitive inspections of the HPC stage 3 to 8 drum, introduce an ECI procedure, and require additional cleaning and repetitive USI of some HPC stage 3 to 8 drums.\n\nComments\n\nWe gave the public the opportunity to participate in developing this AD. The following presents the comments received on the proposal and the FAA's response to each comment.\n\nRequest To Include Entire V2500 Fleet of Engines, and Modify the Optional Terminating Action\n\nAirbus and IAE requested that we change the applicability to include the entire V2500 fleet of engines, and to modify the optional terminating action to include partially silver plated nuts, part number (P/N) AS64367. The commenters stated that one new HPC stage 3 to 8 drum was discovered installed with partially silver plated nuts, P/N AS64367, that had some corrosion pitting.\n\nWe partially agree. We agree with making a change to the optional terminating action, because the corrosion pitting found was on the optional terminating action configuration. We changed the AD, deleting the optional terminating action from the AD. We do not agree with including the entire V2500 fleet of engines, because we do not yet have enough information to determine what actions are needed if the nuts are only partially silver plated. We did not change the AD to affect the entire V2500 engine population.\n\nRequest To Correct Paragraph Reference Errors\n\nSeven commenters requested that in paragraph (i), Optional Terminating Action, we correct the paragraph references of (h)(1) and (h)(2) to (i)(1) and (i)(2).\n\nWe agree. However, we have deleted the Optional Terminating Action paragraph from the AD, as described previously, and redesignated the subsequent paragraphs accordingly. We did not change the AD based on this comment.\n\nRequest To Add a Section to Previous Credit\n\nAir New Zealand requested that we add a section to paragraph (k), Previous Credit, for prior installation of a zero-time HPC stage 3 to 8 drum that has never operated with fully silver plated nuts.\n\nWe do not agree. We already state in Compliance paragraph (e) that actions are required unless the actions have already been done. We did not change the AD.\n\nRequest To Reference the AD Being Superseded\n\nOnur Air requested that we reference the AD being superseded, as it is not mentioned in the proposed AD.\n\nWe do not agree. We already reference the superseded AD in the Discussion and in paragraph (b). We did not change the AD.\n\nExclude Certain HPC Stage 3 to 8 Drums\n\nOnur Air stated that drums which were cleaned, fluorescent penetrant inspected (FPI), and installed with non-fully silver plated nuts into the engine in a previous shop visit are not addressed, and should be excluded in the mandatory terminating action of the proposed AD.\n\nWe do not agree. These drums are subject to the repetitive inspections specified in the AD. We did not change the AD.\n\nRequest To Rewrite Paragraphs (f) and (h)\n\nChristchurch Engine Centre and United Airlines requested that we rewrite paragraph (f) and (h) because they believe those paragraphs imply that the grace period of FPI or ECI apply to the repetitive USI frequency.\n\nWe do not agree. The grace period affects the USI start, based on the type of previous inspection and not the USI re-inspection interval. As specified in paragraph (h) of the proposed AD, USI inspections are to be done every 750 cycles-since-last USI. If an FPI is done, then the USI is required within 2,500 cycles from the FPI, and then done every 750 cycles-since-last USI. The process for the ECI is the same. We did not change the AD.\n\nRequest To Use the Engine Manual (EM) Instead of the Service Bulletin (SB) for Cleaning\n\nChristchurch Engine Centre and IAE requested that cleaning be done using the EM instead of the SB.\n\nWe partially agree. The EM or the SB may be used as the cleaning procedure. We changed the AD to include the EM and SB as guidance for the cleaning procedure.\n\nRequest To Correct a Service Bulletin No.\n\nChristchurch Engine Centre requested that we correct an error in the SB No. in paragraph (k)(4) of the proposed AD from “V2500-ENG-72-615” to “V2500-ENG-72-0615”.\n\nWe agree. We changed the AD to use the correct SB No. V2500-ENG-72-0615.\n\nRequest To Incorporate by Reference (IBR) SBs\n\nChristchurch Engine Centre requested that we IBR the SBs into the AD, and stated that the proposed AD is missing the Material Incorporated by Reference section.\n\nWe agree. In the NPRM, we identified SBs needed for compliance. But in NPRMs, we do not set them in a separate IBR paragraph. In our final rules we do, as required by the Office of the Federal Register. In this final rule, we IBR'd SBs necessary for compliance in the AD.\n\nRequest To Reconsider the Cost of Compliance\n\nJapan Airlines requested that we reconsider the Cost of Compliance. Based on their experience, they believe it requires at least 11 hours to perform the required work.\n\nWe do not agree. The hours are based on average times provided by the type certificate holder. Actual times may vary depending on engine configuration and number of engines inspected. We did not change the Cost of Compliance.\n\nRequest To Mandate Only Relevant Sections of the USI Procedures\n\nJapan Airlines and United Airlines requested that the AD mandate only the relevant sections of the USI procedures in IAE Non-Modification SB (NMSB) No. V2500-ENG-72-0608, Revision 3, dated September 20, 2011, and NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011.\n\nWe agree. We changed the AD to clarify the initial inspection requirements of the AD.\n\nRequest for Previous Credit\n\nJapan Airlines and United Airlines requested that we give previous credit for operators using earlier revisions of the USI SBs listed in the proposed AD, as some operators have already inspected using the earlier revisions.\n\nWe agree. We changed AD to give credit for commpliance to the earlier SBs listed in the AD.\n\nRequest To Allow Special Flight Permits\n\nUnited Airlines and TAM Airlines requested that we allow Special Flight Permits so that the airplane can be flown to a location where the work required by the AD can be performed.\n\nWe do not agree. The AD already allows flights to a repair facility. We did not change the AD.\n\nRequest To Include All HPC Stage 3 to 8 Drum P/N Possibilities\n\nUnited Airlines requested that we include all HPC stage 3 to 8 drum P/N possibilities in the SB. The commenter believes that drum P/N 6B1404, which is manufactured from the same titanium material as drum P/N 6A8316, should be included.\n\nWe do not agree. The AD currently applies to all engines with HPC stage 3 to 8 drums that operated with fully silver plated nuts. Drum P/N 6B1404 was introduced into production with engine S/N higher than V13191 and “Select One” engines S/N higher than V15575, and are outside of the applicability of this AD. We did not change the AD.\n\nRequest To Clarify Piece-Part Exposure Definition\n\nUnited Airlines and MTU Maintenance Hanover GmbH requested that we clarify the definition of piece-part exposure.\n\nWe agree. We changed the definition to: “For the purpose of this AD, piece-part exposure is removal of the HPC stage 3 to 8 drum from the engine, removal of all blades from the drum, and separation of the HPC stage 3 to 8 drum from the stage 9 to 12 drum.”\n\nRequest To Remove Redundant SB Listing\n\nIAE requested that we remove the redundant listing of NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, under Relevant Service Information in the preamble of the proposed AD.\n\nWe agree. However, we do not repeat the Relevant Service Information in the final rule. We did not change the AD.\n\nRequest To Clarify Compliance Timeframe and Establish a Calendar End-Date\n\nIAE requested that we clarify why a compliance timeframe is required to remove all fully silver plated nuts and also establish a calendar end-date of 2021.\n\nWe do not agree. The unsafe condition results from a corrosive operating environment. The amount of corrosion varies with time and location, and we have no data to support a calendar end-date of 2021. We did not change the AD.\n\nRequest To Delay USI Start Time and Repeat Inspection Time\n\nTAM Airlines requested that we delay the USI start time to 13,500 cycles-since-new, and increase the repeat inspection time to 1,500 cycles-since-the-last USI.\n\nWe do not agree. The initial and repetitive inspection intervals were established based on field experience, and extensive analysis and testing. We have no data that supports an increase in the compliance times. We did not change the AD.\n\nRequest for Special Increase Limit\n\nPT GMF Aeroasia requested that we allow them a special increase limit for one of their engines that is above 13,700 cycles to allow time to receive the special tooling required for the inspections.\n\nWe do not agree. The analysis and testing does not support continued safe flight above 13,700 cycles. We did not change the AD.\n\nRequest for Changes To Make It Easier for Operators to Comply With the AD\n\nUnited Airlines requested that we add specific accept/reject criteria of missing liner material in the USI inspection area. The commenter also requested that we remove the requirement for borescoping the HPC stage 7 to 8 drum ceramic liner for staining or axial cracking, or, that we specify accept/reject criteria for staining and cracking of the ceramic liner. They also requested that we delay blending limit measurements of the HPC case port and add details for material removal to allow access for the probe manipulators. These changes would make it easier for operators to comply with the AD and avoid unnecessary delays.\n\nWe partially agree. We agree with specifying accept/reject criteria for missing liner material in the USI inspection area. The borescope requirement of the HPC stage 7 to 8 drum ceramic liner for staining or axial cracking improves the probability of detection, however we agree to remove it due to lack of clear accept/reject criteria. We do not agree with including in the AD when to perform blending limits measurements and adding details for material removal to allow access for the probe manipulators because they are part of preparation. We added to the AD that any liner loss which results in lifting of the USI probe from the liner will need to be repaired to perform an acceptable inspection. Liner loss found under the intended path of the USI probe must be smaller than the head of the probe.\n\nConclusion\n\nWe reviewed the relevant data, considered the comments received, and determined that air safety and the public interest require adopting the AD with the changes described previously. We also determined that these changes will not increase the economic burden on any operator or increase the scope of the AD.\n\nCosts of Compliance\n\nWe estimate that this AD will affect about 906 IAE V2500-A1, V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 turbofan engines installed on airplanes of U.S. registry. We estimate that it will take about 3 work-hours per engine to perform the USI, and about 2 work-hours per engine to perform the FPI of the HPC stage 3 to 8 drum. The average labor rate is $85 per work-hour. We also estimate that removal of silver residue from the engine will cost about $2,600 per engine, and required parts about $795 per engine. We also estimate the cost of replacing a drum if found cracked will be $189,000. We have no way of determining the number of aircraft that might need this replacement. Based on these figures, we estimate the total cost of the AD to U.S. operators to be $4,385,040.\n\nAuthority for This Rulemaking\n\nTitle 49 of the United States Code specifies the FAA's authority to issue rules on aviation safety. Subtitle I, Section 106, describes the authority of the FAA Administrator. Subtitle VII, Aviation Programs, describes in more detail the scope of the Agency's authority.\n\nWe are issuing this rulemaking under the authority described in Subtitle VII, Part A, Subpart III, Section 44701, “General requirements.” Under that section, Congress charges the FAA with promoting safe flight of civil aircraft in air commerce by prescribing regulations for practices, methods, and procedures the Administrator finds necessary for safety in air commerce. This regulation is within the scope of that authority because it addresses an unsafe condition that is likely to exist or develop on products identified in this rulemaking action.\n\nRegulatory Findings\n\nWe have determined that this AD will not have federalism implications under Executive Order 13132. This AD will not have a substantial direct effect on the States, on the relationship between the national government and the States, or on the distribution of power and responsibilities among the various levels of government.\n\nFor the reasons discussed above, I certify that this AD:\n\n(1) Is not a “significant regulatory action” under Executive Order 12866,\n\n(2) Is not a “significant rule” under DOT Regulatory Policies and Procedures (44 FR 11034, February 26, 1979),\n\n(3) Will not affect intrastate aviation in Alaska, and\n\n(4) Will not have a significant economic impact, positive or negative, on a substantial number of small entities under the criteria of the Regulatory Flexibility Act.\n\nList of Subjects in 14 CFR Part 39\n\nAir transportation, Aircraft, Aviation safety, Incorporation by reference, Safety.\n\nAdoption of the Amendment\n\nAccordingly, under the authority delegated to me by the Administrator, the FAA amends 14 CFR part 39 as follows:\n\nPART 39—AIRWORTHINESS DIRECTIVES\n\n1. The authority citation for part 39 continues to read as follows:\n\nAuthority:\n\n49 U.S.C. 106(g), 40113, 44701.\n\n§ 39.13\n\n[Amended]\n\n2. The FAA amends § 39.13 by removing airworthiness directive (AD) 2010-20-07, Amendment 39-16441 (75 FR 59067, September 27, 2010), and adding the following new AD:\n\n2012-09-09 International Aero Engines AG: Amendment 39-17044; Docket No. FAA-2009-1100, Directorate Identifier 2009-NE-37-AD.\n\n(a) Effective Date\n\nThis airworthiness directive (AD) is effective June 27, 2012.\n\n(b) Affected ADs\n\nThis AD supersedes AD 2010-20-07, Amendment 39-16441 (75 FR 59067, September 27, 2010).\n\n(c) Applicability\n\nThis AD applies to:\n\n(1) All International Aero Engines AG (IAE) V2500-A1 turbofan engines; and\n\n(2) All IAE V2525-D5 and V2528-D5 turbofan engines; and\n\n(3) IAE V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, V2530-A5, and V2533-A5 turbofan engines with serial numbers (S/Ns) up to and including V13181, and with S/Ns from V15000 up to and including V15245.\n\n(d) Unsafe Condition\n\nThis AD results from reports of 50 additional high-pressure compressor (HPC) stage 3 to 8 drums found cracked since AD 2010-20-07 was issued. We are issuing this AD to prevent failure of the HPC stage 3 to 8 drum, uncontained engine failure, and damage to the airplane.\n\n(e) Compliance\n\nYou are responsible for having the actions required by this AD performed within the compliance times specified unless the actions have already been done.\n\n(f) Initial Ultrasonic Inspections (USIs) of the HPC Stage 3 to 8 Drum—“Group A”\n\nFor IAE V2500-A1, V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, V2530-A5, and V2533-A5 turbofan engines with S/Ns in “Group A” in paragraph 1.A. in IAE Non-Modification Service Bulletin (NMSB) No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, perform an initial USI of the HPC stage 3 to 8 drum before accumulating 5,000 cycles-since-new (CSN) or within 500 cycles from the effective date of this AD, whichever occurs later, as follows:\n\n(1) For IAE V2500-A1 turbofan engines:\n\n(i) For on-wing inspections of the outer diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections E, G(1) through G(5), I, and J.\n\n(ii) For on-wing inspections of the inner diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections L, N(1) through N(5), P(1), and Q.\n\n(iii) For shop inspections of the outer diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections AU, AW(1) through AW(5), AY, and AZ.\n\n(iv) For shop inspections of the inner diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections BB, BD(1) through BD(5), BF(1), and BG.\n\n(v) Any liner loss which results in lifting of the USI probe from the liner will need to be repaired in order to perform an acceptable inspection. Liner loss found under the intended path of the USI probe must be smaller than the head of the probe.\n\n(2) For V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, V2530-A5, and V2533-A5 turbofan engines:\n\n(i) For on-wing inspections of the outer diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections Z, AB(1) through AB(5), AD, and AE.\n\n(ii) For on-wing inspections of the inner diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections AG, AI(1) through AI(5), AK(1), and AL.\n\n(iii) For shop inspections of the outer diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections BO, BQ(1) through BQ(5), BS, and BT.\n\n(iv) For shop inspections of the inner diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections BV, BX(1) through BX(5), BZ(1), and CA.\n\n(v) Any liner loss which results in lifting of the USI probe from the liner will need to be repaired in order to perform an acceptable inspection. Liner loss found under the intended path of the USI probe must be smaller than the head of the probe.\n\n(g) Initial USIs of the HPC Stage 3 to 8 Drum—“Group B”\n\nFor IAE V2500-A1, V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, V2530-A5, and V2533-A5 Turbofan Engines with S/Ns in “Group B” in Paragraph 1.A. in IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, perform an initial USI of the HPC stage 3 to 8 drum before accumulating 12,500 CSN or within 500 cycles from the effective date of this AD, whichever occurs later, not to exceed 13,700 CSN, as follows:\n\n(1) For IAE V2500-A1 turbofan engines:\n\n(i) For on-wing inspections of the outer diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections E, G(1) through G(5), I, and J.\n\n(ii) For on-wing inspections of the inner diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections L, N(1) through N(5), P(1), and Q.\n\n(iii) For shop inspections of the outer diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections AU, AW(1) through AW(5), AY, and AZ.\n\n(iv) For shop inspections of the inner diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections BB, BD(1) through BD(5), BF(1), and BG.\n\n(v) Any liner loss which results in lifting of the USI probe from the liner will need to be repaired in order to perform an acceptable inspection. Liner loss found under the intended path of the USI probe must be smaller than the head of the probe.\n\n(2) For V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, V2530-A5, and V2533-A5 turbofan engines:\n\n(i) For on-wing inspections of the outer diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections Z, AB(1) through AB(5), AD, and AE.\n\n(ii) For on-wing inspections of the inner diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections AG, AI(1) through AI(5), AK(1), and AL.\n\n(iii) For shop inspections of the outer diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections BO, BQ(1) through BQ(5), BS, and BT.\n\n(iv) For shop inspections of the inner diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections BV, BX(1) through BX(5), BZ(1), and CA.\n\n(v) Any liner loss which results in lifting of the USI probe from the liner will need to be repaired in order to perform an acceptable inspection. Liner loss found under the intended path of the USI probe must be smaller than the head of the probe.\n\n(h) Initial USIs for All IAE V2525-D5 and V2528-D5 Turbofan Engines\n\n(1) For all IAE V2525-D5 and V2528-D5 turbofan engines, perform an initial USI of the HPC stage 3 to 8 drum before accumulating 12,500 CSN or within 500 cycles from the effective date of this AD, whichever occurs later, not to exceed 13,700 CSN.\n\n(i) For on-wing inspections of the outer diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0608, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections E, G(1) through G(5), I, and J.\n\n(ii) For on-wing inspections of the inner diameter, perform an initial USI using IAENMSB No. V2500-ENG-72-0608, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections L, N(1) through N(5), P(1), and Q.\n\n(iii) For shop inspections of the outer diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0608, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections Z, AB(1) through AB(5), AD, and AE.\n\n(iv) For shop inspections of the inner diameter, perform an initial USI using IAE NMSB No. V2500-ENG-72-0608, Revision 3, dated September 20, 2011, Accomplishment Instructions, paragraph 3, sections AG, AI(1) through AI(5), AK(1), and AL.\n\n(v) Any liner loss which results in lifting of the USI probe from the liner will need to be repaired in order to perform an acceptable inspection. Liner loss found under the intended path of the USI probe must be smaller than the head of the probe.\n\n(i) Removal of All Fully Silver Plated Nuts\n\n(1) At the next piece part exposure of the HPC stage 3 to 8 drum after the effective date of this AD, but no later than 8 years from the effective date of this AD, do the following before returning any HPC stage 3 to 8 drum to service:\n\n(i) Remove from service all fully silver plated nuts, part number AS44862 or equivalent that attach the HPC stage 3 to 8 drum to the HPC stage 9 to 12 drum.\n\n(ii) Remove the silver residue from the HPC stage 3 to 8 drum. You can find guidance to remove the silver residue of the HPC stage 3 to 8 drum in IAE NMSB No. V2500-ENG-72-0601, Revision 2, dated April 12, 2010, or in IAE engine manual task 72-41-11-110-001.\n\n(2) Perform an inspection using one of the following methods:\n\n(i) Fluorescent penetrant inspect (FPI) the HPC stage 3 to 8 drum for cracks, and remove from service any drum found cracked. You can find guidance on performing an FPI of the HPC stage 3 to 8 drum in IAE engine manual task 72-41-11-200-001.\n\n(ii) Eddy current inspect (ECI) the HPC stage 3 to 8 drum for cracks, using IAE NMSB No. V2500-ENG-72-0625, dated September 20, 2011, and remove from service any drum found cracked.\n\n(3) If cracks or crack indications are identified, remove the drum from service before further flight.\n\n(4) Accomplishing paragraphs (i)(1) and (i)(2) of this AD before the inspection criteria requirements of paragraphs (f), (g) or (h) of this AD, may be substituted for the initial USI requirement of paragraphs (f), (g) or (h) of this AD.\n\n(j) Repetitive USIs of the HPC Stage 3 to 8 Drum\n\nPerform repetitive USIs of the HPC stage 3 to 8 drum for cracks in accordance with paragraphs (f)(1), (f)(2), (g)(1), (g)(2), or (h)(1) of this AD as applicable, as follows:\n\n(1) Within every 750 cycles-since-last USI; or\n\n(2) Within 2,500 cycles-since-last FPI; or\n\n(3) Within 13,000 cycles-since-last ECI, whichever occurs latest.\n\n(k) Definition\n\nFor the purpose of this AD, piece-part exposure is removal of the HPC stage 3 to 8 drum from the engine, removal of all blades from the drum, and separation of the HPC stage 3 to 8 drum from the stage 9 to 12 drum.\n\n(l) Credit for Previous Actions\n\n(1) If you performed a USI before the effective date of this AD using the following IAE NMSB's, you met the requirements of this AD:\n\n(i) IAE NMSB No. V2500-ENG-72-0594, Revision 3, dated August 7, 2009, or Revision 4, dated October 13, 2009; or Revision 5, dated November 23, 2009; or Revision 6, dated April 12, 2010.\n\n(ii) IAE NMSB No. V2500-ENG-72-0603, Initial Issue, dated November 24 2009; or Revision 1, dated December 18, 2009; or Revision 2, dated March 17, 2010.\n\n(iii) IAE NMSB No. V2500-ENG-72-0608, Initial Issue, dated May 5, 2010; Revision 1, dated August 6, 2010; or Revision 2, dated January 4, 2011.\n\n(iv) IAE NMSB No. V2500-ENG-72-0615, Initial Issue, dated July 19, 2010; Revision 1, dated August 2, 2010; or Revision 2, dated November 24, 2010.\n\n(m) Alternative Methods of Compliance (AMOCs)\n\nThe Manager, Engine Certification Office, may approve AMOCs for this AD. Use the procedures found in 14 CFR 39.19 to make your request.\n\n(n) Related Information\n\n(1) For more information about this AD, contact Carlos Fernandes, Aerospace Engineer, Engine Certification Office, FAA, Engine & Propeller Directorate, 12 New England Executive Park, Burlington, MA 01803; phone: 781-238-7189; fax: 781-238-7199; email: carlos.fernandes@faa.gov .\n\n(2) Guidance on removing the silver residue of the HPC stage 3 to 8 drum may be found in International Aero Engines Service Bulletin No. V2500-ENG-72-0601, Revision 2, dated April 12, 2010, and in IAE engine manual task 72-41-11-110-001.\n\n(o) Material Incorporated by Reference\n\n(1) The Director of the Federal Register approved the incorporation by reference (IBR) of the following service information under 5 U.S.C. 552(a) and 1 CFR part 51.\n\n(2) You must use the following service information to do the actions required by this AD, unless the AD specifies otherwise.\n\n(i) International Aero Engines Non-Modification Service Bulletin No. V2500-ENG-72-0608, Revision 3, dated September 20, 2011.\n\n(ii) International Aero Engines Non-Modification Service Bulletin No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011.\n\n(iii) International Aero Engines Non-Modification Service Bulletin No. V2500-ENG-72-0625, dated September 20, 2011.\n\n(3) For service information identified in this AD, contact International Aero Engines AG, 628 Hebron Avenue, Suite 400, Glastonbury, CT 06033; phone: 860-368-3700; fax: 860-368-4600; email: iaeinfo@iaev2500.com; Web site: https://www.iaeworld.com.\n\n(4) You may review copies of the service information at the FAA, Engine & Propeller Directorate, 12 New England Executive Park, Burlington, MA. For information on the availability of this material at the FAA, call 781-238-7125.\n\n(5) You may also review copies of the service information that is incorporated by reference at the National Archives and Records Administration (NARA). For information on the availability of this material at NARA, call 202-741-6030, or go to: http://www.archives.gov/federal-register/cfr/ibr_locations.html.\n\nIssued in Burlington, Massachusetts, on May 2, 2012.\n\nPeter A. White,\n\nManager, Engine & Propeller Directorate, Aircraft Certification Service.\n\n[FR Doc. 2012-12329 Filed 5-22-12; 8:45 am]\n\n===== Federal Register document 2015-12068 =====\nType: Rule\nPublished: 2015-05-27\nEffective date (from the Federal Register record): 2015-07-01\n\nDEPARTMENT OF TRANSPORTATION\n\nFederal Aviation Administration\n\n14 CFR Part 39\n\n[Docket No. FAA-2009-1100; Directorate Identifier 2009-NE-37-AD; Amendment 39-18159; AD 2015-10-04]\n\nRIN 2120-AA64\n\nAirworthiness Directives; International Aero Engines AG Turbofan Engines\n\nAGENCY:\n\nFederal Aviation Administration (FAA), DOT.\n\nACTION: Final rule.\n\nSUMMARY:\n\nWe are superseding Airworthiness Directive (AD) 2012-09-09 for all International Aero Engines AG (IAE) V2500-A1, V2525-D5, and V2528-D5 turbofan engines, and certain serial numbers (S/Ns) of IAE V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, V2530-A5, and V2533-A5 turbofan engines. AD 2012-09-09 required cleaning, eddy current inspection (ECI) or fluorescent penetrant inspection (FPI), and initial and repetitive ultrasonic inspections (USIs) of certain high-pressure compressor (HPC) stage 3 to 8 drums, as well as replacement of the drum attachment nuts. This new AD expands the affected population for initial and repetitive USIs of the HPC stage 3 to 8 drum, revises the inspection intervals, requires performing ECI or FPI, requires removal of the affected attachment nuts and any HPC stage 3 to 8 drum found cracked, and adds a mandatory terminating action. This AD was prompted by the discovery that additional attachment nuts for certain HPC stage 3 to 8 drums are affected. We are issuing this AD to prevent failure of the HPC stage 3 to 8 drum, which could result in uncontained drum failure, damage to the engine, and damage to the airplane.\n\nDATES:\n\nThis AD is effective July 1, 2015.\n\nThe Director of the Federal Register approved the incorporation by reference of a certain publication listed in this AD as of July 1, 2015.\n\nADDRESSES:\n\nFor service information identified in this AD, contact International Aero Engines AG, 400 Main Street, East Hartford, CT 06118; phone: 860-368-3700; fax: 860-368-4600; email: iaeinfo@iaev2500.com; Internet: https://www.iaeworld.com. You may view this service information at the FAA, Engine & Propeller Directorate, 12 New England Executive Park, Burlington, MA. For information on the availability of this material at the FAA, call 781-238-7125. It is also available on the Internet at http:// www.regulations.gov by searching for and locating Docket No. FAA-2009-1100\n\nExamining the AD Docket\n\nYou may examine the AD docket on the Internet at http://www.regulations.gov by searching for and locating Docket No. FAA-2009-1100; or in person at the Docket Management Facility between 9 a.m. and 5 p.m., Monday through Friday, except Federal holidays. The AD docket contains this AD, the regulatory evaluation, any comments received, and other information. The address for the Docket Office (phone: 800-647-5527) is Document Management Facility, U.S. Department of Transportation, Docket Operations, M-30, West Building Ground Floor, Room W12-140, 1200 New Jersey Avenue SE., Washington, DC 20590.\n\nFOR FURTHER INFORMATION CONTACT:\n\nMartin Adler, Aerospace Engineer, Engine Certification Office, FAA, Engine & Propeller Directorate, 12 New England Executive Park, Burlington, MA 01803; phone: 781-238-7157; fax: 781-238-7199; email: martin.adler@faa.gov.\n\nSUPPLEMENTARY INFORMATION:\n\nDiscussion\n\nWe issued a notice of proposed rulemaking (NPRM) to amend 14 CFR part 39 to supersede AD 2012-09-09, Amendment 39-17044 (77 FR 30371, May 23, 2012), (“AD 2012-09-09”). AD 2012-09-09 applied to all IAE V2500-A1, V2525-D5, and V2528-D5 turbofan engines, and certain S/Ns of IAE V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, V2530-A5, and V2533-A5 turbofan engines. The NPRM published in the Federal Register on December 24, 2014 (79 FR 77411). The NPRM was prompted by the discovery that partially silver-plated nuts for certain HPC stage 3 to 8 drums cause the drum to corrode and crack. The NPRM proposed to perform ECI or FPI, and initial and repetitive USIs of certain HPC stage 3 to 8 drums. The NPRM also proposed to expand the affected population for initial and repetitive USIs of the HPC stage 3 to 8 drum, revise the inspection intervals, require removal of the affected attachment nuts and any HPC stage 3 to 8 drum found cracked, and add a mandatory terminating action. We are issuing this AD to prevent failure of the HPC stage 3 to 8 drum, which could result in uncontained drum failure, damage to the engine, and damage to the airplane.\n\nComments\n\nWe gave the public the opportunity to participate in developing this AD. The following presents the comments received on the NPRM (79 FR 77411, December 24, 2014) and the FAA's response to each comment.\n\nRequest To Change Compliance Paragraph\n\nOne commenter requested that paragraph (f)(3) of the NPRM (79 FR 77411, December 24, 2014) be changed from “If you inspect the HPC stage 3-8 drum at shop visit . . .” to “If you have previously inspected the HPC stage 3-8 drum at piece-part exposure as shown in the Grace Periods Table for each compliance group listed in paragraph 1.E. in IAE Alert Non-Modification Service Bulletin (NMSB) No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014.” The justification for this comment is that the AD wording is not clear enough for the actual work performed.\n\nWe partially agree. We agree with referring to piece-part exposure instead of shop visit. We disagree with referencing the service bulletin (SB) because the AD wording is otherwise clear in its reference to the Grace Periods Table for each compliance group. We changed paragraph (f)(3) of this final rule by changing “at shop visit” to “at piece-part exposure.”\n\nRequest for Paragraph Clarification\n\nThe same commenter suggested adding engine manual (EM) Task No. or SB reference to paragraphs (g)(2), (g)(3)(i), and (g)(3)(ii) because these paragraphs do not provide the specific method to perform the stated requirements.\n\nWe do not agree. The SB and EM tasks for these operations are not mandated. Therefore, they are referenced in the Related Information section of the AD. We did not change the AD.\n\nRequest To Clarify Terminating Action\n\nLufthansa, United Airlines (UA), and another commenter, asked that the AD be clarified that if the terminating actions were performed prior to the effective date of the AD, credit may be taken and no further action would be required. The commenter's justification is that the AD should be clear that if the parts are installed prior to effective date of the AD, the parts installation should be considered as terminating action.\n\nWe do not agree because paragraph (e), Compliance, states to perform the requirements of the AD “unless already done.” This statement applies to all requirements of the AD including the terminating action. No additional clarification is needed. We did not change the AD.\n\nRequest To Change Compliance Time\n\nAn anonymous commenter requested that repetitive inspections not start until after the threshold for the initial inspection has been reached. The justification for this request is that many unnecessary extra inspections would have to be performed if the initial inspection is performed early, and the AD requires repeat inspections to follow immediately.\n\nWe agree. This final rule was changed as follows: Paragraphs (f)(1) and (f)(2) were changed from “. . . of the last USI.” to “. . . of the last USI after the initial inspection required by paragraph (e) of this AD.”\n\nAgreement With Proposed AD\n\nThe Boeing Company agreed with the NPRM (79 FR 77411, December 24, 2014) as written.\n\nRequest Change to Costs of Compliance\n\nLufthansa and Wizz Air stated that the terminating action will result in many unplanned extra shop visits to remove parts. The cost analysis does not include the cost associated with these extra shop visits.\n\nWe do not agree. The Costs of Compliance in the AD includes prorated part costs based on early removal of parts. Our cost calculations do not include costs associated with engine removal, down time, or scheduling. We did not change the AD.\n\nRequest To Include Revision and Date Information for Service Information\n\nLufthansa and IAE requested that service information include revision and date information. They suggested that the service information does not list the latest revision information or, in some cases, any revision information at all.\n\nWe partially agree. We agree that the SB references should reflect the latest revision. We disagree with adding the revision and/or date to all instances of SBs referenced in the Related Information paragraph because the revision date is listed on the first instance of each SB referenced in the paragraph. We changed the Related Information paragraph by changing the date of IAE NMSB No. V2500-ENG-72-0625 to October 8, 2014.\n\nRequest To Change Applicability\n\nLufthansa stated that the compliance categories (applicability) are based on engine serial number. The commenter suggested defining the categories based on drum serial number rather than engine serial number because the inspection times and intervals should be based on the drum history. The correct inspection times and intervals may not be utilized for the affected drums if a drum moves from one engine to another.\n\nWe do not agree. We evaluated use of drum serial numbers versus engine serial numbers and chose engine serial numbers based on the increased complexity associated with tracking drum serial numbers. It was also noted that it is more likely that an engine, as opposed to an individual used drum, would be moved. The engine groups in the AD reflect the unsafe condition as it exists today. If the engine distributions change significantly in the future, we would consider additional rulemaking. We did not change the AD.\n\nRequest To Change Service Information\n\nRolls Royce plc proposed that revision 6 of IAE Alert NMSB No. V2500-ENG-72-0615 be quoted in the AD, and that all references to it, including engine groups affected, be aligned to this latest revision. The justification for this request is that the current AD references IAE NMSB No. V2500-ENG-72-0615, Revision 3. This NMSB is now at revision 6.\n\nWe do not agree because the AD already references Revision 6 of IAE Alert NMSB No.V2500-ENG-72-A0615. We did not change the AD.\n\nRequest Clarification of Material Incorporated by Reference\n\nUA and Delta Airlines requested clarification of whether IAE NMSB No. V2500-ENG-72-0638 is considered incorporated by reference. This AD will incorporate by reference IAE Alert NMSB No. V2500-ENG 72-0615, Revision 6, dated September 4, 2014, which refers to IAE NMSB No. V2500-ENG-72-0638 for instructions on performing the USI. IAE NMSB No. V2500-ENG-72-0638 contains instructions and procedures that do not affect failure mode detection, prevention or elimination of the unsafe condition identified in the NPRM (79 FR 77411, December 24, 2014) and should not be mandated by the AD.\n\nWe agree that IAE Alert NMSB No.V2500-ENG-72-0638 should not be incorporated by reference. We changed the AD to remove the requirement to use IAE NMSB No. V2500-ENG-72-0638. We also added a new paragraph (g) to this AD that provides specific information from IAE NMSB No. V2500-ENG-72-0638 to perform the USI.\n\nRequest Change to Relevant Service Information\n\nUA and Delta Airlines requested that IAE NMSB No. V2500-ENG-72-0638 be added to the Relevant Service Information paragraph.\n\nWe partially agree. We do not agree with adding IAE NMSB No. V2500-ENG-72-0638 to the Relevant Service Information paragraph because that paragraph is not in the final rule. We agree that the service information should be included in the AD, elsewhere. We added IAE NMSB No. V2500-ENG-72-0638 to the Related Information paragraph.\n\nRequest Clarification of Compliance Time\n\nUA and LATAM Airlines requested clarification on the difference between the AD and SB terminating actions for compliance time to incorporate terminating action. The AD requires accomplishment within 9,450 cycles after the effective date of the AD, while the SB requires accomplishment by December 31, 2021. The commenter said shop visits were planned based on the end date in the SB. The AD limit of 9,450 cycles will force engines off wing earlier than planned.\n\nWe do not agree. The cycle limit in the AD represents fleet average utilization up to the SB `accomplish by' date. We did not change the AD.\n\nRequest Clarification for Terminating Action\n\nUA requested clarification that inspections are not required after the terminating action has been performed. UA suggested that this clarification was required because the SB Grace Periods Tables include timing for any drum fitted with non-silver nuts. It is not explicit that the table does not apply to a new drum with non-silver nuts.\n\nWe do not agree. Terminating action means that no further action is required. Therefore, the AD does not require any additional inspections after the terminating action has been accomplished. We did not change the AD.\n\nRequest Deletion of Service Information\n\nUA identified that IAE NMSB No. V2500-ENG-72-0638, Part B paragraph (3)Y.(3) states that an engine be rejected if staining and/or cracking of the ceramic liner is found. This requirement should not be mandated because this concern was addressed in AD 2012-09-09 which was superseded. The FAA agreed that there was not clear acceptance criteria to mandate engine rejection based on staining and axial cracking of the HPC stage 7 to 8 drum ceramic liner.\n\nWe agree. We changed this final rule by deleting reference to IAE NMSB No. V2500-ENG-72-0638 in paragraph (e) of this AD.\n\nRequest To Include a Ferry Flight\n\nUA requested that the AD be changed to allow a one-cycle ferry flight. No justification was given.\n\nWe do not agree. Per 14 CFR 39.23, an AD only addresses ferry flights if they are prohibited. We did not prohibit ferry flights in this AD. We did not change the AD.\n\nRequest Clarification of Compliance Time\n\nUA commented that some grace periods in AD 2012-09-09 are different from the NPRM (79 FR 77411, December 24, 2014). UA requested clarification that the older compliance times in AD 2012-09-09 are no longer applicable or available and let “Credit for Previous Actions” allow the longer compliance times of the NPRM. The clarification was requested since, for compliance intervals that have been shortened, the commenter can see no way to address those engines, particularly if the engine has already exceeded the shortened interval. For intervals that have been extended, inspection intervals can easily be extended to agree.\n\nWe do not agree. AD 2012-09-09 is being superseded by this AD; therefore, the previous compliance times are inapplicable after the effective date of this AD. This final rule allows 200 cycles after the effective date of the AD to perform the initial USI if the cycles since new threshold has been passed. If the cyclic interval allowed by this AD for the next USI based on the last part inspection has been surpassed, then the initial inspection requirements would apply. This means you must inspect within 200 cycles after the effective date of this AD. We did not change the AD.\n\nRequest To Change Service Information\n\nUA stated that the USI procedures, as defined in IAE NMSB No. V2500-ENG-72-0638, which lift the probe off the surface of the drum, should not be mandated. The USI procedures, in IAE NMSB No. V2500-ENG-72-0638, use a “clamp” added to the USI probe to lift the probe off of the drum. This procedure relies on couplant to fill the gaps to the drum and any missing drum coatings. UA is not confident that accurate measurements can be consistently achieved using this procedure, especially in areas that have been repaired.\n\nWe partially agree. We agree that the USI procedures in IAE NMSB No. V2500-ENG-72-0638, and those referenced in superseded AD 2012-09-09, are valid methods of inspection. We disagree that the procedure in IAE NMSB No. V2500-ENG-72-0638 would not provide accurate measurements. We changed this AD by removing IAE NMSB No. V2500-ENG-72-0638 and adding a paragraph that provides specific information to perform the USI.\n\nRequest To Change Service Information\n\nJetstar Group Airways requested that allowance for future SB revisions be included in the AD.\n\nWe do not agree. We cannot mandate documents which do not yet exist. We did not change the AD.\n\nRequest To Change the Applicability\n\nJetstar Group Airways requested that the applicability for V2500-A5 engines be revised to exclude Engine Serial Number (ESN) V16660 and higher as the introduction of the terminating action configuration began with ESN V16660 based on the applicability of IAE SB V2500-ENG-72-0632 that introduced silver free nuts.\n\nWe do not agree. The AD applicability is correct. The applicability defined in IAE SB V2500-ENG-72-0632 does not reflect actual part installations. We did not change the AD.\n\nRequest To Allow Repetitive Inspections\n\nLufthansa, Jetstar Group Airways, Wizz Air, and MTU Maintenance (MTU) requested to remove “within 9,450 cycles after the effective date of the AD” for terminating action and allow unlimited USI. The commenters pointed out that the unsafe condition results from a corrosive operating environment, and the amount of corrosion varies with time and location. The commenters also pointed to the lack of data to support a calendar end date of 2021, and that the hard time for part removals will drive younger parts off wing early, with no additional benefits to safety. Finally, the commenters offered that if the USI and the ECI provide sufficient safety against an uncontained failure, this should also be the case after 9,450 flight cycles (FC). Additionally, the overall risk in the fleet will decrease due to the number of planned shop visits.\n\nWe do not agree. The ongoing repetitive inspections do not provide sufficient safety by themselves and are considered interim actions. The previous ADs did not include an end date because no terminating action was available. This AD includes mandatory terminating action that completely removes the noted unsafe condition and restores an acceptable level of safety. We did not change the AD.\n\nRequest To Change Terminating Action\n\nWizz Air, Lufthansa, and Delta Airlines requested the compliance time for terminating action be changed from “9,450 FC after the effective date of the AD” to “at next piece-part exposure.” This will eliminate extra shop visits solely for drum replacement.\n\nWe do not agree. This change would significantly increase the need for spare parts in the near term, which cannot be supported by industry at this time. We did not change the AD.\n\nRequest To Change Compliance\n\nIAE requested that the Compliance phrase “If cracks are found . . .” be changed to “if crack indications or inspection rejections are found . . .”. The reason for this request is that FPI, USI, and ECI only indicate a crack may be present. Cracks typically can only be confirmed via lab destructive testing.\n\nWe do not agree. If a part fails the inspection it is assumed to be cracked. No additional testing is requested or required to prove a crack exists. We did not change the AD.\n\nRequest To Change Compliance\n\nIAE and MTU requested that “cycles since new” (CSN) refer to cycles on the specific drum and not engine cycles since new. If drums are replaced, there could be confusion on when a part must be inspected.\n\nWe agree. We changed paragraphs (e)(1) through (e)(5) from “within 200 cycles of accumulating xxxx CSN” to “within 200 cycles of the drum accumulating xxxx cycles.”\n\nRequest To Change Compliance Time\n\nIAE and MTU requested an end date of December 31, 2025 be added to the compliance time in addition to the existing cycle limit. This request was justified because low utilization operators will not be required to upgrade their engines until well beyond 2040 with only the cycle limit. IAE is concerned that after the larger operators have completed the upgrades to their fleets, the expertise and equipment required to perform the required inspections will no longer be available.\n\nWe agree. We changed the Mandatory Terminating Action paragraph to include an end date of December 31, 2025.\n\nRequest Change To Credit for Previous Actions Paragraph\n\nIAE requested that IAE NMSBs No. V2500-ENG-72-0594, No. V2500-ENG-72-0603, No. V2500-ENG-72-0608, Revision 2 and earlier, and No.V2500-ENG-72-0615, Revision 2 and earlier, be removed from the “Credit for Previous Actions” paragraph because these SB revisions do not require complete inspection of the drum circumference in areas of liner loss. Incomplete inspections are not effective at detecting cracks and compromises safety.\n\nWe agree. We removed IAE NMSB No. V2500-ENG-72-0594, IAE NMSB No. V2500-ENG-72-0603, IAE NMSB No. V2500-ENG-72-0608, Revision 2 and earlier, and IAE NMSB No.V2500-ENG-72-A0615, Revision 2 and earlier, from the Credit for Previous Actions paragraph.\n\nRequest To Simplify Compliance\n\nDelta Airlines commented that the compliance plan as proposed in the NPRM (79 FR 77411, December 24, 2014), is too complicated. Delta said that it requires: (1) Knowledge of where the HPC 3-8 drum(s) have operated by flight number for the V2500-A1 and V2500-A5 engine models; (2) tracking the inspections performed at shop level for the HPC 3-8 drum(s); (3) tracking the HPC module assembly for the 3-8 drum(s) installed and the configuration at the last shop visit of the HPC module; and (4) operators to trace documents of HPC 3-8 drum(s) that exchanged between HPC modules and from other operators. Without those trace documents, operators will be forced to obtain new HPC 3-8 drum(s) to prevent recontamination of their respective fleets.\n\nWe do not agree. The changes we proposed in this AD, expanding the population, changing the inspection interval, etc., are not complex changes to the compliance program. We also evaluated the original compliance program requirements. We did not conclude that they were so complex that operators would find them difficult to understand, particularly since the information needed to comply with the AD is available in operator records. We did not change the AD.\n\nRequest Clarification of Service Information\n\nDelta Airlines stated that IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, has lists of engine models and drum part numbers. The SB lists drum part numbers as associated with the V2500-D5 engine that are not approved for installation on the V2500-D5 engine. The SB could be misinterpreted as allowing use of part numbers on the V2500-D5 engine model that have not actually been approved for use.\n\nWe do not agree. The SB separates engine applicability into six groups. The drum part numbers listed for each group represent the possible drum part numbers for all the noted engine models listed in the group. These groupings do not otherwise indicate that part numbers are interchangeable among the engine models. The groups that include V2500-D5 (Group E and group F) also include other engine models. We did not change the AD.\n\nRequest Clarification of Mandatory Terminating Action Paragraph\n\nLufthansa requested clarification of the Mandatory Terminating Action paragraph. The commenter stated that the paragraph directing the installation of HPC stage 3 to 8 drum is not clear if the mandatory terminating action is meant to be a hard-time limit which requires removal of drums from service by means of a shop visit. The commenter suggested that the terminating action for drum replacement may be substituted by an on-wing USI. On-wing USI could occur after 9,450 FC from the effective date of this AD until the engine has a shop visit.\n\nWe do not agree. The mandatory terminating action has a hard-time limit of 9,450 FC after the effective date of this AD. The terminating actions must be performed within this time. The AD does not give allowance to perform inspections in place of performing the terminating actions. We did not change the AD.\n\nRequest To Revise Mandatory Terminating Action\n\nMTU requested that the mandatory terminating action be delayed based on the appropriate inspection grace period listed in the service information. The grace period extension would eliminate extra shop visits for only drum replacement.\n\nWe do not agree. The cyclic intervals listed in the service information, based on piece-part inspection, apply to the threshold for performing the next USI. The compliance time for completing the terminating actions is not related to when or what inspections were performed. We did not change the AD.\n\nConclusion\n\nWe reviewed the relevant data, considered the comments received, and determined that air safety and the public interest require adopting this AD with the changes described previously. We have determined that these minor changes:\n\n• Are consistent with the intent that was proposed in the NPRM (79 FR 77411, December 24, 2014) for correcting the unsafe condition; and\n\n• Do not add any additional burden upon the public than was already proposed in the NPRM (79 FR 77411, December 24, 2014).\n\nWe also determined that these changes will not increase the economic burden on any operator or increase the scope of this AD.\n\nRelated Service Information Under 1 CFR Part 51\n\nInternational Aero Engines Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014. The NMSB describes procedures for inspecting the engine front support pins. This service information is reasonably available because the interested parties have access to it through their normal course of business or by the means identified in the ADDRESSES section of this AD.\n\nCosts of Compliance\n\nWe estimate that this AD will affect 956 engines installed on airplanes of U.S. registry. We estimate that it will take about 3 hours per engine to perform the USI and about 2 hours per engine to perform the FPI or ECI of the HPC stage 3 to 8 drum. We also estimate that removing silver residue from the HPC stage 3 to 8 drum will cost about $2,600 per engine and a set of silver free nuts will cost about $1,060 per engine. We estimate the pro-rated replacement cost to replace an HPC stage 3 to 8 drum to be $52,014. Based on these figures, we estimate the cost of this AD on U.S. operators to be $53,630,644.\n\nAuthority for This Rulemaking\n\nTitle 49 of the United States Code specifies the FAA's authority to issue rules on aviation safety. Subtitle I, Section 106, describes the authority of the FAA Administrator. Subtitle VII, Aviation Programs, describes in more detail the scope of the Agency's authority.\n\nWe are issuing this rulemaking under the authority described in Subtitle VII, Part A, Subpart III, Section 44701, “General requirements.” Under that section, Congress charges the FAA with promoting safe flight of civil aircraft in air commerce by prescribing regulations for practices, methods, and procedures the Administrator finds necessary for safety in air commerce. This regulation is within the scope of that authority because it addresses an unsafe condition that is likely to exist or develop on products identified in this rulemaking action.\n\nRegulatory Findings\n\nWe have determined that this AD will not have federalism implications under Executive Order 13132. This AD will not have a substantial direct effect on the States, on the relationship between the national government and the States, or on the distribution of power and responsibilities among the various levels of government.\n\nFor the reasons discussed above, I certify that this AD:\n\n(1) Is not a “significant regulatory action” under Executive Order 12866,\n\n(2) Is not a “significant rule” under DOT Regulatory Policies and Procedures (44 FR 11034, February 26, 1979),\n\n(3) Will not affect intrastate aviation in Alaska to the extent that it justifies making a regulatory distinction, and\n\n(4) Will not have a significant economic impact, positive or negative, on a substantial number of small entities under the criteria of the Regulatory Flexibility Act.\n\nList of Subjects in 14 CFR Part 39\n\nAir transportation, Aircraft, Aviation safety, Incorporation by reference, Safety.\n\nAdoption of the Amendment\n\nAccordingly, under the authority delegated to me by the Administrator, the FAA amends 14 CFR part 39 as follows:\n\nPART 39—AIRWORTHINESS DIRECTIVES\n\n1. The authority citation for part 39 continues to read as follows:\n\nAuthority:\n\n49 U.S.C. 106(g), 40113, 44701.\n\n§ 39.13\n\n[Amended]\n\n2. The FAA amends § 39.13 by removing Airworthiness Directive (AD) 2012-09-09, Amendment 39-17044 (77 FR 30371, May 23, 2012), and adding the following new AD:\n\n2015-10-04 International Aero Engines AG: Amendment 39-18159 Docket No. FAA-2009-1100; Directorate Identifier 2009-NE-37-AD.\n\n(a) Effective Date\n\nThis AD is effective July 1, 2015.\n\n(b) Affected ADs\n\nThis AD replaces AD 2012-09-09, Amendment 39-17044 (77 FR 30371, May 23, 2012).\n\n(c) Applicability\n\nThis AD applies to:\n\n(1) All International Aero Engines AG (IAE) V2500-A1 turbofan engines; and\n\n(2) All IAE V2525-D5 and V2528-D5 turbofan engines; and\n\n(3) IAE V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, V2530-A5, and V2533-A5 turbofan engines with serial numbers (S/Ns) V10001 through V13190, and V15001 through V16728, excluding V16707.\n\n(d) Unsafe Condition\n\nThis AD was prompted by the discovery that additional attachment nuts for certain high-pressure compressor (HPC) stage 3 to 8 drums cause the drum to corrode and crack. We are issuing this AD to prevent failure of the HPC stage 3 to 8 drum, which could result in uncontained drum failure, damage to the engine, and damage to the airplane.\n\n(e) Compliance\n\nComply with this AD within the compliance times specified, unless already done. You may use the inspections listed in paragraph (h)(3) of this AD instead of an ultrasonic inspection (USI) for the initial inspection required by paragraphs (e)(1) through (e)(5). If cracks are found during any of the inspections required by this AD, remove the drum from service before further flight.\n\n(1) Initial USI of the HPC Stage 3 to 8 Drum—Group “A” and Group “B”\n\nFor IAE V2500-A1 turbofan engines with S/Ns listed in “Group A” or “Group B” in paragraph 1.E. in IAE Alert Non-Mandatory Service Bulletin (NMSB) No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014, perform an initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 8,000 cycles or within 200 cycles from the effective date of this AD, whichever occurs later.\n\n(2) Initial USI of the HPC Stage 3 to 8 Drum—Group “C”\n\nFor IAE V2500-A5 turbofan engines with S/Ns listed in “Group C” in paragraph 1.E. in IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014, perform an initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 6,250 cycles or within 200 cycles from the effective date of this AD, whichever occurs later.\n\n(3) Initial USI of the HPC Stage 3 to 8 Drum—Group “D”\n\nFor IAE V2500-A5 turbofan engines with S/Ns listed in “Group D” in paragraph 1.E. in IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014, perform an initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 3,750 cycles or within 200 cycles from the effective date of this AD, whichever occurs later.\n\n(4) Initial USI of the HPC Stage 3 to 8 Drum—Group “E”\n\nFor IAE V2500-A1, -A5, and -D5 turbofan engines not listed in “Group A,” “Group B,” “Group C,” or “Group D,” and with drum assembly part numbers (P/Ns) listed in “Group E” in paragraph 1.E. in IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014, perform an initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 12,500 cycles or within 200 cycles from the effective date of this AD, whichever occurs later.\n\n(5) Initial USI of the HPC Stage 3 to 8 Drum—Group “F”\n\nFor IAE V2500-A1, -A5, and -D5 turbofan engines not listed in “Group A,” “Group B,” “Group C,” or “Group D,” and with drum assembly P/Ns listed in “Group F” in paragraph 1.E. in IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014, perform an initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 9,000 cycles or within 200 cycles from the effective date of this AD, whichever occurs later.\n\n(f) Repetitive USIs of the HPC Stage 3 to 8 Drum\n\n(1) For engines included in “Group A,” “Group B,” “Group C,” “Group E,” or “Group F,” as defined in paragraph (e) of this AD, perform repetitive USIs of the HPC stage 3 to 8 drum within every 750 cycles of the last USI after the initial inspection required by paragraph (e) of this AD.\n\n(2) For engines included in “Group D,” as defined in paragraph (e) of this AD, perform repetitive USIs of the HPC stage 3 to 8 drum within every 500 cycles of the last USI after the initial inspection required by paragraph (e) of this AD.\n\n(3) If you inspect the HPC stage 3 to 8 drum at piece-part exposure, you may delay the next USI as shown in the “Grace Periods Table” for each compliance group listed in paragraph 1.E. in IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014.\n\n(g) USI Procedure for the Inspection of the HPC Stage 3 to 8 Drum\n\nFor the USI inspections required by this AD, do the following. Inspect the stage 8 disk of the HPC stage 3 to 8 drum on the outer diameter adjacent to the stage 7 to 8 electron beam weld land using ultrasonic probe manipulator assembly P/N IAE2R19865 for IAE V2500-A1 engines, P/N IAE2R19852 or IAE2R19879 for IAE V2500-A5 engines, and P/N IAE2R19874 for IAE V2500-D5 engines. Inspect the stage 8 disk of the HPC stage 3 to 8 drum on the inner diameter at the inner radius position using ultrasonic probe manipulator assembly P/N IAE2R19870 for IAE V2500-A1 engines, P/N IAE2R19859 or IAE2R19880 for IAE V2500-A5 engines, and P/N IAE2R19876 for IAE V2500-D5 engines. Inspect the full circumference of both the inner and outer diameters. If the entire circumference cannot be inspected, remove the drum from the engine before further flight.\n\n(1) Calibrate the ultrasonic equipment using the following parameters and the acceptance criteria listed in paragraph 3.A.(1)(a) of IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014. Use working standard P/N IAE2R19854 for outer diameter inspection and working standard P/N IAE2R19860 for inner diameter inspection:\n\n(i) Set Frequency to 5 Mhz.\n\n(ii) Set Rectify to Full Wave.\n\n(iii) Set Pulser to Single Crystal.\n\n(iv) Maximize the signal response to achieve 70 percent full screen height.\n\n(v) Adjust the range control to position the target signal at 5.0 time base position based on ten division time base.\n\n(vi) For outer diameter inspection, set Gate Position to 3.5-7.0 time base position based on ten division time base.\n\n(vii) For inner diameter inspection, set Gate Position to 3.0-8.0 time base position based on ten division time base.\n\n(2) Inspect the HPC stage 3 to 8 drum using the acceptance criteria listed in paragraph 3.A.(1)(a) of IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014.\n\n(3) After completing the inspection of each feature, verify the calibration of the ultrasonic equipment. If the calibration is under sensitivity by more than 3db, then repeat the calibration and inspection of the feature.\n\n(h) Removal of Silver-Plated Nuts\n\nAt the next piece-part exposure of the HPC stage 3 to 8 drum after the effective date of this AD, do the following before returning any HPC stage 3 to 8 drum to service:\n\n(1) Remove from service all silver-plated nuts (fully or partially-plated), P/Ns AS44862 or AS64367, that attach the HPC stage 3 to 8 drum to the HPC stage 9 to 12 drum.\n\n(2) Clean the HPC stage 3 to 8 drum to remove the silver residue.\n\n(3) Inspect the HPC stage 3 to 8 drum using at least one of the following methods:\n\n(i) Fluorescent penetrant inspection (FPI) of the HPC stage 3 to 8 drum for cracks, or\n\n(ii) Eddy current inspection (ECI) of the HPC stage 3 to 8 drum for cracks.\n\n(i) Installation Prohibition\n\nAfter the effective date of this AD, do not install any silver-plated nuts, P/N AS44862 or AS64367, into any engine.\n\n(j) Mandatory Terminating Action\n\nWithin 9,450 cycles after the effective date of this AD, but not later than December 31, 2025, install:\n\n(1) An HPC stage 3 to 8 drum that has never operated with silver-plated nuts (fully or partially plated) to attach the HPC stage 3 to 8 drum to the HPC stage 9 to 12 drum, with\n\n(2) silver-free nuts to attach the HPC stage 3 to 8 drum to the HPC stage 9 to 12 drum.\n\n(k) Definition\n\nFor the purpose of this AD, “piece-part exposure” is removal of the HPC stage 3 to 8 drum from the engine, removal of all blades from the drum, and separation of the HPC stage 3 to 8 drum from the stage 9 to 12 drum.\n\n(l) Credit for Previous Actions\n\nIf you performed an inspection of the HPC stage 3 to 8 drum before the effective date of this AD using one of the following IAE NMSBs, you met the initial inspection requirement of paragraph (e) of this AD:\n\n(i) IAE NMSB No. V2500-ENG-72-0608, Revision 3, dated September 20, 2011.\n\n(ii) IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011; IAE Alert NMSB No. V2500-ENG-72-0615, Revision 4, dated May 2, 2013; and IAE Alert NMSB No. V2500-ENG-72-0615, Revision 5, dated August 5, 2014.\n\n(iii) IAE NMSB No. V2500-ENG-72-0638, dated April 11, 2013.\n\n(m) Alternative Methods of Compliance (AMOCs)\n\nThe Manager, Engine Certification Office, FAA, may approve AMOCs for this AD. Use the procedures found in 14 CFR 39.19 to make your request. You may email your request to: ANE-AD-AMOC@faa.gov.\n\n(n) Related Information\n\n(1) For more information about this AD, contact Martin Adler, Aerospace Engineer, Engine Certification Office, FAA, Engine & Propeller Directorate, 12 New England Executive Park, Burlington, MA 01803; phone: 781-238-7157; fax: 781-238-7199; email: martin.adler@faa.gov.\n\n(2) IAE NMSB No. V2500-ENG-72-0638, dated April 11, 2013; IAE NMSB No. V2500-ENG-72-0637, dated May 2, 2013; IAE NMSB No. V2500-ENG-72-0625, dated October 8, 2014; IAE EM Task 72-41-11-200-001; and IAE EM Task 72-41-11-110-001, which are not incorporated by reference in this AD, can be obtained from IAE, using the contact information in paragraph (o)(3) of this AD. IAE NMSB No. V2500-ENG-72-0638, dated April 11, 2013 provides guidance on performing the USI. IAE NMSB No. V2500-ENG-72-0637 and IAE EM Task 72-41-11-200-001 provide guidance on performing the FPI. Guidance on performing the ECI can be found in IAE NMSB No. V2500-ENG-72-0625. IAE Engine Manual Task 72-41-11-110-001 provides guidance on cleaning the HPC stage 3 to 8 drum.\n\n(o) Material Incorporated by Reference\n\n(1) The Director of the Federal Register approved the incorporation by reference (IBR) of the service information listed in this paragraph under 5 U.S.C. 552(a) and 1 CFR part 51.\n\n(2) You must use this service information as applicable to do the actions required by this AD, unless the AD specifies otherwise.\n\n(i) International Aero Engines Alert Non-Modification Service Bulletin No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014.\n\n(ii) Reserved.\n\n(3) For IAE service information identified in this AD, contact International Aero Engines AG, 400 Main Street, East Hartford, CT 06118; phone: 860-368-3700; fax: 860-368-4600; email: iaeinfo@iaev2500.com; Internet: https://www.iaeworld.com .\n\n(4) You may view this service information at the FAA, Engine & Propeller Directorate, 12 New England Executive Park, Burlington, MA. For information on the availability of this material at the FAA, call 781-238-7125.\n\n(5) You may view this service information at the National Archives and Records Administration (NARA). For information on the availability of this material at NARA, call 202-741-6030, or go to: http://www.archives.gov/federal-register/cfr/ibr-locations.html .\n\nIssued in Burlington, Massachusetts, on April 30, 2015.\n\nColleen M. D'Alessandro,\n\nAssistant Directorate Manager, Engine & Propeller Directorate, Aircraft Certification Service.\n\n[FR Doc. 2015-12068 Filed 5-26-15; 8:45 am]\n",
+        "type": "text"
+      }
+    ]
+  },
+  "response": {
+    "answer": {
+      "ad_number": "AD 2015-10-04",
+      "ambiguities": [
+        {
+          "description": "Paragraphs (e)(2), (e)(3) and (g) refer to \"IAE V2500-A5 turbofan engines\", a designation that paragraph (c) does not list as a model. The record maps it to the seven -A5 models in (c)(3).",
+          "paragraph": "(e)(2)",
+          "readings": [
+            "\"V2500-A5\" means the V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, V2530-A5 and V2533-A5 engines of (c)(3) (used in this record).",
+            "\"V2500-A5\" means whatever engines the SB's Group C/D lists include, regardless of model designation."
+          ]
+        },
+        {
+          "description": "Paragraphs (e)(4) and (e)(5) apply to \"IAE V2500-A1, -A5, and -D5 turbofan engines\". The record treats this as every model in (c). Applicability also depends on the engine not being listed in Groups A through D and on the drum assembly P/N, both of which are known only from the SB.",
+          "paragraph": "(e)(4)",
+          "readings": [
+            "Applies to all models in paragraph (c) (used in this record).",
+            "Applies only to the model designations the SB groups name."
+          ]
+        },
+        {
+          "description": "The text does not say what initial USI applies to an applicable engine that is in none of Groups A through D and whose drum assembly P/N is in neither Group E nor Group F.",
+          "paragraph": "(e)",
+          "readings": [
+            "No initial or repetitive USI applies; only (h), (i) and (j) apply.",
+            "Such an engine needs an AMOC or FAA clarification."
+          ]
+        },
+        {
+          "description": "In (e)(1) through (e)(5), \"within 200 cycles of the drum accumulating X cycles\" counts drum cycles (the preamble's response to IAE and MTU). The record converts this to a drum cycles-since-new limit of X + 200. The text does not say whether \"within 200 cycles from the effective date of this AD\" counts engine cycles or drum cycles.",
+          "paragraph": "(e)(1)",
+          "readings": [
+            "The 200-cycle grace counts engine flight cycles after the effective date (used in this record).",
+            "The 200-cycle grace counts drum cycles after the effective date (differs if the drum moved between engines)."
+          ]
+        },
+        {
+          "description": "Paragraph (e) allows the (h)(3) FPI/ECI to stand in for the initial USI. Paragraph (f) counts repeats from \"the last USI after the initial inspection\". The text does not say when the first repetitive USI is due if the initial inspection was an FPI/ECI rather than a USI, other than through the Grace Periods Table of (f)(3).",
+          "paragraph": "(f)(1)",
+          "readings": [
+            "The first repetitive USI is due per the SB Grace Periods Table counted from the piece-part-exposure inspection.",
+            "The first repetitive USI is due 750 (or 500 for Group D) cycles after the substituted initial inspection."
+          ]
+        },
+        {
+          "description": "The regulatory text titles (j) \"Mandatory Terminating Action\" but does not name the paragraphs it terminates. The terminates list rests on the preamble statement that terminating action means no further action is required.",
+          "paragraph": "(j)",
+          "readings": [
+            "Accomplishing (j) ends (e), (f) and (h) for that engine; the (i) installation prohibition continues (used in this record).",
+            "Accomplishing (j) ends only the inspections of (e) and (f)."
+          ]
+        },
+        {
+          "description": "Paragraph (l) identifies Revisions 4 and 5 as \"IAE Alert NMSB No. V2500-ENG-72-0615\", while (e) and (o) identify the Revision 6 bulletin as \"V2500-ENG-72-A0615\". Paragraph (e)(1) also calls it a \"Non-Mandatory\" Service Bulletin, while (o)(2)(i) says \"Non-Modification\". The identifiers are copied as printed.",
+          "paragraph": "(l)",
+          "readings": [
+            "All refer to the same bulletin series, renumbered with the A prefix when it became an Alert bulletin.",
+            "The credited Revision 4/5 documents must carry the number exactly as printed in (l)."
+          ]
+        }
+      ],
+      "amoc_paragraph": "(m)",
+      "applicability": {
+        "engine_models": [
+          "V2500-A1",
+          "V2525-D5",
+          "V2528-D5",
+          "V2522-A5",
+          "V2524-A5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2530-A5",
+          "V2533-A5"
+        ],
+        "engine_serials": [
+          {
+            "excluded": [
+              "V16707"
+            ],
+            "models": [
+              "V2522-A5",
+              "V2524-A5",
+              "V2527-A5",
+              "V2527E-A5",
+              "V2527M-A5",
+              "V2530-A5",
+              "V2533-A5"
+            ],
+            "paragraph": "(c)(3)",
+            "ranges": [
+              {
+                "first": "V10001",
+                "last": "V13190"
+              },
+              {
+                "first": "V15001",
+                "last": "V16728"
+              }
+            ],
+            "serial_numbers": []
+          }
+        ],
+        "model_paragraphs": [
+          {
+            "models": [
+              "V2500-A1"
+            ],
+            "paragraph": "(c)(1)"
+          },
+          {
+            "models": [
+              "V2525-D5",
+              "V2528-D5"
+            ],
+            "paragraph": "(c)(2)"
+          },
+          {
+            "models": [
+              "V2522-A5",
+              "V2524-A5",
+              "V2527-A5",
+              "V2527E-A5",
+              "V2527M-A5",
+              "V2530-A5",
+              "V2533-A5"
+            ],
+            "paragraph": "(c)(3)"
+          }
+        ],
+        "models_paragraph": "(c)",
+        "parts": [],
+        "parts_combine": "any",
+        "parts_paragraph": ""
+      },
+      "continuing_obligations": [
+        {
+          "description": "After the effective date of this AD, do not install any silver-plated nuts, P/N AS44862 or AS64367, into any engine.",
+          "paragraph": "(i)",
+          "part_group": "silver_plated_nuts"
+        }
+      ],
+      "corrections": [],
+      "credit_for_previous_actions": [
+        {
+          "actions": [
+            "(e)(1)",
+            "(e)(2)",
+            "(e)(3)",
+            "(e)(4)",
+            "(e)(5)"
+          ],
+          "description": "An inspection of the HPC stage 3 to 8 drum performed before the effective date meets the initial inspection requirement of paragraph (e) if it used one of these: IAE NMSB No. V2500-ENG-72-0608, Revision 3, dated September 20, 2011; IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011; IAE Alert NMSB No. V2500-ENG-72-0615, Revision 4, dated May 2, 2013; IAE Alert NMSB No. V2500-ENG-72-0615, Revision 5, dated August 5, 2014; or IAE NMSB No. V2500-ENG-72-0638, dated April 11, 2013. Whether such an inspection was done is not held in engine records.",
+          "paragraph": "(l)"
+        }
+      ],
+      "definitions": [
+        {
+          "paragraph": "(k)",
+          "term": "piece-part exposure"
+        }
+      ],
+      "dependencies": [
+        {
+          "holds": "engine_serial_numbers",
+          "id": "dep_groups_a_to_d",
+          "incorporated_in": [
+            "(o)(2)(i)"
+          ],
+          "kind": "incorporated_by_reference",
+          "paragraph": "(e)",
+          "title": "IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014, paragraph 1.E.: engine serial numbers listed in \"Group A\", \"Group B\", \"Group C\", and \"Group D\""
+        },
+        {
+          "holds": "other",
+          "id": "dep_groups_e_f",
+          "incorporated_in": [
+            "(o)(2)(i)"
+          ],
+          "kind": "incorporated_by_reference",
+          "paragraph": "(e)(4)",
+          "title": "IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014, paragraph 1.E.: drum assembly part numbers listed in \"Group E\" and \"Group F\""
+        },
+        {
+          "holds": "compliance_times",
+          "id": "dep_grace_periods",
+          "incorporated_in": [
+            "(o)(2)(i)"
+          ],
+          "kind": "incorporated_by_reference",
+          "paragraph": "(f)(3)",
+          "title": "IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014, paragraph 1.E.: \"Grace Periods Table\" for each compliance group"
+        }
+      ],
+      "effective_date": {
+        "date": "2015-07-01",
+        "emergency_ad": null,
+        "paragraph": "(a)"
+      },
+      "eligible_parts": [],
+      "final_rule_document": "2015-12068",
+      "governing_document": {
+        "document": "2015-12068",
+        "reason": "Final rule for AD 2015-10-04. No correction was published in the thread, so the final rule's regulatory text controls."
+      },
+      "notes": [
+        "The only material incorporated by reference is IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014 ((o)(2)(i)). IAE NMSB Nos. V2500-ENG-72-0638, V2500-ENG-72-0637 and V2500-ENG-72-0625, and IAE EM Tasks 72-41-11-200-001 and 72-41-11-110-001, are guidance only ((n)(2)).",
+        "The USI acceptance criteria in paragraph 3.A.(1)(a) of the SB, cited in (g)(1) and (g)(2), are procedure only and are not recorded as a dependency.",
+        "The ultrasonic probe manipulator assemblies and working standards named in (g) are tooling P/Ns, not engine part groups.",
+        "The drum cycles-since-new limits in (e)(1) through (e)(5) (8200, 6450, 3950, 12700, 9200) are the stated drum cycle threshold plus the stated 200-cycle allowance.",
+        "Paragraph (h) states no compliance time other than the next piece-part exposure. The (j) terminating action carries its own hard limit of 9,450 cycles after the effective date, not later than December 31, 2025.",
+        "Superseded AD 2012-09-09 (FR Doc 2012-12329) required nut removal within 8 years and used different USI thresholds. The 2015-12068 preamble states the previous compliance times are inapplicable after the effective date of this AD.",
+        "The preamble's Related Service Information paragraph says the A0615 bulletin 'describes procedures for inspecting the engine front support pins'. This appears to be a preamble error; the regulatory text uses the bulletin for HPC stage 3 to 8 drum groups, grace periods and USI acceptance criteria.",
+        "The preamble names drum P/Ns 6A8316 and 6B1404. The regulatory text prints no drum part number, so the drum part group has no P/Ns."
+      ],
+      "parts": [
+        {
+          "aliases": [
+            "high-pressure compressor (HPC) stage 3 to 8 drum",
+            "HPC stage 3 to 8 drum assembly",
+            "drum assembly"
+          ],
+          "component": "HPC stage 3 to 8 drum",
+          "dependency": "",
+          "id": "hpc_drum",
+          "listed": [],
+          "paragraph": "(e)",
+          "part_numbers": [],
+          "serials": "any"
+        },
+        {
+          "aliases": [
+            "silver-plated nuts",
+            "drum attachment nuts",
+            "attachment nuts",
+            "fully silver plated nuts",
+            "partially silver plated nuts"
+          ],
+          "component": "silver-plated nuts (fully or partially-plated) that attach the HPC stage 3 to 8 drum to the HPC stage 9 to 12 drum",
+          "dependency": "",
+          "id": "silver_plated_nuts",
+          "listed": [],
+          "paragraph": "(h)(1)",
+          "part_numbers": [
+            "AS44862",
+            "AS64367"
+          ],
+          "serials": "any"
+        }
+      ],
+      "preamble_basis": [
+        {
+          "document": "2015-12068",
+          "statement": "Terminating action means that no further action is required. Therefore, the AD does not require any additional inspections after the terminating action has been accomplished.",
+          "when": "terminating_action_passed"
+        }
+      ],
+      "relationships": [
+        {
+          "ad_number": "AD 2012-09-09",
+          "description": "This AD replaces AD 2012-09-09, Amendment 39-17044 (77 FR 30371, May 23, 2012).",
+          "document": "2012-12329",
+          "effective_date": null,
+          "other_paragraphs": [
+            "(c)"
+          ],
+          "paragraph": "(b)",
+          "stated_in": "2015-12068",
+          "type": "supersedes"
+        }
+      ],
+      "required_actions": [
+        {
+          "combination": "whichever_occurs_later",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_groups_a_to_d"
+          ],
+          "description": "Group A and Group B: initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 8,000 cycles or within 200 cycles from the effective date, whichever occurs later. The (h)(3) inspections may be used instead of a USI.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_since_new",
+              "paragraph": "(e)(1)",
+              "role": "alternative",
+              "value": 8200
+            },
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "flight_cycles_after_effective_date",
+              "paragraph": "(e)(1)",
+              "role": "alternative",
+              "value": 200
+            }
+          ],
+          "models": [
+            "V2500-A1"
+          ],
+          "operator_condition": "",
+          "paragraph": "(e)(1)",
+          "related_paragraphs": [
+            "(e)",
+            "(g)",
+            "(h)(3)"
+          ],
+          "target": "hpc_drum",
+          "terminates": [],
+          "trigger": {
+            "condition": "",
+            "definition_paragraphs": [],
+            "event": "none",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": []
+        },
+        {
+          "combination": "whichever_occurs_later",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_groups_a_to_d"
+          ],
+          "description": "Group C: initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 6,250 cycles or within 200 cycles from the effective date, whichever occurs later. The (h)(3) inspections may be used instead of a USI.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_since_new",
+              "paragraph": "(e)(2)",
+              "role": "alternative",
+              "value": 6450
+            },
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "flight_cycles_after_effective_date",
+              "paragraph": "(e)(2)",
+              "role": "alternative",
+              "value": 200
+            }
+          ],
+          "models": [
+            "V2522-A5",
+            "V2524-A5",
+            "V2527-A5",
+            "V2527E-A5",
+            "V2527M-A5",
+            "V2530-A5",
+            "V2533-A5"
+          ],
+          "operator_condition": "",
+          "paragraph": "(e)(2)",
+          "related_paragraphs": [
+            "(e)",
+            "(g)",
+            "(h)(3)"
+          ],
+          "target": "hpc_drum",
+          "terminates": [],
+          "trigger": {
+            "condition": "",
+            "definition_paragraphs": [],
+            "event": "none",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": []
+        },
+        {
+          "combination": "whichever_occurs_later",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_groups_a_to_d"
+          ],
+          "description": "Group D: initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 3,750 cycles or within 200 cycles from the effective date, whichever occurs later. The (h)(3) inspections may be used instead of a USI.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_since_new",
+              "paragraph": "(e)(3)",
+              "role": "alternative",
+              "value": 3950
+            },
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "flight_cycles_after_effective_date",
+              "paragraph": "(e)(3)",
+              "role": "alternative",
+              "value": 200
+            }
+          ],
+          "models": [
+            "V2522-A5",
+            "V2524-A5",
+            "V2527-A5",
+            "V2527E-A5",
+            "V2527M-A5",
+            "V2530-A5",
+            "V2533-A5"
+          ],
+          "operator_condition": "",
+          "paragraph": "(e)(3)",
+          "related_paragraphs": [
+            "(e)",
+            "(g)",
+            "(h)(3)"
+          ],
+          "target": "hpc_drum",
+          "terminates": [],
+          "trigger": {
+            "condition": "",
+            "definition_paragraphs": [],
+            "event": "none",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": []
+        },
+        {
+          "combination": "whichever_occurs_later",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_groups_a_to_d",
+            "dep_groups_e_f"
+          ],
+          "description": "Group E: for engines not listed in Groups A through D and with drum assembly P/Ns listed in Group E, initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 12,500 cycles or within 200 cycles from the effective date, whichever occurs later. The (h)(3) inspections may be used instead of a USI.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_since_new",
+              "paragraph": "(e)(4)",
+              "role": "alternative",
+              "value": 12700
+            },
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "flight_cycles_after_effective_date",
+              "paragraph": "(e)(4)",
+              "role": "alternative",
+              "value": 200
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(e)(4)",
+          "related_paragraphs": [
+            "(e)",
+            "(g)",
+            "(h)(3)"
+          ],
+          "target": "hpc_drum",
+          "terminates": [],
+          "trigger": {
+            "condition": "",
+            "definition_paragraphs": [],
+            "event": "none",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": []
+        },
+        {
+          "combination": "whichever_occurs_later",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_groups_a_to_d",
+            "dep_groups_e_f"
+          ],
+          "description": "Group F: for engines not listed in Groups A through D and with drum assembly P/Ns listed in Group F, initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 9,000 cycles or within 200 cycles from the effective date, whichever occurs later. The (h)(3) inspections may be used instead of a USI.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_since_new",
+              "paragraph": "(e)(5)",
+              "role": "alternative",
+              "value": 9200
+            },
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "flight_cycles_after_effective_date",
+              "paragraph": "(e)(5)",
+              "role": "alternative",
+              "value": 200
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(e)(5)",
+          "related_paragraphs": [
+            "(e)",
+            "(g)",
+            "(h)(3)"
+          ],
+          "target": "hpc_drum",
+          "terminates": [],
+          "trigger": {
+            "condition": "",
+            "definition_paragraphs": [],
+            "event": "none",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": []
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [],
+          "description": "If cracks are found during any of the inspections required by this AD, remove the drum from service before further flight.",
+          "kind": "replace_if_finding",
+          "limits": [],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(e)",
+          "target": "hpc_drum",
+          "terminates": [],
+          "trigger": {
+            "condition": "If cracks are found during any of the inspections required by this AD",
+            "definition_paragraphs": [],
+            "event": "prior_action",
+            "recurrence": "each"
+          },
+          "unrecorded_conditions": []
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_groups_a_to_d",
+            "dep_groups_e_f",
+            "dep_grace_periods"
+          ],
+          "description": "Groups A, B, C, E, and F: repetitive USIs of the HPC stage 3 to 8 drum within every 750 cycles of the last USI, after the initial inspection required by paragraph (e). Under (f)(3), the next USI may be delayed per the Grace Periods Table if the drum is inspected at piece-part exposure.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "flight_cycles_after_prior_action",
+              "paragraph": "(f)(1)",
+              "role": "alternative",
+              "value": 750
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(f)(1)",
+          "related_paragraphs": [
+            "(f)(3)",
+            "(g)"
+          ],
+          "target": "hpc_drum",
+          "terminates": [],
+          "trigger": {
+            "condition": "within every 750 cycles of the last USI after the initial inspection required by paragraph (e) of this AD",
+            "definition_paragraphs": [
+              "(e)"
+            ],
+            "event": "prior_action",
+            "recurrence": "each"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Whether the HPC stage 3 to 8 drum was inspected at piece-part exposure. If so, the next USI may be delayed per the Grace Periods Table.",
+              "paragraph": "(f)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_groups_a_to_d",
+            "dep_grace_periods"
+          ],
+          "description": "Group D: repetitive USIs of the HPC stage 3 to 8 drum within every 500 cycles of the last USI, after the initial inspection required by paragraph (e). Under (f)(3), the next USI may be delayed per the Grace Periods Table if the drum is inspected at piece-part exposure.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "flight_cycles_after_prior_action",
+              "paragraph": "(f)(2)",
+              "role": "alternative",
+              "value": 500
+            }
+          ],
+          "models": [
+            "V2522-A5",
+            "V2524-A5",
+            "V2527-A5",
+            "V2527E-A5",
+            "V2527M-A5",
+            "V2530-A5",
+            "V2533-A5"
+          ],
+          "operator_condition": "",
+          "paragraph": "(f)(2)",
+          "related_paragraphs": [
+            "(f)(3)",
+            "(g)"
+          ],
+          "target": "hpc_drum",
+          "terminates": [],
+          "trigger": {
+            "condition": "within every 500 cycles of the last USI after the initial inspection required by paragraph (e) of this AD",
+            "definition_paragraphs": [
+              "(e)"
+            ],
+            "event": "prior_action",
+            "recurrence": "each"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Whether the HPC stage 3 to 8 drum was inspected at piece-part exposure. If so, the next USI may be delayed per the Grace Periods Table.",
+              "paragraph": "(f)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [],
+          "description": "During any USI required by this AD, if the entire circumference cannot be inspected, remove the drum from the engine before further flight.",
+          "kind": "replace_if_finding",
+          "limits": [],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)",
+          "related_paragraphs": [
+            "(g)(1)",
+            "(g)(2)",
+            "(g)(3)"
+          ],
+          "target": "hpc_drum",
+          "terminates": [],
+          "trigger": {
+            "condition": "If the entire circumference cannot be inspected",
+            "definition_paragraphs": [],
+            "event": "prior_action",
+            "recurrence": "each"
+          },
+          "unrecorded_conditions": []
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [],
+          "description": "At the next piece-part exposure of the HPC stage 3 to 8 drum after the effective date, before returning any HPC stage 3 to 8 drum to service, remove from service all silver-plated nuts (fully or partially-plated), P/Ns AS44862 or AS64367, that attach the HPC stage 3 to 8 drum to the HPC stage 9 to 12 drum.",
+          "kind": "remove",
+          "limits": [],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(h)(1)",
+          "related_paragraphs": [
+            "(h)"
+          ],
+          "target": "silver_plated_nuts",
+          "terminates": [],
+          "trigger": {
+            "condition": "next piece-part exposure of the HPC stage 3 to 8 drum after the effective date of this AD; done before returning any HPC stage 3 to 8 drum to service",
+            "definition_paragraphs": [
+              "(k)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": []
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [],
+          "description": "At the next piece-part exposure of the HPC stage 3 to 8 drum after the effective date, before returning the drum to service, clean the HPC stage 3 to 8 drum to remove the silver residue.",
+          "kind": "other",
+          "limits": [],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(h)(2)",
+          "related_paragraphs": [
+            "(h)"
+          ],
+          "target": "hpc_drum",
+          "terminates": [],
+          "trigger": {
+            "condition": "next piece-part exposure of the HPC stage 3 to 8 drum after the effective date of this AD; done before returning any HPC stage 3 to 8 drum to service",
+            "definition_paragraphs": [
+              "(k)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": []
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [],
+          "description": "At the next piece-part exposure of the HPC stage 3 to 8 drum after the effective date, before returning the drum to service, inspect the drum for cracks by at least one of: FPI ((h)(3)(i)) or ECI ((h)(3)(ii)).",
+          "kind": "inspect",
+          "limits": [],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(h)(3)",
+          "related_paragraphs": [
+            "(h)",
+            "(h)(3)(i)",
+            "(h)(3)(ii)",
+            "(e)"
+          ],
+          "target": "hpc_drum",
+          "terminates": [],
+          "trigger": {
+            "condition": "next piece-part exposure of the HPC stage 3 to 8 drum after the effective date of this AD; done before returning any HPC stage 3 to 8 drum to service",
+            "definition_paragraphs": [
+              "(k)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": []
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [],
+          "description": "Mandatory terminating action, within 9,450 cycles after the effective date but not later than December 31, 2025. Install (1) an HPC stage 3 to 8 drum that has never operated with silver-plated nuts (fully or partially plated) attaching it to the HPC stage 9 to 12 drum, with (2) silver-free nuts attaching the HPC stage 3 to 8 drum to the HPC stage 9 to 12 drum.",
+          "kind": "install",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "flight_cycles_after_effective_date",
+              "paragraph": "(j)",
+              "role": "alternative",
+              "value": 9450
+            },
+            {
+              "anchor_offset_days": 0,
+              "date": "2025-12-31",
+              "dependency": "",
+              "kind": "calendar_date",
+              "paragraph": "(j)",
+              "role": "overall_cap",
+              "value": null
+            }
+          ],
+          "models": [],
+          "open_while_installed": [
+            "silver_plated_nuts"
+          ],
+          "operator_condition": "",
+          "paragraph": "(j)",
+          "related_paragraphs": [
+            "(j)(1)",
+            "(j)(2)"
+          ],
+          "target": "hpc_drum",
+          "terminates": [
+            "(e)(1)",
+            "(e)(2)",
+            "(e)(3)",
+            "(e)(4)",
+            "(e)(5)",
+            "(f)(1)",
+            "(f)(2)",
+            "(h)(1)",
+            "(h)(2)",
+            "(h)(3)"
+          ],
+          "trigger": {
+            "condition": "",
+            "definition_paragraphs": [],
+            "event": "none",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Whether the installed HPC stage 3 to 8 drum has never operated with silver-plated nuts (fully or partially plated) attaching it to the HPC stage 9 to 12 drum. This is part operating history that no engine record field holds.",
+              "paragraph": "(j)(1)"
+            }
+          ]
+        }
+      ],
+      "schema_version": "2"
+    },
+    "batch": true,
+    "cost_usd": 0.201542,
+    "error": null,
+    "extra": {
+      "batch_id": "msgbatch_01NQUZ5FgysWuhY95CpjyeGC"
+    },
+    "latency_seconds": 0.192,
+    "model": "claude-opus-5-5",
+    "request_id": null,
+    "request_key": "45a4ca3962fa4ed6f63a6fe658f3f4bc75c98705bcb9fbf478fd6dcbeb15d658",
+    "stop_reason": "end_turn",
+    "text": "```json\n{\n  \"schema_version\": \"2\",\n  \"ad_number\": \"AD 2015-10-04\",\n  \"final_rule_document\": \"2015-12068\",\n  \"governing_document\": {\n    \"document\": \"2015-12068\",\n    \"reason\": \"Final rule for AD 2015-10-04. No correction was published in the thread, so the final rule's regulatory text controls.\"\n  },\n  \"corrections\": [],\n  \"effective_date\": {\n    \"date\": \"2015-07-01\",\n    \"paragraph\": \"(a)\",\n    \"emergency_ad\": null\n  },\n  \"relationships\": [\n    {\n      \"type\": \"supersedes\",\n      \"ad_number\": \"AD 2012-09-09\",\n      \"document\": \"2012-12329\",\n      \"effective_date\": null,\n      \"stated_in\": \"2015-12068\",\n      \"paragraph\": \"(b)\",\n      \"description\": \"This AD replaces AD 2012-09-09, Amendment 39-17044 (77 FR 30371, May 23, 2012).\",\n      \"other_paragraphs\": [\n        \"(c)\"\n      ]\n    }\n  ],\n  \"dependencies\": [\n    {\n      \"id\": \"dep_groups_a_to_d\",\n      \"title\": \"IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014, paragraph 1.E.: engine serial numbers listed in \\\"Group A\\\", \\\"Group B\\\", \\\"Group C\\\", and \\\"Group D\\\"\",\n      \"kind\": \"incorporated_by_reference\",\n      \"holds\": \"engine_serial_numbers\",\n      \"paragraph\": \"(e)\",\n      \"incorporated_in\": [\n        \"(o)(2)(i)\"\n      ]\n    },\n    {\n      \"id\": \"dep_groups_e_f\",\n      \"title\": \"IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014, paragraph 1.E.: drum assembly part numbers listed in \\\"Group E\\\" and \\\"Group F\\\"\",\n      \"kind\": \"incorporated_by_reference\",\n      \"holds\": \"other\",\n      \"paragraph\": \"(e)(4)\",\n      \"incorporated_in\": [\n        \"(o)(2)(i)\"\n      ]\n    },\n    {\n      \"id\": \"dep_grace_periods\",\n      \"title\": \"IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014, paragraph 1.E.: \\\"Grace Periods Table\\\" for each compliance group\",\n      \"kind\": \"incorporated_by_reference\",\n      \"holds\": \"compliance_times\",\n      \"paragraph\": \"(f)(3)\",\n      \"incorporated_in\": [\n        \"(o)(2)(i)\"\n      ]\n    }\n  ],\n  \"parts\": [\n    {\n      \"id\": \"hpc_drum\",\n      \"component\": \"HPC stage 3 to 8 drum\",\n      \"aliases\": [\n        \"high-pressure compressor (HPC) stage 3 to 8 drum\",\n        \"HPC stage 3 to 8 drum assembly\",\n        \"drum assembly\"\n      ],\n      \"part_numbers\": [],\n      \"serials\": \"any\",\n      \"listed\": [],\n      \"dependency\": \"\",\n      \"paragraph\": \"(e)\"\n    },\n    {\n      \"id\": \"silver_plated_nuts\",\n      \"component\": \"silver-plated nuts (fully or partially-plated) that attach the HPC stage 3 to 8 drum to the HPC stage 9 to 12 drum\",\n      \"aliases\": [\n        \"silver-plated nuts\",\n        \"drum attachment nuts\",\n        \"attachment nuts\",\n        \"fully silver plated nuts\",\n        \"partially silver plated nuts\"\n      ],\n      \"part_numbers\": [\n        \"AS44862\",\n        \"AS64367\"\n      ],\n      \"serials\": \"any\",\n      \"listed\": [],\n      \"dependency\": \"\",\n      \"paragraph\": \"(h)(1)\"\n    }\n  ],\n  \"applicability\": {\n    \"engine_models\": [\n      \"V2500-A1\",\n      \"V2525-D5\",\n      \"V2528-D5\",\n      \"V2522-A5\",\n      \"V2524-A5\",\n      \"V2527-A5\",\n      \"V2527E-A5\",\n      \"V2527M-A5\",\n      \"V2530-A5\",\n      \"V2533-A5\"\n    ],\n    \"models_paragraph\": \"(c)\",\n    \"engine_serials\": [\n      {\n        \"models\": [\n          \"V2522-A5\",\n          \"V2524-A5\",\n          \"V2527-A5\",\n          \"V2527E-A5\",\n          \"V2527M-A5\",\n          \"V2530-A5\",\n          \"V2533-A5\"\n        ],\n        \"ranges\": [\n          {\n            \"first\": \"V10001\",\n            \"last\": \"V13190\"\n          },\n          {\n            \"first\": \"V15001\",\n            \"last\": \"V16728\"\n          }\n        ],\n        \"serial_numbers\": [],\n        \"excluded\": [\n          \"V16707\"\n        ],\n        \"paragraph\": \"(c)(3)\"\n      }\n    ],\n    \"parts\": [],\n    \"parts_combine\": \"any\",\n    \"parts_paragraph\": \"\",\n    \"model_paragraphs\": [\n      {\n        \"models\": [\n          \"V2500-A1\"\n        ],\n        \"paragraph\": \"(c)(1)\"\n      },\n      {\n        \"models\": [\n          \"V2525-D5\",\n          \"V2528-D5\"\n        ],\n        \"paragraph\": \"(c)(2)\"\n      },\n      {\n        \"models\": [\n          \"V2522-A5\",\n          \"V2524-A5\",\n          \"V2527-A5\",\n          \"V2527E-A5\",\n          \"V2527M-A5\",\n          \"V2530-A5\",\n          \"V2533-A5\"\n        ],\n        \"paragraph\": \"(c)(3)\"\n      }\n    ]\n  },\n  \"eligible_parts\": [],\n  \"required_actions\": [\n    {\n      \"paragraph\": \"(e)(1)\",\n      \"description\": \"Group A and Group B: initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 8,000 cycles or within 200 cycles from the effective date, whichever occurs later. The (h)(3) inspections may be used instead of a USI.\",\n      \"kind\": \"inspect\",\n      \"models\": [\n        \"V2500-A1\"\n      ],\n      \"target\": \"hpc_drum\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [\n        \"dep_groups_a_to_d\"\n      ],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"none\",\n        \"recurrence\": \"next\",\n        \"condition\": \"\",\n        \"definition_paragraphs\": []\n      },\n      \"limits\": [\n        {\n          \"kind\": \"part_cycles_since_new\",\n          \"value\": 8200,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(e)(1)\"\n        },\n        {\n          \"kind\": \"flight_cycles_after_effective_date\",\n          \"value\": 200,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(e)(1)\"\n        }\n      ],\n      \"combination\": \"whichever_occurs_later\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(e)\",\n        \"(g)\",\n        \"(h)(3)\"\n      ]\n    },\n    {\n      \"paragraph\": \"(e)(2)\",\n      \"description\": \"Group C: initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 6,250 cycles or within 200 cycles from the effective date, whichever occurs later. The (h)(3) inspections may be used instead of a USI.\",\n      \"kind\": \"inspect\",\n      \"models\": [\n        \"V2522-A5\",\n        \"V2524-A5\",\n        \"V2527-A5\",\n        \"V2527E-A5\",\n        \"V2527M-A5\",\n        \"V2530-A5\",\n        \"V2533-A5\"\n      ],\n      \"target\": \"hpc_drum\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [\n        \"dep_groups_a_to_d\"\n      ],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"none\",\n        \"recurrence\": \"next\",\n        \"condition\": \"\",\n        \"definition_paragraphs\": []\n      },\n      \"limits\": [\n        {\n          \"kind\": \"part_cycles_since_new\",\n          \"value\": 6450,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(e)(2)\"\n        },\n        {\n          \"kind\": \"flight_cycles_after_effective_date\",\n          \"value\": 200,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(e)(2)\"\n        }\n      ],\n      \"combination\": \"whichever_occurs_later\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(e)\",\n        \"(g)\",\n        \"(h)(3)\"\n      ]\n    },\n    {\n      \"paragraph\": \"(e)(3)\",\n      \"description\": \"Group D: initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 3,750 cycles or within 200 cycles from the effective date, whichever occurs later. The (h)(3) inspections may be used instead of a USI.\",\n      \"kind\": \"inspect\",\n      \"models\": [\n        \"V2522-A5\",\n        \"V2524-A5\",\n        \"V2527-A5\",\n        \"V2527E-A5\",\n        \"V2527M-A5\",\n        \"V2530-A5\",\n        \"V2533-A5\"\n      ],\n      \"target\": \"hpc_drum\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [\n        \"dep_groups_a_to_d\"\n      ],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"none\",\n        \"recurrence\": \"next\",\n        \"condition\": \"\",\n        \"definition_paragraphs\": []\n      },\n      \"limits\": [\n        {\n          \"kind\": \"part_cycles_since_new\",\n          \"value\": 3950,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(e)(3)\"\n        },\n        {\n          \"kind\": \"flight_cycles_after_effective_date\",\n          \"value\": 200,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(e)(3)\"\n        }\n      ],\n      \"combination\": \"whichever_occurs_later\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(e)\",\n        \"(g)\",\n        \"(h)(3)\"\n      ]\n    },\n    {\n      \"paragraph\": \"(e)(4)\",\n      \"description\": \"Group E: for engines not listed in Groups A through D and with drum assembly P/Ns listed in Group E, initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 12,500 cycles or within 200 cycles from the effective date, whichever occurs later. The (h)(3) inspections may be used instead of a USI.\",\n      \"kind\": \"inspect\",\n      \"models\": [],\n      \"target\": \"hpc_drum\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [\n        \"dep_groups_a_to_d\",\n        \"dep_groups_e_f\"\n      ],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"none\",\n        \"recurrence\": \"next\",\n        \"condition\": \"\",\n        \"definition_paragraphs\": []\n      },\n      \"limits\": [\n        {\n          \"kind\": \"part_cycles_since_new\",\n          \"value\": 12700,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(e)(4)\"\n        },\n        {\n          \"kind\": \"flight_cycles_after_effective_date\",\n          \"value\": 200,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(e)(4)\"\n        }\n      ],\n      \"combination\": \"whichever_occurs_later\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(e)\",\n        \"(g)\",\n        \"(h)(3)\"\n      ]\n    },\n    {\n      \"paragraph\": \"(e)(5)\",\n      \"description\": \"Group F: for engines not listed in Groups A through D and with drum assembly P/Ns listed in Group F, initial USI of the HPC stage 3 to 8 drum within 200 cycles of the drum accumulating 9,000 cycles or within 200 cycles from the effective date, whichever occurs later. The (h)(3) inspections may be used instead of a USI.\",\n      \"kind\": \"inspect\",\n      \"models\": [],\n      \"target\": \"hpc_drum\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [\n        \"dep_groups_a_to_d\",\n        \"dep_groups_e_f\"\n      ],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"none\",\n        \"recurrence\": \"next\",\n        \"condition\": \"\",\n        \"definition_paragraphs\": []\n      },\n      \"limits\": [\n        {\n          \"kind\": \"part_cycles_since_new\",\n          \"value\": 9200,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(e)(5)\"\n        },\n        {\n          \"kind\": \"flight_cycles_after_effective_date\",\n          \"value\": 200,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(e)(5)\"\n        }\n      ],\n      \"combination\": \"whichever_occurs_later\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(e)\",\n        \"(g)\",\n        \"(h)(3)\"\n      ]\n    },\n    {\n      \"paragraph\": \"(e)\",\n      \"description\": \"If cracks are found during any of the inspections required by this AD, remove the drum from service before further flight.\",\n      \"kind\": \"replace_if_finding\",\n      \"models\": [],\n      \"target\": \"hpc_drum\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"prior_action\",\n        \"recurrence\": \"each\",\n        \"condition\": \"If cracks are found during any of the inspections required by this AD\",\n        \"definition_paragraphs\": []\n      },\n      \"limits\": [],\n      \"combination\": \"single\",\n      \"terminates\": []\n    },\n    {\n      \"paragraph\": \"(f)(1)\",\n      \"description\": \"Groups A, B, C, E, and F: repetitive USIs of the HPC stage 3 to 8 drum within every 750 cycles of the last USI, after the initial inspection required by paragraph (e). Under (f)(3), the next USI may be delayed per the Grace Periods Table if the drum is inspected at piece-part exposure.\",\n      \"kind\": \"inspect\",\n      \"models\": [],\n      \"target\": \"hpc_drum\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\n          \"description\": \"Whether the HPC stage 3 to 8 drum was inspected at piece-part exposure. If so, the next USI may be delayed per the Grace Periods Table.\",\n          \"paragraph\": \"(f)(3)\"\n        }\n      ],\n      \"dependencies\": [\n        \"dep_groups_a_to_d\",\n        \"dep_groups_e_f\",\n        \"dep_grace_periods\"\n      ],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"prior_action\",\n        \"recurrence\": \"each\",\n        \"condition\": \"within every 750 cycles of the last USI after the initial inspection required by paragraph (e) of this AD\",\n        \"definition_paragraphs\": [\n          \"(e)\"\n        ]\n      },\n      \"limits\": [\n        {\n          \"kind\": \"flight_cycles_after_prior_action\",\n          \"value\": 750,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(f)(1)\"\n        }\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(f)(3)\",\n        \"(g)\"\n      ]\n    },\n    {\n      \"paragraph\": \"(f)(2)\",\n      \"description\": \"Group D: repetitive USIs of the HPC stage 3 to 8 drum within every 500 cycles of the last USI, after the initial inspection required by paragraph (e). Under (f)(3), the next USI may be delayed per the Grace Periods Table if the drum is inspected at piece-part exposure.\",\n      \"kind\": \"inspect\",\n      \"models\": [\n        \"V2522-A5\",\n        \"V2524-A5\",\n        \"V2527-A5\",\n        \"V2527E-A5\",\n        \"V2527M-A5\",\n        \"V2530-A5\",\n        \"V2533-A5\"\n      ],\n      \"target\": \"hpc_drum\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\n          \"description\": \"Whether the HPC stage 3 to 8 drum was inspected at piece-part exposure. If so, the next USI may be delayed per the Grace Periods Table.\",\n          \"paragraph\": \"(f)(3)\"\n        }\n      ],\n      \"dependencies\": [\n        \"dep_groups_a_to_d\",\n        \"dep_grace_periods\"\n      ],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"prior_action\",\n        \"recurrence\": \"each\",\n        \"condition\": \"within every 500 cycles of the last USI after the initial inspection required by paragraph (e) of this AD\",\n        \"definition_paragraphs\": [\n          \"(e)\"\n        ]\n      },\n      \"limits\": [\n        {\n          \"kind\": \"flight_cycles_after_prior_action\",\n          \"value\": 500,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(f)(2)\"\n        }\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(f)(3)\",\n        \"(g)\"\n      ]\n    },\n    {\n      \"paragraph\": \"(g)\",\n      \"description\": \"During any USI required by this AD, if the entire circumference cannot be inspected, remove the drum from the engine before further flight.\",\n      \"kind\": \"replace_if_finding\",\n      \"models\": [],\n      \"target\": \"hpc_drum\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"prior_action\",\n        \"recurrence\": \"each\",\n        \"condition\": \"If the entire circumference cannot be inspected\",\n        \"definition_paragraphs\": []\n      },\n      \"limits\": [],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(g)(1)\",\n        \"(g)(2)\",\n        \"(g)(3)\"\n      ]\n    },\n    {\n      \"paragraph\": \"(h)(1)\",\n      \"description\": \"At the next piece-part exposure of the HPC stage 3 to 8 drum after the effective date, before returning any HPC stage 3 to 8 drum to service, remove from service all silver-plated nuts (fully or partially-plated), P/Ns AS44862 or AS64367, that attach the HPC stage 3 to 8 drum to the HPC stage 9 to 12 drum.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"silver_plated_nuts\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"maintenance_event\",\n        \"recurrence\": \"next\",\n        \"condition\": \"next piece-part exposure of the HPC stage 3 to 8 drum after the effective date of this AD; done before returning any HPC stage 3 to 8 drum to service\",\n        \"definition_paragraphs\": [\n          \"(k)\"\n        ]\n      },\n      \"limits\": [],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(h)\"\n      ]\n    },\n    {\n      \"paragraph\": \"(h)(2)\",\n      \"description\": \"At the next piece-part exposure of the HPC stage 3 to 8 drum after the effective date, before returning the drum to service, clean the HPC stage 3 to 8 drum to remove the silver residue.\",\n      \"kind\": \"other\",\n      \"models\": [],\n      \"target\": \"hpc_drum\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"maintenance_event\",\n        \"recurrence\": \"next\",\n        \"condition\": \"next piece-part exposure of the HPC stage 3 to 8 drum after the effective date of this AD; done before returning any HPC stage 3 to 8 drum to service\",\n        \"definition_paragraphs\": [\n          \"(k)\"\n        ]\n      },\n      \"limits\": [],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(h)\"\n      ]\n    },\n    {\n      \"paragraph\": \"(h)(3)\",\n      \"description\": \"At the next piece-part exposure of the HPC stage 3 to 8 drum after the effective date, before returning the drum to service, inspect the drum for cracks by at least one of: FPI ((h)(3)(i)) or ECI ((h)(3)(ii)).\",\n      \"kind\": \"inspect\",\n      \"models\": [],\n      \"target\": \"hpc_drum\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"maintenance_event\",\n        \"recurrence\": \"next\",\n        \"condition\": \"next piece-part exposure of the HPC stage 3 to 8 drum after the effective date of this AD; done before returning any HPC stage 3 to 8 drum to service\",\n        \"definition_paragraphs\": [\n          \"(k)\"\n        ]\n      },\n      \"limits\": [],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(h)\",\n        \"(h)(3)(i)\",\n        \"(h)(3)(ii)\",\n        \"(e)\"\n      ]\n    },\n    {\n      \"paragraph\": \"(j)\",\n      \"description\": \"Mandatory terminating action, within 9,450 cycles after the effective date but not later than December 31, 2025. Install (1) an HPC stage 3 to 8 drum that has never operated with silver-plated nuts (fully or partially plated) attaching it to the HPC stage 9 to 12 drum, with (2) silver-free nuts attaching the HPC stage 3 to 8 drum to the HPC stage 9 to 12 drum.\",\n      \"kind\": \"install\",\n      \"models\": [],\n      \"target\": \"hpc_drum\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\n          \"description\": \"Whether the installed HPC stage 3 to 8 drum has never operated with silver-plated nuts (fully or partially plated) attaching it to the HPC stage 9 to 12 drum. This is part operating history that no engine record field holds.\",\n          \"paragraph\": \"(j)(1)\"\n        }\n      ],\n      \"dependencies\": [],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"none\",\n        \"recurrence\": \"next\",\n        \"condition\": \"\",\n        \"definition_paragraphs\": []\n      },\n      \"limits\": [\n        {\n          \"kind\": \"flight_cycles_after_effective_date\",\n          \"value\": 9450,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(j)\"\n        },\n        {\n          \"kind\": \"calendar_date\",\n          \"value\": null,\n          \"date\": \"2025-12-31\",\n          \"anchor_offset_days\": 0,\n          \"role\": \"overall_cap\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(j)\"\n        }\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [\n        \"(e)(1)\",\n        \"(e)(2)\",\n        \"(e)(3)\",\n        \"(e)(4)\",\n        \"(e)(5)\",\n        \"(f)(1)\",\n        \"(f)(2)\",\n        \"(h)(1)\",\n        \"(h)(2)\",\n        \"(h)(3)\"\n      ],\n      \"related_paragraphs\": [\n        \"(j)(1)\",\n        \"(j)(2)\"\n      ],\n      \"open_while_installed\": [\n        \"silver_plated_nuts\"\n      ]\n    }\n  ],\n  \"continuing_obligations\": [\n    {\n      \"paragraph\": \"(i)\",\n      \"description\": \"After the effective date of this AD, do not install any silver-plated nuts, P/N AS44862 or AS64367, into any engine.\",\n      \"part_group\": \"silver_plated_nuts\"\n    }\n  ],\n  \"credit_for_previous_actions\": [\n    {\n      \"paragraph\": \"(l)\",\n      \"actions\": [\n        \"(e)(1)\",\n        \"(e)(2)\",\n        \"(e)(3)\",\n        \"(e)(4)\",\n        \"(e)(5)\"\n      ],\n      \"description\": \"An inspection of the HPC stage 3 to 8 drum performed before the effective date meets the initial inspection requirement of paragraph (e) if it used one of these: IAE NMSB No. V2500-ENG-72-0608, Revision 3, dated September 20, 2011; IAE NMSB No. V2500-ENG-72-0615, Revision 3, dated September 20, 2011; IAE Alert NMSB No. V2500-ENG-72-0615, Revision 4, dated May 2, 2013; IAE Alert NMSB No. V2500-ENG-72-0615, Revision 5, dated August 5, 2014; or IAE NMSB No. V2500-ENG-72-0638, dated April 11, 2013. Whether such an inspection was done is not held in engine records.\"\n    }\n  ],\n  \"definitions\": [\n    {\n      \"term\": \"piece-part exposure\",\n      \"paragraph\": \"(k)\"\n    }\n  ],\n  \"amoc_paragraph\": \"(m)\",\n  \"ambiguities\": [\n    {\n      \"paragraph\": \"(e)(2)\",\n      \"description\": \"Paragraphs (e)(2), (e)(3) and (g) refer to \\\"IAE V2500-A5 turbofan engines\\\", a designation that paragraph (c) does not list as a model. The record maps it to the seven -A5 models in (c)(3).\",\n      \"readings\": [\n        \"\\\"V2500-A5\\\" means the V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, V2530-A5 and V2533-A5 engines of (c)(3) (used in this record).\",\n        \"\\\"V2500-A5\\\" means whatever engines the SB's Group C/D lists include, regardless of model designation.\"\n      ]\n    },\n    {\n      \"paragraph\": \"(e)(4)\",\n      \"description\": \"Paragraphs (e)(4) and (e)(5) apply to \\\"IAE V2500-A1, -A5, and -D5 turbofan engines\\\". The record treats this as every model in (c). Applicability also depends on the engine not being listed in Groups A through D and on the drum assembly P/N, both of which are known only from the SB.\",\n      \"readings\": [\n        \"Applies to all models in paragraph (c) (used in this record).\",\n        \"Applies only to the model designations the SB groups name.\"\n      ]\n    },\n    {\n      \"paragraph\": \"(e)\",\n      \"description\": \"The text does not say what initial USI applies to an applicable engine that is in none of Groups A through D and whose drum assembly P/N is in neither Group E nor Group F.\",\n      \"readings\": [\n        \"No initial or repetitive USI applies; only (h), (i) and (j) apply.\",\n        \"Such an engine needs an AMOC or FAA clarification.\"\n      ]\n    },\n    {\n      \"paragraph\": \"(e)(1)\",\n      \"description\": \"In (e)(1) through (e)(5), \\\"within 200 cycles of the drum accumulating X cycles\\\" counts drum cycles (the preamble's response to IAE and MTU). The record converts this to a drum cycles-since-new limit of X + 200. The text does not say whether \\\"within 200 cycles from the effective date of this AD\\\" counts engine cycles or drum cycles.\",\n      \"readings\": [\n        \"The 200-cycle grace counts engine flight cycles after the effective date (used in this record).\",\n        \"The 200-cycle grace counts drum cycles after the effective date (differs if the drum moved between engines).\"\n      ]\n    },\n    {\n      \"paragraph\": \"(f)(1)\",\n      \"description\": \"Paragraph (e) allows the (h)(3) FPI/ECI to stand in for the initial USI. Paragraph (f) counts repeats from \\\"the last USI after the initial inspection\\\". The text does not say when the first repetitive USI is due if the initial inspection was an FPI/ECI rather than a USI, other than through the Grace Periods Table of (f)(3).\",\n      \"readings\": [\n        \"The first repetitive USI is due per the SB Grace Periods Table counted from the piece-part-exposure inspection.\",\n        \"The first repetitive USI is due 750 (or 500 for Group D) cycles after the substituted initial inspection.\"\n      ]\n    },\n    {\n      \"paragraph\": \"(j)\",\n      \"description\": \"The regulatory text titles (j) \\\"Mandatory Terminating Action\\\" but does not name the paragraphs it terminates. The terminates list rests on the preamble statement that terminating action means no further action is required.\",\n      \"readings\": [\n        \"Accomplishing (j) ends (e), (f) and (h) for that engine; the (i) installation prohibition continues (used in this record).\",\n        \"Accomplishing (j) ends only the inspections of (e) and (f).\"\n      ]\n    },\n    {\n      \"paragraph\": \"(l)\",\n      \"description\": \"Paragraph (l) identifies Revisions 4 and 5 as \\\"IAE Alert NMSB No. V2500-ENG-72-0615\\\", while (e) and (o) identify the Revision 6 bulletin as \\\"V2500-ENG-72-A0615\\\". Paragraph (e)(1) also calls it a \\\"Non-Mandatory\\\" Service Bulletin, while (o)(2)(i) says \\\"Non-Modification\\\". The identifiers are copied as printed.\",\n      \"readings\": [\n        \"All refer to the same bulletin series, renumbered with the A prefix when it became an Alert bulletin.\",\n        \"The credited Revision 4/5 documents must carry the number exactly as printed in (l).\"\n      ]\n    }\n  ],\n  \"notes\": [\n    \"The only material incorporated by reference is IAE Alert NMSB No. V2500-ENG-72-A0615, Revision 6, dated September 4, 2014 ((o)(2)(i)). IAE NMSB Nos. V2500-ENG-72-0638, V2500-ENG-72-0637 and V2500-ENG-72-0625, and IAE EM Tasks 72-41-11-200-001 and 72-41-11-110-001, are guidance only ((n)(2)).\",\n    \"The USI acceptance criteria in paragraph 3.A.(1)(a) of the SB, cited in (g)(1) and (g)(2), are procedure only and are not recorded as a dependency.\",\n    \"The ultrasonic probe manipulator assemblies and working standards named in (g) are tooling P/Ns, not engine part groups.\",\n    \"The drum cycles-since-new limits in (e)(1) through (e)(5) (8200, 6450, 3950, 12700, 9200) are the stated drum cycle threshold plus the stated 200-cycle allowance.\",\n    \"Paragraph (h) states no compliance time other than the next piece-part exposure. The (j) terminating action carries its own hard limit of 9,450 cycles after the effective date, not later than December 31, 2025.\",\n    \"Superseded AD 2012-09-09 (FR Doc 2012-12329) required nut removal within 8 years and used different USI thresholds. The 2015-12068 preamble states the previous compliance times are inapplicable after the effective date of this AD.\",\n    \"The preamble's Related Service Information paragraph says the A0615 bulletin 'describes procedures for inspecting the engine front support pins'. This appears to be a preamble error; the regulatory text uses the bulletin for HPC stage 3 to 8 drum groups, grace periods and USI acceptance criteria.\",\n    \"The preamble names drum P/Ns 6A8316 and 6B1404. The regulatory text prints no drum part number, so the drum part group has no P/Ns.\"\n  ],\n  \"preamble_basis\": [\n    {\n      \"document\": \"2015-12068\",\n      \"when\": \"terminating_action_passed\",\n      \"statement\": \"Terminating action means that no further action is required. Therefore, the AD does not require any additional inspections after the terminating action has been accomplished.\"\n    }\n  ]\n}\n```",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 37383,
+      "inference_geo": "global",
+      "input_tokens": 37,
+      "output_tokens": 19773,
+      "output_tokens_details": {
+        "thinking_tokens": 8339
+      },
+      "service_tier": "batch",
+      "speed": "standard"
+    }
+  }
+}

@@ -1,0 +1,347 @@
+{
+  "request": {
+    "max_tokens": 64000,
+    "messages": [
+      {
+        "content": "Draft the rule record for the airworthiness directive published as Federal Register document 2020-07627.",
+        "role": "user"
+      }
+    ],
+    "model": "claude-opus-5-5",
+    "output_config": {
+      "effort": "high"
+    },
+    "system": [
+      {
+        "text": "You draft the rule record for one FAA airworthiness directive (AD) from its\nFederal Register text. You are given every document in the directive's\nthread: the proposed rule, the final rule, any correction, and any earlier\nAD it replaces. A program will screen engine records against your rule\nrecord without reading the text, and a person will proofread it against the\ntext before anyone relies on it.\n\nExtract only what the text states. Do not add requirements, fill gaps with\nassumptions, or settle unclear wording silently: report it under\nambiguities. A program that cannot tell sends the engine to a person, which\nis safe; a record that guesses can clear an engine that needs action, which\nis not.\n\n## Which text controls\n\nThe final rule's regulatory text controls, not the proposal or the\ndiscussion. If a correction republishes the regulatory text, the\ncorrection's text controls wherever it differs; governing_document is the\ndocument whose regulatory text controls, with the reason. List each\ncorrected paragraph under corrections. Use the preamble only where the\nregulatory text relies on it, and say so under preamble_basis.\n\n## Documents, paragraphs, and identifiers\n\n- A document field holds the Federal Register document number only.\n- A paragraph field holds the paragraph label exactly as written in the\n  governing document, such as \"(c)\", \"(g)(2)\", or \"(h)(1)(i)\". Where a\n  paragraph field does not apply, give an empty string.\n- Copy every engine model, part number, and serial number exactly as the\n  text prints it. Never write an identifier the text does not print: a\n  program rejects any record that contains one.\n\n## Material you do not have\n\nWhen the text decides something by reference to material it does not\nprint (a serial-number list or compliance-time table in a service bulletin\nor other incorporated document, or a table printed only as an image), do\nnot guess its contents. Record the material under dependencies, and point\nthe part groups, actions, and limits that need it at that dependency. A\nprocedure the text only tells the operator to follow is not a dependency\nunless it decides whether or when an action applies.\n\n## Facts no engine record holds\n\nWhen an action turns on a fact that engine records do not hold (a part's\noperating history, a condition only the operator knows), name it under the\naction's unrecorded_conditions instead of assuming it either way.\n\n## Answer format\n\nReply with one JSON object that validates against the JSON Schema below,\nand nothing else. Follow each field's description in the schema; it says\nwhat the field means and how the program reads it. Fill every required\nfield; use empty lists and empty strings where the directive has nothing for\na field.\n\n## JSON Schema\n{\n \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n \"$id\": \"https://schemas.faa-directive-impact.dev/rule-record-v2.schema.json\",\n \"title\": \"Directive rule record, version 2\",\n \"description\": \"One airworthiness directive's screening predicates, read from its regulatory text only. Every value names the paragraph it rests on. A value the text does not state is never filled in: it is left empty, marked unclear, or pointed at an unavailable dependency, and the interpreter sends the engine to review. Version 1 (b3-rule-record.schema.json) stays frozen for the B3 v1 prompt and runs. Revision 2.1 adds optional fields (model_paragraphs, incorporated_in, related_paragraphs, open_while_installed, part_group on obligations, other_paragraphs on relationships, preamble_basis, the threshold limit role, unknown_means_met); a 2.0 record is still valid.\",\n \"type\": \"object\",\n \"additionalProperties\": false,\n \"required\": [\n  \"schema_version\",\n  \"ad_number\",\n  \"final_rule_document\",\n  \"governing_document\",\n  \"corrections\",\n  \"effective_date\",\n  \"relationships\",\n  \"dependencies\",\n  \"parts\",\n  \"applicability\",\n  \"eligible_parts\",\n  \"required_actions\",\n  \"continuing_obligations\",\n  \"credit_for_previous_actions\",\n  \"definitions\",\n  \"amoc_paragraph\",\n  \"ambiguities\",\n  \"notes\"\n ],\n \"properties\": {\n  \"schema_version\": {\n   \"const\": \"2\"\n  },\n  \"ad_number\": {\n   \"description\": \"The AD number as printed, in the form \\\"AD yyyy-nn-nn\\\".\",\n   \"type\": \"string\",\n   \"pattern\": \"^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$\"\n  },\n  \"final_rule_document\": {\n   \"description\": \"Federal Register document number of the final rule.\",\n   \"$ref\": \"#/$defs/document\"\n  },\n  \"governing_document\": {\n   \"description\": \"The document whose regulatory text is cited: the final rule, or a correction that republishes it.\",\n   \"type\": \"object\",\n   \"additionalProperties\": false,\n   \"required\": [\n    \"document\",\n    \"reason\"\n   ],\n   \"properties\": {\n    \"document\": {\n     \"$ref\": \"#/$defs/document\"\n    },\n    \"reason\": {\n     \"type\": \"string\"\n    }\n   }\n  },\n  \"corrections\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"document\",\n     \"paragraph\",\n     \"original_text\",\n     \"corrected_text\"\n    ],\n    \"properties\": {\n     \"document\": {\n      \"$ref\": \"#/$defs/document\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"original_text\": {\n      \"type\": \"string\"\n     },\n     \"corrected_text\": {\n      \"type\": \"string\"\n     }\n    }\n   }\n  },\n  \"effective_date\": {\n   \"type\": \"object\",\n   \"additionalProperties\": false,\n   \"required\": [\n    \"date\",\n    \"paragraph\",\n    \"emergency_ad\"\n   ],\n   \"properties\": {\n    \"date\": {\n     \"$ref\": \"#/$defs/date\"\n    },\n    \"paragraph\": {\n     \"$ref\": \"#/$defs/paragraph\"\n    },\n    \"emergency_ad\": {\n     \"description\": \"Set when paragraph (a) says an earlier emergency AD made the requirements effective on actual notice. Each operator's effective date is then its date of actual notice, which no engine record holds; null otherwise.\",\n     \"anyOf\": [\n      {\n       \"type\": \"null\"\n      },\n      {\n       \"type\": \"object\",\n       \"additionalProperties\": false,\n       \"required\": [\n        \"ad_number\",\n        \"issued\"\n       ],\n       \"properties\": {\n        \"ad_number\": {\n         \"type\": \"string\",\n         \"pattern\": \"^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$\"\n        },\n        \"issued\": {\n         \"$ref\": \"#/$defs/date\"\n        }\n       }\n      }\n     ]\n    }\n   }\n  },\n  \"relationships\": {\n   \"description\": \"Links to other ADs. superseded_by: a later AD replaces this one from its effective date (state where the replacing AD says so). supersedes: this AD replaces an earlier one. terminates_by_compliance: complying with a paragraph of this AD satisfies another AD. terminated_by_compliance: complying with a paragraph of another AD satisfies this one. related: anything else, informational.\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"type\",\n     \"ad_number\",\n     \"document\",\n     \"effective_date\",\n     \"stated_in\",\n     \"paragraph\",\n     \"description\"\n    ],\n    \"properties\": {\n     \"type\": {\n      \"enum\": [\n       \"superseded_by\",\n       \"supersedes\",\n       \"terminates_by_compliance\",\n       \"terminated_by_compliance\",\n       \"related\"\n      ]\n     },\n     \"ad_number\": {\n      \"type\": \"string\",\n      \"pattern\": \"^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$\"\n     },\n     \"document\": {\n      \"description\": \"The other AD's final rule document number, or \\\"\\\" when not known from the text.\",\n      \"type\": \"string\"\n     },\n     \"effective_date\": {\n      \"description\": \"The other AD's effective date when the relationship depends on it (superseded_by); null otherwise.\",\n      \"anyOf\": [\n       {\n        \"type\": \"null\"\n       },\n       {\n        \"$ref\": \"#/$defs/date\"\n       }\n      ]\n     },\n     \"stated_in\": {\n      \"description\": \"Document whose paragraph states the relationship.\",\n      \"$ref\": \"#/$defs/document\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"description\": {\n      \"type\": \"string\"\n     },\n     \"other_paragraphs\": {\n      \"description\": \"Optional. Paragraphs of the other document this relationship bears on (e.g. the replaced AD's applicability), cited only for a relationship whose other document precedes this one (supersedes).\",\n      \"type\": \"array\",\n      \"items\": {\n       \"$ref\": \"#/$defs/paragraph\"\n      }\n     }\n    }\n   }\n  },\n  \"dependencies\": {\n   \"description\": \"Material the screen needs but does not have: service information incorporated by reference, or a table printed only as an image. Parts, actions, and limits point at these by id; an engine that reaches one goes to review naming its title.\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"id\",\n     \"title\",\n     \"kind\",\n     \"holds\",\n     \"paragraph\"\n    ],\n    \"properties\": {\n     \"id\": {\n      \"$ref\": \"#/$defs/id\"\n     },\n     \"title\": {\n      \"description\": \"What a person must obtain: the document, its revision, and the table or figure, as the directive names them.\",\n      \"type\": \"string\",\n      \"minLength\": 1\n     },\n     \"kind\": {\n      \"enum\": [\n       \"incorporated_by_reference\",\n       \"image_only_figure\"\n      ]\n     },\n     \"holds\": {\n      \"enum\": [\n       \"serial_numbers\",\n       \"engine_serial_numbers\",\n       \"compliance_times\",\n       \"procedure\",\n       \"other\"\n      ]\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"incorporated_in\": {\n      \"description\": \"Optional. Paragraphs that incorporate the material by reference , cited whenever the dependency is named.\",\n      \"type\": \"array\",\n      \"items\": {\n       \"$ref\": \"#/$defs/paragraph\"\n      }\n     }\n    }\n   }\n  },\n  \"parts\": {\n   \"description\": \"Part groups the directive names. A group is found on an engine by part number, or by component name (component or an alias) for its position. serials: any (every serial of these P/Ns), listed (only the rows in listed, each P/N and S/N pair printed in the directive), or listed_in_dependency (the serial list is in unavailable material named by dependency).\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"id\",\n     \"component\",\n     \"aliases\",\n     \"part_numbers\",\n     \"serials\",\n     \"listed\",\n     \"dependency\",\n     \"paragraph\"\n    ],\n    \"properties\": {\n     \"id\": {\n      \"$ref\": \"#/$defs/id\"\n     },\n     \"component\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n     },\n     \"aliases\": {\n      \"description\": \"Other names the directive or records use for the same position, used to find the position's record.\",\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"string\",\n       \"minLength\": 1\n      }\n     },\n     \"part_numbers\": {\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"string\",\n       \"minLength\": 1\n      },\n      \"description\": \"Part numbers of the group. Empty means any part number at the named position (the directive names the part but prints no P/N).\"\n     },\n     \"serials\": {\n      \"enum\": [\n       \"any\",\n       \"listed\",\n       \"listed_in_dependency\"\n      ]\n     },\n     \"listed\": {\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"object\",\n       \"additionalProperties\": false,\n       \"required\": [\n        \"part_number\",\n        \"serial_number\",\n        \"cycles_since_new_limit\"\n       ],\n       \"properties\": {\n        \"part_number\": {\n         \"type\": \"string\",\n         \"minLength\": 1\n        },\n        \"serial_number\": {\n         \"type\": \"string\",\n         \"minLength\": 1\n        },\n        \"cycles_since_new_limit\": {\n         \"description\": \"A per-row part cycles-since-new limit printed in the directive, or null.\",\n         \"anyOf\": [\n          {\n           \"type\": \"null\"\n          },\n          {\n           \"type\": \"integer\",\n           \"minimum\": 0\n          }\n         ]\n        }\n       }\n      }\n     },\n     \"dependency\": {\n      \"description\": \"Dependency id when serials is listed_in_dependency, else \\\"\\\".\",\n      \"type\": \"string\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    }\n   }\n  },\n  \"applicability\": {\n   \"type\": \"object\",\n   \"additionalProperties\": false,\n   \"required\": [\n    \"engine_models\",\n    \"models_paragraph\",\n    \"engine_serials\",\n    \"parts\",\n    \"parts_combine\",\n    \"parts_paragraph\"\n   ],\n   \"properties\": {\n    \"engine_models\": {\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n     }\n    },\n    \"models_paragraph\": {\n     \"$ref\": \"#/$defs/paragraph\"\n    },\n    \"engine_serials\": {\n     \"description\": \"Engine serial conditions. Each restricts the models it names to engines whose serial is in a range (inclusive; a null bound is open) or in serial_numbers, and not in excluded. Models no entry names are not restricted. Ranges compare a shared letter prefix and the number after it.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"required\": [\n       \"models\",\n       \"ranges\",\n       \"serial_numbers\",\n       \"excluded\",\n       \"paragraph\"\n      ],\n      \"properties\": {\n       \"models\": {\n        \"type\": \"array\",\n        \"minItems\": 1,\n        \"items\": {\n         \"type\": \"string\"\n        }\n       },\n       \"ranges\": {\n        \"type\": \"array\",\n        \"items\": {\n         \"type\": \"object\",\n         \"additionalProperties\": false,\n         \"required\": [\n          \"first\",\n          \"last\"\n         ],\n         \"properties\": {\n          \"first\": {\n           \"anyOf\": [\n            {\n             \"type\": \"null\"\n            },\n            {\n             \"type\": \"string\",\n             \"minLength\": 1\n            }\n           ]\n          },\n          \"last\": {\n           \"anyOf\": [\n            {\n             \"type\": \"null\"\n            },\n            {\n             \"type\": \"string\",\n             \"minLength\": 1\n            }\n           ]\n          }\n         }\n        }\n       },\n       \"serial_numbers\": {\n        \"type\": \"array\",\n        \"items\": {\n         \"type\": \"string\",\n         \"minLength\": 1\n        }\n       },\n       \"excluded\": {\n        \"type\": \"array\",\n        \"items\": {\n         \"type\": \"string\",\n         \"minLength\": 1\n        }\n       },\n       \"paragraph\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       }\n      }\n     }\n    },\n    \"parts\": {\n     \"description\": \"Part group ids that applicability requires installed; empty when the directive applies to the models alone.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/id\"\n     }\n    },\n    \"parts_combine\": {\n     \"description\": \"any: one group installed is enough (\\\"or\\\", \\\"either\\\"). all: every group must be installed (\\\"and\\\").\",\n     \"enum\": [\n      \"any\",\n      \"all\"\n     ]\n    },\n    \"parts_paragraph\": {\n     \"$ref\": \"#/$defs/optional_paragraph\"\n    },\n    \"model_paragraphs\": {\n     \"description\": \"Optional. The sub-paragraph that names each model, where the applicability paragraph is split into sub-paragraphs; cited with the models paragraph.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"required\": [\n       \"models\",\n       \"paragraph\"\n      ],\n      \"properties\": {\n       \"models\": {\n        \"type\": \"array\",\n        \"items\": {\n         \"type\": \"string\"\n        }\n       },\n       \"paragraph\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       }\n      }\n     }\n    }\n   }\n  },\n  \"eligible_parts\": {\n   \"description\": \"Parts the directive defines as eligible for installation, by group. A recorded P/N listed here clears its group, with this paragraph cited.\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"part_group\",\n     \"part_numbers\",\n     \"description\",\n     \"paragraph\"\n    ],\n    \"properties\": {\n     \"part_group\": {\n      \"$ref\": \"#/$defs/id\"\n     },\n     \"part_numbers\": {\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"string\",\n       \"minLength\": 1\n      }\n     },\n     \"description\": {\n      \"type\": \"string\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    }\n   }\n  },\n  \"required_actions\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"$ref\": \"#/$defs/action\"\n   }\n  },\n  \"continuing_obligations\": {\n   \"description\": \"Obligations that bind while the directive applies, even with no action triggered: installation prohibitions, no alternative actions once done.\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"paragraph\",\n     \"description\"\n    ],\n    \"properties\": {\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"description\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n     },\n     \"part_group\": {\n      \"description\": \"Optional. For an installation prohibition, the part group it prohibits; a part of the group recorded as installed after the effective date keeps the screen open.\",\n      \"type\": \"string\"\n     }\n    }\n   }\n  },\n  \"credit_for_previous_actions\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"paragraph\",\n     \"actions\",\n     \"description\"\n    ],\n    \"properties\": {\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"actions\": {\n      \"description\": \"Paragraphs of the actions that may be credited.\",\n      \"type\": \"array\",\n      \"items\": {\n       \"$ref\": \"#/$defs/paragraph\"\n      }\n     },\n     \"description\": {\n      \"type\": \"string\"\n     }\n    }\n   }\n  },\n  \"definitions\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"term\",\n     \"paragraph\"\n    ],\n    \"properties\": {\n     \"term\": {\n      \"type\": \"string\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    }\n   }\n  },\n  \"amoc_paragraph\": {\n   \"$ref\": \"#/$defs/optional_paragraph\"\n  },\n  \"ambiguities\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"paragraph\",\n     \"description\",\n     \"readings\"\n    ],\n    \"properties\": {\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"description\": {\n      \"type\": \"string\"\n     },\n     \"readings\": {\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"string\"\n      }\n     }\n    }\n   }\n  },\n  \"notes\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"string\"\n   }\n  },\n  \"preamble_basis\": {\n   \"description\": \"Optional. Preamble statements the record relies on, cited as that document's preamble. when: always (relied on for every screen of a listed model), terminating_action_passed (when a terminating action's compliance time has passed), event_before_effective_date (when a triggering event before the effective date is set aside).\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"document\",\n     \"when\",\n     \"statement\"\n    ],\n    \"properties\": {\n     \"document\": {\n      \"$ref\": \"#/$defs/document\"\n     },\n     \"when\": {\n      \"enum\": [\n       \"always\",\n       \"terminating_action_passed\",\n       \"event_before_effective_date\"\n      ]\n     },\n     \"statement\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n     }\n    }\n   }\n  }\n },\n \"$defs\": {\n  \"document\": {\n   \"type\": \"string\",\n   \"pattern\": \"^[0-9]{4}-[0-9]{5}$\"\n  },\n  \"date\": {\n   \"type\": \"string\",\n   \"pattern\": \"^[0-9]{4}-[0-9]{2}-[0-9]{2}$\"\n  },\n  \"id\": {\n   \"type\": \"string\",\n   \"pattern\": \"^[a-z0-9_]+$\"\n  },\n  \"paragraph\": {\n   \"type\": \"string\",\n   \"pattern\": \"^\\\\([a-z]+\\\\)(\\\\([0-9]+\\\\))?(\\\\([ivx]+\\\\))?$\"\n  },\n  \"optional_paragraph\": {\n   \"type\": \"string\",\n   \"pattern\": \"^(\\\\([a-z]+\\\\)(\\\\([0-9]+\\\\))?(\\\\([ivx]+\\\\))?)?$\"\n  },\n  \"action\": {\n   \"type\": \"object\",\n   \"additionalProperties\": false,\n   \"required\": [\n    \"paragraph\",\n    \"description\",\n    \"kind\",\n    \"models\",\n    \"target\",\n    \"operator_condition\",\n    \"unrecorded_conditions\",\n    \"dependencies\",\n    \"csn_band_at_effective_date\",\n    \"trigger\",\n    \"limits\",\n    \"combination\",\n    \"terminates\"\n   ],\n   \"properties\": {\n    \"paragraph\": {\n     \"$ref\": \"#/$defs/paragraph\"\n    },\n    \"description\": {\n     \"type\": \"string\"\n    },\n    \"kind\": {\n     \"description\": \"remove: take the target part out of service (an installed target part means the action is open). inspect, check, revise_maintenance_program, install: work the engine record cannot show as done. replace_if_finding: contingent on a finding of another action; reported, never queued on its own. other: anything else (sent to review).\",\n     \"enum\": [\n      \"remove\",\n      \"inspect\",\n      \"check\",\n      \"revise_maintenance_program\",\n      \"install\",\n      \"replace_if_finding\",\n      \"other\"\n     ]\n    },\n    \"models\": {\n     \"description\": \"Engine models this action is limited to; empty for every applicable model.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"string\"\n     }\n    },\n    \"target\": {\n     \"description\": \"Part group id the action acts on, or \\\"\\\" for the engine or operator as a whole.\",\n     \"type\": \"string\"\n    },\n    \"operator_condition\": {\n     \"description\": \"air_carrier_operation when the action binds only air carriers (read from operator.air_carrier_operation); \\\"\\\" otherwise.\",\n     \"enum\": [\n      \"\",\n      \"air_carrier_operation\"\n     ]\n    },\n    \"unrecorded_conditions\": {\n     \"description\": \"Conditions the action states that no engine record field holds (a part's operating history, whether an earlier inspection was done). An engine the action would otherwise reach goes to review naming them.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"required\": [\n       \"description\",\n       \"paragraph\"\n      ],\n      \"properties\": {\n       \"description\": {\n        \"type\": \"string\",\n        \"minLength\": 1\n       },\n       \"paragraph\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       }\n      }\n     }\n    },\n    \"dependencies\": {\n     \"description\": \"Dependency ids that decide whether or when this action applies (a serial or engine group list, a compliance-time table). Not for procedure-only material.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/id\"\n     }\n    },\n    \"csn_band_at_effective_date\": {\n     \"description\": \"Limits the action to target parts whose cycles since new on the effective date fall in this inclusive band (a null bound is open); null when the action has no band.\",\n     \"anyOf\": [\n      {\n       \"type\": \"null\"\n      },\n      {\n       \"type\": \"object\",\n       \"additionalProperties\": false,\n       \"required\": [\n        \"min\",\n        \"max\"\n       ],\n       \"properties\": {\n        \"min\": {\n         \"anyOf\": [\n          {\n           \"type\": \"null\"\n          },\n          {\n           \"type\": \"integer\",\n           \"minimum\": 0\n          }\n         ]\n        },\n        \"max\": {\n         \"anyOf\": [\n          {\n           \"type\": \"null\"\n          },\n          {\n           \"type\": \"integer\",\n           \"minimum\": 0\n          }\n         ]\n        }\n       }\n      }\n     ]\n    },\n    \"trigger\": {\n     \"type\": \"object\",\n     \"additionalProperties\": false,\n     \"required\": [\n      \"event\",\n      \"recurrence\",\n      \"condition\",\n      \"definition_paragraphs\"\n     ],\n     \"properties\": {\n      \"event\": {\n       \"description\": \"none: compliance time only. engine_shop_visit: a shop visit as the directive defines it (records assert it per AD). maintenance_event: another defined event the record cannot identify (piece-part exposure, module removal or exposure). part_installation: installing the target part. prior_action: counted from accomplishing another action of this AD (repeat inspections, follow-on removals).\",\n       \"enum\": [\n        \"none\",\n        \"engine_shop_visit\",\n        \"maintenance_event\",\n        \"part_installation\",\n        \"prior_action\"\n       ]\n      },\n      \"recurrence\": {\n       \"description\": \"next: the first such event after the effective date. each: every such event, indefinitely.\",\n       \"enum\": [\n        \"next\",\n        \"each\"\n       ]\n      },\n      \"condition\": {\n       \"description\": \"A qualifier on the event as the directive words it, or the event's own wording for maintenance_event and prior_action; \\\"\\\" if none.\",\n       \"type\": \"string\"\n      },\n      \"definition_paragraphs\": {\n       \"description\": \"Paragraphs defining the event and its qualifier.\",\n       \"type\": \"array\",\n       \"items\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       }\n      }\n     }\n    },\n    \"limits\": {\n     \"description\": \"Compliance-time limits. role caps_event: bounds the event (\\\"at the next shop visit, but not later than ...\\\"). alternative: a leg combined with the (capped) event by combination. overall_cap: bounds the combined result (\\\"..., whichever occurs later, not to exceed ...\\\"). threshold (2.1): for a recurring (each) trigger, the event counts only once the target part reaches value; below it the action is a continuing obligation.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"required\": [\n       \"kind\",\n       \"value\",\n       \"date\",\n       \"anchor_offset_days\",\n       \"role\",\n       \"dependency\",\n       \"paragraph\"\n      ],\n      \"properties\": {\n       \"kind\": {\n        \"description\": \"part_cycles_since_new: the target part reaches value cycles since new (null value: the part's listed row limit). part_cycles_after_effective_date: the target part accumulates value cycles counted from the effective date. flight_cycles_after_effective_date: engine flight cycles counted from the effective date plus anchor_offset_days. days_after_effective_date: calendar days. calendar_date: a fixed date (in date). flight_cycles_after_prior_action: cycles since the action named in the trigger (repeat intervals; prior_action triggers only). other: anything else (sent to review).\",\n        \"enum\": [\n         \"part_cycles_since_new\",\n         \"part_cycles_after_effective_date\",\n         \"flight_cycles_after_effective_date\",\n         \"days_after_effective_date\",\n         \"calendar_date\",\n         \"flight_cycles_after_prior_action\",\n         \"other\"\n        ]\n       },\n       \"value\": {\n        \"anyOf\": [\n         {\n          \"type\": \"null\"\n         },\n         {\n          \"type\": \"integer\",\n          \"minimum\": 0\n         }\n        ]\n       },\n       \"date\": {\n        \"anyOf\": [\n         {\n          \"type\": \"null\"\n         },\n         {\n          \"$ref\": \"#/$defs/date\"\n         }\n        ]\n       },\n       \"anchor_offset_days\": {\n        \"description\": \"Days after the effective date from which flight cycles count (e.g. a records review due within 3 days); 0 otherwise.\",\n        \"type\": \"integer\",\n        \"minimum\": 0\n       },\n       \"role\": {\n        \"enum\": [\n         \"caps_event\",\n         \"alternative\",\n         \"overall_cap\",\n         \"threshold\"\n        ]\n       },\n       \"dependency\": {\n        \"description\": \"Dependency id holding the value when the directive prints it only there; else \\\"\\\".\",\n        \"type\": \"string\"\n       },\n       \"paragraph\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       },\n       \"unknown_means_met\": {\n        \"description\": \"Optional, threshold limits only: true when the directive itself says an unconfirmable count is treated as reached.\",\n        \"type\": \"boolean\"\n       }\n      }\n     }\n    },\n    \"combination\": {\n     \"description\": \"How the event leg and alternative limits combine: single (one leg), whichever_occurs_first, whichever_occurs_later, or unclear (sent to review).\",\n     \"enum\": [\n      \"single\",\n      \"whichever_occurs_first\",\n      \"whichever_occurs_later\",\n      \"unclear\"\n     ]\n    },\n    \"terminates\": {\n     \"description\": \"Paragraphs of this AD's other actions that this action ends once its compliance time has passed (a mandatory terminating action).\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    },\n    \"related_paragraphs\": {\n     \"description\": \"Optional. Other paragraphs the action rests on: its parent paragraph, its sub-steps, a limit such as a special flight permit restriction.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    },\n    \"open_while_installed\": {\n     \"description\": \"Optional. Part groups whose installation shows the action is not accomplished. A remove action's own target counts without listing it.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/id\"\n     }\n    }\n   }\n  }\n }\n}\n",
+        "type": "text"
+      },
+      {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "text": "===== Federal Register document 2020-07627 =====\nType: Rule\nPublished: 2020-04-13\nEffective date (from the Federal Register record): 2020-04-28\n\nDEPARTMENT OF TRANSPORTATION\n\nFederal Aviation Administration\n\n14 CFR Part 39\n\n[Docket No. FAA-2020-0314; Project Identifier AD-2020-00369-E; Amendment 39-21110; AD 2020-07-51]\n\nRIN 2120-AA64\n\nAirworthiness Directives; International Aero Engines AG (IAE) Turbofan Engines\n\nAGENCY:\n\nFederal Aviation Administration (FAA), DOT.\n\nACTION: Final rule; request for comments.\n\nSUMMARY:\n\nThe FAA is adopting a new airworthiness directive (AD) for certain International Aero Engines AG (IAE) V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 model turbofan engines. This emergency AD was sent previously to all known U.S. owners and operators of these engines. This AD requires removal of affected high-pressure turbine (HPT) 1st-stage disks from service. This AD was prompted by investigative findings from an event involving an uncontained failure of a HPT 1st-stage disk that resulted in high-energy debris penetrating the engine cowling. The FAA is issuing this AD to address the unsafe condition on these products.\n\nDATES:\n\nThis AD is effective April 28, 2020 to all persons except those persons to whom it was made immediately effective by Emergency AD 2020-07-51, issued on March 21, 2020, which contained the requirements of this amendment.\n\nThe FAA must receive comments on this AD by May 28, 2020.\n\nADDRESSES:\n\nYou may send comments, using the procedures found in 14 CFR 11.43 and 11.45, by any of the following methods:\n\n• Federal eRulemaking Portal: Go to https://www.regulations.gov. Follow the instructions for submitting comments.\n\n• Fax: 202-493-2251.\n\n• Mail: U.S. Department of Transportation, Docket Operations, M-30, West Building Ground Floor, Room W12-140, 1200 New Jersey Avenue SE, Washington, DC 20590.\n\n• Hand Delivery: Deliver to Mail address above between 9 a.m. and 5 p.m., Monday through Friday, except Federal holidays.\n\nExamining the AD Docket\n\nYou may examine the AD docket on the internet at https://www.regulations.gov by searching for and locating Docket No. FAA-2020-0314; or in person at Docket Operations between 9 a.m. and 5 p.m., Monday through Friday, except Federal holidays. The AD docket contains this final rule, any comments received, and other information. The street address for Docket Operations is listed above. Comments will be available in the AD docket shortly after receipt.\n\nFOR FURTHER INFORMATION CONTACT:\n\nNicholas J. Paine, Aerospace Engineer, ECO Branch, FAA, 1200 District Avenue, Burlington, MA 01803; phone: 781-238-7116; fax: 781-238-7199; Email: nicholas.j.paine@faa.gov .\n\nSUPPLEMENTARY INFORMATION:\n\nDiscussion\n\nOn March 21, 2020, the FAA issued Emergency AD 2020-07-51, which requires removal from service of affected HPT 1st-stage disks installed on IAE V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 model turbofan engines. This emergency AD was sent previously to all known U.S. owners and operators of these engines. This action was prompted by investigative findings from an event that occurred on March 18, 2020, in which an Airbus Model A321-231 airplane, powered by IAE V2533-A5 model turbofan engines, experienced an uncontained HPT 1st-stage disk failure that resulted in an aborted takeoff. This condition, if not addressed, could result in uncontained HPT failure, release of high-energy debris, damage to the engine, damage to the airplane, and loss of the airplane.\n\nFAA's Determination\n\nThe FAA is issuing this AD because the Agency evaluated all the relevant information and determined the unsafe condition described previously is likely to exist or develop in other products of the same type design.\n\nAD Requirements\n\nThis AD requires removal from service of affected HPT 1st-stage disks installed on IAE V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 model turbofan engines.\n\nInterim Action\n\nThe FAA considers this AD interim action. The root cause of this event is still under investigation.\n\nFAA's Justification and Determination of the Effective Date\n\nSection 553(b)(3)(B) of the Administrative Procedure Act (APA) (5 U.S.C.) authorizes agencies to dispense with notice and comment procedures for rules when the agency, for “good cause,” finds that those procedures are “impracticable, unnecessary, or contrary to the public interest.” Under this section, an agency, upon finding good cause, may issue a final rule without seeking comment prior to the rulemaking. Similarly, Section 553(d) of the APA authorizes agencies to make rules effective in less than 30 days, upon a finding of good cause.\n\nAn unsafe condition exists that required the immediate adoption of Emergency AD 2020-07-51, issued on March 21, 2020, to all known U.S. owners and operators of these engines. The FAA has found that the risk to the flying public justifies forgoing notice and comment prior to adoption of this rule. On March 18, 2020, an Airbus Model A321-231 airplane, powered by IAE V2533-A5 model turbofan engines, experienced an uncontained HPT 1st-stage disk failure that resulted in an aborted takeoff. The uncontained failure of the HPT 1st-stage disk resulted in high-energy debris penetrating the engine cowling. This unsafe condition, caused by an uncontained HPT 1st-stage disk failure, may result in loss of the airplane.\n\nThe FAA considers removal of the affected HPT 1st-stage disks to be an urgent safety issue. Removal of the affected HPT 1st-stage disks must be accomplished within 5 cycles after the effective date of this AD. These conditions still exist and the AD is hereby published in the Federal Register as an amendment to section 39.13 of the Federal Aviation Regulations (14 CFR 39.13) to make it effective to all persons. Accordingly, notice and opportunity for prior public comment are impracticable and contrary to public interest pursuant to 5 U.S.C. 553(b)(3)(B). In addition, for the reasons stated above, the FAA finds that good cause exists pursuant to 5 U.S.C. 553(d) for making this amendment effective in less than 30 days.\n\nComments Invited\n\nThis AD is a final rule that involves requirements affecting flight safety and was not preceded by notice and an opportunity for public comment. However, the FAA invites you to send any written data, views, or arguments about this final rule. Send your comments to an address listed under the ADDRESSES section. Include the docket number FAA-2020-0314 and Product Identifier AD-2020-00369-E at the beginning of your comments. The FAA specifically invite comments on the overall regulatory, economic, environmental, and energy aspects of this final rule. The FAA will consider all comments received by the closing date and may amend this final rule because of those comments.\n\nExcept for Confidential Business Information (CBI) as described in the following paragraph, and other information as described in 14 CFR 11.35, the FAA will post all comments received, without change, to https://www.regulations.gov, including any personal information you provide. The FAA will also post a report summarizing each substantive verbal contact received about this AD.\n\nConfidential Business Information\n\nConfidential Business Information (CBI) is commercial or financial information that is both customarily and actually treated as private by its owner. Under the Freedom of Information Act (FOIA) (5 U.S.C. 552), CBI is exempt from public disclosure. If your comments responsive to this AD contain commercial or financial information that is customarily treated as private, that you actually treat as private, and that is relevant or responsive to this AD, it is important that you clearly designate the submitted comments as CBI. Please mark each page of your submission containing CBI as “PROPIN.” The FAA will treat such marked submissions as confidential under the FOIA, and they will not be placed in the public docket of this AD. Submissions containing CBI should be sent to Nicholas J. Paine, Aerospace Engineer, ECO Branch, FAA, 1200 District Avenue, Burlington, MA, 01803. Any commentary that the FAA receives which is not specifically designated as CBI will be placed in the public docket for this rulemaking.\n\nRegulatory Flexibility Act\n\nThe requirements of the Regulatory Flexibility Act (RFA) do not apply when an agency finds good cause pursuant to 5 U.S.C. 553 to adopt a rule without prior notice and comment. Because FAA has determined that it has good cause to adopt this rule without notice and comment, RFA analysis is not required.\n\nCosts of Compliance\n\nThe FAA estimates that this AD affects 2 engines installed on airplanes of U.S. registry.\n\nThe FAA estimates the following costs to comply with this AD:\n\nEstimated Costs\nAction | Labor Cost | Parts Cost | Cost per product | Cost on U.S. operators\nRemove 1st-stage HPT disk | 226 work-hours × $85 per hour = $19,210 | $335,690 | $354,900 | $709,800\n\nAuthority for This Rulemaking\n\nTitle 49 of the United States Code specifies the FAA's authority to issue rules on aviation safety. Subtitle I, section 106, describes the authority of the FAA Administrator. Subtitle VII: Aviation Programs describes in more detail the scope of the Agency's authority.\n\nThe FAA is issuing this rulemaking under the authority described in Subtitle VII, Part A, Subpart III, Section 44701: “General requirements.” Under that section, Congress charges the FAA with promoting safe flight of civil aircraft in air commerce by prescribing regulations for practices, methods, and procedures the Administrator finds necessary for safety in air commerce. This regulation is within the scope of that authority because it addresses an unsafe condition that is likely to exist or develop on products identified in this rulemaking action.\n\nRegulatory Findings\n\nThis AD will not have federalism implications under Executive Order 13132. This AD will not have a substantial direct effect on the States, on the relationship between the national government and the States, or on the distribution of power and responsibilities among the various levels of government.\n\nFor the reasons discussed above, I certify that this AD:\n\n(1) Is not a “significant regulatory action” under Executive Order 12866, and\n\n(2) Will not affect intrastate aviation in Alaska.\n\nList of Subjects in 14 CFR Part 39\n\nAir transportation, Aircraft, Aviation safety, Incorporation by reference, Safety.\n\nAdoption of the Amendment\n\nAccordingly, under the authority delegated to me by the Administrator, the FAA amends 14 CFR part 39 as follows:\n\nPART 39—AIRWORTHINESS DIRECTIVES\n\n1. The authority citation for part 39 continues to read as follows:\n\nAuthority:\n\n49 U.S.C. 106(g), 40113, 44701.\n\n§ 39.13\n\n[Amended]\n\n2. The FAA amends § 39.13 by adding the following new airworthiness directive (AD):\n\n2020-07-51 International Aero Engines AG (IAE): Amendment 39-21110; Docket No. FAA-2020-0314; Project Identifier AD-2020-00369-E.\n\n(a) Effective Date\n\nThis AD is effective April 28, 2020 to all persons except those persons to whom it was made immediately effective by Emergency AD 2020-07-51, issued on March 21, 2020, which contained the requirements of this amendment.\n\n(b) Affected ADs\n\nNone.\n\n(c) Applicability\n\nThis AD applies to all International Aero Engines AG (IAE) V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, and V2533-A5 model turbofan engines with a high-pressure turbine (HPT) 1st-stage disk, part number (P/N) 2A5001 and serial number PKLBR37442, PKLBR38359, PKLBR73862, PKLBR73289, PKLBR73270, PKLBR38981, PKLBR38661, PKLBR40207, PKLBR37445, PKLBR73861, PKLBR73268, PKLBR38629, PKLBSC8047, or PKLBR38979, installed.\n\n(d) Subject\n\nJoint Aircraft System Component (JASC) Code 7250, Turbine Section.\n\n(e) Unsafe Condition\n\nThis AD was prompted by investigative findings from an event involving an uncontained failure of a HPT 1st-stage disk that resulted in high-energy debris penetrating the engine cowling. The FAA is issuing this AD to prevent failure of the HPT. The unsafe condition, if not addressed, could result in uncontained HPT failure, release of high-energy debris, damage to the engine, damage to the airplane, and loss of the airplane.\n\n(f) Compliance\n\nComply with this AD within the compliance times specified, unless already done.\n\n(g) Required Actions\n\n(1) For affected IAE model turbofan engines with an engine serial number and HPT 1st-stage disk serial number listed in Table 1 to paragraph (g)(1) of this AD, within 5 flight cycles after the effective date of this AD, remove the HPT 1st-stage disk from service.\n\n[Image ER13AP20.000 is not included in this text. It may contain a table or figure.]\n\n(2) For all other affected IAE model turbofan engines, review the engine records within 3 calendar days after the effective date of this AD to determine if an HPT 1st-stage disk with serial number PKLBR37442, PKLBR38661, or PKLBR40207 is installed in the engine. If an affected HPT 1st-stage disk is installed, within 5 flight cycles after this determination, remove the affected HPT 1st-stage disk from service.\n\n(h) Alternative Methods of Compliance (AMOCs)\n\n(1) The Manager, ECO Branch, FAA, has the authority to approve AMOCs for this AD, if requested using the procedures found in 14 CFR 39.19. In accordance with 14 CFR 39.19, send your request to your principal inspector or local Flight Standards District Office, as appropriate. If sending information directly to the manager of the certification office, send it to the attention of the person identified in paragraph (i) of this AD. You may email your request to ANE-AD-AMOC@faa.gov.\n\n(2) Before using any approved AMOC, notify your appropriate principal inspector, or lacking a principal inspector, the manager of the local flight standards district office/certificate holding district office.\n\n(i) Related Information\n\nFor further information about this AD, contact Nicholas J. Paine, Aerospace Engineer, ECO Branch, FAA, 1200 District Avenue, Burlington, MA 01803; phone: 781-238-7116; fax: 781-238-7199; Email: nicholas.j.paine@faa.gov.\n\n(j) Material Incorporated by Reference\n\nNone.\n\nIssued on April 7, 2020.\n\nLance T. Gant,\n\nDirector, Compliance & Airworthiness Division, Aircraft Certification Service.\n\n[FR Doc. 2020-07627 Filed 4-10-20; 8:45 am]\n",
+        "type": "text"
+      }
+    ]
+  },
+  "response": {
+    "answer": {
+      "ad_number": "AD 2020-07-51",
+      "ambiguities": [
+        {
+          "description": "Table 1 to paragraph (g)(1) is printed only as an image, so its engine S/N and disk S/N pairs are not available. Paragraph (c) lists 14 affected disk serial numbers, but (g)(2) requires removal on engines outside Table 1 only for 3 of them. The text does not show whether the other 11 serial numbers in (c) all appear in Table 1. An engine with one of those 11 disks that is not paired in Table 1 would fall under neither removal requirement.",
+          "paragraph": "(g)(1)",
+          "readings": [
+            "Table 1 pairs all 14 disk serial numbers in (c) with engine serial numbers, so every affected engine is covered by (g)(1) or (g)(2).",
+            "Some disk serial numbers in (c) are not in Table 1. An engine carrying one of them outside Table 1 has no removal requirement under (g), only the records review in (g)(2)."
+          ]
+        },
+        {
+          "description": "Removal is due 5 flight cycles after the records determination, not after the effective date. The determination must be made within 3 calendar days after the effective date, but its actual date is not in engine records. The record counts the 5 flight cycles from 3 days after the effective date, which is the latest permitted anchor. An operator that made the determination earlier has an earlier deadline.",
+          "paragraph": "(g)(2)",
+          "readings": [
+            "Deadline is 5 flight cycles after the actual date of the records determination, which may be before day 3.",
+            "Latest deadline is 5 flight cycles counted from 3 calendar days after the effective date."
+          ]
+        },
+        {
+          "description": "Paragraph (g)(2) identifies the disks by serial number only and prints no part number. The record uses P/N 2A5001 from paragraph (c), because (g)(2) applies only to affected engines and (c) defines those by P/N 2A5001.",
+          "paragraph": "(g)(2)",
+          "readings": [
+            "The disks in (g)(2) are P/N 2A5001 with the three listed serial numbers, as defined in (c).",
+            "Any HPT 1st-stage disk with one of the three serial numbers, regardless of part number."
+          ]
+        },
+        {
+          "description": "For persons who received Emergency AD 2020-07-51 (issued March 21, 2020), the AD was effective on their date of actual notice, not April 28, 2020. Counts of flight cycles and days 'after the effective date' then start from a date no engine record holds.",
+          "paragraph": "(a)",
+          "readings": [
+            "Effective date is April 28, 2020.",
+            "Effective date is the operator's date of actual notice of Emergency AD 2020-07-51, which is on or after March 21, 2020."
+          ]
+        }
+      ],
+      "amoc_paragraph": "(h)",
+      "applicability": {
+        "engine_models": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2525-D5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2528-D5",
+          "V2530-A5",
+          "V2533-A5"
+        ],
+        "engine_serials": [],
+        "models_paragraph": "(c)",
+        "parts": [
+          "hpt1_disk_affected"
+        ],
+        "parts_combine": "any",
+        "parts_paragraph": "(c)"
+      },
+      "continuing_obligations": [],
+      "corrections": [],
+      "credit_for_previous_actions": [],
+      "definitions": [],
+      "dependencies": [
+        {
+          "holds": "engine_serial_numbers",
+          "id": "table1_g1",
+          "kind": "image_only_figure",
+          "paragraph": "(g)(1)",
+          "title": "Table 1 to paragraph (g)(1) of AD 2020-07-51 (engine serial numbers paired with HPT 1st-stage disk serial numbers), printed only as image ER13AP20.000 in FR Doc. 2020-07627"
+        }
+      ],
+      "effective_date": {
+        "date": "2020-04-28",
+        "emergency_ad": {
+          "ad_number": "AD 2020-07-51",
+          "issued": "2020-03-21"
+        },
+        "paragraph": "(a)"
+      },
+      "eligible_parts": [],
+      "final_rule_document": "2020-07627",
+      "governing_document": {
+        "document": "2020-07627",
+        "reason": "Final rule (Amendment 39-21110) adopting Emergency AD 2020-07-51 as a final rule. The thread contains no proposed rule and no correction, so its regulatory text controls."
+      },
+      "notes": [
+        "The preamble describes the AD as interim action; the root cause is still under investigation.",
+        "Paragraph (b) lists no affected ADs, and paragraph (j) lists no material incorporated by reference.",
+        "The preamble estimates 2 affected engines on U.S.-registered airplanes.",
+        "Paragraph (g)(2) also requires a records review within 3 calendar days after the effective date. It is folded into the (g)(2) removal action, and its timing is reflected in anchor_offset_days."
+      ],
+      "parts": [
+        {
+          "aliases": [
+            "HPT 1st-stage disk",
+            "1st-stage HPT disk",
+            "HPT stage 1 disk"
+          ],
+          "component": "high-pressure turbine (HPT) 1st-stage disk",
+          "dependency": "",
+          "id": "hpt1_disk_affected",
+          "listed": [
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR37442"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR38359"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR73862"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR73289"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR73270"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR38981"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR38661"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR40207"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR37445"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR73861"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR73268"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR38629"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBSC8047"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR38979"
+            }
+          ],
+          "paragraph": "(c)",
+          "part_numbers": [
+            "2A5001"
+          ],
+          "serials": "listed"
+        },
+        {
+          "aliases": [
+            "HPT 1st-stage disk",
+            "1st-stage HPT disk",
+            "HPT stage 1 disk"
+          ],
+          "component": "high-pressure turbine (HPT) 1st-stage disk",
+          "dependency": "",
+          "id": "hpt1_disk_g2",
+          "listed": [
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR37442"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR38661"
+            },
+            {
+              "cycles_since_new_limit": null,
+              "part_number": "2A5001",
+              "serial_number": "PKLBR40207"
+            }
+          ],
+          "paragraph": "(g)(2)",
+          "part_numbers": [
+            "2A5001"
+          ],
+          "serials": "listed"
+        }
+      ],
+      "preamble_basis": [],
+      "relationships": [],
+      "required_actions": [
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "table1_g1"
+          ],
+          "description": "For affected engines whose engine serial number and HPT 1st-stage disk serial number are listed in Table 1 to paragraph (g)(1), remove the HPT 1st-stage disk from service within 5 flight cycles after the effective date.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "flight_cycles_after_effective_date",
+              "paragraph": "(g)(1)",
+              "role": "alternative",
+              "value": 5
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(1)",
+          "related_paragraphs": [
+            "(g)",
+            "(f)"
+          ],
+          "target": "hpt1_disk_affected",
+          "terminates": [],
+          "trigger": {
+            "condition": "",
+            "definition_paragraphs": [],
+            "event": "none",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": []
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "table1_g1"
+          ],
+          "description": "For all other affected engines (those not covered by Table 1 to paragraph (g)(1)), review the engine records within 3 calendar days after the effective date to determine whether an HPT 1st-stage disk with S/N PKLBR37442, PKLBR38661, or PKLBR40207 is installed. If one is installed, remove it from service within 5 flight cycles after that determination.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 3,
+              "date": null,
+              "dependency": "",
+              "kind": "flight_cycles_after_effective_date",
+              "paragraph": "(g)(2)",
+              "role": "alternative",
+              "value": 5
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(2)",
+          "related_paragraphs": [
+            "(g)",
+            "(f)"
+          ],
+          "target": "hpt1_disk_g2",
+          "terminates": [],
+          "trigger": {
+            "condition": "",
+            "definition_paragraphs": [],
+            "event": "none",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": []
+        }
+      ],
+      "schema_version": "2"
+    },
+    "batch": true,
+    "cost_usd": 0.095521,
+    "error": null,
+    "extra": {
+      "batch_id": "msgbatch_01NQUZ5FgysWuhY95CpjyeGC"
+    },
+    "latency_seconds": 0.192,
+    "model": "claude-opus-5-5",
+    "request_id": null,
+    "request_key": "4c754efed9360a2961273946f556b2c1461b7dbd64c52e329fe8c359d3448c9a",
+    "stop_reason": "end_turn",
+    "text": "```json\n{\n  \"schema_version\": \"2\",\n  \"ad_number\": \"AD 2020-07-51\",\n  \"final_rule_document\": \"2020-07627\",\n  \"governing_document\": {\n    \"document\": \"2020-07627\",\n    \"reason\": \"Final rule (Amendment 39-21110) adopting Emergency AD 2020-07-51 as a final rule. The thread contains no proposed rule and no correction, so its regulatory text controls.\"\n  },\n  \"corrections\": [],\n  \"effective_date\": {\n    \"date\": \"2020-04-28\",\n    \"paragraph\": \"(a)\",\n    \"emergency_ad\": {\n      \"ad_number\": \"AD 2020-07-51\",\n      \"issued\": \"2020-03-21\"\n    }\n  },\n  \"relationships\": [],\n  \"dependencies\": [\n    {\n      \"id\": \"table1_g1\",\n      \"title\": \"Table 1 to paragraph (g)(1) of AD 2020-07-51 (engine serial numbers paired with HPT 1st-stage disk serial numbers), printed only as image ER13AP20.000 in FR Doc. 2020-07627\",\n      \"kind\": \"image_only_figure\",\n      \"holds\": \"engine_serial_numbers\",\n      \"paragraph\": \"(g)(1)\"\n    }\n  ],\n  \"parts\": [\n    {\n      \"id\": \"hpt1_disk_affected\",\n      \"component\": \"high-pressure turbine (HPT) 1st-stage disk\",\n      \"aliases\": [\n        \"HPT 1st-stage disk\",\n        \"1st-stage HPT disk\",\n        \"HPT stage 1 disk\"\n      ],\n      \"part_numbers\": [\n        \"2A5001\"\n      ],\n      \"serials\": \"listed\",\n      \"listed\": [\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR37442\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR38359\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR73862\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR73289\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR73270\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR38981\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR38661\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR40207\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR37445\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR73861\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR73268\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR38629\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBSC8047\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR38979\", \"cycles_since_new_limit\": null }\n      ],\n      \"dependency\": \"\",\n      \"paragraph\": \"(c)\"\n    },\n    {\n      \"id\": \"hpt1_disk_g2\",\n      \"component\": \"high-pressure turbine (HPT) 1st-stage disk\",\n      \"aliases\": [\n        \"HPT 1st-stage disk\",\n        \"1st-stage HPT disk\",\n        \"HPT stage 1 disk\"\n      ],\n      \"part_numbers\": [\n        \"2A5001\"\n      ],\n      \"serials\": \"listed\",\n      \"listed\": [\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR37442\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR38661\", \"cycles_since_new_limit\": null },\n        { \"part_number\": \"2A5001\", \"serial_number\": \"PKLBR40207\", \"cycles_since_new_limit\": null }\n      ],\n      \"dependency\": \"\",\n      \"paragraph\": \"(g)(2)\"\n    }\n  ],\n  \"applicability\": {\n    \"engine_models\": [\n      \"V2522-A5\",\n      \"V2524-A5\",\n      \"V2525-D5\",\n      \"V2527-A5\",\n      \"V2527E-A5\",\n      \"V2527M-A5\",\n      \"V2528-D5\",\n      \"V2530-A5\",\n      \"V2533-A5\"\n    ],\n    \"models_paragraph\": \"(c)\",\n    \"engine_serials\": [],\n    \"parts\": [\n      \"hpt1_disk_affected\"\n    ],\n    \"parts_combine\": \"any\",\n    \"parts_paragraph\": \"(c)\"\n  },\n  \"eligible_parts\": [],\n  \"required_actions\": [\n    {\n      \"paragraph\": \"(g)(1)\",\n      \"description\": \"For affected engines whose engine serial number and HPT 1st-stage disk serial number are listed in Table 1 to paragraph (g)(1), remove the HPT 1st-stage disk from service within 5 flight cycles after the effective date.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt1_disk_affected\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [\n        \"table1_g1\"\n      ],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"none\",\n        \"recurrence\": \"next\",\n        \"condition\": \"\",\n        \"definition_paragraphs\": []\n      },\n      \"limits\": [\n        {\n          \"kind\": \"flight_cycles_after_effective_date\",\n          \"value\": 5,\n          \"date\": null,\n          \"anchor_offset_days\": 0,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(g)(1)\"\n        }\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(g)\",\n        \"(f)\"\n      ]\n    },\n    {\n      \"paragraph\": \"(g)(2)\",\n      \"description\": \"For all other affected engines (those not covered by Table 1 to paragraph (g)(1)), review the engine records within 3 calendar days after the effective date to determine whether an HPT 1st-stage disk with S/N PKLBR37442, PKLBR38661, or PKLBR40207 is installed. If one is installed, remove it from service within 5 flight cycles after that determination.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt1_disk_g2\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [\n        \"table1_g1\"\n      ],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\n        \"event\": \"none\",\n        \"recurrence\": \"next\",\n        \"condition\": \"\",\n        \"definition_paragraphs\": []\n      },\n      \"limits\": [\n        {\n          \"kind\": \"flight_cycles_after_effective_date\",\n          \"value\": 5,\n          \"date\": null,\n          \"anchor_offset_days\": 3,\n          \"role\": \"alternative\",\n          \"dependency\": \"\",\n          \"paragraph\": \"(g)(2)\"\n        }\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\n        \"(g)\",\n        \"(f)\"\n      ]\n    }\n  ],\n  \"continuing_obligations\": [],\n  \"credit_for_previous_actions\": [],\n  \"definitions\": [],\n  \"amoc_paragraph\": \"(h)\",\n  \"ambiguities\": [\n    {\n      \"paragraph\": \"(g)(1)\",\n      \"description\": \"Table 1 to paragraph (g)(1) is printed only as an image, so its engine S/N and disk S/N pairs are not available. Paragraph (c) lists 14 affected disk serial numbers, but (g)(2) requires removal on engines outside Table 1 only for 3 of them. The text does not show whether the other 11 serial numbers in (c) all appear in Table 1. An engine with one of those 11 disks that is not paired in Table 1 would fall under neither removal requirement.\",\n      \"readings\": [\n        \"Table 1 pairs all 14 disk serial numbers in (c) with engine serial numbers, so every affected engine is covered by (g)(1) or (g)(2).\",\n        \"Some disk serial numbers in (c) are not in Table 1. An engine carrying one of them outside Table 1 has no removal requirement under (g), only the records review in (g)(2).\"\n      ]\n    },\n    {\n      \"paragraph\": \"(g)(2)\",\n      \"description\": \"Removal is due 5 flight cycles after the records determination, not after the effective date. The determination must be made within 3 calendar days after the effective date, but its actual date is not in engine records. The record counts the 5 flight cycles from 3 days after the effective date, which is the latest permitted anchor. An operator that made the determination earlier has an earlier deadline.\",\n      \"readings\": [\n        \"Deadline is 5 flight cycles after the actual date of the records determination, which may be before day 3.\",\n        \"Latest deadline is 5 flight cycles counted from 3 calendar days after the effective date.\"\n      ]\n    },\n    {\n      \"paragraph\": \"(g)(2)\",\n      \"description\": \"Paragraph (g)(2) identifies the disks by serial number only and prints no part number. The record uses P/N 2A5001 from paragraph (c), because (g)(2) applies only to affected engines and (c) defines those by P/N 2A5001.\",\n      \"readings\": [\n        \"The disks in (g)(2) are P/N 2A5001 with the three listed serial numbers, as defined in (c).\",\n        \"Any HPT 1st-stage disk with one of the three serial numbers, regardless of part number.\"\n      ]\n    },\n    {\n      \"paragraph\": \"(a)\",\n      \"description\": \"For persons who received Emergency AD 2020-07-51 (issued March 21, 2020), the AD was effective on their date of actual notice, not April 28, 2020. Counts of flight cycles and days 'after the effective date' then start from a date no engine record holds.\",\n      \"readings\": [\n        \"Effective date is April 28, 2020.\",\n        \"Effective date is the operator's date of actual notice of Emergency AD 2020-07-51, which is on or after March 21, 2020.\"\n      ]\n    }\n  ],\n  \"notes\": [\n    \"The preamble describes the AD as interim action; the root cause is still under investigation.\",\n    \"Paragraph (b) lists no affected ADs, and paragraph (j) lists no material incorporated by reference.\",\n    \"The preamble estimates 2 affected engines on U.S.-registered airplanes.\",\n    \"Paragraph (g)(2) also requires a records review within 3 calendar days after the effective date. It is folded into the (g)(2) removal action, and its timing is reflected in anchor_offset_days.\"\n  ],\n  \"preamble_basis\": []\n}\n```",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 15547
+      },
+      "cache_creation_input_tokens": 15547,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 37,
+      "output_tokens": 5658,
+      "output_tokens_details": {
+        "thinking_tokens": 1877
+      },
+      "service_tier": "batch",
+      "speed": "standard"
+    }
+  }
+}

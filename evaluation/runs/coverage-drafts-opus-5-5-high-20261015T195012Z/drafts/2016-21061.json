@@ -1,0 +1,611 @@
+{
+  "ad_number": "AD 2016-18-10",
+  "ambiguities": [
+    {
+      "description": "Paragraph (c) limits applicability to hubs with serial numbers listed in Tables 1 and 2 of the NMSB. Paragraph (e)(1), however, requires inspecting the HPT stage 1 hub, P/N 2A5001, and the HPT stage 2 hub, P/N 2A4802, identifying them by part number only. On an engine that qualifies through one listed hub, it is unclear whether the other hub must also be inspected when its S/N is not listed. This record targets the listed-serial groups.",
+      "paragraph": "(e)(1)",
+      "readings": [
+        "Only hubs whose S/N is listed in Table 1 or Table 2, Appendix A, of the NMSB must be inspected.",
+        "Both installed hubs of P/N 2A5001 and P/N 2A4802 on an applicable engine must be inspected, whether or not their S/Ns are listed."
+      ]
+    },
+    {
+      "description": "Paragraphs (e)(1)(ii), (e)(1)(iii), and (e)(1)(iv) say \"within [N] cycles from the effective date of this AD\" without saying whose cycles are counted. This record treats them as hub cycles.",
+      "paragraph": "(e)(1)(ii)",
+      "readings": [
+        "Cycles accumulated by the hub after the effective date.",
+        "Flight cycles accumulated by the engine after the effective date."
+      ]
+    },
+    {
+      "description": "Paragraph (g) credits \"inspection and or replacement\" under earlier NMSB revisions as meeting paragraphs (e)(2) and (e)(3), which are procedure paragraphs. It does not name (e)(1), the inspection requirement, or (e)(4), the removal requirement.",
+      "paragraph": "(g)",
+      "readings": [
+        "Earlier inspection under the original issue or Revision 1 satisfies the inspection required by (e)(1).",
+        "The credit covers only the procedure requirements of (e)(2) and (e)(3), and the compliance times of (e)(1) still apply."
+      ]
+    },
+    {
+      "description": "Failed hubs must be replaced \"with a part that is eligible for installation,\" but the regulatory text does not define an eligible part.",
+      "paragraph": "(e)(4)",
+      "readings": [
+        "Any hub that passes the inspection, or that is not listed in the NMSB tables, is eligible.",
+        "Eligibility is decided by criteria in the NMSB, which this text does not print."
+      ]
+    },
+    {
+      "description": "No compliance time is stated for removing a hub that fails the inspection.",
+      "paragraph": "(e)(4)",
+      "readings": [
+        "Remove the hub before further flight, at the time of the inspection finding.",
+        "No separate compliance time is stated."
+      ]
+    }
+  ],
+  "amoc_paragraph": "(h)",
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2533-A5"
+    ],
+    "engine_serials": [],
+    "models_paragraph": "(c)",
+    "parts": [
+      "hpt_stage1_hub",
+      "hpt_stage2_hub"
+    ],
+    "parts_combine": "any",
+    "parts_paragraph": "(c)"
+  },
+  "continuing_obligations": [],
+  "corrections": [],
+  "credit_for_previous_actions": [
+    {
+      "actions": [
+        "(e)(2)",
+        "(e)(3)"
+      ],
+      "description": "Inspection and or replacement performed using IAE NMSB V2500-ENG-72-0661, original issue, dated November 10, 2015, or Revision 1, dated February 5, 2016, meets the requirements of paragraphs (e)(2) and (e)(3).",
+      "paragraph": "(g)"
+    }
+  ],
+  "definitions": [
+    {
+      "paragraph": "(f)",
+      "term": "shop visit"
+    }
+  ],
+  "dependencies": [
+    {
+      "holds": "serial_numbers",
+      "id": "nmsb_0661_r2_table1",
+      "incorporated_in": [
+        "(j)(2)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(1)",
+      "title": "IAE Non-Modification Service Bulletin (NMSB) V2500-ENG-72-0661, Revision 2, dated May 27, 2016, Table 1, Appendix A (HPT stage 1 hub, P/N 2A5001, serial numbers)"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "nmsb_0661_r2_table2",
+      "incorporated_in": [
+        "(j)(2)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(2)",
+      "title": "IAE Non-Modification Service Bulletin (NMSB) V2500-ENG-72-0661, Revision 2, dated May 27, 2016, Table 2, Appendix A (HPT stage 2 hub, P/N 2A4802, serial numbers)"
+    }
+  ],
+  "effective_date": {
+    "date": "2016-10-07",
+    "emergency_ad": null,
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [],
+  "final_rule_document": "2016-21061",
+  "governing_document": {
+    "document": "2016-21061",
+    "reason": "The thread contains only the final rule. No correction republishes its regulatory text, so the final rule's regulatory text controls."
+  },
+  "notes": [
+    "Paragraph (b) states no affected ADs.",
+    "Paragraph (e)(3) prints the NMSB paragraph references as \"2.E., 2.G., and 2H.\"",
+    "Paragraphs (e)(2) and (e)(3) give inspection procedures only. They are carried as related paragraphs of the inspection actions, not as dependencies.",
+    "The preamble states that complying based on hub CSN as of the NMSB date of February 1, 2016 would satisfy this AD. The record does not rely on this statement.",
+    "Hub CSN on the effective date (October 7, 2016) determines which band of (e)(1) applies."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "High-pressure turbine (HPT) stage 1 hub",
+        "high-pressure turbine stage 1 hub"
+      ],
+      "component": "HPT stage 1 hub",
+      "dependency": "nmsb_0661_r2_table1",
+      "id": "hpt_stage1_hub",
+      "listed": [],
+      "paragraph": "(c)(1)",
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "High-pressure turbine (HPT) stage 2 hub",
+        "high-pressure turbine stage 2 hub"
+      ],
+      "component": "HPT stage 2 hub",
+      "dependency": "nmsb_0661_r2_table2",
+      "id": "hpt_stage2_hub",
+      "listed": [],
+      "paragraph": "(c)(2)",
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency"
+    }
+  ],
+  "relationships": [],
+  "required_actions": [
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": {
+        "max": 7000,
+        "min": 0
+      },
+      "dependencies": [],
+      "description": "Inspect the HPT stage 1 hub, P/N 2A5001, with 0 to 7,000 CSN on the effective date at the next shop visit or before accumulating 13,000 CSN, whichever comes first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(e)(1)(i)",
+          "role": "alternative",
+          "value": 13000
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(e)(1)(i)",
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(2)"
+      ],
+      "target": "hpt_stage1_hub",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [
+          "(f)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the hub inspection was already done (\"unless already done\"), including inspection using earlier NMSB revisions credited by paragraph (g).",
+          "paragraph": "(e)"
+        }
+      ]
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": {
+        "max": 11000,
+        "min": 7001
+      },
+      "dependencies": [],
+      "description": "Inspect the HPT stage 1 hub, P/N 2A5001, with 7,001 to 11,000 CSN on the effective date at the next shop visit, within 6,000 cycles from the effective date, or before accumulating 15,000 CSN, whichever comes first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(e)(1)(ii)",
+          "role": "alternative",
+          "value": 6000
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(e)(1)(ii)",
+          "role": "alternative",
+          "value": 15000
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(e)(1)(ii)",
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(2)"
+      ],
+      "target": "hpt_stage1_hub",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [
+          "(f)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the hub inspection was already done (\"unless already done\"), including inspection using earlier NMSB revisions credited by paragraph (g).",
+          "paragraph": "(e)"
+        }
+      ]
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": {
+        "max": 15500,
+        "min": 11001
+      },
+      "dependencies": [],
+      "description": "Inspect the HPT stage 1 hub, P/N 2A5001, with 11,001 to 15,500 CSN on the effective date at the next shop visit, within 4,000 cycles from the effective date, or before accumulating 17,000 CSN, whichever comes first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(e)(1)(iii)",
+          "role": "alternative",
+          "value": 4000
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(e)(1)(iii)",
+          "role": "alternative",
+          "value": 17000
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(e)(1)(iii)",
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(2)"
+      ],
+      "target": "hpt_stage1_hub",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [
+          "(f)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the hub inspection was already done (\"unless already done\"), including inspection using earlier NMSB revisions credited by paragraph (g).",
+          "paragraph": "(e)"
+        }
+      ]
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": {
+        "max": null,
+        "min": 15501
+      },
+      "dependencies": [],
+      "description": "Inspect the HPT stage 1 hub, P/N 2A5001, with 15,501 CSN or more on the effective date at the next shop visit or within 1,500 cycles from the effective date, whichever comes first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(e)(1)(iv)",
+          "role": "alternative",
+          "value": 1500
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(e)(1)(iv)",
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(2)"
+      ],
+      "target": "hpt_stage1_hub",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [
+          "(f)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the hub inspection was already done (\"unless already done\"), including inspection using earlier NMSB revisions credited by paragraph (g).",
+          "paragraph": "(e)"
+        }
+      ]
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": {
+        "max": 7000,
+        "min": 0
+      },
+      "dependencies": [],
+      "description": "Inspect the HPT stage 2 hub, P/N 2A4802, with 0 to 7,000 CSN on the effective date at the next shop visit or before accumulating 13,000 CSN, whichever comes first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(e)(1)(i)",
+          "role": "alternative",
+          "value": 13000
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(e)(1)(i)",
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(3)"
+      ],
+      "target": "hpt_stage2_hub",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [
+          "(f)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the hub inspection was already done (\"unless already done\"), including inspection using earlier NMSB revisions credited by paragraph (g).",
+          "paragraph": "(e)"
+        }
+      ]
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": {
+        "max": 11000,
+        "min": 7001
+      },
+      "dependencies": [],
+      "description": "Inspect the HPT stage 2 hub, P/N 2A4802, with 7,001 to 11,000 CSN on the effective date at the next shop visit, within 6,000 cycles from the effective date, or before accumulating 15,000 CSN, whichever comes first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(e)(1)(ii)",
+          "role": "alternative",
+          "value": 6000
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(e)(1)(ii)",
+          "role": "alternative",
+          "value": 15000
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(e)(1)(ii)",
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(3)"
+      ],
+      "target": "hpt_stage2_hub",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [
+          "(f)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the hub inspection was already done (\"unless already done\"), including inspection using earlier NMSB revisions credited by paragraph (g).",
+          "paragraph": "(e)"
+        }
+      ]
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": {
+        "max": 15500,
+        "min": 11001
+      },
+      "dependencies": [],
+      "description": "Inspect the HPT stage 2 hub, P/N 2A4802, with 11,001 to 15,500 CSN on the effective date at the next shop visit, within 4,000 cycles from the effective date, or before accumulating 17,000 CSN, whichever comes first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(e)(1)(iii)",
+          "role": "alternative",
+          "value": 4000
+        },
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(e)(1)(iii)",
+          "role": "alternative",
+          "value": 17000
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(e)(1)(iii)",
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(3)"
+      ],
+      "target": "hpt_stage2_hub",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [
+          "(f)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the hub inspection was already done (\"unless already done\"), including inspection using earlier NMSB revisions credited by paragraph (g).",
+          "paragraph": "(e)"
+        }
+      ]
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": {
+        "max": null,
+        "min": 15501
+      },
+      "dependencies": [],
+      "description": "Inspect the HPT stage 2 hub, P/N 2A4802, with 15,501 CSN or more on the effective date at the next shop visit or within 1,500 cycles from the effective date, whichever comes first.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_after_effective_date",
+          "paragraph": "(e)(1)(iv)",
+          "role": "alternative",
+          "value": 1500
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(e)(1)(iv)",
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(3)"
+      ],
+      "target": "hpt_stage2_hub",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [
+          "(f)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the hub inspection was already done (\"unless already done\"), including inspection using earlier NMSB revisions credited by paragraph (g).",
+          "paragraph": "(e)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "Remove from service any HPT stage 1 hub, P/N 2A5001, that fails the inspection required by paragraph (e)(2), and replace it with a part that is eligible for installation.",
+      "kind": "replace_if_finding",
+      "limits": [],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(e)(4)",
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(2)"
+      ],
+      "target": "hpt_stage1_hub",
+      "terminates": [],
+      "trigger": {
+        "condition": "fails the inspections required by paragraphs (e)(2) and (e)(3) of this AD",
+        "definition_paragraphs": [
+          "(e)(2)"
+        ],
+        "event": "prior_action",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the hub failed the inspection required by paragraph (e)(2).",
+          "paragraph": "(e)(4)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "Remove from service any HPT stage 2 hub, P/N 2A4802, that fails the inspection required by paragraph (e)(3), and replace it with a part that is eligible for installation.",
+      "kind": "replace_if_finding",
+      "limits": [],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(e)(4)",
+      "related_paragraphs": [
+        "(e)(1)",
+        "(e)(3)"
+      ],
+      "target": "hpt_stage2_hub",
+      "terminates": [],
+      "trigger": {
+        "condition": "fails the inspections required by paragraphs (e)(2) and (e)(3) of this AD",
+        "definition_paragraphs": [
+          "(e)(3)"
+        ],
+        "event": "prior_action",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the hub failed the inspection required by paragraph (e)(3).",
+          "paragraph": "(e)(4)"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2"
+}

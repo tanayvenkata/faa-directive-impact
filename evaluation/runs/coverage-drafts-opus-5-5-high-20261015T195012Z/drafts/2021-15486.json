@@ -1,0 +1,437 @@
+{
+  "ad_number": "AD 2021-14-19",
+  "ambiguities": [
+    {
+      "description": "Paragraphs (g)(1) through (g)(5) split listed disks by their operating installation history. Some histories that the applicability in (c) admits fit none of them. Examples: a P/N 2A5001 or P/N 2A4802 disk on an SI 112F-21 table that has been installed in a V2531-E5, and was never installed in a model named in (g)(1) or (g)(3). Or a P/N 2A4802 disk on SI 114F-21 Table 1 that has also been installed in any model other than V2531-E5. The text also does not say what applies to a 2nd-stage disk listed in both SI 112F-21 Table 2 and SI 114F-21 Table 1 with a mixed history.",
+      "paragraph": "(g)",
+      "readings": [
+        "No inspection under (g) is required for such a disk, although the AD applies to the engine under (c).",
+        "The most restrictive applicable compliance time is intended; this is not stated."
+      ]
+    },
+    {
+      "description": "The compliance times in (g)(1) through (g)(5) are stated as FCs after the effective date. The text does not say whether these are cycles of the engine on which the disk is installed or cycles accumulated by the disk itself. The two differ if the disk is moved between engines after the effective date.",
+      "paragraph": "(g)(1)",
+      "readings": [
+        "Flight cycles of the engine on which the disk is installed, counted from the effective date.",
+        "Cycles accumulated by the affected disk, counted from the effective date."
+      ]
+    },
+    {
+      "description": "Paragraph (f) says to comply 'unless already done'. The preamble says AD 2021-11-15 and Emergency AD 2021-11-51 required USIs of HPT disks using the same NMSBs, but the AD has no credit-for-previous-actions paragraph. The text does not say whether a USI done before August 5, 2021, satisfies (g)(1) through (g)(5), or the 'passed the USI required by paragraphs (g)(1) through (5)' condition in (h)(1).",
+      "paragraph": "(f)",
+      "readings": [
+        "A USI done before the effective date in accordance with the specified NMSB paragraph counts as already done under (f).",
+        "Only a USI done to satisfy this AD counts."
+      ]
+    }
+  ],
+  "amoc_paragraph": "(i)",
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "engine_serials": [],
+    "models_paragraph": "(c)",
+    "parts": [
+      "hpt1_disk_si112f",
+      "hpt2_disk_si112f",
+      "hpt2_disk_si114f"
+    ],
+    "parts_combine": "any",
+    "parts_paragraph": "(c)"
+  },
+  "continuing_obligations": [],
+  "corrections": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "paragraph": "(h)",
+      "term": "part eligible for installation"
+    }
+  ],
+  "dependencies": [
+    {
+      "holds": "serial_numbers",
+      "id": "dep_si_112f_21_table1",
+      "incorporated_in": [
+        "(k)(3)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(1)",
+      "title": "Pratt & Whitney (P&W) Special Instruction (SI) No. 112F-21, dated May 24, 2021, Accomplishment Instructions, Table 1 (HPT 1st-stage disk P/N 2A5001 serial numbers)"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "dep_si_112f_21_table2",
+      "incorporated_in": [
+        "(k)(3)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(2)",
+      "title": "Pratt & Whitney (P&W) Special Instruction (SI) No. 112F-21, dated May 24, 2021, Accomplishment Instructions, Table 2 (HPT 2nd-stage disk P/N 2A4802 serial numbers)"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "dep_si_114f_21_table1",
+      "incorporated_in": [
+        "(k)(3)(ii)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(c)(2)",
+      "title": "P&W SI No. 114F-21, dated May 24, 2021, Accomplishment Instructions, Table 1 (HPT 2nd-stage disk P/N 2A4802 serial numbers)"
+    },
+    {
+      "holds": "other",
+      "id": "dep_nmsb_eng_72_0713_appx_a",
+      "incorporated_in": [
+        "(k)(4)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(h)(1)",
+      "title": "IAE NMSB No. V2500-ENG-72-0713, Revision 1, dated January 26, 2021, Appendix A, Tables 1 and 2 (disks used to decide whether a part is eligible for installation)"
+    },
+    {
+      "holds": "other",
+      "id": "dep_nmsb_e5_72_0015_appx_a",
+      "incorporated_in": [
+        "(k)(4)(ii)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(h)(1)",
+      "title": "IAE NMSB No. V2500-E5-72-0015, dated December 15, 2020, Appendix A, Tables 1 and 2 (disks used to decide whether a part is eligible for installation)"
+    }
+  ],
+  "effective_date": {
+    "date": "2021-08-05",
+    "emergency_ad": null,
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [
+    {
+      "description": "A part eligible for installation is an HPT 1st-stage disk that is listed in Appendix A, Tables 1 and 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, or of IAE NMSB V2500-E5-72-0015, and that passed the USI required by (g)(1) through (5). A disk not listed in those tables is also eligible. No part number is printed, so eligibility cannot be decided from a recorded P/N.",
+      "paragraph": "(h)",
+      "part_group": "hpt1_disk_si112f",
+      "part_numbers": []
+    },
+    {
+      "description": "A part eligible for installation is an HPT 2nd-stage disk that is listed in Appendix A, Tables 1 and 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, or of IAE NMSB V2500-E5-72-0015, and that passed the USI required by (g)(1) through (5). A disk not listed in those tables is also eligible. No part number is printed, so eligibility cannot be decided from a recorded P/N.",
+      "paragraph": "(h)",
+      "part_group": "hpt2_disk_si112f",
+      "part_numbers": []
+    },
+    {
+      "description": "A part eligible for installation is an HPT 2nd-stage disk that is listed in Appendix A, Tables 1 and 2, of IAE NMSB V2500-ENG-72-0713, Revision 1, or of IAE NMSB V2500-E5-72-0015, and that passed the USI required by (g)(1) through (5). A disk not listed in those tables is also eligible. No part number is printed, so eligibility cannot be decided from a recorded P/N.",
+      "paragraph": "(h)",
+      "part_group": "hpt2_disk_si114f",
+      "part_numbers": []
+    }
+  ],
+  "final_rule_document": "2021-15486",
+  "governing_document": {
+    "document": "2021-15486",
+    "reason": "The thread contains only the final rule (Final rule; request for comments). No proposed rule or correction is included, so the final rule's regulatory text controls."
+  },
+  "notes": [
+    "Paragraph (b) states Affected ADs: None. The preamble describes related ADs (Emergency AD 2020-07-51, AD 2021-01-03, AD 2021-11-15, Emergency AD 2021-11-51) for background only. The regulatory text states no supersession or termination relationship with them, so none is recorded.",
+    "The affected disk serial numbers are not printed in the AD. They are in P&W SI No. 112F-21 Tables 1 and 2 and P&W SI No. 114F-21 Table 1, incorporated by reference as of August 5, 2021 ((k)(3)).",
+    "The USI procedures are in Accomplishment Instructions, paragraphs 6 and 7, of the IAE NMSBs. The pass criteria are in paragraph 8. These are procedure-only material and are not recorded as dependencies. The NMSBs were previously incorporated by reference as of July 13, 2021 ((k)(4)).",
+    "The action models fields are left empty because (g)(1) through (g)(5) turn on the disk's operating history in specific engine models, not on the model of the engine the disk is currently installed on.",
+    "This AD contains no installation prohibition paragraph."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "High-pressure turbine (HPT) 1st-stage disk",
+        "high-pressure turbine 1st-stage disk"
+      ],
+      "component": "HPT 1st-stage disk",
+      "dependency": "dep_si_112f_21_table1",
+      "id": "hpt1_disk_si112f",
+      "listed": [],
+      "paragraph": "(c)(1)",
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "High-pressure turbine (HPT) 2nd-stage disk",
+        "high-pressure turbine 2nd-stage disk"
+      ],
+      "component": "HPT 2nd-stage disk",
+      "dependency": "dep_si_112f_21_table2",
+      "id": "hpt2_disk_si112f",
+      "listed": [],
+      "paragraph": "(c)(2)",
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "High-pressure turbine (HPT) 2nd-stage disk",
+        "high-pressure turbine 2nd-stage disk"
+      ],
+      "component": "HPT 2nd-stage disk",
+      "dependency": "dep_si_114f_21_table1",
+      "id": "hpt2_disk_si114f",
+      "listed": [],
+      "paragraph": "(c)(2)",
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency"
+    }
+  ],
+  "preamble_basis": [],
+  "relationships": [],
+  "required_actions": [
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_si_112f_21_table1"
+      ],
+      "description": "For an HPT 1st-stage disk, P/N 2A5001, with an S/N listed in P&W SI No. 112F-21 Table 1, that has been installed at any time in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, or V2533-A5 engine during operation: within 100 FCs after the effective date, perform a USI of the disk using IAE NMSB V2500-ENG-72-0713, Revision 1, Accomplishment Instructions, paragraph 6.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": 100
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(1)",
+      "related_paragraphs": [
+        "(g)(6)"
+      ],
+      "target": "hpt1_disk_si112f",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the disk has been installed at any time during operation in an IAE V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, or V2533-A5 model engine. This is the disk's installation history, not the model of the engine it is currently installed on.",
+          "paragraph": "(g)(1)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_si_112f_21_table1"
+      ],
+      "description": "For an HPT 1st-stage disk, P/N 2A5001, with an S/N listed in P&W SI No. 112F-21 Table 1, that has only been installed in a V2522-A5, V2524-A5, V2525-D5, or V2527-A5 engine during operation: within 220 FCs after the effective date, perform a USI of the disk using IAE NMSB V2500-ENG-72-0713, Revision 1, Accomplishment Instructions, paragraph 6.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(g)(2)",
+          "role": "alternative",
+          "value": 220
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(2)",
+      "related_paragraphs": [
+        "(g)(6)"
+      ],
+      "target": "hpt1_disk_si112f",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the disk has only been installed during operation in IAE V2522-A5, V2524-A5, V2525-D5, or V2527-A5 model engines. This is the disk's full installation history.",
+          "paragraph": "(g)(2)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_si_112f_21_table2"
+      ],
+      "description": "For an HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in P&W SI No. 112F-21 Table 2, that has been installed at any time in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, or V2533-A5 engine during operation: within 385 FCs after the effective date, perform a USI of the disk using IAE NMSB V2500-ENG-72-0713, Revision 1, Accomplishment Instructions, paragraph 7.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(g)(3)",
+          "role": "alternative",
+          "value": 385
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(3)",
+      "related_paragraphs": [
+        "(g)(6)"
+      ],
+      "target": "hpt2_disk_si112f",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the disk has been installed at any time during operation in an IAE V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, or V2533-A5 model engine. This is the disk's installation history, not the model of the engine it is currently installed on.",
+          "paragraph": "(g)(3)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_si_112f_21_table2"
+      ],
+      "description": "For an HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in P&W SI No. 112F-21 Table 2, that has only been installed in a V2522-A5, V2524-A5, V2525-D5, or V2527-A5 engine during operation: within 620 FCs after the effective date, perform a USI of the disk using IAE NMSB V2500-ENG-72-0713, Revision 1, Accomplishment Instructions, paragraph 7.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(g)(4)",
+          "role": "alternative",
+          "value": 620
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(4)",
+      "related_paragraphs": [
+        "(g)(6)"
+      ],
+      "target": "hpt2_disk_si112f",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the disk has only been installed during operation in IAE V2522-A5, V2524-A5, V2525-D5, or V2527-A5 model engines. This is the disk's full installation history.",
+          "paragraph": "(g)(4)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_si_114f_21_table1"
+      ],
+      "description": "For an HPT 2nd-stage disk, P/N 2A4802, with an S/N listed in P&W SI No. 114F-21 Table 1, that has only been installed in a V2531-E5 engine during operation: within 385 FCs after the effective date, perform a USI of the disk using IAE NMSB V2500-E5-72-0015, Accomplishment Instructions, paragraph 7.",
+      "kind": "inspect",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "flight_cycles_after_effective_date",
+          "paragraph": "(g)(5)",
+          "role": "alternative",
+          "value": 385
+        }
+      ],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(5)",
+      "related_paragraphs": [
+        "(g)(6)"
+      ],
+      "target": "hpt2_disk_si114f",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [],
+        "event": "none",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the disk has only been installed during operation in IAE V2531-E5 model engines. This is the disk's full installation history.",
+          "paragraph": "(g)(5)"
+        }
+      ]
+    },
+    {
+      "combination": "single",
+      "csn_band_at_effective_date": null,
+      "dependencies": [],
+      "description": "If, during the USI required by (g)(1) through (5), an HPT 1st-stage or 2nd-stage disk does not pass the inspection as specified in Accomplishment Instructions, paragraph 8, of IAE NMSB V2500-ENG-72-0713, Revision 1, or IAE NMSB V2500-E5-72-0015, as applicable: before further flight, remove the disk from service and replace it with a part eligible for installation.",
+      "kind": "replace_if_finding",
+      "limits": [],
+      "models": [],
+      "operator_condition": "",
+      "paragraph": "(g)(6)",
+      "related_paragraphs": [
+        "(h)"
+      ],
+      "target": "",
+      "terminates": [],
+      "trigger": {
+        "condition": "If, during the USI required by paragraphs (g)(1) through (5) of this AD, a HPT 1st-stage disk or HPT 2nd-stage disk does not pass the inspection; before further flight",
+        "definition_paragraphs": [
+          "(g)(1)",
+          "(g)(2)",
+          "(g)(3)",
+          "(g)(4)",
+          "(g)(5)"
+        ],
+        "event": "prior_action",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": [
+        {
+          "description": "Whether the disk failed the USI under the pass criteria of NMSB paragraph 8.",
+          "paragraph": "(g)(6)"
+        }
+      ]
+    }
+  ],
+  "schema_version": "2"
+}

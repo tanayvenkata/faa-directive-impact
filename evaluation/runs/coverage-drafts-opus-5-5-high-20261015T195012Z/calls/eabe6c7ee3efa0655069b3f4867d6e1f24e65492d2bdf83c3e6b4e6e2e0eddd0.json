@@ -1,0 +1,1319 @@
+{
+  "request": {
+    "max_tokens": 64000,
+    "messages": [
+      {
+        "content": "Draft the rule record for the airworthiness directive published as Federal Register document 2024-12594.",
+        "role": "user"
+      }
+    ],
+    "model": "claude-opus-5-5",
+    "output_config": {
+      "effort": "high"
+    },
+    "system": [
+      {
+        "text": "You draft the rule record for one FAA airworthiness directive (AD) from its\nFederal Register text. You are given every document in the directive's\nthread: the proposed rule, the final rule, any correction, and any earlier\nAD it replaces. A program will screen engine records against your rule\nrecord without reading the text, and a person will proofread it against the\ntext before anyone relies on it.\n\nExtract only what the text states. Do not add requirements, fill gaps with\nassumptions, or settle unclear wording silently: report it under\nambiguities. A program that cannot tell sends the engine to a person, which\nis safe; a record that guesses can clear an engine that needs action, which\nis not.\n\n## Which text controls\n\nThe final rule's regulatory text controls, not the proposal or the\ndiscussion. If a correction republishes the regulatory text, the\ncorrection's text controls wherever it differs; governing_document is the\ndocument whose regulatory text controls, with the reason. List each\ncorrected paragraph under corrections. Use the preamble only where the\nregulatory text relies on it, and say so under preamble_basis.\n\n## Documents, paragraphs, and identifiers\n\n- A document field holds the Federal Register document number only.\n- A paragraph field holds the paragraph label exactly as written in the\n  governing document, such as \"(c)\", \"(g)(2)\", or \"(h)(1)(i)\". Where a\n  paragraph field does not apply, give an empty string.\n- Copy every engine model, part number, and serial number exactly as the\n  text prints it. Never write an identifier the text does not print: a\n  program rejects any record that contains one.\n\n## Material you do not have\n\nWhen the text decides something by reference to material it does not\nprint (a serial-number list or compliance-time table in a service bulletin\nor other incorporated document, or a table printed only as an image), do\nnot guess its contents. Record the material under dependencies, and point\nthe part groups, actions, and limits that need it at that dependency. A\nprocedure the text only tells the operator to follow is not a dependency\nunless it decides whether or when an action applies.\n\n## Facts no engine record holds\n\nWhen an action turns on a fact that engine records do not hold (a part's\noperating history, a condition only the operator knows), name it under the\naction's unrecorded_conditions instead of assuming it either way.\n\n## Answer format\n\nReply with one JSON object that validates against the JSON Schema below,\nand nothing else. Follow each field's description in the schema; it says\nwhat the field means and how the program reads it. Fill every required\nfield; use empty lists and empty strings where the directive has nothing for\na field.\n\n## JSON Schema\n{\n \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n \"$id\": \"https://schemas.faa-directive-impact.dev/rule-record-v2.schema.json\",\n \"title\": \"Directive rule record, version 2\",\n \"description\": \"One airworthiness directive's screening predicates, read from its regulatory text only. Every value names the paragraph it rests on. A value the text does not state is never filled in: it is left empty, marked unclear, or pointed at an unavailable dependency, and the interpreter sends the engine to review. Version 1 (b3-rule-record.schema.json) stays frozen for the B3 v1 prompt and runs. Revision 2.1 adds optional fields (model_paragraphs, incorporated_in, related_paragraphs, open_while_installed, part_group on obligations, other_paragraphs on relationships, preamble_basis, the threshold limit role, unknown_means_met); a 2.0 record is still valid.\",\n \"type\": \"object\",\n \"additionalProperties\": false,\n \"required\": [\n  \"schema_version\",\n  \"ad_number\",\n  \"final_rule_document\",\n  \"governing_document\",\n  \"corrections\",\n  \"effective_date\",\n  \"relationships\",\n  \"dependencies\",\n  \"parts\",\n  \"applicability\",\n  \"eligible_parts\",\n  \"required_actions\",\n  \"continuing_obligations\",\n  \"credit_for_previous_actions\",\n  \"definitions\",\n  \"amoc_paragraph\",\n  \"ambiguities\",\n  \"notes\"\n ],\n \"properties\": {\n  \"schema_version\": {\n   \"const\": \"2\"\n  },\n  \"ad_number\": {\n   \"description\": \"The AD number as printed, in the form \\\"AD yyyy-nn-nn\\\".\",\n   \"type\": \"string\",\n   \"pattern\": \"^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$\"\n  },\n  \"final_rule_document\": {\n   \"description\": \"Federal Register document number of the final rule.\",\n   \"$ref\": \"#/$defs/document\"\n  },\n  \"governing_document\": {\n   \"description\": \"The document whose regulatory text is cited: the final rule, or a correction that republishes it.\",\n   \"type\": \"object\",\n   \"additionalProperties\": false,\n   \"required\": [\n    \"document\",\n    \"reason\"\n   ],\n   \"properties\": {\n    \"document\": {\n     \"$ref\": \"#/$defs/document\"\n    },\n    \"reason\": {\n     \"type\": \"string\"\n    }\n   }\n  },\n  \"corrections\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"document\",\n     \"paragraph\",\n     \"original_text\",\n     \"corrected_text\"\n    ],\n    \"properties\": {\n     \"document\": {\n      \"$ref\": \"#/$defs/document\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"original_text\": {\n      \"type\": \"string\"\n     },\n     \"corrected_text\": {\n      \"type\": \"string\"\n     }\n    }\n   }\n  },\n  \"effective_date\": {\n   \"type\": \"object\",\n   \"additionalProperties\": false,\n   \"required\": [\n    \"date\",\n    \"paragraph\",\n    \"emergency_ad\"\n   ],\n   \"properties\": {\n    \"date\": {\n     \"$ref\": \"#/$defs/date\"\n    },\n    \"paragraph\": {\n     \"$ref\": \"#/$defs/paragraph\"\n    },\n    \"emergency_ad\": {\n     \"description\": \"Set when paragraph (a) says an earlier emergency AD made the requirements effective on actual notice. Each operator's effective date is then its date of actual notice, which no engine record holds; null otherwise.\",\n     \"anyOf\": [\n      {\n       \"type\": \"null\"\n      },\n      {\n       \"type\": \"object\",\n       \"additionalProperties\": false,\n       \"required\": [\n        \"ad_number\",\n        \"issued\"\n       ],\n       \"properties\": {\n        \"ad_number\": {\n         \"type\": \"string\",\n         \"pattern\": \"^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$\"\n        },\n        \"issued\": {\n         \"$ref\": \"#/$defs/date\"\n        }\n       }\n      }\n     ]\n    }\n   }\n  },\n  \"relationships\": {\n   \"description\": \"Links to other ADs. superseded_by: a later AD replaces this one from its effective date (state where the replacing AD says so). supersedes: this AD replaces an earlier one. terminates_by_compliance: complying with a paragraph of this AD satisfies another AD. terminated_by_compliance: complying with a paragraph of another AD satisfies this one. related: anything else, informational.\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"type\",\n     \"ad_number\",\n     \"document\",\n     \"effective_date\",\n     \"stated_in\",\n     \"paragraph\",\n     \"description\"\n    ],\n    \"properties\": {\n     \"type\": {\n      \"enum\": [\n       \"superseded_by\",\n       \"supersedes\",\n       \"terminates_by_compliance\",\n       \"terminated_by_compliance\",\n       \"related\"\n      ]\n     },\n     \"ad_number\": {\n      \"type\": \"string\",\n      \"pattern\": \"^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$\"\n     },\n     \"document\": {\n      \"description\": \"The other AD's final rule document number, or \\\"\\\" when not known from the text.\",\n      \"type\": \"string\"\n     },\n     \"effective_date\": {\n      \"description\": \"The other AD's effective date when the relationship depends on it (superseded_by); null otherwise.\",\n      \"anyOf\": [\n       {\n        \"type\": \"null\"\n       },\n       {\n        \"$ref\": \"#/$defs/date\"\n       }\n      ]\n     },\n     \"stated_in\": {\n      \"description\": \"Document whose paragraph states the relationship.\",\n      \"$ref\": \"#/$defs/document\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"description\": {\n      \"type\": \"string\"\n     },\n     \"other_paragraphs\": {\n      \"description\": \"Optional. Paragraphs of the other document this relationship bears on (e.g. the replaced AD's applicability), cited only for a relationship whose other document precedes this one (supersedes).\",\n      \"type\": \"array\",\n      \"items\": {\n       \"$ref\": \"#/$defs/paragraph\"\n      }\n     }\n    }\n   }\n  },\n  \"dependencies\": {\n   \"description\": \"Material the screen needs but does not have: service information incorporated by reference, or a table printed only as an image. Parts, actions, and limits point at these by id; an engine that reaches one goes to review naming its title.\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"id\",\n     \"title\",\n     \"kind\",\n     \"holds\",\n     \"paragraph\"\n    ],\n    \"properties\": {\n     \"id\": {\n      \"$ref\": \"#/$defs/id\"\n     },\n     \"title\": {\n      \"description\": \"What a person must obtain: the document, its revision, and the table or figure, as the directive names them.\",\n      \"type\": \"string\",\n      \"minLength\": 1\n     },\n     \"kind\": {\n      \"enum\": [\n       \"incorporated_by_reference\",\n       \"image_only_figure\"\n      ]\n     },\n     \"holds\": {\n      \"enum\": [\n       \"serial_numbers\",\n       \"engine_serial_numbers\",\n       \"compliance_times\",\n       \"procedure\",\n       \"other\"\n      ]\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"incorporated_in\": {\n      \"description\": \"Optional. Paragraphs that incorporate the material by reference , cited whenever the dependency is named.\",\n      \"type\": \"array\",\n      \"items\": {\n       \"$ref\": \"#/$defs/paragraph\"\n      }\n     }\n    }\n   }\n  },\n  \"parts\": {\n   \"description\": \"Part groups the directive names. A group is found on an engine by part number, or by component name (component or an alias) for its position. serials: any (every serial of these P/Ns), listed (only the rows in listed, each P/N and S/N pair printed in the directive), or listed_in_dependency (the serial list is in unavailable material named by dependency).\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"id\",\n     \"component\",\n     \"aliases\",\n     \"part_numbers\",\n     \"serials\",\n     \"listed\",\n     \"dependency\",\n     \"paragraph\"\n    ],\n    \"properties\": {\n     \"id\": {\n      \"$ref\": \"#/$defs/id\"\n     },\n     \"component\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n     },\n     \"aliases\": {\n      \"description\": \"Other names the directive or records use for the same position, used to find the position's record.\",\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"string\",\n       \"minLength\": 1\n      }\n     },\n     \"part_numbers\": {\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"string\",\n       \"minLength\": 1\n      },\n      \"description\": \"Part numbers of the group. Empty means any part number at the named position (the directive names the part but prints no P/N).\"\n     },\n     \"serials\": {\n      \"enum\": [\n       \"any\",\n       \"listed\",\n       \"listed_in_dependency\"\n      ]\n     },\n     \"listed\": {\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"object\",\n       \"additionalProperties\": false,\n       \"required\": [\n        \"part_number\",\n        \"serial_number\",\n        \"cycles_since_new_limit\"\n       ],\n       \"properties\": {\n        \"part_number\": {\n         \"type\": \"string\",\n         \"minLength\": 1\n        },\n        \"serial_number\": {\n         \"type\": \"string\",\n         \"minLength\": 1\n        },\n        \"cycles_since_new_limit\": {\n         \"description\": \"A per-row part cycles-since-new limit printed in the directive, or null.\",\n         \"anyOf\": [\n          {\n           \"type\": \"null\"\n          },\n          {\n           \"type\": \"integer\",\n           \"minimum\": 0\n          }\n         ]\n        }\n       }\n      }\n     },\n     \"dependency\": {\n      \"description\": \"Dependency id when serials is listed_in_dependency, else \\\"\\\".\",\n      \"type\": \"string\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    }\n   }\n  },\n  \"applicability\": {\n   \"type\": \"object\",\n   \"additionalProperties\": false,\n   \"required\": [\n    \"engine_models\",\n    \"models_paragraph\",\n    \"engine_serials\",\n    \"parts\",\n    \"parts_combine\",\n    \"parts_paragraph\"\n   ],\n   \"properties\": {\n    \"engine_models\": {\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n     }\n    },\n    \"models_paragraph\": {\n     \"$ref\": \"#/$defs/paragraph\"\n    },\n    \"engine_serials\": {\n     \"description\": \"Engine serial conditions. Each restricts the models it names to engines whose serial is in a range (inclusive; a null bound is open) or in serial_numbers, and not in excluded. Models no entry names are not restricted. Ranges compare a shared letter prefix and the number after it.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"required\": [\n       \"models\",\n       \"ranges\",\n       \"serial_numbers\",\n       \"excluded\",\n       \"paragraph\"\n      ],\n      \"properties\": {\n       \"models\": {\n        \"type\": \"array\",\n        \"minItems\": 1,\n        \"items\": {\n         \"type\": \"string\"\n        }\n       },\n       \"ranges\": {\n        \"type\": \"array\",\n        \"items\": {\n         \"type\": \"object\",\n         \"additionalProperties\": false,\n         \"required\": [\n          \"first\",\n          \"last\"\n         ],\n         \"properties\": {\n          \"first\": {\n           \"anyOf\": [\n            {\n             \"type\": \"null\"\n            },\n            {\n             \"type\": \"string\",\n             \"minLength\": 1\n            }\n           ]\n          },\n          \"last\": {\n           \"anyOf\": [\n            {\n             \"type\": \"null\"\n            },\n            {\n             \"type\": \"string\",\n             \"minLength\": 1\n            }\n           ]\n          }\n         }\n        }\n       },\n       \"serial_numbers\": {\n        \"type\": \"array\",\n        \"items\": {\n         \"type\": \"string\",\n         \"minLength\": 1\n        }\n       },\n       \"excluded\": {\n        \"type\": \"array\",\n        \"items\": {\n         \"type\": \"string\",\n         \"minLength\": 1\n        }\n       },\n       \"paragraph\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       }\n      }\n     }\n    },\n    \"parts\": {\n     \"description\": \"Part group ids that applicability requires installed; empty when the directive applies to the models alone.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/id\"\n     }\n    },\n    \"parts_combine\": {\n     \"description\": \"any: one group installed is enough (\\\"or\\\", \\\"either\\\"). all: every group must be installed (\\\"and\\\").\",\n     \"enum\": [\n      \"any\",\n      \"all\"\n     ]\n    },\n    \"parts_paragraph\": {\n     \"$ref\": \"#/$defs/optional_paragraph\"\n    },\n    \"model_paragraphs\": {\n     \"description\": \"Optional. The sub-paragraph that names each model, where the applicability paragraph is split into sub-paragraphs; cited with the models paragraph.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"required\": [\n       \"models\",\n       \"paragraph\"\n      ],\n      \"properties\": {\n       \"models\": {\n        \"type\": \"array\",\n        \"items\": {\n         \"type\": \"string\"\n        }\n       },\n       \"paragraph\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       }\n      }\n     }\n    }\n   }\n  },\n  \"eligible_parts\": {\n   \"description\": \"Parts the directive defines as eligible for installation, by group. A recorded P/N listed here clears its group, with this paragraph cited.\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"part_group\",\n     \"part_numbers\",\n     \"description\",\n     \"paragraph\"\n    ],\n    \"properties\": {\n     \"part_group\": {\n      \"$ref\": \"#/$defs/id\"\n     },\n     \"part_numbers\": {\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"string\",\n       \"minLength\": 1\n      }\n     },\n     \"description\": {\n      \"type\": \"string\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    }\n   }\n  },\n  \"required_actions\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"$ref\": \"#/$defs/action\"\n   }\n  },\n  \"continuing_obligations\": {\n   \"description\": \"Obligations that bind while the directive applies, even with no action triggered: installation prohibitions, no alternative actions once done.\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"paragraph\",\n     \"description\"\n    ],\n    \"properties\": {\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"description\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n     },\n     \"part_group\": {\n      \"description\": \"Optional. For an installation prohibition, the part group it prohibits; a part of the group recorded as installed after the effective date keeps the screen open.\",\n      \"type\": \"string\"\n     }\n    }\n   }\n  },\n  \"credit_for_previous_actions\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"paragraph\",\n     \"actions\",\n     \"description\"\n    ],\n    \"properties\": {\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"actions\": {\n      \"description\": \"Paragraphs of the actions that may be credited.\",\n      \"type\": \"array\",\n      \"items\": {\n       \"$ref\": \"#/$defs/paragraph\"\n      }\n     },\n     \"description\": {\n      \"type\": \"string\"\n     }\n    }\n   }\n  },\n  \"definitions\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"term\",\n     \"paragraph\"\n    ],\n    \"properties\": {\n     \"term\": {\n      \"type\": \"string\"\n     },\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    }\n   }\n  },\n  \"amoc_paragraph\": {\n   \"$ref\": \"#/$defs/optional_paragraph\"\n  },\n  \"ambiguities\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"paragraph\",\n     \"description\",\n     \"readings\"\n    ],\n    \"properties\": {\n     \"paragraph\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     },\n     \"description\": {\n      \"type\": \"string\"\n     },\n     \"readings\": {\n      \"type\": \"array\",\n      \"items\": {\n       \"type\": \"string\"\n      }\n     }\n    }\n   }\n  },\n  \"notes\": {\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"string\"\n   }\n  },\n  \"preamble_basis\": {\n   \"description\": \"Optional. Preamble statements the record relies on, cited as that document's preamble. when: always (relied on for every screen of a listed model), terminating_action_passed (when a terminating action's compliance time has passed), event_before_effective_date (when a triggering event before the effective date is set aside).\",\n   \"type\": \"array\",\n   \"items\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n     \"document\",\n     \"when\",\n     \"statement\"\n    ],\n    \"properties\": {\n     \"document\": {\n      \"$ref\": \"#/$defs/document\"\n     },\n     \"when\": {\n      \"enum\": [\n       \"always\",\n       \"terminating_action_passed\",\n       \"event_before_effective_date\"\n      ]\n     },\n     \"statement\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n     }\n    }\n   }\n  }\n },\n \"$defs\": {\n  \"document\": {\n   \"type\": \"string\",\n   \"pattern\": \"^[0-9]{4}-[0-9]{5}$\"\n  },\n  \"date\": {\n   \"type\": \"string\",\n   \"pattern\": \"^[0-9]{4}-[0-9]{2}-[0-9]{2}$\"\n  },\n  \"id\": {\n   \"type\": \"string\",\n   \"pattern\": \"^[a-z0-9_]+$\"\n  },\n  \"paragraph\": {\n   \"type\": \"string\",\n   \"pattern\": \"^\\\\([a-z]+\\\\)(\\\\([0-9]+\\\\))?(\\\\([ivx]+\\\\))?$\"\n  },\n  \"optional_paragraph\": {\n   \"type\": \"string\",\n   \"pattern\": \"^(\\\\([a-z]+\\\\)(\\\\([0-9]+\\\\))?(\\\\([ivx]+\\\\))?)?$\"\n  },\n  \"action\": {\n   \"type\": \"object\",\n   \"additionalProperties\": false,\n   \"required\": [\n    \"paragraph\",\n    \"description\",\n    \"kind\",\n    \"models\",\n    \"target\",\n    \"operator_condition\",\n    \"unrecorded_conditions\",\n    \"dependencies\",\n    \"csn_band_at_effective_date\",\n    \"trigger\",\n    \"limits\",\n    \"combination\",\n    \"terminates\"\n   ],\n   \"properties\": {\n    \"paragraph\": {\n     \"$ref\": \"#/$defs/paragraph\"\n    },\n    \"description\": {\n     \"type\": \"string\"\n    },\n    \"kind\": {\n     \"description\": \"remove: take the target part out of service (an installed target part means the action is open). inspect, check, revise_maintenance_program, install: work the engine record cannot show as done. replace_if_finding: contingent on a finding of another action; reported, never queued on its own. other: anything else (sent to review).\",\n     \"enum\": [\n      \"remove\",\n      \"inspect\",\n      \"check\",\n      \"revise_maintenance_program\",\n      \"install\",\n      \"replace_if_finding\",\n      \"other\"\n     ]\n    },\n    \"models\": {\n     \"description\": \"Engine models this action is limited to; empty for every applicable model.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"string\"\n     }\n    },\n    \"target\": {\n     \"description\": \"Part group id the action acts on, or \\\"\\\" for the engine or operator as a whole.\",\n     \"type\": \"string\"\n    },\n    \"operator_condition\": {\n     \"description\": \"air_carrier_operation when the action binds only air carriers (read from operator.air_carrier_operation); \\\"\\\" otherwise.\",\n     \"enum\": [\n      \"\",\n      \"air_carrier_operation\"\n     ]\n    },\n    \"unrecorded_conditions\": {\n     \"description\": \"Conditions the action states that no engine record field holds (a part's operating history, whether an earlier inspection was done). An engine the action would otherwise reach goes to review naming them.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"required\": [\n       \"description\",\n       \"paragraph\"\n      ],\n      \"properties\": {\n       \"description\": {\n        \"type\": \"string\",\n        \"minLength\": 1\n       },\n       \"paragraph\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       }\n      }\n     }\n    },\n    \"dependencies\": {\n     \"description\": \"Dependency ids that decide whether or when this action applies (a serial or engine group list, a compliance-time table). Not for procedure-only material.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/id\"\n     }\n    },\n    \"csn_band_at_effective_date\": {\n     \"description\": \"Limits the action to target parts whose cycles since new on the effective date fall in this inclusive band (a null bound is open); null when the action has no band.\",\n     \"anyOf\": [\n      {\n       \"type\": \"null\"\n      },\n      {\n       \"type\": \"object\",\n       \"additionalProperties\": false,\n       \"required\": [\n        \"min\",\n        \"max\"\n       ],\n       \"properties\": {\n        \"min\": {\n         \"anyOf\": [\n          {\n           \"type\": \"null\"\n          },\n          {\n           \"type\": \"integer\",\n           \"minimum\": 0\n          }\n         ]\n        },\n        \"max\": {\n         \"anyOf\": [\n          {\n           \"type\": \"null\"\n          },\n          {\n           \"type\": \"integer\",\n           \"minimum\": 0\n          }\n         ]\n        }\n       }\n      }\n     ]\n    },\n    \"trigger\": {\n     \"type\": \"object\",\n     \"additionalProperties\": false,\n     \"required\": [\n      \"event\",\n      \"recurrence\",\n      \"condition\",\n      \"definition_paragraphs\"\n     ],\n     \"properties\": {\n      \"event\": {\n       \"description\": \"none: compliance time only. engine_shop_visit: a shop visit as the directive defines it (records assert it per AD). maintenance_event: another defined event the record cannot identify (piece-part exposure, module removal or exposure). part_installation: installing the target part. prior_action: counted from accomplishing another action of this AD (repeat inspections, follow-on removals).\",\n       \"enum\": [\n        \"none\",\n        \"engine_shop_visit\",\n        \"maintenance_event\",\n        \"part_installation\",\n        \"prior_action\"\n       ]\n      },\n      \"recurrence\": {\n       \"description\": \"next: the first such event after the effective date. each: every such event, indefinitely.\",\n       \"enum\": [\n        \"next\",\n        \"each\"\n       ]\n      },\n      \"condition\": {\n       \"description\": \"A qualifier on the event as the directive words it, or the event's own wording for maintenance_event and prior_action; \\\"\\\" if none.\",\n       \"type\": \"string\"\n      },\n      \"definition_paragraphs\": {\n       \"description\": \"Paragraphs defining the event and its qualifier.\",\n       \"type\": \"array\",\n       \"items\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       }\n      }\n     }\n    },\n    \"limits\": {\n     \"description\": \"Compliance-time limits. role caps_event: bounds the event (\\\"at the next shop visit, but not later than ...\\\"). alternative: a leg combined with the (capped) event by combination. overall_cap: bounds the combined result (\\\"..., whichever occurs later, not to exceed ...\\\"). threshold (2.1): for a recurring (each) trigger, the event counts only once the target part reaches value; below it the action is a continuing obligation.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"required\": [\n       \"kind\",\n       \"value\",\n       \"date\",\n       \"anchor_offset_days\",\n       \"role\",\n       \"dependency\",\n       \"paragraph\"\n      ],\n      \"properties\": {\n       \"kind\": {\n        \"description\": \"part_cycles_since_new: the target part reaches value cycles since new (null value: the part's listed row limit). part_cycles_after_effective_date: the target part accumulates value cycles counted from the effective date. flight_cycles_after_effective_date: engine flight cycles counted from the effective date plus anchor_offset_days. days_after_effective_date: calendar days. calendar_date: a fixed date (in date). flight_cycles_after_prior_action: cycles since the action named in the trigger (repeat intervals; prior_action triggers only). other: anything else (sent to review).\",\n        \"enum\": [\n         \"part_cycles_since_new\",\n         \"part_cycles_after_effective_date\",\n         \"flight_cycles_after_effective_date\",\n         \"days_after_effective_date\",\n         \"calendar_date\",\n         \"flight_cycles_after_prior_action\",\n         \"other\"\n        ]\n       },\n       \"value\": {\n        \"anyOf\": [\n         {\n          \"type\": \"null\"\n         },\n         {\n          \"type\": \"integer\",\n          \"minimum\": 0\n         }\n        ]\n       },\n       \"date\": {\n        \"anyOf\": [\n         {\n          \"type\": \"null\"\n         },\n         {\n          \"$ref\": \"#/$defs/date\"\n         }\n        ]\n       },\n       \"anchor_offset_days\": {\n        \"description\": \"Days after the effective date from which flight cycles count (e.g. a records review due within 3 days); 0 otherwise.\",\n        \"type\": \"integer\",\n        \"minimum\": 0\n       },\n       \"role\": {\n        \"enum\": [\n         \"caps_event\",\n         \"alternative\",\n         \"overall_cap\",\n         \"threshold\"\n        ]\n       },\n       \"dependency\": {\n        \"description\": \"Dependency id holding the value when the directive prints it only there; else \\\"\\\".\",\n        \"type\": \"string\"\n       },\n       \"paragraph\": {\n        \"$ref\": \"#/$defs/paragraph\"\n       },\n       \"unknown_means_met\": {\n        \"description\": \"Optional, threshold limits only: true when the directive itself says an unconfirmable count is treated as reached.\",\n        \"type\": \"boolean\"\n       }\n      }\n     }\n    },\n    \"combination\": {\n     \"description\": \"How the event leg and alternative limits combine: single (one leg), whichever_occurs_first, whichever_occurs_later, or unclear (sent to review).\",\n     \"enum\": [\n      \"single\",\n      \"whichever_occurs_first\",\n      \"whichever_occurs_later\",\n      \"unclear\"\n     ]\n    },\n    \"terminates\": {\n     \"description\": \"Paragraphs of this AD's other actions that this action ends once its compliance time has passed (a mandatory terminating action).\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    },\n    \"related_paragraphs\": {\n     \"description\": \"Optional. Other paragraphs the action rests on: its parent paragraph, its sub-steps, a limit such as a special flight permit restriction.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/paragraph\"\n     }\n    },\n    \"open_while_installed\": {\n     \"description\": \"Optional. Part groups whose installation shows the action is not accomplished. A remove action's own target counts without listing it.\",\n     \"type\": \"array\",\n     \"items\": {\n      \"$ref\": \"#/$defs/id\"\n     }\n    }\n   }\n  }\n }\n}\n",
+        "type": "text"
+      },
+      {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "text": "===== Federal Register document 2024-12594 =====\nType: Rule\nPublished: 2024-06-11\nEffective date (from the Federal Register record): 2024-06-26\n\nDEPARTMENT OF TRANSPORTATION\n\nFederal Aviation Administration\n\n14 CFR Part 39\n\n[Docket No. FAA-2024-0041; Project Identifier AD-2024-00032-E; Amendment 39-22764; AD 2024-11-03]\n\nRIN 2120-AA64\n\nAirworthiness Directives; International Aero Engines, AG Engines\n\nAGENCY:\n\nFederal Aviation Administration (FAA), DOT.\n\nACTION: Final rule.\n\nSUMMARY:\n\nThe FAA is adopting a new airworthiness directive (AD) for certain International Aero Engines, AG (IAE AG) Model V2500 engines. This AD was prompted by an analysis of an event involving an International Aero Engines, LLC (IAE LLC) Model PW1127GA-JM engine, which experienced a high-pressure compressor (HPC) 7th-stage integrally bladed rotor (IBR-7) separation that resulted in an aborted takeoff. This AD requires performing an angled ultrasonic inspection (AUSI) of certain high-pressure turbine (HPT) 1st-stage hubs and HPT 2nd-stage hubs for cracks and replacing if necessary. This AD also requires accelerated replacement of certain HPT 1st-stage hubs and HPT 2nd-stage hubs. The FAA is issuing this AD to address the unsafe condition on these products.\n\nDATES:\n\nThis AD is effective June 26, 2024.\n\nThe Director of the Federal Register approved the incorporation by reference of certain publications listed in this AD as of June 26, 2024.\n\nADDRESSES:\n\nAD Docket: You may examine the AD docket at regulations.gov under Docket No. FAA-2024-0041; or in person at Docket Operations between 9 a.m. and 5 p.m., Monday through Friday, except Federal holidays. The AD docket contains this final rule, any comments received, and other information. The address for Docket Operations is U.S. Department of Transportation, Docket Operations, M-30, West Building Ground Floor, Room W12-140, 1200 New Jersey Avenue SE, Washington, DC 20590.\n\nMaterial Incorporated by Reference:\n\n• For service information, contact International Aero Engines, AG, 400 Main Street, East Hartford, CT 06118; phone: (860) 565-0140; email: help24@pw.utc.com; website: connect.prattwhitney.com.\n\n• You may view this service information at the FAA, Airworthiness Products Section, Operational Safety Branch, 1200 District Avenue, Burlington, MA 01803. For information on the availability of this material at the FAA, call (817) 222-5110.\n\nFOR FURTHER INFORMATION CONTACT:\n\nCarol Nguyen, Aviation Safety Engineer, FAA, 2200 South 216th Street, Des Moines, WA 98198; phone: (781) 238-7655; email: carol.nguyen@faa.gov.\n\nSUPPLEMENTARY INFORMATION:\n\nBackground\n\nThe FAA issued a notice of proposed rulemaking (NPRM) to amend 14 CFR part 39 by adding an AD that would apply to certain IAE AG Model V2500 engines. The NPRM published in the Federal Register on February 5, 2024 (89 FR 7636). The NPRM was prompted by an event on December 24, 2022, when an Airbus Model A320neo airplane, powered by IAE LLC Model PW1127GA-JM engines, experienced a failure of the HPC IBR-7 that resulted in an engine shutdown and aborted take-off. Following this event, the manufacturer conducted a records review of production and field-returned parts and re-evaluated their engineering analysis methodology. The new analysis found that the failure of the HPC IBR-7 was caused by a nickel powdered metal anomaly, similar in nature to an anomaly previously observed on March 18, 2020, when an Airbus Model A321-231 airplane, powered by IAE AG Model V2533-A5 engines, experienced an uncontained HPT 1st-stage hub failure that resulted in high-energy debris penetrating the engine cowling. The analysis also concluded that there is an increased risk of failure for a subpopulation of HPT 1st-stage hubs and HPT 2nd-stage hubs that were manufactured from the same production campaign (a batch of nickel powdered metal) as the HPT 1st-stage hub that failed on March 18, 2020; these parts have a higher likelihood of containing the nickel powdered metal anomaly and are susceptible to failure much earlier than previously determined. In the NPRM, the FAA proposed to require performing an AUSI of certain HPT 1st-stage hubs and HPT 2nd-stage hubs and, depending on the results of the inspections, replacing the HPT 1st-stage hubs or HPT 2nd-stage hubs. The FAA also proposed to require accelerated replacement of certain HPT 1st-stage hubs and HPT 2nd-stage hubs. The FAA is issuing this AD to address the unsafe condition on these products.\n\nDiscussion of Final Airworthiness Directive\n\nComments\n\nThe FAA received comments from 14 commenters, including the Air Line Pilots Association, International (ALPA); JetBlue Airways (JetBlue); Lufthansa Technik AG (Lufthansa); MTU Maintenance Hannover GmbH; MTU Maintenance Zhuhai Co. Ltd; Pratt & Whitney (PW); Turkish Engine Center (TEC); United Airlines; five anonymous commenters; and an individual commenter. ALPA, United Airlines, the individual commenter, and one anonymous commenter supported the proposed AD without change. Ten commenters requested changes to the proposed AD. The following presents the comments received on the NPRM and the FAA's response to each comment.\n\nRequest To Clarify Affected Parts\n\nTwo anonymous commenters requested that the FAA clarify if HPT hubs that were produced before 2020 are part of the affected subpopulation if they were installed in January of 2019 or February of 2019 and had not accumulated more than 1,200 flight cycles (FCs).\n\nThe FAA clarifies that the affected population was manufactured from the same production campaign (a batch of nickel powdered metal) as the HPT 1st-stage hub that failed on March 18, 2020. The FAA notes that those affected parts are defined by serial number within the service information documents that are incorporated by reference in this AD. The FAA did not change this AD as a result of these comments.\n\nRequest To Clarify AUSI for Parts Removed From Service\n\nAn anonymous commenter requested that the FAA change the proposed AD to clarify if removal of the affected part from service and replacement with a part eligible for installation is an acceptable alternative to performing the AUSI required by paragraph (g)(1) of the proposed AD. The commenter noted that affected parts may be proactively replaced or found unserviceable before the AUSI is required.\n\nThe FAA disagrees with the request to change the AD because the AUSI required by paragraph (g)(1) of the proposed AD only applies to “affected parts.” If the part has been replaced with a part “eligible for installation,” then it is not an “affected part” and the AUSI is not required. The FAA did not change this AD as a result of this comment.\n\nRequest To Clarify Start Date for FC Accumulation\n\nAn anonymous commenter requested that the FAA clarify the point or date from which FCs should be counted in order to remain compliant with the proposed AD. The commenter noted that in Table 1 to Paragraph (g)(1) of the proposed AD, the AUSI compliance times are specified in terms of FCs, and for the HPT 1st-stage hub with Part Number (P/N) 2A5001, the compliance requirement is based on 100 FCs from a specific reference point.\n\nThe FAA clarifies that the FC count for AUSI compliance times begins on the effective date of this AD. The FAA has also changed the fourth column header of Table 1 to Paragraph (g)(1), Table 2 to Paragraph (g)(4), and Table 3 to Paragraph (g)(5) of this AD to read as follows: “Flight cycle (FC) limit from the effective date of this AD.”\n\nRequest To Account for Inability To Obtain Special Instruction\n\nJetBlue requested that the FAA do one of the following:\n\n(1) remove the reference to PW Special Instruction No. 189F-23, dated November 20, 2023 (PW SI No. 189F-23), from the effectivity of the affected parts listed in Table 1 to Paragraph (g)(1) and Table 2 to Paragraph (g)(4) of this AD; or\n\n(2) have IAE LLC revise IAE AG Non-Modification Service Bulletin (NMSB) V2500-ENG-72-0720, dated November 20, 2023 (V2500-ENG-72-0720) to provide the list of the affected P/Ns and serial numbers of the hubs mentioned in PW SI No. 189F-23; or\n\n(3) list all affected hubs within the AD.\n\nJetBlue noted that they were unable to obtain PW SI No. 189F-23 from IAE LLC because it relates to a military program and there are concerns about the inadvertent release of data.\n\nThe FAA disagrees with the request because PW SI No. 189F-23 applies to the V2531-E5 engine model only, and therefore IAE only provides PW SI No. 189F-23 to those owning or operating the product. The FAA notes that material that is incorporated by reference in airworthiness directives can be accessed by the means identified in the ADDRESSES section. For clarity, the FAA added the phrase “which only applies to the IAE AG V2531-E5 Model engine” at the end of each reference to the service bulletin, except for paragraph (l), Material Incorporated by Reference, of the final rule.\n\nRequest To Adjust Compliance Times\n\nJetBlue requested that the FAA adjust the compliance times for Table 1 to Paragraph (g)(1), Table 2 to Paragraph (g)(4), and Table 3 to Paragraph (g)(5) of this AD to match the drawdown period of IAE AG NMSB V2500-ENG-72-0720. JetBlue noted that IAE AG NMSB V2500-ENG-72-0720 provides an additional 200 FCs and is based on an effective date of January 1, 2024, while the proposed AD provides 200 FCs less and is based on the effective date of the AD. JetBlue also noted that it planned the engine removal schedule based on the drawdown of IAE AG NMSB V2500-ENG-72-0720, including working with the engine shops for induction slots and spare engines (including obtaining lease engines).\n\nThe FAA disagrees with the request because the drawdown times for IAE AG NMSB V2500-ENG-72-0720 started on January 1, 2024, and the FAA reduced the compliance time for the AUSIs required by this AD in order to better align with the control program. The FAA did not change this AD as a result of this comment.\n\nComment Regarding Low Cost Estimate\n\nJetBlue commented that the estimated cost of compliance provided in the proposed AD is not realistic and would be only achievable for a new engine or engine just returning to the shop. JetBlue also noted that the estimated cost would have great financial impact on operators, and the manufacturer is not providing a support program to address this.\n\nThe FAA disagrees that the estimated cost in the AD is unrealistic. The FAA based its estimated cost of compliance on the work-hours and parts costs from the manufacturer to perform the required actions. The commenter did not provide specifics on which cost estimates were incorrect and what would be considered realistic. The FAA did not change this AD as a result of this comment.\n\nComment Regarding Parts Eligible for Installation\n\nLufthansa commented that parts considered eligible for installation should not be limited to the disk S/Ns that are not listed in V2500-ENG-72-0720 or PW SI No. 189F-23. Lufthansa noted that disk S/Ns listed in those documents that have passed AUSI are also eligible for installation and need to be removed within 4,000 FCs from accomplishment of the AUSI or at the next HPT module removal after the AUSI.\n\nThe FAA agrees to change paragraph (h)(1) of this AD to include parts that were not removed from service as a result of the required actions of this AD as “parts eligible for installation.”\n\nRequest To Redefine AUSI Inspected Part Installation Date\n\nTEC requested that the FAA change the definition of the date that an AUSI inspected part was installed in paragraph (h)(5) of the proposed AD from “the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI was performed” to “the HPT hub release certificate date.” TEC noted that it is possible for two HPT hubs to be inspected on the same date and be installed on different engines. Since release dates of these engines can differ, it is possible for different replacement compliance times to apply to parts that were inspected on the same day.\n\nThe FAA disagrees with the request to change the definition of the date that an AUSI inspected part was installed. The FAA acknowledges that AUSI compliance times will vary depending on when the AUSI inspected part was installed, and this was taken into consideration in order to manage shop visit capacity. The FAA did not change this AD as a result of this comment.\n\nRequest To Revise Paragraph (g)(1) of the Proposed AD\n\nMTU Maintenance Hannover GmbH and PW requested that the FAA revise paragraph (g)(1) of the proposed AD to remove mention of AUSI inspected parts installed on or after November 1, 2023. MTU Maintenance Hannover GmbH requested that the phrase “or the AUSI inspected part was installed on or after November 1, 2023” be removed from paragraph (g)(1) of the proposed AD entirely, and PW requested that the FAA change the language from “or the AUSI inspected part was installed on or after November 1, 2023” to “before November 1, 2023.” JetBlue, MTU Maintenance Hannover GmbH, and PW all noted that the current language in paragraph (g)(1) of the proposed AD could cause an early engine removal by requiring a second AUSI inspection on hubs that had been previously AUSI inspected.\n\nThe FAA agrees to revise paragraph (g)(1) of this AD to prevent the potential requirement of performing a second AUSI on hubs that had an AUSI performed on or after November 1, 2023.\n\nRequest To Revise Paragraph (g)(2) of the AD\n\nMTU Maintenance Hannover GmbH and PW requested that the FAA revise paragraph (g)(2) of the proposed AD to clarify the required actions for engines with AUSI inspected parts that were installed on or after November 1, 2023. MTU Maintenance Hannover GmbH requested that the FAA revise paragraph (g)(2) to read as follows: “For engines with an AUSI inspected part installed on or after November 1, 2023 or for parts inspected in accordance with paragraph (g)(1) of this AD, within 4,000 FCs from accomplishment of the AUSI required by paragraph (g)(1) of this AD or at the next HPT module removal after the AUSI required by paragraph (g)(1) of this AD, whichever occurs first, remove the part from service and replace with a part eligible for installation.” PW requested that the FAA revise paragraph (g)(2) of the proposed AD to read as follows: “For parts inspected in accordance with paragraph (g)(1) of this AD, or for parts previously AUSI inspected and installed on or after November 1, 2023, within 4,000 FCs from accomplishment of the AUSI required by paragraph (g)(1) of this AD or at the next HPT module removal after the AUSI required by paragraph (g)(1) of this AD, whichever occurs first, remove the part from service and replace with a part eligible for installation.” PW noted that the intent is to inspect everything, and any part inspected after November 1, 2023 will be removed at 4,000 FCs.\n\nThe FAA agrees to revise paragraph (g)(2) of this AD to clarify the required actions for engines with AUSI inspected parts that were installed on or after November 1, 2023.\n\nRequest To Clarify Compliance Time for High-Thrust Engines\n\nMTU Maintenance Zhuhai Co. Ltd requested that the FAA clarify the part replacement compliance time in Table 2 to Paragraph (g)(4) of the proposed AD for a part not previously operated in a high-thrust engine model that has its engine rating changed to a high-thrust rating without any disassembly or removal of the HPT module.\n\nThe FAA clarifies that after the initial flight in the newly rated high-thrust engine, the part is considered to have previously operated in a high-thrust engine and it will be required to use the lower cycle limits. For example, the HPT 1st-stage hub will need to be removed at 1,800 FCs after the effective date of the AD because it is now operating in a high-thrust engine. The FAA notes that the removal or non-removal of the HPT module at shop visit would not have an effect on this scenario as these are considered the new replacement cycle limits for the affected parts on the effective date of the AD. The FAA has revised paragraph (h)(3) of this AD by removing the second instance of the word “previously” from the definition in order to avoid potential misinterpretation.\n\nConclusion\n\nThe FAA reviewed the relevant data, considered any comments received, and determined that air safety requires adopting this AD as proposed. Accordingly, the FAA is issuing this AD to address the unsafe condition on these products. Except for minor editorial changes, and any other changes described previously, this AD is adopted as proposed in the NPRM. None of the changes will increase the economic burden on any operator.\n\nRelated Service Information Under 1 CFR Part 51\n\nThe FAA reviewed IAE AG NMSB V2500-ENG-72-0720, dated November 20, 2023; and PW Special Instruction No. 189F-23, dated November 20, 2023, which only applies to the IAE AG V2531-E5 Model engine. This service information specifies procedures for performing an AUSI for cracks on affected HPT 1st-stage hubs and HPT 2nd-stage hubs. This service information also specifies the list of affected HPT 1st-stage hubs and HPT 2nd-stage hubs, identified by part number and serial number, installed on certain IAE AG engines. This service information is reasonably available because the interested parties have access to it through their normal course of business or by the means identified in the ADDRESSES section.\n\nInterim Action\n\nThe FAA considers this AD to be an interim action. The unsafe condition is still under investigation by the manufacturer and, depending on the results of that investigation, the FAA may consider further rulemaking action.\n\nJustification for Determination of the Effective Date\n\nSection 553(d) of the Administrative Procedure Act (APA) (5 U.S.C. 551 et seq. ) authorizes agencies to make rules effective in less than thirty days, upon a finding of “good cause.” The FAA has found that the risk to the flying public justifies a shortened effective date for this rule due to powdered metal anomalies in HPT 1st-stage hubs and HPT 2nd-stage hubs that could lead to premature fracture and uncontained failure, which could lead to the release of high-energy debris, damage to the engine, damage to the airplane, and loss of the airplane. The longer these parts remain in service, the higher the probability of failure. Accordingly, the FAA finds that good cause exists pursuant to 5 U.S.C. 553(d) for making this amendment effective in less than 30 days.\n\nCosts of Compliance\n\nThe FAA estimates that this AD affects 116 engines installed on airplanes of U.S. registry. The FAA estimates that 40 engines need an AUSI of the HPT 1st-stage hub; 40 engines need an AUSI of the HPT 2nd-stage hub; 67 engines need replacement of the HPT 1st-stage hub; and 49 engines need replacement of the HPT 2nd-stage hub.\n\nThe FAA estimates the following costs to comply with this AD:\n\nEstimated Costs\nAction | Labor cost | Parts cost | Cost per product | Cost on U.S. operators\nAUSI of HPT 1st-stage hub | 5 work-hours × $85 per hour = $425 | $0 | $425 | $17,000\nAUSI of HPT 2nd-stage hub | 5 work-hours × $85 per hour = $8,500 | 0 | 425 | 17,000\nReplace HPT 1st-stage hub | 100 work-hours × $85 per hour = $8,500 | 460,000 | 468,500 | 31,389,500\nReplace HPT 2nd-stage hub | 100 work-hours × $85 per hour = $8,500 | 360,000 | 368,500 | 18,056,500\n\nThe FAA has included all known costs in its cost estimate. According to the manufacturer, however, some of the costs of this AD may be covered under warranty, thereby reducing the cost impact on affected operators.\n\nAuthority for This Rulemaking\n\nTitle 49 of the United States Code specifies the FAA's authority to issue rules on aviation safety. Subtitle I, section 106, describes the authority of the FAA Administrator. Subtitle VII: Aviation Programs, describes in more detail the scope of the Agency's authority.\n\nThe FAA is issuing this rulemaking under the authority described in Subtitle VII, Part A, Subpart III, Section 44701: General requirements. Under that section, Congress charges the FAA with promoting safe flight of civil aircraft in air commerce by prescribing regulations for practices, methods, and procedures the Administrator finds necessary for safety in air commerce. This regulation is within the scope of that authority because it addresses an unsafe condition that is likely to exist or develop on products identified in this rulemaking action.\n\nRegulatory Findings\n\nThis AD will not have federalism implications under Executive Order 13132. This AD will not have a substantial direct effect on the States, on the relationship between the national government and the States, or on the distribution of power and responsibilities among the various levels of government.\n\nFor the reasons discussed above, I certify that this AD:\n\n(1) Is not a “significant regulatory action” under Executive Order 12866,\n\n(2) Will not affect intrastate aviation in Alaska, and\n\n(3) Will not have a significant economic impact, positive or negative, on a substantial number of small entities under the criteria of the Regulatory Flexibility Act.\n\nList of Subjects in 14 CFR Part 39\n\nAir transportation, Aircraft, Aviation safety, Incorporation by reference, Safety.\n\nThe Amendment\n\nAccordingly, under the authority delegated to me by the Administrator, the FAA amends 14 CFR part 39 as follows:\n\nPART 39—AIRWORTHINESS DIRECTIVES\n\n1. The authority citation for part 39 continues to read as follows:\n\nAuthority:\n\n49 U.S.C. 106(g), 40113, 44701.\n\n§ 39.13\n\n[Amended]\n\n2. The FAA amends § 39.13 by adding the following new airworthiness directive:\n\n2024-11-03 International Aero Engines, AG: Amendment 39-22764; Docket No. FAA-2024-0041; Project Identifier AD-2024-00032-E.\n\n(a) Effective Date\n\nThis airworthiness directive (AD) is effective June 26, 2024.\n\n(b) Affected ADs\n\nThis AD is related to AD 2022-02-09, Amendment 39-21906 (87 FR 7029, February 8, 2022) (AD 2022-02-09).\n\n(c) Applicability\n\nThis AD applies to International Aero Engines, AG (IAE AG) Model V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, and V2533-A5 engines.\n\n(d) Subject\n\nJoint Aircraft System Component (JASC) Code 7230, Turbine Engine.\n\n(e) Unsafe Condition\n\nThis AD was prompted by an analysis of an event involving an International Aero Engines, LLC Model PW1127GA-JM engine, which experienced failure of a high-pressure compressor 7th-stage integrally bladed rotor that resulted in an engine shutdown and aborted takeoff. The FAA is issuing this AD to prevent failure of the high-pressure turbine (HPT) 1st-stage hub and HPT 2nd-stage hub. The unsafe condition, if not addressed, could result in uncontained hub failure, release of high-energy debris, damage to the engine, damage to the airplane, and loss of the airplane.\n\n(f) Compliance\n\nComply with this AD within the compliance times specified, unless already done.\n\n(g) Required Actions\n\n(1) For engines with an installed part, part number (P/N), and serial number (S/N) listed in Table 1 to paragraph (g)(1) of this AD, with no angled ultrasonic inspection (AUSI) performed, at the next engine shop visit after the effective date of this AD before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD, perform an AUSI of the affected parts for cracks in accordance with the applicable service information listed in Table 1 to paragraph (g)(1) of this AD.\n\nTable 1 to Paragraph ( g )(1)—AUSI Compliance Times\nPart | Table S/N is listed in | Previously operated in high-thrust model engine | Flight cycle (FC) limit from the effective date of this AD | Applicable service information (see paragraph (l)(2) of this AD)\nHPT 1st-stage hub P/N 2A5001 | Table 1 of IAE AG Non-Modification Service Bulletin V2500-ENG-72-0720, dated November 20, 2023 (IAE AG NMSB V2500-ENG-72-0720) | Yes | 100 FCs | Accomplishment Instructions, paragraph 5., of IAE AG NMSB V2500-ENG-72-0720.\nHPT 1st-stage hub P/N 2A5001 | Table 1 of Pratt & Whitney (PW) Special Instruction No. 189F-23, dated November 20, 2023 (PW SI No. 189F-23), which only applies to the IAE AG V2531-E5 Model engine | Yes | 100 FCs | Accomplishment Instructions, paragraph 5., of PW SI No. 189F-23, which only applies to the IAE AG V2531-E5 Model engine.\nHPT 1st-stage hub P/N 2A5001 | Table 1 of IAE AG NMSB V2500-ENG-72-0720 | No | 700 FCs | Accomplishment Instructions, paragraph 5., of IAE AG NMSB V2500-ENG-72-0720.\nHPT 2nd-stage hub P/N 2A4802 | Table 2 of IAE AG NMSB V2500-ENG-72-0720 | Yes | 800 FCs | Accomplishment Instructions, paragraph 6., of IAE AG NMSB V2500-ENG-72-0720.\nHPT 2nd-stage hub P/N 2A4802 | Table 2 PW SI No. 189F-23, which only applies to the IAE AG V2531-E5 Model engine | Yes | 800 FCs | Accomplishment Instructions, paragraph 6., of PW SI No. 189F-23, which only applies to the IAE AG V2531-E5 Model engine.\nHPT 2nd-stage hub P/N 2A4802 | Table 2 of IAE AG NMSB V2500-ENG-72-0720 | No | 1100 FCs | Accomplishment Instructions, paragraph 6., of IAE AG NMSB V2500-ENG-72-0720.\n\n(2) For parts inspected in accordance with paragraph (g)(1) of this AD, or for AUSI inspected parts installed on or after November 1, 2023, within 4,000 FCs from accomplishment of the AUSI or at the next HPT module removal after the AUSI, whichever occurs first, remove the part from service and replace with a part eligible for installation.\n\n(3) If any crack is found during the inspections required by paragraphs (g)(1) of this AD, before further flight, remove the affected part from service and replace with a part eligible for installation.\n\n(4) For engines with an AUSI inspected part installed prior to November 1, 2023, having a P/N and S/N listed in Table 2 to paragraph (g)(4) of this AD, at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD, remove the affected part from service and replace with a part eligible for installation.\n\nTable 2 to Paragraph ( g )(4)—Part Replacement Compliance Times\nPart | Table S/N is listed in | Previously operated in high-thrust model engine | Flight cycle limit from the effective date of this AD\nHPT 1st-stage hub P/N 2A5001 | Table 1 of IAE AG NMSB V2500-ENG-72-0720 | Yes | 1,800 FCs.\nHPT 1st-stage hub P/N 2A5001 | Table 1 of PW SI No. 189F-23, which only applies to the IAE AG V2531-E5 Model engine | Yes | 1,800 FCs.\nHPT 1st-stage hub P/N 2A5001 | Table 1 of IAE AG NMSB V2500-ENG-72-0720 | No | 2,800 FCs.\nHPT 2nd-stage hub P/N 2A4802 | Table 2 of IAE AG NMSB V2500-ENG-72-0720 | Yes | 3,400 FCs.\nHPT 2nd-stage hub P/N 2A4802 | Table 2 of PW SI No. 189F-23, which only applies to the IAE AG V2531-E5 Model engine | Yes | 3,400 FCs.\nHPT 2nd-stage hub P/N 2A4802 | Table 2 of IAE AG NMSB V2500-ENG-72-0720 | No | 3,800 FCs.\n\n(5) For engines with an installed part that has a P/N and S/N listed in Table 3 to paragraph (g)(5) of this AD, at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 3 to paragraph (g)(5) of this AD, remove the affected part from service and replace with a part eligible for installation.\n\nTable 3 to Paragraph ( g )(5)—Part Replacement Compliance Times\nPart | Table S/N is listed in | Previously operated in high-thrust model engine | Flight cycle limit from the effective date of this AD\nHPT 1st-stage hub P/N 2A5001 | Table 3 of IAE AG NMSB V2500-ENG-72-0720 | Yes | 1,800 FCs.\nHPT 1st-stage hub P/N 2A5001 | Table 3 of IAE AG NMSB V2500-ENG-72-0720 | No | 2,800 FCs.\nHPT 2nd-stage hub P/N 2A4802 | Table 4 of IAE AG NMSB V2500-ENG-72-0720 | Yes | 3,400 FCs.\nHPT 2nd-stage hub P/N 2A4802 | Table 4 of IAE AG NMSB V2500-ENG-72-0720 | No | 3,800 FCs.\n\n(h) Definitions\n\n(1) For the purposes of this AD, a “part eligible for installation” is an HPT 1st-stage disk or HPT 2nd-stage disk having an S/N that is not listed in IAE AG NMSB V2500-ENG-72-0720 or PW SI No. 189F-23, or an HPT 1st-stage disk or HPT 2nd-stage disk that was not removed from service per the requirements of this AD.\n\n(2) For the purposes of this AD, an “HPT module removal” is when the HPT rotor and stator assembly are removed from the engine.\n\n(3) For the purposes of this AD, “Previously operated in high-thrust model engine” refers to HPT 1st-stage hubs or HPT 2nd-stage hubs that have operated in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine for any duration.\n\n(4) For the purposes of this AD, an “engine shop visit” is the induction of an engine into the shop for maintenance involving the separation of pairs of major mating engine flanges, H-P, except for the following situations, which do not constitute an engine shop visit:\n\n(i) Separation of engine flanges solely for the purposes of transportation without subsequent engine maintenance.\n\n(ii) Engine removal for the purpose of performing field maintenance activities at a maintenance facility in lieu of performing them on-wing.\n\n(5) For the purposes of this AD, the date that an AUSI inspected part was installed is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI was performed.\n\n(i) Terminating Action to AD 2022-02-09\n\nCompliance with paragraph (g)(1) of this AD satisfies the requirements of AD 2022-02-09.\n\n(j) Alternative Methods of Compliance (AMOCs)\n\n(1) The Manager, AIR-520 Continued Operational Safety Branch, FAA, has the authority to approve AMOCs for this AD, if requested using the procedures found in 14 CFR 39.19. In accordance with 14 CFR 39.19, send your request to your principal inspector or local Flight Standards District Office, as appropriate. If sending information directly to the manager of the AIR-520 Continued Operational Safety Branch, send it to the attention of the person identified in paragraph (k) of this AD.\n\n(2) Before using any approved AMOC, notify your appropriate principal inspector, or lacking a principal inspector, the manager of the local flight standards district office/certificate holding district office.\n\n(k) Additional Information\n\nFor more information about this AD, contact Carol Nguyen, Aviation Safety Engineer, FAA, 2200 South 216th Street, Des Moines, WA 98198; phone: (781) 238-7655; email: carol.nguyen@faa.gov.\n\n(l) Material Incorporated by Reference\n\n(1) The Director of the Federal Register approved the incorporation by reference (IBR) of the service information listed in this paragraph under 5 U.S.C. 552(a) and 1 CFR part 51.\n\n(2) You must use this service information as applicable to do the actions required by this AD, unless the AD specifies otherwise.\n\n(i) International Aero Engines AG (IAE AG) Non-Modification Service Bulletin V2500-ENG-72-0720, dated November 20, 2023.\n\n(ii) Pratt & Whitney (PW) Special Instruction No. 189F-23, dated November 20, 2023.\n\n(3) For IAE AG and PW service information, contact International Aero Engines, AG, 400 Main Street, East Hartford, CT 06118; phone: (860) 565-0140; email: help24@pw.utc.com; website: connect.prattwhitney.com.\n\n(4) You may view this service information at the FAA, Airworthiness Products Section, Operational Safety Branch, 1200 District Avenue, Burlington, MA 01803. For information on the availability of this material at the FAA, call (817) 222-5110.\n\n(5) You may view this material at the National Archives and Records Administration (NARA). For information on the availability of this material at NARA, visit www.archives.gov/federal-register/cfr/ibr-locations or email fr.inspection@nara.gov .\n\nIssued on May 31, 2024.\n\nSuzanne Masterson,\n\nDeputy Director, Integrated Certificate Management Division, Aircraft Certification Service.\n\n[FR Doc. 2024-12594 Filed 6-10-24; 8:45 am]\n",
+        "type": "text"
+      }
+    ]
+  },
+  "response": {
+    "answer": {
+      "ad_number": "AD 2024-11-03",
+      "ambiguities": [
+        {
+          "description": "The table columns read 'Flight cycle (FC) limit from the effective date of this AD' (also in Tables 2 and 3). The text does not say whether the cycles are counted on the part or on the engine it is installed in. The two counts differ if the part has moved between engines since the effective date. The record uses the part count.",
+          "paragraph": "(g)(1)",
+          "readings": [
+            "Cycles accumulated by the part since the effective date, on any engine.",
+            "Flight cycles of the engine in which the part is installed since the effective date."
+          ]
+        },
+        {
+          "description": "'AUSI inspected parts installed on or after November 1, 2023' are not identified by P/N or S/N. The text does not say whether this covers only hubs listed in Table 1 of the NMSB and PW SI or any AUSI inspected HPT hub. The 4,000 FCs are also not stated as part or engine cycles.",
+          "paragraph": "(g)(2)",
+          "readings": [
+            "Only hubs with S/Ns in the NMSB or PW SI tables referenced by Table 1 to paragraph (g)(1).",
+            "Any HPT 1st-stage or 2nd-stage hub that has had an AUSI and was installed on or after November 1, 2023."
+          ]
+        },
+        {
+          "description": "'Part eligible for installation' is defined in terms of an 'HPT 1st-stage disk or HPT 2nd-stage disk', while the actions use 'hub', and no P/N is printed. Eligibility turns on the S/N not being listed in either service document, or on the part not having been removed from service per this AD. A listed part that passed AUSI is therefore eligible but remains subject to (g)(2). No P/N-based clearing is recorded.",
+          "paragraph": "(h)(1)",
+          "readings": [
+            "'Disk' and 'hub' denote the same HPT 1st-stage and 2nd-stage parts.",
+            "'Disk' denotes a different part designation than 'hub'."
+          ]
+        },
+        {
+          "description": "Table 1 to paragraph (g)(1) and Table 2 to paragraph (g)(4) print only a 'Yes' (previously operated in high-thrust model engine) row for parts listed in PW SI No. 189F-23. They give no compliance time for a PW SI-listed part that has not so operated.",
+          "paragraph": "(g)(1)",
+          "readings": [
+            "Every PW SI-listed part is treated as previously operated in a high-thrust model engine (the SI applies only to the V2531-E5, a high-thrust model per (h)(3)).",
+            "No compliance time is stated for such a part."
+          ]
+        }
+      ],
+      "amoc_paragraph": "(j)",
+      "applicability": {
+        "engine_models": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2525-D5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2528-D5",
+          "V2530-A5",
+          "V2531-E5",
+          "V2533-A5"
+        ],
+        "engine_serials": [],
+        "models_paragraph": "(c)",
+        "parts": [],
+        "parts_combine": "any",
+        "parts_paragraph": ""
+      },
+      "continuing_obligations": [],
+      "corrections": [],
+      "credit_for_previous_actions": [],
+      "definitions": [
+        {
+          "paragraph": "(h)(1)",
+          "term": "part eligible for installation"
+        },
+        {
+          "paragraph": "(h)(2)",
+          "term": "HPT module removal"
+        },
+        {
+          "paragraph": "(h)(3)",
+          "term": "Previously operated in high-thrust model engine"
+        },
+        {
+          "paragraph": "(h)(4)",
+          "term": "engine shop visit"
+        },
+        {
+          "paragraph": "(h)(5)",
+          "term": "date that an AUSI inspected part was installed"
+        }
+      ],
+      "dependencies": [
+        {
+          "holds": "serial_numbers",
+          "id": "dep_nmsb_t1",
+          "incorporated_in": [
+            "(l)(2)(i)"
+          ],
+          "kind": "incorporated_by_reference",
+          "paragraph": "(g)(1)",
+          "title": "IAE AG Non-Modification Service Bulletin V2500-ENG-72-0720, dated November 20, 2023, Table 1 (S/Ns of affected HPT 1st-stage hubs P/N 2A5001)"
+        },
+        {
+          "holds": "serial_numbers",
+          "id": "dep_nmsb_t2",
+          "incorporated_in": [
+            "(l)(2)(i)"
+          ],
+          "kind": "incorporated_by_reference",
+          "paragraph": "(g)(1)",
+          "title": "IAE AG Non-Modification Service Bulletin V2500-ENG-72-0720, dated November 20, 2023, Table 2 (S/Ns of affected HPT 2nd-stage hubs P/N 2A4802)"
+        },
+        {
+          "holds": "serial_numbers",
+          "id": "dep_nmsb_t3",
+          "incorporated_in": [
+            "(l)(2)(i)"
+          ],
+          "kind": "incorporated_by_reference",
+          "paragraph": "(g)(5)",
+          "title": "IAE AG Non-Modification Service Bulletin V2500-ENG-72-0720, dated November 20, 2023, Table 3 (S/Ns of affected HPT 1st-stage hubs P/N 2A5001)"
+        },
+        {
+          "holds": "serial_numbers",
+          "id": "dep_nmsb_t4",
+          "incorporated_in": [
+            "(l)(2)(i)"
+          ],
+          "kind": "incorporated_by_reference",
+          "paragraph": "(g)(5)",
+          "title": "IAE AG Non-Modification Service Bulletin V2500-ENG-72-0720, dated November 20, 2023, Table 4 (S/Ns of affected HPT 2nd-stage hubs P/N 2A4802)"
+        },
+        {
+          "holds": "serial_numbers",
+          "id": "dep_si_t1",
+          "incorporated_in": [
+            "(l)(2)(ii)"
+          ],
+          "kind": "incorporated_by_reference",
+          "paragraph": "(g)(1)",
+          "title": "Pratt & Whitney (PW) Special Instruction No. 189F-23, dated November 20, 2023 (which only applies to the IAE AG V2531-E5 Model engine), Table 1 (S/Ns of affected HPT 1st-stage hubs P/N 2A5001)"
+        },
+        {
+          "holds": "serial_numbers",
+          "id": "dep_si_t2",
+          "incorporated_in": [
+            "(l)(2)(ii)"
+          ],
+          "kind": "incorporated_by_reference",
+          "paragraph": "(g)(1)",
+          "title": "Pratt & Whitney (PW) Special Instruction No. 189F-23, dated November 20, 2023 (which only applies to the IAE AG V2531-E5 Model engine), Table 2 (S/Ns of affected HPT 2nd-stage hubs P/N 2A4802)"
+        }
+      ],
+      "effective_date": {
+        "date": "2024-06-26",
+        "emergency_ad": null,
+        "paragraph": "(a)"
+      },
+      "eligible_parts": [],
+      "final_rule_document": "2024-12594",
+      "governing_document": {
+        "document": "2024-12594",
+        "reason": "Final rule 2024-12594 (Amendment 39-22764) is the only document in the thread. No correction republishes its regulatory text, so its regulatory text controls."
+      },
+      "notes": [
+        "Applicability (c) is by engine model only. Every action is limited to hubs whose S/Ns appear in IAE AG NMSB V2500-ENG-72-0720 Tables 1-4 or PW SI No. 189F-23 Tables 1-2; those lists are not printed in the AD.",
+        "The text states that PW SI No. 189F-23 only applies to the IAE AG V2531-E5 Model engine. The actions on SI-listed parts are not restricted by model in the regulatory text, so no model restriction is recorded.",
+        "How the actions fit together: a listed Table 1 part with no AUSI gets the AUSI under (g)(1), then removal under (g)(2). An AUSI inspected part installed on or after November 1, 2023 is removed under (g)(2). An AUSI inspected part installed prior to November 1, 2023 (per Table 2) is removed under (g)(4). Parts listed in NMSB Tables 3 and 4 are removed under (g)(5) without AUSI.",
+        "AUSI procedures are Accomplishment Instructions paragraph 5. (1st-stage hub) and paragraph 6. (2nd-stage hub) of the applicable service document. These are procedure-only material and are not recorded as dependencies.",
+        "Paragraph (f): comply within the compliance times specified, unless already done.",
+        "The preamble describes this AD as an interim action. The FAA estimates that 116 U.S.-registry engines are affected."
+      ],
+      "parts": [
+        {
+          "aliases": [
+            "high-pressure turbine 1st-stage hub",
+            "HPT 1st-stage disk"
+          ],
+          "component": "HPT 1st-stage hub",
+          "dependency": "dep_nmsb_t1",
+          "id": "hpt1_hub_nmsb_t1",
+          "listed": [],
+          "paragraph": "(g)(1)",
+          "part_numbers": [
+            "2A5001"
+          ],
+          "serials": "listed_in_dependency"
+        },
+        {
+          "aliases": [
+            "high-pressure turbine 1st-stage hub",
+            "HPT 1st-stage disk"
+          ],
+          "component": "HPT 1st-stage hub",
+          "dependency": "dep_si_t1",
+          "id": "hpt1_hub_si_t1",
+          "listed": [],
+          "paragraph": "(g)(1)",
+          "part_numbers": [
+            "2A5001"
+          ],
+          "serials": "listed_in_dependency"
+        },
+        {
+          "aliases": [
+            "high-pressure turbine 2nd-stage hub",
+            "HPT 2nd-stage disk"
+          ],
+          "component": "HPT 2nd-stage hub",
+          "dependency": "dep_nmsb_t2",
+          "id": "hpt2_hub_nmsb_t2",
+          "listed": [],
+          "paragraph": "(g)(1)",
+          "part_numbers": [
+            "2A4802"
+          ],
+          "serials": "listed_in_dependency"
+        },
+        {
+          "aliases": [
+            "high-pressure turbine 2nd-stage hub",
+            "HPT 2nd-stage disk"
+          ],
+          "component": "HPT 2nd-stage hub",
+          "dependency": "dep_si_t2",
+          "id": "hpt2_hub_si_t2",
+          "listed": [],
+          "paragraph": "(g)(1)",
+          "part_numbers": [
+            "2A4802"
+          ],
+          "serials": "listed_in_dependency"
+        },
+        {
+          "aliases": [
+            "high-pressure turbine 1st-stage hub",
+            "HPT 1st-stage disk"
+          ],
+          "component": "HPT 1st-stage hub",
+          "dependency": "dep_nmsb_t3",
+          "id": "hpt1_hub_nmsb_t3",
+          "listed": [],
+          "paragraph": "(g)(5)",
+          "part_numbers": [
+            "2A5001"
+          ],
+          "serials": "listed_in_dependency"
+        },
+        {
+          "aliases": [
+            "high-pressure turbine 2nd-stage hub",
+            "HPT 2nd-stage disk"
+          ],
+          "component": "HPT 2nd-stage hub",
+          "dependency": "dep_nmsb_t4",
+          "id": "hpt2_hub_nmsb_t4",
+          "listed": [],
+          "paragraph": "(g)(5)",
+          "part_numbers": [
+            "2A4802"
+          ],
+          "serials": "listed_in_dependency"
+        }
+      ],
+      "preamble_basis": [],
+      "relationships": [
+        {
+          "ad_number": "AD 2022-02-09",
+          "description": "Compliance with paragraph (g)(1) of this AD satisfies the requirements of AD 2022-02-09 (Amendment 39-21906, 87 FR 7029, February 8, 2022). The text does not print that AD's Federal Register document number.",
+          "document": "",
+          "effective_date": null,
+          "paragraph": "(i)",
+          "stated_in": "2024-12594",
+          "type": "terminates_by_compliance"
+        },
+        {
+          "ad_number": "AD 2022-02-09",
+          "description": "Paragraph (b) states that this AD is related to AD 2022-02-09, Amendment 39-21906 (87 FR 7029, February 8, 2022).",
+          "document": "",
+          "effective_date": null,
+          "paragraph": "(b)",
+          "stated_in": "2024-12594",
+          "type": "related"
+        }
+      ],
+      "required_actions": [
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t1"
+          ],
+          "description": "AUSI for cracks of HPT 1st-stage hub P/N 2A5001 with S/N listed in Table 1 of IAE AG NMSB V2500-ENG-72-0720, for a part previously operated in a high-thrust model engine (Table 1 to paragraph (g)(1), row 1). Due at the next engine shop visit after the effective date, before exceeding 100 FCs from the effective date. Procedure: Accomplishment Instructions, paragraph 5., of IAE AG NMSB V2500-ENG-72-0720.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(1)",
+              "role": "caps_event",
+              "value": 100
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(1)",
+          "related_paragraphs": [
+            "(g)(2)",
+            "(g)(3)",
+            "(h)(3)",
+            "(l)(2)(i)"
+          ],
+          "target": "hpt1_hub_nmsb_t1",
+          "terminates": [],
+          "trigger": {
+            "condition": "before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD",
+            "definition_paragraphs": [
+              "(h)(4)",
+              "(h)(4)(i)",
+              "(h)(4)(ii)"
+            ],
+            "event": "engine_shop_visit",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only if no AUSI has been performed on the installed part.",
+              "paragraph": "(g)(1)"
+            },
+            {
+              "description": "This row applies only if the part has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_si_t1"
+          ],
+          "description": "AUSI for cracks of HPT 1st-stage hub P/N 2A5001 with S/N listed in Table 1 of PW SI No. 189F-23, for a part previously operated in a high-thrust model engine (Table 1 to paragraph (g)(1), row 2). Due at the next engine shop visit after the effective date, before exceeding 100 FCs from the effective date. Procedure: Accomplishment Instructions, paragraph 5., of PW SI No. 189F-23.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(1)",
+              "role": "caps_event",
+              "value": 100
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(1)",
+          "related_paragraphs": [
+            "(g)(2)",
+            "(g)(3)",
+            "(h)(3)",
+            "(l)(2)(ii)"
+          ],
+          "target": "hpt1_hub_si_t1",
+          "terminates": [],
+          "trigger": {
+            "condition": "before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD",
+            "definition_paragraphs": [
+              "(h)(4)",
+              "(h)(4)(i)",
+              "(h)(4)(ii)"
+            ],
+            "event": "engine_shop_visit",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only if no AUSI has been performed on the installed part.",
+              "paragraph": "(g)(1)"
+            },
+            {
+              "description": "This row is for a part that has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Table 1 prints no row for PW SI-listed parts without that history. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t1"
+          ],
+          "description": "AUSI for cracks of HPT 1st-stage hub P/N 2A5001 with S/N listed in Table 1 of IAE AG NMSB V2500-ENG-72-0720, for a part not previously operated in a high-thrust model engine (Table 1 to paragraph (g)(1), row 3). Due at the next engine shop visit after the effective date, before exceeding 700 FCs from the effective date. Procedure: Accomplishment Instructions, paragraph 5., of IAE AG NMSB V2500-ENG-72-0720.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(1)",
+              "role": "caps_event",
+              "value": 700
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(1)",
+          "related_paragraphs": [
+            "(g)(2)",
+            "(g)(3)",
+            "(h)(3)",
+            "(l)(2)(i)"
+          ],
+          "target": "hpt1_hub_nmsb_t1",
+          "terminates": [],
+          "trigger": {
+            "condition": "before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD",
+            "definition_paragraphs": [
+              "(h)(4)",
+              "(h)(4)(i)",
+              "(h)(4)(ii)"
+            ],
+            "event": "engine_shop_visit",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only if no AUSI has been performed on the installed part.",
+              "paragraph": "(g)(1)"
+            },
+            {
+              "description": "This row applies only if the part has NOT operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t2"
+          ],
+          "description": "AUSI for cracks of HPT 2nd-stage hub P/N 2A4802 with S/N listed in Table 2 of IAE AG NMSB V2500-ENG-72-0720, for a part previously operated in a high-thrust model engine (Table 1 to paragraph (g)(1), row 4). Due at the next engine shop visit after the effective date, before exceeding 800 FCs from the effective date. Procedure: Accomplishment Instructions, paragraph 6., of IAE AG NMSB V2500-ENG-72-0720.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(1)",
+              "role": "caps_event",
+              "value": 800
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(1)",
+          "related_paragraphs": [
+            "(g)(2)",
+            "(g)(3)",
+            "(h)(3)",
+            "(l)(2)(i)"
+          ],
+          "target": "hpt2_hub_nmsb_t2",
+          "terminates": [],
+          "trigger": {
+            "condition": "before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD",
+            "definition_paragraphs": [
+              "(h)(4)",
+              "(h)(4)(i)",
+              "(h)(4)(ii)"
+            ],
+            "event": "engine_shop_visit",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only if no AUSI has been performed on the installed part.",
+              "paragraph": "(g)(1)"
+            },
+            {
+              "description": "This row applies only if the part has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_si_t2"
+          ],
+          "description": "AUSI for cracks of HPT 2nd-stage hub P/N 2A4802 with S/N listed in Table 2 of PW SI No. 189F-23, for a part previously operated in a high-thrust model engine (Table 1 to paragraph (g)(1), row 5). Due at the next engine shop visit after the effective date, before exceeding 800 FCs from the effective date. Procedure: Accomplishment Instructions, paragraph 6., of PW SI No. 189F-23.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(1)",
+              "role": "caps_event",
+              "value": 800
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(1)",
+          "related_paragraphs": [
+            "(g)(2)",
+            "(g)(3)",
+            "(h)(3)",
+            "(l)(2)(ii)"
+          ],
+          "target": "hpt2_hub_si_t2",
+          "terminates": [],
+          "trigger": {
+            "condition": "before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD",
+            "definition_paragraphs": [
+              "(h)(4)",
+              "(h)(4)(i)",
+              "(h)(4)(ii)"
+            ],
+            "event": "engine_shop_visit",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only if no AUSI has been performed on the installed part.",
+              "paragraph": "(g)(1)"
+            },
+            {
+              "description": "This row is for a part that has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Table 1 prints no row for PW SI-listed parts without that history. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t2"
+          ],
+          "description": "AUSI for cracks of HPT 2nd-stage hub P/N 2A4802 with S/N listed in Table 2 of IAE AG NMSB V2500-ENG-72-0720, for a part not previously operated in a high-thrust model engine (Table 1 to paragraph (g)(1), row 6). Due at the next engine shop visit after the effective date, before exceeding 1100 FCs from the effective date. Procedure: Accomplishment Instructions, paragraph 6., of IAE AG NMSB V2500-ENG-72-0720.",
+          "kind": "inspect",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(1)",
+              "role": "caps_event",
+              "value": 1100
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(1)",
+          "related_paragraphs": [
+            "(g)(2)",
+            "(g)(3)",
+            "(h)(3)",
+            "(l)(2)(i)"
+          ],
+          "target": "hpt2_hub_nmsb_t2",
+          "terminates": [],
+          "trigger": {
+            "condition": "before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD",
+            "definition_paragraphs": [
+              "(h)(4)",
+              "(h)(4)(i)",
+              "(h)(4)(ii)"
+            ],
+            "event": "engine_shop_visit",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only if no AUSI has been performed on the installed part.",
+              "paragraph": "(g)(1)"
+            },
+            {
+              "description": "This row applies only if the part has NOT operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "whichever_occurs_first",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t1"
+          ],
+          "description": "For an HPT 1st-stage hub P/N 2A5001 (S/N in Table 1 of IAE AG NMSB V2500-ENG-72-0720) that was inspected per (g)(1), or that is an AUSI inspected part installed on or after November 1, 2023: remove from service and replace with a part eligible for installation. Due within 4,000 FCs from accomplishment of the AUSI or at the next HPT module removal after the AUSI, whichever occurs first.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "other",
+              "paragraph": "(g)(2)",
+              "role": "alternative",
+              "value": 4000
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(2)",
+          "related_paragraphs": [
+            "(g)(1)",
+            "(h)(1)"
+          ],
+          "target": "hpt1_hub_nmsb_t1",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the AUSI",
+            "definition_paragraphs": [
+              "(h)(2)",
+              "(h)(5)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only to a part on which an AUSI was performed: inspected per (g)(1), or an AUSI inspected part installed on or after November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether or when an AUSI was done, or that release date.",
+              "paragraph": "(h)(5)"
+            },
+            {
+              "description": "The 4,000 FCs are counted from accomplishment of the AUSI, a date engine records do not hold.",
+              "paragraph": "(g)(2)"
+            }
+          ]
+        },
+        {
+          "combination": "whichever_occurs_first",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_si_t1"
+          ],
+          "description": "For an HPT 1st-stage hub P/N 2A5001 (S/N in Table 1 of PW SI No. 189F-23) that was inspected per (g)(1), or that is an AUSI inspected part installed on or after November 1, 2023: remove from service and replace with a part eligible for installation. Due within 4,000 FCs from accomplishment of the AUSI or at the next HPT module removal after the AUSI, whichever occurs first.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "other",
+              "paragraph": "(g)(2)",
+              "role": "alternative",
+              "value": 4000
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(2)",
+          "related_paragraphs": [
+            "(g)(1)",
+            "(h)(1)"
+          ],
+          "target": "hpt1_hub_si_t1",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the AUSI",
+            "definition_paragraphs": [
+              "(h)(2)",
+              "(h)(5)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only to a part on which an AUSI was performed: inspected per (g)(1), or an AUSI inspected part installed on or after November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether or when an AUSI was done, or that release date.",
+              "paragraph": "(h)(5)"
+            },
+            {
+              "description": "The 4,000 FCs are counted from accomplishment of the AUSI, a date engine records do not hold.",
+              "paragraph": "(g)(2)"
+            }
+          ]
+        },
+        {
+          "combination": "whichever_occurs_first",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t2"
+          ],
+          "description": "For an HPT 2nd-stage hub P/N 2A4802 (S/N in Table 2 of IAE AG NMSB V2500-ENG-72-0720) that was inspected per (g)(1), or that is an AUSI inspected part installed on or after November 1, 2023: remove from service and replace with a part eligible for installation. Due within 4,000 FCs from accomplishment of the AUSI or at the next HPT module removal after the AUSI, whichever occurs first.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "other",
+              "paragraph": "(g)(2)",
+              "role": "alternative",
+              "value": 4000
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(2)",
+          "related_paragraphs": [
+            "(g)(1)",
+            "(h)(1)"
+          ],
+          "target": "hpt2_hub_nmsb_t2",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the AUSI",
+            "definition_paragraphs": [
+              "(h)(2)",
+              "(h)(5)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only to a part on which an AUSI was performed: inspected per (g)(1), or an AUSI inspected part installed on or after November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether or when an AUSI was done, or that release date.",
+              "paragraph": "(h)(5)"
+            },
+            {
+              "description": "The 4,000 FCs are counted from accomplishment of the AUSI, a date engine records do not hold.",
+              "paragraph": "(g)(2)"
+            }
+          ]
+        },
+        {
+          "combination": "whichever_occurs_first",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_si_t2"
+          ],
+          "description": "For an HPT 2nd-stage hub P/N 2A4802 (S/N in Table 2 of PW SI No. 189F-23) that was inspected per (g)(1), or that is an AUSI inspected part installed on or after November 1, 2023: remove from service and replace with a part eligible for installation. Due within 4,000 FCs from accomplishment of the AUSI or at the next HPT module removal after the AUSI, whichever occurs first.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "other",
+              "paragraph": "(g)(2)",
+              "role": "alternative",
+              "value": 4000
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(2)",
+          "related_paragraphs": [
+            "(g)(1)",
+            "(h)(1)"
+          ],
+          "target": "hpt2_hub_si_t2",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the AUSI",
+            "definition_paragraphs": [
+              "(h)(2)",
+              "(h)(5)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only to a part on which an AUSI was performed: inspected per (g)(1), or an AUSI inspected part installed on or after November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether or when an AUSI was done, or that release date.",
+              "paragraph": "(h)(5)"
+            },
+            {
+              "description": "The 4,000 FCs are counted from accomplishment of the AUSI, a date engine records do not hold.",
+              "paragraph": "(g)(2)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [],
+          "description": "If any crack is found during the inspections required by paragraph (g)(1), remove the affected part from service before further flight and replace it with a part eligible for installation.",
+          "kind": "replace_if_finding",
+          "limits": [],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(3)",
+          "related_paragraphs": [
+            "(g)(1)",
+            "(h)(1)"
+          ],
+          "target": "",
+          "terminates": [],
+          "trigger": {
+            "condition": "If any crack is found during the inspections required by paragraphs (g)(1) of this AD, before further flight",
+            "definition_paragraphs": [],
+            "event": "prior_action",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": []
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t1"
+          ],
+          "description": "For an AUSI inspected HPT 1st-stage hub P/N 2A5001 (S/N in Table 1 of IAE AG NMSB V2500-ENG-72-0720) installed prior to November 1, 2023, previously operated in a high-thrust model engine (Table 2 to paragraph (g)(4), row 1): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 1,800 FCs from the effective date.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(4)",
+              "role": "caps_event",
+              "value": 1800
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(4)",
+          "related_paragraphs": [
+            "(h)(1)",
+            "(h)(3)",
+            "(h)(5)"
+          ],
+          "target": "hpt1_hub_nmsb_t1",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD",
+            "definition_paragraphs": [
+              "(h)(2)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only to an AUSI inspected part installed prior to November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether an AUSI was done, or that release date.",
+              "paragraph": "(h)(5)"
+            },
+            {
+              "description": "This row applies only if the part has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_si_t1"
+          ],
+          "description": "For an AUSI inspected HPT 1st-stage hub P/N 2A5001 (S/N in Table 1 of PW SI No. 189F-23) installed prior to November 1, 2023, previously operated in a high-thrust model engine (Table 2 to paragraph (g)(4), row 2): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 1,800 FCs from the effective date.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(4)",
+              "role": "caps_event",
+              "value": 1800
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(4)",
+          "related_paragraphs": [
+            "(h)(1)",
+            "(h)(3)",
+            "(h)(5)"
+          ],
+          "target": "hpt1_hub_si_t1",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD",
+            "definition_paragraphs": [
+              "(h)(2)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only to an AUSI inspected part installed prior to November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether an AUSI was done, or that release date.",
+              "paragraph": "(h)(5)"
+            },
+            {
+              "description": "This row is for a part that has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Table 2 prints no row for PW SI-listed parts without that history. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t1"
+          ],
+          "description": "For an AUSI inspected HPT 1st-stage hub P/N 2A5001 (S/N in Table 1 of IAE AG NMSB V2500-ENG-72-0720) installed prior to November 1, 2023, not previously operated in a high-thrust model engine (Table 2 to paragraph (g)(4), row 3): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 2,800 FCs from the effective date.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(4)",
+              "role": "caps_event",
+              "value": 2800
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(4)",
+          "related_paragraphs": [
+            "(h)(1)",
+            "(h)(3)",
+            "(h)(5)"
+          ],
+          "target": "hpt1_hub_nmsb_t1",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD",
+            "definition_paragraphs": [
+              "(h)(2)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only to an AUSI inspected part installed prior to November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether an AUSI was done, or that release date.",
+              "paragraph": "(h)(5)"
+            },
+            {
+              "description": "This row applies only if the part has NOT operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t2"
+          ],
+          "description": "For an AUSI inspected HPT 2nd-stage hub P/N 2A4802 (S/N in Table 2 of IAE AG NMSB V2500-ENG-72-0720) installed prior to November 1, 2023, previously operated in a high-thrust model engine (Table 2 to paragraph (g)(4), row 4): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 3,400 FCs from the effective date.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(4)",
+              "role": "caps_event",
+              "value": 3400
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(4)",
+          "related_paragraphs": [
+            "(h)(1)",
+            "(h)(3)",
+            "(h)(5)"
+          ],
+          "target": "hpt2_hub_nmsb_t2",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD",
+            "definition_paragraphs": [
+              "(h)(2)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only to an AUSI inspected part installed prior to November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether an AUSI was done, or that release date.",
+              "paragraph": "(h)(5)"
+            },
+            {
+              "description": "This row applies only if the part has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_si_t2"
+          ],
+          "description": "For an AUSI inspected HPT 2nd-stage hub P/N 2A4802 (S/N in Table 2 of PW SI No. 189F-23) installed prior to November 1, 2023, previously operated in a high-thrust model engine (Table 2 to paragraph (g)(4), row 5): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 3,400 FCs from the effective date.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(4)",
+              "role": "caps_event",
+              "value": 3400
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(4)",
+          "related_paragraphs": [
+            "(h)(1)",
+            "(h)(3)",
+            "(h)(5)"
+          ],
+          "target": "hpt2_hub_si_t2",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD",
+            "definition_paragraphs": [
+              "(h)(2)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only to an AUSI inspected part installed prior to November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether an AUSI was done, or that release date.",
+              "paragraph": "(h)(5)"
+            },
+            {
+              "description": "This row is for a part that has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Table 2 prints no row for PW SI-listed parts without that history. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t2"
+          ],
+          "description": "For an AUSI inspected HPT 2nd-stage hub P/N 2A4802 (S/N in Table 2 of IAE AG NMSB V2500-ENG-72-0720) installed prior to November 1, 2023, not previously operated in a high-thrust model engine (Table 2 to paragraph (g)(4), row 6): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 3,800 FCs from the effective date.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(4)",
+              "role": "caps_event",
+              "value": 3800
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(4)",
+          "related_paragraphs": [
+            "(h)(1)",
+            "(h)(3)",
+            "(h)(5)"
+          ],
+          "target": "hpt2_hub_nmsb_t2",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD",
+            "definition_paragraphs": [
+              "(h)(2)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "Applies only to an AUSI inspected part installed prior to November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether an AUSI was done, or that release date.",
+              "paragraph": "(h)(5)"
+            },
+            {
+              "description": "This row applies only if the part has NOT operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t3"
+          ],
+          "description": "For an installed HPT 1st-stage hub P/N 2A5001 with S/N in Table 3 of IAE AG NMSB V2500-ENG-72-0720, previously operated in a high-thrust model engine (Table 3 to paragraph (g)(5), row 1): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 1,800 FCs from the effective date.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(5)",
+              "role": "caps_event",
+              "value": 1800
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(5)",
+          "related_paragraphs": [
+            "(h)(1)",
+            "(h)(3)"
+          ],
+          "target": "hpt1_hub_nmsb_t3",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 3 to paragraph (g)(5) of this AD",
+            "definition_paragraphs": [
+              "(h)(2)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "This row applies only if the part has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t3"
+          ],
+          "description": "For an installed HPT 1st-stage hub P/N 2A5001 with S/N in Table 3 of IAE AG NMSB V2500-ENG-72-0720, not previously operated in a high-thrust model engine (Table 3 to paragraph (g)(5), row 2): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 2,800 FCs from the effective date.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(5)",
+              "role": "caps_event",
+              "value": 2800
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(5)",
+          "related_paragraphs": [
+            "(h)(1)",
+            "(h)(3)"
+          ],
+          "target": "hpt1_hub_nmsb_t3",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 3 to paragraph (g)(5) of this AD",
+            "definition_paragraphs": [
+              "(h)(2)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "This row applies only if the part has NOT operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t4"
+          ],
+          "description": "For an installed HPT 2nd-stage hub P/N 2A4802 with S/N in Table 4 of IAE AG NMSB V2500-ENG-72-0720, previously operated in a high-thrust model engine (Table 3 to paragraph (g)(5), row 3): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 3,400 FCs from the effective date.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(5)",
+              "role": "caps_event",
+              "value": 3400
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(5)",
+          "related_paragraphs": [
+            "(h)(1)",
+            "(h)(3)"
+          ],
+          "target": "hpt2_hub_nmsb_t4",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 3 to paragraph (g)(5) of this AD",
+            "definition_paragraphs": [
+              "(h)(2)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "This row applies only if the part has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        },
+        {
+          "combination": "single",
+          "csn_band_at_effective_date": null,
+          "dependencies": [
+            "dep_nmsb_t4"
+          ],
+          "description": "For an installed HPT 2nd-stage hub P/N 2A4802 with S/N in Table 4 of IAE AG NMSB V2500-ENG-72-0720, not previously operated in a high-thrust model engine (Table 3 to paragraph (g)(5), row 4): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 3,800 FCs from the effective date.",
+          "kind": "remove",
+          "limits": [
+            {
+              "anchor_offset_days": 0,
+              "date": null,
+              "dependency": "",
+              "kind": "part_cycles_after_effective_date",
+              "paragraph": "(g)(5)",
+              "role": "caps_event",
+              "value": 3800
+            }
+          ],
+          "models": [],
+          "operator_condition": "",
+          "paragraph": "(g)(5)",
+          "related_paragraphs": [
+            "(h)(1)",
+            "(h)(3)"
+          ],
+          "target": "hpt2_hub_nmsb_t4",
+          "terminates": [],
+          "trigger": {
+            "condition": "at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 3 to paragraph (g)(5) of this AD",
+            "definition_paragraphs": [
+              "(h)(2)"
+            ],
+            "event": "maintenance_event",
+            "recurrence": "next"
+          },
+          "unrecorded_conditions": [
+            {
+              "description": "This row applies only if the part has NOT operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.",
+              "paragraph": "(h)(3)"
+            }
+          ]
+        }
+      ],
+      "schema_version": "2"
+    },
+    "batch": true,
+    "cost_usd": 0.328541,
+    "error": null,
+    "extra": {
+      "batch_id": "msgbatch_01NQUZ5FgysWuhY95CpjyeGC"
+    },
+    "latency_seconds": 0.192,
+    "model": "claude-opus-5-5",
+    "request_id": null,
+    "request_key": "eabe6c7ee3efa0655069b3f4867d6e1f24e65492d2bdf83c3e6b4e6e2e0eddd0",
+    "stop_reason": "end_turn",
+    "text": "```json\n{\n  \"schema_version\": \"2\",\n  \"ad_number\": \"AD 2024-11-03\",\n  \"final_rule_document\": \"2024-12594\",\n  \"governing_document\": {\n    \"document\": \"2024-12594\",\n    \"reason\": \"Final rule 2024-12594 (Amendment 39-22764) is the only document in the thread. No correction republishes its regulatory text, so its regulatory text controls.\"\n  },\n  \"corrections\": [],\n  \"effective_date\": {\n    \"date\": \"2024-06-26\",\n    \"paragraph\": \"(a)\",\n    \"emergency_ad\": null\n  },\n  \"relationships\": [\n    {\n      \"type\": \"terminates_by_compliance\",\n      \"ad_number\": \"AD 2022-02-09\",\n      \"document\": \"\",\n      \"effective_date\": null,\n      \"stated_in\": \"2024-12594\",\n      \"paragraph\": \"(i)\",\n      \"description\": \"Compliance with paragraph (g)(1) of this AD satisfies the requirements of AD 2022-02-09 (Amendment 39-21906, 87 FR 7029, February 8, 2022). The text does not print that AD's Federal Register document number.\"\n    },\n    {\n      \"type\": \"related\",\n      \"ad_number\": \"AD 2022-02-09\",\n      \"document\": \"\",\n      \"effective_date\": null,\n      \"stated_in\": \"2024-12594\",\n      \"paragraph\": \"(b)\",\n      \"description\": \"Paragraph (b) states that this AD is related to AD 2022-02-09, Amendment 39-21906 (87 FR 7029, February 8, 2022).\"\n    }\n  ],\n  \"dependencies\": [\n    {\n      \"id\": \"dep_nmsb_t1\",\n      \"title\": \"IAE AG Non-Modification Service Bulletin V2500-ENG-72-0720, dated November 20, 2023, Table 1 (S/Ns of affected HPT 1st-stage hubs P/N 2A5001)\",\n      \"kind\": \"incorporated_by_reference\",\n      \"holds\": \"serial_numbers\",\n      \"paragraph\": \"(g)(1)\",\n      \"incorporated_in\": [\"(l)(2)(i)\"]\n    },\n    {\n      \"id\": \"dep_nmsb_t2\",\n      \"title\": \"IAE AG Non-Modification Service Bulletin V2500-ENG-72-0720, dated November 20, 2023, Table 2 (S/Ns of affected HPT 2nd-stage hubs P/N 2A4802)\",\n      \"kind\": \"incorporated_by_reference\",\n      \"holds\": \"serial_numbers\",\n      \"paragraph\": \"(g)(1)\",\n      \"incorporated_in\": [\"(l)(2)(i)\"]\n    },\n    {\n      \"id\": \"dep_nmsb_t3\",\n      \"title\": \"IAE AG Non-Modification Service Bulletin V2500-ENG-72-0720, dated November 20, 2023, Table 3 (S/Ns of affected HPT 1st-stage hubs P/N 2A5001)\",\n      \"kind\": \"incorporated_by_reference\",\n      \"holds\": \"serial_numbers\",\n      \"paragraph\": \"(g)(5)\",\n      \"incorporated_in\": [\"(l)(2)(i)\"]\n    },\n    {\n      \"id\": \"dep_nmsb_t4\",\n      \"title\": \"IAE AG Non-Modification Service Bulletin V2500-ENG-72-0720, dated November 20, 2023, Table 4 (S/Ns of affected HPT 2nd-stage hubs P/N 2A4802)\",\n      \"kind\": \"incorporated_by_reference\",\n      \"holds\": \"serial_numbers\",\n      \"paragraph\": \"(g)(5)\",\n      \"incorporated_in\": [\"(l)(2)(i)\"]\n    },\n    {\n      \"id\": \"dep_si_t1\",\n      \"title\": \"Pratt & Whitney (PW) Special Instruction No. 189F-23, dated November 20, 2023 (which only applies to the IAE AG V2531-E5 Model engine), Table 1 (S/Ns of affected HPT 1st-stage hubs P/N 2A5001)\",\n      \"kind\": \"incorporated_by_reference\",\n      \"holds\": \"serial_numbers\",\n      \"paragraph\": \"(g)(1)\",\n      \"incorporated_in\": [\"(l)(2)(ii)\"]\n    },\n    {\n      \"id\": \"dep_si_t2\",\n      \"title\": \"Pratt & Whitney (PW) Special Instruction No. 189F-23, dated November 20, 2023 (which only applies to the IAE AG V2531-E5 Model engine), Table 2 (S/Ns of affected HPT 2nd-stage hubs P/N 2A4802)\",\n      \"kind\": \"incorporated_by_reference\",\n      \"holds\": \"serial_numbers\",\n      \"paragraph\": \"(g)(1)\",\n      \"incorporated_in\": [\"(l)(2)(ii)\"]\n    }\n  ],\n  \"parts\": [\n    {\n      \"id\": \"hpt1_hub_nmsb_t1\",\n      \"component\": \"HPT 1st-stage hub\",\n      \"aliases\": [\"high-pressure turbine 1st-stage hub\", \"HPT 1st-stage disk\"],\n      \"part_numbers\": [\"2A5001\"],\n      \"serials\": \"listed_in_dependency\",\n      \"listed\": [],\n      \"dependency\": \"dep_nmsb_t1\",\n      \"paragraph\": \"(g)(1)\"\n    },\n    {\n      \"id\": \"hpt1_hub_si_t1\",\n      \"component\": \"HPT 1st-stage hub\",\n      \"aliases\": [\"high-pressure turbine 1st-stage hub\", \"HPT 1st-stage disk\"],\n      \"part_numbers\": [\"2A5001\"],\n      \"serials\": \"listed_in_dependency\",\n      \"listed\": [],\n      \"dependency\": \"dep_si_t1\",\n      \"paragraph\": \"(g)(1)\"\n    },\n    {\n      \"id\": \"hpt2_hub_nmsb_t2\",\n      \"component\": \"HPT 2nd-stage hub\",\n      \"aliases\": [\"high-pressure turbine 2nd-stage hub\", \"HPT 2nd-stage disk\"],\n      \"part_numbers\": [\"2A4802\"],\n      \"serials\": \"listed_in_dependency\",\n      \"listed\": [],\n      \"dependency\": \"dep_nmsb_t2\",\n      \"paragraph\": \"(g)(1)\"\n    },\n    {\n      \"id\": \"hpt2_hub_si_t2\",\n      \"component\": \"HPT 2nd-stage hub\",\n      \"aliases\": [\"high-pressure turbine 2nd-stage hub\", \"HPT 2nd-stage disk\"],\n      \"part_numbers\": [\"2A4802\"],\n      \"serials\": \"listed_in_dependency\",\n      \"listed\": [],\n      \"dependency\": \"dep_si_t2\",\n      \"paragraph\": \"(g)(1)\"\n    },\n    {\n      \"id\": \"hpt1_hub_nmsb_t3\",\n      \"component\": \"HPT 1st-stage hub\",\n      \"aliases\": [\"high-pressure turbine 1st-stage hub\", \"HPT 1st-stage disk\"],\n      \"part_numbers\": [\"2A5001\"],\n      \"serials\": \"listed_in_dependency\",\n      \"listed\": [],\n      \"dependency\": \"dep_nmsb_t3\",\n      \"paragraph\": \"(g)(5)\"\n    },\n    {\n      \"id\": \"hpt2_hub_nmsb_t4\",\n      \"component\": \"HPT 2nd-stage hub\",\n      \"aliases\": [\"high-pressure turbine 2nd-stage hub\", \"HPT 2nd-stage disk\"],\n      \"part_numbers\": [\"2A4802\"],\n      \"serials\": \"listed_in_dependency\",\n      \"listed\": [],\n      \"dependency\": \"dep_nmsb_t4\",\n      \"paragraph\": \"(g)(5)\"\n    }\n  ],\n  \"applicability\": {\n    \"engine_models\": [\"V2522-A5\", \"V2524-A5\", \"V2525-D5\", \"V2527-A5\", \"V2527E-A5\", \"V2527M-A5\", \"V2528-D5\", \"V2530-A5\", \"V2531-E5\", \"V2533-A5\"],\n    \"models_paragraph\": \"(c)\",\n    \"engine_serials\": [],\n    \"parts\": [],\n    \"parts_combine\": \"any\",\n    \"parts_paragraph\": \"\"\n  },\n  \"eligible_parts\": [],\n  \"required_actions\": [\n    {\n      \"paragraph\": \"(g)(1)\",\n      \"description\": \"AUSI for cracks of HPT 1st-stage hub P/N 2A5001 with S/N listed in Table 1 of IAE AG NMSB V2500-ENG-72-0720, for a part previously operated in a high-thrust model engine (Table 1 to paragraph (g)(1), row 1). Due at the next engine shop visit after the effective date, before exceeding 100 FCs from the effective date. Procedure: Accomplishment Instructions, paragraph 5., of IAE AG NMSB V2500-ENG-72-0720.\",\n      \"kind\": \"inspect\",\n      \"models\": [],\n      \"target\": \"hpt1_hub_nmsb_t1\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only if no AUSI has been performed on the installed part.\", \"paragraph\": \"(g)(1)\"},\n        {\"description\": \"This row applies only if the part has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t1\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"engine_shop_visit\", \"recurrence\": \"next\", \"condition\": \"before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD\", \"definition_paragraphs\": [\"(h)(4)\", \"(h)(4)(i)\", \"(h)(4)(ii)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 100, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(1)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(g)(2)\", \"(g)(3)\", \"(h)(3)\", \"(l)(2)(i)\"]\n    },\n    {\n      \"paragraph\": \"(g)(1)\",\n      \"description\": \"AUSI for cracks of HPT 1st-stage hub P/N 2A5001 with S/N listed in Table 1 of PW SI No. 189F-23, for a part previously operated in a high-thrust model engine (Table 1 to paragraph (g)(1), row 2). Due at the next engine shop visit after the effective date, before exceeding 100 FCs from the effective date. Procedure: Accomplishment Instructions, paragraph 5., of PW SI No. 189F-23.\",\n      \"kind\": \"inspect\",\n      \"models\": [],\n      \"target\": \"hpt1_hub_si_t1\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only if no AUSI has been performed on the installed part.\", \"paragraph\": \"(g)(1)\"},\n        {\"description\": \"This row is for a part that has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Table 1 prints no row for PW SI-listed parts without that history. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_si_t1\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"engine_shop_visit\", \"recurrence\": \"next\", \"condition\": \"before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD\", \"definition_paragraphs\": [\"(h)(4)\", \"(h)(4)(i)\", \"(h)(4)(ii)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 100, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(1)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(g)(2)\", \"(g)(3)\", \"(h)(3)\", \"(l)(2)(ii)\"]\n    },\n    {\n      \"paragraph\": \"(g)(1)\",\n      \"description\": \"AUSI for cracks of HPT 1st-stage hub P/N 2A5001 with S/N listed in Table 1 of IAE AG NMSB V2500-ENG-72-0720, for a part not previously operated in a high-thrust model engine (Table 1 to paragraph (g)(1), row 3). Due at the next engine shop visit after the effective date, before exceeding 700 FCs from the effective date. Procedure: Accomplishment Instructions, paragraph 5., of IAE AG NMSB V2500-ENG-72-0720.\",\n      \"kind\": \"inspect\",\n      \"models\": [],\n      \"target\": \"hpt1_hub_nmsb_t1\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only if no AUSI has been performed on the installed part.\", \"paragraph\": \"(g)(1)\"},\n        {\"description\": \"This row applies only if the part has NOT operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t1\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"engine_shop_visit\", \"recurrence\": \"next\", \"condition\": \"before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD\", \"definition_paragraphs\": [\"(h)(4)\", \"(h)(4)(i)\", \"(h)(4)(ii)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 700, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(1)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(g)(2)\", \"(g)(3)\", \"(h)(3)\", \"(l)(2)(i)\"]\n    },\n    {\n      \"paragraph\": \"(g)(1)\",\n      \"description\": \"AUSI for cracks of HPT 2nd-stage hub P/N 2A4802 with S/N listed in Table 2 of IAE AG NMSB V2500-ENG-72-0720, for a part previously operated in a high-thrust model engine (Table 1 to paragraph (g)(1), row 4). Due at the next engine shop visit after the effective date, before exceeding 800 FCs from the effective date. Procedure: Accomplishment Instructions, paragraph 6., of IAE AG NMSB V2500-ENG-72-0720.\",\n      \"kind\": \"inspect\",\n      \"models\": [],\n      \"target\": \"hpt2_hub_nmsb_t2\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only if no AUSI has been performed on the installed part.\", \"paragraph\": \"(g)(1)\"},\n        {\"description\": \"This row applies only if the part has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t2\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"engine_shop_visit\", \"recurrence\": \"next\", \"condition\": \"before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD\", \"definition_paragraphs\": [\"(h)(4)\", \"(h)(4)(i)\", \"(h)(4)(ii)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 800, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(1)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(g)(2)\", \"(g)(3)\", \"(h)(3)\", \"(l)(2)(i)\"]\n    },\n    {\n      \"paragraph\": \"(g)(1)\",\n      \"description\": \"AUSI for cracks of HPT 2nd-stage hub P/N 2A4802 with S/N listed in Table 2 of PW SI No. 189F-23, for a part previously operated in a high-thrust model engine (Table 1 to paragraph (g)(1), row 5). Due at the next engine shop visit after the effective date, before exceeding 800 FCs from the effective date. Procedure: Accomplishment Instructions, paragraph 6., of PW SI No. 189F-23.\",\n      \"kind\": \"inspect\",\n      \"models\": [],\n      \"target\": \"hpt2_hub_si_t2\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only if no AUSI has been performed on the installed part.\", \"paragraph\": \"(g)(1)\"},\n        {\"description\": \"This row is for a part that has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Table 1 prints no row for PW SI-listed parts without that history. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_si_t2\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"engine_shop_visit\", \"recurrence\": \"next\", \"condition\": \"before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD\", \"definition_paragraphs\": [\"(h)(4)\", \"(h)(4)(i)\", \"(h)(4)(ii)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 800, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(1)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(g)(2)\", \"(g)(3)\", \"(h)(3)\", \"(l)(2)(ii)\"]\n    },\n    {\n      \"paragraph\": \"(g)(1)\",\n      \"description\": \"AUSI for cracks of HPT 2nd-stage hub P/N 2A4802 with S/N listed in Table 2 of IAE AG NMSB V2500-ENG-72-0720, for a part not previously operated in a high-thrust model engine (Table 1 to paragraph (g)(1), row 6). Due at the next engine shop visit after the effective date, before exceeding 1100 FCs from the effective date. Procedure: Accomplishment Instructions, paragraph 6., of IAE AG NMSB V2500-ENG-72-0720.\",\n      \"kind\": \"inspect\",\n      \"models\": [],\n      \"target\": \"hpt2_hub_nmsb_t2\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only if no AUSI has been performed on the installed part.\", \"paragraph\": \"(g)(1)\"},\n        {\"description\": \"This row applies only if the part has NOT operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t2\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"engine_shop_visit\", \"recurrence\": \"next\", \"condition\": \"before exceeding the applicable cycle limit specified in Table 1 to paragraph (g)(1) of this AD\", \"definition_paragraphs\": [\"(h)(4)\", \"(h)(4)(i)\", \"(h)(4)(ii)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 1100, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(1)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(g)(2)\", \"(g)(3)\", \"(h)(3)\", \"(l)(2)(i)\"]\n    },\n    {\n      \"paragraph\": \"(g)(2)\",\n      \"description\": \"For an HPT 1st-stage hub P/N 2A5001 (S/N in Table 1 of IAE AG NMSB V2500-ENG-72-0720) that was inspected per (g)(1), or that is an AUSI inspected part installed on or after November 1, 2023: remove from service and replace with a part eligible for installation. Due within 4,000 FCs from accomplishment of the AUSI or at the next HPT module removal after the AUSI, whichever occurs first.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt1_hub_nmsb_t1\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only to a part on which an AUSI was performed: inspected per (g)(1), or an AUSI inspected part installed on or after November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether or when an AUSI was done, or that release date.\", \"paragraph\": \"(h)(5)\"},\n        {\"description\": \"The 4,000 FCs are counted from accomplishment of the AUSI, a date engine records do not hold.\", \"paragraph\": \"(g)(2)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t1\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the AUSI\", \"definition_paragraphs\": [\"(h)(2)\", \"(h)(5)\"]},\n      \"limits\": [\n        {\"kind\": \"other\", \"value\": 4000, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"alternative\", \"dependency\": \"\", \"paragraph\": \"(g)(2)\"}\n      ],\n      \"combination\": \"whichever_occurs_first\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(g)(1)\", \"(h)(1)\"]\n    },\n    {\n      \"paragraph\": \"(g)(2)\",\n      \"description\": \"For an HPT 1st-stage hub P/N 2A5001 (S/N in Table 1 of PW SI No. 189F-23) that was inspected per (g)(1), or that is an AUSI inspected part installed on or after November 1, 2023: remove from service and replace with a part eligible for installation. Due within 4,000 FCs from accomplishment of the AUSI or at the next HPT module removal after the AUSI, whichever occurs first.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt1_hub_si_t1\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only to a part on which an AUSI was performed: inspected per (g)(1), or an AUSI inspected part installed on or after November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether or when an AUSI was done, or that release date.\", \"paragraph\": \"(h)(5)\"},\n        {\"description\": \"The 4,000 FCs are counted from accomplishment of the AUSI, a date engine records do not hold.\", \"paragraph\": \"(g)(2)\"}\n      ],\n      \"dependencies\": [\"dep_si_t1\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the AUSI\", \"definition_paragraphs\": [\"(h)(2)\", \"(h)(5)\"]},\n      \"limits\": [\n        {\"kind\": \"other\", \"value\": 4000, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"alternative\", \"dependency\": \"\", \"paragraph\": \"(g)(2)\"}\n      ],\n      \"combination\": \"whichever_occurs_first\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(g)(1)\", \"(h)(1)\"]\n    },\n    {\n      \"paragraph\": \"(g)(2)\",\n      \"description\": \"For an HPT 2nd-stage hub P/N 2A4802 (S/N in Table 2 of IAE AG NMSB V2500-ENG-72-0720) that was inspected per (g)(1), or that is an AUSI inspected part installed on or after November 1, 2023: remove from service and replace with a part eligible for installation. Due within 4,000 FCs from accomplishment of the AUSI or at the next HPT module removal after the AUSI, whichever occurs first.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt2_hub_nmsb_t2\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only to a part on which an AUSI was performed: inspected per (g)(1), or an AUSI inspected part installed on or after November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether or when an AUSI was done, or that release date.\", \"paragraph\": \"(h)(5)\"},\n        {\"description\": \"The 4,000 FCs are counted from accomplishment of the AUSI, a date engine records do not hold.\", \"paragraph\": \"(g)(2)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t2\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the AUSI\", \"definition_paragraphs\": [\"(h)(2)\", \"(h)(5)\"]},\n      \"limits\": [\n        {\"kind\": \"other\", \"value\": 4000, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"alternative\", \"dependency\": \"\", \"paragraph\": \"(g)(2)\"}\n      ],\n      \"combination\": \"whichever_occurs_first\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(g)(1)\", \"(h)(1)\"]\n    },\n    {\n      \"paragraph\": \"(g)(2)\",\n      \"description\": \"For an HPT 2nd-stage hub P/N 2A4802 (S/N in Table 2 of PW SI No. 189F-23) that was inspected per (g)(1), or that is an AUSI inspected part installed on or after November 1, 2023: remove from service and replace with a part eligible for installation. Due within 4,000 FCs from accomplishment of the AUSI or at the next HPT module removal after the AUSI, whichever occurs first.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt2_hub_si_t2\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only to a part on which an AUSI was performed: inspected per (g)(1), or an AUSI inspected part installed on or after November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether or when an AUSI was done, or that release date.\", \"paragraph\": \"(h)(5)\"},\n        {\"description\": \"The 4,000 FCs are counted from accomplishment of the AUSI, a date engine records do not hold.\", \"paragraph\": \"(g)(2)\"}\n      ],\n      \"dependencies\": [\"dep_si_t2\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the AUSI\", \"definition_paragraphs\": [\"(h)(2)\", \"(h)(5)\"]},\n      \"limits\": [\n        {\"kind\": \"other\", \"value\": 4000, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"alternative\", \"dependency\": \"\", \"paragraph\": \"(g)(2)\"}\n      ],\n      \"combination\": \"whichever_occurs_first\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(g)(1)\", \"(h)(1)\"]\n    },\n    {\n      \"paragraph\": \"(g)(3)\",\n      \"description\": \"If any crack is found during the inspections required by paragraph (g)(1), remove the affected part from service before further flight and replace it with a part eligible for installation.\",\n      \"kind\": \"replace_if_finding\",\n      \"models\": [],\n      \"target\": \"\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [],\n      \"dependencies\": [],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"prior_action\", \"recurrence\": \"next\", \"condition\": \"If any crack is found during the inspections required by paragraphs (g)(1) of this AD, before further flight\", \"definition_paragraphs\": []},\n      \"limits\": [],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(g)(1)\", \"(h)(1)\"]\n    },\n    {\n      \"paragraph\": \"(g)(4)\",\n      \"description\": \"For an AUSI inspected HPT 1st-stage hub P/N 2A5001 (S/N in Table 1 of IAE AG NMSB V2500-ENG-72-0720) installed prior to November 1, 2023, previously operated in a high-thrust model engine (Table 2 to paragraph (g)(4), row 1): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 1,800 FCs from the effective date.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt1_hub_nmsb_t1\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only to an AUSI inspected part installed prior to November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether an AUSI was done, or that release date.\", \"paragraph\": \"(h)(5)\"},\n        {\"description\": \"This row applies only if the part has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t1\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD\", \"definition_paragraphs\": [\"(h)(2)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 1800, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(4)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(h)(1)\", \"(h)(3)\", \"(h)(5)\"]\n    },\n    {\n      \"paragraph\": \"(g)(4)\",\n      \"description\": \"For an AUSI inspected HPT 1st-stage hub P/N 2A5001 (S/N in Table 1 of PW SI No. 189F-23) installed prior to November 1, 2023, previously operated in a high-thrust model engine (Table 2 to paragraph (g)(4), row 2): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 1,800 FCs from the effective date.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt1_hub_si_t1\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only to an AUSI inspected part installed prior to November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether an AUSI was done, or that release date.\", \"paragraph\": \"(h)(5)\"},\n        {\"description\": \"This row is for a part that has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Table 2 prints no row for PW SI-listed parts without that history. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_si_t1\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD\", \"definition_paragraphs\": [\"(h)(2)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 1800, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(4)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(h)(1)\", \"(h)(3)\", \"(h)(5)\"]\n    },\n    {\n      \"paragraph\": \"(g)(4)\",\n      \"description\": \"For an AUSI inspected HPT 1st-stage hub P/N 2A5001 (S/N in Table 1 of IAE AG NMSB V2500-ENG-72-0720) installed prior to November 1, 2023, not previously operated in a high-thrust model engine (Table 2 to paragraph (g)(4), row 3): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 2,800 FCs from the effective date.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt1_hub_nmsb_t1\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only to an AUSI inspected part installed prior to November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether an AUSI was done, or that release date.\", \"paragraph\": \"(h)(5)\"},\n        {\"description\": \"This row applies only if the part has NOT operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t1\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD\", \"definition_paragraphs\": [\"(h)(2)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 2800, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(4)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(h)(1)\", \"(h)(3)\", \"(h)(5)\"]\n    },\n    {\n      \"paragraph\": \"(g)(4)\",\n      \"description\": \"For an AUSI inspected HPT 2nd-stage hub P/N 2A4802 (S/N in Table 2 of IAE AG NMSB V2500-ENG-72-0720) installed prior to November 1, 2023, previously operated in a high-thrust model engine (Table 2 to paragraph (g)(4), row 4): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 3,400 FCs from the effective date.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt2_hub_nmsb_t2\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only to an AUSI inspected part installed prior to November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether an AUSI was done, or that release date.\", \"paragraph\": \"(h)(5)\"},\n        {\"description\": \"This row applies only if the part has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t2\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD\", \"definition_paragraphs\": [\"(h)(2)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 3400, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(4)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(h)(1)\", \"(h)(3)\", \"(h)(5)\"]\n    },\n    {\n      \"paragraph\": \"(g)(4)\",\n      \"description\": \"For an AUSI inspected HPT 2nd-stage hub P/N 2A4802 (S/N in Table 2 of PW SI No. 189F-23) installed prior to November 1, 2023, previously operated in a high-thrust model engine (Table 2 to paragraph (g)(4), row 5): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 3,400 FCs from the effective date.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt2_hub_si_t2\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only to an AUSI inspected part installed prior to November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether an AUSI was done, or that release date.\", \"paragraph\": \"(h)(5)\"},\n        {\"description\": \"This row is for a part that has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Table 2 prints no row for PW SI-listed parts without that history. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_si_t2\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD\", \"definition_paragraphs\": [\"(h)(2)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 3400, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(4)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(h)(1)\", \"(h)(3)\", \"(h)(5)\"]\n    },\n    {\n      \"paragraph\": \"(g)(4)\",\n      \"description\": \"For an AUSI inspected HPT 2nd-stage hub P/N 2A4802 (S/N in Table 2 of IAE AG NMSB V2500-ENG-72-0720) installed prior to November 1, 2023, not previously operated in a high-thrust model engine (Table 2 to paragraph (g)(4), row 6): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 3,800 FCs from the effective date.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt2_hub_nmsb_t2\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"Applies only to an AUSI inspected part installed prior to November 1, 2023. The installation date is the date of the authorized release certification for the shop visit at which the part was first installed after the AUSI. Engine records do not hold whether an AUSI was done, or that release date.\", \"paragraph\": \"(h)(5)\"},\n        {\"description\": \"This row applies only if the part has NOT operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t2\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 2 to paragraph (g)(4) of this AD\", \"definition_paragraphs\": [\"(h)(2)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 3800, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(4)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(h)(1)\", \"(h)(3)\", \"(h)(5)\"]\n    },\n    {\n      \"paragraph\": \"(g)(5)\",\n      \"description\": \"For an installed HPT 1st-stage hub P/N 2A5001 with S/N in Table 3 of IAE AG NMSB V2500-ENG-72-0720, previously operated in a high-thrust model engine (Table 3 to paragraph (g)(5), row 1): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 1,800 FCs from the effective date.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt1_hub_nmsb_t3\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"This row applies only if the part has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t3\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 3 to paragraph (g)(5) of this AD\", \"definition_paragraphs\": [\"(h)(2)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 1800, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(5)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(h)(1)\", \"(h)(3)\"]\n    },\n    {\n      \"paragraph\": \"(g)(5)\",\n      \"description\": \"For an installed HPT 1st-stage hub P/N 2A5001 with S/N in Table 3 of IAE AG NMSB V2500-ENG-72-0720, not previously operated in a high-thrust model engine (Table 3 to paragraph (g)(5), row 2): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 2,800 FCs from the effective date.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt1_hub_nmsb_t3\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"This row applies only if the part has NOT operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t3\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 3 to paragraph (g)(5) of this AD\", \"definition_paragraphs\": [\"(h)(2)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 2800, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(5)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(h)(1)\", \"(h)(3)\"]\n    },\n    {\n      \"paragraph\": \"(g)(5)\",\n      \"description\": \"For an installed HPT 2nd-stage hub P/N 2A4802 with S/N in Table 4 of IAE AG NMSB V2500-ENG-72-0720, previously operated in a high-thrust model engine (Table 3 to paragraph (g)(5), row 3): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 3,400 FCs from the effective date.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt2_hub_nmsb_t4\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"This row applies only if the part has previously operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t4\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 3 to paragraph (g)(5) of this AD\", \"definition_paragraphs\": [\"(h)(2)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 3400, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(5)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(h)(1)\", \"(h)(3)\"]\n    },\n    {\n      \"paragraph\": \"(g)(5)\",\n      \"description\": \"For an installed HPT 2nd-stage hub P/N 2A4802 with S/N in Table 4 of IAE AG NMSB V2500-ENG-72-0720, not previously operated in a high-thrust model engine (Table 3 to paragraph (g)(5), row 4): remove from service and replace with a part eligible for installation. Due at the next HPT module removal after the effective date, before exceeding 3,800 FCs from the effective date.\",\n      \"kind\": \"remove\",\n      \"models\": [],\n      \"target\": \"hpt2_hub_nmsb_t4\",\n      \"operator_condition\": \"\",\n      \"unrecorded_conditions\": [\n        {\"description\": \"This row applies only if the part has NOT operated, for any duration, in an IAE AG Model V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine. Engine records do not hold the part's operating history.\", \"paragraph\": \"(h)(3)\"}\n      ],\n      \"dependencies\": [\"dep_nmsb_t4\"],\n      \"csn_band_at_effective_date\": null,\n      \"trigger\": {\"event\": \"maintenance_event\", \"recurrence\": \"next\", \"condition\": \"at the next HPT module removal after the effective date of this AD, but before exceeding the applicable cycle limit specified in Table 3 to paragraph (g)(5) of this AD\", \"definition_paragraphs\": [\"(h)(2)\"]},\n      \"limits\": [\n        {\"kind\": \"part_cycles_after_effective_date\", \"value\": 3800, \"date\": null, \"anchor_offset_days\": 0, \"role\": \"caps_event\", \"dependency\": \"\", \"paragraph\": \"(g)(5)\"}\n      ],\n      \"combination\": \"single\",\n      \"terminates\": [],\n      \"related_paragraphs\": [\"(h)(1)\", \"(h)(3)\"]\n    }\n  ],\n  \"continuing_obligations\": [],\n  \"credit_for_previous_actions\": [],\n  \"definitions\": [\n    {\"term\": \"part eligible for installation\", \"paragraph\": \"(h)(1)\"},\n    {\"term\": \"HPT module removal\", \"paragraph\": \"(h)(2)\"},\n    {\"term\": \"Previously operated in high-thrust model engine\", \"paragraph\": \"(h)(3)\"},\n    {\"term\": \"engine shop visit\", \"paragraph\": \"(h)(4)\"},\n    {\"term\": \"date that an AUSI inspected part was installed\", \"paragraph\": \"(h)(5)\"}\n  ],\n  \"amoc_paragraph\": \"(j)\",\n  \"ambiguities\": [\n    {\n      \"paragraph\": \"(g)(1)\",\n      \"description\": \"The table columns read 'Flight cycle (FC) limit from the effective date of this AD' (also in Tables 2 and 3). The text does not say whether the cycles are counted on the part or on the engine it is installed in. The two counts differ if the part has moved between engines since the effective date. The record uses the part count.\",\n      \"readings\": [\n        \"Cycles accumulated by the part since the effective date, on any engine.\",\n        \"Flight cycles of the engine in which the part is installed since the effective date.\"\n      ]\n    },\n    {\n      \"paragraph\": \"(g)(2)\",\n      \"description\": \"'AUSI inspected parts installed on or after November 1, 2023' are not identified by P/N or S/N. The text does not say whether this covers only hubs listed in Table 1 of the NMSB and PW SI or any AUSI inspected HPT hub. The 4,000 FCs are also not stated as part or engine cycles.\",\n      \"readings\": [\n        \"Only hubs with S/Ns in the NMSB or PW SI tables referenced by Table 1 to paragraph (g)(1).\",\n        \"Any HPT 1st-stage or 2nd-stage hub that has had an AUSI and was installed on or after November 1, 2023.\"\n      ]\n    },\n    {\n      \"paragraph\": \"(h)(1)\",\n      \"description\": \"'Part eligible for installation' is defined in terms of an 'HPT 1st-stage disk or HPT 2nd-stage disk', while the actions use 'hub', and no P/N is printed. Eligibility turns on the S/N not being listed in either service document, or on the part not having been removed from service per this AD. A listed part that passed AUSI is therefore eligible but remains subject to (g)(2). No P/N-based clearing is recorded.\",\n      \"readings\": [\n        \"'Disk' and 'hub' denote the same HPT 1st-stage and 2nd-stage parts.\",\n        \"'Disk' denotes a different part designation than 'hub'.\"\n      ]\n    },\n    {\n      \"paragraph\": \"(g)(1)\",\n      \"description\": \"Table 1 to paragraph (g)(1) and Table 2 to paragraph (g)(4) print only a 'Yes' (previously operated in high-thrust model engine) row for parts listed in PW SI No. 189F-23. They give no compliance time for a PW SI-listed part that has not so operated.\",\n      \"readings\": [\n        \"Every PW SI-listed part is treated as previously operated in a high-thrust model engine (the SI applies only to the V2531-E5, a high-thrust model per (h)(3)).\",\n        \"No compliance time is stated for such a part.\"\n      ]\n    }\n  ],\n  \"notes\": [\n    \"Applicability (c) is by engine model only. Every action is limited to hubs whose S/Ns appear in IAE AG NMSB V2500-ENG-72-0720 Tables 1-4 or PW SI No. 189F-23 Tables 1-2; those lists are not printed in the AD.\",\n    \"The text states that PW SI No. 189F-23 only applies to the IAE AG V2531-E5 Model engine. The actions on SI-listed parts are not restricted by model in the regulatory text, so no model restriction is recorded.\",\n    \"How the actions fit together: a listed Table 1 part with no AUSI gets the AUSI under (g)(1), then removal under (g)(2). An AUSI inspected part installed on or after November 1, 2023 is removed under (g)(2). An AUSI inspected part installed prior to November 1, 2023 (per Table 2) is removed under (g)(4). Parts listed in NMSB Tables 3 and 4 are removed under (g)(5) without AUSI.\",\n    \"AUSI procedures are Accomplishment Instructions paragraph 5. (1st-stage hub) and paragraph 6. (2nd-stage hub) of the applicable service document. These are procedure-only material and are not recorded as dependencies.\",\n    \"Paragraph (f): comply within the compliance times specified, unless already done.\",\n    \"The preamble describes this AD as an interim action. The FAA estimates that 116 U.S.-registry engines are affected.\"\n  ],\n  \"preamble_basis\": []\n}\n```",
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 22375
+      },
+      "cache_creation_input_tokens": 22375,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "global",
+      "input_tokens": 37,
+      "output_tokens": 27253,
+      "output_tokens_details": {
+        "thinking_tokens": 8030
+      },
+      "service_tier": "batch",
+      "speed": "standard"
+    }
+  }
+}
