@@ -1,5 +1,6 @@
-import yaml
 from pathlib import Path
+
+import yaml
 
 from faa_directive_impact.evaluation.label_check import blind_case, compare
 
