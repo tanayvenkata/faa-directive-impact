@@ -36,7 +36,7 @@ from faa_directive_impact.impact.hpt_hub_rules import QUEUES, Screen, screen
 from faa_directive_impact.retrieval.search import RETRIEVER_VERSION, retrieve
 from faa_directive_impact.rules.interpreter import INTERPRETER_VERSION, screen_rules
 
-SCREEN_VERSION = 3
+SCREEN_VERSION = 4
 EVALUATED = "evaluated"
 NOT_YET_EVALUATED = "not_yet_evaluated"
 POTENTIALLY_AFFECTED = "potentially_affected"
@@ -50,6 +50,44 @@ S1_DOCUMENT = "2025-18469"
 # "Directive Coverage State"; evaluation/coverage/PREREGISTRATION.md, "What
 # Evaluated Means Here"). Only these set the fleet's queues.
 EVALUATED_DIRECTIVES = frozenset({S1_DOCUMENT})
+
+# Where each directive's rule record is read from. A directive absent here
+# uses its reference record; an evaluated directive can point at its reviewed
+# draft instead (for example ``evaluation/coverage/reviewed/<doc>.json``).
+REFERENCE_RECORD_DIRECTORY = "evaluation/coverage/reference"
+RULE_RECORD_PATHS: dict[str, str] = {}
+
+
+def rule_record_path(document: str) -> str:
+    """The repository path of the rule record the screen reads for ``document``."""
+    return RULE_RECORD_PATHS.get(
+        document, f"{REFERENCE_RECORD_DIRECTORY}/{document}.json"
+    )
+
+
+# How the review of each evaluated directive was done, shown beside its
+# coverage badge. An evaluated directive with no entry here is a Claude
+# stand-in review (``label_review``) with a Claude subagent as the independent
+# check; a directive that is not evaluated has none.
+CLAUDE_STAND_IN = {
+    "label_review": "claude_stand_in",
+    "independent_check": "claude_subagent",
+}
+REVIEW_PROVENANCE: dict[str, dict[str, str]] = {
+    S1_DOCUMENT: {
+        "rules": "hand-written (S1)",
+        "hand_gates": "judged by Claude only",
+    },
+}
+
+
+def review_provenance(
+    document: str, evaluated: frozenset[str]
+) -> dict[str, str] | None:
+    if document not in evaluated:
+        return None
+    return REVIEW_PROVENANCE.get(document, CLAUDE_STAND_IN)
+
 
 IMAGE = "image_only_figure"
 E5_MODEL = "V2531-E5"
@@ -68,6 +106,7 @@ def screen_fleet(
     rule_records: dict[str, dict[str, Any]],
     corpus: dict[str, Any],
     evaluated: frozenset[str] = EVALUATED_DIRECTIVES,
+    rule_sources: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     """Return per-engine candidates and screens, and per-directive totals."""
     records = {record["document"]: record for record in corpus["records"]}
@@ -133,7 +172,9 @@ def screen_fleet(
         "fleet_sha256": _sha256(fleet),
         "evaluated_directives": sorted(evaluated),
         "evaluated_counts": counts,
-        "directives": _directives(engines, records, evaluated, rule_records),
+        "directives": _directives(
+            engines, records, evaluated, rule_records, rule_sources or {}
+        ),
         "blocking_documents": _blocking_documents(engines, rule_records),
         "missing_fact_kinds": _missing_fact_kinds(engines, rule_records),
         "engines": engines,
@@ -386,6 +427,7 @@ def _directives(
     records: dict[str, dict[str, Any]],
     evaluated: frozenset[str],
     rule_records: dict[str, dict[str, Any]],
+    rule_sources: dict[str, str],
 ) -> list[dict[str, Any]]:
     """Every directive screened for at least one engine, with fleet totals."""
     documents = sorted({d for engine in engines for d in engine["screens"]})
@@ -429,6 +471,8 @@ def _directives(
                 else "rule interpreter on a reference rule record"
                 if rule_record is not None
                 else "none: listed for a person to read",
+                "review_provenance": review_provenance(document, evaluated),
+                "rule_record_source": rule_sources.get(document),
                 "engines": len(entries),
                 "by_part_number": sum(
                     1
