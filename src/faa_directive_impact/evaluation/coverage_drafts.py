@@ -74,16 +74,45 @@ def run(
     label: str,
     numbers: list[str],
     client: Any = None,
+    batch_id: str | None = None,
+    stamp: str | None = None,
 ) -> Path:
-    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+    """Draft ``numbers`` in one batch, or collect an already submitted batch.
+
+    The batch id is written to ``batch.json`` the moment the batch exists, so
+    an interrupted run can be collected later with ``batch_id`` (and the
+    original ``stamp``) instead of being drafted a second time.
+    """
+    stamp = stamp or datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     directory = runs_root / f"coverage-{label}-{stamp}"
-    directory.mkdir(parents=True, exist_ok=False)
+    directory.mkdir(parents=True, exist_ok=True)
+    if any(directory.iterdir()) and batch_id is None:
+        raise FileExistsError(f"{directory} already holds a run")
     requests = requests_for(repo, storage_root, numbers)
     if client is None:
         import anthropic
 
         client = anthropic.Anthropic()
-    by_key = call_batch(client, requests)
+
+    def save_batch(submitted: str, collected_later: bool) -> None:
+        (directory / "batch.json").write_text(
+            json.dumps(
+                {"batch_id": submitted, "collected_later": collected_later},
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+    if batch_id is not None:
+        save_batch(batch_id, collected_later=True)
+    by_key = call_batch(
+        client,
+        requests,
+        batch_id=batch_id,
+        on_submit=lambda submitted: save_batch(submitted, collected_later=False),
+    )
     corpus = json.loads(
         (repo / "evaluation/retrieval/corpus.json").read_text(encoding="utf-8")
     )

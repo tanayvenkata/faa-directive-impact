@@ -67,6 +67,10 @@ management, and a root `Makefile` as the documented command entry point.
 - `make b3-replay RUN=evaluation/runs/<run-id>` — offline; re-score a
   recorded B3 run. `make b3-summary` — offline; summarize B3 repeats under
   `evaluation/b3/PREREGISTRATION.md`.
+- `make coverage-drafts` — live model calls (batch); the one recorded
+  coverage drafting run (`evaluation/coverage/PREREGISTRATION.md`). Its batch
+  id is saved to `batch.json` at once; collect an interrupted run with
+  `BATCH=<id> STAMP=<original stamp>`, never by drafting again.
 - `make discovery-sync` — live network call; one checkpointed sync of the
   discovery corpus (all FAA airworthiness directives) into `DISCOVERY_ROOT`
   (default `data/discovery/`), promoting or rejecting a candidate generation.
