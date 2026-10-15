@@ -1,0 +1,690 @@
+{
+  "schema_version": "2",
+  "ad_number": "AD 2015-10-04",
+  "final_rule_document": "2015-12068",
+  "governing_document": {
+    "document": "2015-12068",
+    "reason": "The final rule; no correction was published."
+  },
+  "corrections": [],
+  "effective_date": {
+    "date": "2015-07-01",
+    "paragraph": "(a)",
+    "emergency_ad": null
+  },
+  "relationships": [
+    {
+      "other_paragraphs": [
+        "(c)",
+        "(c)(1)",
+        "(c)(2)",
+        "(c)(3)"
+      ],
+      "type": "supersedes",
+      "ad_number": "AD 2012-09-09",
+      "document": "2012-12329",
+      "effective_date": null,
+      "stated_in": "2015-12068",
+      "paragraph": "(b)",
+      "description": "This AD replaces AD 2012-09-09."
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "group_a_b",
+      "title": "IAE Alert NMSB V2500-ENG-72-A0615, Revision 6 (September 4, 2014), paragraph 1.E, Group A and Group B engine S/Ns",
+      "kind": "incorporated_by_reference",
+      "holds": "engine_serial_numbers",
+      "paragraph": "(e)",
+      "incorporated_in": [
+        "(o)(2)(i)"
+      ]
+    },
+    {
+      "id": "group_c",
+      "title": "IAE Alert NMSB V2500-ENG-72-A0615, Revision 6 (September 4, 2014), paragraph 1.E, Group C engine S/Ns",
+      "kind": "incorporated_by_reference",
+      "holds": "engine_serial_numbers",
+      "paragraph": "(e)",
+      "incorporated_in": [
+        "(o)(2)(i)"
+      ]
+    },
+    {
+      "id": "group_d",
+      "title": "IAE Alert NMSB V2500-ENG-72-A0615, Revision 6 (September 4, 2014), paragraph 1.E, Group D engine S/Ns",
+      "kind": "incorporated_by_reference",
+      "holds": "engine_serial_numbers",
+      "paragraph": "(e)",
+      "incorporated_in": [
+        "(o)(2)(i)"
+      ]
+    },
+    {
+      "id": "group_e",
+      "title": "IAE Alert NMSB V2500-ENG-72-A0615, Revision 6 (September 4, 2014), paragraph 1.E, Group E drum assembly P/Ns",
+      "kind": "incorporated_by_reference",
+      "holds": "other",
+      "paragraph": "(e)",
+      "incorporated_in": [
+        "(o)(2)(i)"
+      ]
+    },
+    {
+      "id": "group_f",
+      "title": "IAE Alert NMSB V2500-ENG-72-A0615, Revision 6 (September 4, 2014), paragraph 1.E, Group F drum assembly P/Ns",
+      "kind": "incorporated_by_reference",
+      "holds": "other",
+      "paragraph": "(e)",
+      "incorporated_in": [
+        "(o)(2)(i)"
+      ]
+    },
+    {
+      "id": "grace",
+      "title": "IAE Alert NMSB V2500-ENG-72-A0615, Revision 6 (September 4, 2014), paragraph 1.E, Grace Periods Table",
+      "kind": "incorporated_by_reference",
+      "holds": "compliance_times",
+      "paragraph": "(f)(3)",
+      "incorporated_in": [
+        "(o)(2)(i)"
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "drum",
+      "component": "HPC stage 3 to 8 drum",
+      "aliases": [
+        "HPC stage 3-8 drum",
+        "high-pressure compressor stage 3 to 8 drum"
+      ],
+      "part_numbers": [],
+      "serials": "any",
+      "listed": [],
+      "dependency": "",
+      "paragraph": "(e)"
+    },
+    {
+      "id": "silver_nuts",
+      "component": "HPC stage 3 to 8 drum attachment nuts",
+      "aliases": [
+        "silver-plated nuts"
+      ],
+      "part_numbers": [
+        "AS44862",
+        "AS64367"
+      ],
+      "serials": "any",
+      "listed": [],
+      "dependency": "",
+      "paragraph": "(h)(1)"
+    }
+  ],
+  "applicability": {
+    "model_paragraphs": [
+      {
+        "models": [
+          "V2500-A1"
+        ],
+        "paragraph": "(c)(1)"
+      },
+      {
+        "models": [
+          "V2525-D5",
+          "V2528-D5"
+        ],
+        "paragraph": "(c)(2)"
+      },
+      {
+        "models": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2530-A5",
+          "V2533-A5"
+        ],
+        "paragraph": "(c)(3)"
+      }
+    ],
+    "engine_models": [
+      "V2500-A1",
+      "V2525-D5",
+      "V2528-D5",
+      "V2522-A5",
+      "V2524-A5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2530-A5",
+      "V2533-A5"
+    ],
+    "models_paragraph": "(c)",
+    "engine_serials": [
+      {
+        "models": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2530-A5",
+          "V2533-A5"
+        ],
+        "ranges": [
+          {
+            "first": "V10001",
+            "last": "V13190"
+          },
+          {
+            "first": "V15001",
+            "last": "V16728"
+          }
+        ],
+        "serial_numbers": [],
+        "excluded": [
+          "V16707"
+        ],
+        "paragraph": "(c)(3)"
+      }
+    ],
+    "parts": [],
+    "parts_combine": "any",
+    "parts_paragraph": ""
+  },
+  "eligible_parts": [],
+  "required_actions": [
+    {
+      "paragraph": "(e)",
+      "description": "Perform an initial USI of the HPC stage 3 to 8 drum (paragraph (e)(1), compliance group A or B).",
+      "kind": "inspect",
+      "models": [
+        "V2500-A1"
+      ],
+      "target": "drum",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "group_a_b"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_since_new",
+          "value": 8200,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(e)"
+        },
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 200,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(e)"
+        }
+      ],
+      "combination": "whichever_occurs_later",
+      "terminates": []
+    },
+    {
+      "paragraph": "(e)",
+      "description": "Perform an initial USI of the HPC stage 3 to 8 drum (paragraph (e)(2), compliance group C).",
+      "kind": "inspect",
+      "models": [
+        "V2522-A5",
+        "V2524-A5",
+        "V2527-A5",
+        "V2527E-A5",
+        "V2527M-A5",
+        "V2530-A5",
+        "V2533-A5"
+      ],
+      "target": "drum",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "group_c"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_since_new",
+          "value": 6450,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(e)"
+        },
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 200,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(e)"
+        }
+      ],
+      "combination": "whichever_occurs_later",
+      "terminates": []
+    },
+    {
+      "paragraph": "(e)",
+      "description": "Perform an initial USI of the HPC stage 3 to 8 drum (paragraph (e)(3), compliance group D).",
+      "kind": "inspect",
+      "models": [
+        "V2522-A5",
+        "V2524-A5",
+        "V2527-A5",
+        "V2527E-A5",
+        "V2527M-A5",
+        "V2530-A5",
+        "V2533-A5"
+      ],
+      "target": "drum",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "group_d"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_since_new",
+          "value": 3950,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(e)"
+        },
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 200,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(e)"
+        }
+      ],
+      "combination": "whichever_occurs_later",
+      "terminates": []
+    },
+    {
+      "paragraph": "(e)",
+      "description": "Perform an initial USI of the HPC stage 3 to 8 drum (paragraph (e)(4), compliance group E).",
+      "kind": "inspect",
+      "models": [
+        "V2500-A1",
+        "V2522-A5",
+        "V2524-A5",
+        "V2527-A5",
+        "V2527E-A5",
+        "V2527M-A5",
+        "V2530-A5",
+        "V2533-A5",
+        "V2525-D5",
+        "V2528-D5"
+      ],
+      "target": "drum",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "group_e"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_since_new",
+          "value": 12700,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(e)"
+        },
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 200,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(e)"
+        }
+      ],
+      "combination": "whichever_occurs_later",
+      "terminates": []
+    },
+    {
+      "paragraph": "(e)",
+      "description": "Perform an initial USI of the HPC stage 3 to 8 drum (paragraph (e)(5), compliance group F).",
+      "kind": "inspect",
+      "models": [
+        "V2500-A1",
+        "V2522-A5",
+        "V2524-A5",
+        "V2527-A5",
+        "V2527E-A5",
+        "V2527M-A5",
+        "V2530-A5",
+        "V2533-A5",
+        "V2525-D5",
+        "V2528-D5"
+      ],
+      "target": "drum",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "group_f"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_since_new",
+          "value": 9200,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(e)"
+        },
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 200,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(e)"
+        }
+      ],
+      "combination": "whichever_occurs_later",
+      "terminates": []
+    },
+    {
+      "paragraph": "(f)(1)",
+      "description": "Repeat the USI of the HPC stage 3 to 8 drum within every 750 cycles of the last USI (groups A, B, C, E, F).",
+      "kind": "inspect",
+      "models": [],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "group_a_b",
+        "group_c",
+        "group_e",
+        "group_f"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "prior_action",
+        "recurrence": "next",
+        "condition": "the last USI after the initial inspection of paragraph (e)",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_prior_action",
+          "value": 750,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(f)(1)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(f)(2)",
+      "description": "Repeat the USI of the HPC stage 3 to 8 drum within every 500 cycles of the last USI (group D).",
+      "kind": "inspect",
+      "models": [
+        "V2522-A5",
+        "V2524-A5",
+        "V2527-A5",
+        "V2527E-A5",
+        "V2527M-A5",
+        "V2530-A5",
+        "V2533-A5"
+      ],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "group_d"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "prior_action",
+        "recurrence": "next",
+        "condition": "the last USI after the initial inspection of paragraph (e)",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_prior_action",
+          "value": 500,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(f)(2)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(e)",
+      "description": "If cracks are found during any inspection required by this AD, remove the drum from service before further flight.",
+      "kind": "replace_if_finding",
+      "models": [],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "related_paragraphs": [
+        "(h)(1)",
+        "(h)(2)",
+        "(h)(3)"
+      ],
+      "paragraph": "(h)",
+      "description": "Remove all silver-plated nuts (P/N AS44862 or AS64367) attaching the HPC stage 3 to 8 drum to the stage 9 to 12 drum, clean the silver residue, and inspect the drum by FPI or ECI before returning it to service.",
+      "kind": "inspect",
+      "models": [],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "piece-part exposure of the HPC stage 3 to 8 drum",
+        "definition_paragraphs": [
+          "(k)"
+        ]
+      },
+      "limits": [],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "related_paragraphs": [
+        "(j)(1)",
+        "(j)(2)"
+      ],
+      "open_while_installed": [
+        "silver_nuts"
+      ],
+      "paragraph": "(j)",
+      "description": "Install an HPC stage 3 to 8 drum that has never operated with silver-plated nuts, with silver-free attaching nuts (mandatory terminating action).",
+      "kind": "install",
+      "models": [],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 9450,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(j)"
+        },
+        {
+          "kind": "calendar_date",
+          "value": null,
+          "date": "2025-12-31",
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(j)"
+        }
+      ],
+      "combination": "whichever_occurs_first",
+      "terminates": [
+        "(e)",
+        "(f)(1)",
+        "(f)(2)",
+        "(h)"
+      ]
+    }
+  ],
+  "continuing_obligations": [
+    {
+      "paragraph": "(i)",
+      "description": "After the effective date, do not install any silver-plated nuts, P/N AS44862 or AS64367, into any engine.",
+      "part_group": "silver_nuts"
+    }
+  ],
+  "credit_for_previous_actions": [
+    {
+      "paragraph": "(l)",
+      "actions": [
+        "(e)"
+      ],
+      "description": "An inspection before the effective date per the listed IAE NMSBs meets the initial inspection of paragraph (e)."
+    }
+  ],
+  "definitions": [
+    {
+      "term": "piece-part exposure",
+      "paragraph": "(k)"
+    }
+  ],
+  "amoc_paragraph": "(m)",
+  "ambiguities": [
+    {
+      "paragraph": "(j)",
+      "description": "\"Within 9,450 cycles after the effective date\" does not say whose cycles (the engine's or the drum's).",
+      "readings": [
+        "Engine flight cycles after the effective date (used here).",
+        "The drum's cycles after the effective date."
+      ]
+    },
+    {
+      "paragraph": "(j)",
+      "description": "Paragraph (j) is headed \"Mandatory Terminating Action\" but does not list which paragraphs it ends.",
+      "readings": [
+        "It ends the inspections of (e), (f), and (h) (used here, once its compliance time has passed).",
+        "It ends only the repetitive inspections of (f)."
+      ]
+    },
+    {
+      "paragraph": "(e)",
+      "description": "\"Within 200 cycles of the drum accumulating 6,250 cycles\" is read as the drum reaching 6,450 cycles since new; likewise 8,000, 3,750, 12,500, and 9,000 plus 200.",
+      "readings": [
+        "The drum's cycles since new plus 200 (used here)."
+      ]
+    },
+    {
+      "paragraph": "(f)(1)",
+      "description": "The repetitive interval depends on the engine's compliance group (A, B, C, E, F: 750 cycles; D: 500), which is in the unavailable bulletin.",
+      "readings": [
+        "Group unknown: review."
+      ]
+    }
+  ],
+  "notes": [
+    "Paragraphs (e)(1) to (e)(5) are printed as subheadings, which the frozen section index does not split, so the initial inspections cite (e) and name the subparagraph in their description.",
+    "V2500-A1 engines are in (c)(1) but outside the supported V2500-A5/D5/E5 scope.",
+    "Engine compliance groups are in IAE Alert NMSB V2500-ENG-72-A0615 Revision 6, not available, so the initial and repetitive USIs go to review; the terminating action (j) is fully stated and, once its compliance time has passed, decides the engine's status."
+  ],
+  "preamble_basis": [
+    {
+      "document": "2015-12068",
+      "when": "always",
+      "statement": "Response to UA: AD 2012-09-09 is superseded, so its compliance times are inapplicable after this AD's effective date."
+    },
+    {
+      "document": "2015-12068",
+      "when": "terminating_action_passed",
+      "statement": "Response to UA: terminating action means no further action is required."
+    }
+  ]
+}

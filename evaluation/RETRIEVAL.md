@@ -66,10 +66,10 @@ V2500-A1 and V2522-A5 through V2533-A5. The sync's scope reader took only the
 lead-in, found no V2500 model, and filed both `outside_supported_scope`.
 Under its own rules a mixed A1/A5 list goes to a person. The reader now
 follows a lead-in into its list (`discovery/scope.py`, with a regression
-test). The two records already in the discovery corpus still carry the old
-classification until they are re-read; that follow-up is tracked in
-`ROADMAP.md` step 7. Retrieval reads the full paragraph (c) and was never
-affected.
+test). The two records already in the discovery corpus were re-read on
+2026-10-15 with the sync's new `--reread` option and moved to the review
+list (`DISCOVERY_SYNC.md`, "Re-reading After a Scope Fix"). Retrieval reads
+the full paragraph (c) and was never affected.
 
 ## How It Was Designed
 

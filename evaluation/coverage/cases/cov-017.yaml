@@ -1,0 +1,85 @@
+schema_version: "1.1.0"
+case_id: cov-017
+title: Low-thrust engine under AD 2021-14-19 with the disk's earlier installations unrecorded
+slice: missing_state
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    AD 2021-14-19 sets the 1st-stage disk compliance time by where the disk
+    has operated, not by the engine it is in now: 100 FC under (g)(1) if it
+    was ever installed in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5 or
+    V2533-A5, 220 FC under (g)(2) if only in V2522-A5, V2524-A5, V2525-D5 or
+    V2527-A5. This disk came from a pool with no installation history. Its
+    S/N list (SI No. 112F-21 Table 1) is also unavailable. The 2nd-stage disk
+    is of a part number the AD does not name.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2021-08-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c017
+    engine_serial_number: SYN-V2500-c017
+    engine_model: V2527-A5
+    snapshot_at: "2021-08-15"
+    engine_cycle_readings:
+      - {at: "2021-08-05", engine_flight_cycles: 20000}
+      - {at: "2021-08-15", engine_flight_cycles: 20050}
+  installed_components:
+    - component_name: HPT 1st-stage disk
+      part_number: 2A5001
+      serial_number: SYN-DISK1-c017
+      installed_at: "2019-03-10"
+    - component_name: HPT 2nd-stage disk
+      part_number: SYN-PN-HPT2-c017
+      serial_number: SYN-DISK2-c017
+  events:
+    - event_type: component_installation
+      at: "2019-03-10"
+      detail: HPT 1st-stage disk received from a lessor's spare pool; its earlier installations are not in the records supplied.
+      source_note: Asserted by the synthetic operator record.
+directive_candidates: ["2021-15486"]
+expected:
+  - directive: "2021-15486"
+    controlling_ad: AD 2021-14-19
+    authority_state: in_force
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      V2527-A5 is listed and the 1st-stage disk is P/N 2A5001, but whether its
+      S/N is in Table 1 of P&W SI No. 112F-21 cannot be checked, and if it is,
+      the compliance time depends on whether the disk ever operated in a
+      high-thrust model, which the records do not show. The 2nd-stage disk is
+      not P/N 2A4802.
+    required_evidence:
+      - {document: "2021-15486", paragraph: "(c)(1)"}
+      - {document: "2021-15486", paragraph: "(g)(1)"}
+      - {document: "2021-15486", paragraph: "(g)(2)"}
+    required_missing_facts:
+      - P&W SI No. 112F-21 Accomplishment Instructions Table 1 (unavailable incorporated material)
+      - HPT 1st-stage disk installation history before 2019-03-10 (any operation in V2527E-A5, V2527M-A5, V2528-D5, V2530-A5 or V2533-A5)
+    action_timing:
+      description: >-
+        If the disk is listed: USI within 100 FC after 2021-08-05 (engine
+        counter 20,100) if it ever operated in a model named in (g)(1), or
+        within 220 FC (counter 20,220) if it operated only in models named in
+        (g)(2). 50 FC have passed (20,050 - 20,000).
+      safe_behavior: >-
+        Without the history, give both limits and treat the 100 FC limit as
+        the one to plan against until the history is shown.
+forbidden_claims:
+  - The 220 FC limit applies because the disk is installed in a V2527-A5.
+  - AD 2021-14-19 does not apply to this engine.
+  - The engine is compliant or noncompliant with AD 2021-14-19.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  Across the AD 2021-14-19 cases, every affected S/N is in an unavailable P&W
+  special instruction and all ten V2500-A5/D5/E5 models are named, so a
+  determinate outcome with nothing triggered is reachable only through a part
+  number the AD does not name, and no determinate action-required outcome is
+  reachable at all.

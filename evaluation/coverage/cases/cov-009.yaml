@@ -1,0 +1,57 @@
+schema_version: "1.1.0"
+case_id: cov-009
+title: AD 2021-11-51 disks of the listed part numbers but unlisted serial numbers
+slice: unaffected_part
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Unlike its sister ADs, AD 2021-11-51 prints its affected S/Ns in paragraph
+    (c) itself: seven 1st-stage disk S/Ns and eight 2nd-stage disk S/Ns. Both
+    installed disks carry the listed part numbers but S/Ns that are not in
+    either list, so the engine is outside the AD. The AD has no installation
+    prohibition.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2021-08-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c009
+    engine_serial_number: SYN-V2500-c009
+    engine_model: V2527-A5
+    snapshot_at: "2021-08-01"
+  installed_components:
+    - component_name: HPT 1st-stage disk
+      part_number: 2A5001
+      serial_number: SYN-DISK1-c009
+    - component_name: HPT 2nd-stage disk
+      part_number: 2A4802
+      serial_number: SYN-DISK2-c009
+  events: []
+directive_candidates: ["2021-14268"]
+expected:
+  - directive: "2021-14268"
+    controlling_ad: AD 2021-11-51
+    authority_state: in_force
+    applicability: does_not_apply
+    reason: >-
+      Paragraph (c)(1) lists 1st-stage disk P/N 2A5001 S/Ns PKLBR34908,
+      PKLBR59989, PKLBR83471, PKLBSC9996, PKLBSG0105, PKLBSG9043 and
+      PKLBSH1829; paragraph (c)(2) lists eight 2nd-stage disk P/N 2A4802 S/Ns.
+      Neither installed disk S/N (SYN-DISK1-c009, SYN-DISK2-c009) is listed.
+    required_evidence:
+      - {document: "2021-14268", paragraph: "(c)(1)"}
+      - {document: "2021-14268", paragraph: "(c)(2)"}
+forbidden_claims:
+  - AD 2021-11-51 requires a USI of these disks.
+  - Applicability of AD 2021-11-51 depends on an unavailable service bulletin.
+  - The engine is compliant or noncompliant with AD 2021-11-51.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  Other HPT disk ADs of the same period (AD 2021-11-15, AD 2021-14-19) are not
+  candidates in this case.

@@ -1,0 +1,43 @@
+schema_version: "1.1.0"
+case_id: cov-057
+title: V2531-E5 engine under the D5-only TEC inspection AD
+slice: unaffected_part
+severity: medium
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) names only V2525-D5 and V2528-D5. The V2531-E5 is a supported
+    V2500 variant listed in other ADs (AD 2025-17-16, AD 2026-17-03), so this
+    tests that the screen reads each directive's own model list.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c057
+    engine_serial_number: SYN-V2500-c057
+    engine_model: V2531-E5
+    snapshot_at: "2026-10-15"
+  installed_components: []
+  events: []
+directive_candidates: ["2019-17403"]
+expected:
+  - directive: "2019-17403"
+    controlling_ad: AD 2019-16-01
+    authority_state: in_force
+    applicability: does_not_apply
+    reason: >-
+      Paragraph (c) applies to all V2525-D5 and V2528-D5 engines only.
+      V2531-E5 is not listed.
+    required_evidence:
+      - {document: "2019-17403", paragraph: "(c)"}
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2019-16-01.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - AD 2019-16-01 applies to every supported V2500 model.
+  - The TEC mount stiffener rails must be inspected under AD 2019-16-01.

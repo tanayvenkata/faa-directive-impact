@@ -1,0 +1,79 @@
+schema_version: "1.1.0"
+case_id: cov-054
+title: AD record says complied, but a listed LPT stage-6 disk is still installed
+slice: operator_assertion
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The pre-registered Operator Records rule: a record never overrides
+    installed-part facts that contradict it. Disk S/N MAP08718 is listed in
+    paragraph (g) and is still installed in a listed engine, so the removal is
+    open whatever the record says. The disk has been in this engine across the
+    readings, so its cycles and the engine counter advance together.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c054
+    engine_serial_number: V13107
+    engine_model: V2527M-A5
+    snapshot_at: "2026-10-15"
+    engine_cycle_readings:
+      - {at: "2019-10-15", engine_flight_cycles: 47250}
+      - {at: "2026-10-15", engine_flight_cycles: 50300}
+  installed_components:
+    - component_name: LPT stage 6 disk
+      part_number: 3A2996
+      serial_number: MAP08718
+      installed_at: "2016-08-30"
+      cycles_since_new: 3950
+      cycles_since_new_readings:
+        - {at: "2019-10-15", cycles_since_new: 900}
+  events: []
+  ad_records:
+    - ad: AD 2019-18-01
+      recorded_status: complied
+      detail: Marked complied at the 2020 records audit with the note "disk replaced per ASB V2500-ENG-72-A0697".
+directive_candidates: ["2019-19412"]
+expected:
+  - directive: "2019-19412"
+    controlling_ad: AD 2019-18-01
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      Paragraph (c) lists V2527M-A5 engine S/N V13107, and the installed LPT
+      stage 6 disk P/N 3A2996 S/N MAP08718 is listed in paragraph (g). The
+      operator's complied record contradicts the installed part and does not
+      override it; flag the record for review. The disk has 3,950 cycles since
+      new: 5,000 - 3,950 = 1,050 cycles remain; 50,300 + 1,050 = engine
+      counter 51,350.
+    required_evidence:
+      - {document: "2019-19412", paragraph: "(c)", locator: engine serial number V13107}
+      - {document: "2019-19412", paragraph: "(g)", locator: disk S/N MAP08718}
+      - {document: "2019-19412", paragraph: "(h)", locator: piece-part exposure definition}
+    action_timing:
+      description: >-
+        Remove the disk from service and replace it with a part eligible for
+        installation at the next piece-part exposure, and in any case before
+        it exceeds 5,000 cycles since new: at most 1,050 more cycles, engine
+        counter 51,350.
+    computed:
+      latest_engine_flight_cycles: 51350
+      component_cycles_remaining: 1050
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2019-18-01.
+  - The engine or the disk is safe or airworthy.
+  - The engine is approved for return to service.
+  - No action is required under AD 2019-18-01.
+  - The operator's AD record is correct.
+notes: >-
+  Modeled on seed-028 (a record contradicted by an installed listed hub).
+  ASB V2500-ENG-72-A0697 is named in the preamble as related service
+  information.

@@ -75,8 +75,8 @@ A newly published in-scope directive becomes visible the day it syncs, as
    *Built and scored ([`evaluation/RETRIEVAL.md`](evaluation/RETRIEVAL.md)):
    an identifier-match retriever over a frozen 57-document corpus with
    near-neighbor distractors passes gate 14; no further technique was
-   justified. It found a sync scope bug, now fixed; re-reading the two
-   records already filed is a follow-up.*
+   justified. It found a sync scope bug, now fixed; the two records it had
+   misfiled were re-read on 2026-10-15 and are now in the review list.*
 8. **Fleet-impact queues and demo fleet** — widen the queues to every
    evaluated directive. Build a realistic seeded demo fleet of about 100–300
    engines with the evaluation cases embedded, plausible part numbers and
@@ -171,6 +171,13 @@ deferred. Operations are hardened (step 9,
 Layer and Launch"), which needs the seeded demo fleet (step 8).
 
 ## Revisions
+
+- **2026-10-15 (c)** — The owner directed full V2500-A5/D5/E5 coverage before
+  the visuals, with Claude standing in for the human reviews ("replace that
+  with your judgement ... we cna say that"). Every in-scope directive gets
+  rules, cases, and an evaluation under the frozen gates, labeled as
+  stand-in reviewed ([`evaluation/coverage/PREREGISTRATION.md`](evaluation/coverage/PREREGISTRATION.md)).
+  Practitioner review stays unclaimed.
 
 - **2026-10-15 (b)** — The owner chose to finish every step that needs no
   person (7 to 10) before the visuals. The evaluated claim stays AD

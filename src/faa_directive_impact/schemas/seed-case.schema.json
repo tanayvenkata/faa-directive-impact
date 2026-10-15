@@ -28,7 +28,7 @@
     },
     "case_id": {
       "type": "string",
-      "pattern": "^seed-[0-9]{3}$"
+      "pattern": "^(seed|cov)-[0-9]{3}$"
     },
     "title": {
       "type": "string",

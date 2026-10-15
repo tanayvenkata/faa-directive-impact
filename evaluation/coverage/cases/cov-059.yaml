@@ -1,0 +1,79 @@
+schema_version: "1.1.0"
+case_id: cov-059
+title: TEC inspected before the effective date under a credited bulletin revision
+slice: effective_date
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (h) gives credit for the paragraph (g)(1) inspections if done
+    before the effective date using IAE NMSB V2500-ENG-72-0694 Revision No. 1
+    or the Original Issue. The June 2019 inspection used Revision No. 1 and
+    found no crack, so the initial inspection is met. Paragraph (g)(2) then
+    requires the repeat within 2,000 FC since the last inspection; the credited
+    inspection is the last one.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2019-12-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c059
+    engine_serial_number: SYN-V2500-c059
+    engine_model: V2528-D5
+    snapshot_at: "2019-12-01"
+    engine_cycle_readings:
+      - {at: "2019-06-10", engine_flight_cycles: 15000}
+      - {at: "2019-09-19", engine_flight_cycles: 15400}
+      - {at: "2019-12-01", engine_flight_cycles: 15900}
+  installed_components: []
+  events:
+    - event_type: inspection
+      at: "2019-06-10"
+      engine_flight_cycles_at_event: 15000
+      detail: >-
+        ECI and high sensitivity FPI of the TEC front and rear mount stiffener
+        rails per IAE NMSB V2500-ENG-72-0694 Revision No. 1, dated February 7,
+        2018. No rejectable indication and no crack found.
+      source_note: Asserted by the synthetic operator record.
+directive_candidates: ["2019-17403"]
+expected:
+  - directive: "2019-17403"
+    controlling_ad: AD 2019-16-01
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      V2528-D5 is listed in paragraph (c). The 2019-06-10 inspection used NMSB
+      V2500-ENG-72-0694 Revision No. 1 before the 2019-09-19 effective date,
+      so paragraph (h) credits it for paragraph (g)(1). No crack was found, so
+      paragraph (g)(2) requires the next inspection within 2,000 FC since that
+      inspection: 15,000 + 2,000 = engine counter 17,000.
+    required_evidence:
+      - {document: "2019-17403", paragraph: "(c)"}
+      - {document: "2019-17403", paragraph: "(g)(2)"}
+      - {document: "2019-17403", paragraph: "(h)", locator: credit for Revision No. 1}
+    action_timing:
+      description: >-
+        Repeat the paragraph (g)(1)(i) to (iv) inspections by engine counter
+        17,000 (1,100 FC after the snapshot), then within every 2,000 FC since
+        the last inspection.
+    computed:
+      latest_engine_flight_cycles: 17000
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2019-16-01.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - The initial inspection must be repeated because it was done before the effective date.
+  - The next inspection is due 4,000 FC after the effective date (engine counter 19,400).
+  - No further inspection is required.
+notes: >-
+  The repeat interval is counted from the credited pre-effective inspection.
+  The text says "since the last inspection" without excluding credited ones,
+  and a later start would leave the TEC uninspected longer than the AD's own
+  interval. A pre-effective inspection under Revision No. 2 would not be
+  credited by paragraph (h) but would satisfy (g)(1) through "unless already
+  done" in paragraph (f).

@@ -258,3 +258,46 @@ def test_an_unsupported_model_written_plainly_is_still_outside_scope():
 
     assert engine_record_problems(asset) == []
     assert screen(RECORD, asset, AS_OF).applicability == "outside_supported_scope"
+
+
+# Version 2 rule records (evaluation/coverage/reference) get the same inputs.
+COVERAGE_RULES = {
+    path.stem: json.loads(path.read_text())
+    for path in sorted((REPO / "evaluation/coverage/reference").glob("*.json"))
+}
+
+
+@pytest.mark.parametrize("base", ["matched", "clear"])
+@pytest.mark.parametrize("name", sorted(MALFORMED))
+def test_malformed_engine_record_goes_to_review_under_every_v2_record(name, base):
+    asset = copy.deepcopy(MATCHED if base == "matched" else CLEAR)
+    MALFORMED[name](asset)
+    for document, rules in COVERAGE_RULES.items():
+        result = screen_rules(rules, asset, AS_OF)
+        assert result.action_status == "needs_review", (name, document)
+        assert result.queue == "needs_review"
+        assert "malformed" in result.summary
+        result.to_dict()
+
+
+@pytest.mark.parametrize("document", sorted(COVERAGE_RULES))
+def test_odd_but_well_formed_engines_screen_under_every_v2_record(document):
+    rules = COVERAGE_RULES[document]
+    empty = copy.deepcopy(MATCHED)
+    empty["installed_components"] = []
+    huge = copy.deepcopy(MATCHED)
+    hub(huge)["cycles_since_new"] = 10**30
+    for reading in huge["engine"].get("engine_cycle_readings", []):
+        reading["engine_flight_cycles"] += 10**30
+    no_events = copy.deepcopy(MATCHED)
+    no_events.pop("events", None)
+    for asset in (empty, huge, no_events):
+        result = screen_rules(rules, asset, AS_OF)
+        assert result.queue  # every outcome maps to a queue
+        result.to_dict()
+    # An empty component list never clears a directive that names parts.
+    if rules["applicability"]["parts"]:
+        assert screen_rules(rules, empty, AS_OF).action_status in (
+            "needs_review",
+            None,  # superseded or outside the listed models
+        )

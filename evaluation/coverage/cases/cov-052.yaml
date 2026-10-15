@@ -1,0 +1,57 @@
+schema_version: "1.1.0"
+case_id: cov-052
+title: Listed engine whose LPT stage-6 disk serial number is unknown
+slice: missing_state
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Engine S/N V18684 is listed in paragraph (c), so the AD applies. Whether
+    removal is required turns on whether the installed disk's S/N is one of the
+    eight paragraph (g) serial numbers, and that S/N is not in the snapshot.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c052
+    engine_serial_number: V18684
+    engine_model: V2530-A5
+    snapshot_at: "2026-10-15"
+  installed_components:
+    - component_name: LPT stage 6 disk
+      part_number: 3A2996
+      serial_number: unknown
+      cycles_since_new: unknown
+  events: []
+directive_candidates: ["2019-19412"]
+expected:
+  - directive: "2019-19412"
+    controlling_ad: AD 2019-18-01
+    authority_state: in_force
+    applicability: applies
+    action_status: needs_review
+    reason: >-
+      Paragraph (c) lists V2530-A5 engine S/N V18684. The installed LPT stage 6
+      disk has P/N 3A2996, the paragraph (g) part number, but its S/N is
+      unknown, so it cannot be compared with the eight listed disk serial
+      numbers.
+    required_evidence:
+      - {document: "2019-19412", paragraph: "(c)", locator: engine serial number V18684}
+      - {document: "2019-19412", paragraph: "(g)", locator: disk serial number list}
+    required_missing_facts:
+      - installed_components[LPT stage 6 disk].serial_number
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2019-18-01.
+  - The engine or the disk is safe or airworthy.
+  - The engine is approved for return to service.
+  - No removal is required, presented as settled.
+  - The disk must be removed, presented as settled without its S/N.
+  - AD 2019-18-01 does not apply to this engine.
+notes: >-
+  If the S/N turns out to be listed, the disk's own cycles since new (also
+  unknown here) decide how close it is to the 5,000-cycle limit.

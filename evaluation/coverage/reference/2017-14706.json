@@ -1,0 +1,421 @@
+{
+  "schema_version": "2",
+  "ad_number": "AD 2017-14-07",
+  "final_rule_document": "2017-14706",
+  "governing_document": {
+    "document": "2017-14706",
+    "reason": "The final rule; no correction was published."
+  },
+  "corrections": [],
+  "effective_date": {
+    "date": "2017-08-21",
+    "paragraph": "(a)",
+    "emergency_ad": null
+  },
+  "relationships": [],
+  "dependencies": [
+    {
+      "id": "n0676",
+      "title": "IAE NMSB V2500-ENG-72-0676 (October 14, 2016), Table 1 (S/Ns and part cycles-since-new limits)",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(c)(1)(i)",
+      "incorporated_in": [
+        "(j)(2)(i)"
+      ]
+    },
+    {
+      "id": "n0677",
+      "title": "IAE NMSB V2500-ENG-72-0677, Revision 1 (January 11, 2017), Table 1 (S/Ns and part cycles-since-new limits)",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(1)(ii)",
+      "incorporated_in": [
+        "(j)(2)(ii)"
+      ]
+    },
+    {
+      "id": "n0678",
+      "title": "IAE NMSB V2500-ENG-72-0678, Revision 1 (January 5, 2017), Accomplishment Instructions, Table 1",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(2)(i)",
+      "incorporated_in": [
+        "(j)(2)(iii)"
+      ]
+    },
+    {
+      "id": "n0682",
+      "title": "IAE NMSB V2500-ENG-72-0682 (December 2, 2016), Table 1 (S/Ns and part cycles-since-new limits)",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(1)(iii)",
+      "incorporated_in": [
+        "(j)(2)(v)"
+      ]
+    },
+    {
+      "id": "n0681",
+      "title": "IAE NMSB V2500-ENG-72-0681, Revision 2 (January 9, 2017), Accomplishment Instructions, Table 1",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(2)(ii)",
+      "incorporated_in": [
+        "(j)(2)(iv)"
+      ]
+    },
+    {
+      "id": "seal1_lists",
+      "title": "IAE NMSB V2500-ENG-72-0677, Revision 1, Table 1, or IAE NMSB V2500-ENG-72-0678, Revision 1, Table 1",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(c)(1)(ii)",
+      "incorporated_in": [
+        "(j)(2)(ii)",
+        "(j)(2)(iii)"
+      ]
+    },
+    {
+      "id": "ring_lists",
+      "title": "IAE NMSB V2500-ENG-72-0682, Table 1, or IAE NMSB V2500-ENG-72-0681, Revision 2, Table 1",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(c)(1)(iii)",
+      "incorporated_in": [
+        "(j)(2)(iv)",
+        "(j)(2)(v)"
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "seal2",
+      "component": "HPT stage 2 air seal",
+      "aliases": [
+        "HPT 2nd-stage air seal"
+      ],
+      "part_numbers": [
+        "2A4157"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "n0676",
+      "paragraph": "(c)(1)(i)"
+    },
+    {
+      "id": "seal1_c",
+      "component": "HPT 1st stage air seal",
+      "aliases": [
+        "HPT 1st-stage air seal",
+        "HPT stage 1 air seal"
+      ],
+      "part_numbers": [
+        "2A3423"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "seal1_lists",
+      "paragraph": "(c)(1)(ii)"
+    },
+    {
+      "id": "ring_c",
+      "component": "HPT stage 2 ring plate",
+      "aliases": [
+        "HPT 2nd-stage ring plate"
+      ],
+      "part_numbers": [
+        "2A3437"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "ring_lists",
+      "paragraph": "(c)(1)(iii)"
+    },
+    {
+      "id": "seal1_0677",
+      "component": "HPT 1st stage air seal",
+      "aliases": [
+        "HPT 1st-stage air seal",
+        "HPT stage 1 air seal"
+      ],
+      "part_numbers": [
+        "2A3423"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "n0677",
+      "paragraph": "(g)(1)(ii)"
+    },
+    {
+      "id": "ring_0682",
+      "component": "HPT stage 2 ring plate",
+      "aliases": [
+        "HPT 2nd-stage ring plate"
+      ],
+      "part_numbers": [
+        "2A3437"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "n0682",
+      "paragraph": "(g)(1)(iii)"
+    },
+    {
+      "id": "seal1_0678",
+      "component": "HPT 1st stage air seal",
+      "aliases": [
+        "HPT 1st-stage air seal",
+        "HPT stage 1 air seal"
+      ],
+      "part_numbers": [
+        "2A3423"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "n0678",
+      "paragraph": "(g)(2)(i)"
+    },
+    {
+      "id": "ring_0681",
+      "component": "HPT stage 2 ring plate",
+      "aliases": [
+        "HPT 2nd-stage ring plate"
+      ],
+      "part_numbers": [
+        "2A3437"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "n0681",
+      "paragraph": "(g)(2)(ii)"
+    }
+  ],
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "models_paragraph": "(c)(1)",
+    "engine_serials": [],
+    "parts": [
+      "seal2",
+      "seal1_c",
+      "ring_c"
+    ],
+    "parts_combine": "any",
+    "parts_paragraph": "(c)(1)"
+  },
+  "eligible_parts": [],
+  "required_actions": [
+    {
+      "related_paragraphs": [
+        "(g)(1)"
+      ],
+      "paragraph": "(g)(1)(i)",
+      "description": "Remove the HPT stage 2 air seal from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "seal2",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "n0676"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_since_new",
+          "value": null,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "n0676",
+          "paragraph": "(g)(1)(i)"
+        },
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 50,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "whichever_occurs_later",
+      "terminates": []
+    },
+    {
+      "related_paragraphs": [
+        "(g)(1)"
+      ],
+      "paragraph": "(g)(1)(ii)",
+      "description": "Remove the HPT 1st stage air seal from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "seal1_0677",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "n0677"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_since_new",
+          "value": null,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "n0677",
+          "paragraph": "(g)(1)(ii)"
+        },
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 50,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "whichever_occurs_later",
+      "terminates": []
+    },
+    {
+      "related_paragraphs": [
+        "(g)(1)"
+      ],
+      "paragraph": "(g)(1)(iii)",
+      "description": "Remove the HPT stage 2 ring plate from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "ring_0682",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "n0682"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_since_new",
+          "value": null,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "n0682",
+          "paragraph": "(g)(1)(iii)"
+        },
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 50,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "whichever_occurs_later",
+      "terminates": []
+    },
+    {
+      "related_paragraphs": [
+        "(g)(2)"
+      ],
+      "paragraph": "(g)(2)(i)",
+      "description": "Remove the HPT 1st stage air seal from service when the HPT module is disassembled and access to the part is available, and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "seal1_0678",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "disassembly of the HPT module with access to the part",
+        "definition_paragraphs": []
+      },
+      "limits": [],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "related_paragraphs": [
+        "(g)(2)"
+      ],
+      "paragraph": "(g)(2)(ii)",
+      "description": "Remove the HPT stage 2 ring plate from service when the HPT module is disassembled and access to the part is available, and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "ring_0681",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "disassembly of the HPT module with access to the part",
+        "definition_paragraphs": []
+      },
+      "limits": [],
+      "combination": "single",
+      "terminates": []
+    }
+  ],
+  "continuing_obligations": [],
+  "credit_for_previous_actions": [],
+  "definitions": [],
+  "amoc_paragraph": "(h)",
+  "ambiguities": [
+    {
+      "paragraph": "(g)(1)",
+      "description": "\"Within 50 cycles in service after the effective date\" does not say whose cycles (the part's or the engine's).",
+      "readings": [
+        "Engine flight cycles after the effective date (used here).",
+        "The part's cycles in service after the effective date."
+      ]
+    },
+    {
+      "paragraph": "(g)(2)",
+      "description": "\"When the HPT module is disassembled and access to the part is available\" after the effective date: the first such occasion, or any.",
+      "readings": [
+        "The next such occasion after the effective date (used here)."
+      ]
+    }
+  ],
+  "notes": [
+    "Every S/N list and part cycles-since-new limit is in IAE NMSBs incorporated by reference and not available; an engine with one of the three P/Ns goes to review naming them."
+  ]
+}

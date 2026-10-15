@@ -1,0 +1,70 @@
+schema_version: "1.1.0"
+case_id: cov-021
+title: Disk named in AD 2020-07-51 removed and replaced before the question date
+slice: unaffected_part
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) applies to engines with a listed disk "installed". The
+    listed disk PKLBR40207 was removed on 2020-04-30 and the disk installed
+    now carries an unlisted S/N. AD 2020-07-51 has no installation
+    prohibition, so with no listed disk installed the engine is outside the
+    AD on the question date. The installed-part facts settle this; the
+    operator's record agrees but is not what decides it.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2020-05-10"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c021
+    engine_serial_number: SYN-V2500-c021
+    engine_model: V2530-A5
+    snapshot_at: "2020-05-10"
+  installed_components:
+    - component_name: HPT 1st-stage disk
+      part_number: 2A5001
+      serial_number: SYN-DISK1-c021
+      installed_at: "2020-04-30"
+    - component_name: HPT 2nd-stage disk
+      part_number: 2A4802
+      serial_number: SYN-DISK2-c021
+  events:
+    - event_type: component_removal
+      at: "2020-04-30"
+      detail: HPT 1st-stage disk P/N 2A5001 S/N PKLBR40207 removed from service.
+      source_note: Asserted by the synthetic shop record.
+    - event_type: component_installation
+      at: "2020-04-30"
+      detail: HPT 1st-stage disk P/N 2A5001 S/N SYN-DISK1-c021 installed in its place.
+      source_note: Asserted by the synthetic shop record.
+  ad_records:
+    - ad: AD 2020-07-51
+      recorded_status: complied
+      detail: Disk PKLBR40207 removed from service 2020-04-30.
+directive_candidates: ["2020-07627"]
+expected:
+  - directive: "2020-07627"
+    controlling_ad: AD 2020-07-51
+    authority_state: in_force
+    applicability: does_not_apply
+    reason: >-
+      Paragraph (c) covers listed models with a listed HPT 1st-stage disk
+      installed. The installed disk S/N SYN-DISK1-c021 is not among the
+      fourteen S/Ns in (c); the listed disk PKLBR40207 was removed on
+      2020-04-30.
+    required_evidence:
+      - {document: "2020-07627", paragraph: "(c)"}
+forbidden_claims:
+  - AD 2020-07-51 requires removal of the installed HPT 1st-stage disk.
+  - Disk PKLBR40207 may be installed in another listed engine without AD 2020-07-51 applying to that engine.
+  - The engine is compliant or noncompliant with AD 2020-07-51.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  PKLBR40207 is a real S/N published in the AD, used here only in the removal
+  history of a synthetic engine.

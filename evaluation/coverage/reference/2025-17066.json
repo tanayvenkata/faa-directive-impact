@@ -1,0 +1,204 @@
+{
+  "schema_version": "2",
+  "ad_number": "AD 2025-17-16",
+  "final_rule_document": "2025-17066",
+  "governing_document": {
+    "document": "2025-17066",
+    "reason": "The final rule; no correction was published."
+  },
+  "corrections": [],
+  "effective_date": {
+    "date": "2025-10-10",
+    "paragraph": "(a)",
+    "emergency_ad": null
+  },
+  "relationships": [],
+  "dependencies": [],
+  "parts": [],
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "models_paragraph": "(c)",
+    "engine_serials": [],
+    "parts": [],
+    "parts_combine": "any",
+    "parts_paragraph": ""
+  },
+  "eligible_parts": [],
+  "required_actions": [
+    {
+      "related_paragraphs": [
+        "(g)(1)"
+      ],
+      "paragraph": "(g)(1)(i)",
+      "description": "Revise paragraph B.1 of the Maintenance Scheduling section of the ALS in the V2500-A5 Time Limits Manual (P/N 2A4408, TASK 05-10-00-990-000-B00) by incorporating table 1 to paragraph (g).",
+      "kind": "revise_maintenance_program",
+      "models": [
+        "V2522-A5",
+        "V2524-A5",
+        "V2527-A5",
+        "V2527E-A5",
+        "V2527M-A5",
+        "V2530-A5",
+        "V2533-A5"
+      ],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "days_after_effective_date",
+          "value": 90,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "related_paragraphs": [
+        "(g)(1)"
+      ],
+      "paragraph": "(g)(1)(ii)",
+      "description": "Revise paragraph B.1 of the Maintenance Scheduling section of the ALS in the V2500-D5 Time Limits Manual (P/N 2A4417, TASK 05-10-00-990-000) by incorporating table 1 to paragraph (g).",
+      "kind": "revise_maintenance_program",
+      "models": [
+        "V2525-D5",
+        "V2528-D5"
+      ],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "days_after_effective_date",
+          "value": 90,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "related_paragraphs": [
+        "(g)(1)"
+      ],
+      "paragraph": "(g)(1)(iii)",
+      "description": "Revise paragraph B.1 of the Maintenance Scheduling section of the ALS in the V2500-E5 Time Limits Manual (P/N 2A4384, TASK 05-10-00-990-000-A00) by incorporating table 1 to paragraph (g).",
+      "kind": "revise_maintenance_program",
+      "models": [
+        "V2531-E5"
+      ],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "days_after_effective_date",
+          "value": 90,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(2)",
+      "description": "Revise the existing approved maintenance or inspection program by incorporating table 1 to paragraph (g).",
+      "kind": "revise_maintenance_program",
+      "models": [],
+      "target": "",
+      "operator_condition": "air_carrier_operation",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "days_after_effective_date",
+          "value": 90,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(2)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    }
+  ],
+  "continuing_obligations": [
+    {
+      "paragraph": "(h)",
+      "description": "After the actions required by paragraphs (g)(1) and (2) have been done, no alternative actions are allowed unless approved as an AMOC under paragraph (i)."
+    }
+  ],
+  "credit_for_previous_actions": [],
+  "definitions": [],
+  "amoc_paragraph": "(i)",
+  "ambiguities": [
+    {
+      "paragraph": "(g)(1)",
+      "description": "Paragraph (g)(1) binds every operator to revise the ALS in the Time Limits Manual, a manufacturer document; the text does not say what an operator without its own copy does.",
+      "readings": [
+        "Revise the operator's controlled copy of the TLM ALS."
+      ]
+    }
+  ],
+  "notes": [
+    "The table 1 inspections are scheduled by the revised ALS (at piece-part exposure per the engine manual tasks); this AD requires only the revisions within 90 days.",
+    "Whether the revision was made is not an engine record field; after the 90 days the operator's AD record decides between no action (with a note) and review."
+  ]
+}

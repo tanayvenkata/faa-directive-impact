@@ -1,0 +1,78 @@
+schema_version: "1.1.0"
+case_id: cov-056
+title: D5 engine before the 4,000-cycle limit, after an induction without flange separation
+slice: shop_visit_trigger
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) covers all V2528-D5 engines. Paragraph (j) counts as an
+    engine shop visit only an induction for maintenance involving separation of
+    pairs of major mating engine case flanges. The January 2020 induction
+    separated none, so it was not the "next engine shop visit" of paragraph
+    (g)(1). The 4,000-FC limit from the effective date still runs.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2020-03-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c056
+    engine_serial_number: SYN-V2500-c056
+    engine_model: V2528-D5
+    snapshot_at: "2020-03-01"
+    engine_cycle_readings:
+      - {at: "2019-09-19", engine_flight_cycles: 20000}
+      - {at: "2020-03-01", engine_flight_cycles: 21200}
+  installed_components: []
+  events:
+    - event_type: shop_visit_induction
+      at: "2020-01-10"
+      engine_flight_cycles_at_event: 20750
+      qualifies_as_engine_shop_visit:
+        AD 2019-16-01: "no"
+      detail: >-
+        Inducted to replace the fuel pump and a harness. No pair of major
+        mating engine case flanges was separated.
+      source_note: Asserted by the synthetic operator record.
+directive_candidates: ["2019-17403"]
+expected:
+  - directive: "2019-17403"
+    controlling_ad: AD 2019-16-01
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      V2528-D5 is listed in paragraph (c). No TEC mount stiffener rail
+      inspection is recorded. The 2020-01-10 induction separated no major
+      mating case flanges, so under paragraph (j) it was not an engine shop
+      visit and did not trigger paragraph (g)(1). The limit is 4,000 FC after
+      the 2019-09-19 effective date: 20,000 + 4,000 = engine counter 24,000.
+    required_evidence:
+      - {document: "2019-17403", paragraph: "(c)"}
+      - {document: "2019-17403", paragraph: "(g)(1)"}
+      - {document: "2019-17403", paragraph: "(j)", locator: engine shop visit definition}
+    action_timing:
+      description: >-
+        Perform the ECI and high sensitivity FPI of the TEC front and rear
+        mount stiffener rails per paragraphs (g)(1)(i) to (iv) at the next
+        engine shop visit (one with major case flange separation), and not
+        later than engine counter 24,000 (2,800 FC after the snapshot). If no
+        crack is found, repeat within every 2,000 FC since the last inspection
+        under paragraph (g)(2).
+    computed:
+      latest_engine_flight_cycles: 24000
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2019-16-01.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - The inspection was required at the 2020-01-10 induction.
+  - The 2020-01-10 induction counts as the engine shop visit for AD 2019-16-01.
+  - The inspection is due 4,000 FC after the 2020-01-10 induction.
+notes: >-
+  "Not later than 4,000 flight cycles after the effective date" is read as
+  inclusive. The inspection steps themselves live in IAE NMSB
+  V2500-ENG-72-0694 Revision 2, which is incorporated by reference.

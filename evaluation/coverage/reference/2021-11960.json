@@ -1,0 +1,474 @@
+{
+  "schema_version": "2",
+  "ad_number": "AD 2021-11-15",
+  "final_rule_document": "2021-11960",
+  "governing_document": {
+    "document": "2021-11960",
+    "reason": "The final rule; no correction was published."
+  },
+  "corrections": [],
+  "effective_date": {
+    "date": "2021-07-13",
+    "paragraph": "(a)",
+    "emergency_ad": null
+  },
+  "relationships": [
+    {
+      "type": "superseded_by",
+      "ad_number": "AD 2022-02-09",
+      "document": "2022-02574",
+      "effective_date": "2022-03-15",
+      "stated_in": "2022-02574",
+      "paragraph": "(b)",
+      "description": "AD 2022-02-09 replaces this AD."
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "disk1_lists",
+      "title": "IAE NMSB V2500-ENG-72-0713, Revision 1 (January 26, 2021), Appendix A, Table 1, or IAE NMSB V2500-E5-72-0015 (December 15, 2020), Appendix A, Table 1",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(c)(1)",
+      "incorporated_in": [
+        "(k)(2)(i)",
+        "(k)(2)(ii)"
+      ]
+    },
+    {
+      "id": "disk2_lists",
+      "title": "IAE NMSB V2500-ENG-72-0713, Revision 1 (January 26, 2021), Appendix A, Table 2, or IAE NMSB V2500-E5-72-0015 (December 15, 2020), Appendix A, Table 2",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(c)(2)",
+      "incorporated_in": [
+        "(k)(2)(i)",
+        "(k)(2)(ii)"
+      ]
+    },
+    {
+      "id": "disk1_0713",
+      "title": "IAE NMSB V2500-ENG-72-0713, Revision 1 (January 26, 2021), Appendix A, Table 1",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(1)",
+      "incorporated_in": [
+        "(k)(2)(i)"
+      ]
+    },
+    {
+      "id": "disk2_0713",
+      "title": "IAE NMSB V2500-ENG-72-0713, Revision 1 (January 26, 2021), Appendix A, Table 2",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(2)",
+      "incorporated_in": [
+        "(k)(2)(i)"
+      ]
+    },
+    {
+      "id": "disk1_0015",
+      "title": "IAE NMSB V2500-E5-72-0015 (December 15, 2020), Appendix A, Table 1",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(5)",
+      "incorporated_in": [
+        "(k)(2)(ii)"
+      ]
+    },
+    {
+      "id": "disk2_0015",
+      "title": "IAE NMSB V2500-E5-72-0015 (December 15, 2020), Appendix A, Table 2",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(6)",
+      "incorporated_in": [
+        "(k)(2)(ii)"
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "disk1_c",
+      "component": "HPT 1st-stage disk",
+      "aliases": [
+        "HPT 1st-stage hub",
+        "HPT stage 1 hub"
+      ],
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "disk1_lists",
+      "paragraph": "(c)(1)"
+    },
+    {
+      "id": "disk2_c",
+      "component": "HPT 2nd-stage disk",
+      "aliases": [
+        "HPT 2nd-stage hub",
+        "HPT stage 2 hub"
+      ],
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "disk2_lists",
+      "paragraph": "(c)(2)"
+    },
+    {
+      "id": "disk1_0713",
+      "component": "HPT 1st-stage disk",
+      "aliases": [
+        "HPT 1st-stage hub",
+        "HPT stage 1 hub"
+      ],
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "disk1_0713",
+      "paragraph": "(g)(1)"
+    },
+    {
+      "id": "disk2_0713",
+      "component": "HPT 2nd-stage disk",
+      "aliases": [
+        "HPT 2nd-stage hub",
+        "HPT stage 2 hub"
+      ],
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "disk2_0713",
+      "paragraph": "(g)(2)"
+    },
+    {
+      "id": "disk1_0015",
+      "component": "HPT 1st-stage disk",
+      "aliases": [
+        "HPT 1st-stage hub",
+        "HPT stage 1 hub"
+      ],
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "disk1_0015",
+      "paragraph": "(g)(5)"
+    },
+    {
+      "id": "disk2_0015",
+      "component": "HPT 2nd-stage disk",
+      "aliases": [
+        "HPT 2nd-stage hub",
+        "HPT stage 2 hub"
+      ],
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "disk2_0015",
+      "paragraph": "(g)(6)"
+    }
+  ],
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "models_paragraph": "(c)",
+    "engine_serials": [],
+    "parts": [
+      "disk1_c",
+      "disk2_c"
+    ],
+    "parts_combine": "any",
+    "parts_paragraph": "(c)"
+  },
+  "eligible_parts": [],
+  "required_actions": [
+    {
+      "paragraph": "(g)(1)",
+      "description": "Perform a USI of the HPT 1st-stage disk.",
+      "kind": "inspect",
+      "models": [
+        "V2527E-A5",
+        "V2527M-A5",
+        "V2528-D5",
+        "V2530-A5",
+        "V2533-A5"
+      ],
+      "target": "disk1_0713",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "engine_shop_visit",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": [
+          "(h)(1)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_after_effective_date",
+          "value": 3200,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "whichever_occurs_first",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(2)",
+      "description": "Perform a USI of the HPT 2nd-stage disk.",
+      "kind": "inspect",
+      "models": [
+        "V2527E-A5",
+        "V2527M-A5",
+        "V2528-D5",
+        "V2530-A5",
+        "V2533-A5"
+      ],
+      "target": "disk2_0713",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "engine_shop_visit",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": [
+          "(h)(1)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_after_effective_date",
+          "value": 3200,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(2)"
+        }
+      ],
+      "combination": "whichever_occurs_first",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(3)",
+      "description": "Perform a USI of the HPT 1st-stage disk.",
+      "kind": "inspect",
+      "models": [
+        "V2522-A5",
+        "V2524-A5",
+        "V2525-D5",
+        "V2527-A5"
+      ],
+      "target": "disk1_0713",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "HPT rotor and stator assembly (HPT module) removal",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_after_effective_date",
+          "value": 6700,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(3)"
+        }
+      ],
+      "combination": "whichever_occurs_first",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(4)",
+      "description": "Perform a USI of the HPT 2nd-stage disk.",
+      "kind": "inspect",
+      "models": [
+        "V2522-A5",
+        "V2524-A5",
+        "V2525-D5",
+        "V2527-A5"
+      ],
+      "target": "disk2_0713",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "HPT rotor and stator assembly (HPT module) removal",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_after_effective_date",
+          "value": 6700,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(4)"
+        }
+      ],
+      "combination": "whichever_occurs_first",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(5)",
+      "description": "Perform a USI of the HPT 1st-stage disk.",
+      "kind": "inspect",
+      "models": [
+        "V2531-E5"
+      ],
+      "target": "disk1_0015",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "engine_shop_visit",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": [
+          "(h)(1)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_after_effective_date",
+          "value": 3200,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(5)"
+        }
+      ],
+      "combination": "whichever_occurs_first",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(6)",
+      "description": "Perform a USI of the HPT 2nd-stage disk.",
+      "kind": "inspect",
+      "models": [
+        "V2531-E5"
+      ],
+      "target": "disk2_0015",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "engine_shop_visit",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": [
+          "(h)(1)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_after_effective_date",
+          "value": 3200,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(6)"
+        }
+      ],
+      "combination": "whichever_occurs_first",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(7)",
+      "description": "If a disk does not pass the USI, before further flight remove it from service and replace it with a part eligible for installation.",
+      "kind": "replace_if_finding",
+      "models": [],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [],
+      "combination": "single",
+      "terminates": []
+    }
+  ],
+  "continuing_obligations": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "term": "engine shop visit",
+      "paragraph": "(h)(1)"
+    },
+    {
+      "term": "part eligible for installation",
+      "paragraph": "(h)(2)"
+    }
+  ],
+  "amoc_paragraph": "(i)",
+  "ambiguities": [
+    {
+      "paragraph": "(g)(5)",
+      "description": "Paragraphs (g)(5) and (g)(6) say \"at the next engine shop visit\" without \"after the effective date\", unlike (g)(1) and (g)(2).",
+      "readings": [
+        "The next shop visit after the effective date, as in (g)(1).",
+        "Any next shop visit, including one in progress on the effective date."
+      ]
+    },
+    {
+      "paragraph": "(g)(1)",
+      "description": "\"Before the HPT 1st-stage disk has accumulated 3,200 FCs since the effective date\" counts the disk's own cycles, which differ from the engine's if the disk moved.",
+      "readings": [
+        "The disk's cycles since the effective date (used here)."
+      ]
+    }
+  ],
+  "notes": [
+    "Replaced by AD 2022-02-09 from 2022-03-15 (2022-02574 paragraph (b)); from then on it is not screened separately."
+  ]
+}

@@ -1,0 +1,939 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.faa-directive-impact.dev/rule-record-v2.schema.json",
+  "title": "Directive rule record, version 2",
+  "description": "One airworthiness directive's screening predicates, read from its regulatory text only. Every value names the paragraph it rests on. A value the text does not state is never filled in: it is left empty, marked unclear, or pointed at an unavailable dependency, and the interpreter sends the engine to review. Version 1 (b3-rule-record.schema.json) stays frozen for the B3 v1 prompt and runs. Revision 2.1 adds optional fields (model_paragraphs, incorporated_in, related_paragraphs, open_while_installed, part_group on obligations, other_paragraphs on relationships, preamble_basis, the threshold limit role, unknown_means_met); a 2.0 record is still valid.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "ad_number",
+    "final_rule_document",
+    "governing_document",
+    "corrections",
+    "effective_date",
+    "relationships",
+    "dependencies",
+    "parts",
+    "applicability",
+    "eligible_parts",
+    "required_actions",
+    "continuing_obligations",
+    "credit_for_previous_actions",
+    "definitions",
+    "amoc_paragraph",
+    "ambiguities",
+    "notes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2"
+    },
+    "ad_number": {
+      "description": "The AD number as printed, in the form \"AD yyyy-nn-nn\".",
+      "type": "string",
+      "pattern": "^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "final_rule_document": {
+      "description": "Federal Register document number of the final rule.",
+      "$ref": "#/$defs/document"
+    },
+    "governing_document": {
+      "description": "The document whose regulatory text is cited: the final rule, or a correction that republishes it.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document",
+        "reason"
+      ],
+      "properties": {
+        "document": {
+          "$ref": "#/$defs/document"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "corrections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "document",
+          "paragraph",
+          "original_text",
+          "corrected_text"
+        ],
+        "properties": {
+          "document": {
+            "$ref": "#/$defs/document"
+          },
+          "paragraph": {
+            "$ref": "#/$defs/paragraph"
+          },
+          "original_text": {
+            "type": "string"
+          },
+          "corrected_text": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "effective_date": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "date",
+        "paragraph",
+        "emergency_ad"
+      ],
+      "properties": {
+        "date": {
+          "$ref": "#/$defs/date"
+        },
+        "paragraph": {
+          "$ref": "#/$defs/paragraph"
+        },
+        "emergency_ad": {
+          "description": "Set when paragraph (a) says an earlier emergency AD made the requirements effective on actual notice. Each operator's effective date is then its date of actual notice, which no engine record holds; null otherwise.",
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "ad_number",
+                "issued"
+              ],
+              "properties": {
+                "ad_number": {
+                  "type": "string",
+                  "pattern": "^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$"
+                },
+                "issued": {
+                  "$ref": "#/$defs/date"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "relationships": {
+      "description": "Links to other ADs. superseded_by: a later AD replaces this one from its effective date (state where the replacing AD says so). supersedes: this AD replaces an earlier one. terminates_by_compliance: complying with a paragraph of this AD satisfies another AD. terminated_by_compliance: complying with a paragraph of another AD satisfies this one. related: anything else, informational.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "ad_number",
+          "document",
+          "effective_date",
+          "stated_in",
+          "paragraph",
+          "description"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "superseded_by",
+              "supersedes",
+              "terminates_by_compliance",
+              "terminated_by_compliance",
+              "related"
+            ]
+          },
+          "ad_number": {
+            "type": "string",
+            "pattern": "^AD [0-9]{4}-[0-9]{2}-[0-9]{2}$"
+          },
+          "document": {
+            "description": "The other AD's final rule document number, or \"\" when not known from the text.",
+            "type": "string"
+          },
+          "effective_date": {
+            "description": "The other AD's effective date when the relationship depends on it (superseded_by); null otherwise.",
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/$defs/date"
+              }
+            ]
+          },
+          "stated_in": {
+            "description": "Document whose paragraph states the relationship.",
+            "$ref": "#/$defs/document"
+          },
+          "paragraph": {
+            "$ref": "#/$defs/paragraph"
+          },
+          "description": {
+            "type": "string"
+          },
+          "other_paragraphs": {
+            "description": "Optional. Paragraphs of the other document this relationship bears on (e.g. the replaced AD's applicability), cited only for a relationship whose other document precedes this one (supersedes).",
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/paragraph"
+            }
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "description": "Material the screen needs but does not have: service information incorporated by reference, or a table printed only as an image. Parts, actions, and limits point at these by id; an engine that reaches one goes to review naming its title.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "kind",
+          "holds",
+          "paragraph"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "title": {
+            "description": "What a person must obtain: the document, its revision, and the table or figure, as the directive names them.",
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "incorporated_by_reference",
+              "image_only_figure"
+            ]
+          },
+          "holds": {
+            "enum": [
+              "serial_numbers",
+              "engine_serial_numbers",
+              "compliance_times",
+              "procedure",
+              "other"
+            ]
+          },
+          "paragraph": {
+            "$ref": "#/$defs/paragraph"
+          },
+          "incorporated_in": {
+            "description": "Optional. Paragraphs that incorporate the material by reference , cited whenever the dependency is named.",
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/paragraph"
+            }
+          }
+        }
+      }
+    },
+    "parts": {
+      "description": "Part groups the directive names. A group is found on an engine by part number, or by component name (component or an alias) for its position. serials: any (every serial of these P/Ns), listed (only the rows in listed, each P/N and S/N pair printed in the directive), or listed_in_dependency (the serial list is in unavailable material named by dependency).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "component",
+          "aliases",
+          "part_numbers",
+          "serials",
+          "listed",
+          "dependency",
+          "paragraph"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "component": {
+            "type": "string",
+            "minLength": 1
+          },
+          "aliases": {
+            "description": "Other names the directive or records use for the same position, used to find the position's record.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "part_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "Part numbers of the group. Empty means any part number at the named position (the directive names the part but prints no P/N)."
+          },
+          "serials": {
+            "enum": [
+              "any",
+              "listed",
+              "listed_in_dependency"
+            ]
+          },
+          "listed": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "part_number",
+                "serial_number",
+                "cycles_since_new_limit"
+              ],
+              "properties": {
+                "part_number": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "serial_number": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "cycles_since_new_limit": {
+                  "description": "A per-row part cycles-since-new limit printed in the directive, or null.",
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "dependency": {
+            "description": "Dependency id when serials is listed_in_dependency, else \"\".",
+            "type": "string"
+          },
+          "paragraph": {
+            "$ref": "#/$defs/paragraph"
+          }
+        }
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "engine_models",
+        "models_paragraph",
+        "engine_serials",
+        "parts",
+        "parts_combine",
+        "parts_paragraph"
+      ],
+      "properties": {
+        "engine_models": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "models_paragraph": {
+          "$ref": "#/$defs/paragraph"
+        },
+        "engine_serials": {
+          "description": "Engine serial conditions. Each restricts the models it names to engines whose serial is in a range (inclusive; a null bound is open) or in serial_numbers, and not in excluded. Models no entry names are not restricted. Ranges compare a shared letter prefix and the number after it.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "models",
+              "ranges",
+              "serial_numbers",
+              "excluded",
+              "paragraph"
+            ],
+            "properties": {
+              "models": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ranges": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "first",
+                    "last"
+                  ],
+                  "properties": {
+                    "first": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      ]
+                    },
+                    "last": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "serial_numbers": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "excluded": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "paragraph": {
+                "$ref": "#/$defs/paragraph"
+              }
+            }
+          }
+        },
+        "parts": {
+          "description": "Part group ids that applicability requires installed; empty when the directive applies to the models alone.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "parts_combine": {
+          "description": "any: one group installed is enough (\"or\", \"either\"). all: every group must be installed (\"and\").",
+          "enum": [
+            "any",
+            "all"
+          ]
+        },
+        "parts_paragraph": {
+          "$ref": "#/$defs/optional_paragraph"
+        },
+        "model_paragraphs": {
+          "description": "Optional. The sub-paragraph that names each model, where the applicability paragraph is split into sub-paragraphs; cited with the models paragraph.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "models",
+              "paragraph"
+            ],
+            "properties": {
+              "models": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "paragraph": {
+                "$ref": "#/$defs/paragraph"
+              }
+            }
+          }
+        }
+      }
+    },
+    "eligible_parts": {
+      "description": "Parts the directive defines as eligible for installation, by group. A recorded P/N listed here clears its group, with this paragraph cited.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "part_group",
+          "part_numbers",
+          "description",
+          "paragraph"
+        ],
+        "properties": {
+          "part_group": {
+            "$ref": "#/$defs/id"
+          },
+          "part_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "paragraph": {
+            "$ref": "#/$defs/paragraph"
+          }
+        }
+      }
+    },
+    "required_actions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/action"
+      }
+    },
+    "continuing_obligations": {
+      "description": "Obligations that bind while the directive applies, even with no action triggered: installation prohibitions, no alternative actions once done.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "paragraph",
+          "description"
+        ],
+        "properties": {
+          "paragraph": {
+            "$ref": "#/$defs/paragraph"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "part_group": {
+            "description": "Optional. For an installation prohibition, the part group it prohibits; a part of the group recorded as installed after the effective date keeps the screen open.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "credit_for_previous_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "paragraph",
+          "actions",
+          "description"
+        ],
+        "properties": {
+          "paragraph": {
+            "$ref": "#/$defs/paragraph"
+          },
+          "actions": {
+            "description": "Paragraphs of the actions that may be credited.",
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/paragraph"
+            }
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "definitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "term",
+          "paragraph"
+        ],
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "paragraph": {
+            "$ref": "#/$defs/paragraph"
+          }
+        }
+      }
+    },
+    "amoc_paragraph": {
+      "$ref": "#/$defs/optional_paragraph"
+    },
+    "ambiguities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "paragraph",
+          "description",
+          "readings"
+        ],
+        "properties": {
+          "paragraph": {
+            "$ref": "#/$defs/paragraph"
+          },
+          "description": {
+            "type": "string"
+          },
+          "readings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preamble_basis": {
+      "description": "Optional. Preamble statements the record relies on, cited as that document's preamble. when: always (relied on for every screen of a listed model), terminating_action_passed (when a terminating action's compliance time has passed), event_before_effective_date (when a triggering event before the effective date is set aside).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "document",
+          "when",
+          "statement"
+        ],
+        "properties": {
+          "document": {
+            "$ref": "#/$defs/document"
+          },
+          "when": {
+            "enum": [
+              "always",
+              "terminating_action_passed",
+              "event_before_effective_date"
+            ]
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "document": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{5}$"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "paragraph": {
+      "type": "string",
+      "pattern": "^\\([a-z]+\\)(\\([0-9]+\\))?(\\([ivx]+\\))?$"
+    },
+    "optional_paragraph": {
+      "type": "string",
+      "pattern": "^(\\([a-z]+\\)(\\([0-9]+\\))?(\\([ivx]+\\))?)?$"
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "paragraph",
+        "description",
+        "kind",
+        "models",
+        "target",
+        "operator_condition",
+        "unrecorded_conditions",
+        "dependencies",
+        "csn_band_at_effective_date",
+        "trigger",
+        "limits",
+        "combination",
+        "terminates"
+      ],
+      "properties": {
+        "paragraph": {
+          "$ref": "#/$defs/paragraph"
+        },
+        "description": {
+          "type": "string"
+        },
+        "kind": {
+          "description": "remove: take the target part out of service (an installed target part means the action is open). inspect, check, revise_maintenance_program, install: work the engine record cannot show as done. replace_if_finding: contingent on a finding of another action; reported, never queued on its own. other: anything else (sent to review).",
+          "enum": [
+            "remove",
+            "inspect",
+            "check",
+            "revise_maintenance_program",
+            "install",
+            "replace_if_finding",
+            "other"
+          ]
+        },
+        "models": {
+          "description": "Engine models this action is limited to; empty for every applicable model.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "target": {
+          "description": "Part group id the action acts on, or \"\" for the engine or operator as a whole.",
+          "type": "string"
+        },
+        "operator_condition": {
+          "description": "air_carrier_operation when the action binds only air carriers (read from operator.air_carrier_operation); \"\" otherwise.",
+          "enum": [
+            "",
+            "air_carrier_operation"
+          ]
+        },
+        "unrecorded_conditions": {
+          "description": "Conditions the action states that no engine record field holds (a part's operating history, whether an earlier inspection was done). An engine the action would otherwise reach goes to review naming them.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "description",
+              "paragraph"
+            ],
+            "properties": {
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "paragraph": {
+                "$ref": "#/$defs/paragraph"
+              }
+            }
+          }
+        },
+        "dependencies": {
+          "description": "Dependency ids that decide whether or when this action applies (a serial or engine group list, a compliance-time table). Not for procedure-only material.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "csn_band_at_effective_date": {
+          "description": "Limits the action to target parts whose cycles since new on the effective date fall in this inclusive band (a null bound is open); null when the action has no band.",
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "min",
+                "max"
+              ],
+              "properties": {
+                "min": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  ]
+                },
+                "max": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "trigger": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "event",
+            "recurrence",
+            "condition",
+            "definition_paragraphs"
+          ],
+          "properties": {
+            "event": {
+              "description": "none: compliance time only. engine_shop_visit: a shop visit as the directive defines it (records assert it per AD). maintenance_event: another defined event the record cannot identify (piece-part exposure, module removal or exposure). part_installation: installing the target part. prior_action: counted from accomplishing another action of this AD (repeat inspections, follow-on removals).",
+              "enum": [
+                "none",
+                "engine_shop_visit",
+                "maintenance_event",
+                "part_installation",
+                "prior_action"
+              ]
+            },
+            "recurrence": {
+              "description": "next: the first such event after the effective date. each: every such event, indefinitely.",
+              "enum": [
+                "next",
+                "each"
+              ]
+            },
+            "condition": {
+              "description": "A qualifier on the event as the directive words it, or the event's own wording for maintenance_event and prior_action; \"\" if none.",
+              "type": "string"
+            },
+            "definition_paragraphs": {
+              "description": "Paragraphs defining the event and its qualifier.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/paragraph"
+              }
+            }
+          }
+        },
+        "limits": {
+          "description": "Compliance-time limits. role caps_event: bounds the event (\"at the next shop visit, but not later than ...\"). alternative: a leg combined with the (capped) event by combination. overall_cap: bounds the combined result (\"..., whichever occurs later, not to exceed ...\"). threshold (2.1): for a recurring (each) trigger, the event counts only once the target part reaches value; below it the action is a continuing obligation.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "value",
+              "date",
+              "anchor_offset_days",
+              "role",
+              "dependency",
+              "paragraph"
+            ],
+            "properties": {
+              "kind": {
+                "description": "part_cycles_since_new: the target part reaches value cycles since new (null value: the part's listed row limit). part_cycles_after_effective_date: the target part accumulates value cycles counted from the effective date. flight_cycles_after_effective_date: engine flight cycles counted from the effective date plus anchor_offset_days. days_after_effective_date: calendar days. calendar_date: a fixed date (in date). flight_cycles_after_prior_action: cycles since the action named in the trigger (repeat intervals; prior_action triggers only). other: anything else (sent to review).",
+                "enum": [
+                  "part_cycles_since_new",
+                  "part_cycles_after_effective_date",
+                  "flight_cycles_after_effective_date",
+                  "days_after_effective_date",
+                  "calendar_date",
+                  "flight_cycles_after_prior_action",
+                  "other"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                ]
+              },
+              "date": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/$defs/date"
+                  }
+                ]
+              },
+              "anchor_offset_days": {
+                "description": "Days after the effective date from which flight cycles count (e.g. a records review due within 3 days); 0 otherwise.",
+                "type": "integer",
+                "minimum": 0
+              },
+              "role": {
+                "enum": [
+                  "caps_event",
+                  "alternative",
+                  "overall_cap",
+                  "threshold"
+                ]
+              },
+              "dependency": {
+                "description": "Dependency id holding the value when the directive prints it only there; else \"\".",
+                "type": "string"
+              },
+              "paragraph": {
+                "$ref": "#/$defs/paragraph"
+              },
+              "unknown_means_met": {
+                "description": "Optional, threshold limits only: true when the directive itself says an unconfirmable count is treated as reached.",
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "combination": {
+          "description": "How the event leg and alternative limits combine: single (one leg), whichever_occurs_first, whichever_occurs_later, or unclear (sent to review).",
+          "enum": [
+            "single",
+            "whichever_occurs_first",
+            "whichever_occurs_later",
+            "unclear"
+          ]
+        },
+        "terminates": {
+          "description": "Paragraphs of this AD's other actions that this action ends once its compliance time has passed (a mandatory terminating action).",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/paragraph"
+          }
+        },
+        "related_paragraphs": {
+          "description": "Optional. Other paragraphs the action rests on: its parent paragraph, its sub-steps, a limit such as a special flight permit restriction.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/paragraph"
+          }
+        },
+        "open_while_installed": {
+          "description": "Optional. Part groups whose installation shows the action is not accomplished. A remove action's own target counts without listing it.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        }
+      }
+    }
+  }
+}

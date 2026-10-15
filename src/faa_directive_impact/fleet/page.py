@@ -16,6 +16,8 @@ from html import escape
 from pathlib import Path
 from typing import Any
 
+from faa_directive_impact.fleet.slim import expand_fleet_screen
+
 FLEET_PAGE_DIRECTORY = "fleet"
 REPOSITORY_URL = "https://github.com/tanayvenkata/faa-directive-impact"
 WRITEUP_URL = f"{REPOSITORY_URL}/blob/main/writeups/02-evaluated.md"
@@ -37,6 +39,7 @@ def build_fleet_page(fleet_screen: dict[str, Any], site_root: Path) -> Path:
 
 
 def render_fleet_page(fleet_screen: dict[str, Any]) -> str:
+    fleet_screen = expand_fleet_screen(fleet_screen)  # the file is slim
     data = json.dumps(_page_data(fleet_screen), sort_keys=True, separators=(",", ":"))
     # Keep the embedded JSON from closing the script element early.
     data = data.replace("</", "<\\/")
@@ -52,10 +55,34 @@ def render_fleet_page(fleet_screen: dict[str, Any]) -> str:
 
 
 def _page_data(fleet_screen: dict[str, Any]) -> dict[str, Any]:
+    """The recorded screen, trimmed to what the page shows.
+
+    Citations repeat across engines, so each distinct one is stored once and
+    screens refer to it by index; reading histories are left out (the page
+    shows current cycles only).
+    """
+    cites: dict[str, int] = {}
+
+    def cite_index(citation: dict[str, Any]) -> int:
+        key = json.dumps(citation, sort_keys=True)
+        return cites.setdefault(key, len(cites))
+
     engines = []
     for engine in fleet_screen["engines"]:
         asset = engine["asset"]
         identity = asset["engine"]
+        screens = {
+            document: {
+                **{k: v for k, v in entry.items() if k != "computed"},
+                "computed": {
+                    k: v
+                    for k, v in entry["computed"].items()
+                    if k == "component_cycles_remaining"
+                },
+                "citations": [cite_index(c) for c in entry["citations"]],
+            }
+            for document, entry in engine["screens"].items()
+        }
         engines.append(
             {
                 "id": identity["asset_id"],
@@ -65,18 +92,30 @@ def _page_data(fleet_screen: dict[str, Any]) -> dict[str, Any]:
                 "position": identity.get("installation_position"),
                 "as_of": engine["as_of"],
                 "case": asset.get("evaluation_case"),
-                "components": asset["installed_components"],
+                "components": [
+                    {
+                        k: v
+                        for k, v in component.items()
+                        if k != "cycles_since_new_readings"
+                    }
+                    for component in asset["installed_components"]
+                ],
                 "events": asset.get("events", []),
-                "screens": engine["screens"],
+                "operator": asset.get("operator"),
+                "records": asset.get("ad_records", []),
+                "screens": screens,
                 "queue": engine["evaluated_queue"],
                 "nye": engine["not_yet_evaluated"],
             }
         )
     return {
         "directives": fleet_screen["directives"],
-        "evaluated": fleet_screen["evaluated_directive"],
+        "evaluated": fleet_screen["evaluated_directives"],
         "counts": fleet_screen["evaluated_counts"],
         "corpus": fleet_screen["corpus_generation"],
+        "blocking": fleet_screen["blocking_documents"],
+        "fact_kinds": fleet_screen["missing_fact_kinds"],
+        "cites": [json.loads(key) for key in cites],
         "engines": engines,
     }
 
@@ -112,17 +151,30 @@ TEMPLATE = """<!doctype html>
   <section aria-labelledby="dir-title">
     <h2 class="section" id="dir-title">Directives retrieved for this fleet</h2>
     <p class="muted small">Retrieval finds each engine's candidates by its model
-    and installed part numbers. Only the evaluated directive sets the queues
+    and installed part numbers. Only evaluated directives set the queues
     above; the rest are shown here for a person to act on.</p>
     <div class="table-wrap"><table class="dtable" id="directives"></table></div>
+  </section>
+
+  <section aria-labelledby="block-title">
+    <h2 class="section" id="block-title">Documents blocking decisions</h2>
+    <p class="muted small">Service documents a directive incorporates but this
+    screen does not have, and tables the directive prints only as images. Each
+    count is engines left in review on at least one directive because of that
+    document.</p>
+    <div class="table-wrap"><table class="dtable" id="blocking"></table></div>
+    <p class="muted small" id="fact-kinds"></p>
   </section>
 
   <footer>
     <p>__DISCLAIMER__</p>
     <p>Each tile is a recorded screen, not a browser calculation. Candidates come
     from the step 7 retriever over a frozen corpus (<code id="corpus"></code>);
-    AD 2025-19-13 is screened by the evaluated rules baseline, AD 2026-17-03 by
-    the rule interpreter on a reference rule record no person has confirmed.
+    AD 2025-19-13 is screened by the evaluated rules baseline, every other
+    in-scope directive by the rule interpreter on a hand-written reference rule
+    record. The fleet's shape (airframes, engine variants, build years) follows
+    the U.S. V2500 population in the FAA Aircraft Registry; its serial
+    numbers, cycles, parts, and operator records are synthetic.
     Evaluation-case engines are edge cases from the test suite, embedded as
     they are. Fleet <code>__FLEET_SHA__</code>.
     <a href="../">Directive freshness</a> &middot;
@@ -250,6 +302,8 @@ h2.section { font-size:18px; margin:8px 0 4px; }
   vertical-align:top; }
 .dtable th { color:var(--muted); font-weight:500; white-space:nowrap; }
 .dtable td.num { font-variant-numeric:tabular-nums; white-space:nowrap; }
+.nw { white-space:nowrap; }
+.prov { font-size:11px; line-height:1.35; margin-top:4px; overflow-wrap:anywhere; }
 .dtable tr:last-child td { border-bottom:0; }
 .nye-list { margin:6px 0; padding-left:18px; font-size:13px; }
 .nye-list li { margin:4px 0; }
@@ -313,7 +367,9 @@ SCRIPT = r"""
   const LABEL = Object.fromEntries(QUEUES.map(([k, l]) => [k, l]));
   const DIRECTIVES = Object.fromEntries(DATA.directives.map(d => [d.document, d]));
   const ENGINES = DATA.engines;
-  const EVALUATED = DIRECTIVES[DATA.evaluated];
+  const EVALUATED_DOCS = DATA.evaluated;
+  const EVALUATED = DIRECTIVES[EVALUATED_DOCS[0]];
+  const FIRST = EVALUATED_DOCS[0];
   const $ = id => document.getElementById(id);
   const esc = s => String(s ?? '').replace(/[&<>"']/g,
     c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -362,36 +418,69 @@ SCRIPT = r"""
 
   function renderStory() {
     const touched = DATA.counts.potentially_affected + DATA.counts.needs_review;
-    const nearest = ENGINES.filter(e => !e.case && e.screens[DATA.evaluated])
-      .map(e => [e, e.screens[DATA.evaluated].computed.component_cycles_remaining])
+    const nearest = ENGINES.filter(e => !e.case && e.screens[FIRST])
+      .map(e => [e, e.screens[FIRST].computed.component_cycles_remaining])
       .filter(([, n]) => typeof n === 'number')
       .sort((a, b) => a[1] - b[1])[0];
     const others = DATA.directives.filter(d => d.coverage_state !== 'evaluated'
       && d.queues.needs_review + d.queues.potentially_affected > 0).length;
-    $('headline').textContent = `${name(EVALUATED)} touches ${touched} of ${ENGINES.length} engines.`;
-    const parts = [`It took effect on ${fmtDate(EVALUATED.effective_date)}:`
+    const single = EVALUATED_DOCS.length === 1;
+    $('headline').textContent = single
+      ? `${name(EVALUATED)} touches ${touched} of ${ENGINES.length} engines.`
+      : `${EVALUATED_DOCS.length} evaluated directives touch ${touched} of ${ENGINES.length} engines.`;
+    const parts = [(single ? `It took effect on ${fmtDate(EVALUATED.effective_date)}:` : 'Together:')
       + ` <b>${DATA.counts.potentially_affected}</b> engines are potentially affected and`
       + ` <b>${DATA.counts.needs_review}</b> need review.`];
-    if (nearest) parts.push(`The nearest listed hub, on ${esc(nearest[0].id)}, is`
+    if (nearest && FIRST === '2025-18469') parts.push(`The nearest listed hub, on ${esc(nearest[0].id)}, is`
       + ` <b>${nearest[1].toLocaleString('en-US')} cycles</b> from its table 1 removal limit.`);
     parts.push(`Retrieval also found <b>${others}</b> other directives for this fleet`
       + ' that are not yet evaluated; they are listed below, outside the queues.');
+    if (DATA.blocking.length) parts.push(`The most common reason a decision waits is a document`
+      + ` this screen does not have: <b>${esc(DATA.blocking[0].document)}</b> alone leaves`
+      + ` <b>${DATA.blocking[0].engines}</b> engines in review.`);
     $('lede').innerHTML = parts.join(' ');
     $('corpus').textContent = DATA.corpus;
+  }
+
+  function renderBlocking() {
+    const head = `<thead><tr><th>Document</th><th>Why it is missing</th>
+      <th>Engines blocked</th><th>Directives</th></tr></thead>`;
+    const rows = DATA.blocking.map(b => `<tr><td>${esc(b.document)}</td>
+      <td>${esc(b.kind)}</td><td class="num">${b.engines}</td>
+      <td>${esc(b.directives.join(', '))}</td></tr>`).join('');
+    $('blocking').innerHTML = head + '<tbody>' + (rows
+      || '<tr><td colspan="4">No document blocks a decision.</td></tr>') + '</tbody>';
+    $('fact-kinds').textContent = 'Engines in review on at least one directive, by what is missing: '
+      + DATA.fact_kinds.map(k => `${k.kind} ${k.engines}`).join('; ') + '.';
+  }
+
+  // How the directive's review was done, as recorded in the screen.
+  function provenance(d) {
+    const p = d.review_provenance;
+    return p ? `<div class="prov muted">${Object.entries(p)
+      .map(([k, v]) => `${esc(k)}: ${esc(v)}`).join('<br>')}</div>` : '';
   }
 
   function renderDirectives() {
     const head = `<thead><tr><th>Directive</th><th>Coverage</th><th>Screened by</th>
       <th>Engines retrieved</th><th>By part number</th><th>Potentially affected</th>
-      <th>Needs review</th><th>Superseded</th></tr></thead>`;
+      <th>Needs review</th><th>No action or not applicable</th><th>Superseded</th>
+      <th>Blocked by</th></tr></thead>`;
+    const blockers = d => d.blocking_documents.length
+      ? d.blocking_documents.map(b => `<span class="nw">${esc(b.document)} (${b.engines})</span>`).join('<br>')
+      : '<span class="muted">&mdash;</span>';
+    const SCREENER = {'S1 rules': 'S1 rules',
+      'rule interpreter on a reference rule record': 'Reference rule record'};
     const rows = DATA.directives.map(d => `<tr>
-      <td><a href="${frLink(d.document)}">${esc(name(d))}</a><br>
+      <td class="nw"><a href="${frLink(d.document)}">${esc(name(d))}</a><br>
         <span class="muted">Effective ${fmtDate(d.effective_date)}</span></td>
-      <td><span class="badge ${d.coverage_state}">${d.coverage_state.replace(/_/g, ' ')}</span></td>
-      <td>${esc(d.screener)}</td>
+      <td><span class="badge ${d.coverage_state}">${d.coverage_state.replace(/_/g, ' ')}</span>${provenance(d)}</td>
+      <td>${esc(SCREENER[d.screener] || d.screener)}</td>
       <td class="num">${d.engines}</td><td class="num">${d.by_part_number}</td>
       <td class="num">${d.queues.potentially_affected}</td>
-      <td class="num">${d.queues.needs_review}</td><td class="num">${d.superseded}</td></tr>`).join('');
+      <td class="num">${d.queues.needs_review}</td>
+      <td class="num">${d.queues.no_action_or_not_applicable - d.superseded}</td>
+      <td class="num">${d.superseded}</td><td>${blockers(d)}</td></tr>`).join('');
     $('directives').innerHTML = head + '<tbody>' + rows + '</tbody>';
   }
 
@@ -420,7 +509,7 @@ SCRIPT = r"""
   }
   function screenCard(doc, s) {
     const d = DIRECTIVES[doc];
-    const cites = s.citations.map(c => `<li><a href="${frLink(c.document)}">${esc(c.document)}</a>
+    const cites = s.citations.map(i => DATA.cites[i]).map(c => `<li><a href="${frLink(c.document)}">${esc(c.document)}</a>
       paragraph ${esc(c.paragraph)}${c.locator ? ', ' + esc(c.locator) : ''}
       <span class="muted">(${esc(c.supports)})</span></li>`).join('');
     const missing = s.missing_facts.length ? `<p class="muted">Missing:</p><ul>${
@@ -429,6 +518,7 @@ SCRIPT = r"""
     return `<section class="sc"><header><b>${esc(name(d))}</b>
       <span class="badge ${d.coverage_state}">${d.coverage_state.replace(/_/g, ' ')}</span>
       <span class="q ${s.queue}">${LABEL[s.queue]}</span></header>
+      ${provenance(d)}
       <p>${esc(s.summary)}</p>${s.timing ? `<p>${esc(s.timing)}</p>` : ''}
       ${missing}${notes}${cites ? `<p class="muted">Cited:</p><ul>${cites}</ul>` : ''}</section>`;
   }
@@ -438,12 +528,25 @@ SCRIPT = r"""
     lastTile = tile;
     const comps = engine.components.map(c => `<tr><td>${esc(c.component_name)}</td>
       <td>${value(c.part_number)}</td><td>${value(c.serial_number)}</td>
-      <td>${value(c.cycles_since_new)}</td></tr>`).join('');
+      <td>${value(c.cycles_since_new)}</td><td>${value(c.installed_at)}</td></tr>`).join('');
     const events = engine.events.map(ev => `<li>${esc(ev.event_type.replace(/_/g, ' '))}
-      on ${esc(ev.at)}${ev.detail ? ': ' + esc(ev.detail) : ''}</li>`).join('');
-    const evaluated = engine.screens[DATA.evaluated]
-      ? screenCard(DATA.evaluated, engine.screens[DATA.evaluated])
-      : `<p class="muted">${esc(name(EVALUATED))} was not retrieved for this engine.</p>`;
+      on ${esc(ev.at)}${typeof ev.engine_flight_cycles_at_event === 'number'
+        ? ' at ' + value(ev.engine_flight_cycles_at_event) + ' engine cycles' : ''}${
+        ev.detail ? ': ' + esc(ev.detail) : ''}</li>`).join('');
+    const records = engine.records.map(r => `<tr><td>${esc(r.ad)}</td>
+      <td>${esc(r.recorded_status.replace(/_/g, ' '))}</td></tr>`).join('');
+    const op = engine.operator || {};
+    const operator = (records || op.air_carrier_operation || op.maintenance_program_revision)
+      ? `<h3>Operator records</h3><p class="muted small">The operator's own claims;
+        a screen never treats them as proof.</p>
+        <dl class="kv"><dt>Air carrier operation</dt><dd>${value(op.air_carrier_operation)}</dd>
+        <dt>Program revision</dt><dd>${value(op.maintenance_program_revision)}</dd></dl>
+        ${records ? `<table class="comp"><thead><tr><th>AD</th><th>Recorded status</th></tr></thead>
+        <tbody>${records}</tbody></table>` : '<p class="muted">No AD status records.</p>'}`
+      : '';
+    const evaluated = EVALUATED_DOCS.filter(doc => engine.screens[doc])
+      .map(doc => screenCard(doc, engine.screens[doc])).join('')
+      || `<p class="muted">No evaluated directive was retrieved for this engine.</p>`;
     const rules = engine.nye.filter(doc => engine.screens[doc].screener === 'rules');
     const unread = engine.nye.filter(doc => engine.screens[doc].screener !== 'rules');
     const superseded = Object.entries(engine.screens)
@@ -462,9 +565,10 @@ SCRIPT = r"""
         ${engine.tail ? `<dt>Aircraft</dt><dd>${esc(engine.tail)}, position ${engine.position}</dd>` : ''}
         <dt>Screened as of</dt><dd>${esc(engine.as_of)}</dd></dl>
       <h3>Installed components</h3>
-      <table class="comp"><thead><tr><th>Component</th><th>P/N</th><th>S/N</th>
-        <th>Cycles since new</th></tr></thead><tbody>${comps}</tbody></table>
-      ${events ? `<h3>Recent events</h3><ul>${events}</ul>` : ''}
+      <div class="table-wrap"><table class="comp"><thead><tr><th>Component</th><th>P/N</th><th>S/N</th>
+        <th>Cycles since new</th><th>Installed</th></tr></thead><tbody>${comps}</tbody></table></div>
+      ${events ? `<h3>Shop visits and events</h3><ul>${events}</ul>` : ''}
+      ${operator}
       <h3>Evaluated</h3>${evaluated}
       <h3>Not yet evaluated (${engine.nye.length})</h3>
       ${rules.map(doc => screenCard(doc, engine.screens[doc])).join('')}
@@ -488,5 +592,6 @@ SCRIPT = r"""
   renderStats();
   renderLanes();
   renderDirectives();
+  renderBlocking();
 })();
 """

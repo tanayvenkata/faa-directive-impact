@@ -1,0 +1,58 @@
+schema_version: "1.1.0"
+case_id: cov-016
+title: HPT disks of other part numbers under AD 2021-14-19
+slice: unaffected_part
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) of AD 2021-14-19 requires an installed HPT 1st-stage disk
+    P/N 2A5001 or HPT 2nd-stage disk P/N 2A4802 with a listed S/N. Neither part
+    number is installed, so the engine is outside the AD whatever the SI lists
+    contain. All ten V2500-A5/D5/E5 models are listed, and every affected S/N
+    is in an unavailable SI, so a different part number is the only way the
+    public text can produce an engine with no action triggered.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2021-09-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c016
+    engine_serial_number: SYN-V2500-c016
+    engine_model: V2525-D5
+    snapshot_at: "2021-09-01"
+  installed_components:
+    - component_name: HPT 1st-stage disk
+      part_number: SYN-PN-HPT1-c016
+      serial_number: SYN-DISK1-c016
+    - component_name: HPT 2nd-stage disk
+      part_number: SYN-PN-HPT2-c016
+      serial_number: SYN-DISK2-c016
+  events: []
+directive_candidates: ["2021-15486"]
+expected:
+  - directive: "2021-15486"
+    controlling_ad: AD 2021-14-19
+    authority_state: in_force
+    applicability: does_not_apply
+    reason: >-
+      Paragraph (c) requires an installed HPT 1st-stage disk P/N 2A5001 or HPT
+      2nd-stage disk P/N 2A4802 with a listed S/N. The installed disks are P/N
+      SYN-PN-HPT1-c016 and SYN-PN-HPT2-c016.
+    required_evidence:
+      - {document: "2021-15486", paragraph: "(c)(1)"}
+      - {document: "2021-15486", paragraph: "(c)(2)"}
+forbidden_claims:
+  - AD 2021-14-19 requires a USI of these disks.
+  - The applicability of AD 2021-14-19 depends on the SI lists for this engine.
+  - The engine is compliant or noncompliant with AD 2021-14-19.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  The SYN- part numbers stand for HPT disk part numbers other than those the AD
+  names. No claim is made about which other part numbers exist in the V2500
+  parts catalog.

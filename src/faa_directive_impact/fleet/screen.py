@@ -5,21 +5,29 @@ finds the directives it might fall under in the frozen retrieval corpus, as
 of the engine's snapshot date. Each candidate final rule is then screened by
 what covers it:
 
-- **AD 2025-19-13** (``evaluated``): the S1 rules on the normalized record
-  kept with the S1 run.
-- **A directive with a rule record** (AD 2026-17-03): the rule interpreter on
-  its hand-written reference record. ``not_yet_evaluated``: its seed labels
-  are Claude drafts no person has confirmed.
+- **AD 2025-19-13**: the S1 rules on the normalized record kept with the S1
+  run.
+- **A directive with a reference rule record** (every in-scope V2500
+  directive, ``evaluation/coverage/reference/``): the rule interpreter on
+  that record.
 - **Any other candidate**: no rule record exists, so it is listed for a
-  person to read, with the identifier that retrieved it. ``not_yet_evaluated``.
+  person to read, with the identifier that retrieved it.
 
-The fleet's queues come from evaluated directives only (ROADMAP, "Directive
-Coverage State"): a ``not_yet_evaluated`` result is shown beside the queue,
-never inside it. A superseded directive is shown as superseded, not queued.
+Whether a directive is ``evaluated`` is set in one place,
+``EVALUATED_DIRECTIVES``. The fleet's queues come from evaluated directives
+only (ROADMAP, "Directive Coverage State"): a ``not_yet_evaluated`` result is
+shown beside the queue, never inside it. A superseded directive is shown as
+superseded, not queued.
+
+Beside the outcomes, the screen says what keeps engines in review: per
+directive and fleet-wide, the unavailable documents (incorporated service
+information, or tables printed only as images) and the other missing facts,
+counted over engines whose screen is ``needs_review``.
 """
 
 import hashlib
 import json
+import re
 from dataclasses import asdict
 from datetime import date
 from typing import Any
@@ -28,7 +36,7 @@ from faa_directive_impact.impact.hpt_hub_rules import QUEUES, Screen, screen
 from faa_directive_impact.retrieval.search import RETRIEVER_VERSION, retrieve
 from faa_directive_impact.rules.interpreter import INTERPRETER_VERSION, screen_rules
 
-SCREEN_VERSION = 2
+SCREEN_VERSION = 4
 EVALUATED = "evaluated"
 NOT_YET_EVALUATED = "not_yet_evaluated"
 POTENTIALLY_AFFECTED = "potentially_affected"
@@ -36,6 +44,60 @@ NEEDS_REVIEW = "needs_review"
 NO_ACTION = "no_action_or_not_applicable"
 QUEUE_ORDER = (POTENTIALLY_AFFECTED, NEEDS_REVIEW, NO_ACTION)
 UNKNOWN = "unknown"
+# AD 2025-19-13 keeps the S1 rules baseline as its screener.
+S1_DOCUMENT = "2025-18469"
+# The single place that says which directives are evaluated (ROADMAP,
+# "Directive Coverage State"; evaluation/coverage/PREREGISTRATION.md, "What
+# Evaluated Means Here"). Only these set the fleet's queues.
+EVALUATED_DIRECTIVES = frozenset({S1_DOCUMENT})
+
+# Where each directive's rule record is read from. A directive absent here
+# uses its reference record; an evaluated directive can point at its reviewed
+# draft instead (for example ``evaluation/coverage/reviewed/<doc>.json``).
+REFERENCE_RECORD_DIRECTORY = "evaluation/coverage/reference"
+RULE_RECORD_PATHS: dict[str, str] = {}
+
+
+def rule_record_path(document: str) -> str:
+    """The repository path of the rule record the screen reads for ``document``."""
+    return RULE_RECORD_PATHS.get(
+        document, f"{REFERENCE_RECORD_DIRECTORY}/{document}.json"
+    )
+
+
+# How the review of each evaluated directive was done, shown beside its
+# coverage badge. An evaluated directive with no entry here is a Claude
+# stand-in review (``label_review``) with a Claude subagent as the independent
+# check; a directive that is not evaluated has none.
+CLAUDE_STAND_IN = {
+    "label_review": "claude_stand_in",
+    "independent_check": "claude_subagent",
+}
+REVIEW_PROVENANCE: dict[str, dict[str, str]] = {
+    S1_DOCUMENT: {
+        "rules": "hand-written (S1)",
+        "hand_gates": "judged by Claude only",
+    },
+}
+
+
+def review_provenance(
+    document: str, evaluated: frozenset[str]
+) -> dict[str, str] | None:
+    if document not in evaluated:
+        return None
+    return REVIEW_PROVENANCE.get(document, CLAUDE_STAND_IN)
+
+
+IMAGE = "image_only_figure"
+E5_MODEL = "V2531-E5"
+# Service documents named in dependency titles, so a document cited by several
+# directives (or several tables of one) is counted once per engine.
+SERVICE_DOCUMENT = re.compile(
+    r"(?P<nmsb>(?:Alert )?NMSB V2500-[A-Z0-9]+-72-A?\d{4})"
+    r"|(?:P&W |PW )?SI No\. (?P<si>\d+F-\d+)"
+)
+ALTERNATIVES = re.compile(r",? (?:and|or) (?=(?:IAE|PW|P&W) )")
 
 
 def screen_fleet(
@@ -43,10 +105,11 @@ def screen_fleet(
     hpt_hub_record: dict[str, Any],
     rule_records: dict[str, dict[str, Any]],
     corpus: dict[str, Any],
+    evaluated: frozenset[str] = EVALUATED_DIRECTIVES,
+    rule_sources: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     """Return per-engine candidates and screens, and per-directive totals."""
     records = {record["document"]: record for record in corpus["records"]}
-    evaluated_document = hpt_hub_record["document"]
     engines = []
     for asset in fleet["engines"]:
         as_of = date.fromisoformat(
@@ -60,17 +123,15 @@ def screen_fleet(
             record = records[document]
             if record["kind"] != "final_rule":
                 continue  # Proposals are not in force; corrections ride with finals.
+            state = EVALUATED if document in evaluated else NOT_YET_EVALUATED
             superseded_by = _superseded_by(record, records, as_of)
             if superseded_by:
                 screens[document] = _superseded(document, superseded_by)
-            elif document == evaluated_document:
-                screens[document] = _entry(
-                    screen(hpt_hub_record, asset, as_of), EVALUATED
-                )
+            elif document == S1_DOCUMENT:
+                screens[document] = _entry(screen(hpt_hub_record, asset, as_of), state)
             elif document in rule_records:
                 screens[document] = _entry(
-                    screen_rules(rule_records[document], asset, as_of),
-                    NOT_YET_EVALUATED,
+                    screen_rules(rule_records[document], asset, as_of), state
                 )
             else:
                 screens[document] = _unread(candidate)
@@ -98,7 +159,6 @@ def screen_fleet(
                 ),
             }
         )
-    directives = _directives(engines, records, evaluated_document, rule_records)
     counts = {
         queue: sum(1 for e in engines if e["evaluated_queue"] == queue)
         for queue in QUEUE_ORDER
@@ -110,9 +170,13 @@ def screen_fleet(
         "corpus_generation": corpus["generation_id"],
         "fleet_version": fleet["fleet_version"],
         "fleet_sha256": _sha256(fleet),
-        "evaluated_directive": evaluated_document,
+        "evaluated_directives": sorted(evaluated),
         "evaluated_counts": counts,
-        "directives": directives,
+        "directives": _directives(
+            engines, records, evaluated, rule_records, rule_sources or {}
+        ),
+        "blocking_documents": _blocking_documents(engines, rule_records),
+        "missing_fact_kinds": _missing_fact_kinds(engines, rule_records),
         "engines": engines,
     }
 
@@ -213,18 +277,185 @@ def _superseded_by(
     return None
 
 
+# What blocks decisions ------------------------------------------------------
+
+
+def _dependency(fact: str, rule_record: dict[str, Any] | None) -> dict[str, Any] | None:
+    """The record dependency a missing fact names, matched on its full title.
+
+    A fact names a dependency as its title followed by `` (`` and a reason.
+    Some titles are prefixes of others (one table, or that table "or" another
+    document), so the longest title that matches wins.
+    """
+    if rule_record is None:
+        return None
+    matches = [
+        d for d in rule_record["dependencies"] if fact.startswith(d["title"] + " (")
+    ]
+    return max(matches, key=lambda d: len(d["title"]), default=None)
+
+
+def _service_documents(title: str, model: str) -> list[str]:
+    """The service documents a dependency title names that bear on ``model``.
+
+    A document marked for the V2531-E5, or an E5 bulletin, is not counted
+    against an A5 or D5 engine.
+    """
+    found = []
+    for segment in ALTERNATIVES.split(title):
+        for match in SERVICE_DOCUMENT.finditer(segment):
+            if match.group("nmsb"):
+                name = f"IAE {match.group('nmsb')}"
+                e5_only = "-E5-" in name
+            else:
+                name = f"P&W SI No. {match.group('si')}"
+                e5_only = f"({E5_MODEL})" in segment
+            if e5_only and model != E5_MODEL:
+                continue
+            if name not in found:
+                found.append(name)
+    return found
+
+
+def _blockers(
+    entry: dict[str, Any], rule_record: dict[str, Any] | None, model: str, ad: str
+) -> tuple[list[tuple[str, str]], list[str]]:
+    """A review screen's blocking documents (name, kind) and its other facts."""
+    documents: list[tuple[str, str]] = []
+    others: list[str] = []
+    for fact in entry["missing_facts"]:
+        dependency = _dependency(fact, rule_record)
+        if dependency is None:
+            others.append(_fact_pattern(fact))
+            continue
+        if dependency["kind"] == IMAGE:
+            name = f"{ad}: {dependency['title'].split(' (image')[0]}"
+            documents.append((name, "printed only as an image in the directive"))
+        else:
+            for name in _service_documents(dependency["title"], model) or [
+                dependency["title"]
+            ]:
+                documents.append((name, "incorporated by reference, not available"))
+    return list(dict.fromkeys(documents)), list(dict.fromkeys(others))
+
+
+def _fact_pattern(fact: str) -> str:
+    """A missing fact with its event date generalized, so engines can be counted."""
+    return re.sub(r"^events\[[^\]]+\]", "events[...]", fact)
+
+
+def _fact_kind(fact: str) -> str:
+    if fact.startswith("ad_records["):
+        return "operator AD status record"
+    if fact.startswith("amoc_claims["):
+        return "approval of a claimed AMOC"
+    if fact.startswith("operator."):
+        return "operator program fact"
+    if fact.startswith(("engine.", "installed_components", "events[")):
+        return "engine record field"
+    return "condition no engine record field holds"
+
+
+def _review_screens(
+    engines: list[dict[str, Any]],
+) -> list[tuple[dict[str, Any], str, dict[str, Any]]]:
+    return [
+        (engine, document, entry)
+        for engine in engines
+        for document, entry in sorted(engine["screens"].items())
+        if entry["queue"] == NEEDS_REVIEW
+    ]
+
+
+def _blocking_documents(
+    engines: list[dict[str, Any]], rule_records: dict[str, dict[str, Any]]
+) -> list[dict[str, Any]]:
+    """Each unavailable document, with the engines it leaves in review."""
+    blocked: dict[tuple[str, str], dict[str, set[str]]] = {}
+    for engine, document, entry in _review_screens(engines):
+        record = rule_records.get(document)
+        if record is None:
+            continue
+        documents, _ = _blockers(
+            entry,
+            record,
+            engine["asset"]["engine"]["engine_model"],
+            record["ad_number"],
+        )
+        for key in documents:
+            seen = blocked.setdefault(key, {"engines": set(), "directives": set()})
+            seen["engines"].add(engine["asset"]["engine"]["asset_id"])
+            seen["directives"].add(record["ad_number"])
+    rows = [
+        {
+            "document": name,
+            "kind": kind,
+            "engines": len(seen["engines"]),
+            "directives": sorted(seen["directives"]),
+        }
+        for (name, kind), seen in blocked.items()
+    ]
+    return sorted(rows, key=lambda r: (-r["engines"], r["document"]))
+
+
+def _missing_fact_kinds(
+    engines: list[dict[str, Any]], rule_records: dict[str, dict[str, Any]]
+) -> list[dict[str, Any]]:
+    """Engines in review on any directive for want of each kind of fact."""
+    kinds: dict[str, set[str]] = {}
+    for engine, document, entry in _review_screens(engines):
+        record = rule_records.get(document)
+        documents, others = _blockers(
+            entry,
+            record,
+            engine["asset"]["engine"]["engine_model"],
+            record["ad_number"] if record else document,
+        )
+        asset_id = engine["asset"]["engine"]["asset_id"]
+        if documents:
+            kinds.setdefault("unavailable document", set()).add(asset_id)
+        for fact in others:
+            kinds.setdefault(_fact_kind(fact), set()).add(asset_id)
+        if entry["screener"] == "none":
+            kinds.setdefault("no rule record (a person reads it)", set()).add(asset_id)
+    rows = [{"kind": kind, "engines": len(ids)} for kind, ids in kinds.items()]
+    return sorted(rows, key=lambda r: (-r["engines"], r["kind"]))
+
+
 def _directives(
     engines: list[dict[str, Any]],
     records: dict[str, dict[str, Any]],
-    evaluated_document: str,
+    evaluated: frozenset[str],
     rule_records: dict[str, dict[str, Any]],
+    rule_sources: dict[str, str],
 ) -> list[dict[str, Any]]:
     """Every directive screened for at least one engine, with fleet totals."""
     documents = sorted({d for engine in engines for d in engine["screens"]})
     rows = []
     for document in documents:
         record = records[document]
-        entries = [e["screens"][document] for e in engines if document in e["screens"]]
+        rule_record = rule_records.get(document)
+        screened = [
+            (engine, engine["screens"][document])
+            for engine in engines
+            if document in engine["screens"]
+        ]
+        entries = [entry for _, entry in screened]
+        blocking: dict[tuple[str, str], int] = {}
+        facts: dict[str, int] = {}
+        for engine, entry in screened:
+            if entry["queue"] != NEEDS_REVIEW:
+                continue
+            found, others = _blockers(
+                entry,
+                rule_record,
+                engine["asset"]["engine"]["engine_model"],
+                record.get("ad_number") or document,
+            )
+            for key in found:
+                blocking[key] = blocking.get(key, 0) + 1
+            for fact in others:
+                facts[fact] = facts.get(fact, 0) + 1
         rows.append(
             {
                 "document": document,
@@ -233,13 +464,15 @@ def _directives(
                 "publication_date": record["publication_date"],
                 "effective_date": record["effective_date"],
                 "coverage_state": EVALUATED
-                if document == evaluated_document
+                if document in evaluated
                 else NOT_YET_EVALUATED,
                 "screener": "S1 rules"
-                if document == evaluated_document
+                if document == S1_DOCUMENT
                 else "rule interpreter on a reference rule record"
-                if document in rule_records
+                if rule_record is not None
                 else "none: listed for a person to read",
+                "review_provenance": review_provenance(document, evaluated),
+                "rule_record_source": rule_sources.get(document),
                 "engines": len(entries),
                 "by_part_number": sum(
                     1
@@ -255,6 +488,17 @@ def _directives(
                     queue: sum(1 for e in entries if e["queue"] == queue)
                     for queue in QUEUE_ORDER
                 },
+                "outcomes": _outcomes(entries),
+                "blocking_documents": [
+                    {"document": name, "kind": kind, "engines": n}
+                    for (name, kind), n in sorted(
+                        blocking.items(), key=lambda item: (-item[1], item[0])
+                    )
+                ],
+                "missing_facts": [
+                    {"fact": fact, "kind": _fact_kind(fact), "engines": n}
+                    for fact, n in sorted(facts.items(), key=lambda i: (-i[1], i[0]))
+                ],
             }
         )
     order = {EVALUATED: 0, NOT_YET_EVALUATED: 1}
@@ -262,11 +506,20 @@ def _directives(
         rows,
         key=lambda r: (
             order[r["coverage_state"]],
-            r["document"] not in rule_records,
+            r["document"] not in rule_records and r["document"] != S1_DOCUMENT,
             -r["by_part_number"],
             r["document"],
         ),
     )
+
+
+def _outcomes(entries: list[dict[str, Any]]) -> dict[str, int]:
+    """Counts of each applicability and action status the screens gave."""
+    counts: dict[str, int] = {}
+    for entry in entries:
+        key = entry["action_status"] or entry["applicability"]
+        counts[key] = counts.get(key, 0) + 1
+    return dict(sorted(counts.items()))
 
 
 def _sha256(value: Any) -> str:

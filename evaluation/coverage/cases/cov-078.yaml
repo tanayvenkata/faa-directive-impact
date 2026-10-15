@@ -1,0 +1,56 @@
+schema_version: "1.1.0"
+case_id: cov-078
+title: Listed model whose 3rd-stage HPC blade part number is not recorded
+slice: missing_state
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) of AD 2026-17-03 has a part condition: a listed model with a
+    3rd-stage HPC rotor blade P/N 6A8353 or 6A8688 installed. The model is
+    listed, but the blade P/N is unknown, so applicability itself is unknown.
+    Seeds 011 to 014 all have a known blade P/N; this fills the missing-fact
+    outcome for the directive.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c078
+    engine_serial_number: SYN-V2500-c078
+    engine_model: V2530-A5
+    snapshot_at: "2026-10-15"
+  installed_components:
+    - component_name: 3rd stage HPC rotor blade set
+      part_number: unknown
+      serial_number: not tracked at set level
+  events: []
+directive_candidates: ["2026-16954", "2026-18423"]
+expected:
+  - directive: "2026-16954"
+    controlling_ad: AD 2026-17-03
+    authority_state: in_force
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      V2530-A5 is listed in paragraph (c), but the AD applies only if a 3rd
+      stage HPC rotor blade P/N 6A8353 or 6A8688 is installed. The installed
+      blade P/N is unknown, so applicability cannot be decided.
+    required_evidence:
+      - {document: "2026-18423", paragraph: "(c)"}
+    required_missing_facts:
+      - installed_components[3rd stage HPC rotor blade set].part_number
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2026-17-03.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - AD 2026-17-03 does not apply to this engine.
+  - AD 2026-17-03 applies to this engine, presented as settled.
+  - The blades must be replaced at the next shop visit, presented as settled.
+notes: >-
+  A single blade of P/N 6A8353 or 6A8688 anywhere in the set would bring the
+  engine into paragraph (c), so a P/N for the set must cover every blade.

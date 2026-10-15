@@ -1,0 +1,87 @@
+schema_version: "1.1.0"
+case_id: cov-004
+title: Operator records AD 2024-11-03 hubs replaced, and every compliance time has passed
+slice: operator_assertion
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Pre-registered Operator Records rule. AD 2024-11-03 applies by model.
+    Every flight-cycle limit in Tables 1 to 3 (largest 3,800 FC from
+    2024-06-26) has passed: 22,300 - 18,000 = 4,300 FC. The operator's record
+    shows the hubs replaced at a 2024 shop visit with hubs not listed in the
+    bulletin and no AUSI-inspected hub installed, so (g)(2) is not reached.
+    The installed hubs do not contradict that record: they were installed on
+    the recorded date and their S/Ns cannot be checked against the
+    unavailable lists either way. A complied record for a passed deadline is
+    reported as no action triggered, with the pre-registered note.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c004
+    engine_serial_number: SYN-V2500-c004
+    engine_model: V2524-A5
+    snapshot_at: "2026-10-15"
+    engine_cycle_readings:
+      - {at: "2024-06-26", engine_flight_cycles: 18000}
+      - {at: "2026-10-15", engine_flight_cycles: 22300}
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-c004
+      installed_at: "2024-10-20"
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-c004
+      installed_at: "2024-10-20"
+  events:
+    - event_type: shop_visit_induction
+      at: "2024-10-02"
+      engine_flight_cycles_at_event: 18350
+      qualifies_as_engine_shop_visit:
+        AD 2024-11-03: "yes"
+      detail: Inducted for maintenance with separation of major mating flanges; HPT module removed.
+      source_note: Asserted by the synthetic operator record.
+    - event_type: component_installation
+      at: "2024-10-20"
+      engine_flight_cycles_at_event: 18350
+      detail: Replacement HPT 1st- and 2nd-stage hubs installed; previous hubs removed from service.
+      source_note: Asserted by the synthetic shop record.
+  ad_records:
+    - ad: AD 2024-11-03
+      recorded_status: complied
+      detail: >-
+        Hubs listed in NMSB V2500-ENG-72-0720 removed at the 2024-10 shop
+        visit and replaced with hubs whose S/Ns are not listed; no AUSI-inspected
+        hub installed.
+directive_candidates: ["2024-12594"]
+expected:
+  - directive: "2024-12594"
+    controlling_ad: AD 2024-11-03
+    authority_state: in_force
+    applicability: applies
+    action_status: no_action_triggered
+    reason: >-
+      V2524-A5 is listed in paragraph (c). Every compliance time in Tables 1
+      to 3 has passed (4,300 FC since 2024-06-26, largest limit 3,800 FC), and
+      the operator's AD record shows this action accomplished; this screen
+      does not verify it. The installed hubs do not contradict the record.
+    required_evidence:
+      - {document: "2024-12594", paragraph: "(c)"}
+      - {document: "2024-12594", paragraph: "(g)(5)", locator: Table 3 to paragraph (g)(5)}
+      - {document: "2024-12594", paragraph: "(h)(1)", locator: part eligible for installation}
+forbidden_claims:
+  - The engine is compliant with AD 2024-11-03.
+  - The replacement hubs are verified as not listed in the bulletin.
+  - AD 2024-11-03 does not apply to this engine.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  The record, not the screen, carries the claim that the replacement hubs are
+  unlisted; a person checks it against the bulletin.

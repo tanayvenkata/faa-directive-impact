@@ -1,0 +1,75 @@
+schema_version: "1.1.0"
+case_id: cov-079
+title: Affected blades exposed during a shop visit inducted after the effective date, visit still open
+slice: shop_visit_trigger
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The engine was inducted on 2026-10-05, after the 2026-09-24 effective
+    date, which is an engine shop visit under paragraph (h)(3). A 3rd-stage
+    blade was removed from the stage 3 to 8 drum on 2026-10-09, a blade
+    exposure under (h)(2). That is the shop visit corrected paragraph (g)
+    names, so replacement of the full set is required during it. Seeds 011
+    and 013 cover the waiting cases; this is the triggered one.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c079
+    engine_serial_number: SYN-V2500-c079
+    engine_model: V2524-A5
+    snapshot_at: "2026-10-15"
+  installed_components:
+    - component_name: 3rd stage HPC rotor blade set
+      part_number: 6A8353
+      serial_number: not tracked at set level
+  events:
+    - event_type: shop_visit_induction
+      at: "2026-10-05"
+      qualifies_as_engine_shop_visit:
+        AD 2026-17-03: "yes"
+      detail: Inducted for HPC performance restoration. The visit is still open on 2026-10-15.
+      source_note: Asserted by the synthetic operator record.
+    - event_type: component_exposure
+      at: "2026-10-09"
+      detail: Two 3rd-stage HPC rotor blades were removed from the HPC stage 3 to 8 drum for inspection; the rest remain in the drum.
+      source_note: Asserted by the synthetic operator record.
+directive_candidates: ["2026-16954", "2026-18423"]
+expected:
+  - directive: "2026-16954"
+    controlling_ad: AD 2026-17-03
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      V2524-A5 is listed and 3rd-stage HPC blades P/N 6A8353 are installed, so
+      paragraph (c) is met. The visit inducted 2026-10-05 is an engine shop
+      visit after the effective date ((h)(3)), and removing blades from the
+      drum on 2026-10-09 is a blade exposure ((h)(2)). Corrected paragraph (g)
+      therefore requires replacing the full set during this visit.
+    required_evidence:
+      - {document: "2026-18423", paragraph: "(c)"}
+      - {document: "2026-18423", paragraph: "(g)", locator: corrected text}
+      - {document: "2026-18423", paragraph: "(h)(1)", locator: parts eligible for installation}
+      - {document: "2026-18423", paragraph: "(h)(2)", locator: blade exposure definition}
+      - {document: "2026-18423", paragraph: "(h)(3)", locator: engine shop visit definition}
+    action_timing:
+      description: >-
+        Now, during the shop visit inducted 2026-10-05: replace the full set of
+        3rd-stage HPC rotor blades, not only the two removed, with parts
+        eligible for installation (P/N 6C8368, 6C8403, or a later approved P/N,
+        or blades modified to P/N 6A8353-001 or 6A8688-001) before the engine
+        leaves this visit.
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2026-17-03.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - Replacing only the two removed blades satisfies the AD.
+  - The blades may be reinstalled and replaced at a later shop visit.
+  - The blades must be replaced by a cycle or calendar deadline.

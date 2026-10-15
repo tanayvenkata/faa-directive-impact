@@ -1,0 +1,387 @@
+{
+  "schema_version": "2",
+  "ad_number": "AD 2021-14-19",
+  "final_rule_document": "2021-15486",
+  "governing_document": {
+    "document": "2021-15486",
+    "reason": "The final rule; no correction was published."
+  },
+  "corrections": [],
+  "effective_date": {
+    "date": "2021-08-05",
+    "paragraph": "(a)",
+    "emergency_ad": null
+  },
+  "relationships": [],
+  "dependencies": [
+    {
+      "id": "si112_t1",
+      "title": "P&W SI No. 112F-21 (May 24, 2021), Accomplishment Instructions, Table 1",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(c)(1)",
+      "incorporated_in": [
+        "(k)(3)(i)"
+      ]
+    },
+    {
+      "id": "si112_t2",
+      "title": "P&W SI No. 112F-21 (May 24, 2021), Accomplishment Instructions, Table 2",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(3)",
+      "incorporated_in": [
+        "(k)(3)(i)"
+      ]
+    },
+    {
+      "id": "si114_t1",
+      "title": "P&W SI No. 114F-21 (May 24, 2021), Accomplishment Instructions, Table 1",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(5)",
+      "incorporated_in": [
+        "(k)(3)(ii)"
+      ]
+    },
+    {
+      "id": "disk2_lists",
+      "title": "P&W SI No. 112F-21 (May 24, 2021), Accomplishment Instructions, Table 2, or P&W SI No. 114F-21 (May 24, 2021), Accomplishment Instructions, Table 1",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(c)(2)",
+      "incorporated_in": [
+        "(k)(3)(i)",
+        "(k)(3)(ii)"
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "disk1_112",
+      "component": "HPT 1st-stage disk",
+      "aliases": [
+        "HPT 1st-stage hub",
+        "HPT stage 1 hub"
+      ],
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "si112_t1",
+      "paragraph": "(c)(1)"
+    },
+    {
+      "id": "disk2_c",
+      "component": "HPT 2nd-stage disk",
+      "aliases": [
+        "HPT 2nd-stage hub",
+        "HPT stage 2 hub"
+      ],
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "disk2_lists",
+      "paragraph": "(c)(2)"
+    },
+    {
+      "id": "disk2_112",
+      "component": "HPT 2nd-stage disk",
+      "aliases": [
+        "HPT 2nd-stage hub",
+        "HPT stage 2 hub"
+      ],
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "si112_t2",
+      "paragraph": "(g)(3)"
+    },
+    {
+      "id": "disk2_114",
+      "component": "HPT 2nd-stage disk",
+      "aliases": [
+        "HPT 2nd-stage hub",
+        "HPT stage 2 hub"
+      ],
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "si114_t1",
+      "paragraph": "(g)(5)"
+    }
+  ],
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "models_paragraph": "(c)",
+    "engine_serials": [],
+    "parts": [
+      "disk1_112",
+      "disk2_c"
+    ],
+    "parts_combine": "any",
+    "parts_paragraph": "(c)"
+  },
+  "eligible_parts": [],
+  "required_actions": [
+    {
+      "paragraph": "(g)(1)",
+      "description": "Perform a USI of the HPT 1st-stage disk.",
+      "kind": "inspect",
+      "models": [],
+      "target": "disk1_112",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the disk has been installed at any time in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, or V2533-A5 engine during operation",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 100,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(2)",
+      "description": "Perform a USI of the HPT 1st-stage disk.",
+      "kind": "inspect",
+      "models": [
+        "V2522-A5",
+        "V2524-A5",
+        "V2525-D5",
+        "V2527-A5"
+      ],
+      "target": "disk1_112",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the disk has only been installed in V2522-A5, V2524-A5, V2525-D5, or V2527-A5 engines during operation",
+          "paragraph": "(g)(2)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 220,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(2)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(3)",
+      "description": "Perform a USI of the HPT 2nd-stage disk.",
+      "kind": "inspect",
+      "models": [],
+      "target": "disk2_112",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the disk has been installed at any time in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, or V2533-A5 engine during operation",
+          "paragraph": "(g)(3)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 385,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(3)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(4)",
+      "description": "Perform a USI of the HPT 2nd-stage disk.",
+      "kind": "inspect",
+      "models": [
+        "V2522-A5",
+        "V2524-A5",
+        "V2525-D5",
+        "V2527-A5"
+      ],
+      "target": "disk2_112",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the disk has only been installed in V2522-A5, V2524-A5, V2525-D5, or V2527-A5 engines during operation",
+          "paragraph": "(g)(4)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 620,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(4)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(5)",
+      "description": "Perform a USI of the HPT 2nd-stage disk.",
+      "kind": "inspect",
+      "models": [
+        "V2531-E5"
+      ],
+      "target": "disk2_114",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the disk has only been installed in V2531-E5 engines during operation",
+          "paragraph": "(g)(5)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 385,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(5)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(6)",
+      "description": "If a disk does not pass the USI, before further flight remove it from service and replace it with a part eligible for installation.",
+      "kind": "replace_if_finding",
+      "models": [],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [],
+      "combination": "single",
+      "terminates": []
+    }
+  ],
+  "continuing_obligations": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "term": "part eligible for installation: a listed disk that passed the USI",
+      "paragraph": "(h)(1)"
+    },
+    {
+      "term": "part eligible for installation: a disk not listed",
+      "paragraph": "(h)(2)"
+    }
+  ],
+  "amoc_paragraph": "(i)",
+  "ambiguities": [
+    {
+      "paragraph": "(g)(1)",
+      "description": "Which compliance time applies depends on the disk's whole operating history (which models it was installed in), which no engine record holds.",
+      "readings": [
+        "Operated in a high-thrust model at any time: 100 FCs (1st stage) or 385 FCs (2nd stage).",
+        "Only in V2522-A5, V2524-A5, V2525-D5, or V2527-A5: 220 or 620 FCs."
+      ]
+    },
+    {
+      "paragraph": "(g)",
+      "description": "A disk that operated only in a V2531-E5 engine and is listed in SI 112F-21 (not 114F-21) has no paragraph (g) row.",
+      "readings": [
+        "No action stated for it.",
+        "The 385-FC row for 2nd-stage disks applies."
+      ]
+    }
+  ],
+  "notes": [
+    "All disk S/N lists are in P&W special instructions incorporated by reference and not available."
+  ]
+}

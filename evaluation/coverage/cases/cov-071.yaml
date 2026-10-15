@@ -1,0 +1,52 @@
+schema_version: "1.1.0"
+case_id: cov-071
+title: D5 engine one serial past the AD 2013-07-10 range, with both listed tubes installed
+slice: unaffected_part
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) covers V20001 through V20285 only. V20286 is one past the
+    inclusive end. Both listed tube P/Ns are installed, which tests that the
+    serial range is applied, not the part numbers alone.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c071
+    engine_serial_number: V20286
+    engine_model: V2525-D5
+    snapshot_at: "2026-10-15"
+  installed_components:
+    - component_name: No. 4 bearing internal scavenge tube
+      part_number: 2A2074-01
+      serial_number: SYN-ISCT-c071
+      cycles_since_new: 11800
+    - component_name: No. 4 bearing external scavenge tube
+      part_number: 6A5254
+      serial_number: SYN-ESCT-c071
+  events: []
+directive_candidates: ["2013-08448"]
+expected:
+  - directive: "2013-08448"
+    controlling_ad: AD 2013-07-10
+    authority_state: in_force
+    applicability: does_not_apply
+    reason: >-
+      Paragraph (c) applies to V2525-D5 and V2528-D5 engines with S/Ns V20001
+      through V20285 with both tubes installed. V20286 is outside the range,
+      so the AD does not apply even though P/N 2A2074-01 and P/N 6A5254 are
+      installed.
+    required_evidence:
+      - {document: "2013-08448", paragraph: "(c)", locator: serial numbers V20001 through V20285}
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2013-07-10.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - AD 2013-07-10 applies because internal tube P/N 2A2074-01 is installed.
+  - The internal scavenge tube must be replaced at the next combustor module-level exposure.

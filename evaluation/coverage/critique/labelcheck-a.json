@@ -1,0 +1,463 @@
+{
+  "cov-001": [
+    {
+      "directive": "2024-12594",
+      "applicability": "applies",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "IAE AG NMSB V2500-ENG-72-0720 Tables 1-4 (hub S/N lists; unavailable)"
+      ],
+      "timing": "Effective 2024-06-26 at 17,500 engine FC; as-of 17,690 => 190 FC used. Hubs installed new 2015 in this V2527-A5 only => not high-thrust per (h)(3). If Table 1 listed, (g)(1) AUSI at next engine shop visit, before exceeding 700 FC (hub 1: by 17,500+700 = 18,200 engine FC, 510 remaining) / 1,100 FC (hub 2: by 18,600, 910 remaining). If Table 3 listed, (g)(5) removal at next HPT module removal before exceeding 2,800 FC (hub 1: 20,300) / 3,800 FC (hub 2: 21,300). Hubs never left this engine, so engine FC = hub FC.",
+      "reason": "(c) lists V2527-A5, so the AD applies to the engine. Whether (g)(1) or (g)(5) is triggered depends on whether S/Ns SYN-HUB1/2-c001 appear in NMSB V2500-ENG-72-0720 Tables 1-4, which are only in the service bulletin."
+    }
+  ],
+  "cov-002": [
+    {
+      "directive": "2024-12594",
+      "applicability": "applies",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "IAE AG NMSB V2500-ENG-72-0720 Tables 1-4 (hub S/N lists; unavailable)",
+        "PW SI No. 189F-23 Tables 1-2 (E5 hub S/N lists; unavailable)"
+      ],
+      "timing": "Effective 2024-06-26 at 9,000 engine FC; as-of 9,040 => 40 FC used. V2531-E5 is high-thrust per (h)(3), so the 'Yes' rows apply. If Table 1 listed, (g)(1) AUSI at next shop visit before exceeding 100 FC (hub 1: by 9,100 engine FC, 60 remaining) / 800 FC (hub 2: by 9,800, 760 remaining). If Table 3 listed, (g)(5) removal at next HPT module removal before exceeding 1,800 (hub 1: 10,800) / 3,400 (hub 2: 12,400). Assumes hubs were in this engine since the effective date (no history given).",
+      "reason": "(c) lists V2531-E5. The hub S/N lists (NMSB 0720 Tables 1-4 and, for E5, PW SI 189F-23 Tables 1-2) are unavailable, so whether (g)(1) or (g)(5) applies is undecided; if listed in Table 1 the hub 1 limit is very near (60 FC)."
+    }
+  ],
+  "cov-003": [
+    {
+      "directive": "2024-12594",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "(g)(2): AUSI accomplished 2024-09-12 at 22,400 engine FC; hubs reinstalled in the same engine, no HPT module removal since. Remove within 4,000 FC from the AUSI (inclusive): by 22,400+4,000 = 26,400 engine FC, or at the next HPT module removal, whichever occurs first. As-of 25,900 => 500 FC remaining.",
+      "reason": "Shop record states both hubs were AUSI-inspected per (g)(1); (g)(2) then requires removal within 4,000 FC of the AUSI or at next HPT module removal, whichever first. The 'complied' record covers only the (g)(1) AUSI (record not verified) and does not discharge the (g)(2) replacement. Note: listing in NMSB 0720 Table 1 is not verifiable here; (g)(2) is taken as triggered by the stated (g)(1) inspection (safest reading)."
+    }
+  ],
+  "cov-004": [
+    {
+      "directive": "2024-12594",
+      "applicability": "applies",
+      "action_status": "no_action_triggered",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Effective 2024-06-26 at 18,000 engine FC; as-of 22,300 => 4,300 FC since effective, past every (g)(1)/(g)(4)/(g)(5) limit (max 3,800 FC, i.e. 21,800). Original hubs removed and replacements installed 2024-10-20 at 18,350 engine FC.",
+      "reason": "(c) lists V2524-A5. All candidate deadlines have passed; the operator's 'complied' record states the listed hubs were removed at the 2024-10 shop visit and replaced with unlisted, non-AUSI hubs (parts eligible for installation, (h)(1)). Per the record rule this is no_action_triggered; the record and the unlisted status of SYN-HUB1/2-c004 are not verified (NMSB 0720 lists unavailable) and need a person to confirm."
+    }
+  ],
+  "cov-005": [
+    {
+      "directive": "2024-12594",
+      "applicability": "applies",
+      "action_status": "needs_review",
+      "authority_state": "published_not_yet_effective",
+      "required_missing_facts": [
+        "IAE AG NMSB V2500-ENG-72-0720 Tables 1-4 (hub S/N lists; unavailable)"
+      ],
+      "timing": "Published 2024-06-11 (FR Doc filed 6-10-24), effective 2024-06-26; as-of 2024-06-18 is 8 days before effective. From 2024-06-26: V2530-A5 is high-thrust, so if Table 1 listed, (g)(1) AUSI at next shop visit before exceeding 100 FC (hub 1) / 800 FC (hub 2) from 2024-06-26; if Table 3 listed, (g)(5) removal at next HPT module removal before exceeding 1,800 / 3,400 FC. No cycle readings supplied.",
+      "reason": "(c) lists V2530-A5; the AD is not yet in force on the as-of date. Which required action will apply depends on the unavailable NMSB 0720 hub S/N lists."
+    }
+  ],
+  "cov-006": [
+    {
+      "directive": "2024-12594",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "(g)(2): AUSI accomplished 2024-10-08 at 26,000 engine FC; hubs reinstalled, no HPT module removal since. Remove within 4,000 FC of the AUSI: by 26,000+4,000 = 30,000 engine FC, or at next HPT module removal, whichever first. As-of 26,750 => 3,250 FC remaining.",
+      "reason": "Shop record states both hubs were AUSI-inspected per (g)(1); (g)(2) requires replacement within 4,000 FC or at the next HPT module removal. The 'complied' record covers the (g)(1) AUSI only (not verified). NMSB 0720 listing is not verifiable; (g)(2) taken as triggered by the stated (g)(1) inspection."
+    },
+    {
+      "directive": "2022-02574",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "IAE NMSB V2500-ENG-72-0713 Rev 1 Appendix A Tables 1-2 (disk S/N lists; unavailable)",
+        "ad_records[AD 2022-02-09] (recorded open)"
+      ],
+      "timing": "Effective 2022-03-15. Compliance times are in Figure 1 to (g)(1) (image ER08FE22.048, unavailable) or 10 FC after 2022-03-15, whichever later; V2527E-A5 is a high-thrust model under (g)(1)/(g)(2). Deadline cannot be computed without Figure 1.",
+      "reason": "(c) limits applicability to disks P/N 2A5001/2A4802 whose S/Ns are in NMSB 0713 Rev 1 Appendix A; that list is unavailable. AD 2024-11-03 (i) says compliance with its (g)(1) satisfies AD 2022-02-09, and the shop record claims a (g)(1) AUSI on 2024-10-08, but the AD 2022-02-09 record is 'open' and the AUSI record is unverified; a person must reconcile."
+    }
+  ],
+  "cov-007": [
+    {
+      "directive": "2022-02574",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Not applicable.",
+      "reason": "(c)(1)/(c)(2) cover only HPT 1st-stage disk P/N 2A5001 and 2nd-stage disk P/N 2A4802; the installed disks are P/N SYN-PN-HPT1-c007 and SYN-PN-HPT2-c007, which the AD never names."
+    }
+  ],
+  "cov-008": [
+    {
+      "directive": "2022-02574",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "HPT 2nd-stage disk part number (recorded unknown, S/N SYN-DISK2-c008)",
+        "IAE NMSB V2500-ENG-72-0713 Rev 1 Appendix A Tables 1-2 (disk S/N lists; unavailable)"
+      ],
+      "timing": "Effective 2022-03-15; as-of 2022-04-01. V2522-A5 is low-thrust: (g)(4) USI per Figure 2 to (g)(3)(i) (image ER08FE22.049, unavailable) or Figure 1 if the disk ever ran in a high-thrust model, or within 10 FC after 2022-03-15, whichever later.",
+      "reason": "1st-stage disk P/N SYN-PN-HPT1-c008 is not P/N 2A5001, so (c)(1) is not met. The 2nd-stage disk's P/N is unknown, so (c)(2) (P/N 2A4802 with S/N in NMSB 0713 Rev 1 Appendix A Table 2) cannot be decided; the S/N list is also unavailable."
+    }
+  ],
+  "cov-009": [
+    {
+      "directive": "2021-14268",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Not applicable.",
+      "reason": "(c)(1)/(c)(2) list the affected disk S/Ns in the text; SYN-DISK1-c009 and SYN-DISK2-c009 are not among them, so the V2527-A5 engine is not covered."
+    }
+  ],
+  "cov-010": [
+    {
+      "directive": "2021-14268",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Not applicable.",
+      "reason": "(c) applies only to V2522-A5, V2524-A5, V2527-A5, V2527E-A5, V2527M-A5, V2530-A5 and V2533-A5 engines; V2528-D5 is not listed, even though installed 1st-stage disk S/N PKLBR34908 is on the (c)(1) list. The listed disk should still be screened against ADs that do cover D5 (e.g., 2021-11-15 / 2022-02-09, 2021-14-19)."
+    }
+  ],
+  "cov-011": [
+    {
+      "directive": "2021-14268",
+      "applicability": "applies",
+      "action_status": "no_action_triggered",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "(g)(2): USI within 10 FC after 2021-07-19 (earlier from actual notice of Emergency AD 2021-11-51, 2021-05-21); that deadline passed long before as-of 2026-10-15. Record: USI accomplished 2021-05-27, passed paragraph 8.",
+      "reason": "V2533-A5 with 2nd-stage disk S/N PKLBSC8066, which is on the (c)(2) list. The operator's 'complied' record covers the (g)(2) USI, whose deadline has passed, so no further action is triggered; the record is not verified. Table 2 to (g)(2) is an image, but the outcome does not change."
+    }
+  ],
+  "cov-012": [
+    {
+      "directive": "2021-14268",
+      "applicability": "applies",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "ad_records[AD 2021-11-51] (no record supplied)"
+      ],
+      "timing": "(g)(1): USI within 10 FC after 2021-07-19 (or after actual notice of the emergency AD, 2021-05-21); deadline passed long before as-of 2026-10-15. Disk installed 2018-06-30, before the AD.",
+      "reason": "V2530-A5 with 1st-stage disk S/N PKLBSG0105, on the (c)(1) list, so the AD applies. The one-time USI deadline has passed and no AD record is supplied, so whether the (g)(1) USI and any (g)(3) removal were done must be established from the records."
+    }
+  ],
+  "cov-013": [
+    {
+      "directive": "2021-14268",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "HPT 1st-stage disk serial number (P/N 2A5001, S/N recorded unknown)"
+      ],
+      "timing": "Effective 2021-07-19; as-of 2021-07-21. If the disk S/N is on the (c)(1) list: (g)(1) USI within 10 FC after 2021-07-19 (no cycle readings supplied).",
+      "reason": "V2524-A5 is a listed model; the 2nd-stage disk SYN-DISK2-c013 is not on the (c)(2) list. The 1st-stage disk is P/N 2A5001 with unknown S/N, so (c)(1) cannot be decided."
+    }
+  ],
+  "cov-014": [
+    {
+      "directive": "2021-15486",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "P&W SI No. 112F-21 Tables 1-2 (disk S/N lists; unavailable)",
+        "P&W SI No. 114F-21 Table 1 (E5 2nd-stage disk S/N list; unavailable)"
+      ],
+      "timing": "Effective 2021-08-05 at 31,000 engine FC; as-of 31,060 => 60 FC used. Disks only ever in this V2530-A5 (high-thrust), so if listed: disk 1 (g)(1) USI within 100 FC => by 31,100 engine FC (40 remaining); disk 2 (g)(3) within 385 FC => by 31,385 (325 remaining).",
+      "reason": "(c) limits applicability to disks P/N 2A5001/2A4802 with S/Ns listed in P&W SI 112F-21 (and 114F-21 for 2nd-stage); those lists are unavailable. If listed, the 1st-stage deadline is close."
+    }
+  ],
+  "cov-015": [
+    {
+      "directive": "2021-15486",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "P&W SI No. 112F-21 Tables 1-2 (disk S/N lists; unavailable)",
+        "P&W SI No. 114F-21 Table 1 (E5 2nd-stage disk S/N list; unavailable)"
+      ],
+      "timing": "Effective 2021-08-05 at 7,200 engine FC; as-of 7,290 => 90 FC used. If disk 2 is on SI 114F-21 Table 1 and E5-only: (g)(5) USI within 385 FC => by 7,585 engine FC (295 remaining). If disk 1 is on SI 112F-21 Table 1 (or disk 2 on SI 112F-21 Table 2) with E5-only history, (g)(1)-(4) give no compliance time.",
+      "reason": "(c) S/N lists (P&W SI 112F-21, 114F-21) are unavailable. Interpretation gap: (g)(1)-(4) cover only A5/D5 operating histories, so a listed disk that has only run in V2531-E5 is within (c) but has no stated (g) action except (g)(5) for SI 114F-21; needs a person to resolve."
+    }
+  ],
+  "cov-016": [
+    {
+      "directive": "2021-15486",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Not applicable.",
+      "reason": "(c)(1)/(c)(2) cover only disks P/N 2A5001 and 2A4802; installed disks are P/N SYN-PN-HPT1-c016 and SYN-PN-HPT2-c016, which the AD never names."
+    }
+  ],
+  "cov-017": [
+    {
+      "directive": "2021-15486",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "P&W SI No. 112F-21 Tables 1-2 (disk S/N lists; unavailable) for 1st-stage disk SYN-DISK1-c017",
+        "HPT 1st-stage disk installation history before 2019-03-10 (whether ever installed in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5 or V2533-A5)"
+      ],
+      "timing": "Effective 2021-08-05 at 20,000 engine FC; as-of 20,050 => 50 FC used. If listed: (g)(1) (any high-thrust history) USI within 100 FC => by 20,100 engine FC (50 remaining); (g)(2) (low-thrust only) within 220 FC => by 20,220. History unknown, so the earlier 20,100 limit is used. Disk's cycles since 2021-08-05 equal engine cycles (installed here since 2019).",
+      "reason": "2nd-stage disk P/N SYN-PN-HPT2-c017 is not 2A4802, so (c)(2) is not met. 1st-stage disk P/N 2A5001 depends on the unavailable SI 112F-21 Table 1, and its pre-2019 history decides (g)(1) vs (g)(2)."
+    }
+  ],
+  "cov-018": [
+    {
+      "directive": "2020-07627",
+      "applicability": "applies",
+      "action_status": "action_required",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "ad_records[AD 2020-07-51] (states no affected disk installed; contradicted by installed S/N PKLBR38661)"
+      ],
+      "timing": "(g)(2): records review within 3 calendar days after 2020-04-28 (by 2020-05-01), then remove an affected disk within 5 FC after that determination. Disk installed 2019-11-02, so it was installed at the review. Remove S/N PKLBR38661 from service within 5 FC after the determination (or under (g)(1), within 5 FC after the effective date, if its engine/disk pair is in Table 1).",
+      "reason": "V2533-A5 with 1st-stage disk P/N 2A5001 S/N PKLBR38661, which is on the (c) list and among the three (g)(2) S/Ns. The operator record says the review found no affected disk installed, which contradicts the installed-part fact, so it cannot clear the engine; the record needs investigation."
+    }
+  ],
+  "cov-019": [
+    {
+      "directive": "2020-07627",
+      "applicability": "applies",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "Table 1 to paragraph (g)(1) of AD 2020-07-51 (image ER13AP20.000, engine S/N / disk S/N pairs; unavailable)"
+      ],
+      "timing": "Effective 2020-04-28 at 14,000 engine FC (earlier, 2020-03-21, for recipients of the emergency AD); as-of 14,004. If the engine/disk pair is in Table 1: (g)(1) remove the disk within 5 FC after the effective date => by 14,005 engine FC (1 FC remaining). (g)(2) records review is due within 3 calendar days (by 2020-05-01, the as-of date) but removal under (g)(2) covers only PKLBR37442, PKLBR38661, PKLBR40207.",
+      "reason": "V2527-A5 with disk S/N PKLBR73862 on the (c) list, so the AD applies. The removal trigger for this S/N is only (g)(1), which depends on engine and disk S/N pairs in an image table; with that unavailable the outcome cannot be settled, and the deadline is imminent."
+    }
+  ],
+  "cov-020": [
+    {
+      "directive": "2020-07627",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Not applicable.",
+      "reason": "(c) applies to V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5 and V2533-A5 only; V2531-E5 is not listed, although disk S/N PKLBR37442 is on the (c) list. The listed disk should be screened against other ADs."
+    }
+  ],
+  "cov-021": [
+    {
+      "directive": "2020-07627",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Not applicable to the current configuration.",
+      "reason": "(c) applies to engines with a listed disk installed. Listed disk PKLBR40207 was removed 2020-04-30 and replaced with S/N SYN-DISK1-c021, which is not on the (c) list, so as of 2020-05-10 no affected disk is installed (removal is the (g)(2) action). Alternative reading 'applies / no_action_triggered' gives the same no-action result."
+    }
+  ],
+  "cov-022": [
+    {
+      "directive": "2016-21061",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "IAE NMSB V2500-ENG-72-0661 Rev 2 Appendix A Tables 1-2 (hub S/N lists; unavailable)"
+      ],
+      "timing": "Effective 2016-10-07; hub CSN 9,200 on that date => bracket (e)(1)(ii): within 6,000 cycles (9,200+6,000 = 15,200 CSN) or before accumulating 15,000 CSN, whichever first => before 15,000 CSN; or at the next shop visit if earlier. As-of 9,950 CSN => must be done before reaching 15,000 (5,050 cycles to the limit, exclusive).",
+      "reason": "(c) limits applicability to hubs P/N 2A5001/2A4802 with S/Ns in NMSB V2500-ENG-72-0661 Rev 2 Appendix A Tables 1-2, which are unavailable; V2527-A5 is a listed model."
+    }
+  ],
+  "cov-023": [
+    {
+      "directive": "2016-21061",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Not applicable.",
+      "reason": "(c) applies to V2522-A5, V2524-A5, V2525-D5, V2527-A5, V2527E-A5, V2527M-A5, V2528-D5, V2530-A5 and V2533-A5; V2531-E5 is not listed."
+    }
+  ],
+  "cov-024": [
+    {
+      "directive": "2016-21061",
+      "applicability": "applies",
+      "action_status": "no_action_triggered",
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "(e)(1): inspect at next shop visit after 2016-10-07 or per the CSN brackets, whichever first; the qualifying shop visit 2017-05-02 has passed, so the deadline has passed by as-of 2026-10-15.",
+      "reason": "The operator record says both hubs were inspected per NMSB 0661 Rev 2 at the 2017-05 shop visit and passed (one-time inspection, (e)(1)-(3)); per the record rule this is no_action_triggered, record not verified. Hub listing in NMSB 0661 Rev 2 cannot be checked, but either way no action results (unlisted => AD does not cover the hubs)."
+    }
+  ],
+  "cov-025": [
+    {
+      "directive": "2016-21061",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "published_not_yet_effective",
+      "required_missing_facts": [
+        "IAE NMSB V2500-ENG-72-0661 Rev 2 Appendix A Tables 1-2 (hub S/N lists; unavailable)"
+      ],
+      "timing": "Published 2016-09-02, effective 2016-10-07; as-of 2016-09-20. Hub CSN already 15,600 >= 15,501, so on the effective date bracket (e)(1)(iv) applies: inspect within 1,500 cycles after 2016-10-07, or at next shop visit if earlier.",
+      "reason": "Not yet in force. (c) depends on hub S/Ns being in NMSB 0661 Rev 2 Appendix A, which is unavailable; V2522-A5 is a listed model."
+    }
+  ],
+  "cov-026": [
+    {
+      "directive": "2016-21061",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "IAE NMSB V2500-ENG-72-0661 Rev 2 Appendix A Tables 1-2 (hub S/N lists; unavailable)",
+        "HPT stage 1 hub cycles since new on 2016-10-07 (recorded unknown)"
+      ],
+      "timing": "Effective 2016-10-07. Stage 2 hub: 5,600 CSN then => bracket (e)(1)(i): before accumulating 13,000 CSN (as-of 6,000, so 7,000 to the limit, exclusive) or at next shop visit, whichever first. Stage 1 hub: CSN unknown, so bracket cannot be chosen; worst case (iv) within 1,500 cycles after 2016-10-07, or next shop visit.",
+      "reason": "V2528-D5 is a listed model; (c) depends on the unavailable NMSB 0661 Rev 2 S/N lists, and the stage 1 hub's CSN is needed to set its compliance time."
+    }
+  ],
+  "cov-027": [
+    {
+      "directive": "2017-14706",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "IAE NMSB V2500-ENG-72-0676 Table 1 (stage 2 air seal S/N list and part-cycle limit; unavailable)",
+        "IAE NMSB V2500-ENG-72-0677 Rev 1 / V2500-ENG-72-0678 Rev 1 Table 1 (1st stage air seal S/N lists and limits; unavailable)",
+        "IAE NMSB V2500-ENG-72-0682 / V2500-ENG-72-0681 Rev 2 Table 1 (stage 2 ring plate S/N lists and limits; unavailable)"
+      ],
+      "timing": "Effective 2017-08-21; as-of 2017-09-01. If listed in 0676/0677/0682: (g)(1) remove before reaching the SB part-cycle limit or within 50 cycles in service after 2017-08-21, whichever occurs later (SB limits unavailable; parts at 4,100 CSN). If listed in 0678/0681: (g)(2) remove when the HPT module is next disassembled with access.",
+      "reason": "(c)(1)(i)-(iii) name exactly these three P/Ns (2A4157, 2A3423, 2A3437) but only with S/Ns in the NMSBs, which are unavailable; the part-cycle limits are also only in the NMSBs."
+    }
+  ],
+  "cov-028": [
+    {
+      "directive": "2017-14706",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "IAE NMSB V2500-ENG-72-0676 Table 1 (stage 2 air seal S/N list and part-cycle limit; unavailable)"
+      ],
+      "timing": "Effective 2017-08-21; as-of 2017-10-01. If listed: (g)(1)(i) remove before reaching the SB part-cycle limit or within 50 cycles in service after 2017-08-21, whichever later (seal at 3,800 CSN; SB limit unavailable).",
+      "reason": "Stage 2 air seal P/N 2A4157 is named in (c)(1)(i); its S/N listing is in the unavailable NMSB 0676. The 1st stage air seal and ring plate P/Ns (SYN-PN-*) are not named, so they are not affected. V2531-E5 is a listed model."
+    }
+  ],
+  "cov-029": [
+    {
+      "directive": "2017-14706",
+      "applicability": "does_not_apply",
+      "action_status": null,
+      "authority_state": "in_force",
+      "required_missing_facts": [],
+      "timing": "Not applicable.",
+      "reason": "(c)(1)(i)-(iii) cover only P/N 2A4157, 2A3423 and 2A3437; all three installed parts carry SYN-PN part numbers the AD never names."
+    }
+  ],
+  "cov-030": [
+    {
+      "directive": "2017-14706",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "HPT stage 2 ring plate part number (recorded unknown, S/N SYN-RING2-c030)",
+        "IAE NMSB V2500-ENG-72-0682 / V2500-ENG-72-0681 Rev 2 Table 1 (ring plate S/N lists; unavailable)"
+      ],
+      "timing": "Effective 2017-08-21. HPT module disassembled 2018-01-12 with the ring plate accessible: if it is P/N 2A3437 listed in NMSB 0681 Rev 2, (g)(2)(ii) requires removal at this disassembly (the triggering event is under way now); if listed in 0682, (g)(1)(iii) part-cycle limit / 50 cycles, whichever later.",
+      "reason": "The air seals carry SYN-PN part numbers not named in (c). The ring plate's P/N is unknown, so (c)(1)(iii) cannot be decided, and the (g)(2) access opportunity is open now."
+    }
+  ],
+  "cov-031": [
+    {
+      "directive": "2021-14268",
+      "applicability": "applies",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "Table 2 to paragraph (g)(2) of AD 2021-11-51 (image ER02JY21.001; unavailable)"
+      ],
+      "timing": "Effective 2021-07-19 at 40,000 engine FC (earlier, from actual notice of Emergency AD 2021-11-51 on 2021-05-21); as-of 40,006. (g)(2): USI of the 2nd-stage disk within 10 FC after the effective date => by 40,010 engine FC (4 FC remaining).",
+      "reason": "V2527M-A5 with 2nd-stage disk S/N PKLBR89452, on the (c)(2) list (read as a separate S/N despite the missing comma after PKLBR88708), so the AD applies. The (g)(2) action is keyed to Table 2, which is only an image; it very likely repeats the (c)(2) list, so the established action is the USI by 40,010 FC, but the table cannot be confirmed."
+    }
+  ],
+  "seed-020": [
+    {
+      "directive": "2021-11960",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "IAE NMSB V2500-ENG-72-0713 Rev 1 Appendix A Tables 1-2 (disk S/N lists; unavailable)"
+      ],
+      "timing": "Effective 2021-07-13; replaced by AD 2022-02-09 effective 2022-03-15 (after as-of 2022-03-01). V2533-A5 high-thrust: if listed, (g)(1)/(g)(2) USI at next engine shop visit after 2021-07-13 or before the disk accumulates 3,200 FC since 2021-07-13, whichever first (no cycle data supplied).",
+      "reason": "(c) limits applicability to disks P/N 2A5001/2A4802 with S/Ns in NMSB 0713 Rev 1 Appendix A Tables 1-2, which are unavailable. Still in force on the as-of date; its replacement is published but not yet effective."
+    },
+    {
+      "directive": "2022-02574",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "published_not_yet_effective",
+      "required_missing_facts": [
+        "IAE NMSB V2500-ENG-72-0713 Rev 1 Appendix A Tables 1-2 (disk S/N lists; unavailable)",
+        "Figure 1 to paragraph (g)(1) of AD 2022-02-09 (image ER08FE22.048; unavailable)"
+      ],
+      "timing": "Published 2022-02-08, effective 2022-03-15; as-of 2022-03-01. From 2022-03-15, if listed: (g)(1)/(g)(2) USI within the Figure 1 compliance time or within 10 FC after 2022-03-15, whichever later.",
+      "reason": "Not yet effective; supersedes AD 2021-11-15 on 2022-03-15. Applicability depends on the unavailable NMSB 0713 Rev 1 S/N lists, and the compliance time is in an image."
+    }
+  ],
+  "seed-021": [
+    {
+      "directive": "2022-02574",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "IAE NMSB V2500-ENG-72-0713 Rev 1 Appendix A Tables 1-2 (disk S/N lists; unavailable)",
+        "Figure 1 to paragraph (g)(1) of AD 2022-02-09 (image ER08FE22.048; unavailable)"
+      ],
+      "timing": "Effective 2022-03-15. V2530-A5 high-thrust: if listed, (g)(1)/(g)(2) USI within the Figure 1 compliance time or within 10 FC after 2022-03-15, whichever later; cannot be computed (image, and no cycle data).",
+      "reason": "(c) depends on the disk S/Ns being in NMSB V2500-ENG-72-0713 Rev 1 Appendix A, which is unavailable. AD 2024-11-03 (i) lets compliance with its (g)(1) satisfy this AD, but no such record is supplied."
+    }
+  ],
+  "seed-022": [
+    {
+      "directive": "2021-14268",
+      "applicability": "applies",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "Table 1 to paragraph (g)(1) of AD 2021-11-51 (image ER02JY21.000; unavailable)"
+      ],
+      "timing": "Effective 2021-07-19 at 33,000 engine FC (earlier from actual notice of the emergency AD, 2021-05-21); as-of 33,004. (g)(1): USI of the 1st-stage disk within 10 FC after the effective date => by 33,010 engine FC (6 FC remaining).",
+      "reason": "V2533-A5 with 1st-stage disk S/N PKLBSH1829, which is on the (c)(1) list, so the AD applies. The (g)(1) action is keyed to Table 1, available only as an image; the established action is the USI by 33,010 FC, but the table cannot be confirmed."
+    },
+    {
+      "directive": "2021-11960",
+      "applicability": "unknown",
+      "action_status": "needs_review",
+      "authority_state": "in_force",
+      "required_missing_facts": [
+        "IAE NMSB V2500-ENG-72-0713 Rev 1 Appendix A Tables 1-2 (disk S/N lists; unavailable)"
+      ],
+      "timing": "Effective 2021-07-13. V2533-A5 high-thrust: if listed, (g)(1) USI at next engine shop visit or before the disk accumulates 3,200 FC since 2021-07-13, whichever first; engine FC at 2021-07-13 not supplied (33,000 on 2021-07-19).",
+      "reason": "(c) depends on disk S/Ns in NMSB V2500-ENG-72-0713 Rev 1 Appendix A, which is unavailable; PKLBSH1829 is on AD 2021-11-51's list but that does not establish listing here."
+    }
+  ]
+}

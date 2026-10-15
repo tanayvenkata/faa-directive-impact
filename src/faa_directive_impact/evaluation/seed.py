@@ -18,10 +18,12 @@ class SeedCase:
 
 
 def load_seed_cases(case_directory: Path) -> list[SeedCase]:
-    """Read every ``seed-*.yaml`` case in filename order."""
+    """Read every ``seed-*.yaml`` or ``cov-*.yaml`` case in filename order."""
     return [
         SeedCase(path, yaml.safe_load(path.read_text(encoding="utf-8")))
-        for path in sorted(case_directory.glob("seed-*.yaml"))
+        for path in sorted(
+            [*case_directory.glob("seed-*.yaml"), *case_directory.glob("cov-*.yaml")]
+        )
     ]
 
 

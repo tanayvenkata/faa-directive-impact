@@ -1,0 +1,61 @@
+schema_version: "1.1.0"
+case_id: cov-074
+title: D5 air-carrier engine after the ALS revision deadline with no AD record or program state
+slice: operator_assertion
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    AD 2025-17-16 applies to every listed model, V2528-D5 included. Both
+    paragraph (g) revisions were due within 90 days after 2025-10-10, that is
+    by 2026-01-08, which has passed. No AD record and no maintenance program
+    revision is supplied, so the pre-registered Operator Records rule gives
+    needs_review naming ad_records[AD 2025-17-16].
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c074
+    engine_serial_number: SYN-V2500-c074
+    engine_model: V2528-D5
+    snapshot_at: "2026-10-15"
+  installed_components: []
+  events: []
+  operator:
+    air_carrier_operation: "yes"
+directive_candidates: ["2025-17066"]
+expected:
+  - directive: "2025-17066"
+    controlling_ad: AD 2025-17-16
+    authority_state: in_force
+    applicability: applies
+    action_status: needs_review
+    continuing_obligations:
+      - paragraph: "(h)"
+        description: Once the paragraph (g) revisions are made, no alternative actions are allowed without an approved AMOC.
+    reason: >-
+      V2528-D5 is listed in paragraph (c). Paragraph (g)(1)(ii) required
+      revising paragraph B.1 of the ALS in the V2500-D5 TLM (P/N 2A4417, TASK
+      05-10-00-990-000) and, for this air carrier, paragraph (g)(2) required
+      revising the approved maintenance or inspection program, both within 90
+      days after 2025-10-10 (by 2026-01-08). Neither an AD record nor the
+      program's revision state is supplied, so whether the revisions were made
+      cannot be determined.
+    required_evidence:
+      - {document: "2025-17066", paragraph: "(c)"}
+      - {document: "2025-17066", paragraph: "(g)(1)(ii)", locator: "V2500-D5 TLM P/N 2A4417, TASK 05-10-00-990-000"}
+      - {document: "2025-17066", paragraph: "(g)(2)"}
+    required_missing_facts:
+      - ad_records[AD 2025-17-16]
+forbidden_claims:
+  - The engine is compliant or noncompliant with AD 2025-17-16.
+  - The engine is safe or airworthy.
+  - The engine is approved for return to service.
+  - The ALS revision is overdue.
+  - The V2500-A5 Time Limits Manual (P/N 2A4408) applies to this engine.
+  - AD 2025-17-16 requires inspecting the HPT hubs by 2026-01-08.
