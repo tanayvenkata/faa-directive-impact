@@ -1,0 +1,386 @@
+{
+  "ad_number": "AD 2025-01-03",
+  "ambiguities": [
+    {
+      "description": "Paragraphs (g)(1) and (g)(2) require removal at the next event or 'before exceeding the applicable cyclic threshold', whichever occurs first after the effective date. They give no grace period for an affected seal that is already at or beyond 11,100 CSN (or 9,700 CSN for LEAP-1A26CJ and LEAP-1A29CJ) on the effective date.",
+      "paragraph": "(g)(1)",
+      "readings": [
+        "The removal is overdue on the effective date, and the engine must not operate until the seal is removed.",
+        "The text sets no compliance time for such a seal, so a person must decide, for example by AMOC under paragraph (j)."
+      ]
+    }
+  ],
+  "amoc_paragraph": "(j)",
+  "applicability": {
+    "engine_models": [
+      "LEAP-1A23",
+      "LEAP-1A24",
+      "LEAP-1A24E1",
+      "LEAP-1A26",
+      "LEAP-1A26CJ",
+      "LEAP-1A26E1",
+      "LEAP-1A29",
+      "LEAP-1A29CJ",
+      "LEAP-1A30",
+      "LEAP-1A32",
+      "LEAP-1A33",
+      "LEAP-1A33B2",
+      "LEAP-1A35A",
+      "LEAP-1C28",
+      "LEAP-1C30",
+      "LEAP-1C30B1"
+    ],
+    "engine_serials": [],
+    "model_paragraphs": [
+      {
+        "models": [
+          "LEAP-1A23",
+          "LEAP-1A24",
+          "LEAP-1A24E1",
+          "LEAP-1A26",
+          "LEAP-1A26CJ",
+          "LEAP-1A26E1",
+          "LEAP-1A29",
+          "LEAP-1A29CJ",
+          "LEAP-1A30",
+          "LEAP-1A32",
+          "LEAP-1A33",
+          "LEAP-1A33B2",
+          "LEAP-1A35A"
+        ],
+        "paragraph": "(c)(1)"
+      },
+      {
+        "models": [
+          "LEAP-1C28",
+          "LEAP-1C30",
+          "LEAP-1C30B1"
+        ],
+        "paragraph": "(c)(2)"
+      }
+    ],
+    "models_paragraph": "(c)",
+    "parts": [],
+    "parts_combine": "any",
+    "parts_paragraph": ""
+  },
+  "continuing_obligations": [
+    {
+      "description": "After the effective date, do not install in any LEAP-1A engine an HPT rotor interstage seal having a P/N and S/N listed in Table 1 of CFM SB LEAP-1A-72-00-0525-01A-930A-D Issue 002-00.",
+      "paragraph": "(h)(1)",
+      "part_group": "hpt_seal_1a_table1"
+    },
+    {
+      "description": "After the effective date, do not install in any LEAP-1A engine an HPT rotor interstage seal having a P/N and S/N listed in Table 2 of CFM SB LEAP-1A-72-00-0525-01A-930A-D Issue 002-00.",
+      "paragraph": "(h)(1)",
+      "part_group": "hpt_seal_1a_table2"
+    },
+    {
+      "description": "After the effective date, do not install in any LEAP-1C engine an HPT rotor interstage seal having a P/N and S/N listed in Table 1 of CFM SB LEAP-1C-72-00-0124-01A-930A-D, Issue 001-00, dated September 5, 2024.",
+      "paragraph": "(h)(2)",
+      "part_group": "hpt_seal_1c_table1"
+    }
+  ],
+  "corrections": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "paragraph": "(i)(1)",
+      "term": "LEAP-1A engines"
+    },
+    {
+      "paragraph": "(i)(2)",
+      "term": "LEAP-1C engines"
+    },
+    {
+      "paragraph": "(i)(3)",
+      "term": "part eligible for installation"
+    },
+    {
+      "paragraph": "(i)(4)",
+      "term": "engine shop visit"
+    },
+    {
+      "paragraph": "(i)(5)",
+      "term": "piece-part exposure"
+    }
+  ],
+  "dependencies": [
+    {
+      "holds": "serial_numbers",
+      "id": "dep_leap1a_sb_table1",
+      "incorporated_in": [
+        "(l)(2)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(g)(1)",
+      "title": "CFM Service Bulletin (SB) LEAP-1A-72-00-0525-01A-930A-D, Issue 002-00, dated June 28, 2024, Table 1 (P/Ns and S/Ns of affected HPT rotor interstage seals)"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "dep_leap1a_sb_table2",
+      "incorporated_in": [
+        "(l)(2)(i)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(g)(2)",
+      "title": "CFM Service Bulletin (SB) LEAP-1A-72-00-0525-01A-930A-D, Issue 002-00, dated June 28, 2024, Table 2 (P/Ns and S/Ns of affected HPT rotor interstage seals)"
+    },
+    {
+      "holds": "serial_numbers",
+      "id": "dep_leap1c_sb_table1",
+      "incorporated_in": [
+        "(l)(2)(ii)"
+      ],
+      "kind": "incorporated_by_reference",
+      "paragraph": "(h)(2)",
+      "title": "CFM Service Bulletin LEAP-1C-72-00-0124-01A-930A-D, Issue 001-00, dated September 5, 2024, Table 1 (P/Ns and S/Ns of HPT rotor interstage seals prohibited from installation in LEAP-1C engines)"
+    }
+  ],
+  "effective_date": {
+    "date": "2025-03-11",
+    "emergency_ad": null,
+    "paragraph": "(a)"
+  },
+  "eligible_parts": [],
+  "final_rule_document": "2025-02204",
+  "governing_document": {
+    "document": "2025-02204",
+    "reason": "The thread holds only the final rule, Amendment 39-22927. No correction republishes its regulatory text, and paragraph (b) names no affected ADs, so the final rule's regulatory text controls."
+  },
+  "notes": [
+    "The directive prints no part numbers or serial numbers for the HPT rotor interstage seal. Every affected seal is identified only by P/N and S/N in the incorporated CFM service bulletin tables, so every part group points at a dependency.",
+    "Paragraph (g) imposes removal actions only on LEAP-1A engines. LEAP-1C engines are subject only to the installation prohibition in (h)(2).",
+    "Paragraph (i)(3) defines a 'part eligible for installation' as any HPT rotor interstage seal whose P/N and S/N are not listed in Table 1 or Table 2 of CFM SB LEAP-1A-72-00-0525-01A-930A-D Issue 002-00. Because no part numbers are printed, eligible_parts is left empty, and eligibility can be confirmed only against the SB tables.",
+    "Paragraph (h)(1) applies the LEAP-1A SB tables only to LEAP-1A engines. Paragraph (h)(2) applies only the LEAP-1C SB Table 1 to LEAP-1C engines.",
+    "Paragraph (g)(1) is split into two action entries, and so is (g)(2), because table 1 to paragraph (g)(1) sets different CSN thresholds by model: 11,100 CSN for most LEAP-1A models and 9,700 CSN for LEAP-1A26CJ and LEAP-1A29CJ.",
+    "An engine shop visit, as defined in (i)(4), triggers only the (g)(1) Table 1 seals. A piece-part exposure, as defined in (i)(5), triggers only the (g)(2) Table 2 seals.",
+    "The NPRM (89 FR 80155, October 2, 2024) is not in the thread. The final rule states it was adopted as proposed except for minor editorial changes."
+  ],
+  "parts": [
+    {
+      "aliases": [
+        "HPT rotor interstage seal"
+      ],
+      "component": "high-pressure turbine (HPT) rotor interstage seal",
+      "dependency": "dep_leap1a_sb_table1",
+      "id": "hpt_seal_1a_table1",
+      "listed": [],
+      "paragraph": "(g)(1)",
+      "part_numbers": [],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "HPT rotor interstage seal"
+      ],
+      "component": "high-pressure turbine (HPT) rotor interstage seal",
+      "dependency": "dep_leap1a_sb_table2",
+      "id": "hpt_seal_1a_table2",
+      "listed": [],
+      "paragraph": "(g)(2)",
+      "part_numbers": [],
+      "serials": "listed_in_dependency"
+    },
+    {
+      "aliases": [
+        "HPT rotor interstage seal"
+      ],
+      "component": "high-pressure turbine (HPT) rotor interstage seal",
+      "dependency": "dep_leap1c_sb_table1",
+      "id": "hpt_seal_1c_table1",
+      "listed": [],
+      "paragraph": "(h)(2)",
+      "part_numbers": [],
+      "serials": "listed_in_dependency"
+    }
+  ],
+  "relationships": [],
+  "required_actions": [
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_leap1a_sb_table1"
+      ],
+      "description": "For LEAP-1A engines with an HPT rotor interstage seal whose P/N and S/N are listed in Table 1 of CFM SB LEAP-1A-72-00-0525-01A-930A-D Issue 002-00: at the next engine shop visit or before exceeding 11,100 CSN on the affected part, whichever occurs first after the effective date, remove the seal from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": 11100
+        }
+      ],
+      "models": [
+        "LEAP-1A23",
+        "LEAP-1A24",
+        "LEAP-1A24E1",
+        "LEAP-1A26",
+        "LEAP-1A26E1",
+        "LEAP-1A29",
+        "LEAP-1A30",
+        "LEAP-1A32",
+        "LEAP-1A33",
+        "LEAP-1A33B2",
+        "LEAP-1A35A"
+      ],
+      "operator_condition": "",
+      "paragraph": "(g)(1)",
+      "related_paragraphs": [
+        "(i)(1)",
+        "(i)(3)"
+      ],
+      "target": "hpt_seal_1a_table1",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [
+          "(i)(4)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_leap1a_sb_table1"
+      ],
+      "description": "For LEAP-1A26CJ and LEAP-1A29CJ engines with an HPT rotor interstage seal whose P/N and S/N are listed in Table 1 of CFM SB LEAP-1A-72-00-0525-01A-930A-D Issue 002-00: at the next engine shop visit or before exceeding 9,700 CSN on the affected part, whichever occurs first after the effective date, remove the seal from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": 9700
+        }
+      ],
+      "models": [
+        "LEAP-1A26CJ",
+        "LEAP-1A29CJ"
+      ],
+      "operator_condition": "",
+      "paragraph": "(g)(1)",
+      "related_paragraphs": [
+        "(i)(1)",
+        "(i)(3)"
+      ],
+      "target": "hpt_seal_1a_table1",
+      "terminates": [],
+      "trigger": {
+        "condition": "",
+        "definition_paragraphs": [
+          "(i)(4)"
+        ],
+        "event": "engine_shop_visit",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_leap1a_sb_table2"
+      ],
+      "description": "For LEAP-1A engines with an HPT rotor interstage seal whose P/N and S/N are listed in Table 2 of CFM SB LEAP-1A-72-00-0525-01A-930A-D Issue 002-00: at the next piece-part exposure or before exceeding 11,100 CSN on the affected part (table 1 to paragraph (g)(1)), whichever occurs first after the effective date, remove the seal from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": 11100
+        }
+      ],
+      "models": [
+        "LEAP-1A23",
+        "LEAP-1A24",
+        "LEAP-1A24E1",
+        "LEAP-1A26",
+        "LEAP-1A26E1",
+        "LEAP-1A29",
+        "LEAP-1A30",
+        "LEAP-1A32",
+        "LEAP-1A33",
+        "LEAP-1A33B2",
+        "LEAP-1A35A"
+      ],
+      "operator_condition": "",
+      "paragraph": "(g)(2)",
+      "related_paragraphs": [
+        "(g)(1)",
+        "(i)(1)",
+        "(i)(3)"
+      ],
+      "target": "hpt_seal_1a_table2",
+      "terminates": [],
+      "trigger": {
+        "condition": "next piece part exposure (the HPT rotor interstage seal is separated from the HPT rotor assembly)",
+        "definition_paragraphs": [
+          "(i)(5)"
+        ],
+        "event": "maintenance_event",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    },
+    {
+      "combination": "whichever_occurs_first",
+      "csn_band_at_effective_date": null,
+      "dependencies": [
+        "dep_leap1a_sb_table2"
+      ],
+      "description": "For LEAP-1A26CJ and LEAP-1A29CJ engines with an HPT rotor interstage seal whose P/N and S/N are listed in Table 2 of CFM SB LEAP-1A-72-00-0525-01A-930A-D Issue 002-00: at the next piece-part exposure or before exceeding 9,700 CSN on the affected part (table 1 to paragraph (g)(1)), whichever occurs first after the effective date, remove the seal from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "limits": [
+        {
+          "anchor_offset_days": 0,
+          "date": null,
+          "dependency": "",
+          "kind": "part_cycles_since_new",
+          "paragraph": "(g)(1)",
+          "role": "alternative",
+          "value": 9700
+        }
+      ],
+      "models": [
+        "LEAP-1A26CJ",
+        "LEAP-1A29CJ"
+      ],
+      "operator_condition": "",
+      "paragraph": "(g)(2)",
+      "related_paragraphs": [
+        "(g)(1)",
+        "(i)(1)",
+        "(i)(3)"
+      ],
+      "target": "hpt_seal_1a_table2",
+      "terminates": [],
+      "trigger": {
+        "condition": "next piece part exposure (the HPT rotor interstage seal is separated from the HPT rotor assembly)",
+        "definition_paragraphs": [
+          "(i)(5)"
+        ],
+        "event": "maintenance_event",
+        "recurrence": "next"
+      },
+      "unrecorded_conditions": []
+    }
+  ],
+  "schema_version": "2"
+}

@@ -169,3 +169,10 @@ Recorded 2026-10-15, in order.
    `evaluation/runs/coverage-reference-v2.1-20261015T194038Z`, paired with
    the v2.0 run above. These changes were made after reading the cases and
    the v2.0 run, so the 2.1 results are not blind.
+6. **Prompt v2 frozen.** Before freezing, the schema's field descriptions
+   were scrubbed of case-specific examples (they had been written after the
+   cases were read). The format-only plumbing check drafted a CFM
+   International AD outside the evaluation (`2025-02204`; run
+   `coverage-plumbing-20261015T194653Z`): the answer parsed, validated, and
+   passed the serial guard. Prompt v2 is frozen at `226de36424d1`; the
+   drafting run uses it unchanged for all 16 directives.
