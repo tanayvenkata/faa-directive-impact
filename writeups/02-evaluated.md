@@ -1,12 +1,9 @@
 # Evaluated: Rules, a Model, and a Model Writing Rules
 
-> **Owner: stop here until item 1 of
-> [`OWNER_PACKET.md`](../evaluation/review/OWNER_PACKET.md) is done.** This
-> post states B3 results, and the B3 proofread must be timed blind.
-
-*Written 2026-10-11. **PROVISIONAL**: every hand-checked result below is a
-first pass by Claude, which also wrote the system being checked. It becomes
-final when the project owner signs off (listed at the end). This post makes
+*Written 2026-10-11; finalized 2026-10-15. Every hand-checked result below
+is a review by Claude, which also wrote the system being checked. The project
+owner chose not to re-check them (2026-10-15), so no person has confirmed
+them; see "Who checked what" at the end. This post makes
 one claim: on a disclosed suite of cases for one directive, AD 2025-19-13
 (IAE V2500-A5/D5/E5 engines), it measures how plain rules, a model reading
 the directive, and a model drafting the rules each perform. It makes no claim
@@ -59,8 +56,8 @@ times, B3 three times; B2's Haiku-at-max count covers only the units it
 answered.
 
 **S1 passes every gate.** The decision under the frozen verdict rules is
-*go* ([`S1_BASELINE.md`](../evaluation/S1_BASELINE.md)). PROVISIONAL until
-the owner confirms the hand review of gates 5 and 11.
+*go* ([`S1_BASELINE.md`](../evaluation/S1_BASELINE.md)). Its hand-checked
+gates 5 and 11 were judged by Claude only.
 
 **B2 matched the rules at no setting.** The best setting still failed seed-005
 (a deadline that depends on an informal FAA answer not in the text) and
@@ -70,7 +67,7 @@ which a listed hub could fly past its limit. On AD 2026-17-03's seed-013, outsid
 the 18 units, every setting that answered it except Sonnet high cleared an
 engine that needs action. Haiku
 changed its answer on 6–11 of 33 units between identical runs; Sonnet on
-1–3. B2's hand-checked gates are PROVISIONAL.
+1–3. B2's hand-checked gates were judged by Claude only.
 
 **B3 drafted every data field right and left one clause open.** In all three
 repeats Opus transcribed 17/17 data fields for AD 2025-19-13, including all
@@ -80,13 +77,14 @@ of 18 units went to review without a deadline. That is a safe failure: no
 engine was cleared. It is still a failure under gate 8. Changing that one
 field reproduces the hand-written reference on all 23 units B3 scored
 (a test asserts it). The clause it flagged is the one the project had to
-ask the FAA about. Proofreading time, the third B3 measure, is not measured
-yet. PROVISIONAL until the owner proofreads and judges the ambiguities.
+ask the FAA about. Proofreading time, the third B3 measure, was not
+measured: no person proofread the drafts. Whether each flagged ambiguity is
+real was judged by Claude only.
 
 A second directive, AD 2026-17-03, was scored for B3 only, as evidence that
 the approach transfers: 18/18 fields and every unit matching its reference.
-Its labels are Claude drafts, so these results are PROVISIONAL, and they do
-not widen the evaluated claim. S1's parser, run unchanged on it, stops at
+Its labels are Claude drafts that no person has confirmed, so these results
+are weaker evidence, and they do not widen the evaluated claim. S1's parser, run unchanged on it, stops at
 its first check: nothing in S1 transfers.
 
 ## What the numbers can bear
@@ -109,12 +107,8 @@ its first check: nothing in S1 transfers.
   a shop visit inside the 100-cycle window (T2), and it assumes a hub gains
   cycles one-for-one with its engine from the effective date (T3)
   ([`S1_BASELINE.md`](../evaluation/S1_BASELINE.md), "Failure Taxonomy").
-- **Hand-checked gates are first passes**, and the B2 hand review covers
-  only Sonnet repeat 1 at medium and high.
-- **The B3 proofread is not fully blind.** The owner saw B3's headline
-  before proofreading, which can make it faster
-  ([`PREREGISTRATION.md`](../evaluation/b3/PREREGISTRATION.md), "Deviation
-  recorded afterwards").
+- **Hand-checked gates were judged by Claude only**, and the B2 hand review
+  covers only Sonnet repeat 1 at medium and high.
 
 ## Failures and gaps, in one place
 
@@ -138,13 +132,15 @@ against about 20 directives would cost up to about $100 with Sonnet at high effo
 (an upper estimate), and about $0 with rules ([`B2_FULL_CONTEXT.md`](../evaluation/B2_FULL_CONTEXT.md),
 "What It Would Cost at Fleet Scale").
 
-## What makes this final
+## Who checked what
 
-The owner's sign-offs, in [`OWNER_PACKET.md`](../evaluation/review/OWNER_PACKET.md):
-the B3 proofread and ambiguity judging (items 1–2), the AD 2026-17-03 labels
-(3), S1's hand review (4), and B2's hand review (5). A practitioner review
-(issue #9) is the next rung, *Practitioner-reviewed*; this post does not
-claim it.
+On 2026-10-15 the project owner waived the planned sign-offs in
+[`OWNER_PACKET.md`](../evaluation/review/OWNER_PACKET.md): the B3 proofread
+and ambiguity judging, the AD 2026-17-03 labels, and the S1 and B2 hand
+reviews. The mechanical gates are computed by code from kept runs. The hand
+gates, the AD 2026-17-03 labels, and the B3 ambiguity judgments are Claude's
+alone. A practitioner review (issue #9) is the next rung,
+*Practitioner-reviewed*; it is deferred, and this post does not claim it.
 
 Every run is kept under [`evaluation/runs/`](../evaluation/runs/) and
 re-scores offline (`make b3-replay RUN=...`, `make s1-conclude RUN=...`).

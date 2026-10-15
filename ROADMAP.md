@@ -43,7 +43,7 @@ A newly published in-scope directive becomes visible the day it syncs, as
    match the synthetic engines deterministically, and show the three queues
    with cited paragraphs on a plain page. This is the series' rules baseline:
    score it against the seed and publish the first failure taxonomy.
-   *Built; decision go, provisional on owner-confirmed hand review
+   *Built; decision go, hand review by Claude only
    ([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)).*
 4. **Full-context LLM comparison (B2)** — give a model each directive's text
    and the engine's records and score its answers under the same frozen gates
@@ -102,7 +102,7 @@ release history sit one level below.
 
 Publish a write-up at each claim rung as it is reached:
 [*Reproducible*](writeups/01-reproducible.md) and
-[*Evaluated*](writeups/02-evaluated.md) (provisional).
+[*Evaluated*](writeups/02-evaluated.md).
 
 The FAA episode is done enough to hand off when all of these hold:
 
@@ -116,26 +116,14 @@ low cost.
 
 ### Exit checklist
 
-Item numbers refer to [`OWNER_PACKET.md`](evaluation/review/OWNER_PACKET.md).
-
 | Condition | State | What finishes it |
 |---|---|---|
-| *Evaluated*: baseline, frozen gates, paired results, failures published | Published, **provisional** ([`02-evaluated.md`](writeups/02-evaluated.md)) | The owner's sign-offs below |
-| Daily sync with a visible freshness panel | **Done** (live since 2026-10-11) | Nothing. The page's clearer sync times and checkpoint note go live with the first daily run after this branch merges |
-| One practitioner review attempted and recorded | **Not started**, owner to send (issue #9) | Item 7: send [`PRACTITIONER_BRIEF.md`](evaluation/review/PRACTITIONER_BRIEF.md) and record the attempt in issue #9, whether or not anyone agrees |
+| *Evaluated*: baseline, frozen gates, paired results, failures published | **Done** ([`02-evaluated.md`](writeups/02-evaluated.md)). Hand-checked gates judged by Claude only; the owner waived re-checking them on 2026-10-15 ([`OWNER_PACKET.md`](evaluation/review/OWNER_PACKET.md)) | Nothing |
+| Daily sync with a visible freshness panel | **Done** (live since 2026-10-11) | Nothing |
+| One practitioner review attempted and recorded | **Deferred** by the owner on 2026-10-15 (issue #9) | Send [`PRACTITIONER_BRIEF.md`](evaluation/review/PRACTITIONER_BRIEF.md) and record the attempt in issue #9 |
 
-What turns each results doc from provisional to final:
-
-- [`S1_BASELINE.md`](evaluation/S1_BASELINE.md): item 4, the owner's
-  confirmation of the gate 5 and 11 hand review, folded in by
-  `make s1-conclude`.
-- [`B2_FULL_CONTEXT.md`](evaluation/B2_FULL_CONTEXT.md): item 5, the owner's
-  review of the first-pass hand review.
-- [`B3_RULE_EXTRACTION.md`](evaluation/B3_RULE_EXTRACTION.md): items 1 and 2,
-  the timed blind proofread and the ambiguity judgments. Its AD 2026-17-03
-  results also need item 3, the owner's view of those labels.
-- [`02-evaluated.md`](writeups/02-evaluated.md): all of items 1–5. Its
-  provisional marks come off once each doc above is final.
+Until the practitioner attempt is recorded, the episode has reached
+*Evaluated* but has not met its handoff bar.
 
 ## Status
 
@@ -144,8 +132,8 @@ claim level ([`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md);
 write-up [*Reproducible*](writeups/01-reproducible.md)). The
 evaluation seed (E1) and frozen gates (E2) are done; the image-transcription
 decision (E3) is recorded. S1, the rules baseline for AD 2025-19-13, is built and
-scored: every gate passes on its 18 units, and the go decision is provisional
-until the owner confirms the hand review
+scored: every gate passes on its 18 units, and the decision is go, with its
+two hand-checked gates judged by Claude only
 ([`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md)). The full-context
 LLM comparison (B2) is scored: no model setting matched the rules
 ([`evaluation/B2_FULL_CONTEXT.md`](evaluation/B2_FULL_CONTEXT.md)). Rule
@@ -154,14 +142,19 @@ extraction (B3) is scored
 sync (step 6) is live with a public freshness page
 ([`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md)). The image-figure decision (E3)
 is recorded ([`evaluation/E3_IMAGE_FIGURES.md`](evaluation/E3_IMAGE_FIGURES.md)).
-The *Evaluated* write-up is published as provisional
-([`writeups/02-evaluated.md`](writeups/02-evaluated.md)). The active work is
-the rest of the episode exit bar ("Exit checklist" above): the owner's
-sign-offs, which make the evaluated results final, and a practitioner
-review. What waits on the owner is listed in
-[`evaluation/review/OWNER_PACKET.md`](evaluation/review/OWNER_PACKET.md).
+The *Evaluated* write-up is published
+([`writeups/02-evaluated.md`](writeups/02-evaluated.md)); the owner waived
+the planned hand-review sign-offs on 2026-10-15. The practitioner review is
+deferred. The active work is the fleet view and launch video (vault, "Visual
+Layer and Launch"), which needs the seeded demo fleet (step 8).
 
 ## Revisions
+
+- **2026-10-15** — The owner waived the planned hand-review sign-offs and
+  deferred the practitioner review, to finish the episode quickly. Results
+  stay labeled as Claude's judgment where a person did not check them. The
+  next work is the fleet view and launch video, which pulls the seeded demo
+  fleet (step 8) forward.
 
 - **2026-10-07** — Moved the LLM work ahead of the daily sync: a full-context
   LLM comparison (B2) and rule extraction (B3) now come before the sync and a

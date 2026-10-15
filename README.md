@@ -4,20 +4,20 @@ This project is building a continuously refreshable, evidence-backed FAA
 directive-impact system. The first supported evaluation boundary is the
 International Aero Engines V2500-A5/D5/E5 family.
 
-**Status: Reproducible; *Evaluated* published as provisional** — see
+**Status: Evaluated** — see
 [`CHECKPOINT_REPRODUCIBLE.md`](CHECKPOINT_REPRODUCIBLE.md), the write-up
 [*Reproducible: Getting the Same FAA Directive Twice*](writeups/01-reproducible.md),
-and the provisional write-up
-[*Evaluated: Rules, a Model, and a Model Writing Rules*](writeups/02-evaluated.md)
-(owner: read it only after item 1 of the owner packet).
+and the write-up
+[*Evaluated: Rules, a Model, and a Model Writing Rules*](writeups/02-evaluated.md).
 Milestone 1 (immutable official-source acquisition) is complete, and the
 evaluation seed and frozen gates are written. S1, the rules baseline for AD
 2025-19-13, is in [`evaluation/S1_BASELINE.md`](evaluation/S1_BASELINE.md);
 the model comparisons are in
 [`evaluation/B2_FULL_CONTEXT.md`](evaluation/B2_FULL_CONTEXT.md) and
 [`evaluation/B3_RULE_EXTRACTION.md`](evaluation/B3_RULE_EXTRACTION.md), and
-the daily discovery sync in [`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md). These
-results are provisional until the owner's reviews
+the daily discovery sync in [`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md). Their
+hand-checked gates were judged by Claude only; the owner waived re-checking
+them on 2026-10-15
 ([`evaluation/review/OWNER_PACKET.md`](evaluation/review/OWNER_PACKET.md)).
 Retrieval and agent work remain deferred.
 

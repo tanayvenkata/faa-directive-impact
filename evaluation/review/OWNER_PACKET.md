@@ -1,5 +1,13 @@
 # Owner Packet
 
+> **Waived 2026-10-15.** The project owner chose to finish the episode
+> without these sign-offs: items 1–5 are not done, and item 7 is deferred.
+> The results docs and `writeups/02-evaluated.md` say which judgments are
+> Claude's alone and that proofreading time is not measured. No sheet below
+> was filled in on the owner's behalf. The packet is kept as-is in case a
+> person does these checks later; the blind-proofread order no longer
+> applies, because the owner has seen the results.
+
 Everything that waits on the project owner, in the order to do it. Each item
 is a sign-off that Claude cannot give on its own work. About 2 hours in all.
 
