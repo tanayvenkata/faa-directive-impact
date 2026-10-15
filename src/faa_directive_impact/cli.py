@@ -121,7 +121,34 @@ def main(argv: list[str] | None = None) -> int:
         sub.add_argument("--storage-root", type=Path, default=Path("data/seed-frozen"))
         sub.add_argument("--runs-root", type=Path, default=Path("evaluation/runs"))
     _add_discovery_commands(commands)
+    fleet_build = commands.add_parser(
+        "fleet-build",
+        help="Offline: regenerate the demo fleet and its recorded screens.",
+    )
+    fleet_build.add_argument("--repo", type=Path, default=Path("."))
+    fleet_site = commands.add_parser(
+        "fleet-site", help="Offline: write the fleet view from the recorded screens."
+    )
+    fleet_site.add_argument("--repo", type=Path, default=Path("."))
+    fleet_site.add_argument("--output", type=Path, default=Path("site"))
     args = parser.parse_args(argv)
+
+    if args.command == "fleet-build":
+        from faa_directive_impact.fleet.build import write_fleet
+
+        for path in write_fleet(args.repo):
+            print(path)
+        return EXIT_OK
+
+    if args.command == "fleet-site":
+        from faa_directive_impact.fleet.build import FLEET_SCREEN_FILE
+        from faa_directive_impact.fleet.page import build_fleet_page
+
+        screened = json.loads(
+            (args.repo / FLEET_SCREEN_FILE).read_text(encoding="utf-8")
+        )
+        print(build_fleet_page(screened, args.output))
+        return EXIT_OK
 
     if args.command.startswith("discovery-"):
         return _run_discovery_command(args)

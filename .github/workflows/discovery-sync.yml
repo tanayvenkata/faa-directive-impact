@@ -113,6 +113,10 @@ jobs:
         if: always()
         run: uv run faa-directive-impact discovery-site --storage-root "$DISCOVERY_ROOT" --output site
 
+      - name: Build fleet view
+        if: always()
+        run: uv run faa-directive-impact fleet-site --output site
+
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         if: always()
         with:
