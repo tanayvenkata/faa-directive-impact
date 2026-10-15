@@ -54,6 +54,8 @@ QUEUES = {
     "does_not_apply": "no_action_or_not_applicable",
     "outside_supported_scope": "no_action_or_not_applicable",
     "unknown": "needs_review",
+    # A replaced directive is screened under the directive that replaced it.
+    "superseded": "no_action_or_not_applicable",
 }
 
 

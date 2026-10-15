@@ -11,6 +11,11 @@ The vocabulary is fixed and small. An action whose trigger, limits, or target
 the interpreter does not support is never guessed at: the engine goes to
 ``needs_review`` with a note naming what is unsupported.
 
+Version 2 of the interpreter adds ``screen_v2`` for version 2 rule records
+(``schemas/rule-record-v2.schema.json``), chosen by the record's
+``schema_version``. A version 1 record (no ``schema_version``) runs through the
+code below unchanged, so its outputs are byte-identical to interpreter v1.
+
 It generalizes the S1 rules (``impact.hpt_hub_rules``) with two deliberate
 differences:
 
@@ -34,8 +39,9 @@ from faa_directive_impact.impact.hpt_hub_rules import (
     engine_record_problems,
     malformed_screen,
 )
+from faa_directive_impact.rules.screen_v2 import screen_rules_v2
 
-INTERPRETER_VERSION = 1
+INTERPRETER_VERSION = 2
 LATER = "whichever_occurs_later"
 FIRST = "whichever_occurs_first"
 TABLE_LIMIT = "listed_part_cycles_since_new"
@@ -55,12 +61,37 @@ def screen_rules(rules: dict[str, Any], asset: dict[str, Any], as_of: date) -> S
     fields that failed (``engine_record_problems``), as in S1.
     """
     problems = engine_record_problems(asset)
+    if not problems and rules.get("schema_version") == "2":
+        problems = _v2_record_problems(asset)
     if problems:
         return malformed_screen(
             rules["final_rule_document"], rules["ad_number"], problems
         )
+    if rules.get("schema_version") == "2":
+        return screen_rules_v2(rules, asset, as_of)
     run = _Run(rules, asset, as_of)
     return run.screen()
+
+
+def _v2_record_problems(asset: dict[str, Any]) -> list[tuple[str, str]]:
+    """Fields only version 2 records read, checked as the shared checks are."""
+    problems = []
+    serial = asset["engine"].get("engine_serial_number")
+    if serial is not None and not isinstance(serial, str):
+        problems.append(("engine.engine_serial_number", "is not a string"))
+    operator = asset.get("operator")
+    if operator is not None and not isinstance(operator, dict):
+        problems.append(("operator", "is not an object"))
+    elif operator is not None:
+        carrier = operator.get("air_carrier_operation")
+        if carrier is not None and carrier not in ("yes", "no", UNKNOWN):
+            problems.append(
+                (
+                    "operator.air_carrier_operation",
+                    f"is not yes, no, or unknown: {carrier!r}",
+                )
+            )
+    return problems
 
 
 class _Run:
