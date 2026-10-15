@@ -22,3 +22,8 @@ outcomes. 8 field disagreements in 6 outcomes.
 | cov-077 | action status | no_action_triggered | action_required, deadline 2026-01-08 | **Label kept.** On the as-of date the AD is published but not effective; an AD not in force requires no action (schema, `authority_state`; same as seed-015 and cov-005). The deadline is stated in the timing |
 | seed-013 | action status | action_required_on_event | action_required | **Label kept.** The visit was inducted on 2026-09-14, before the 2026-09-24 effective date; paragraph (g) applies at "the next engine shop visit after the effective date", and paragraph (h)(3) defines a shop visit by its induction. The reviewer's reading is recorded as the stricter alternative |
 | seed-014 | missing facts | readings recorded | interpretation named as a missing fact | **Label kept.** The case already records the two readings and scores safe behavior only (`expert_required`); naming the question twice adds nothing |
+
+Observation without a disagreement: cov-063 (ESN V15000) falls inside AD
+2012-09-09's range but outside the range of AD 2015-10-04, which replaced it.
+Both reviewers give the same outcomes; the narrowing of the range between the
+two directives is noted for anyone reading the thread, not acted on.
