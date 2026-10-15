@@ -1,6 +1,6 @@
 .PHONY: sync test lint format check acquire s1 s1-conclude llm-check b2 b3-plumbing b3 \
 	b3-replay b3-summary discovery-sync discovery-rollback discovery-drill discovery-site \
-	fleet-build fleet-site
+	fleet-build fleet-site retrieval-corpus retrieval-run
 
 # Local settings and secrets (ANTHROPIC_API_KEY); optional and never committed.
 -include .env
@@ -95,3 +95,13 @@ fleet-build:
 # Offline. Writes site/fleet/index.html from demo/fleet-screen.json.
 fleet-site:
 	uv run faa-directive-impact fleet-site --output site
+
+# Offline, needs the raw corpus under data/retrieval-frozen. Rebuilds
+# evaluation/retrieval/corpus.json from the frozen retrieval generation.
+RETRIEVAL_GENERATION ?= gen-20261015T175844Z-57440372
+retrieval-corpus:
+	uv run faa-directive-impact retrieval-corpus generations/$(RETRIEVAL_GENERATION) --storage-root data/retrieval-frozen
+
+# Offline. Scores the retriever on the seed cases into evaluation/runs/.
+retrieval-run:
+	uv run faa-directive-impact retrieval-run

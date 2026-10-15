@@ -72,15 +72,22 @@ A newly published in-scope directive becomes visible the day it syncs, as
 7. **Normalize and retrieve** — normalize the evaluated threads, establish a
    lexical baseline, add only justified retrieval techniques, and distinguish
    relevance from evidence sufficiency.
+   *Built and scored ([`evaluation/RETRIEVAL.md`](evaluation/RETRIEVAL.md)):
+   an identifier-match retriever over a frozen 57-document corpus with
+   near-neighbor distractors passes gate 14; no further technique was
+   justified. It found a sync scope bug, now fixed; re-reading the two
+   records already filed is a follow-up.*
 8. **Fleet-impact queues and demo fleet** — widen the queues to every
    evaluated directive. Build a realistic seeded demo fleet of about 100–300
    engines with the evaluation cases embedded, plausible part numbers and
    cycle counts, and engines affected by several directives at once. The
    evaluation cases are edge cases and are not the demo fleet.
-   *Demo fleet and fleet view built ([`demo/README.md`](demo/README.md)):
-   200 engines screened against AD 2025-19-13 (evaluated) and AD 2026-17-03
-   (not yet evaluated), replayed release by release. Queues for further
-   directives are not built.*
+   *Built ([`demo/README.md`](demo/README.md)): 200 engines, each screened
+   against the directives step 7 retrieval finds for it (16 across the
+   fleet). Queues come from AD 2025-19-13, the only evaluated directive; the
+   other 15 are shown beside them as not yet evaluated. Widening the
+   queues needs another directive to become evaluated, which needs a person
+   to confirm its cases.*
 9. **Harden operations** — observability, recovery and rollback drills,
    hostile-input checks, runbooks, security controls, and cost and latency
    measurements. Keep operating cost and attention low enough to run for a
@@ -96,6 +103,9 @@ A newly published in-scope directive becomes visible the day it syncs, as
    made every check, and the alert job has not yet run on a real failure.*
 10. **Evaluate a bounded agent** — only if fixed-workflow traces demonstrate a
    feedback-dependent limitation that an agent can improve safely.
+   *Decided: not justified ([`evaluation/AGENT_DECISION.md`](evaluation/AGENT_DECISION.md)).
+   None of the four limitations the vault names appears in the traces; the
+   residual failures need an authority's answer, not iteration.*
 
 ## User Evidence
 
@@ -161,6 +171,12 @@ deferred. Operations are hardened (step 9,
 Layer and Launch"), which needs the seeded demo fleet (step 8).
 
 ## Revisions
+
+- **2026-10-15 (b)** — The owner chose to finish every step that needs no
+  person (7 to 10) before the visuals. The evaluated claim stays AD
+  2025-19-13; other in-scope directives join retrieval and the fleet as
+  `not_yet_evaluated`. A static, offline-built retrieval index is now in
+  scope (AGENTS.md).
 
 - **2026-10-15** — The owner waived the planned hand-review sign-offs and
   deferred the practitioner review, to finish the episode quickly. Results

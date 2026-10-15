@@ -1,0 +1,39 @@
+{
+  "acquisition_run_id": "run-20261015T175844Z-57440372",
+  "acquisition_status": "succeeded",
+  "artifact": {
+    "byte_length": 19854,
+    "declared_media_type": "text/plain",
+    "detected_media_type": "text/html",
+    "relative_path": "raw/federal-register/2025-13660/run-20261015T175844Z-57440372/full-text.txt",
+    "sha256": "355264db4d3a592367e5c98a9beabe6b4098e6eb4bec6c84fc8c4395fab5b57c"
+  },
+  "authority_role": "evidence_projection",
+  "receipt_id": "receipt-20261015T180038Z-74bad85a",
+  "redistribution": {
+    "basis": "U.S. Government work, 17 U.S.C. 105; GovInfo policy permits reprinting with credit to the issuing agency (FAA). See REDISTRIBUTION.md.",
+    "status": "permitted"
+  },
+  "representation_role": "plain_text",
+  "request": {
+    "method": "GET",
+    "requested_url": "https://www.federalregister.gov/documents/full_text/text/2025/07/21/2025-13660.txt",
+    "resolved_url": "https://www.federalregister.gov/documents/full_text/text/2025/07/21/2025-13660.txt"
+  },
+  "response": {
+    "headers": {
+      "content_length": 19854,
+      "content_type": "text/plain",
+      "last_modified": "Tue, 29 Jul 2025 17:20:21 GMT"
+    },
+    "status_code": 200
+  },
+  "retrieval_id": "retrieval-20261015T180038Z-74bad85a",
+  "retrieved_at_utc": "2026-10-15T18:00:41Z",
+  "schema_version": "1.0.0",
+  "source_document_identity": {
+    "namespace": "federal_register_document_number",
+    "value": "2025-13660"
+  },
+  "source_system": "federal_register"
+}

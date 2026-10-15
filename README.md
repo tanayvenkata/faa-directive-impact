@@ -111,6 +111,8 @@ make discovery-sync       # live: search, read IAE directives in full, validate,
 make discovery-rollback   # offline: return to the previous promoted generation
 make discovery-drill      # rollback drill on a local copy of discovery-state; never pushes
 make discovery-site       # offline: write the freshness page to site/index.html
+make retrieval-corpus     # offline: normalize the frozen retrieval corpus (needs data/retrieval-frozen)
+make retrieval-run        # offline: score candidate retrieval on the seed cases
 make fleet-build          # offline: regenerate demo/fleet.json and demo/fleet-screen.json
 make fleet-site           # offline: write the fleet view to site/fleet/index.html
 ```

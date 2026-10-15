@@ -1,9 +1,9 @@
 """Read the fleet's inputs from the repository and write its recorded outputs.
 
 ``write_fleet`` regenerates ``demo/fleet.json`` and ``demo/fleet-screen.json``
-offline from committed inputs only: the seed cases, the normalized record kept
-with the S1 run, and the AD 2026-17-03 reference rule record. CI renders the
-page from the committed screen and never regenerates it.
+offline from committed inputs only: the seed cases, the retrieval corpus, the
+normalized record kept with the S1 run, and the reference rule records. CI
+renders the page from the committed screen and never regenerates it.
 """
 
 import json
@@ -19,7 +19,10 @@ SEED_CASES = Path("evaluation/seed/cases")
 HPT_HUB_RECORD = Path(
     "evaluation/runs/s1-20261006T223638Z-6a301b1/normalized-record.json"
 )
-HPC_BLADE_RULES = Path("evaluation/b3/reference/2026-16954.json")
+RETRIEVAL_CORPUS = Path("evaluation/retrieval/corpus.json")
+# Directives with a rule record the interpreter can apply. Each is
+# not_yet_evaluated: its seed labels are Claude drafts.
+RULE_RECORDS = {"2026-16954": Path("evaluation/b3/reference/2026-16954.json")}
 FLEET_FILE = Path("demo/fleet.json")
 FLEET_SCREEN_FILE = Path("demo/fleet-screen.json")
 
@@ -32,10 +35,15 @@ def compute_fleet(repo: Path) -> tuple[dict[str, Any], dict[str, Any]]:
     fleet = build_fleet(cases)
     screened = screen_fleet(
         fleet,
-        json.loads((repo / HPT_HUB_RECORD).read_text(encoding="utf-8")),
-        json.loads((repo / HPC_BLADE_RULES).read_text(encoding="utf-8")),
+        _read(repo / HPT_HUB_RECORD),
+        {document: _read(repo / path) for document, path in RULE_RECORDS.items()},
+        _read(repo / RETRIEVAL_CORPUS),
     )
     return fleet, screened
+
+
+def _read(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def dump(value: Any) -> str:

@@ -1,0 +1,42 @@
+{
+  "acquisition_run_id": "run-20261015T175844Z-57440372",
+  "acquisition_status": "succeeded",
+  "artifact": {
+    "byte_length": 11759,
+    "declared_media_type": "text/xml",
+    "detected_media_type": "application/xml",
+    "relative_path": "raw/govinfo/2019-17403/run-20261015T175844Z-57440372/mods.xml",
+    "sha256": "c62d476a19d4afc66caebf7d1973f76a7595d4cbafab7a1316789c1e0963e300"
+  },
+  "authority_role": "bibliographic_metadata",
+  "parent_document_identity": {
+    "namespace": "federal_register_document_number",
+    "value": "2019-17403"
+  },
+  "receipt_id": "receipt-20261015T175902Z-42738838",
+  "redistribution": {
+    "basis": "U.S. Government work, 17 U.S.C. 105; GovInfo policy permits reprinting with credit to the issuing agency (FAA). See REDISTRIBUTION.md.",
+    "status": "permitted"
+  },
+  "representation_role": "mods_xml",
+  "request": {
+    "method": "GET",
+    "requested_url": "https://www.govinfo.gov/metadata/granule/FR-2019-08-15/2019-17403/mods.xml",
+    "resolved_url": "https://www.govinfo.gov/metadata/granule/FR-2019-08-15/2019-17403/mods.xml"
+  },
+  "response": {
+    "headers": {
+      "content_disposition": "inline; filename=\"mods.xml\"",
+      "content_type": "text/xml;charset=UTF-8"
+    },
+    "status_code": 200
+  },
+  "retrieval_id": "retrieval-20261015T175902Z-42738838",
+  "retrieved_at_utc": "2026-10-15T17:59:03Z",
+  "schema_version": "1.0.0",
+  "source_document_identity": {
+    "namespace": "govinfo_package_granule",
+    "value": "FR-2019-08-15/2019-17403"
+  },
+  "source_system": "govinfo"
+}

@@ -8,7 +8,7 @@ Scope rules for this phase:
 
 - **Model calls run only inside evaluation runs.** Use the Anthropic Python SDK through `src/faa_directive_impact/llm/`. Every request and response is saved in the run directory with its model, settings, tokens, and cost, so a run can be re-scored without calling the model. Tests replay saved responses and never call a model. The API key comes from the environment (`.env`, git-ignored), never from code or commits.
 - **Never tune a prompt against the scored cases.** A plumbing check may confirm the output parses; then the prompt is frozen and versioned before any scored run. Never put labels, rationales, or adjudication answers into a prompt.
-- **Static hosting only.** The site is static files on GitHub Pages. No server, database, retrieval index, or agent yet.
+- **Static hosting only.** The site is static files on GitHub Pages. No server, database, or agent. The step 7 retrieval index is built offline from committed records (`evaluation/retrieval/corpus.json`) and is never the source of truth.
 - **The evaluated claim stays AD 2025-19-13.** A model scoring on other directives does not widen it.
 - Never edit `evaluation/GATES.md` or a seed case to make a run pass; follow its "Disputed Labels" section.
 
@@ -79,6 +79,10 @@ management, and a root `Makefile` as the documented command entry point.
   `operations/drills/`; hardening record: `operations/HARDENING.md`.
 - `make discovery-site` — offline; write the static freshness page to
   `site/index.html`. Operations: `DISCOVERY_SYNC.md`.
+- `make retrieval-corpus` — offline, needs `data/retrieval-frozen/`;
+  normalize the frozen retrieval generation into
+  `evaluation/retrieval/corpus.json`. `make retrieval-run` — offline; score
+  candidate retrieval on the seed cases (`evaluation/RETRIEVAL.md`).
 - `make fleet-build` — offline; regenerate the seeded demo fleet and its
   recorded screens (`demo/`). `make fleet-site` — offline; write the fleet
   view to `site/fleet/index.html` from `demo/fleet-screen.json`.

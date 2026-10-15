@@ -120,16 +120,28 @@ def classify_applicability(xml_bytes: bytes, document_number: str) -> ScopeDecis
 
 
 def applicability_statement(root: Element) -> str | None:
-    """Return the first paragraph under the "(c) Applicability" heading."""
+    """Return the first statement under the "(c) Applicability" heading.
+
+    When the first paragraph is only a lead-in ending in a colon ("This AD
+    applies to:"), the models follow as a list in the next paragraphs, so
+    those are read too, up to the next heading. Reading the lead-in alone
+    found no V2500 model and sent such directives out of scope unreviewed.
+    """
     elements = list(root.iter())
     for index, element in enumerate(elements):
         if element.tag != "HD" or not APPLICABILITY_HEADING.fullmatch(_text(element)):
             continue
+        paragraphs = []
         for following in elements[index + 1 :]:
             if following.tag == "HD":
-                return None
-            if following.tag == "P":
-                return _text(following)
+                break
+            if following.tag in ("P", "FP"):
+                paragraphs.append(_text(following))
+        if not paragraphs:
+            return None
+        if paragraphs[0].endswith(":"):
+            return " ".join(paragraphs)
+        return paragraphs[0]
     return None
 
 
