@@ -1,0 +1,265 @@
+{
+  "schema_version": "2",
+  "ad_number": "AD 2020-07-51",
+  "final_rule_document": "2020-07627",
+  "governing_document": {
+    "document": "2020-07627",
+    "reason": "The final rule; no correction was published."
+  },
+  "corrections": [],
+  "effective_date": {
+    "date": "2020-04-28",
+    "paragraph": "(a)",
+    "emergency_ad": {
+      "ad_number": "AD 2020-07-51",
+      "issued": "2020-03-21"
+    }
+  },
+  "relationships": [],
+  "dependencies": [
+    {
+      "id": "table1",
+      "title": "Table 1 to paragraph (g)(1) (image ER13AP20.000): engine and HPT 1st-stage disk serial pairs",
+      "kind": "image_only_figure",
+      "holds": "engine_serial_numbers",
+      "paragraph": "(g)(1)"
+    }
+  ],
+  "parts": [
+    {
+      "id": "disk1_c",
+      "component": "HPT 1st-stage disk",
+      "aliases": [
+        "HPT 1st-stage hub",
+        "HPT stage 1 hub"
+      ],
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed",
+      "listed": [
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR37442",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR38359",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR73862",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR73289",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR73270",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR38981",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR38661",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR40207",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR37445",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR73861",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR73268",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR38629",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBSC8047",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR38979",
+          "cycles_since_new_limit": null
+        }
+      ],
+      "dependency": "",
+      "paragraph": "(c)"
+    },
+    {
+      "id": "disk1_g2",
+      "component": "HPT 1st-stage disk",
+      "aliases": [
+        "HPT 1st-stage hub",
+        "HPT stage 1 hub"
+      ],
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed",
+      "listed": [
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR37442",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR38661",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR40207",
+          "cycles_since_new_limit": null
+        }
+      ],
+      "dependency": "",
+      "paragraph": "(g)(2)"
+    }
+  ],
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2533-A5"
+    ],
+    "models_paragraph": "(c)",
+    "engine_serials": [],
+    "parts": [
+      "disk1_c"
+    ],
+    "parts_combine": "any",
+    "parts_paragraph": "(c)"
+  },
+  "eligible_parts": [],
+  "required_actions": [
+    {
+      "paragraph": "(g)(1)",
+      "description": "For an engine and disk pair listed in table 1, remove the HPT 1st-stage disk from service.",
+      "kind": "remove",
+      "models": [],
+      "target": "disk1_c",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "table1"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 5,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(2)",
+      "description": "Review the engine records within 3 calendar days for a disk with S/N PKLBR37442, PKLBR38661, or PKLBR40207; if one is installed, remove it from service within 5 flight cycles after that determination.",
+      "kind": "remove",
+      "models": [],
+      "target": "disk1_g2",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 5,
+          "date": null,
+          "anchor_offset_days": 3,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(2)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    }
+  ],
+  "continuing_obligations": [],
+  "credit_for_previous_actions": [],
+  "definitions": [],
+  "amoc_paragraph": "(h)",
+  "ambiguities": [
+    {
+      "paragraph": "(g)(2)",
+      "description": "Paragraph (g)(2) covers \"all other affected engines\" but names only 3 of the 14 disk serials in (c). An engine with one of the other 11 disks whose engine and disk pair is not in table 1 has no stated action.",
+      "readings": [
+        "No action for it.",
+        "The disk is still affected under (c) and needs a person's decision."
+      ]
+    },
+    {
+      "paragraph": "(g)(2)",
+      "description": "The removal is due within 5 FCs after the records determination, which may be made any time within 3 days; the latest deadline (5 FCs after day 3) is used here.",
+      "readings": [
+        "Latest: 5 FCs after the engine counter on 2020-05-01.",
+        "5 FCs after the actual determination date."
+      ]
+    },
+    {
+      "paragraph": "(a)",
+      "description": "Effective on actual notice of Emergency AD 2020-07-51 (issued March 21, 2020), so the clocks start on each operator's notice date for those who had it.",
+      "readings": [
+        "From the operator's date of actual notice.",
+        "From April 28, 2020, without actual notice."
+      ]
+    }
+  ],
+  "notes": [
+    "V2531-E5 is not in paragraph (c)."
+  ]
+}

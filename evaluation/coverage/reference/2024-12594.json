@@ -1,0 +1,781 @@
+{
+  "schema_version": "2",
+  "ad_number": "AD 2024-11-03",
+  "final_rule_document": "2024-12594",
+  "governing_document": {
+    "document": "2024-12594",
+    "reason": "The final rule; no correction was published."
+  },
+  "corrections": [],
+  "effective_date": {
+    "date": "2024-06-26",
+    "paragraph": "(a)",
+    "emergency_ad": null
+  },
+  "relationships": [
+    {
+      "type": "related",
+      "ad_number": "AD 2022-02-09",
+      "document": "2022-02574",
+      "effective_date": null,
+      "stated_in": "2024-12594",
+      "paragraph": "(b)",
+      "description": "This AD is related to AD 2022-02-09."
+    },
+    {
+      "type": "terminates_by_compliance",
+      "ad_number": "AD 2022-02-09",
+      "document": "2022-02574",
+      "effective_date": null,
+      "stated_in": "2024-12594",
+      "paragraph": "(i)",
+      "description": "Compliance with paragraph (g)(1) of this AD satisfies the requirements of AD 2022-02-09."
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "hub1_ausi_list",
+      "title": "IAE AG NMSB V2500-ENG-72-0720 (November 20, 2023) Table 1, and PW SI No. 189F-23 (November 20, 2023) Table 1 (V2531-E5)",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(1)"
+    },
+    {
+      "id": "hub2_ausi_list",
+      "title": "IAE AG NMSB V2500-ENG-72-0720 (November 20, 2023) Table 2, and PW SI No. 189F-23 (November 20, 2023) Table 2 (V2531-E5)",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(1)"
+    },
+    {
+      "id": "hub1_t3_list",
+      "title": "IAE AG NMSB V2500-ENG-72-0720 (November 20, 2023) Table 3",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(5)"
+    },
+    {
+      "id": "hub2_t4_list",
+      "title": "IAE AG NMSB V2500-ENG-72-0720 (November 20, 2023) Table 4",
+      "kind": "incorporated_by_reference",
+      "holds": "serial_numbers",
+      "paragraph": "(g)(5)"
+    },
+    {
+      "id": "ausi_procedure",
+      "title": "IAE AG NMSB V2500-ENG-72-0720 (November 20, 2023) and PW SI No. 189F-23 (November 20, 2023), Accomplishment Instructions, paragraphs 5 and 6",
+      "kind": "incorporated_by_reference",
+      "holds": "procedure",
+      "paragraph": "(l)(2)"
+    }
+  ],
+  "parts": [
+    {
+      "id": "hub1_ausi",
+      "component": "HPT 1st-stage hub",
+      "aliases": [
+        "HPT 1st-stage disk",
+        "HPT stage 1 hub"
+      ],
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "hub1_ausi_list",
+      "paragraph": "(g)(1)"
+    },
+    {
+      "id": "hub2_ausi",
+      "component": "HPT 2nd-stage hub",
+      "aliases": [
+        "HPT 2nd-stage disk",
+        "HPT stage 2 hub"
+      ],
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "hub2_ausi_list",
+      "paragraph": "(g)(1)"
+    },
+    {
+      "id": "hub1_t3",
+      "component": "HPT 1st-stage hub",
+      "aliases": [
+        "HPT 1st-stage disk",
+        "HPT stage 1 hub"
+      ],
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "hub1_t3_list",
+      "paragraph": "(g)(5)"
+    },
+    {
+      "id": "hub2_t4",
+      "component": "HPT 2nd-stage hub",
+      "aliases": [
+        "HPT 2nd-stage disk",
+        "HPT stage 2 hub"
+      ],
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed_in_dependency",
+      "listed": [],
+      "dependency": "hub2_t4_list",
+      "paragraph": "(g)(5)"
+    }
+  ],
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2525-D5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2528-D5",
+      "V2530-A5",
+      "V2531-E5",
+      "V2533-A5"
+    ],
+    "models_paragraph": "(c)",
+    "engine_serials": [],
+    "parts": [],
+    "parts_combine": "any",
+    "parts_paragraph": ""
+  },
+  "eligible_parts": [],
+  "required_actions": [
+    {
+      "paragraph": "(g)(1)",
+      "description": "Perform an AUSI of the HPT 1st-stage hub for cracks (table 1 rows 1 and 2).",
+      "kind": "inspect",
+      "models": [],
+      "target": "hub1_ausi",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "no angled ultrasonic inspection (AUSI) has been performed on the hub",
+          "paragraph": "(g)(1)"
+        },
+        {
+          "description": "the hub has operated in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine ((h)(3))",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "engine_shop_visit",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": [
+          "(h)(4)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 100,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(1)",
+      "description": "Perform an AUSI of the HPT 1st-stage hub for cracks (table 1 row 3).",
+      "kind": "inspect",
+      "models": [],
+      "target": "hub1_ausi",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "no angled ultrasonic inspection (AUSI) has been performed on the hub",
+          "paragraph": "(g)(1)"
+        },
+        {
+          "description": "the hub has never operated in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine ((h)(3))",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "engine_shop_visit",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": [
+          "(h)(4)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 700,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(1)",
+      "description": "Perform an AUSI of the HPT 2nd-stage hub for cracks (table 1 rows 4 and 5).",
+      "kind": "inspect",
+      "models": [],
+      "target": "hub2_ausi",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "no angled ultrasonic inspection (AUSI) has been performed on the hub",
+          "paragraph": "(g)(1)"
+        },
+        {
+          "description": "the hub has operated in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine ((h)(3))",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "engine_shop_visit",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": [
+          "(h)(4)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 800,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(1)",
+      "description": "Perform an AUSI of the HPT 2nd-stage hub for cracks (table 1 row 6).",
+      "kind": "inspect",
+      "models": [],
+      "target": "hub2_ausi",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "no angled ultrasonic inspection (AUSI) has been performed on the hub",
+          "paragraph": "(g)(1)"
+        },
+        {
+          "description": "the hub has never operated in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine ((h)(3))",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "engine_shop_visit",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": [
+          "(h)(4)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 1100,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(2)",
+      "description": "Within 4,000 FCs from the AUSI or at the next HPT module removal after the AUSI, whichever occurs first, remove the inspected hub from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "hub1_ausi",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the hub was inspected under (g)(1), or is an AUSI-inspected hub installed on or after November 1, 2023",
+          "paragraph": "(g)(2)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "prior_action",
+        "recurrence": "next",
+        "condition": "accomplishment of the AUSI",
+        "definition_paragraphs": [
+          "(h)(2)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_prior_action",
+          "value": 4000,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(2)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(2)",
+      "description": "Within 4,000 FCs from the AUSI or at the next HPT module removal after the AUSI, whichever occurs first, remove the inspected hub from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "hub2_ausi",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the hub was inspected under (g)(1), or is an AUSI-inspected hub installed on or after November 1, 2023",
+          "paragraph": "(g)(2)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "prior_action",
+        "recurrence": "next",
+        "condition": "accomplishment of the AUSI",
+        "definition_paragraphs": [
+          "(h)(2)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_prior_action",
+          "value": 4000,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(2)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(3)",
+      "description": "If a crack is found during the (g)(1) inspection, before further flight remove the part from service and replace it with a part eligible for installation.",
+      "kind": "replace_if_finding",
+      "models": [],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(4)",
+      "description": "Remove the HPT 1st-stage hub from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "hub1_ausi",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the AUSI-inspected hub was installed before November 1, 2023 ((h)(5))",
+          "paragraph": "(g)(4)"
+        },
+        {
+          "description": "the hub has operated in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine ((h)(3))",
+          "paragraph": "(g)(4)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "HPT module removal (HPT rotor and stator assembly removed from the engine)",
+        "definition_paragraphs": [
+          "(h)(2)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 1800,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(4)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(4)",
+      "description": "Remove the HPT 1st-stage hub from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "hub1_ausi",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the AUSI-inspected hub was installed before November 1, 2023 ((h)(5))",
+          "paragraph": "(g)(4)"
+        },
+        {
+          "description": "the hub has never operated in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine ((h)(3))",
+          "paragraph": "(g)(4)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "HPT module removal (HPT rotor and stator assembly removed from the engine)",
+        "definition_paragraphs": [
+          "(h)(2)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 2800,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(4)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(4)",
+      "description": "Remove the HPT 2nd-stage hub from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "hub2_ausi",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the AUSI-inspected hub was installed before November 1, 2023 ((h)(5))",
+          "paragraph": "(g)(4)"
+        },
+        {
+          "description": "the hub has operated in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine ((h)(3))",
+          "paragraph": "(g)(4)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "HPT module removal (HPT rotor and stator assembly removed from the engine)",
+        "definition_paragraphs": [
+          "(h)(2)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 3400,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(4)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(4)",
+      "description": "Remove the HPT 2nd-stage hub from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "hub2_ausi",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the AUSI-inspected hub was installed before November 1, 2023 ((h)(5))",
+          "paragraph": "(g)(4)"
+        },
+        {
+          "description": "the hub has never operated in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine ((h)(3))",
+          "paragraph": "(g)(4)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "HPT module removal (HPT rotor and stator assembly removed from the engine)",
+        "definition_paragraphs": [
+          "(h)(2)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 3800,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(4)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(5)",
+      "description": "Remove the HPT 1st-stage hub from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "hub1_t3",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the hub has operated in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine ((h)(3))",
+          "paragraph": "(g)(5)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "HPT module removal (HPT rotor and stator assembly removed from the engine)",
+        "definition_paragraphs": [
+          "(h)(2)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 1800,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(5)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(5)",
+      "description": "Remove the HPT 1st-stage hub from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "hub1_t3",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the hub has never operated in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine ((h)(3))",
+          "paragraph": "(g)(5)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "HPT module removal (HPT rotor and stator assembly removed from the engine)",
+        "definition_paragraphs": [
+          "(h)(2)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 2800,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(5)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(5)",
+      "description": "Remove the HPT 2nd-stage hub from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "hub2_t4",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the hub has operated in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine ((h)(3))",
+          "paragraph": "(g)(5)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "HPT module removal (HPT rotor and stator assembly removed from the engine)",
+        "definition_paragraphs": [
+          "(h)(2)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 3400,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(5)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(5)",
+      "description": "Remove the HPT 2nd-stage hub from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "hub2_t4",
+      "operator_condition": "",
+      "unrecorded_conditions": [
+        {
+          "description": "the hub has never operated in a V2527E-A5, V2527M-A5, V2528-D5, V2530-A5, V2531-E5, or V2533-A5 engine ((h)(3))",
+          "paragraph": "(g)(5)"
+        }
+      ],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "HPT module removal (HPT rotor and stator assembly removed from the engine)",
+        "definition_paragraphs": [
+          "(h)(2)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 3800,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(5)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    }
+  ],
+  "continuing_obligations": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "term": "part eligible for installation",
+      "paragraph": "(h)(1)"
+    },
+    {
+      "term": "HPT module removal",
+      "paragraph": "(h)(2)"
+    },
+    {
+      "term": "Previously operated in high-thrust model engine",
+      "paragraph": "(h)(3)"
+    },
+    {
+      "term": "engine shop visit",
+      "paragraph": "(h)(4)"
+    },
+    {
+      "term": "date an AUSI inspected part was installed",
+      "paragraph": "(h)(5)"
+    }
+  ],
+  "amoc_paragraph": "(j)",
+  "ambiguities": [
+    {
+      "paragraph": "(h)(1)",
+      "description": "The definition of a part eligible for installation names an \"HPT 1st-stage disk or HPT 2nd-stage disk\", while paragraphs (c) to (g) say \"hub\". The same P/Ns are meant, but the text does not say so.",
+      "readings": [
+        "Hub and disk are the same parts (P/N 2A5001, 2A4802).",
+        "The definition covers different parts, leaving hub eligibility undefined."
+      ]
+    },
+    {
+      "paragraph": "(g)(1)",
+      "description": "\"With no angled ultrasonic inspection (AUSI) performed\" does not say whether an AUSI done before the effective date, or under other instructions, counts.",
+      "readings": [
+        "Any earlier AUSI counts and (g)(1) does not apply; (g)(2) or (g)(4) does.",
+        "Only an AUSI per the listed service information counts."
+      ]
+    },
+    {
+      "paragraph": "(g)(2)",
+      "description": "\"AUSI inspected parts installed on or after November 1, 2023\" does not say whether the hub must also be listed in the service bulletin tables.",
+      "readings": [
+        "Only listed hubs (the population of (g)(1)).",
+        "Any hub that has had an AUSI."
+      ]
+    }
+  ],
+  "notes": [
+    "Every hub S/N list is in IAE AG NMSB V2500-ENG-72-0720 or PW SI No. 189F-23, incorporated by reference and not available, so an engine with P/N 2A5001 or 2A4802 installed goes to review naming the table.",
+    "Table 1 and table 2 limits depend on whether the hub has operated in a high-thrust model engine ((h)(3)), which no engine record field holds; each row is a separate action with that condition."
+  ]
+}

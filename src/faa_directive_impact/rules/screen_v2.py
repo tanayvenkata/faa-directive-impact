@@ -32,6 +32,8 @@ from dataclasses import dataclass, field
 from datetime import date, timedelta
 from typing import Any
 
+from jsonschema import Draft202012Validator
+
 from faa_directive_impact.impact.hpt_hub_rules import (
     SUPPORTED_ENGINE_MODELS,
     UNKNOWN,
@@ -39,6 +41,7 @@ from faa_directive_impact.impact.hpt_hub_rules import (
     HubFinding,
     Screen,
 )
+from faa_directive_impact.schema_validation import load_schema
 
 STATUS_ORDER = (
     "needs_review",
@@ -92,6 +95,56 @@ def screen_rules_v2(
 ) -> Screen:
     """Screen a well-formed engine snapshot (checked by the caller)."""
     return _Run(rules, asset, as_of).screen()
+
+
+def rule_record_problems(rules: dict[str, Any]) -> list[str]:
+    """Schema errors and dangling ids in a version 2 rule record; empty if sound."""
+    validator = Draft202012Validator(load_schema("rule-record-v2.schema.json"))
+    problems = [
+        f"{'/'.join(map(str, error.path)) or 'record'}: {error.message}"
+        for error in validator.iter_errors(rules)
+    ]
+    if problems:
+        return problems
+    groups = {g["id"] for g in rules["parts"]}
+    dependencies = {d["id"] for d in rules["dependencies"]}
+    for group in rules["parts"]:
+        if (group["serials"] == "listed_in_dependency") != bool(group["dependency"]):
+            problems.append(
+                f"part {group['id']}: dependency must be set exactly when serials "
+                "is listed_in_dependency"
+            )
+        if group["dependency"] and group["dependency"] not in dependencies:
+            problems.append(
+                f"part {group['id']}: unknown dependency {group['dependency']}"
+            )
+    problems += [
+        f"applicability: unknown part group {p}"
+        for p in rules["applicability"]["parts"]
+        if p not in groups
+    ]
+    problems += [
+        f"eligible part: unknown part group {e['part_group']}"
+        for e in rules["eligible_parts"]
+        if e["part_group"] not in groups
+    ]
+    for action in rules["required_actions"]:
+        where = f"action {action['paragraph']}"
+        if action["target"] and action["target"] not in groups:
+            problems.append(f"{where}: unknown target {action['target']}")
+        problems += [
+            f"{where}: unknown dependency {d}"
+            for d in action["dependencies"]
+            if d not in dependencies
+        ]
+        for limit in action["limits"]:
+            if limit["dependency"] and limit["dependency"] not in dependencies:
+                problems.append(
+                    f"{where}: unknown limit dependency {limit['dependency']}"
+                )
+            if limit["role"] == "caps_event" and action["trigger"]["event"] == "none":
+                problems.append(f"{where}: a caps_event limit needs a triggering event")
+    return problems
 
 
 class _Run:
@@ -476,6 +529,17 @@ class _Run:
         part_number = component["part_number"]
         serial = component["serial_number"]
         paragraph = group["paragraph"]
+        if not group["part_numbers"]:
+            # The directive names the position but prints no P/N: any part there.
+            self.cite(paragraph, f"the {name} is the part named", None)
+            return HubFinding(
+                name,
+                part_number if part_number != UNKNOWN else None,
+                serial,
+                "matched",
+                f"The {name} is the part paragraph {paragraph} names.",
+                table_row={"part_number": part_number, "serial_number": None},
+            )
         if part_number == UNKNOWN:
             self.missing(f"installed_components[{name}].part_number")
             self.cite(paragraph, f"{name} P/N unknown")
@@ -653,7 +717,7 @@ class _Run:
                     "the engine is in air carrier operation, which the record does "
                     "not show."
                 )
-                return "needs_review", False
+                return None, False
 
         # From here, an action blocked only by a missing fact returns no status
         # of its own: the fact is named, and the screen goes to review unless
@@ -668,6 +732,10 @@ class _Run:
                 self.cite(paragraph, "the action depends on the installed part")
                 return None, False
             parts = [f for f in state.findings if f.outcome == "matched"]
+            if action["csn_band_at_effective_date"] is not None:
+                parts = [p for p in parts if self._in_band(action, p)]
+                if not parts:
+                    return None, False
 
         if action["dependencies"]:
             for dependency_id in action["dependencies"]:
@@ -702,7 +770,17 @@ class _Run:
                 action, "an action with no event and no limit"
             ), False
         for limit in action["limits"]:
-            if limit["kind"] == "other" or limit["dependency"]:
+            if limit["dependency"]:
+                title = self.dependencies[limit["dependency"]]["title"]
+                self.missing(f"{title} (unavailable incorporated material)")
+                self.cite(
+                    limit["paragraph"], "a limit printed only in unavailable material"
+                )
+                return None, False
+            if limit["kind"] == "other" or (
+                limit["kind"] == "flight_cycles_after_prior_action"
+                and action["trigger"]["event"] != "prior_action"
+            ):
                 return self._unsupported(action, "one of its limits"), False
             if (
                 limit["kind"]
@@ -715,10 +793,8 @@ class _Run:
 
         trigger = action["trigger"]
         self.cite(paragraph, "the required action and its compliance time")
-        if trigger["definition_paragraph"]:
-            self.cite(
-                trigger["definition_paragraph"], "how the triggering event is defined"
-            )
+        for definition in trigger["definition_paragraphs"]:
+            self.cite(definition, "how the triggering event is defined")
         if trigger["event"] == "prior_action":
             self.timing_parts.append(
                 f"Paragraph {paragraph}: {action['description']} It is counted from "
@@ -742,6 +818,41 @@ class _Run:
             statuses.append(status)
             passed_all = passed_all and passed
         return min(statuses, key=STATUS_ORDER.index), passed_all
+
+    def _in_band(self, action: dict[str, Any], part: HubFinding) -> bool:
+        """Whether a part's cycles since new on the effective date are in the band."""
+        band = action["csn_band_at_effective_date"]
+        csn = self._csn_at_effective(part)
+        if csn is None:
+            self.missing(
+                f"installed_components[{part.position}]"
+                f".cycles_since_new_readings[{self.effective.isoformat()}]"
+            )
+            self.cite(
+                action["paragraph"], "the compliance time depends on the part's cycles"
+            )
+            return False
+        inside = (band["min"] is None or csn >= band["min"]) and (
+            band["max"] is None or csn <= band["max"]
+        )
+        if inside:
+            self.cite(
+                action["paragraph"],
+                f"the {part.position} had {csn:,} cycles since new on the effective date",
+            )
+        return inside
+
+    def _csn_at_effective(self, part: HubFinding) -> int | None:
+        component = next(
+            c
+            for c in self.asset["installed_components"]
+            if c["component_name"] == part.position
+        )
+        # Part cycles come from the part's own record, never from engine cycles.
+        return {
+            date.fromisoformat(r["at"]): r["cycles_since_new"]
+            for r in component.get("cycles_since_new_readings") or []
+        }.get(self.effective)
 
     def _timed(
         self, action: dict[str, Any], part: HubFinding | None
@@ -779,8 +890,16 @@ class _Run:
         )
         if len(timings) > 1 and not same_numbers:
             self._event_unsettled_note(action, readings)
-        if first.status == "readings_differ":
+        if first.readings:
+            # Reported whenever both readings exist, as interpreter v1 does.
             self.readings.append(first.readings)
+            if part:
+                part.readings = first.readings
+        if first.remaining is not None:
+            self.remaining.append(first.remaining)
+            if part:
+                part.component_cycles_remaining = first.remaining
+        if first.status == "readings_differ":
             self.note(
                 f"Paragraph {paragraph} reads two ways for {where}: counter "
                 f"{first.readings['A']:,} (A, the event before the cap or the "
@@ -788,21 +907,16 @@ class _Run:
                 "event, but no earlier than the later of the cap and the "
                 "alternative). A person must decide."
             )
-            if part:
-                part.readings = first.readings
             self.timing_parts.append(first.text)
             return "needs_review", False
-        for fact in first.missing:
-            self.missing(fact)
+        if verdict == "needs_review":
+            for fact in first.missing:
+                self.missing(fact)
 
         if same_numbers and first.counter is not None:
             self.latest.append(first.counter)
             if part:
                 part.latest_engine_flight_cycles = first.counter
-        if first.remaining is not None:
-            self.remaining.append(first.remaining)
-            if part:
-                part.component_cycles_remaining = first.remaining
         if part:
             part.timing = first.text
         self.timing_parts.append(first.text)
@@ -824,15 +938,16 @@ class _Run:
         """The status a timing gives, before operator records are read."""
         if timing.status in ("unknown", "readings_differ"):
             return "needs_review"
-        if remove:
-            # An installed part a removal names means the removal is open.
-            if timing.status == "open":
-                return "action_required_on_event"
-            if emergency and timing.status == "pending":
-                return "needs_review_notice"
-            return "action_required"
         if timing.status == "open":
             return "action_required_on_event"
+        if remove:
+            # An installed part a removal names means the removal is open,
+            # whether or not its compliance time has passed.
+            if emergency and timing.status in ("pending", "undetermined"):
+                return "needs_review_notice"
+            return "action_required"
+        if timing.status == "undetermined":
+            return "needs_review"
         if timing.status == "pending":
             return "needs_review_notice" if emergency else "action_required"
         return "passed"
@@ -933,11 +1048,26 @@ class _Run:
             leg, more, left = self._limit(limit, part)
             missing.extend(more)
             if left is not None:
-                remaining = left
+                remaining = left if remaining is None else min(remaining, left)
             {"caps_event": caps, "alternative": alternatives, "overall_cap": overall}[
                 limit["role"]
             ].append(leg)
         if missing:
+            # A calendar leg that has passed settles a whichever-first deadline
+            # (or an overall cap) even while a cycle leg cannot be computed.
+            settling = overall + (
+                [] if action["combination"] == LATER else caps + alternatives
+            )
+            passed = [d for _, d in settling if d is not None and self.as_of > d]
+            if passed:
+                return _Timing(
+                    "passed",
+                    on_date=min(passed),
+                    remaining=remaining,
+                    text=self._due_text(
+                        action, part, event, None, min(passed), remaining
+                    ),
+                )
             return _Timing(
                 "unknown", missing=missing, text=self._gap_text(action, part, missing)
             )
@@ -1020,21 +1150,19 @@ class _Run:
                 "open", remaining=remaining, text=self._open_text(action, part)
             )
         counter, on_date = combined
+        unknown: list[str] = []
         if event.occurred and event.at and combination != LATER:
             status = "passed"
         else:
+            # undetermined: the deadline is known, but not whether it has passed.
             status, unknown = self._passed(counter, on_date)
-            if status == "unknown":
-                return _Timing(
-                    "unknown",
-                    missing=unknown,
-                    text=self._gap_text(action, part, unknown),
-                )
         return _Timing(
             status,
             counter=counter,
             on_date=on_date,
             remaining=remaining,
+            readings=readings,
+            missing=unknown,
             text=self._due_text(action, part, event, counter, on_date, remaining),
         )
 
@@ -1057,11 +1185,11 @@ class _Run:
                     None,
                 )
             return (at_anchor + limit["value"], None), [], None
-        # part_cycles_since_new: the engine counter at which the part reaches it.
+        # Part limits: the engine counter at which the target part reaches them.
         if part is None or part.table_row is None:
             return (
                 (None, None),
-                ["part_cycles_since_new limit without a target part"],
+                [f"the part whose cycles paragraph {limit['paragraph']} counts"],
                 None,
             )
         value = limit["value"]
@@ -1102,6 +1230,8 @@ class _Run:
             return (None, None), missing, None
         assert at_effective is not None and csn_at_effective is not None
         assert isinstance(csn_now, int)
+        if kind == "part_cycles_after_effective_date":
+            value += csn_at_effective
         return (at_effective + (value - csn_at_effective), None), [], value - csn_now
 
     def _counter_at(self, when: date) -> int | None:
@@ -1113,14 +1243,18 @@ class _Run:
     def _passed(
         self, counter: int | None, on_date: date | None
     ) -> tuple[str, list[str]]:
-        """Whether a deadline has passed by the as-of date: passed, pending, or unknown."""
+        """Whether a deadline has passed by the as-of date.
+
+        passed, pending, or undetermined (the engine counter on the as-of date
+        is not recorded, so a cycle deadline cannot be placed).
+        """
         if on_date is not None and self.as_of > on_date:
             return "passed", []
         if counter is None:
             return "pending", []
         now = self._counter_at(self.as_of)
         if now is None:
-            return "unknown", [
+            return "undetermined", [
                 f"engine.engine_cycle_readings[{self.as_of.isoformat()}]"
             ]
         return ("passed" if now > counter else "pending"), []

@@ -1,0 +1,151 @@
+{
+  "schema_version": "2",
+  "ad_number": "AD 2019-16-01",
+  "final_rule_document": "2019-17403",
+  "governing_document": {
+    "document": "2019-17403",
+    "reason": "The final rule; no correction was published."
+  },
+  "corrections": [],
+  "effective_date": {
+    "date": "2019-09-19",
+    "paragraph": "(a)",
+    "emergency_ad": null
+  },
+  "relationships": [],
+  "dependencies": [
+    {
+      "id": "n0694",
+      "title": "IAE NMSB V2500-ENG-72-0694, Revision No. 2 (July 2, 2018), Accomplishment Instructions",
+      "kind": "incorporated_by_reference",
+      "holds": "procedure",
+      "paragraph": "(n)(2)"
+    }
+  ],
+  "parts": [],
+  "applicability": {
+    "engine_models": [
+      "V2525-D5",
+      "V2528-D5"
+    ],
+    "models_paragraph": "(c)",
+    "engine_serials": [],
+    "parts": [],
+    "parts_combine": "any",
+    "parts_paragraph": ""
+  },
+  "eligible_parts": [],
+  "required_actions": [
+    {
+      "paragraph": "(g)(1)",
+      "description": "Perform an eddy current inspection and high sensitivity fluorescent penetrant inspection of the turbine exhaust case (TEC) front and rear mount stiffener rails for cracking.",
+      "kind": "inspect",
+      "models": [],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "engine_shop_visit",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": [
+          "(j)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 4000,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(2)",
+      "description": "If no cracks were found, repeat the (g)(1) inspections within every 2,000 FCs since the last inspection.",
+      "kind": "inspect",
+      "models": [],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "prior_action",
+        "recurrence": "next",
+        "condition": "the last inspection under paragraph (g)(1)",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_prior_action",
+          "value": 2000,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(2)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(3)",
+      "description": "If a crack is confirmed, before further flight remove the part from service and replace it with a part eligible for installation.",
+      "kind": "replace_if_finding",
+      "models": [],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [],
+      "combination": "single",
+      "terminates": []
+    }
+  ],
+  "continuing_obligations": [],
+  "credit_for_previous_actions": [
+    {
+      "paragraph": "(h)",
+      "actions": [
+        "(g)(1)"
+      ],
+      "description": "Inspections before the effective date per IAE NMSB V2500-ENG-72-0694, Revision No. 1 or Original Issue, meet (g)(1)."
+    }
+  ],
+  "definitions": [
+    {
+      "term": "engine shop visit",
+      "paragraph": "(j)"
+    }
+  ],
+  "amoc_paragraph": "(l)",
+  "ambiguities": [
+    {
+      "paragraph": "(g)(1)",
+      "description": "\"At the next engine shop visit\" does not say \"after the effective date\".",
+      "readings": [
+        "The next shop visit after the effective date (used here)."
+      ]
+    }
+  ],
+  "notes": [
+    "Applies to all V2525-D5 and V2528-D5 engines; no part condition."
+  ]
+}

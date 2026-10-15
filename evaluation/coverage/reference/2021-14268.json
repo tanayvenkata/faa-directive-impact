@@ -1,0 +1,294 @@
+{
+  "schema_version": "2",
+  "ad_number": "AD 2021-11-51",
+  "final_rule_document": "2021-14268",
+  "governing_document": {
+    "document": "2021-14268",
+    "reason": "The final rule; no correction was published."
+  },
+  "corrections": [],
+  "effective_date": {
+    "date": "2021-07-19",
+    "paragraph": "(a)",
+    "emergency_ad": {
+      "ad_number": "AD 2021-11-51",
+      "issued": "2021-05-21"
+    }
+  },
+  "relationships": [],
+  "dependencies": [
+    {
+      "id": "table1",
+      "title": "Table 1 to paragraph (g)(1) (image ER02JY21.000)",
+      "kind": "image_only_figure",
+      "holds": "engine_serial_numbers",
+      "paragraph": "(g)(1)"
+    },
+    {
+      "id": "table2",
+      "title": "Table 2 to paragraph (g)(2) (image ER02JY21.001)",
+      "kind": "image_only_figure",
+      "holds": "engine_serial_numbers",
+      "paragraph": "(g)(2)"
+    },
+    {
+      "id": "usi_procedure",
+      "title": "IAE NMSB V2500-ENG-72-0713, Revision 1, Accomplishment Instructions, paragraphs 6 to 8",
+      "kind": "incorporated_by_reference",
+      "holds": "procedure",
+      "paragraph": "(k)"
+    }
+  ],
+  "parts": [
+    {
+      "id": "disk1",
+      "component": "HPT 1st-stage disk",
+      "aliases": [
+        "HPT 1st-stage hub",
+        "HPT stage 1 hub"
+      ],
+      "part_numbers": [
+        "2A5001"
+      ],
+      "serials": "listed",
+      "listed": [
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR34908",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR59989",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBR83471",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBSC9996",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBSG0105",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBSG9043",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A5001",
+          "serial_number": "PKLBSH1829",
+          "cycles_since_new_limit": null
+        }
+      ],
+      "dependency": "",
+      "paragraph": "(c)(1)"
+    },
+    {
+      "id": "disk2",
+      "component": "HPT 2nd-stage disk",
+      "aliases": [
+        "HPT 2nd-stage hub",
+        "HPT stage 2 hub"
+      ],
+      "part_numbers": [
+        "2A4802"
+      ],
+      "serials": "listed",
+      "listed": [
+        {
+          "part_number": "2A4802",
+          "serial_number": "PKLBR87800",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A4802",
+          "serial_number": "PKLBR88708",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A4802",
+          "serial_number": "PKLBR89452",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A4802",
+          "serial_number": "PKLBSA9907",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A4802",
+          "serial_number": "PKLBSH9246",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A4802",
+          "serial_number": "PKLBSC8066",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A4802",
+          "serial_number": "PKLBSC8077",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "2A4802",
+          "serial_number": "PKLBSG2213",
+          "cycles_since_new_limit": null
+        }
+      ],
+      "dependency": "",
+      "paragraph": "(c)(2)"
+    }
+  ],
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2530-A5",
+      "V2533-A5"
+    ],
+    "models_paragraph": "(c)",
+    "engine_serials": [],
+    "parts": [
+      "disk1",
+      "disk2"
+    ],
+    "parts_combine": "any",
+    "parts_paragraph": "(c)"
+  },
+  "eligible_parts": [],
+  "required_actions": [
+    {
+      "paragraph": "(g)(1)",
+      "description": "Perform a USI of the HPT 1st-stage disk listed in table 1 to paragraph (g)(1).",
+      "kind": "inspect",
+      "models": [],
+      "target": "disk1",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "table1"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 10,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(1)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(2)",
+      "description": "Perform a USI of the HPT 2nd-stage disk listed in table 2 to paragraph (g)(2).",
+      "kind": "inspect",
+      "models": [],
+      "target": "disk2",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [
+        "table2"
+      ],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [
+        {
+          "kind": "flight_cycles_after_effective_date",
+          "value": 10,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "alternative",
+          "dependency": "",
+          "paragraph": "(g)(2)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    },
+    {
+      "paragraph": "(g)(3)",
+      "description": "If a disk does not pass the USI, before further flight remove it from service and replace it with a part eligible for installation.",
+      "kind": "replace_if_finding",
+      "models": [],
+      "target": "",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "none",
+        "recurrence": "next",
+        "condition": "",
+        "definition_paragraphs": []
+      },
+      "limits": [],
+      "combination": "single",
+      "terminates": []
+    }
+  ],
+  "continuing_obligations": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "term": "part eligible for installation",
+      "paragraph": "(h)"
+    }
+  ],
+  "amoc_paragraph": "(i)",
+  "ambiguities": [
+    {
+      "paragraph": "(g)(1)",
+      "description": "Paragraph (g) acts on disks \"listed in Table 1\", an image (ER02JY21.000) that pairs engine serials with disk serials. Whether it lists exactly the (c)(1) disks, and whether an engine whose serial differs from the pairing is covered, cannot be read from the text.",
+      "readings": [
+        "Table 1 lists the (c)(1) disks; every engine with one is covered.",
+        "Only the engine and disk pairs in table 1 are covered."
+      ]
+    },
+    {
+      "paragraph": "(a)",
+      "description": "The AD was effective on actual notice of Emergency AD 2021-11-51 (issued May 21, 2021), so the 10-FC clock starts on each operator's notice date, not always July 19, 2021.",
+      "readings": [
+        "From the operator's date of actual notice.",
+        "From July 19, 2021, without actual notice."
+      ]
+    },
+    {
+      "paragraph": "(c)(2)",
+      "description": "The text prints \"PKLBR88708 PKLBR89452\" without a comma; read as two serial numbers.",
+      "readings": [
+        "Two serials, PKLBR88708 and PKLBR89452."
+      ]
+    }
+  ],
+  "notes": [
+    "V2525-D5, V2528-D5, and V2531-E5 are not in paragraph (c)."
+  ]
+}

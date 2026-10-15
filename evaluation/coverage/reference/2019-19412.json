@@ -1,0 +1,172 @@
+{
+  "schema_version": "2",
+  "ad_number": "AD 2019-18-01",
+  "final_rule_document": "2019-19412",
+  "governing_document": {
+    "document": "2019-19412",
+    "reason": "The final rule; no correction was published."
+  },
+  "corrections": [],
+  "effective_date": {
+    "date": "2019-10-15",
+    "paragraph": "(a)",
+    "emergency_ad": null
+  },
+  "relationships": [],
+  "dependencies": [],
+  "parts": [
+    {
+      "id": "lpt6",
+      "component": "LPT stage 6 disk",
+      "aliases": [
+        "LPT 6th-stage disk",
+        "low-pressure turbine stage 6 disk"
+      ],
+      "part_numbers": [
+        "3A2996"
+      ],
+      "serials": "listed",
+      "listed": [
+        {
+          "part_number": "3A2996",
+          "serial_number": "MAP04258",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "3A2996",
+          "serial_number": "MAP04259",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "3A2996",
+          "serial_number": "MAP04260",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "3A2996",
+          "serial_number": "MAP04430",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "3A2996",
+          "serial_number": "MAP04431",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "3A2996",
+          "serial_number": "MAP08718",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "3A2996",
+          "serial_number": "MAP08719",
+          "cycles_since_new_limit": null
+        },
+        {
+          "part_number": "3A2996",
+          "serial_number": "MAP08721",
+          "cycles_since_new_limit": null
+        }
+      ],
+      "dependency": "",
+      "paragraph": "(g)"
+    }
+  ],
+  "applicability": {
+    "engine_models": [
+      "V2522-A5",
+      "V2524-A5",
+      "V2527-A5",
+      "V2527E-A5",
+      "V2527M-A5",
+      "V2530-A5",
+      "V2533-A5"
+    ],
+    "models_paragraph": "(c)",
+    "engine_serials": [
+      {
+        "models": [
+          "V2522-A5",
+          "V2524-A5",
+          "V2527-A5",
+          "V2527E-A5",
+          "V2527M-A5",
+          "V2530-A5",
+          "V2533-A5"
+        ],
+        "ranges": [],
+        "serial_numbers": [
+          "V10631",
+          "V12329",
+          "V12494",
+          "V13107",
+          "V18679",
+          "V18681",
+          "V18684",
+          "V18690"
+        ],
+        "excluded": [],
+        "paragraph": "(c)"
+      }
+    ],
+    "parts": [],
+    "parts_combine": "any",
+    "parts_paragraph": ""
+  },
+  "eligible_parts": [],
+  "required_actions": [
+    {
+      "paragraph": "(g)",
+      "description": "Remove the listed LPT stage 6 disk from service and replace it with a part eligible for installation.",
+      "kind": "remove",
+      "models": [],
+      "target": "lpt6",
+      "operator_condition": "",
+      "unrecorded_conditions": [],
+      "dependencies": [],
+      "csn_band_at_effective_date": null,
+      "trigger": {
+        "event": "maintenance_event",
+        "recurrence": "next",
+        "condition": "piece-part exposure of the LPT stage 6 disk (removed from the engine and completely disassembled)",
+        "definition_paragraphs": [
+          "(h)"
+        ]
+      },
+      "limits": [
+        {
+          "kind": "part_cycles_since_new",
+          "value": 5000,
+          "date": null,
+          "anchor_offset_days": 0,
+          "role": "caps_event",
+          "dependency": "",
+          "paragraph": "(g)"
+        }
+      ],
+      "combination": "single",
+      "terminates": []
+    }
+  ],
+  "continuing_obligations": [],
+  "credit_for_previous_actions": [],
+  "definitions": [
+    {
+      "term": "piece-part exposure",
+      "paragraph": "(h)"
+    }
+  ],
+  "amoc_paragraph": "(i)",
+  "ambiguities": [
+    {
+      "paragraph": "(g)",
+      "description": "\"Not to exceed 5,000 cycles from new\" counts the disk's own cycles; the text does not define a part eligible for installation.",
+      "readings": [
+        "The disk's cycles since new (used here)."
+      ]
+    }
+  ],
+  "notes": [
+    "Applicability is by engine serial number (c); the action is by disk P/N and S/N (g). V2525-D5, V2528-D5, and V2531-E5 are not in paragraph (c)."
+  ]
+}
