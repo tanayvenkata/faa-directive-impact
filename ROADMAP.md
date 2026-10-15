@@ -72,6 +72,11 @@ A newly published in-scope directive becomes visible the day it syncs, as
 7. **Normalize and retrieve** — normalize the evaluated threads, establish a
    lexical baseline, add only justified retrieval techniques, and distinguish
    relevance from evidence sufficiency.
+   *Built and scored ([`evaluation/RETRIEVAL.md`](evaluation/RETRIEVAL.md)):
+   an identifier-match retriever over a frozen 57-document corpus with
+   near-neighbor distractors passes gate 14; no further technique was
+   justified. It found a sync scope bug, now fixed; re-reading the two
+   records already filed is a follow-up.*
 8. **Fleet-impact queues and demo fleet** — widen the queues to every
    evaluated directive. Build a realistic seeded demo fleet of about 100–300
    engines with the evaluation cases embedded, plausible part numbers and
@@ -153,6 +158,12 @@ deferred. The active work is the fleet view and launch video (vault, "Visual
 Layer and Launch"), which needs the seeded demo fleet (step 8).
 
 ## Revisions
+
+- **2026-10-15 (b)** — The owner chose to finish every step that needs no
+  person (7 to 10) before the visuals. The evaluated claim stays AD
+  2025-19-13; other in-scope directives join retrieval and the fleet as
+  `not_yet_evaluated`. A static, offline-built retrieval index is now in
+  scope (AGENTS.md).
 
 - **2026-10-15** — The owner waived the planned hand-review sign-offs and
   deferred the practitioner review, to finish the episode quickly. Results

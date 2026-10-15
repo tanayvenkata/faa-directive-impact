@@ -83,3 +83,27 @@ def test_title_decides_only_what_is_read_in_full():
     assert not names_international_aero_engines(
         "Airworthiness Directives; Airbus SAS Airplanes"
     )
+
+
+def test_a_lead_in_reads_the_model_list_that_follows():
+    # AD 2012-09-09 (2012-12329) states its models as a list after "This AD
+    # applies to:". Reading only the lead-in sent it out of scope unreviewed.
+    decision = classify(
+        "2012-12329",
+        "This AD applies to:</P><P>(1) IAE Model V2500-A1 turbofan engines; and"
+        "</P><P>(2) IAE Model V2522-A5 and V2527-A5 turbofan engines.",
+    )
+
+    assert decision.needs_review
+    assert "V2500-A1" in decision.detail
+
+
+def test_a_lead_in_listing_only_family_models_is_in_scope():
+    decision = classify(
+        "2026-20003",
+        "This AD applies to:</P><P>(1) IAE Model V2522-A5 engines; and</P>"
+        "<P>(2) IAE Model V2530-A5 engines.",
+    )
+
+    assert decision.coverage_state == NOT_YET_EVALUATED
+    assert decision.models == ("V2522-A5", "V2530-A5")
