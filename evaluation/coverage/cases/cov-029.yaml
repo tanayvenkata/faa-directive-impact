@@ -1,0 +1,63 @@
+schema_version: "1.1.0"
+case_id: cov-029
+title: HPT air seals and ring plate of other part numbers under AD 2017-14-07
+slice: unaffected_part
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c)(1) reaches an engine only through an installed P/N 2A4157,
+    2A3423 or 2A3437 with a listed S/N. None of the three part numbers is
+    installed, so the engine is outside the AD whatever the bulletins list.
+    All ten models are named and every affected S/N is in an unavailable
+    bulletin, so a different part number is the only way the public text can
+    produce an engine with no action triggered.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2018-03-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c029
+    engine_serial_number: SYN-V2500-c029
+    engine_model: V2524-A5
+    snapshot_at: "2018-03-01"
+  installed_components:
+    - component_name: HPT stage 2 air seal
+      part_number: SYN-PN-SEAL2-c029
+      serial_number: SYN-SEAL2-c029
+    - component_name: HPT 1st stage air seal
+      part_number: SYN-PN-SEAL1-c029
+      serial_number: SYN-SEAL1-c029
+    - component_name: HPT stage 2 ring plate
+      part_number: SYN-PN-RING2-c029
+      serial_number: SYN-RING2-c029
+  events: []
+directive_candidates: ["2017-14706"]
+expected:
+  - directive: "2017-14706"
+    controlling_ad: AD 2017-14-07
+    authority_state: in_force
+    applicability: does_not_apply
+    reason: >-
+      Paragraph (c)(1) requires an installed HPT stage 2 air seal P/N 2A4157,
+      HPT 1st stage air seal P/N 2A3423, or HPT stage 2 ring plate P/N 2A3437
+      with a listed S/N. None of the installed parts has one of those part
+      numbers.
+    required_evidence:
+      - {document: "2017-14706", paragraph: "(c)(1)(i)"}
+      - {document: "2017-14706", paragraph: "(c)(1)(ii)"}
+      - {document: "2017-14706", paragraph: "(c)(1)(iii)"}
+forbidden_claims:
+  - AD 2017-14-07 requires removal of any of these parts.
+  - The applicability of AD 2017-14-07 depends on the bulletin lists for this engine.
+  - The engine is compliant or noncompliant with AD 2017-14-07.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  The SYN- part numbers stand for part numbers other than those the AD names.
+  No claim is made about which other part numbers exist in the V2500 parts
+  catalog.

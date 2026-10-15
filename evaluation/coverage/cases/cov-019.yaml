@@ -1,0 +1,80 @@
+schema_version: "1.1.0"
+case_id: cov-019
+title: AD 2020-07-51 disk whose removal depends on an image-only engine and disk table
+slice: missing_incorporated_material
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) names S/N PKLBR73862, so the AD applies. Paragraph (g)(1)
+    requires removal within 5 FC for engines whose engine S/N and disk S/N
+    pair is in Table 1, which is the image ER13AP20.000 and not in the text.
+    Paragraph (g)(2) covers all other affected engines but its records review
+    names only PKLBR37442, PKLBR38661 and PKLBR40207. If this engine's pair is
+    not in Table 1, the text gives no removal for PKLBR73862. Whether a
+    removal is required therefore depends on the image, and the clock start
+    also depends on the operator's actual notice of the emergency AD.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2020-05-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c019
+    engine_serial_number: SYN-V2500-c019
+    engine_model: V2527-A5
+    snapshot_at: "2020-05-01"
+    engine_cycle_readings:
+      - {at: "2020-04-28", engine_flight_cycles: 14000}
+      - {at: "2020-05-01", engine_flight_cycles: 14004}
+  installed_components:
+    - component_name: HPT 1st-stage disk
+      part_number: 2A5001
+      serial_number: PKLBR73862
+    - component_name: HPT 2nd-stage disk
+      part_number: 2A4802
+      serial_number: SYN-DISK2-c019
+  events: []
+directive_candidates: ["2020-07627"]
+expected:
+  - directive: "2020-07627"
+    controlling_ad: AD 2020-07-51
+    authority_state: in_force
+    applicability: applies
+    action_status: needs_review
+    reason: >-
+      V2527-A5 is listed and HPT 1st-stage disk P/N 2A5001 S/N PKLBR73862 is
+      named in paragraph (c). Removal under (g)(1) depends on whether this
+      engine and disk pair is in Table 1, an image not in the text; the
+      (g)(2) records review does not name PKLBR73862.
+    required_evidence:
+      - {document: "2020-07627", paragraph: "(a)"}
+      - {document: "2020-07627", paragraph: "(c)"}
+      - {document: "2020-07627", paragraph: "(g)(1)", locator: table 1 to paragraph (g)(1) (image ER13AP20.000)}
+      - {document: "2020-07627", paragraph: "(g)(2)"}
+    required_missing_facts:
+      - table 1 to paragraph (g)(1) content (image ER13AP20.000; not transcribed)
+      - operator date of actual notice of Emergency AD 2020-07-51
+    action_timing:
+      description: >-
+        If the pair is in Table 1: remove the disk within 5 FC after the
+        effective date that applies to this operator, either actual notice of
+        Emergency AD 2020-07-51 (issued 2020-03-21) or 2020-04-28 (engine
+        counter 14,005). 4 FC have passed since 2020-04-28.
+      safe_behavior: >-
+        Treat the disk as a removal candidate within 1 FC of the 2020-04-28
+        clock, name the image and the notice date, and route to review now.
+forbidden_claims:
+  - AD 2020-07-51 does not apply to this engine.
+  - No removal is required because the (g)(2) records review does not name PKLBR73862, presented as settled.
+  - Table 1 contents stated without the image.
+  - The engine is compliant or noncompliant with AD 2020-07-51.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  PKLBR73862 is a real S/N published in the AD, placed on a synthetic engine.
+  E3's image count covered only the seed corpus and does not list
+  ER13AP20.000; the same fail-closed treatment is assumed for it.

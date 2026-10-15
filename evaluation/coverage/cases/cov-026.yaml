@@ -1,0 +1,82 @@
+schema_version: "1.1.0"
+case_id: cov-026
+title: AD 2016-18-10 stage 1 hub with its cycles since new unknown
+slice: missing_state
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The CSN on the effective date picks the inspection band in (e)(1)(i)
+    to (iv). The stage 1 hub's CSN is unknown, so no band and no limit can be
+    stated for it even if it is listed. The stage 2 hub had 5,600 CSN on
+    2016-10-07, band (e)(1)(i). Both hubs' listing is also unknown, because
+    the S/N lists are in an unavailable bulletin.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2016-12-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c026
+    engine_serial_number: SYN-V2500-c026
+    engine_model: V2528-D5
+    snapshot_at: "2016-12-01"
+  installed_components:
+    - component_name: HPT stage 1 hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-c026
+      cycles_since_new: unknown
+    - component_name: HPT stage 2 hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-c026
+      cycles_since_new: 6000
+      cycles_since_new_readings:
+        - {at: "2016-10-07", cycles_since_new: 5600}
+  events: []
+directive_candidates: ["2016-21061"]
+expected:
+  - directive: "2016-21061"
+    controlling_ad: AD 2016-18-10
+    authority_state: in_force
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      Whether either hub is affected depends on the S/N lists in IAE NMSB
+      V2500-ENG-72-0661 Revision 2, which are unavailable. If the stage 1 hub
+      is listed, its compliance time cannot be set because its CSN on
+      2016-10-07 is unknown. If the stage 2 hub is listed, band (e)(1)(i)
+      applies (5,600 CSN on 2016-10-07).
+    required_evidence:
+      - {document: "2016-21061", paragraph: "(c)(1)"}
+      - {document: "2016-21061", paragraph: "(c)(2)"}
+      - {document: "2016-21061", paragraph: "(e)(1)"}
+      - {document: "2016-21061", paragraph: "(e)(1)(i)"}
+    required_missing_facts:
+      - IAE NMSB V2500-ENG-72-0661 Revision 2 Appendix A Tables 1 and 2 (unavailable incorporated material)
+      - installed_components[HPT stage 1 hub].cycles_since_new on 2016-10-07
+    action_timing:
+      description: >-
+        Stage 2 hub, if listed: inspect at the next shop visit or before it
+        accumulates 13,000 CSN, whichever comes first; the hub is 7,000 cycles short of 13,000 CSN
+        at the snapshot (13,000 - 6,000). Stage 1 hub, if listed: at the
+        next shop visit, or by the band its 2016-10-07 CSN falls in, which is
+        unknown.
+      safe_behavior: >-
+        Give the stage 2 timing conditionally and name the missing stage 1
+        CSN; never assume the most lenient band.
+forbidden_claims:
+  - The stage 1 hub falls in band (e)(1)(i), presented as settled.
+  - Engine cycles stand in for the stage 1 hub's own CSN.
+  - AD 2016-18-10 does not apply to this engine.
+  - The engine is compliant or noncompliant with AD 2016-18-10.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  Across the AD 2016-18-10 cases, the affected hub S/Ns are only in an
+  unavailable bulletin, so no determinate action-required outcome is reachable
+  from the public text; the determinate clear available is a model the AD does
+  not name. Paragraphs (e)(1)(ii) to (iv) count "cycles from the effective
+  date" without saying whether hub or engine cycles.

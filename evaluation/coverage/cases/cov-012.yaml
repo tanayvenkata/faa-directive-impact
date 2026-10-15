@@ -1,0 +1,68 @@
+schema_version: "1.1.0"
+case_id: cov-012
+title: Listed AD 2021-11-51 disk installed, deadline long passed, no operator AD record
+slice: operator_assertion
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Pre-registered Operator Records rule. Paragraph (c)(1) names S/N
+    PKLBSG0105, so the AD applies. The (g)(1) USI was due within 10 FC after
+    the effective date, which passed in 2021 under either clock. There is no
+    operator AD record for AD 2021-11-51, so whether the USI was done is
+    unknown. The rule routes this to needs review naming the record, never
+    "overdue". Table 1 to paragraph (g)(1), which (g)(1) acts on, is an image
+    not yet transcribed (E3), so it is named as well.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c012
+    engine_serial_number: SYN-V2500-c012
+    engine_model: V2530-A5
+    snapshot_at: "2026-10-15"
+  installed_components:
+    - component_name: HPT 1st-stage disk
+      part_number: 2A5001
+      serial_number: PKLBSG0105
+      installed_at: "2018-06-30"
+    - component_name: HPT 2nd-stage disk
+      part_number: 2A4802
+      serial_number: SYN-DISK2-c012
+  events: []
+  ad_records: []
+directive_candidates: ["2021-14268"]
+expected:
+  - directive: "2021-14268"
+    controlling_ad: AD 2021-11-51
+    authority_state: in_force
+    applicability: applies
+    action_status: needs_review
+    reason: >-
+      V2530-A5 is listed and HPT 1st-stage disk P/N 2A5001 S/N PKLBSG0105 is
+      named in paragraph (c)(1). The (g)(1) USI was due within 10 FC after the
+      effective date, which has passed, and there is no operator AD record to
+      show whether it was accomplished. Table 1 to paragraph (g)(1) is an
+      untranscribed image.
+    required_evidence:
+      - {document: "2021-14268", paragraph: "(a)"}
+      - {document: "2021-14268", paragraph: "(c)(1)"}
+      - {document: "2021-14268", paragraph: "(g)(1)", locator: table 1 to paragraph (g)(1) (image ER02JY21.000)}
+    required_missing_facts:
+      - ad_records[AD 2021-11-51]
+      - table 1 to paragraph (g)(1) content (image-only; transcription decided in E3)
+forbidden_claims:
+  - The USI is overdue.
+  - The engine is noncompliant with AD 2021-11-51.
+  - The USI was accomplished, presented as settled.
+  - AD 2021-11-51 does not apply to this engine.
+  - The engine is compliant with AD 2021-11-51.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  PKLBSG0105 is a real S/N published in the AD, placed on a synthetic engine.

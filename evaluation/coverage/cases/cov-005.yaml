@@ -1,0 +1,57 @@
+schema_version: "1.1.0"
+case_id: cov-005
+title: Asked after AD 2024-11-03 was published but before it took effect
+slice: effective_date
+severity: high
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The final rule was published 2024-06-11 and is effective 2024-06-26
+    (paragraph (a)). On 2024-06-18 it imposes no requirement yet. Paragraph
+    (c) is model-only, so the engine is within its applicability regardless
+    of the unavailable hub lists.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2024-06-18"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c005
+    engine_serial_number: SYN-V2500-c005
+    engine_model: V2530-A5
+    snapshot_at: "2024-06-18"
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-c005
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-c005
+  events: []
+directive_candidates: ["2024-12594"]
+expected:
+  - directive: "2024-12594"
+    controlling_ad: AD 2024-11-03
+    authority_state: published_not_yet_effective
+    applicability: applies
+    action_status: no_action_triggered
+    reason: >-
+      V2530-A5 is listed in paragraph (c), but on 2024-06-18 the AD is
+      published and not yet effective; paragraph (a) makes it effective
+      2024-06-26, and its flight-cycle limits count from that date.
+    required_evidence:
+      - {document: "2024-12594", paragraph: "(a)"}
+      - {document: "2024-12594", paragraph: "(c)"}
+forbidden_claims:
+  - AD 2024-11-03 requires an AUSI or hub replacement on 2024-06-18.
+  - Flight-cycle limits under AD 2024-11-03 count from before 2024-06-26.
+  - AD 2024-11-03 does not apply to this engine.
+  - The engine is compliant or noncompliant with AD 2024-11-03.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  The hub S/N lists of AD 2024-11-03 are in NMSB V2500-ENG-72-0720, which is
+  not available.

@@ -1,0 +1,98 @@
+schema_version: "1.1.0"
+case_id: cov-003
+title: AUSI recorded as complied under AD 2024-11-03 starts the 4,000 FC removal clock
+slice: operator_assertion
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The engine record shows both hubs received the paragraph (g)(1) AUSI on
+    2024-09-12 and were reinstalled. Paragraph (g)(2) is not keyed to any
+    bulletin list: every part inspected under (g)(1) must be removed within
+    4,000 FC from the AUSI or at the next HPT module removal after it,
+    whichever occurs first. The operator's "complied" entry covers the AUSI
+    only; it does not close (g)(2). Counter at the AUSI 22,400 + 4,000 =
+    26,400 ("within" includes the limit). No HPT module removal has occurred
+    since.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2026-10-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c003
+    engine_serial_number: SYN-V2500-c003
+    engine_model: V2533-A5
+    snapshot_at: "2026-10-15"
+    engine_cycle_readings:
+      - {at: "2024-06-26", engine_flight_cycles: 21900}
+      - {at: "2024-09-12", engine_flight_cycles: 22400}
+      - {at: "2026-10-15", engine_flight_cycles: 25900}
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-c003
+      installed_at: "2016-05-20"
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-c003
+      installed_at: "2016-05-20"
+  events:
+    - event_type: shop_visit_induction
+      at: "2024-09-05"
+      engine_flight_cycles_at_event: 22400
+      qualifies_as_engine_shop_visit:
+        AD 2024-11-03: "yes"
+      detail: Inducted for maintenance with separation of major mating flanges.
+      source_note: Asserted by the synthetic operator record.
+    - event_type: inspection
+      at: "2024-09-12"
+      engine_flight_cycles_at_event: 22400
+      detail: >-
+        AUSI for cracks of HPT 1st-stage hub P/N 2A5001 S/N SYN-HUB1-c003 and
+        HPT 2nd-stage hub P/N 2A4802 S/N SYN-HUB2-c003 per AD 2024-11-03
+        paragraph (g)(1); no cracks found; both hubs reinstalled in the same
+        HPT module. The engine was released on 2024-09-28 with no HPT module
+        removal since.
+      source_note: Asserted by the synthetic shop record.
+  ad_records:
+    - ad: AD 2024-11-03
+      recorded_status: complied
+      detail: AUSI of both hubs accomplished 2024-09-12, no cracks.
+directive_candidates: ["2024-12594"]
+expected:
+  - directive: "2024-12594"
+    controlling_ad: AD 2024-11-03
+    authority_state: in_force
+    applicability: applies
+    action_status: action_required
+    reason: >-
+      V2533-A5 is listed in paragraph (c). Both hubs were inspected under
+      (g)(1) on 2024-09-12, so (g)(2) requires their removal from service
+      within 4,000 FC from that AUSI or at the next HPT module removal after
+      it, whichever occurs first: 22,400 at the AUSI + 4,000 = engine counter
+      26,400. The AUSI record does not satisfy (g)(2).
+    required_evidence:
+      - {document: "2024-12594", paragraph: "(c)"}
+      - {document: "2024-12594", paragraph: "(g)(2)"}
+      - {document: "2024-12594", paragraph: "(h)(2)", locator: HPT module removal definition}
+    action_timing:
+      description: >-
+        Remove both hubs at the next HPT module removal, and no later than
+        engine counter 26,400 (22,400 at the AUSI + 4,000 FC), whichever comes
+        first. 500 FC remain from the snapshot (26,400 - 25,900).
+    computed:
+      latest_engine_flight_cycles: 26400
+forbidden_claims:
+  - No action is required under AD 2024-11-03 because the AUSI was accomplished.
+  - The operator's AD record closes AD 2024-11-03 for this engine.
+  - The hubs may remain in service beyond 4,000 FC after the AUSI.
+  - The engine is compliant or noncompliant with AD 2024-11-03.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  Paragraph (g)(2) counts FCs "from accomplishment of the AUSI"; the hubs have
+  stayed in this engine since, so engine and hub counts agree here.

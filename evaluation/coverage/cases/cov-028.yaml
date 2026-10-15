@@ -1,0 +1,70 @@
+schema_version: "1.1.0"
+case_id: cov-028
+title: V2531-E5 with an HPT stage 2 air seal of the part number AD 2017-14-07 names
+slice: missing_incorporated_material
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    V2531-E5 is in paragraph (c)(1). The preamble records that MTU asked to
+    remove it because the bulletins do not list it, and the FAA kept it in
+    case an affected part is installed on one. The stage 2 air seal is P/N
+    2A4157, so whether it is affected turns on Table 1 of NMSB
+    V2500-ENG-72-0676, which is unavailable. The other two parts carry part
+    numbers the AD does not name.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2017-10-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c028
+    engine_serial_number: SYN-V2500-c028
+    engine_model: V2531-E5
+    snapshot_at: "2017-10-01"
+  installed_components:
+    - component_name: HPT stage 2 air seal
+      part_number: 2A4157
+      serial_number: SYN-SEAL2-c028
+      cycles_since_new: 3800
+    - component_name: HPT 1st stage air seal
+      part_number: SYN-PN-SEAL1-c028
+      serial_number: SYN-SEAL1-c028
+    - component_name: HPT stage 2 ring plate
+      part_number: SYN-PN-RING2-c028
+      serial_number: SYN-RING2-c028
+  events: []
+directive_candidates: ["2017-14706"]
+expected:
+  - directive: "2017-14706"
+    controlling_ad: AD 2017-14-07
+    authority_state: in_force
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      V2531-E5 is listed in paragraph (c)(1), and the installed HPT stage 2
+      air seal is P/N 2A4157. It is affected only if its S/N is in Table 1 of
+      IAE NMSB V2500-ENG-72-0676, which is unavailable. The other two parts are
+      not of the part numbers in (c)(1)(ii) or (c)(1)(iii).
+    required_evidence:
+      - {document: "2017-14706", paragraph: "(c)(1)"}
+      - {document: "2017-14706", paragraph: "(c)(1)(i)"}
+      - {document: "2017-14706", paragraph: "(g)(1)(i)"}
+    required_missing_facts:
+      - IAE NMSB V2500-ENG-72-0676 Table 1 (unavailable incorporated material)
+    action_timing:
+      description: >-
+        If listed: remove before the part CSN limit in NMSB V2500-ENG-72-0676,
+        or within 50 cycles in service after 2017-08-21, whichever occurs
+        later.
+forbidden_claims:
+  - AD 2017-14-07 does not apply to V2531-E5 engines because the bulletins do not list them.
+  - The air seal is affected because its part number matches.
+  - The engine is compliant or noncompliant with AD 2017-14-07.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  The SYN- part numbers stand for part numbers other than those the AD names.

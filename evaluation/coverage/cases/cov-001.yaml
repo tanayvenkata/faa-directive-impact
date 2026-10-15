@@ -1,0 +1,90 @@
+schema_version: "1.1.0"
+case_id: cov-001
+title: AD 2024-11-03 hubs installed, but the affected serial lists are in an unavailable bulletin
+slice: missing_incorporated_material
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    Paragraph (c) is model-only, so AD 2024-11-03 applies to every V2527-A5.
+    Every required action in (g)(1), (g)(4) and (g)(5) is keyed to hub S/Ns
+    listed in tables of IAE AG NMSB V2500-ENG-72-0720, which is incorporated
+    by reference and not available. The hubs have only ever operated in this
+    low-thrust engine and have had no AUSI, so (g)(2) and (g)(4) cannot be
+    reached from these facts; whether (g)(1) or (g)(5) binds depends wholly on
+    the bulletin tables.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2024-08-01"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c001
+    engine_serial_number: SYN-V2500-c001
+    engine_model: V2527-A5
+    snapshot_at: "2024-08-01"
+    engine_cycle_readings:
+      - {at: "2024-06-26", engine_flight_cycles: 17500}
+      - {at: "2024-08-01", engine_flight_cycles: 17690}
+  installed_components:
+    - component_name: HPT 1st-stage hub
+      part_number: 2A5001
+      serial_number: SYN-HUB1-c001
+      installed_at: "2015-03-12"
+      cycles_since_new: 17690
+    - component_name: HPT 2nd-stage hub
+      part_number: 2A4802
+      serial_number: SYN-HUB2-c001
+      installed_at: "2015-03-12"
+      cycles_since_new: 17690
+  events:
+    - event_type: component_installation
+      at: "2015-03-12"
+      detail: Both HPT hubs installed new at engine build; no other installation and no AUSI recorded for either hub.
+      source_note: Asserted by the synthetic operator record.
+directive_candidates: ["2024-12594"]
+expected:
+  - directive: "2024-12594"
+    controlling_ad: AD 2024-11-03
+    authority_state: in_force
+    applicability: applies
+    action_status: needs_review
+    reason: >-
+      V2527-A5 is listed in paragraph (c), so the AD applies. Paragraphs
+      (g)(1) and (g)(5) act only on hubs whose P/N and S/N are listed in
+      Tables 1 to 4 of IAE AG NMSB V2500-ENG-72-0720, which is incorporated
+      material the system does not have, so whether an AUSI or a replacement
+      is required for these hubs cannot be established.
+    required_evidence:
+      - {document: "2024-12594", paragraph: "(c)"}
+      - {document: "2024-12594", paragraph: "(g)(1)", locator: Table 1 to paragraph (g)(1)}
+      - {document: "2024-12594", paragraph: "(g)(5)", locator: Table 3 to paragraph (g)(5)}
+      - {document: "2024-12594", paragraph: "(l)(2)(i)", locator: IAE AG NMSB V2500-ENG-72-0720}
+    required_missing_facts:
+      - IAE AG NMSB V2500-ENG-72-0720 Tables 1 to 4 (unavailable incorporated material)
+    action_timing:
+      description: >-
+        If a hub is listed in Table 1 or 2 of the bulletin: AUSI at the next
+        engine shop visit after 2024-06-26, before exceeding 700 FC (1st-stage)
+        or 1,100 FC (2nd-stage) from 2024-06-26 (not previously operated in a
+        high-thrust model). If listed in Table 3 or 4: remove at the next HPT
+        module removal, before exceeding 2,800 FC (1st-stage) or 3,800 FC
+        (2nd-stage) from 2024-06-26. 190 FC have passed since 2024-06-26
+        (17,690 - 17,500).
+      safe_behavior: >-
+        Report that the AD applies, give the conditional compliance times, and
+        name the unavailable bulletin tables as the missing fact.
+forbidden_claims:
+  - AD 2024-11-03 does not apply to this engine.
+  - The hubs are not affected because their serial numbers are not in the AD text.
+  - The hubs must be inspected or removed, presented as settled without the bulletin tables.
+  - The engine is compliant or noncompliant with AD 2024-11-03.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  The high-thrust column follows (h)(3); V2527-A5 is not in that list. Paragraph
+  (h)(1) defines a part eligible for installation as an HPT 1st- or 2nd-stage
+  "disk" although the AD acts on hubs of the same part numbers.

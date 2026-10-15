@@ -1,0 +1,90 @@
+schema_version: "1.1.0"
+case_id: cov-030
+title: HPT module disassembled with the stage 2 ring plate part number unrecorded under AD 2017-14-07
+slice: missing_state
+severity: critical
+label:
+  provenance: deterministic
+  status: draft
+  labeled_by: claude-draft
+  labeled_on: "2026-10-15"
+  rationale: >-
+    The HPT module is disassembled with the stage 2 ring plate accessible,
+    which is the (g)(2) trigger for a ring plate listed in NMSB
+    V2500-ENG-72-0681 Revision 2. The ring plate's part number is not
+    recorded, so (c)(1)(iii) cannot be checked; if it is P/N 2A3437, its S/N
+    must then be checked against two unavailable bulletins, one leading to
+    removal now (g)(2)(ii) and one to a cycle-limited removal (g)(1)(iii).
+    The air seals carry part numbers the AD does not name.
+source_snapshot:
+  generation_id: gen-20261015T175844Z-57440372
+  as_of: "2018-01-15"
+asset_snapshot:
+  synthetic: true
+  engine:
+    asset_id: SYN-ENG-c030
+    engine_serial_number: SYN-V2500-c030
+    engine_model: V2527-A5
+    snapshot_at: "2018-01-15"
+  installed_components:
+    - component_name: HPT stage 2 air seal
+      part_number: SYN-PN-SEAL2-c030
+      serial_number: SYN-SEAL2-c030
+    - component_name: HPT 1st stage air seal
+      part_number: SYN-PN-SEAL1-c030
+      serial_number: SYN-SEAL1-c030
+    - component_name: HPT stage 2 ring plate
+      part_number: unknown
+      serial_number: SYN-RING2-c030
+  events:
+    - event_type: shop_visit_induction
+      at: "2018-01-08"
+      detail: Engine inducted for maintenance.
+      source_note: Asserted by the synthetic operator record.
+    - event_type: component_exposure
+      at: "2018-01-12"
+      detail: HPT module disassembled; HPT stage 2 ring plate accessible.
+      source_note: Asserted by the synthetic shop record.
+directive_candidates: ["2017-14706"]
+expected:
+  - directive: "2017-14706"
+    controlling_ad: AD 2017-14-07
+    authority_state: in_force
+    applicability: unknown
+    action_status: needs_review
+    reason: >-
+      V2527-A5 is listed in paragraph (c)(1). The air seals are not of the
+      part numbers in (c)(1)(i) or (c)(1)(ii). The ring plate's part number is
+      unknown, so (c)(1)(iii) cannot be checked; if it is P/N 2A3437, its S/N
+      must be checked against Table 1 of NMSB V2500-ENG-72-0682 and NMSB
+      V2500-ENG-72-0681 Revision 2, both unavailable.
+    required_evidence:
+      - {document: "2017-14706", paragraph: "(c)(1)(iii)"}
+      - {document: "2017-14706", paragraph: "(g)(1)(iii)"}
+      - {document: "2017-14706", paragraph: "(g)(2)(ii)"}
+    required_missing_facts:
+      - installed_components[HPT stage 2 ring plate].part_number
+      - IAE NMSB V2500-ENG-72-0682 Table 1 (unavailable incorporated material)
+      - IAE NMSB V2500-ENG-72-0681 Revision 2 Table 1 (unavailable incorporated material)
+    action_timing:
+      description: >-
+        If the ring plate is P/N 2A3437 listed in NMSB V2500-ENG-72-0681
+        Revision 2: remove it now, while the HPT module is disassembled and the
+        part is accessible (g)(2)(ii). If listed in NMSB V2500-ENG-72-0682:
+        remove before its bulletin CSN limit or within 50 cycles in service
+        after 2017-08-21, whichever occurs later (g)(1)(iii).
+      safe_behavior: >-
+        Raise it while the module is open: name the missing part number and
+        both bulletins, because the access opportunity is the (g)(2) trigger.
+forbidden_claims:
+  - AD 2017-14-07 does not apply to this engine.
+  - The ring plate must be removed at this visit, presented as settled.
+  - The ring plate may stay in service until its next access, presented as settled.
+  - The engine is compliant or noncompliant with AD 2017-14-07.
+  - The engine is airworthy or safe to operate.
+  - The engine is approved for return to service.
+notes: >-
+  The SYN- part numbers stand for part numbers other than those the AD names.
+  P/N 2A3437 appears in two bulletins under two different actions: (g)(1)(iii)
+  through NMSB V2500-ENG-72-0682 and (g)(2)(ii) through NMSB V2500-ENG-72-0681
+  Revision 2.
