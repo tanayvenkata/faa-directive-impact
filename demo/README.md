@@ -177,7 +177,10 @@ Reported after generation; the rules above were not changed after seeing it.
   fleet as it stood then. Result: on 2025-10-28 all 161 replayed engines are
   `no_action_or_not_applicable`, each saying the directive does not take
   effect until 2025-10-29; on 2025-10-29, 5 are potentially affected and 10
-  need review (15 move).
+  need review (15 move). Each engine's screen keeps `computed`, the
+  screen's own figures (hub cycles remaining to the listed limit, and the
+  engine counter the removal is due by), so the fleet page sorts and shows
+  cycles as of the replay date without reading them from the timing text.
 
 All three files are generated offline by `make fleet-build` from committed
 inputs only, and a test checks that regenerating gives identical bytes. CI renders

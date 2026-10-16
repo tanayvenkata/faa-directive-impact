@@ -36,7 +36,7 @@ SCREEN_FIELDS = (
     "timing",
     "missing_facts",
     "citations",
-    "hubs",
+    "computed",
 )
 
 
