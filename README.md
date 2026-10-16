@@ -19,7 +19,7 @@ the daily discovery sync in [`DISCOVERY_SYNC.md`](DISCOVERY_SYNC.md). Their
 hand-checked gates were judged by Claude only; the owner waived re-checking
 them on 2026-10-15
 ([`evaluation/review/OWNER_PACKET.md`](evaluation/review/OWNER_PACKET.md)).
-Candidate retrieval is built and scored ([`evaluation/RETRIEVAL.md`](evaluation/RETRIEVAL.md)); an agent was evaluated and not justified ([`evaluation/AGENT_DECISION.md`](evaluation/AGENT_DECISION.md)). Full V2500 coverage is scored: all 16 in-scope directives have rules and a paired score, and AD 2020-07-51 joined AD 2025-19-13 as evaluated ([`evaluated.md`](evaluation/runs/coverage-drafts-reviewed-20261015T230605Z/evaluated.md); draft write-up [`03-full-coverage.md`](writeups/03-full-coverage.md)).
+Candidate retrieval is built and scored ([`evaluation/RETRIEVAL.md`](evaluation/RETRIEVAL.md)); an agent was evaluated and not justified ([`evaluation/AGENT_DECISION.md`](evaluation/AGENT_DECISION.md)). Full V2500 coverage is scored: all 16 in-scope directives have rules and a paired score, and AD 2020-07-51 joined AD 2025-19-13 as evaluated ([`evaluated.md`](evaluation/runs/coverage-drafts-reviewed-20261015T230605Z/evaluated.md); write-up [*From Two Directives to the Whole V2500 Family*](writeups/03-full-coverage.md)). The fleet page replays AD 2025-19-13 taking effect from recorded output (`demo/fleet-replay.json`; an as-of replay, not a live event).
 
 ## Current Flow
 
@@ -117,7 +117,7 @@ make fleet-build          # offline: regenerate demo/fleet.json and demo/fleet-s
 make fleet-site           # offline: write the fleet view to site/fleet/index.html
 ```
 
-Each directive gets a coverage state: `evaluated` (AD 2025-19-13 only),
+Each directive gets a coverage state: `evaluated` (AD 2025-19-13 and AD 2020-07-51),
 `not_yet_evaluated` (paragraph (c) lists only V2500-A5/D5/E5 models), or
 `outside_supported_scope`. Anything unclassifiable is held for review. The
 freshness page shows the last attempt and success, the checkpoint, the active

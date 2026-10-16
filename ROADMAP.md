@@ -84,10 +84,12 @@ A newly published in-scope directive becomes visible the day it syncs, as
    evaluation cases are edge cases and are not the demo fleet.
    *Built ([`demo/README.md`](demo/README.md)): 200 engines, each screened
    against the directives step 7 retrieval finds for it (16 across the
-   fleet). Queues come from AD 2025-19-13, the only evaluated directive; the
-   other 15 are shown beside them as not yet evaluated. Widening the
-   queues needs another directive to become evaluated, which needs a person
-   to confirm its cases.*
+   fleet). Queues come from the evaluated directives, AD 2025-19-13 and, since
+   full coverage, AD 2020-07-51; the other 14 are shown beside them as not
+   yet evaluated ([`writeups/03-full-coverage.md`](writeups/03-full-coverage.md)).
+   The fleet page opens on a recorded as-of replay of AD 2025-19-13 taking
+   effect (`demo/fleet-replay.json`), labeled as a replay, not a live
+   event.*
 9. **Harden operations** — observability, recovery and rollback drills,
    hostile-input checks, runbooks, security controls, and cost and latency
    measurements. Keep operating cost and attention low enough to run for a
@@ -122,8 +124,9 @@ release history sit one level below.
 ## Publishing and Exit
 
 Publish a write-up at each claim rung as it is reached:
-[*Reproducible*](writeups/01-reproducible.md) and
-[*Evaluated*](writeups/02-evaluated.md).
+[*Reproducible*](writeups/01-reproducible.md),
+[*Evaluated*](writeups/02-evaluated.md), and
+[*From Two Directives to the Whole V2500 Family*](writeups/03-full-coverage.md).
 
 The FAA episode is done enough to hand off when all of these hold:
 
@@ -167,8 +170,13 @@ The *Evaluated* write-up is published
 ([`writeups/02-evaluated.md`](writeups/02-evaluated.md)); the owner waived
 the planned hand-review sign-offs on 2026-10-15. The practitioner review is
 deferred. Operations are hardened (step 9,
-[`operations/HARDENING.md`](operations/HARDENING.md)). The active work is the fleet view and launch video (vault, "Visual
-Layer and Launch"), which needs the seeded demo fleet (step 8).
+[`operations/HARDENING.md`](operations/HARDENING.md)). Full V2500 coverage
+is scored and published
+([`writeups/03-full-coverage.md`](writeups/03-full-coverage.md)): all 16
+in-scope directives have rules, and two are evaluated (AD 2025-19-13 and
+AD 2020-07-51). The fleet page is rebuilt around a recorded as-of replay
+(step 8). The active work is the launch: the case study on tanayv.com and
+the video (vault, "Visual Layer and Launch").
 
 ## Revisions
 
