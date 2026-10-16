@@ -1,6 +1,6 @@
 # From Two Directives to the Whole V2500 Family
 
-*Draft, 2026-10-15. Not published. Every result is in.*
+*Written 2026-10-15; published 2026-10-16.*
 
 *Read this first. On 2026-10-15 the project owner directed that Claude stand
 in for every human review this rung would otherwise need. Every label,
@@ -412,6 +412,9 @@ output.
   part replacements, unknown fields, and 2,362 operator AD records. The rates
   behind them are judgment, and nobody in aviation maintenance has checked
   them (issue #20). Five listed AD 2025-19-13 hubs were planted on purpose.
+  Their serial numbers are copied from the directive's table 1, and four of
+  the five are also on seed engines, which are test cases with their own
+  dates. The page keeps the seed engines in a separate band for that reason.
 
 Every engine is screened against every candidate retrieval finds for it.
 The queues come from the two evaluated directives, AD 2025-19-13 and AD
@@ -427,6 +430,47 @@ HPT hub or disk serial number both directives turn on. Those engines now
 carry two reasons for review instead of one. No synthetic engine holds a
 listed AD 2020-07-51 disk, because the fleet generator skips every serial
 number a directive prints.
+
+### The fleet page, and a replay rather than a live catch
+
+The fleet page
+(<https://tanayvenkata.github.io/faa-directive-impact/fleet/>) opens on
+AD 2025-19-13 taking effect on 29 Oct 2025. The daily sync began on
+11 Oct 2026, after both evaluated directives took effect, so the system
+never watched one go live. The page therefore shows an as-of replay, and
+says so in a banner that cannot be dismissed.
+
+The replay is recorded, not scripted. `make fleet-build` writes
+[`demo/fleet-replay.json`](../demo/fleet-replay.json) from
+[`fleet/replay.py`](../src/faa_directive_impact/fleet/replay.py). It
+re-screens the generated engines as they stood on 28 and 29 Oct 2025:
+
+- Later events and engine readings are dropped, and each part's cycles go
+  back to its latest reading on or before the date.
+- 19 of the 180 generated engines are left out. A later shop visit replaced
+  their life-limited parts, and the fleet does not record what came before,
+  so their state on those dates is unknown. The replay refuses rather than
+  guesses.
+- **The rules are today's.** They include FAA correspondence received in
+  October 2026. So the replay is today's screen applied to the fleet as it
+  stood then, not what a screen would have said on that day.
+
+The result, on 161 engines:
+
+| As of | Potentially affected | Needs review | No action |
+|---|---|---|---|
+| 28 Oct 2025 | 0 | 0 | 161 (each "does not take effect until 2025-10-29", with the listed hub already named) |
+| 29 Oct 2025 | 5 | 10 | 146 |
+
+Fifteen engines move. The five are the planted hubs, found and nothing
+else, each with its paragraphs and the hub cycles left as of that date
+(2,037 to 2,835). The ten lack the hub serial number the directive turns
+on, and each names that missing field.
+
+Building the replay found two mistakes before they shipped. Claude's first
+estimate of the movers (17) had screened 2025 dates with 2026 parts. The
+first recorded file also kept a field the screen never writes, so the
+cycles left were missing; the agent building the page caught it.
 
 ## Documents block more decisions than reading does
 
@@ -500,6 +544,9 @@ It cannot show:
 - **A blind proofread by a person.** The proofreaders were agents of the
   drafter's model family, kept from the cases and scores by instruction,
   not by file access.
+- **A live catch.** The system has never watched an evaluated directive take
+  effect. The fleet page's opening moment is an as-of replay with today's
+  rules. What runs live is the daily sync and its freshness page.
 - **Anything about real fleets.** The fleet's shape is from the registry;
   its state is invented. Its queue and blocking counts describe the rules
   on that fleet only.

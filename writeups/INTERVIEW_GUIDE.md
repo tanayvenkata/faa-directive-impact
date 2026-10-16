@@ -1,10 +1,9 @@
 # Interview Guide: FAA Directive Impact
 
 *For the owner. A study guide for speaking to the project, not a public
-page. Written 2026-10-15 from the repository at branch `v2500-coverage`.
-Every number below names its file. Numbers that do not exist yet are marked
-**PENDING**, with where they will come from. When in doubt in an interview,
-say the file name rather than round a number.*
+page. Written 2026-10-15; every result filled in 2026-10-16 from `main`.
+Every number below names its file. When in doubt in an interview, say the
+file name rather than round a number.*
 
 ## Rules for talking about it
 
@@ -247,11 +246,24 @@ Source: `writeups/02-evaluated.md`, "Results". More points to know:
   - v2.0 (blind): 2 of 14 directives pass every mechanical gate, with 2
     false clears.
   - v2.1, interpreter 3, changed after reading the cases (**not blind**): 7
-    of 14 pass, with 0 false clears.
+    of 14 pass, with 0 false clears; 8 of 14 when re-scored with the fixed
+    section index and the cov-017 label correction (deviation 8).
   (`evaluation/runs/coverage-reference-v2.*/report.md`)
-- **Model drafts: PENDING.** Raw and reviewed scores, the changed-field
-  count, and the number of directives evaluated
-  (`writeups/03-full-coverage.md` placeholders).
+- **Model drafts.**
+  - One recorded run: 16 of 16 drafts valid, $2.31
+    (`evaluation/runs/coverage-drafts-opus-5-5-high-20261015T195012Z/summary.json`).
+  - Raw drafts: 4 of 14 pass every mechanical gate, 0 false clears
+    (`coverage-drafts-raw-index-fix-20261015T225944Z/report.md`).
+  - Blind stand-in proofread: 23 changed fields across 8 of 16
+    (`evaluation/coverage/reviewed/CHANGES.md`).
+  - Reviewed records, scored once: 4 of 14, 0 false clears
+    (`coverage-drafts-reviewed-20261015T230605Z/report.md`).
+  - Evaluated: AD 2020-07-51 joins AD 2025-19-13, so two of 16. AD
+    2017-14-07, 2021-14-19, and 2021-11-15 passed every mechanical gate but
+    missed the case-mix condition, and no exception was added after the
+    scores (`.../evaluated.md`).
+  - A scorer bug found on the way: six "fabricated" citations were real
+    paragraphs the index skipped (deviation 8).
 - **Fleet finding.** On the synthetic fleet, four unavailable manufacturer
   documents each leave 195 of 200 engines in review (`demo/fleet-screen.json`,
   `blocking_documents`). The directives print the part number but keep the
@@ -298,8 +310,9 @@ Source: `writeups/02-evaluated.md`, "Results". More points to know:
    discovery is cheap. Widening an evaluated claim needs its own fields,
    cases, and gates (`ROADMAP.md`, "Corpus Layers"). Within V2500 the work
    went from one directive to reference rules for all 16 that retrieval
-   finds, 14 of them scored on new cases. How many become evaluated is
-   PENDING.
+   finds, 14 of them scored on new cases. Two became evaluated: the bar was
+   set before the scores and held, and none of the other fourteen clears an
+   engine that needs action (`writeups/03-full-coverage.md`).
 
 4. **How would you scale to all engine families?**
    - Some of the pipeline carries over unchanged: acquisition, receipts,
@@ -392,8 +405,9 @@ Source: `writeups/02-evaluated.md`, "Results". More points to know:
     no new evaluation runs are made. Model spend to date is $7.24 over 868
     calls through step 9 (`operations/HARDENING.md`, item 6). The coverage
     plumbing check added $0.1323
-    (`evaluation/runs/coverage-plumbing-20261015T194653Z/summary.json`). The
-    full drafting run's cost is PENDING.
+    (`evaluation/runs/coverage-plumbing-20261015T194653Z/summary.json`), and
+    the full drafting run of all 16 directives cost $2.31
+    (`evaluation/runs/coverage-drafts-opus-5-5-high-20261015T195012Z/summary.json`).
 
 ### ML judgment
 
@@ -469,7 +483,10 @@ Source: `writeups/02-evaluated.md`, "Results". More points to know:
     label check with written adjudications, and a reviewed rule record that
     passes every protected gate and stays within every aggregate budget.
     Each record also carries `label_review: claude_stand_in`
-    (`PREREGISTRATION.md`). How many of the 16 reached it is PENDING.
+    (`PREREGISTRATION.md`). One more reached it, AD 2020-07-51, for two of
+    16 with AD 2025-19-13. Three others passed every mechanical gate but
+    had no "action due" case, and I did not add that exception after seeing
+    the scores (`evaluation/runs/coverage-drafts-reviewed-20261015T230605Z/evaluated.md`).
 
 ### Hostile and reflective
 
@@ -479,6 +496,16 @@ Source: `writeups/02-evaluated.md`, "Results". More points to know:
     generation rules were committed before generating and not tuned
     afterwards (`demo/README.md`). The counts are demo outputs of the rules,
     not claims about any airline.
+
+    *Follow-up: "So the system caught AD 2025-19-13 going live?"* No, and
+    the page says so. The daily sync started 11 Oct 2026, after the
+    directive took effect. The opening moment is today's screen applied to
+    the fleet as it stood on 28 and 29 Oct 2025, recorded by
+    `fleet/replay.py`, not what a screen said that day. It leaves out 19
+    engines whose earlier parts are unknown, and 15 of 161 move. The five
+    affected engines are hubs I planted; the point is that the screen found
+    exactly those, with the paragraph and the cycles left, and sent the ten
+    it could not settle to a person (`demo/fleet-replay.json`).
 
 26. **Claude wrote most of this. What did you do?**
     I set the scope and the claim boundary, ordered the roadmap, and made
