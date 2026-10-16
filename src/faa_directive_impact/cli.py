@@ -237,13 +237,18 @@ def main(argv: list[str] | None = None) -> int:
         return EXIT_OK
 
     if args.command == "fleet-site":
-        from faa_directive_impact.fleet.build import FLEET_SCREEN_FILE
+        from faa_directive_impact.fleet.build import (
+            FLEET_FILE,
+            FLEET_REPLAY_FILE,
+            FLEET_SCREEN_FILE,
+        )
         from faa_directive_impact.fleet.page import build_fleet_page
 
-        screened = json.loads(
-            (args.repo / FLEET_SCREEN_FILE).read_text(encoding="utf-8")
+        screened, replay, fleet = (
+            json.loads((args.repo / path).read_text(encoding="utf-8"))
+            for path in (FLEET_SCREEN_FILE, FLEET_REPLAY_FILE, FLEET_FILE)
         )
-        print(build_fleet_page(screened, args.output))
+        print(build_fleet_page(screened, args.output, replay=replay, fleet=fleet))
         return EXIT_OK
 
     if args.command.startswith("discovery-"):

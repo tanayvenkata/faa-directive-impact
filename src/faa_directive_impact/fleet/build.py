@@ -1,7 +1,7 @@
 """Read the fleet's inputs from the repository and write its recorded outputs.
 
-``write_fleet`` regenerates ``demo/fleet.json`` and ``demo/fleet-screen.json``
-offline from committed inputs only: the seed cases, the Registry summary, the
+``write_fleet`` regenerates ``demo/fleet.json``, ``demo/fleet-screen.json``,
+and ``demo/fleet-replay.json`` offline from committed inputs only: the seed cases, the Registry summary, the
 retrieval corpus, the normalized record kept with the S1 run, and the
 reference rule records. CI renders the page from the committed screen and
 never regenerates it.
@@ -14,6 +14,7 @@ from typing import Any
 import yaml
 
 from faa_directive_impact.fleet.generate import build_fleet
+from faa_directive_impact.fleet.replay import replay_fleet
 from faa_directive_impact.fleet.screen import (
     S1_DOCUMENT,
     rule_record_path,
@@ -33,6 +34,7 @@ RETRIEVAL_CORPUS = Path("evaluation/retrieval/corpus.json")
 RULE_RECORDS = Path("evaluation/coverage/reference")
 FLEET_FILE = Path("demo/fleet.json")
 FLEET_SCREEN_FILE = Path("demo/fleet-screen.json")
+FLEET_REPLAY_FILE = Path("demo/fleet-replay.json")
 
 
 def load_inputs(repo: Path) -> dict[str, Any]:
@@ -61,6 +63,27 @@ def load_inputs(repo: Path) -> dict[str, Any]:
 def corpus_identifiers(corpus: dict[str, Any]) -> set[str]:
     """Every identifier printed in any directive of the retrieval corpus."""
     return {token for record in corpus["records"] for token in record["identifiers"]}
+
+
+def _screen_arguments(inputs: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "hpt_hub_record": inputs["hpt_hub_record"],
+        "rule_records": {
+            document: record
+            for document, record in inputs["rule_records"].items()
+            if document != S1_DOCUMENT
+        },
+        "corpus": inputs["corpus"],
+        "rule_sources": {
+            **{d: rule_record_path(d) for d in inputs["rule_records"]},
+            S1_DOCUMENT: str(HPT_HUB_RECORD),
+        },
+    }
+
+
+def compute_replay(repo: Path, fleet: dict[str, Any]) -> dict[str, Any]:
+    """The as-of replay of the committed fleet (``fleet/replay.py``)."""
+    return replay_fleet(fleet, **_screen_arguments(load_inputs(repo)))
 
 
 def compute_fleet(repo: Path) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -102,6 +125,7 @@ def write_fleet(repo: Path) -> list[Path]:
     for path, text in (
         (FLEET_FILE, dump(fleet)),
         (FLEET_SCREEN_FILE, dump_slim(slim_fleet_screen(screened))),
+        (FLEET_REPLAY_FILE, dump(compute_replay(repo, fleet))),
     ):
         target = repo / path
         target.parent.mkdir(parents=True, exist_ok=True)

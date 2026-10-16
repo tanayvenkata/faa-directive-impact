@@ -165,6 +165,23 @@ Reported after generation; the rules above were not changed after seeing it.
   (`REVIEW_PROVENANCE`; an evaluated directive without an entry reads
   `label_review: claude_stand_in`, `independent_check: claude_subagent`).
 
-Both files are generated offline by `make fleet-build` from committed inputs
-only, and a test checks that regenerating gives identical bytes. CI renders
+- **`fleet-replay.json`**: an as-of replay, not a live event. The daily sync
+  began on 2026-10-11, after AD 2025-19-13 took effect on 2025-10-29, so the
+  system never watched it go live. `fleet/replay.py` re-screens the generated
+  engines as they stood on 2025-10-28 and 2025-10-29. It drops later events
+  and engine cycle readings, and rolls each component's cycles back to its
+  latest reading on or before the date. Engines with a part installed after
+  2025-10-28 are left out (19 of 180), because the fleet does not record the
+  part it replaced. The rules are today's, including FAA correspondence
+  received later, so the replay shows what today's screen says about the
+  fleet as it stood then. Result: on 2025-10-28 all 161 replayed engines are
+  `no_action_or_not_applicable`, each saying the directive does not take
+  effect until 2025-10-29; on 2025-10-29, 5 are potentially affected and 10
+  need review (15 move). Each engine's screen keeps `computed`, the
+  screen's own figures (hub cycles remaining to the listed limit, and the
+  engine counter the removal is due by), so the fleet page sorts and shows
+  cycles as of the replay date without reading them from the timing text.
+
+All three files are generated offline by `make fleet-build` from committed
+inputs only, and a test checks that regenerating gives identical bytes. CI renders
 the page (`make fleet-site`) and never regenerates the fleet.

@@ -438,14 +438,22 @@ def test_page_embeds_the_recorded_screen_safely():
     assert page.startswith("<!doctype html>")
     assert "__" not in page.split('<script id="fleet-data"')[0]
     data = json.loads(page.split('type="application/json">')[1].split("</script>")[0])
-    assert data["counts"] == screened["evaluated_counts"]
-    assert data["blocking"] == screened["blocking_documents"]
-    assert "Documents blocking decisions" in page
+    # Without a replay the replay sections are left out, not failed.
+    assert data["states"] == [] and data["engines"] == []
+    assert 'id="replay" aria-label="As-of replay" hidden' in page
+    strip = {row["document"]: row for row in data["strip"]}
+    for directive in screened["directives"]:
+        row = strip[directive["document"]]
+        assert row["queues"] == directive["queues"]
+        assert row["held"] == [
+            {"document": b["document"], "engines": b["engines"]}
+            for b in directive["blocking_documents"]
+        ]
     assert "Screening tool, not a compliance determination" in page
     # Citations are stored once and referred to by index.
-    for engine in data["engines"]:
-        for entry in engine["screens"].values():
-            assert all(0 <= i < len(data["cites"]) for i in entry["citations"])
+    for fixture in data["fixtures"]:
+        if fixture["sc"]:
+            assert all(0 <= i < len(data["cites"]) for i in fixture["sc"]["c"])
 
 
 def test_slim_screen_expands_to_the_full_per_engine_screens():
@@ -508,10 +516,11 @@ def test_review_provenance_labels_evaluated_directives_only():
     assert review_provenance("2013-08448", evaluated) is None
 
 
-def test_page_shows_review_provenance_under_the_badge_and_in_the_drawer():
+def test_page_shows_review_provenance_in_the_strip_and_the_drawer():
     _, screened = _computed()
     page = render_fleet_page(screened)
     data = json.loads(page.split('type="application/json">')[1].split("</script>")[0])
-    first = next(d for d in data["directives"] if d["document"] == S1_DOCUMENT)
-    assert first["review_provenance"]["rules"] == "hand-written (S1)"
-    assert page.count("${provenance(d)}") == 2
+    first = next(d for d in data["strip"] if d["document"] == S1_DOCUMENT)
+    assert first["provenance"]["rules"] == "hand-written (S1)"
+    assert data["directive"]["provenance"]["hand_gates"] == "judged by Claude only"
+    assert "${provenance()}" in page

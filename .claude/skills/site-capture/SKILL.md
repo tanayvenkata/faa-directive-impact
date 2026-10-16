@@ -45,7 +45,9 @@ engine). Output is `clip.mp4` at 1280x720. Pull a frame to check it:
 ## Claims on screen
 
 What a page says is a public claim. Keep the wording consistent with
-`writeups/02-evaluated.md`: AD 2025-19-13 is the only evaluated directive,
-hand-checked gates were judged by Claude only, and the page is a screening
-tool, not a compliance determination. Send finished clips or screenshots to
+`writeups/02-evaluated.md` and `writeups/03-full-coverage.md`: two directives
+are evaluated (AD 2025-19-13 on hand-written rules, AD 2020-07-51 on a model
+draft with a Claude stand-in review), hand-checked gates were judged by
+Claude only, any replay is an as-of replay and not a live event, and the page
+is a screening tool, not a compliance determination. Send finished clips or screenshots to
 the user with SendUserFile.
