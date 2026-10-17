@@ -1,0 +1,37 @@
+{
+  "acquisition_run_id": "run-20261017T154159Z-46f6c752",
+  "active_generation_id": "gen-20261017T154159Z-46f6c752",
+  "attempt_id": "attempt-20261017T154158Z-3163c85a",
+  "checkpoint": "2026-10-19",
+  "corpus_track": "refreshable_discovery",
+  "counts": {
+    "changed": 0,
+    "failed": 0,
+    "new": 7,
+    "not_directive": 0,
+    "quarantined": 0,
+    "read_in_full": 0,
+    "reread": 0,
+    "searched": 13,
+    "unchanged": 6
+  },
+  "decision_receipt_id": "decision-20261017T154159Z-90b6d3de",
+  "failures": [],
+  "finished_at_utc": "2026-10-17T15:41:59Z",
+  "generation_id": "gen-20261017T154159Z-46f6c752",
+  "new_documents": [
+    "2026-21278",
+    "2026-21290",
+    "2026-21325",
+    "2026-21326",
+    "2026-21331",
+    "2026-21332",
+    "2026-21333"
+  ],
+  "outcome": "promoted",
+  "search_receipt_ids": [
+    "receipt-20261017T154159Z-48952959"
+  ],
+  "since": "2026-10-07",
+  "started_at_utc": "2026-10-17T15:41:58Z"
+}
