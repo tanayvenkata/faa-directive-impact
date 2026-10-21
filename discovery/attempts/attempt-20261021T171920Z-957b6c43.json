@@ -1,0 +1,27 @@
+{
+  "acquisition_run_id": "run-20261021T171921Z-c855278d",
+  "active_generation_id": "gen-20261017T154159Z-46f6c752",
+  "attempt_id": "attempt-20261021T171920Z-957b6c43",
+  "checkpoint": "2026-10-19",
+  "corpus_track": "refreshable_discovery",
+  "counts": {
+    "changed": 0,
+    "failed": 0,
+    "new": 0,
+    "not_directive": 0,
+    "quarantined": 0,
+    "read_in_full": 0,
+    "reread": 0,
+    "searched": 10,
+    "unchanged": 10
+  },
+  "failures": [],
+  "finished_at_utc": "2026-10-21T17:19:22Z",
+  "new_documents": [],
+  "outcome": "no_change",
+  "search_receipt_ids": [
+    "receipt-20261021T171921Z-c0bd6a59"
+  ],
+  "since": "2026-10-12",
+  "started_at_utc": "2026-10-21T17:19:20Z"
+}
