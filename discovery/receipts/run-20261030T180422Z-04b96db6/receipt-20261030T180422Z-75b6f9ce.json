@@ -1,0 +1,38 @@
+{
+  "acquisition_run_id": "run-20261030T180422Z-04b96db6",
+  "acquisition_status": "succeeded",
+  "artifact": {
+    "byte_length": 5982,
+    "declared_media_type": "application/json",
+    "detected_media_type": "application/json",
+    "relative_path": "raw/federal-register-search/run-20261030T180422Z-04b96db6/page-0001.json",
+    "sha256": "1eb3921f51d4c233b319abaaf314a3642097511ed692e1b6eab7baa235064d8d"
+  },
+  "authority_role": "discovery_metadata",
+  "receipt_id": "receipt-20261030T180422Z-75b6f9ce",
+  "redistribution": {
+    "basis": "U.S. Government work, 17 U.S.C. 105; GovInfo policy permits reprinting with credit to the issuing agency (FAA). See REDISTRIBUTION.md.",
+    "status": "permitted"
+  },
+  "representation_role": "search_results",
+  "request": {
+    "method": "GET",
+    "requested_url": "https://www.federalregister.gov/api/v1/documents.json?conditions%5Bagencies%5D%5B%5D=federal-aviation-administration&conditions%5Btype%5D%5B%5D=RULE&conditions%5Bcfr%5D%5Btitle%5D=14&conditions%5Bcfr%5D%5Bpart%5D=39&conditions%5Bpublication_date%5D%5Bgte%5D=2026-10-20&order=oldest&per_page=1000&page=1&fields%5B%5D=document_number&fields%5B%5D=title&fields%5B%5D=type&fields%5B%5D=action&fields%5B%5D=publication_date&fields%5B%5D=effective_on&fields%5B%5D=docket_ids&fields%5B%5D=correction_of&fields%5B%5D=corrections&fields%5B%5D=citation&fields%5B%5D=html_url",
+    "resolved_url": "https://www.federalregister.gov/api/v1/documents.json?conditions%5Bagencies%5D%5B%5D=federal-aviation-administration&conditions%5Btype%5D%5B%5D=RULE&conditions%5Bcfr%5D%5Btitle%5D=14&conditions%5Bcfr%5D%5Bpart%5D=39&conditions%5Bpublication_date%5D%5Bgte%5D=2026-10-20&order=oldest&per_page=1000&page=1&fields%5B%5D=document_number&fields%5B%5D=title&fields%5B%5D=type&fields%5B%5D=action&fields%5B%5D=publication_date&fields%5B%5D=effective_on&fields%5B%5D=docket_ids&fields%5B%5D=correction_of&fields%5B%5D=corrections&fields%5B%5D=citation&fields%5B%5D=html_url"
+  },
+  "response": {
+    "headers": {
+      "content_length": 5982,
+      "content_type": "application/json; charset=utf-8"
+    },
+    "status_code": 200
+  },
+  "retrieval_id": "retrieval-20261030T180422Z-75b6f9ce",
+  "retrieved_at_utc": "2026-10-30T18:04:22Z",
+  "schema_version": "1.1.0",
+  "source_document_identity": {
+    "namespace": "federal_register_search_query",
+    "value": "faa-14cfr39-rules-since-2026-10-20-page-1"
+  },
+  "source_system": "federal_register"
+}
